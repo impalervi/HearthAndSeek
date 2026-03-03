@@ -1,0 +1,13 @@
+{
+  "wowDir": "C:\\Program Files\\World of Warcraft\\_retail_",
+  "addonRelativePath": "Interface\\AddOns\\HearthAndSeek",
+  "include": [
+    "HearthAndSeek.toc",
+    "Core",
+    "Data",
+    "Modules",
+    "UI",
+    "Libs",
+    "Media"
+  ]
+}
