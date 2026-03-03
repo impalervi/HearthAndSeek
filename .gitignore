@@ -1,0 +1,30 @@
+# Local configs (contain machine-specific paths)
+deploy.config.json
+dev.config.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Release archives
+dist/
+*.zip
+*.tar.gz
+
+# Large source artwork (JPEG version tracked instead)
+Project_Images/HearthAndSeek_full.png
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python data pipeline intermediates and caches
+Tools/scraper/data/*.json
+Tools/scraper/data/wowhead_cache/
+Tools/scraper/data/routes/
+Tools/scraper/__pycache__/
+*.pyc

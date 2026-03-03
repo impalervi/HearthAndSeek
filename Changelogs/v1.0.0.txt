@@ -1,0 +1,11 @@
+v1.0.0 — Initial Release
+
+- Browse and search 1,600+ Player Housing decorations
+- Collection tracking (collected, not collected, redeemable)
+- Filter by source, expansion, zone, profession, rarity
+- Quest chain progress tracking with step-by-step navigation
+- Coordinate-based navigation with Blizzard map pins
+- Favorites system
+- Faction vendor support (Alliance/Horde + Neighborhoods)
+- Zidormi timeline zone detection
+- Cross-region travel warnings

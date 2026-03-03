@@ -1,0 +1,35 @@
+## Interface: 120001
+## Title: |cffffd200Hearth & Seek|r |cffaaaaaaDecor Catalog|r
+## Notes: Catalog and guide for collecting Player Housing decorations
+## Author: ImpalerV
+## Version: 1.0.0
+## SavedVariables: HearthAndSeekDB
+## IconTexture: Interface\AddOns\HearthAndSeek\Media\Icons\HearthAndSeek
+## X-Category: Housing
+## X-Website: https://github.com/ImpalerV/HearthAndSeek
+
+# Libraries
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+
+# Core
+Core\Constants.lua
+Core\Utils.lua
+Core\Init.lua
+
+# Data
+Data\CatalogData.lua
+Data\QuestChains.lua
+
+# Modules
+Modules\Navigation.lua
+Modules\CatalogDumper.lua
+
+# UI (XML templates must load before Lua files that reference them)
+UI\CatalogTemplates.xml
+UI\MinimapButton.lua
+UI\CatalogFrame.lua
+UI\CatalogGrid.lua
+UI\CatalogDetail.lua
