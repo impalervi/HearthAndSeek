@@ -26,7 +26,7 @@ local filterState = {
 local filteredItems = {}
 local scrollOffset = 0   -- row offset (0 = top)
 local totalRows = 0      -- total rows needed for all filtered items
-local visibleRows = 6    -- rows visible at once (set from CatSizing.GridRows)
+local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
 local thumbDragging = false  -- true while scrollbar thumb is being dragged
 
 -- Caches
