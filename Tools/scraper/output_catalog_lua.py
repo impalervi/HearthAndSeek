@@ -1899,6 +1899,8 @@ def main() -> None:
             item["npcID"] = None
             item["npcX"] = None
             item["npcY"] = None
+            item["zone"] = ""
+            item["mapID"] = None
             # Also strip Dennia from sources so get_vendor_name() won't find her
             sources = item.get("sources") or []
             item["sources"] = [

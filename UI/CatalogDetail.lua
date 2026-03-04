@@ -3121,30 +3121,23 @@ function NS.UI.CatalogDetail_ShowItem(item)
         vendorNoteText = "|cff9955CC(Requires purchase of Midnight Epic Edition upgrade)|r"
     end
 
+    local vendorZoneWrapped = false
     if vendorName then
-        -- "Purchase from <faction icon> <NPC> in <Zone>" (single string, word-wrap)
+        -- "Purchase from <faction icon> <NPC>" (auto-width for separate hit region)
         local factionIcon = ""
         if item.factionVendors then
             local pf = GetPlayerFaction()
             factionIcon = (FACTION_ICONS[pf] or "") .. " "
         end
-        local vendorText = "|cff40b0ffPurchase from|r " .. factionIcon .. vendorName
-        if item.zone and item.zone ~= "" then
-            local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
-            local zoneDisplay = primaryZoneHex
-                and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
-                or item.zone
-            vendorText = vendorText .. " |cff888888in|r " .. zoneDisplay
-        end
+        local vendorNpcText = "|cff40b0ffPurchase from|r " .. factionIcon .. vendorName
         detailPanel._vendorLine:ClearAllPoints()
         detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
-        detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-        detailPanel._vendorLine:SetWordWrap(true)
-        detailPanel._vendorLine:SetText(vendorText)
+        detailPanel._vendorLine:SetWordWrap(false)
+        detailPanel._vendorLine:SetText(vendorNpcText)
         detailPanel._vendorLine:Show()
         showVendorLine = true
 
-        -- NPC hit frame data (covers the full vendor line including zone)
+        -- NPC hit frame covers just the NPC text
         detailPanel._vendorHit._active = true
         detailPanel._vendorHit._vendorName = vendorName
         detailPanel._vendorHit._npcID = item.npcID
@@ -3156,12 +3149,28 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
         detailPanel._vendorHit:Show()
 
-        -- Zone hit frame (overlaps the full line — zone click handled via _vendorZoneHit)
+        -- Zone part: " in <Zone>" inline or wrapped below
         if item.zone and item.zone ~= "" then
-            detailPanel._vendorZonePart:Hide()
+            local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
+            local zoneDisplay = primaryZoneHex
+                and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
+                or item.zone
+            detailPanel._vendorZonePart:SetText(" |cff888888in|r " .. zoneDisplay)
+            detailPanel._vendorZonePart:ClearAllPoints()
+            local availableW = detailPanel._middleChild:GetWidth() - 4
+            local vendorW = detailPanel._vendorLine:GetStringWidth() or 0
+            local zoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
+            if (vendorW + zoneW) > availableW then
+                detailPanel._vendorZonePart:SetText("|cff888888in|r " .. zoneDisplay)
+                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
+                vendorZoneWrapped = true
+            else
+                detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
+            end
+            detailPanel._vendorZonePart:Show()
             detailPanel._vendorZoneHit._zoneName = item.zone
             detailPanel._vendorZoneHit:ClearAllPoints()
-            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorLine)
+            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
             detailPanel._vendorZoneHit:Show()
         else
             detailPanel._vendorZonePart:Hide()
@@ -3170,7 +3179,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Alternate faction vendor (shown for items in both neighborhoods)
-        local altAnchor = detailPanel._vendorLine
+        local altAnchor = vendorZoneWrapped
+            and detailPanel._vendorZonePart or detailPanel._vendorLine
         if item.factionVendors then
             local playerFaction = GetPlayerFaction()
             local altFaction = (playerFaction == "Alliance") and "Horde" or "Alliance"
@@ -3288,15 +3298,11 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if tvName then
             local treasureAnchor = treasureZoneWrapped
                 and detailPanel._treasureZonePart or detailPanel._treasureLine
-            local tvText = "|cff40b0ffPurchase from|r " .. tvName
-            if tvZone ~= "" then
-                tvText = tvText .. " |cff888888in|r " .. tvZone
-            end
+            local tvNpcText = "|cff40b0ffPurchase from|r " .. tvName
             detailPanel._vendorLine:ClearAllPoints()
             detailPanel._vendorLine:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
-            detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-            detailPanel._vendorLine:SetWordWrap(true)
-            detailPanel._vendorLine:SetText(tvText)
+            detailPanel._vendorLine:SetWordWrap(false)
+            detailPanel._vendorLine:SetText(tvNpcText)
             detailPanel._vendorLine:Show()
             showVendorLine = true
 
@@ -3312,13 +3318,26 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
             detailPanel._vendorHit:Show()
 
-            detailPanel._vendorZonePart:Hide()
             if tvZone ~= "" then
+                detailPanel._vendorZonePart:SetText(" |cff888888in|r " .. tvZone)
+                detailPanel._vendorZonePart:ClearAllPoints()
+                local tvAvailW = detailPanel._middleChild:GetWidth() - 4
+                local tvVendorW = detailPanel._vendorLine:GetStringWidth() or 0
+                local tvZoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
+                if (tvVendorW + tvZoneW) > tvAvailW then
+                    detailPanel._vendorZonePart:SetText("|cff888888in|r " .. tvZone)
+                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
+                    vendorZoneWrapped = true
+                else
+                    detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
+                end
+                detailPanel._vendorZonePart:Show()
                 detailPanel._vendorZoneHit._zoneName = tvZone
                 detailPanel._vendorZoneHit:ClearAllPoints()
-                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorLine)
+                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
                 detailPanel._vendorZoneHit:Show()
             else
+                detailPanel._vendorZonePart:Hide()
                 detailPanel._vendorZoneHit._zoneName = nil
                 detailPanel._vendorZoneHit:Hide()
             end
@@ -3326,7 +3345,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
             -- Note: available after finding the treasure
             detailPanel._vendorNote:SetText("|cff888888(available after finding the treasure)|r")
             detailPanel._vendorNote:ClearAllPoints()
-            detailPanel._vendorNote:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -2)
+            local tvNoteAnchor = vendorZoneWrapped
+                and detailPanel._vendorZonePart or detailPanel._vendorLine
+            detailPanel._vendorNote:SetPoint("TOPLEFT", tvNoteAnchor, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:Show()
         else
@@ -3395,6 +3416,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
             chainAnchor = detailPanel._vendorNote
         elseif detailPanel._altVendorLine:IsShown() then
             chainAnchor = detailPanel._altVendorLine
+        elseif vendorZoneWrapped then
+            chainAnchor = detailPanel._vendorZonePart
         else
             chainAnchor = detailPanel._vendorLine
         end
@@ -4530,6 +4553,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
         if detailPanel._vendorLine:IsShown() then
             sourceH = sourceH + 6 + (detailPanel._vendorLine:GetStringHeight() or 14)
+        end
+        if detailPanel._vendorZonePart:IsShown() and vendorZoneWrapped then
+            sourceH = sourceH + 1 + (detailPanel._vendorZonePart:GetStringHeight() or 14)
         end
         if detailPanel._vendorNote:IsShown() then
             sourceH = sourceH + 2 + (detailPanel._vendorNote:GetStringHeight() or 14)
