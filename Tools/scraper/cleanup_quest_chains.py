@@ -112,6 +112,12 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
                     if sq not in verified_prereqs:
                         verified_prereqs[sq] = [prev_id]
 
+            # The cached quest_id itself is NOT in the Series list (Wowhead
+            # shows predecessors only).  Its prerequisite is the last Series
+            # entry.
+            if chain_ids and quest_id not in verified_prereqs:
+                verified_prereqs[quest_id] = [chain_ids[-1]]
+
         elif storyline and len(storyline) <= MAX_STORYLINE_CHAIN_LENGTH:
             # --- Short Storyline fallback ---
             # Short storylines (≤ threshold) are real quest chains, not zone
