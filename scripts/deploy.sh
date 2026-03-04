@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-SRC="$(cd "$(dirname "$0")" && pwd)"
+SRC="$(cd "$(dirname "$0")/.." && pwd)"
 
 # Read wowRetailDir from deploy.config.json or dev.config.json
 CONFIG=""
@@ -26,9 +26,14 @@ if [ -z "$CONFIG" ]; then
 fi
 
 # Extract wowDir (deploy.config) or wowRetailDir (dev.config) using python
+CONFIG_WIN="$CONFIG"
+# Convert MSYS/Git-Bash paths to Windows for Python
+if command -v cygpath &>/dev/null; then
+    CONFIG_WIN="$(cygpath -w "$CONFIG")"
+fi
 WOW_DIR=$(python3 -c "
-import json, sys
-cfg = json.load(open('$CONFIG'))
+import json
+cfg = json.load(open(r'$CONFIG_WIN', encoding='utf-8'))
 print(cfg.get('wowDir') or cfg.get('wowRetailDir', ''))
 ")
 
