@@ -361,8 +361,10 @@ def parse_source_text(source_text):
         elif key_lower == "treasure":
             parsed["treasure"] = value
             sources.append({"type": "Treasure", "value": value})
-        elif key_lower in ("cost", "shop"):
-            pass  # skip cost/shop lines
+        elif key_lower == "cost":
+            pass  # cost data is parsed from sourceTextRaw in output_catalog_lua.py
+        elif key_lower in ("shop", "in-game shop"):
+            sources.append({"type": "Shop", "value": value or "Blizzard Shop"})
         elif key_lower == "vendors":
             # "Vendors: Multiple Vendors" — treat like vendor
             parsed.setdefault("vendor", value)

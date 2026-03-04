@@ -157,9 +157,16 @@ local function GetItemHyperlink(decorID)
             return info.itemLink
         end
         if info.itemID and info.itemID > 0 then
-            local link = "item:" .. info.itemID
-            hyperlinkCache[decorID] = link
-            return link
+            -- Try C_Item for a full hyperlink (needed for chat linking)
+            local itemInfo = C_Item and C_Item.GetItemInfo and C_Item.GetItemInfo(info.itemID)
+            local itemLink = itemInfo and itemInfo.itemLink
+            if itemLink then
+                hyperlinkCache[decorID] = itemLink
+                return itemLink
+            end
+            -- Return bare link (works for tooltips) but don't cache —
+            -- GetItemInfo may succeed once the server responds
+            return "item:" .. info.itemID
         end
     end
     hyperlinkCache[decorID] = false
@@ -720,12 +727,22 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
             return
         end
         if IsShiftKeyDown() then
-            NS.UI.CatalogGrid_ToggleFavorite(item.decorID)
-            -- Refresh detail panel star if this item is currently shown
-            if NS.UI._currentDetailItem
-                    and NS.UI._currentDetailItem.decorID == item.decorID
-                    and NS.UI.CatalogDetail_ShowItem then
-                NS.UI.CatalogDetail_ShowItem(NS.UI._currentDetailItem)
+            -- Shift+Click: if chatbox is open, link item in chat; else toggle favorite
+            local editBox = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
+            if editBox and item.itemID then
+                -- Get a proper hyperlink for chat (bare "item:123" won't render)
+                local _, chatLink = GetItemInfo(item.itemID)
+                if chatLink then
+                    ChatEdit_InsertLink(chatLink)
+                end
+            else
+                NS.UI.CatalogGrid_ToggleFavorite(item.decorID)
+                -- Refresh detail panel star if this item is currently shown
+                if NS.UI._currentDetailItem
+                        and NS.UI._currentDetailItem.decorID == item.decorID
+                        and NS.UI.CatalogDetail_ShowItem then
+                    NS.UI.CatalogDetail_ShowItem(NS.UI._currentDetailItem)
+                end
             end
             return
         end
@@ -762,9 +779,15 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
         -- Interaction hint lines
         GameTooltip:AddLine(" ")
         GameTooltip:AddDoubleLine("|cff00ff00CTRL+Left Click|r", "Preview", nil, nil, nil, 0.7, 0.7, 0.7)
-        GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r",
-            NS.UI.CatalogGrid_IsFavorite(btn.itemData.decorID) and "Unfavorite" or "Favorite",
-            nil, nil, nil, 0.7, 0.7, 0.7)
+        local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
+        if chatOpen then
+            GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r", "Link in Chat",
+                nil, nil, nil, 0.7, 0.7, 0.7)
+        else
+            GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r",
+                NS.UI.CatalogGrid_IsFavorite(btn.itemData.decorID) and "Unfavorite" or "Favorite",
+                nil, nil, nil, 0.7, 0.7, 0.7)
+        end
         local item = btn.itemData
         if item.achievementName and item.achievementName ~= "" then
             GameTooltip:AddDoubleLine("|cff00ff00Right-Click|r", "Open Achievement", nil, nil, nil, 0.7, 0.7, 0.7)

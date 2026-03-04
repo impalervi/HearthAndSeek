@@ -2,7 +2,7 @@
 ## Title: |cffffd200Hearth & Seek|r |cffaaaaaaDecor Catalog|r
 ## Notes: Catalog and guide for collecting Player Housing decorations
 ## Author: ImpalerV
-## Version: 1.0.0
+## Version: 1.1.0
 ## SavedVariables: HearthAndSeekDB
 ## IconTexture: Interface\AddOns\HearthAndSeek\Media\Icons\HearthAndSeek
 ## X-Category: Housing

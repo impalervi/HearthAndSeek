@@ -1,0 +1,14 @@
+v1.1.0
+
+New Features
+- Added vendor costs and updated Silvermoon City vendors
+- DETAILS Flyout Panel — Hover over "DETAILS" on the INFO header for item details
+- Shift+Click Chat Linking — Link items in chat by Shift+clicking on grid items or the item name (when chatbox is open)
+
+Improvements
+- Upgraded to Blizzard Housing atlas art and native ModelScene for 3D previews
+
+Fixes
+- Fixed quest chain prerequisites for some decor items
+
+the void stares back if you know where to look — ALTer your Click on reality.

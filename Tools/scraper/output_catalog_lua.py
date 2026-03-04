@@ -10,6 +10,7 @@ Output: HearthAndSeek/Data/CatalogData.lua
 
 import json
 import logging
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -23,9 +24,11 @@ from output_lua import lua_string, lua_number, lua_value
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 CATALOG_JSON = SCRIPT_DIR / "data" / "enriched_catalog.json"
+EXTRA_JSON = SCRIPT_DIR / "data" / "enriched_catalog_extra.json"
 BOSS_DUMP_JSON = SCRIPT_DIR / "data" / "boss_dump.json"
 FACTION_QUEST_OVERRIDES_JSON = SCRIPT_DIR / "data" / "faction_quest_overrides.json"
 VENDOR_REQUIREMENTS_JSON = SCRIPT_DIR / "data" / "vendor_requirements.json"
+SILVERMOON_VENDORS_JSON = SCRIPT_DIR / "data" / "silvermoon_vendors.json"
 LUA_OUTPUT = SCRIPT_DIR.parent.parent / "Data" / "CatalogData.lua"
 
 logging.basicConfig(
@@ -38,7 +41,7 @@ logger = logging.getLogger("output_catalog_lua")
 # Source type / detail derivation
 # ---------------------------------------------------------------------------
 
-SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor"]
+SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor", "Shop"]
 
 # Known base profession names for parsing sourceDetail strings like
 # "Midnight Tailoring (50)" → "Tailoring"
@@ -91,6 +94,10 @@ def get_primary_source_type(item: dict[str, Any]) -> str:
             return priority
     if "Faction" in source_types:
         return "Vendor"
+    # Check sourceTextRaw for Shop items not caught by parser
+    raw = (item.get("sourceTextRaw") or "")
+    if "Shop|r" in raw or "In-Game Shop|r" in raw:
+        return "Shop"
     return "Other"
 
 
@@ -151,6 +158,62 @@ def get_vendor_name(item: dict[str, Any]) -> str:
         if s.get("type") == "Vendor" and s.get("value"):
             return s["value"]
     return ""
+
+
+# ---------------------------------------------------------------------------
+# Vendor cost extraction from sourceTextRaw
+# ---------------------------------------------------------------------------
+
+# Regex patterns for parsing cost data from WoW escape sequences in sourceTextRaw.
+# Currency: amount|Hcurrency:ID|h|TiconPath:0|t|h
+# Gold:     amount|TINTERFACE\MONEYFRAME\UI-GOLDICON.BLP:0|t
+_RE_CURRENCY = re.compile(
+    r'(\d+)\|Hcurrency:(\d+)\|h\|T([^:]+):0\|t\|h', re.IGNORECASE
+)
+_RE_GOLD = re.compile(
+    r'(\d+)\|TINTERFACE.MONEYFRAME.UI-GOLDICON', re.IGNORECASE
+)
+
+
+def extract_costs(source_text_raw: str) -> list[dict[str, Any]]:
+    """
+    Parse vendor costs from a sourceTextRaw string.
+
+    Returns a list of cost entries:
+      [{"amount": 100, "currencyID": 824, "iconPath": "interface\\ICONS\\..."}, ...]
+    Gold uses currencyID=0, iconPath="INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP".
+    """
+    if not source_text_raw:
+        return []
+
+    costs: list[dict[str, Any]] = []
+    seen_currencies: set[int] = set()
+
+    # Extract currency costs
+    for m in _RE_CURRENCY.finditer(source_text_raw):
+        amount = int(m.group(1))
+        currency_id = int(m.group(2))
+        icon_path = m.group(3)
+        if currency_id not in seen_currencies:
+            seen_currencies.add(currency_id)
+            costs.append({
+                "amount": amount,
+                "currencyID": currency_id,
+                "iconPath": icon_path,
+            })
+
+    # Extract gold cost
+    for m in _RE_GOLD.finditer(source_text_raw):
+        amount = int(m.group(1))
+        if 0 not in seen_currencies:
+            seen_currencies.add(0)
+            costs.append({
+                "amount": amount,
+                "currencyID": 0,
+                "iconPath": "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP",
+            })
+
+    return costs
 
 
 # ---------------------------------------------------------------------------
@@ -535,6 +598,7 @@ VENDOR_COORDS: dict[str, dict] = {
     "Samantha Buckley":        {"npcID": 216888, "x": 65.3, "y": 47.4, "mapID": 217,  "zone": "Ruins of Gilneas"},
     "Breana Bitterbrand":      {"npcID": 253227, "x": 49.7, "y": 29.8, "mapID": 241,  "zone": "Twilight Highlands"},
     "Craw MacGraw":            {"npcID": 49386,  "x": 48.7, "y": 30.8, "mapID": 241,  "zone": "Twilight Highlands"},
+    "Materialist Ophinell":    {"npcID": 249196, "x": 49.8, "y": 81.2, "mapID": 241,  "zone": "Twilight Highlands"},
     # === The Burning Crusade ===
     "Provisioner Vredigar":    {"npcID": 16528,  "x": 47.7, "y": 32.6, "mapID": 95,   "zone": "Ghostlands"},
     # === Wrath of the Lich King ===
@@ -667,6 +731,8 @@ VENDOR_COORDS: dict[str, dict] = {
     "Dennia Silvertongue":     {"npcID": 256828, "x": 51.3, "y": 56.6, "mapID": 2393, "zone": "Silvermoon City"},
     "Construct Ali'a":         {"npcID": 258181, "x": 55.9, "y": 66.2, "mapID": 2393, "zone": "Silvermoon City"},
     "Hesta Forlath":           {"npcID": 252916, "x": 44.3, "y": 62.9, "mapID": 2393, "zone": "Silvermoon City"},
+    "Dethelin":                {"npcID": 250982, "x": 52.5, "y": 47.3, "mapID": 2393, "zone": "Silvermoon City"},
+    "Nael Silvertongue":       {"npcID": 251091, "x": 50.6, "y": 56.2, "mapID": 2393, "zone": "Silvermoon City"},
     # === Midnight — Profession / Rank Vendors ===
     "Melaris":                 {"npcID": 243359, "x": 47.1, "y": 52.0, "mapID": 2393, "zone": "Silvermoon City"},
     "Eriden":                  {"npcID": 241451, "x": 43.7, "y": 51.8, "mapID": 2393, "zone": "Silvermoon City"},
@@ -820,7 +886,7 @@ EXPANSION_ORDER = [
     "Unknown",
 ]
 
-SOURCE_ORDER = ["Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other"]
+SOURCE_ORDER = ["Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Shop", "Other"]
 
 HOUSING_ZONES = {"Founder's Point", "Razorwind Shores"}
 
@@ -1409,6 +1475,10 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     if item.get("isRotatingVendor"):
         lines.append("        isRotatingVendor = true,")
 
+    # Optional: isShopItem flag (original in-game source was "Shop" / "In-Game Shop")
+    if item.get("_isShopItem"):
+        lines.append("        isShopItem = true,")
+
     # Optional: unlockQuestID (vendor requires completing a quest first)
     unlock_quest = VENDOR_UNLOCK_QUESTS.get(decor_id)
     if unlock_quest:
@@ -1426,6 +1496,44 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     covenant_id = COVENANT_VENDORS.get(vendor_name)
     if covenant_id:
         lines.append(f"        covenantID = {covenant_id},")
+
+    # Optional: vendorCosts sub-table (parsed from sourceTextRaw)
+    vendor_costs = item.get("_vendorCosts")
+    if vendor_costs:
+        lines.append("        vendorCosts = {")
+        for cost in vendor_costs:
+            parts = [f"amount = {cost['amount']}", f"currencyID = {cost['currencyID']}"]
+            icon = cost.get("iconPath")
+            if icon:
+                parts.append(f"iconPath = {lua_string(icon)}")
+            lines.append(f"            {{ {', '.join(parts)} }},")
+        lines.append("        },")
+
+    # Optional: dropRate (from Wowhead scan)
+    drop_rate = item.get("_dropRate")
+    if drop_rate is not None:
+        lines.append(f"        dropRate = {drop_rate},")
+
+    # Optional: professionSkill (from Wowhead scan)
+    prof_skill = item.get("_professionSkill")
+    if prof_skill:
+        lines.append(f"        professionSkill = {lua_string(prof_skill)},")
+
+    # Optional: patchAdded (from Wowhead scan)
+    patch_added = item.get("_patchAdded")
+    if patch_added:
+        lines.append(f"        patchAdded = {lua_string(patch_added)},")
+
+    # Optional: additionalSources (from Wowhead scan)
+    add_sources = item.get("_additionalSources")
+    if add_sources:
+        lines.append("        additionalSources = {")
+        for src in add_sources:
+            parts = [f"sourceType = {lua_string(src['sourceType'])}"]
+            if src.get("sourceDetail"):
+                parts.append(f"sourceDetail = {lua_string(src['sourceDetail'])}")
+            lines.append(f"            {{ {', '.join(parts)} }},")
+        lines.append("        },")
 
     # Optional: treasure vendor data (vendor coords saved before TREASURE_COORDS override)
     if treasure_vendor_data:
@@ -1446,6 +1554,21 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
             alt_zone = alt_vc.get("zone") or ""
             if alt_zone:
                 lines.append(f"        altVendorZone = {lua_string(alt_zone)},")
+
+    # Optional: original vendor preserved from Silvermoon override (additive)
+    # When a Silvermoon vendor was set as primary, the original vendor is kept
+    # as an alternate so the UI can show "Also sold by <original vendor>"
+    sm_orig = item.get("_silvermoonOrigVendor")
+    if sm_orig and not alt_vendor_name:
+        lines.append(f"        altVendorName = {lua_string(sm_orig)},")
+        sm_vc = VENDOR_COORDS.get(sm_orig)
+        if sm_vc:
+            lines.append(f"        altNpcID = {lua_number(sm_vc['npcID'])},")
+            lines.append(f"        altNpcX = {lua_number(sm_vc['x'])},")
+            lines.append(f"        altNpcY = {lua_number(sm_vc['y'])},")
+            sm_alt_zone = sm_vc.get("zone") or ""
+            if sm_alt_zone:
+                lines.append(f"        altVendorZone = {lua_string(sm_alt_zone)},")
 
     # Optional: factionVendors sub-table
     faction_vendors = item.get("factionVendors")
@@ -1551,6 +1674,85 @@ def main() -> None:
     if zone_rename_count:
         logger.info("Renamed %d zone typos", zone_rename_count)
 
+    # -----------------------------------------------------------------------
+    # Extract vendor costs from sourceTextRaw
+    # -----------------------------------------------------------------------
+    all_currencies: dict[int, str] = {}  # currencyID → iconPath
+    cost_count = 0
+    for item in catalog:
+        raw = item.get("sourceTextRaw") or ""
+        costs = extract_costs(raw)
+        if costs:
+            item["_vendorCosts"] = costs
+            cost_count += 1
+            for c in costs:
+                cid = c["currencyID"]
+                if cid != 0 and cid not in all_currencies:
+                    all_currencies[cid] = c.get("iconPath", "")
+    logger.info("Extracted vendor costs for %d items (%d unique currencies)",
+                cost_count, len(all_currencies))
+
+    # -----------------------------------------------------------------------
+    # Load Wowhead extra data (from enrich_wowhead_extra.py)
+    # -----------------------------------------------------------------------
+    extra_data: dict[int, dict] = {}
+    if EXTRA_JSON.exists():
+        with open(EXTRA_JSON, "r", encoding="utf-8") as f:
+            extra_raw = json.load(f)
+        items_extra = extra_raw.get("items", {})
+        # JSON keys are strings; convert to int
+        for item_id_str, data in items_extra.items():
+            try:
+                extra_data[int(item_id_str)] = data
+            except (ValueError, TypeError):
+                continue
+        logger.info("Loaded %d Wowhead extra entries from %s", len(extra_data), EXTRA_JSON)
+    else:
+        logger.info("No Wowhead extra data file (%s) — skipping extra fields", EXTRA_JSON)
+
+    # Merge extra data into catalog items
+    extra_merged = 0
+    for item in catalog:
+        item_id = item.get("itemID")
+        if not item_id or item_id not in extra_data:
+            continue
+        extra = extra_data[item_id]
+        if extra.get("error"):
+            continue
+
+        # Additional sources (filter out NPC type — those are vendors/drops already handled)
+        add_src = extra.get("additionalSources", [])
+        filtered_src = [s for s in add_src if s.get("sourceType") not in ("NPC", "Item", "Starter", "Container") and not s.get("sourceType", "").startswith("Unknown")]
+        if filtered_src:
+            item["_additionalSources"] = filtered_src
+
+        # Drop rate
+        drop_rate = extra.get("dropRate")
+        if drop_rate is not None and drop_rate > 0:
+            item["_dropRate"] = drop_rate
+
+        # Profession skill
+        prof_skill = extra.get("professionSkill")
+        if prof_skill:
+            item["_professionSkill"] = prof_skill
+
+        # Patch added
+        patch = extra.get("patchAdded")
+        if patch:
+            item["_patchAdded"] = patch
+
+        # Wowhead vendor costs (cross-reference with in-game costs)
+        wh_costs = extra.get("wowheadVendorCosts")
+        if wh_costs and not item.get("_vendorCosts"):
+            # Use Wowhead costs as fallback when in-game data is missing
+            item["_vendorCosts"] = wh_costs
+            cost_count += 1
+
+        extra_merged += 1
+
+    if extra_merged:
+        logger.info("Merged Wowhead extra data into %d items", extra_merged)
+
     # Load faction quest overrides (cross-faction quest chains)
     faction_quest_overrides: dict[str, dict] = {}
     if FACTION_QUEST_OVERRIDES_JSON.exists():
@@ -1601,6 +1803,124 @@ def main() -> None:
             vr_applied += 1
     if vr_applied:
         logger.info("Applied vendor unlock requirements to %d items", vr_applied)
+
+    # -----------------------------------------------------------------------
+    # Load Silvermoon vendor overrides (additive — keeps original vendor as alt)
+    # -----------------------------------------------------------------------
+    silvermoon_overrides: dict[int, dict] = {}
+    if SILVERMOON_VENDORS_JSON.exists():
+        with open(SILVERMOON_VENDORS_JSON, "r", encoding="utf-8") as f:
+            sm_raw = json.load(f)
+        for decor_id_str, override in sm_raw.get("overrides", {}).items():
+            try:
+                silvermoon_overrides[int(decor_id_str)] = override
+            except (ValueError, TypeError):
+                continue
+        logger.info("Loaded %d Silvermoon vendor overrides from %s",
+                     len(silvermoon_overrides), SILVERMOON_VENDORS_JSON)
+
+    # Build decorID → item index for fast lookup
+    decor_id_to_item: dict[int, dict] = {item["decorID"]: item for item in catalog}
+
+    # Apply Silvermoon vendor overrides: set Silvermoon vendor as primary,
+    # preserve original vendor as alt (so both vendors are available in-game)
+    sm_applied = 0
+    sm_source_added = 0
+    for decor_id, sm in silvermoon_overrides.items():
+        item = decor_id_to_item.get(decor_id)
+        if not item:
+            logger.warning("Silvermoon override for decorID %d: item not found in catalog", decor_id)
+            continue
+
+        # If item has factionVendors, remove them — Silvermoon is neutral and
+        # accessible to both factions, so faction routing is unnecessary.
+        if item.get("factionVendors"):
+            logger.info("  Removing factionVendors for decorID %d (%s): Silvermoon override",
+                         decor_id, item.get("name", ""))
+            del item["factionVendors"]
+
+        # Clear rotating vendor flag — item now has a fixed Silvermoon location
+        if item.get("isRotatingVendor"):
+            del item["isRotatingVendor"]
+
+        # Save original vendor info before overriding
+        orig_vendor = get_vendor_name(item)
+        orig_npc_id = item.get("npcID")
+        orig_x = item.get("npcX")
+        orig_y = item.get("npcY")
+        orig_zone = item.get("zone") or ""
+
+        if orig_vendor and orig_vendor != sm["vendorName"]:
+            # Preserve original vendor as alternate (name only — VENDOR_COORDS
+            # will resolve its coords at serialization time)
+            item["_silvermoonOrigVendor"] = orig_vendor
+
+        # Set Silvermoon vendor as primary
+        item["vendor"] = sm["vendorName"]
+        item["npcID"] = sm["npcID"]
+        item["npcX"] = sm["npcX"]
+        item["npcY"] = sm["npcY"]
+        item["zone"] = sm["zone"]
+        item["coordsMismatch"] = False
+
+        # For items without a Vendor source, add one so get_primary_source_type
+        # returns "Vendor" instead of "Shop" / "Other"
+        sources = item.get("sources") or []
+        has_vendor_source = any(s.get("type") == "Vendor" for s in sources)
+        if not has_vendor_source:
+            sources.append({"type": "Vendor", "value": sm["vendorName"]})
+            item["sources"] = sources
+            sm_source_added += 1
+
+        sm_applied += 1
+
+    if sm_applied:
+        logger.info("Applied Silvermoon vendor overrides to %d items (%d gained Vendor source)",
+                     sm_applied, sm_source_added)
+
+    # -----------------------------------------------------------------------
+    # Validate Dennia Silvertongue assignments: her Wowhead NPC page only
+    # lists 14 items, but enriched_catalog.json incorrectly attributes many
+    # more (e.g. newer Grrgle colors).  Clear Dennia from any item NOT in the
+    # verified override list.  Other Silvermoon vendors are trusted as-is
+    # because their Wowhead item pages are accurate even when NPC pages lag.
+    # -----------------------------------------------------------------------
+    dennia_verified = {
+        int(k) for k, v in silvermoon_overrides.items()
+        if v["vendorName"] == "Dennia Silvertongue"
+    }
+    sm_cleared = 0
+    for item in catalog:
+        vendor = get_vendor_name(item)
+        if vendor == "Dennia Silvertongue" and item["decorID"] not in dennia_verified:
+            logger.warning("  Clearing unverified Dennia vendor from decorID %d (%s)",
+                           item["decorID"], item.get("name", ""))
+            item["vendor"] = ""
+            item["npcID"] = None
+            item["npcX"] = None
+            item["npcY"] = None
+            # Also strip Dennia from sources so get_vendor_name() won't find her
+            sources = item.get("sources") or []
+            item["sources"] = [
+                s for s in sources
+                if not (s.get("type") == "Vendor" and s.get("value") == "Dennia Silvertongue")
+            ]
+            sm_cleared += 1
+    if sm_cleared:
+        logger.info("Cleared unverified Dennia Silvertongue vendor data from %d items", sm_cleared)
+
+    # -----------------------------------------------------------------------
+    # Flag items with original "Shop" in-game source (persists even after
+    # source type overrides, e.g. Silvermoon converting Shop → Vendor)
+    # -----------------------------------------------------------------------
+    shop_item_count = 0
+    for item in catalog:
+        raw = (item.get("sourceTextRaw") or "")
+        if "Shop|r" in raw or "In-Game Shop|r" in raw:
+            item["_isShopItem"] = True
+            shop_item_count += 1
+    if shop_item_count:
+        logger.info("Flagged %d items with original Shop source", shop_item_count)
 
     # Check for unmapped zones
     unmapped_zones = set()
@@ -1791,6 +2111,16 @@ def main() -> None:
                                     ach_name, vnd_name, prof_name))
     lines.append("}")
     lines.append("")
+
+    # CurrencyInfo lookup table (currencyID → iconPath)
+    if all_currencies:
+        lines.append("NS.CatalogData.CurrencyInfo = {")
+        for cid in sorted(all_currencies.keys()):
+            icon = all_currencies[cid]
+            lines.append(f"    [{cid}] = {lua_string(icon)},")
+        lines.append("}")
+        lines.append("")
+        logger.info("  CurrencyInfo: %d currencies", len(all_currencies))
 
     # BySource
     lines.append("NS.CatalogData.BySource = {")

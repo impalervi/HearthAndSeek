@@ -31,6 +31,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -63,6 +66,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -94,6 +100,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [373] = {
         decorID = 373,
@@ -122,6 +132,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -154,6 +168,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -186,6 +203,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -218,6 +238,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -249,6 +272,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -281,6 +307,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -312,6 +341,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -344,6 +376,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -376,6 +411,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -407,6 +445,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -438,6 +479,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -469,6 +513,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -500,6 +547,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -531,6 +581,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -562,6 +615,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -593,6 +649,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -624,6 +683,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -655,6 +717,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -686,6 +751,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -717,6 +785,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -748,6 +819,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -779,6 +853,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -810,6 +887,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -841,6 +921,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -872,6 +955,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -904,6 +990,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -936,6 +1026,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -968,6 +1061,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -999,6 +1096,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -1030,6 +1133,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1061,6 +1167,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -1092,6 +1201,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -1123,6 +1235,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1155,6 +1270,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1187,6 +1305,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1219,6 +1340,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1250,6 +1374,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1281,6 +1408,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1313,6 +1443,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1345,6 +1478,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1377,6 +1514,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1408,6 +1548,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1439,6 +1582,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1470,6 +1616,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1501,6 +1650,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1532,6 +1684,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.08,
     },
     [674] = {
         decorID = 674,
@@ -1586,6 +1739,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [676] = {
         decorID = 676,
@@ -1614,6 +1771,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "That's Val'sharah Folks!",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [677] = {
         decorID = 677,
@@ -1641,6 +1801,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [679] = {
         decorID = 679,
@@ -1668,6 +1832,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 300, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [714] = {
         decorID = 714,
@@ -1677,24 +1844,32 @@ NS.CatalogData.Items = {
         iconTexture = 7416089,
         asset = 4235683,
         uiModelSceneID = 1334,
-        zone = "Twilight Highlands",
-        mapID = 241,
+        zone = "Silvermoon City",
+        mapID = 2393,
         sourceType = "Vendor",
-        sourceDetail = "Materialist Ophinell",
+        sourceDetail = "Dethelin",
         achievementName = "",
-        vendorName = "Materialist Ophinell",
+        vendorName = "Dethelin",
         professionName = "",
         questID = nil,
-        npcID = 249196,
-        npcX = 49.8,
-        npcY = 81.2,
+        npcID = 250982,
+        npcX = 52.5,
+        npcY = 47.3,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 66,
         placementCost = 1,
         firstAcquisitionBonus = 10,
-        expansion = "Cataclysm",
+        expansion = "Midnight",
+        vendorCosts = {
+            { amount = 50, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
+        },
+        altVendorName = "Materialist Ophinell",
+        altNpcID = 249196,
+        altNpcX = 49.8,
+        altNpcY = 81.2,
+        altVendorZone = "Twilight Highlands",
     },
     [716] = {
         decorID = 716,
@@ -1722,6 +1897,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 100, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [717] = {
         decorID = 717,
@@ -1749,6 +1927,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [718] = {
         decorID = 718,
@@ -1776,6 +1957,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [720] = {
         decorID = 720,
@@ -1803,6 +1987,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 750, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [721] = {
         decorID = 721,
@@ -1830,6 +2017,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -1861,6 +2051,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -1892,6 +2085,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -1923,6 +2119,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -1954,6 +2153,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -1986,6 +2188,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -2017,6 +2223,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Hungry Human's Platter" },
+        },
     },
     [750] = {
         decorID = 750,
@@ -2044,6 +2253,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [751] = {
         decorID = 751,
@@ -2098,6 +2310,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [755] = {
         decorID = 755,
@@ -2125,6 +2341,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Boralus-Style Lobster Platter" },
+        },
     },
     [756] = {
         decorID = 756,
@@ -2153,6 +2372,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Shadowlands",
         covenantID = 2,
+        vendorCosts = {
+            { amount = 1500, currencyID = 1813, iconPath = "Interface\\ICONS\\Spell_AnimaBastion_Orb.BLP" },
+        },
     },
     [759] = {
         decorID = 759,
@@ -2180,6 +2402,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dornic Mine and Cheese Platter" },
+        },
     },
     [760] = {
         decorID = 760,
@@ -2207,6 +2432,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [761] = {
         decorID = 761,
@@ -2234,6 +2462,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [762] = {
         decorID = 762,
@@ -2261,6 +2492,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [763] = {
         decorID = 763,
@@ -2288,6 +2522,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1200, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [764] = {
         decorID = 764,
@@ -2315,6 +2552,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Theater Troupe" },
+        },
     },
     [765] = {
         decorID = 765,
@@ -2342,6 +2582,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kaheti Predator's Assortment" },
+        },
     },
     [766] = {
         decorID = 766,
@@ -2369,6 +2612,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -2401,6 +2647,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Mists of Pandaria",
         vendorUnlockAchievement = "Lorewalking: The Elves of Quel'thalas",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [768] = {
         decorID = 768,
@@ -2428,6 +2677,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -2459,6 +2711,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -2490,6 +2745,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -2521,6 +2779,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -2552,6 +2813,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -2584,6 +2848,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "My Hole in the Wall",
+        vendorCosts = {
+            { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "My Hole in the Wall" },
+        },
     },
     [827] = {
         decorID = 827,
@@ -2612,6 +2882,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Right Where We Want Him",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Right Where We Want Him" },
+        },
     },
     [828] = {
         decorID = 828,
@@ -2639,6 +2915,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [829] = {
         decorID = 829,
@@ -2666,6 +2945,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Well-Lit Incontinental Couch" },
+        },
     },
     [837] = {
         decorID = 837,
@@ -2694,6 +2976,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Azeroth at War: After Lordaeron",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [838] = {
         decorID = 838,
@@ -2722,6 +3007,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Azeroth at War: The Barrens",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [839] = {
         decorID = 839,
@@ -2749,6 +3037,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [840] = {
         decorID = 840,
@@ -2776,6 +3067,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.05,
     },
     [854] = {
         decorID = 854,
@@ -2803,6 +3095,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Brill Coffin" },
+            { sourceType = "Profession", sourceDetail = "Brill Coffin Lid" },
+        },
     },
     [855] = {
         decorID = 855,
@@ -2830,6 +3126,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Cauldron" },
+        },
     },
     [857] = {
         decorID = 857,
@@ -2858,6 +3157,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [858] = {
         decorID = 858,
@@ -2886,6 +3188,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Last Meal",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [859] = {
         decorID = 859,
@@ -2914,6 +3219,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [860] = {
         decorID = 860,
@@ -2942,6 +3250,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [862] = {
         decorID = 862,
@@ -2970,6 +3281,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Return to Zuldazar",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [863] = {
         decorID = 863,
@@ -2998,6 +3312,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Return to Zuldazar",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [864] = {
         decorID = 864,
@@ -3026,6 +3343,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "The Bridgeport Ride",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [865] = {
         decorID = 865,
@@ -3053,6 +3373,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [922] = {
         decorID = 922,
@@ -3080,6 +3403,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Brill Coffin Lid" },
+        },
     },
     [923] = {
         decorID = 923,
@@ -3108,6 +3434,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
         vendorUnlockQuest = "Lordaeron",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Lordaeron" },
+        },
     },
     [924] = {
         decorID = 924,
@@ -3136,6 +3468,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
         vendorUnlockQuest = "Lordaeron",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Lordaeron" },
+        },
     },
     [925] = {
         decorID = 925,
@@ -3163,6 +3501,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Missive: Assault on Shattrath Harbor" },
+        },
     },
     [926] = {
         decorID = 926,
@@ -3190,6 +3531,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.04,
     },
     [927] = {
         decorID = 927,
@@ -3217,6 +3559,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [928] = {
         decorID = 928,
@@ -3245,6 +3590,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Dark Heart of Oshu'gun",
+        vendorCosts = {
+            { amount = 500, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [929] = {
         decorID = 929,
@@ -3272,6 +3621,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Karabor Bed" },
+        },
     },
     [930] = {
         decorID = 930,
@@ -3300,6 +3652,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "A Non-Prophet Organization",
+        vendorCosts = {
+            { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Non-Prophet Organization" },
+        },
     },
     [931] = {
         decorID = 931,
@@ -3354,6 +3712,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [933] = {
         decorID = 933,
@@ -3382,6 +3743,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Azeroth at War: Kalimdor on Fire",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [934] = {
         decorID = 934,
@@ -3410,6 +3774,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "To Be Forsaken",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [935] = {
         decorID = 935,
@@ -3438,6 +3805,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Return to Zuldazar",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [936] = {
         decorID = 936,
@@ -3466,6 +3836,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "With Prince in Tow",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [937] = {
         decorID = 937,
@@ -3494,6 +3867,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Frontline Warrior",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [938] = {
         decorID = 938,
@@ -3521,6 +3897,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [939] = {
         decorID = 939,
@@ -3548,6 +3927,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [940] = {
         decorID = 940,
@@ -3575,6 +3957,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [941] = {
         decorID = 941,
@@ -3602,6 +3987,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [942] = {
         decorID = 942,
@@ -3629,6 +4017,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [943] = {
         decorID = 943,
@@ -3656,6 +4047,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 250, currencyID = 1710, iconPath = "Interface\\ICONS\\INV_Misc_AzsharaCoin.BLP" },
+        },
     },
     [944] = {
         decorID = 944,
@@ -3684,6 +4078,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Ready for War",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [945] = {
         decorID = 945,
@@ -3711,6 +4108,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [946] = {
         decorID = 946,
@@ -3738,6 +4138,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [947] = {
         decorID = 947,
@@ -3766,6 +4169,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "A New Life for Undeath",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A New Life for Undeath" },
+        },
     },
     [948] = {
         decorID = 948,
@@ -3793,6 +4202,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.07,
     },
     [949] = {
         decorID = 949,
@@ -3820,6 +4230,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [984] = {
         decorID = 984,
@@ -3848,6 +4261,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -3880,6 +4297,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -3911,6 +4331,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -3943,6 +4366,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -3975,6 +4401,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4006,6 +4435,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4037,6 +4469,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4068,6 +4506,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4100,6 +4541,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4131,6 +4575,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -4163,6 +4610,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Sky's Hope",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [1083] = {
         decorID = 1083,
@@ -4190,6 +4640,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -4222,6 +4675,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Dark Iron Dwarves",
+        vendorCosts = {
+            { amount = 1200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Dark Iron Dwarves" },
+        },
     },
     [1119] = {
         decorID = 1119,
@@ -4249,6 +4708,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Loch Modan Bearskin Rug" },
+        },
     },
     [1120] = {
         decorID = 1120,
@@ -4276,6 +4738,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1121] = {
         decorID = 1121,
@@ -4304,6 +4769,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockAchievement = "One Rank Higher",
+        vendorCosts = {
+            { amount = 7777, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1122] = {
         decorID = 1122,
@@ -4332,6 +4800,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -4364,6 +4835,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -4422,6 +4896,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Leather-Bound Haranir Wall Shelf" },
+        },
     },
     [1147] = {
         decorID = 1147,
@@ -4450,6 +4927,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Into the Lightbloom",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Into the Lightbloom" },
+        },
     },
     [1148] = {
         decorID = 1148,
@@ -4478,6 +4961,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Rescue from the Shadows",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Rescue from the Shadows" },
+        },
     },
     [1153] = {
         decorID = 1153,
@@ -4506,6 +4995,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4537,6 +5029,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4568,6 +5063,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sturdy Haranir Chair" },
+        },
     },
     [1159] = {
         decorID = 1159,
@@ -4596,6 +5094,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "The Heart of Tranquillien",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Heart of Tranquillien" },
+        },
     },
     [1160] = {
         decorID = 1160,
@@ -4624,6 +5128,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "The Heart of Tranquillien",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Heart of Tranquillien" },
+        },
     },
     [1161] = {
         decorID = 1161,
@@ -4651,6 +5161,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Small Mask of Bwonsamdi, Loa of Graves" },
+        },
     },
     [1162] = {
         decorID = 1162,
@@ -4679,6 +5192,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4711,6 +5227,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4742,6 +5261,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4773,6 +5295,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Red Dazar'alor Rug" },
+        },
     },
     [1169] = {
         decorID = 1169,
@@ -4800,6 +5325,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Square Pandaren Table" },
+        },
     },
     [1170] = {
         decorID = 1170,
@@ -4828,6 +5356,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Aid of the Loa",
+        vendorCosts = {
+            { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1172] = {
         decorID = 1172,
@@ -4855,6 +5386,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1173] = {
         decorID = 1173,
@@ -4882,6 +5416,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Triple-Locked Safebox" },
+        },
         treasureVendorNpcID = 259864,
         treasureVendorX = 43.2,
         treasureVendorY = 47.4,
@@ -4914,6 +5454,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Raptari Rider",
+        vendorCosts = {
+            { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1177] = {
         decorID = 1177,
@@ -4941,6 +5484,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 400, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1178] = {
         decorID = 1178,
@@ -4968,6 +5514,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1179] = {
         decorID = 1179,
@@ -4996,6 +5545,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Halting the Empire's Fall",
+        vendorCosts = {
+            { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Halting the Empire's Fall" },
+        },
     },
     [1180] = {
         decorID = 1180,
@@ -5023,6 +5578,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1181] = {
         decorID = 1181,
@@ -5050,6 +5608,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1183] = {
         decorID = 1183,
@@ -5078,6 +5639,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Zandalar Forever!",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1185] = {
         decorID = 1185,
@@ -5106,6 +5670,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Paku'ai",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1187] = {
         decorID = 1187,
@@ -5133,6 +5700,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Wooden Table" },
+        },
     },
     [1188] = {
         decorID = 1188,
@@ -5161,6 +5731,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Loa Expectations",
+        vendorCosts = {
+            { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1189] = {
         decorID = 1189,
@@ -5188,6 +5761,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1191] = {
         decorID = 1191,
@@ -5216,6 +5792,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Professional Zandalari Master",
+        vendorCosts = {
+            { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1192] = {
         decorID = 1192,
@@ -5244,6 +5823,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "We'll Meet Again",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1193] = {
         decorID = 1193,
@@ -5272,6 +5854,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "The Bargain is Struck",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1194] = {
         decorID = 1194,
@@ -5299,6 +5884,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Stone Wall" },
+        },
     },
     [1195] = {
         decorID = 1195,
@@ -5326,6 +5914,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Incomplete Book of Sonnets" },
+        },
         treasureVendorNpcID = 259864,
         treasureVendorX = 43.2,
         treasureVendorY = 47.4,
@@ -5358,6 +5952,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "To Sacrifice a Loa",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1197] = {
         decorID = 1197,
@@ -5385,6 +5982,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1198] = {
         decorID = 1198,
@@ -5412,6 +6012,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [1199] = {
         decorID = 1199,
@@ -5439,6 +6042,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1200] = {
         decorID = 1200,
@@ -5466,6 +6072,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zandalari Skullfire Lamp" },
+        },
     },
     [1201] = {
         decorID = 1201,
@@ -5493,6 +6102,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1205] = {
         decorID = 1205,
@@ -5521,6 +6133,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Of Dark Deeds and Dark Days",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Of Dark Deeds and Dark Days" },
+        },
     },
     [1216] = {
         decorID = 1216,
@@ -5549,6 +6167,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Kings Under the Mountain",
+        vendorCosts = {
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1217] = {
         decorID = 1217,
@@ -5576,6 +6197,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Zandalari Table" },
+        },
     },
     [1218] = {
         decorID = 1218,
@@ -5603,6 +6227,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1219] = {
         decorID = 1219,
@@ -5630,6 +6257,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Dresser" },
+        },
     },
     [1227] = {
         decorID = 1227,
@@ -5639,24 +6269,32 @@ NS.CatalogData.Items = {
         iconTexture = 7416803,
         asset = 6025947,
         uiModelSceneID = 1452,
-        zone = "Twilight Highlands",
-        mapID = 241,
+        zone = "Silvermoon City",
+        mapID = 2393,
         sourceType = "Vendor",
-        sourceDetail = "Materialist Ophinell",
+        sourceDetail = "Dethelin",
         achievementName = "",
-        vendorName = "Materialist Ophinell",
+        vendorName = "Dethelin",
         professionName = "",
         questID = nil,
-        npcID = 249196,
-        npcX = 49.8,
-        npcY = 81.2,
+        npcID = 250982,
+        npcX = 52.5,
+        npcY = 47.3,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 67,
         placementCost = 3,
         firstAcquisitionBonus = 10,
-        expansion = "Cataclysm",
+        expansion = "Midnight",
+        vendorCosts = {
+            { amount = 75, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
+        },
+        altVendorName = "Materialist Ophinell",
+        altNpcID = 249196,
+        altNpcX = 49.8,
+        altNpcY = 81.2,
+        altVendorZone = "Twilight Highlands",
     },
     [1231] = {
         decorID = 1231,
@@ -5684,6 +6322,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1232] = {
         decorID = 1232,
@@ -5711,6 +6353,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.05,
     },
     [1235] = {
         decorID = 1235,
@@ -5739,6 +6382,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Moozy's Reunion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1236] = {
         decorID = 1236,
@@ -5748,24 +6395,32 @@ NS.CatalogData.Items = {
         iconTexture = 7416827,
         asset = 6431404,
         uiModelSceneID = 1334,
-        zone = "Twilight Highlands",
-        mapID = 241,
+        zone = "Silvermoon City",
+        mapID = 2393,
         sourceType = "Vendor",
-        sourceDetail = "Materialist Ophinell",
+        sourceDetail = "Dethelin",
         achievementName = "",
-        vendorName = "Materialist Ophinell",
+        vendorName = "Dethelin",
         professionName = "",
         questID = nil,
-        npcID = 249196,
-        npcX = 49.8,
-        npcY = 81.2,
+        npcID = 250982,
+        npcX = 52.5,
+        npcY = 47.3,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 66,
         placementCost = 1,
         firstAcquisitionBonus = 10,
-        expansion = "Cataclysm",
+        expansion = "Midnight",
+        vendorCosts = {
+            { amount = 50, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
+        },
+        altVendorName = "Materialist Ophinell",
+        altNpcID = 249196,
+        altNpcX = 49.8,
+        altNpcY = 81.2,
+        altVendorZone = "Twilight Highlands",
     },
     [1241] = {
         decorID = 1241,
@@ -5793,6 +6448,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zandalari Ritual Drum" },
+        },
     },
     [1242] = {
         decorID = 1242,
@@ -5820,6 +6478,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tauren Leather Fence" },
+        },
     },
     [1243] = {
         decorID = 1243,
@@ -5847,6 +6508,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tauren Fencepost" },
+        },
     },
     [1244] = {
         decorID = 1244,
@@ -5874,6 +6538,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -5905,6 +6572,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5936,6 +6606,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5967,6 +6640,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Rootbound Vat" },
+        },
     },
     [1251] = {
         decorID = 1251,
@@ -5995,6 +6671,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Ceremonial Drums",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1252] = {
         decorID = 1252,
@@ -6022,6 +6702,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1257] = {
         decorID = 1257,
@@ -6049,6 +6733,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1258] = {
         decorID = 1258,
@@ -6076,6 +6763,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 700, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1259] = {
         decorID = 1259,
@@ -6103,6 +6793,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1260] = {
         decorID = 1260,
@@ -6130,6 +6823,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Rusting Bolted Bench" },
+        },
     },
     [1261] = {
         decorID = 1261,
@@ -6184,6 +6880,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 350, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1263] = {
         decorID = 1263,
@@ -6211,6 +6910,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1265] = {
         decorID = 1265,
@@ -6238,6 +6940,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 400, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1266] = {
         decorID = 1266,
@@ -6266,6 +6971,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockQuest = "Unsolicited Feedback",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Unsolicited Feedback" },
+        },
     },
     [1267] = {
         decorID = 1267,
@@ -6294,6 +7005,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Cashing the Check",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Cashing the Check" },
+        },
     },
     [1268] = {
         decorID = 1268,
@@ -6321,6 +7038,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1269] = {
         decorID = 1269,
@@ -6348,6 +7068,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1270] = {
         decorID = 1270,
@@ -6375,6 +7098,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shredderwheel Storage Chest" },
+        },
     },
     [1271] = {
         decorID = 1271,
@@ -6403,6 +7129,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockAchievement = "Sojourner of Undermine",
+        vendorCosts = {
+            { amount = 1500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1272] = {
         decorID = 1272,
@@ -6457,6 +7186,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zhevra-Stripe Rug" },
+        },
     },
     [1274] = {
         decorID = 1274,
@@ -6485,6 +7217,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Ad-Hoc Wedding Planner",
+        vendorCosts = {
+            { amount = 750, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Ad-Hoc Wedding Planner" },
+        },
     },
     [1275] = {
         decorID = 1275,
@@ -6512,6 +7250,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Undermine Bean Bag Chair" },
+        },
     },
     [1276] = {
         decorID = 1276,
@@ -6540,6 +7281,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Just a Hunch",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Just a Hunch" },
+        },
     },
     [1277] = {
         decorID = 1277,
@@ -6596,6 +7343,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -6628,6 +7378,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Walk With The Earth Mother",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Walk With The Earth Mother" },
+        },
     },
     [1282] = {
         decorID = 1282,
@@ -6655,6 +7411,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Elder Rise Rug" },
+        },
     },
     [1287] = {
         decorID = 1287,
@@ -6683,6 +7442,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Backdoor",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1291] = {
         decorID = 1291,
@@ -6711,6 +7474,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Underking",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1292] = {
         decorID = 1292,
@@ -6738,6 +7505,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1293] = {
         decorID = 1293,
@@ -6765,6 +7536,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1294] = {
         decorID = 1294,
@@ -6793,6 +7568,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Fish Out of Water",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1295] = {
         decorID = 1295,
@@ -6820,6 +7599,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1297] = {
         decorID = 1297,
@@ -6847,6 +7630,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1307] = {
         decorID = 1307,
@@ -6875,6 +7662,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Treasures of Highmountain",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1308] = {
         decorID = 1308,
@@ -6902,6 +7693,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tauren Storage Chest" },
+        },
     },
     [1309] = {
         decorID = 1309,
@@ -6930,6 +7724,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Flow of the River",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1310] = {
         decorID = 1310,
@@ -6958,6 +7756,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Clearing the Fog",
+        vendorCosts = {
+            { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1311] = {
         decorID = 1311,
@@ -6985,6 +7786,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zanchuli Tapestry" },
+        },
     },
     [1312] = {
         decorID = 1312,
@@ -7012,6 +7816,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zuldazar Fencepost" },
+        },
     },
     [1313] = {
         decorID = 1313,
@@ -7039,6 +7846,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zuldazar Fence" },
+            { sourceType = "Profession", sourceDetail = "Zuldazar Fencepost" },
+        },
     },
     [1314] = {
         decorID = 1314,
@@ -7066,6 +7877,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tauren Soup Pot" },
+        },
     },
     [1315] = {
         decorID = 1315,
@@ -7094,6 +7908,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "The Mountain-Lord's Support",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Mountain-Lord's Support" },
+        },
     },
     [1317] = {
         decorID = 1317,
@@ -7149,6 +7969,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Last Steps",
+        vendorCosts = {
+            { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Last Steps" },
+        },
     },
     [1321] = {
         decorID = 1321,
@@ -7176,6 +8003,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Blackrock Bunkbed" },
+        },
     },
     [1322] = {
         decorID = 1322,
@@ -7230,6 +8060,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        dropRate = 0.15,
     },
     [1324] = {
         decorID = 1324,
@@ -7257,6 +8088,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        dropRate = 0.28,
     },
     [1325] = {
         decorID = 1325,
@@ -7284,6 +8116,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Blackrock Weapon Rack" },
+        },
     },
     [1326] = {
         decorID = 1326,
@@ -7338,6 +8173,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Harandar Signpost" },
+        },
     },
     [1329] = {
         decorID = 1329,
@@ -7366,6 +8204,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -7397,6 +8238,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -7428,6 +8272,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Orcish Fencepost" },
+        },
     },
     [1352] = {
         decorID = 1352,
@@ -7482,6 +8329,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1354] = {
         decorID = 1354,
@@ -7509,6 +8360,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1355] = {
         decorID = 1355,
@@ -7536,6 +8390,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 150, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1356] = {
         decorID = 1356,
@@ -7564,6 +8421,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -7595,6 +8455,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Orcish Fence" },
+            { sourceType = "Profession", sourceDetail = "Orcish Fencepost" },
+        },
     },
     [1406] = {
         decorID = 1406,
@@ -7622,6 +8486,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Frostwall Architect's Table" },
+        },
     },
     [1407] = {
         decorID = 1407,
@@ -7649,6 +8516,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1408] = {
         decorID = 1408,
@@ -7677,6 +8547,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Things Are Not Goren Our Way",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1409] = {
         decorID = 1409,
@@ -7704,6 +8578,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Orcish Banded Barrel" },
+        },
     },
     [1410] = {
         decorID = 1410,
@@ -7731,6 +8608,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wine Barrel" },
+        },
     },
     [1411] = {
         decorID = 1411,
@@ -7758,6 +8638,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wooden Shipping Crate" },
+        },
     },
     [1412] = {
         decorID = 1412,
@@ -7786,6 +8669,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Pool of Visions",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Pool of Visions" },
+        },
     },
     [1413] = {
         decorID = 1413,
@@ -7813,6 +8703,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1414] = {
         decorID = 1414,
@@ -7840,6 +8733,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1415] = {
         decorID = 1415,
@@ -7867,6 +8763,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Orcish Sleeping Cot" },
+        },
     },
     [1416] = {
         decorID = 1416,
@@ -7894,6 +8793,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 150, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [1417] = {
         decorID = 1417,
@@ -7922,6 +8824,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "The Zandalari Menu",
+        vendorCosts = {
+            { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1418] = {
         decorID = 1418,
@@ -7950,6 +8855,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Dune Rider",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1434] = {
         decorID = 1434,
@@ -7977,6 +8885,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8009,6 +8920,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8041,6 +8955,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8073,6 +8990,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8105,6 +9025,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8136,6 +9059,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8167,6 +9093,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1442] = {
         decorID = 1442,
@@ -8195,6 +9125,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Fractured",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Fractured" },
+        },
     },
     [1443] = {
         decorID = 1443,
@@ -8222,6 +9158,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1444] = {
         decorID = 1444,
@@ -8249,6 +9189,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 100, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1445] = {
         decorID = 1445,
@@ -8276,6 +9219,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.11,
     },
     [1446] = {
         decorID = 1446,
@@ -8304,6 +9248,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Ever Painting",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1451] = {
         decorID = 1451,
@@ -8331,6 +9278,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8362,6 +9312,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8393,6 +9346,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -8424,6 +9380,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8455,6 +9414,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8486,6 +9448,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8517,6 +9482,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -8530,24 +9498,25 @@ NS.CatalogData.Items = {
         iconTexture = 7417472,
         asset = 6905005,
         uiModelSceneID = 1452,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 69,
         placementCost = 5,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [1464] = {
         decorID = 1464,
@@ -8575,6 +9544,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 200, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1465] = {
         decorID = 1465,
@@ -8602,6 +9574,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 300, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1466] = {
         decorID = 1466,
@@ -8629,6 +9604,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 100, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1481] = {
         decorID = 1481,
@@ -8657,6 +9635,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "The Downfall of Marl Wormthorn",
+        vendorCosts = {
+            { amount = 1100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1482] = {
         decorID = 1482,
@@ -8684,6 +9665,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -8716,6 +9700,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -8747,6 +9734,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -8779,6 +9769,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -8811,6 +9804,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "The First to Know",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The First to Know" },
+        },
     },
     [1674] = {
         decorID = 1674,
@@ -8866,6 +9865,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Moon Reaver",
+        vendorCosts = {
+            { amount = 800, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Moon Reaver" },
+            { sourceType = "Quest", sourceDetail = "Dreamy Inspiration" },
+        },
     },
     [1693] = {
         decorID = 1693,
@@ -8893,6 +9899,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Dreamy Inspiration" },
+        },
     },
     [1694] = {
         decorID = 1694,
@@ -8920,6 +9929,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 400, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1695] = {
         decorID = 1695,
@@ -8947,6 +9959,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1697] = {
         decorID = 1697,
@@ -8975,6 +9991,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "The Source of the Problem",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1698] = {
         decorID = 1698,
@@ -9002,6 +10021,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9033,6 +10055,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9065,6 +10090,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9096,6 +10124,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -9127,6 +10158,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -9158,6 +10192,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1704] = {
         decorID = 1704,
@@ -9186,6 +10224,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Come Sail Away",
+        vendorCosts = {
+            { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1723] = {
         decorID = 1723,
@@ -9214,6 +10255,11 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9246,6 +10292,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9277,6 +10326,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Frostwall Elevated Brazier" },
+        },
     },
     [1726] = {
         decorID = 1726,
@@ -9305,6 +10357,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Halting Harm in Har'mara",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Halting Harm in Har'mara" },
+        },
     },
     [1736] = {
         decorID = 1736,
@@ -9333,6 +10391,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9365,6 +10426,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9397,6 +10461,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -9429,6 +10496,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -9460,6 +10530,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1741] = {
         decorID = 1741,
@@ -9487,6 +10560,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1742] = {
         decorID = 1742,
@@ -9514,6 +10590,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -9546,6 +10625,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -9578,6 +10660,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -9609,6 +10694,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shaded Suramar Window" },
+        },
     },
     [1747] = {
         decorID = 1747,
@@ -9637,6 +10725,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Visitor in Shal'Aran",
+        vendorCosts = {
+            { amount = 225, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Visitor in Shal'Aran" },
+        },
     },
     [1748] = {
         decorID = 1748,
@@ -9664,6 +10758,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Octagonal Ochre Window" },
+        },
     },
     [1749] = {
         decorID = 1749,
@@ -9691,6 +10788,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        dropRate = 0.85,
     },
     [1750] = {
         decorID = 1750,
@@ -9718,6 +10816,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [1770] = {
         decorID = 1770,
@@ -9746,6 +10847,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9778,6 +10885,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9810,6 +10920,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9841,6 +10954,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9873,6 +10989,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9904,6 +11023,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9936,6 +11058,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9967,6 +11092,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Frostwall Forge" },
+        },
     },
     [1792] = {
         decorID = 1792,
@@ -9994,6 +11122,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ancestral Signal Brazier" },
+        },
     },
     [1793] = {
         decorID = 1793,
@@ -10021,6 +11152,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Problem Solver" },
+        },
     },
     [1794] = {
         decorID = 1794,
@@ -10048,6 +11182,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 350, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1795] = {
         decorID = 1795,
@@ -10076,6 +11213,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1796] = {
         decorID = 1796,
@@ -10103,6 +11243,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1801] = {
         decorID = 1801,
@@ -10131,6 +11274,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Shriek No More",
+        vendorCosts = {
+            { amount = 350, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1802] = {
         decorID = 1802,
@@ -10159,6 +11305,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Source of the Corruption",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Source of the Corruption" },
+        },
     },
     [1826] = {
         decorID = 1826,
@@ -10187,6 +11339,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1827] = {
         decorID = 1827,
@@ -10214,6 +11369,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Surwich Expedition Tent" },
+        },
     },
     [1829] = {
         decorID = 1829,
@@ -10242,6 +11400,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Ready to Go",
+        vendorCosts = {
+            { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Ready to Go" },
+        },
     },
     [1830] = {
         decorID = 1830,
@@ -10269,6 +11433,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Wooden Table" },
+        },
     },
     [1831] = {
         decorID = 1831,
@@ -10296,6 +11463,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Wall Shelf" },
+        },
     },
     [1832] = {
         decorID = 1832,
@@ -10323,6 +11493,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Rocking Chair" },
+        },
     },
     [1833] = {
         decorID = 1833,
@@ -10351,6 +11524,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Cry for the Moon",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Cry For The Moon" },
+        },
     },
     [1834] = {
         decorID = 1834,
@@ -10378,6 +11557,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 350, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1836] = {
         decorID = 1836,
@@ -10405,6 +11587,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.09,
     },
     [1844] = {
         decorID = 1844,
@@ -10433,6 +11616,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -10464,6 +11650,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 10, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1862] = {
         decorID = 1862,
@@ -10491,6 +11680,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -10522,6 +11714,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -10553,6 +11748,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -10584,6 +11782,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -10615,6 +11816,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -10646,6 +11850,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -10678,6 +11885,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -10710,6 +11920,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -10741,6 +11954,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        dropRate = 0.05,
     },
     [1881] = {
         decorID = 1881,
@@ -10769,6 +11983,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockAchievement = "That's Val'sharah Folks!",
+        vendorCosts = {
+            { amount = 950, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1882] = {
         decorID = 1882,
@@ -10797,6 +12014,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "The Nightmare Lord",
+        vendorCosts = {
+            { amount = 150, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Nightmare Lord" },
+        },
     },
     [1883] = {
         decorID = 1883,
@@ -10825,6 +12048,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "The Nightmare Lord",
+        vendorCosts = {
+            { amount = 75, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1884] = {
         decorID = 1884,
@@ -10853,6 +12079,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "The Die is Cast",
+        vendorCosts = {
+            { amount = 250, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1885] = {
         decorID = 1885,
@@ -10881,6 +12110,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Feathersong's Redemption",
+        vendorCosts = {
+            { amount = 175, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1886] = {
         decorID = 1886,
@@ -10909,6 +12141,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Entangled Dreams",
+        vendorCosts = {
+            { amount = 450, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1887] = {
         decorID = 1887,
@@ -10937,6 +12172,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Treasures of Val'Sharah",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1888] = {
         decorID = 1888,
@@ -10964,6 +12202,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1889] = {
         decorID = 1889,
@@ -10992,6 +12233,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Tears of Elune",
+        vendorCosts = {
+            { amount = 600, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [1893] = {
         decorID = 1893,
@@ -11019,6 +12263,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        dropRate = 0.66,
     },
     [1894] = {
         decorID = 1894,
@@ -11028,24 +12273,25 @@ NS.CatalogData.Items = {
         iconTexture = 7422177,
         asset = 6905006,
         uiModelSceneID = 1337,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 69,
         placementCost = 5,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [1896] = {
         decorID = 1896,
@@ -11073,6 +12319,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [1900] = {
         decorID = 1900,
@@ -11101,6 +12350,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "The Abyssal Council",
+        vendorCosts = {
+            { amount = 350, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [1901] = {
         decorID = 1901,
@@ -11128,6 +12380,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [1908] = {
         decorID = 1908,
@@ -11156,6 +12411,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Lightbloom Looming",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Lightbloom Looming" },
+        },
     },
     [1919] = {
         decorID = 1919,
@@ -11183,6 +12444,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 200, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1920] = {
         decorID = 1920,
@@ -11210,6 +12474,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 300, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [1977] = {
         decorID = 1977,
@@ -11238,6 +12505,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11269,6 +12539,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11300,6 +12573,12 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Margrave's Stitched Leather Rug" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11331,6 +12610,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Schmancy Goblin String Lights" },
+        },
     },
     [1987] = {
         decorID = 1987,
@@ -11358,6 +12640,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 350, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1989] = {
         decorID = 1989,
@@ -11385,6 +12670,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1990] = {
         decorID = 1990,
@@ -11412,6 +12700,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [1991] = {
         decorID = 1991,
@@ -11440,6 +12731,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11472,6 +12766,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11504,6 +12801,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11536,6 +12836,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11567,6 +12870,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11599,6 +12905,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11631,6 +12940,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11662,6 +12974,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [1999] = {
         decorID = 1999,
@@ -11689,6 +13004,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11720,6 +13038,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.07,
     },
     [2001] = {
         decorID = 2001,
@@ -11747,6 +13066,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shadowforge Sconce" },
+        },
     },
     [2086] = {
         decorID = 2086,
@@ -11774,6 +13096,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [2087] = {
         decorID = 2087,
@@ -11802,6 +13127,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11834,6 +13162,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11865,6 +13196,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -11896,6 +13230,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11927,6 +13264,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 75, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [2092] = {
         decorID = 2092,
@@ -11954,6 +13294,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11986,6 +13329,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12017,6 +13363,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12049,6 +13398,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12081,6 +13433,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -12113,6 +13468,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -12145,6 +13503,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -12176,6 +13537,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -12207,6 +13571,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -12239,6 +13606,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12271,6 +13641,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12302,6 +13675,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12333,6 +13709,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12365,6 +13744,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12397,6 +13779,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12429,6 +13814,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12460,6 +13848,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12491,6 +13882,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12523,6 +13917,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12555,6 +13952,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12587,6 +13987,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12619,6 +14022,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12650,6 +14056,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12681,6 +14090,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -12712,6 +14124,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [2224] = {
         decorID = 2224,
@@ -12740,6 +14155,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Descent into the Rift",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Descent into the Rift" },
+        },
     },
     [2225] = {
         decorID = 2225,
@@ -12767,6 +14188,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [2226] = {
         decorID = 2226,
@@ -12795,6 +14219,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Welcome to the Brotherhood",
+        vendorCosts = {
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Welcome to the Brotherhood" },
+        },
     },
     [2227] = {
         decorID = 2227,
@@ -12822,6 +14252,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dark Iron Table Saw" },
+        },
     },
     [2228] = {
         decorID = 2228,
@@ -12849,6 +14282,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2229] = {
         decorID = 2229,
@@ -12876,6 +14312,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2230] = {
         decorID = 2230,
@@ -12903,6 +14342,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Blackrock Lamppost" },
+        },
     },
     [2231] = {
         decorID = 2231,
@@ -12912,24 +14354,25 @@ NS.CatalogData.Items = {
         iconTexture = 7422509,
         asset = 7011540,
         uiModelSceneID = 1337,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 69,
         placementCost = 5,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [2232] = {
         decorID = 2232,
@@ -12958,6 +14401,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Echoes and Memories",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Echoes and Memories" },
+        },
     },
     [2233] = {
         decorID = 2233,
@@ -12985,6 +14434,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Reliquary's Lost Paint Supplies" },
+        },
     },
     [2237] = {
         decorID = 2237,
@@ -13012,6 +14467,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kharanos Bookcase" },
+        },
     },
     [2238] = {
         decorID = 2238,
@@ -13039,6 +14497,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        dropRate = 0.04,
     },
     [2239] = {
         decorID = 2239,
@@ -13067,6 +14526,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Axis of Awful",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Axis of Awful" },
+        },
     },
     [2240] = {
         decorID = 2240,
@@ -13094,6 +14559,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wooden Ironforge Table" },
+        },
     },
     [2241] = {
         decorID = 2241,
@@ -13148,6 +14616,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
+        vendorCosts = {
+            { amount = 400, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2243] = {
         decorID = 2243,
@@ -13175,6 +14646,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 600, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2244] = {
         decorID = 2244,
@@ -13203,6 +14677,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockQuest = "Eye Spy",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Eye Spy" },
+        },
     },
     [2245] = {
         decorID = 2245,
@@ -13231,6 +14711,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockQuest = "Wild, Wild, Wildhammer Wedding",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Wild, Wild, Wildhammer Wedding" },
+        },
     },
     [2246] = {
         decorID = 2246,
@@ -13258,6 +14744,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.4,
     },
     [2254] = {
         decorID = 2254,
@@ -13285,6 +14772,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -13316,6 +14806,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ambient Aethercharged Crystal" },
+        },
     },
     [2322] = {
         decorID = 2322,
@@ -13371,6 +14864,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2324] = {
         decorID = 2324,
@@ -13453,6 +14949,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Diversified Investments",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2327] = {
         decorID = 2327,
@@ -13480,6 +14979,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2328] = {
         decorID = 2328,
@@ -13534,6 +15036,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gnomish Tesla Mega-Coil" },
+        },
     },
     [2330] = {
         decorID = 2330,
@@ -13561,6 +15066,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Spare A Chair" },
+            { sourceType = "Profession", sourceDetail = "Gnomish Tesla Mega-Coil" },
+        },
     },
     [2331] = {
         decorID = 2331,
@@ -13588,6 +15097,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ironforge Chandelier" },
+        },
     },
     [2332] = {
         decorID = 2332,
@@ -13615,6 +15127,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Steel Ironforge Emblem" },
+        },
     },
     [2333] = {
         decorID = 2333,
@@ -13642,6 +15157,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2334] = {
         decorID = 2334,
@@ -13669,6 +15187,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2337] = {
         decorID = 2337,
@@ -13696,6 +15217,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2338] = {
         decorID = 2338,
@@ -13723,6 +15247,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2339] = {
         decorID = 2339,
@@ -13750,6 +15277,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2340] = {
         decorID = 2340,
@@ -13777,6 +15307,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Mechagon Miniature Artificial Sun" },
+        },
     },
     [2341] = {
         decorID = 2341,
@@ -13804,6 +15337,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2342] = {
         decorID = 2342,
@@ -13832,6 +15368,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -13863,6 +15403,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2384] = {
         decorID = 2384,
@@ -13891,6 +15434,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -13922,6 +15468,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -14198,6 +15747,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Deactivated Atomic Recalibrator" },
+        },
     },
     [2437] = {
         decorID = 2437,
@@ -14225,6 +15777,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2438] = {
         decorID = 2438,
@@ -14279,6 +15834,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14310,6 +15868,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14341,6 +15902,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14372,6 +15936,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14403,6 +15970,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14434,6 +16004,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14465,6 +16038,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14497,6 +16073,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14528,6 +16107,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14559,6 +16141,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14590,6 +16175,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dwarven District Banner" },
+        },
     },
     [2453] = {
         decorID = 2453,
@@ -14617,6 +16205,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -14649,6 +16240,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14680,6 +16274,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -14711,6 +16308,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [2460] = {
         decorID = 2460,
@@ -14738,6 +16338,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Self-Pouring Thalassian Sunwine" },
+        },
     },
     [2465] = {
         decorID = 2465,
@@ -14765,6 +16368,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gnomish Steam-Powered Bed" },
+        },
     },
     [2466] = {
         decorID = 2466,
@@ -14793,6 +16399,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "The Start of Something Bigger",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionQuestChains = {
             Alliance = { questID = 54992 },
             Horde = { questID = 55651 },
@@ -14825,6 +16434,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Welcome to the Resistance",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Welcome to the Resistance" },
+        },
     },
     [2468] = {
         decorID = 2468,
@@ -14852,6 +16467,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Caramel Mint Noodle Dish" },
+        },
     },
     [2469] = {
         decorID = 2469,
@@ -14880,6 +16498,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockQuest = "Warm Away These Shivers",
+        vendorCosts = {
+            { amount = 100, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Warm Away These Shivers" },
+        },
     },
     [2470] = {
         decorID = 2470,
@@ -14934,6 +16558,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dornic Sliced Mineloaf" },
+        },
     },
     [2472] = {
         decorID = 2472,
@@ -14961,6 +16588,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Earthen Hospitality Cheese-Like Brick" },
+        },
     },
     [2474] = {
         decorID = 2474,
@@ -14988,6 +16618,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15019,6 +16652,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -15051,6 +16687,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -15082,6 +16721,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 2803, iconPath = "Interface\\ICONS\\INV_Misc_ElvenCoins.blp" },
+        },
     },
     [2510] = {
         decorID = 2510,
@@ -15109,6 +16751,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -15140,6 +16785,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -15171,6 +16819,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        dropRate = 0.08,
     },
     [2513] = {
         decorID = 2513,
@@ -15198,6 +16847,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -15229,6 +16881,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -15260,6 +16915,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2517] = {
         decorID = 2517,
@@ -15288,6 +16947,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Vereesa's Tale",
+        vendorCosts = {
+            { amount = 15000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [2523] = {
         decorID = 2523,
@@ -15342,6 +17004,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Lonalo", npcID = 256119, x = 58.4, y = 50.4, zone = "Orgrimmar", mapID = 85 },
@@ -15374,6 +17039,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "A Last Hope",
+        vendorCosts = {
+            { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Last Hope" },
+        },
     },
     [2530] = {
         decorID = 2530,
@@ -15402,6 +17073,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "The Head of the Snake",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [2531] = {
         decorID = 2531,
@@ -15429,6 +17103,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.12,
     },
     [2532] = {
         decorID = 2532,
@@ -15457,6 +17132,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockAchievement = "Smelling History",
+        vendorCosts = {
+            { amount = 1500, currencyID = 3056, iconPath = "Interface\\ICONS\\INV_10_Tailoring_SilkRare_Color3.BLP" },
+        },
     },
     [2533] = {
         decorID = 2533,
@@ -15485,6 +17163,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockAchievement = "Slate of the Union",
+        vendorCosts = {
+            { amount = 750, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [2534] = {
         decorID = 2534,
@@ -15513,6 +17194,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15545,6 +17229,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15576,6 +17263,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15608,6 +17298,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15639,6 +17332,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15671,6 +17367,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15703,6 +17402,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15734,6 +17436,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15765,6 +17470,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [2590] = {
         decorID = 2590,
@@ -15792,6 +17500,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15823,6 +17534,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Mushan Dumpling Stack" },
+        },
     },
     [2592] = {
         decorID = 2592,
@@ -15851,6 +17565,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15882,6 +17599,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Drake Kebab Platter" },
+        },
     },
     [2594] = {
         decorID = 2594,
@@ -15910,6 +17630,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockQuest = "10,000 Years of Roasting",
+        vendorCosts = {
+            { amount = 175, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "10,000 Years of Roasting" },
+        },
     },
     [2595] = {
         decorID = 2595,
@@ -15937,6 +17663,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Blossomfruit Platter" },
+        },
     },
     [2596] = {
         decorID = 2596,
@@ -15964,6 +17693,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Bruffalon Rib Platter" },
+        },
     },
     [2605] = {
         decorID = 2605,
@@ -15992,6 +17724,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Light Finds a Way",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Light Finds a Way" },
+        },
     },
     [3826] = {
         decorID = 3826,
@@ -16019,6 +17757,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -16050,6 +17791,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -16081,6 +17825,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Signal Brazier" },
+        },
     },
     [3832] = {
         decorID = 3832,
@@ -16108,6 +17855,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3833] = {
         decorID = 3833,
@@ -16135,6 +17885,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3837] = {
         decorID = 3837,
@@ -16163,6 +17916,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "A Farewell to Arms",
+        vendorCosts = {
+            { amount = 100000, currencyID = 1803, iconPath = "Interface\\ICONS\\INV_INSCRIPTION_80_VANTUSRUNE_NYALOTHA.BLP" },
+        },
     },
     [3838] = {
         decorID = 3838,
@@ -16191,6 +17947,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "A Farewell to Arms",
+        vendorCosts = {
+            { amount = 100000, currencyID = 1803, iconPath = "Interface\\ICONS\\INV_INSCRIPTION_80_VANTUSRUNE_NYALOTHA.BLP" },
+        },
     },
     [3839] = {
         decorID = 3839,
@@ -16218,6 +17977,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Lorewalker's Bookcase" },
+        },
     },
     [3840] = {
         decorID = 3840,
@@ -16245,6 +18007,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3867] = {
         decorID = 3867,
@@ -16273,6 +18038,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Master of Twin Peaks",
+        vendorCosts = {
+            { amount = 5000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3868] = {
         decorID = 3868,
@@ -16300,6 +18068,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Stone Post" },
+        },
     },
     [3869] = {
         decorID = 3869,
@@ -16328,6 +18099,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Mists of Pandaria",
         vendorUnlockQuest = "Welcome to Dawn's Blossom",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3870] = {
         decorID = 3870,
@@ -16355,6 +18129,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3871] = {
         decorID = 3871,
@@ -16382,6 +18159,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Hanging Paper Lanterns" },
+        },
     },
     [3872] = {
         decorID = 3872,
@@ -16409,6 +18189,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3873] = {
         decorID = 3873,
@@ -16436,6 +18219,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Halfhill Cookpot" },
+        },
     },
     [3874] = {
         decorID = 3874,
@@ -16463,6 +18249,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3875] = {
         decorID = 3875,
@@ -16490,6 +18279,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Lucky Traveler's Bench" },
+        },
     },
     [3876] = {
         decorID = 3876,
@@ -16517,6 +18309,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Jade Temple Dragon Fountain" },
+        },
     },
     [3877] = {
         decorID = 3877,
@@ -16544,6 +18339,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3878] = {
         decorID = 3878,
@@ -16571,6 +18369,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Meander Rug" },
+        },
     },
     [3880] = {
         decorID = 3880,
@@ -16599,6 +18400,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Master of Temple of Kotmogu",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -16631,6 +18435,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Master of Temple of Kotmogu",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -16663,6 +18470,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Wrecking Ball",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3885] = {
         decorID = 3885,
@@ -16691,6 +18501,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "The Grim Reaper",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3886] = {
         decorID = 3886,
@@ -16719,6 +18532,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Persistent Defender",
+        vendorCosts = {
+            { amount = 800, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3887] = {
         decorID = 3887,
@@ -16747,6 +18563,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Warsong Gulch Veteran",
+        vendorCosts = {
+            { amount = 800, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3890] = {
         decorID = 3890,
@@ -16775,6 +18594,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Sprinting in the Ravine",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -16806,6 +18628,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 2000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [3892] = {
         decorID = 3892,
@@ -16833,6 +18658,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Fireplace" },
+        },
     },
     [3893] = {
         decorID = 3893,
@@ -16861,6 +18689,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockAchievement = "Duel-icious",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -16893,6 +18724,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Me and the Cappin' Makin' It Happen",
+        vendorCosts = {
+            { amount = 600, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3895] = {
         decorID = 3895,
@@ -16921,6 +18755,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Alterac Grave Robber",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3896] = {
         decorID = 3896,
@@ -16949,6 +18786,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Overly Defensive",
+        vendorCosts = {
+            { amount = 600, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3897] = {
         decorID = 3897,
@@ -16977,6 +18817,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Tower Defense",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
     },
     [3898] = {
         decorID = 3898,
@@ -17005,6 +18848,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockAchievement = "Storm Capper",
+        vendorCosts = {
+            { amount = 400, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -17037,6 +18883,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Stormtrooper",
+        vendorCosts = {
+            { amount = 300, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -17164,6 +19013,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wise Pandaren's Bed" },
+        },
     },
     [3905] = {
         decorID = 3905,
@@ -17287,6 +19139,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [3981] = {
         decorID = 3981,
@@ -17315,6 +19170,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Sign of the Dusk Lily",
+        vendorCosts = {
+            { amount = 600, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Sign of the Dusk Lily" },
+        },
     },
     [3982] = {
         decorID = 3982,
@@ -17343,6 +19204,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockAchievement = "Insurrection",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [3983] = {
         decorID = 3983,
@@ -17370,6 +19234,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3984] = {
         decorID = 3984,
@@ -17397,6 +19265,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3985] = {
         decorID = 3985,
@@ -17424,6 +19296,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3993] = {
         decorID = 3993,
@@ -17451,6 +19327,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [3994] = {
         decorID = 3994,
@@ -17478,6 +19357,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Serenity Peak Tent" },
+        },
     },
     [3995] = {
         decorID = 3995,
@@ -17506,6 +19388,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
         vendorUnlockQuest = "Path of the Last Emperor",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Path of the Last Emperor" },
+        },
     },
     [4022] = {
         decorID = 4022,
@@ -17533,6 +19421,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 50, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 30, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4023] = {
         decorID = 4023,
@@ -17560,6 +19452,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Fencepost" },
+        },
     },
     [4024] = {
         decorID = 4024,
@@ -17587,6 +19482,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4025] = {
         decorID = 4025,
@@ -17615,6 +19514,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Ly'leth's Champion",
+        vendorCosts = {
+            { amount = 100, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [4026] = {
         decorID = 4026,
@@ -17642,6 +19544,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 250, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [4027] = {
         decorID = 4027,
@@ -17669,6 +19574,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.02,
     },
     [4028] = {
         decorID = 4028,
@@ -17697,6 +19603,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "And They Will Tremble",
+        vendorCosts = {
+            { amount = 400, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [4029] = {
         decorID = 4029,
@@ -17724,6 +19633,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Last Light" },
+            { sourceType = "Profession", sourceDetail = "Covered Square Suramar Table" },
+        },
     },
     [4030] = {
         decorID = 4030,
@@ -17751,6 +19664,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Covered Square Suramar Table" },
+        },
     },
     [4031] = {
         decorID = 4031,
@@ -17779,6 +19695,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Master's Legacy",
+        vendorCosts = {
+            { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Master's Legacy" },
+        },
     },
     [4032] = {
         decorID = 4032,
@@ -17806,6 +19728,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Nightborne Jeweler's Table" },
+        },
     },
     [4033] = {
         decorID = 4033,
@@ -17833,6 +19758,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 150, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [4034] = {
         decorID = 4034,
@@ -17860,6 +19788,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Circular Shal'dorei Rug" },
+        },
     },
     [4035] = {
         decorID = 4035,
@@ -17887,6 +19818,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4036] = {
         decorID = 4036,
@@ -17914,6 +19849,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Fence" },
+            { sourceType = "Profession", sourceDetail = "Suramar Fencepost" },
+        },
     },
     [4037] = {
         decorID = 4037,
@@ -17941,6 +19880,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Containment Cell" },
+        },
     },
     [4038] = {
         decorID = 4038,
@@ -17968,6 +19910,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4039] = {
         decorID = 4039,
@@ -17995,6 +19941,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Storage Crate" },
+        },
     },
     [4040] = {
         decorID = 4040,
@@ -18023,6 +19972,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Thalyssra's Drawers",
+        vendorCosts = {
+            { amount = 175, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shaded Suramar Window" },
+            { sourceType = "Quest", sourceDetail = "Visitor in Shal'Aran" },
+        },
     },
     [4041] = {
         decorID = 4041,
@@ -18050,6 +20006,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shal'dorei Open-Air Tent" },
+        },
     },
     [4042] = {
         decorID = 4042,
@@ -18077,6 +20036,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [4159] = {
         decorID = 4159,
@@ -18104,6 +20066,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4160] = {
         decorID = 4160,
@@ -18132,6 +20097,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockAchievement = "A Blue Dawn",
+        vendorCosts = {
+            { amount = 150, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4161] = {
         decorID = 4161,
@@ -18160,6 +20128,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockAchievement = "Fringe Benefits",
+        vendorCosts = {
+            { amount = 150, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4162] = {
         decorID = 4162,
@@ -18187,6 +20158,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Banded Barrel" },
+        },
     },
     [4163] = {
         decorID = 4163,
@@ -18214,6 +20188,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Storage Crate" },
+            { sourceType = "Profession", sourceDetail = "Long Valdrakken Storage Crate" },
+        },
     },
     [4164] = {
         decorID = 4164,
@@ -18241,6 +20219,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Long Valdrakken Storage Crate" },
+        },
     },
     [4165] = {
         decorID = 4165,
@@ -18268,6 +20249,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Fence" },
+            { sourceType = "Profession", sourceDetail = "Valdrakken Fencepost" },
+        },
     },
     [4166] = {
         decorID = 4166,
@@ -18295,6 +20280,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Fencepost" },
+        },
     },
     [4167] = {
         decorID = 4167,
@@ -18322,6 +20310,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Verdant Valdrakken Vase" },
+        },
     },
     [4168] = {
         decorID = 4168,
@@ -18349,6 +20340,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 400, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4169] = {
         decorID = 4169,
@@ -18376,6 +20370,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Thaldraszus Telescope" },
+        },
     },
     [4170] = {
         decorID = 4170,
@@ -18403,6 +20400,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draconic Nesting Bed" },
+        },
     },
     [4172] = {
         decorID = 4172,
@@ -18430,6 +20430,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Draconic Decor" },
+        },
     },
     [4173] = {
         decorID = 4173,
@@ -18457,6 +20460,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 7000, currencyID = 2657, iconPath = "Interface\\ICONS\\INV_7_0Raid_Trinket_05A.BLP" },
+        },
     },
     [4174] = {
         decorID = 4174,
@@ -18484,6 +20490,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Literature of the Blue Dragonflight" },
+        },
     },
     [4175] = {
         decorID = 4175,
@@ -18511,6 +20520,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Literature of the Green Dragonflight" },
+        },
     },
     [4176] = {
         decorID = 4176,
@@ -18538,6 +20550,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Literature of the Red Dragonflight" },
+        },
     },
     [4177] = {
         decorID = 4177,
@@ -18565,6 +20580,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draconic Circular Rug" },
+        },
     },
     [4180] = {
         decorID = 4180,
@@ -18593,6 +20611,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockAchievement = "A World Awoken",
+        vendorCosts = {
+            { amount = 7500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4181] = {
         decorID = 4181,
@@ -18621,6 +20642,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Shadowlands",
         vendorUnlockAchievement = "Back from the Beyond",
+        vendorCosts = {
+            { amount = 10000, currencyID = 1767, iconPath = "Interface\\ICONS\\INV_Stygia.BLP" },
+        },
     },
     [4386] = {
         decorID = 4386,
@@ -18649,6 +20673,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18680,6 +20707,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        dropRate = 0.19,
     },
     [4402] = {
         decorID = 4402,
@@ -18707,6 +20735,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4403] = {
         decorID = 4403,
@@ -18735,6 +20766,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Clearing the Garden",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4404] = {
         decorID = 4404,
@@ -18763,6 +20798,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Anglin' In Our Garrison",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Anglin' In Our Garrison" },
+        },
     },
     [4405] = {
         decorID = 4405,
@@ -18791,6 +20833,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Welcome to Stormwind",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Welcome to Stormwind" },
+        },
     },
     [4406] = {
         decorID = 4406,
@@ -18818,6 +20866,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4407] = {
         decorID = 4407,
@@ -18845,6 +20896,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4408] = {
         decorID = 4408,
@@ -18872,6 +20926,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4423] = {
         decorID = 4423,
@@ -18900,6 +20957,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockQuest = "Honor of the Goddess",
+        vendorCosts = {
+            { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Honor of the Goddess" },
+        },
     },
     [4424] = {
         decorID = 4424,
@@ -18927,6 +20990,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -18958,6 +21024,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -18989,6 +21058,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -19020,6 +21092,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -19051,6 +21126,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -19082,6 +21160,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4444] = {
         decorID = 4444,
@@ -19110,6 +21191,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "You Have Our Thanks",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "You Have Our Thanks" },
+        },
     },
     [4445] = {
         decorID = 4445,
@@ -19137,6 +21224,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4446] = {
         decorID = 4446,
@@ -19164,6 +21254,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4447] = {
         decorID = 4447,
@@ -19192,6 +21285,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Ending the Invasion!",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Ending the Invasion!" },
+        },
     },
     [4448] = {
         decorID = 4448,
@@ -19220,6 +21319,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Wrath of the Lich King",
         vendorUnlockQuest = "Doing Your Duty",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Doing Your Duty" },
+        },
     },
     [4451] = {
         decorID = 4451,
@@ -19247,6 +21352,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19278,6 +21386,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19309,6 +21420,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19340,6 +21454,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19371,6 +21488,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19402,6 +21522,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19433,6 +21556,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19464,6 +21590,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19495,6 +21624,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19526,6 +21658,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19557,6 +21692,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19588,6 +21726,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19619,6 +21760,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19650,6 +21794,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19681,6 +21828,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19712,6 +21862,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19743,6 +21896,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19774,6 +21930,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19805,6 +21964,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19836,6 +21998,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19867,6 +22032,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19898,6 +22066,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19929,6 +22100,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19960,6 +22134,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -19991,6 +22168,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -20022,6 +22202,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20054,6 +22237,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "Archives Return",
+        vendorCosts = {
+            { amount = 600, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Archives Return" },
+        },
     },
     [4478] = {
         decorID = 4478,
@@ -20081,6 +22270,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4479] = {
         decorID = 4479,
@@ -20109,6 +22301,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockQuest = "A Helping Claw",
+        vendorCosts = {
+            { amount = 50, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Helping Claw" },
+        },
     },
     [4480] = {
         decorID = 4480,
@@ -20136,6 +22334,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Gilded Throne" },
+        },
     },
     [4481] = {
         decorID = 4481,
@@ -20164,6 +22365,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "To Cook With Finery",
+        vendorCosts = {
+            { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4482] = {
         decorID = 4482,
@@ -20192,6 +22396,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockAchievement = "Forbidden Spoils",
+        vendorCosts = {
+            { amount = 1500, currencyID = 2118, iconPath = "Interface\\ICONS\\INV_Misc_Powder_Thorium.blp" },
+        },
     },
     [4483] = {
         decorID = 4483,
@@ -20219,6 +22426,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Market Tent" },
+        },
     },
     [4484] = {
         decorID = 4484,
@@ -20246,6 +22456,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20278,6 +22491,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Things Are Not Goren Our Way",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4486] = {
         decorID = 4486,
@@ -20306,6 +22523,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Bigger is Better",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4487] = {
         decorID = 4487,
@@ -20334,6 +22555,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "The Perenolde Tiara",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Perenolde Tiara" },
+        },
     },
     [4488] = {
         decorID = 4488,
@@ -20361,6 +22588,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Lost and Lonely" },
+        },
     },
     [4490] = {
         decorID = 4490,
@@ -20388,6 +22621,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4560] = {
         decorID = 4560,
@@ -20415,6 +22651,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [4561] = {
         decorID = 4561,
@@ -20442,6 +22681,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [4562] = {
         decorID = 4562,
@@ -20470,6 +22712,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20501,6 +22746,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4812] = {
         decorID = 4812,
@@ -20528,6 +22776,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4813] = {
         decorID = 4813,
@@ -20556,6 +22807,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
         vendorUnlockAchievement = "Full Caravan",
+        vendorCosts = {
+            { amount = 3000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4814] = {
         decorID = 4814,
@@ -20584,6 +22838,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "I TAKE Candle!",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "\"I TAKE Candle!\"" },
+        },
     },
     [4815] = {
         decorID = 4815,
@@ -20612,6 +22872,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Report to Goldshire",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Report to Goldshire" },
+        },
     },
     [4816] = {
         decorID = 4816,
@@ -20639,6 +22905,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4818] = {
         decorID = 4818,
@@ -20667,6 +22937,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "My Very Own Castle",
+        vendorCosts = {
+            { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [4819] = {
         decorID = 4819,
@@ -20695,6 +22968,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "The Dawning of a New Day",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Dawning of a New Day" },
+        },
     },
     [4822] = {
         decorID = 4822,
@@ -20722,6 +23001,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -20753,6 +23035,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -20785,6 +23070,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
         vendorUnlockAchievement = "The Snows of Northrend",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4841] = {
         decorID = 4841,
@@ -20813,6 +23101,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Green Hills of Stranglethorn",
+        vendorCosts = {
+            { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4843] = {
         decorID = 4843,
@@ -20822,24 +23113,25 @@ NS.CatalogData.Items = {
         iconTexture = 7423959,
         asset = 7011541,
         uiModelSceneID = 1337,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 69,
         placementCost = 5,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [4844] = {
         decorID = 4844,
@@ -20867,6 +23159,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [4845] = {
         decorID = 4845,
@@ -20894,6 +23190,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -20925,6 +23224,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Golden Cloud Serpent Treasure Chest" },
+        },
     },
     [5112] = {
         decorID = 5112,
@@ -20952,6 +23254,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5113] = {
         decorID = 5113,
@@ -20979,6 +23284,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5115] = {
         decorID = 5115,
@@ -21007,6 +23315,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockQuest = "Kobold Candles",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Kobold Candles" },
+        },
     },
     [5116] = {
         decorID = 5116,
@@ -21034,6 +23348,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5117] = {
         decorID = 5117,
@@ -21061,6 +23378,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 5000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5119] = {
         decorID = 5119,
@@ -21088,6 +23408,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5120] = {
         decorID = 5120,
@@ -21115,6 +23438,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5126] = {
         decorID = 5126,
@@ -21142,6 +23468,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5127] = {
         decorID = 5127,
@@ -21169,6 +23498,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5128] = {
         decorID = 5128,
@@ -21196,6 +23528,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5132] = {
         decorID = 5132,
@@ -21223,6 +23558,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [5133] = {
         decorID = 5133,
@@ -21250,6 +23588,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Resplendent Highborne Statue" },
+        },
     },
     [5136] = {
         decorID = 5136,
@@ -21277,6 +23618,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5292] = {
         decorID = 5292,
@@ -21304,6 +23649,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5342] = {
         decorID = 5342,
@@ -21331,6 +23679,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Smoke Sconce" },
+        },
     },
     [5525] = {
         decorID = 5525,
@@ -21358,6 +23709,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5526] = {
         decorID = 5526,
@@ -21385,6 +23739,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5527] = {
         decorID = 5527,
@@ -21412,6 +23769,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5528] = {
         decorID = 5528,
@@ -21439,6 +23799,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5529] = {
         decorID = 5529,
@@ -21466,6 +23829,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5530] = {
         decorID = 5530,
@@ -21493,6 +23859,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5531] = {
         decorID = 5531,
@@ -21520,6 +23889,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5532] = {
         decorID = 5532,
@@ -21547,6 +23919,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5534] = {
         decorID = 5534,
@@ -21574,6 +23949,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5555] = {
         decorID = 5555,
@@ -21601,6 +23979,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5556] = {
         decorID = 5556,
@@ -21628,6 +24009,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5558] = {
         decorID = 5558,
@@ -21655,6 +24039,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5559] = {
         decorID = 5559,
@@ -21682,6 +24069,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5560] = {
         decorID = 5560,
@@ -21709,6 +24099,13 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Augmenting a Dragon" },
+        },
     },
     [5561] = {
         decorID = 5561,
@@ -21736,6 +24133,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -21767,6 +24167,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5563] = {
         decorID = 5563,
@@ -21794,6 +24197,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -21825,6 +24231,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [5575] = {
         decorID = 5575,
@@ -21852,6 +24261,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5651] = {
         decorID = 5651,
@@ -21879,6 +24291,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [5689] = {
         decorID = 5689,
@@ -21906,6 +24321,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [5853] = {
         decorID = 5853,
@@ -21933,6 +24351,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -21964,6 +24385,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -21995,6 +24419,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5878] = {
         decorID = 5878,
@@ -22022,6 +24449,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5879] = {
         decorID = 5879,
@@ -22049,6 +24479,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5880] = {
         decorID = 5880,
@@ -22076,6 +24509,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5881] = {
         decorID = 5881,
@@ -22103,6 +24539,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5882] = {
         decorID = 5882,
@@ -22130,6 +24569,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5888] = {
         decorID = 5888,
@@ -22157,6 +24599,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5889] = {
         decorID = 5889,
@@ -22184,6 +24629,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Leave Our Mark" },
+        },
     },
     [5890] = {
         decorID = 5890,
@@ -22211,6 +24662,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5891] = {
         decorID = 5891,
@@ -22238,6 +24692,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5892] = {
         decorID = 5892,
@@ -22265,6 +24722,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5893] = {
         decorID = 5893,
@@ -22292,6 +24752,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5894] = {
         decorID = 5894,
@@ -22319,6 +24782,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5895] = {
         decorID = 5895,
@@ -22346,6 +24812,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5896] = {
         decorID = 5896,
@@ -22373,6 +24842,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5897] = {
         decorID = 5897,
@@ -22400,6 +24872,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [5898] = {
         decorID = 5898,
@@ -22427,6 +24902,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7571] = {
         decorID = 7571,
@@ -22454,6 +24932,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7572] = {
         decorID = 7572,
@@ -22481,6 +24962,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7573] = {
         decorID = 7573,
@@ -22508,6 +24992,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7574] = {
         decorID = 7574,
@@ -22535,6 +25022,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7575] = {
         decorID = 7575,
@@ -22562,6 +25052,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7576] = {
         decorID = 7576,
@@ -22589,6 +25082,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7577] = {
         decorID = 7577,
@@ -22616,6 +25112,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7579] = {
         decorID = 7579,
@@ -22643,6 +25142,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7606] = {
         decorID = 7606,
@@ -22670,6 +25172,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7607] = {
         decorID = 7607,
@@ -22697,6 +25202,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7608] = {
         decorID = 7608,
@@ -22724,6 +25232,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7609] = {
         decorID = 7609,
@@ -22751,6 +25262,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7610] = {
         decorID = 7610,
@@ -22779,6 +25293,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Court of Farondis",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 6000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7620] = {
         decorID = 7620,
@@ -22807,6 +25325,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Valarjar",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 12000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7621] = {
         decorID = 7621,
@@ -22835,6 +25357,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Broken Isles Dungeoneer",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7622] = {
         decorID = 7622,
@@ -22863,6 +25389,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Defending the Broken Isles III",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7623] = {
         decorID = 7623,
@@ -22891,6 +25421,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockAchievement = "Power of the Obelisks II",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7624] = {
         decorID = 7624,
@@ -22919,6 +25453,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Legion Remix Raids",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7625] = {
         decorID = 7625,
@@ -22947,6 +25485,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Dreamweavers",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7658] = {
         decorID = 7658,
@@ -22975,6 +25517,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Defending the Broken Isles III",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7668] = {
         decorID = 7668,
@@ -23002,6 +25548,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23034,6 +25583,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Heroic Broken Isles World Quests III",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 6000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7687] = {
         decorID = 7687,
@@ -23062,6 +25615,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Argussian Reach",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7690] = {
         decorID = 7690,
@@ -23090,6 +25647,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Broken Isles World Quest V",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7691] = {
         decorID = 7691,
@@ -23117,6 +25678,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23148,6 +25712,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23179,6 +25746,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23210,6 +25780,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23241,6 +25814,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23272,6 +25848,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23303,6 +25882,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23334,6 +25916,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23365,6 +25950,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23396,6 +25984,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23427,6 +26018,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -23458,6 +26052,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 2803, iconPath = "Interface\\ICONS\\INV_Misc_ElvenCoins.blp" },
+        },
     },
     [7782] = {
         decorID = 7782,
@@ -23485,6 +26082,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [7815] = {
         decorID = 7815,
@@ -23512,6 +26112,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7816] = {
         decorID = 7816,
@@ -23539,6 +26142,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7817] = {
         decorID = 7817,
@@ -23566,6 +26172,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7818] = {
         decorID = 7818,
@@ -23593,6 +26202,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7819] = {
         decorID = 7819,
@@ -23620,6 +26232,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7820] = {
         decorID = 7820,
@@ -23647,6 +26262,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7821] = {
         decorID = 7821,
@@ -23674,6 +26292,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7822] = {
         decorID = 7822,
@@ -23701,6 +26322,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7823] = {
         decorID = 7823,
@@ -23728,6 +26352,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7824] = {
         decorID = 7824,
@@ -23755,6 +26382,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7825] = {
         decorID = 7825,
@@ -23945,6 +26575,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         vendorUnlockQuest = "On New Wings",
+        vendorCosts = {
+            { amount = 600, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "On New Wings" },
+        },
     },
     [7836] = {
         decorID = 7836,
@@ -23972,6 +26608,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -24003,6 +26642,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7838] = {
         decorID = 7838,
@@ -24030,6 +26672,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7839] = {
         decorID = 7839,
@@ -24057,6 +26702,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7841] = {
         decorID = 7841,
@@ -24084,6 +26732,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7842] = {
         decorID = 7842,
@@ -24112,6 +26763,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -24143,6 +26797,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7874] = {
         decorID = 7874,
@@ -24170,6 +26827,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7875] = {
         decorID = 7875,
@@ -24197,6 +26857,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [7896] = {
         decorID = 7896,
@@ -24225,6 +26888,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "The Returning",
+        vendorCosts = {
+            { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Returning" },
+        },
     },
     [8176] = {
         decorID = 8176,
@@ -24252,6 +26921,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Missive: Assault on Socrethar's Rise" },
+        },
     },
     [8177] = {
         decorID = 8177,
@@ -24280,6 +26952,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Traitor's True Name",
+        vendorCosts = {
+            { amount = 300, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Traitor's True Name" },
+        },
     },
     [8178] = {
         decorID = 8178,
@@ -24334,6 +27013,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24365,6 +27047,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24396,6 +27081,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24427,6 +27115,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24458,6 +27149,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8186] = {
         decorID = 8186,
@@ -24486,6 +27180,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Trial of Champions",
+        vendorCosts = {
+            { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Trial of Champions" },
+        },
     },
     [8187] = {
         decorID = 8187,
@@ -24514,6 +27215,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Forging Ahead",
+        vendorCosts = {
+            { amount = 1000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [8188] = {
         decorID = 8188,
@@ -24541,6 +27246,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8189] = {
         decorID = 8189,
@@ -24569,6 +27277,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Bringer of the Light",
+        vendorCosts = {
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [8190] = {
         decorID = 8190,
@@ -24596,6 +27307,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8191] = {
         decorID = 8191,
@@ -24623,6 +27337,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Stargazer's Telescope" },
+        },
     },
     [8192] = {
         decorID = 8192,
@@ -24650,6 +27367,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8193] = {
         decorID = 8193,
@@ -24677,6 +27397,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8194] = {
         decorID = 8194,
@@ -24704,6 +27427,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8195] = {
         decorID = 8195,
@@ -24731,6 +27457,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
         altVendorName = "Sylvia Hartshorn",
         altNpcID = 106901,
         altNpcX = 54.8,
@@ -24763,6 +27492,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenic Basin" },
+        },
     },
     [8235] = {
         decorID = 8235,
@@ -24817,6 +27549,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -24848,6 +27583,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Argussian Circular Rug" },
+        },
     },
     [8238] = {
         decorID = 8238,
@@ -24903,6 +27641,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Traitor's True Name",
+        vendorCosts = {
+            { amount = 500, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Traitor's True Name" },
+        },
     },
     [8240] = {
         decorID = 8240,
@@ -24931,6 +27676,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Prophet's Final Message",
+        vendorCosts = {
+            { amount = 2000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Prophet's Final Message" },
+        },
     },
     [8241] = {
         decorID = 8241,
@@ -24958,6 +27709,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenethyst Sconce" },
+        },
     },
     [8242] = {
         decorID = 8242,
@@ -24985,6 +27739,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+        },
     },
     [8768] = {
         decorID = 8768,
@@ -25012,6 +27769,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [8769] = {
         decorID = 8769,
@@ -25039,6 +27799,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -25070,6 +27833,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -25101,6 +27867,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -25133,6 +27905,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Battle for Shattrath",
+        vendorCosts = {
+            { amount = 1000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Battle for Shattrath" },
+        },
     },
     [8785] = {
         decorID = 8785,
@@ -25161,6 +27940,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Socrethar's Demise",
+        vendorCosts = {
+            { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Socrethar's Demise" },
+        },
     },
     [8786] = {
         decorID = 8786,
@@ -25189,6 +27975,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Defense of Karabor",
+        vendorCosts = {
+            { amount = 2000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
+            { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Defense of Karabor" },
+        },
     },
     [8787] = {
         decorID = 8787,
@@ -25216,6 +28009,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenethyst String Lights" },
+        },
     },
     [8810] = {
         decorID = 8810,
@@ -25244,6 +28040,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "The Wardens",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [8811] = {
         decorID = 8811,
@@ -25272,6 +28072,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Timeworn Keystone Master",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [8872] = {
         decorID = 8872,
@@ -25299,6 +28103,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [8874] = {
         decorID = 8874,
@@ -25326,6 +28133,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [8875] = {
         decorID = 8875,
@@ -25353,6 +28163,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
         treasureVendorNpcID = 259864,
         treasureVendorX = 43.2,
         treasureVendorY = 47.4,
@@ -25412,6 +28225,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -25443,6 +28259,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -25474,6 +28293,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -25505,6 +28327,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -25536,6 +28361,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [8917] = {
         decorID = 8917,
@@ -25564,6 +28392,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -25595,6 +28426,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -25626,6 +28460,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [8983] = {
         decorID = 8983,
@@ -25653,6 +28490,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Boralus Barrel" },
+        },
     },
     [8984] = {
         decorID = 8984,
@@ -25680,6 +28520,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [8987] = {
         decorID = 8987,
@@ -25707,6 +28550,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -25738,6 +28584,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -25769,6 +28618,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -25801,6 +28653,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Herding Manifestations",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9035] = {
         decorID = 9035,
@@ -25829,6 +28684,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Proudmoore's Parley",
+        vendorCosts = {
+            { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9036] = {
         decorID = 9036,
@@ -25856,6 +28714,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 100, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9037] = {
         decorID = 9037,
@@ -25883,6 +28744,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 50, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9038] = {
         decorID = 9038,
@@ -25910,6 +28774,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Proudmoore Shipping Crate" },
+        },
     },
     [9039] = {
         decorID = 9039,
@@ -25937,6 +28804,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 750, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9040] = {
         decorID = 9040,
@@ -25964,6 +28834,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9041] = {
         decorID = 9041,
@@ -25992,6 +28865,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Mountain Sounds",
+        vendorCosts = {
+            { amount = 250, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9042] = {
         decorID = 9042,
@@ -26019,6 +28895,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9043] = {
         decorID = 9043,
@@ -26046,6 +28925,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 550, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9044] = {
         decorID = 9044,
@@ -26074,6 +28956,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Carry On",
+        vendorCosts = {
+            { amount = 450, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Carry On" },
+        },
     },
     [9045] = {
         decorID = 9045,
@@ -26101,6 +28989,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 125, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9046] = {
         decorID = 9046,
@@ -26128,6 +29019,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Brennadam Grinder" },
+        },
     },
     [9047] = {
         decorID = 9047,
@@ -26155,6 +29049,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9048] = {
         decorID = 9048,
@@ -26182,6 +29079,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Stormsong Stove" },
+        },
     },
     [9049] = {
         decorID = 9049,
@@ -26210,6 +29110,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "War Marches On",
+        vendorCosts = {
+            { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "War Marches On" },
+        },
     },
     [9050] = {
         decorID = 9050,
@@ -26237,6 +29143,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Boralus Bookshelf" },
+        },
     },
     [9051] = {
         decorID = 9051,
@@ -26264,6 +29173,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 450, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9052] = {
         decorID = 9052,
@@ -26292,6 +29204,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Allegiance of Kul Tiras",
+        vendorCosts = {
+            { amount = 550, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Allegiance of Kul Tiras" },
+        },
     },
     [9053] = {
         decorID = 9053,
@@ -26319,6 +29237,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9054] = {
         decorID = 9054,
@@ -26347,6 +29268,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Mountain Sounds",
+        vendorCosts = {
+            { amount = 250, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9055] = {
         decorID = 9055,
@@ -26375,6 +29299,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Stow and Go",
+        vendorCosts = {
+            { amount = 375, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9064] = {
         decorID = 9064,
@@ -26402,6 +29329,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -26460,6 +29390,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9140] = {
         decorID = 9140,
@@ -26488,6 +29421,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "The Long Con",
+        vendorCosts = {
+            { amount = 650, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9141] = {
         decorID = 9141,
@@ -26516,6 +29452,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "The Pride of Kul Tiras",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9142] = {
         decorID = 9142,
@@ -26544,6 +29483,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "Storm's Vengeance",
+        vendorCosts = {
+            { amount = 175, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [9143] = {
         decorID = 9143,
@@ -26571,6 +29513,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -26602,6 +29547,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -26615,24 +29563,25 @@ NS.CatalogData.Items = {
         iconTexture = 7425003,
         asset = 7301966,
         uiModelSceneID = 1339,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 68,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [9150] = {
         decorID = 9150,
@@ -26642,24 +29591,25 @@ NS.CatalogData.Items = {
         iconTexture = 7425007,
         asset = 7301967,
         uiModelSceneID = 1339,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 68,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [9151] = {
         decorID = 9151,
@@ -26669,24 +29619,25 @@ NS.CatalogData.Items = {
         iconTexture = 7425011,
         asset = 7301968,
         uiModelSceneID = 1339,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 68,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [9152] = {
         decorID = 9152,
@@ -26696,24 +29647,25 @@ NS.CatalogData.Items = {
         iconTexture = 7425015,
         asset = 7301965,
         uiModelSceneID = 1339,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = false,
         size = 68,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [9165] = {
         decorID = 9165,
@@ -26742,6 +29694,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "The Armies of Legionfall",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [9166] = {
         decorID = 9166,
@@ -26770,6 +29726,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockQuest = "My Brother's Keeper",
+        vendorCosts = {
+            { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "My Brother's Keeper" },
+        },
     },
     [9167] = {
         decorID = 9167,
@@ -26797,6 +29759,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dornogal Framed Rug" },
+        },
     },
     [9168] = {
         decorID = 9168,
@@ -26825,6 +29790,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Bad Business",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Bad Business" },
+        },
     },
     [9169] = {
         decorID = 9169,
@@ -26853,6 +29824,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockAchievement = "Sojourner of Isle of Dorn",
+        vendorCosts = {
+            { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9170] = {
         decorID = 9170,
@@ -26880,6 +29854,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Boulder Springs Hot Tub" },
+        },
     },
     [9178] = {
         decorID = 9178,
@@ -26908,6 +29885,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Into the Machine",
+        vendorCosts = {
+            { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Into the Machine" },
+        },
     },
     [9179] = {
         decorID = 9179,
@@ -26936,6 +29919,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Heart of a Hero",
+        vendorCosts = {
+            { amount = 400, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Heart of a Hero" },
+        },
     },
     [9180] = {
         decorID = 9180,
@@ -26963,6 +29952,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dornogal Bookcase" },
+        },
     },
     [9181] = {
         decorID = 9181,
@@ -26991,6 +29983,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockAchievement = "Rocked to Sleep",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9182] = {
         decorID = 9182,
@@ -27019,6 +30014,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Weight of Duty",
+        vendorCosts = {
+            { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Weight of Duty" },
+        },
     },
     [9183] = {
         decorID = 9183,
@@ -27047,6 +30048,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Hope, An Anomaly",
+        vendorCosts = {
+            { amount = 300, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Hope, An Anomaly" },
+        },
     },
     [9184] = {
         decorID = 9184,
@@ -27074,6 +30081,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Freywold Table" },
+        },
     },
     [9185] = {
         decorID = 9185,
@@ -27102,6 +30112,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockAchievement = "We're Here All Night",
+        vendorCosts = {
+            { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9186] = {
         decorID = 9186,
@@ -27130,6 +30143,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         vendorUnlockQuest = "Weight of Duty",
+        vendorCosts = {
+            { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9187] = {
         decorID = 9187,
@@ -27157,6 +30173,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dornogal Hanging Sconce" },
+        },
     },
     [9188] = {
         decorID = 9188,
@@ -27185,6 +30204,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "On the Road",
+        vendorCosts = {
+            { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9236] = {
         decorID = 9236,
@@ -27212,6 +30234,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9237] = {
         decorID = 9237,
@@ -27240,6 +30265,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockAchievement = "Professional Algari Master",
+        vendorCosts = {
+            { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [9238] = {
         decorID = 9238,
@@ -27267,6 +30295,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Algari Fence" },
+            { sourceType = "Profession", sourceDetail = "Algari Fencepost" },
+        },
     },
     [9239] = {
         decorID = 9239,
@@ -27294,6 +30326,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Algari Fencepost" },
+        },
     },
     [9240] = {
         decorID = 9240,
@@ -27322,6 +30357,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "To Wake a Giant",
+        vendorCosts = {
+            { amount = 1100, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "To Wake a Giant" },
+        },
     },
     [9241] = {
         decorID = 9241,
@@ -27349,6 +30390,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Forgeground Market Bins" },
+        },
     },
     [9242] = {
         decorID = 9242,
@@ -27376,6 +30420,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Captain Lancy Revshon", npcID = 49877, x = 67.9, y = 73.2, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Stone Guard Nargol", npcID = 50488, x = 50, y = 58.4, zone = "Orgrimmar", mapID = 85 },
@@ -27407,6 +30454,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Meadery Storage Chest" },
+        },
     },
     [9244] = {
         decorID = 9244,
@@ -27435,6 +30485,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Deephaul Ravine Victory",
+        vendorCosts = {
+            { amount = 750, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -27466,6 +30519,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Replica Awakening Machine Stasis Pod" },
+        },
     },
     [9246] = {
         decorID = 9246,
@@ -27494,6 +30550,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Cinderbrew Reserve",
+        vendorCosts = {
+            { amount = 850, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Cinderbrew Reserve" },
+        },
     },
     [9247] = {
         decorID = 9247,
@@ -27521,6 +30583,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Furniture Favor" },
+        },
     },
     [9248] = {
         decorID = 9248,
@@ -27548,6 +30613,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9249] = {
         decorID = 9249,
@@ -27576,6 +30644,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Where the Fire Once Burned",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9250] = {
         decorID = 9250,
@@ -27604,6 +30675,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Timear Foresees a Proof of Demise!",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9251] = {
         decorID = 9251,
@@ -27632,6 +30706,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Uncrowned's Cold Case",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9252] = {
         decorID = 9252,
@@ -27660,6 +30737,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Still Behind Enemy Portals",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9253] = {
         decorID = 9253,
@@ -27687,6 +30767,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9254] = {
         decorID = 9254,
@@ -27714,6 +30797,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -27746,6 +30832,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -27777,6 +30866,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        dropRate = 0.13,
     },
     [9266] = {
         decorID = 9266,
@@ -27804,6 +30894,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tirisfal Hollow Campfire" },
+        },
     },
     [9267] = {
         decorID = 9267,
@@ -27832,6 +30925,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Splintered Fleet",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9268] = {
         decorID = 9268,
@@ -27859,6 +30955,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Replica Rumbling Wastes Drill Pod" },
+        },
     },
     [9269] = {
         decorID = 9269,
@@ -27886,6 +30985,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gundargaz Candelabra" },
+        },
     },
     [9419] = {
         decorID = 9419,
@@ -27913,6 +31015,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Thalassian Competitor's Leather Chestpiece" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -27944,6 +31052,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -27975,6 +31086,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28006,6 +31120,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28037,6 +31154,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28068,6 +31188,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Escape" },
+        },
     },
     [9439] = {
         decorID = 9439,
@@ -28096,6 +31219,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "A Favor to Axe",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Favor to Axe" },
+        },
     },
     [9440] = {
         decorID = 9440,
@@ -28123,6 +31252,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9441] = {
         decorID = 9441,
@@ -28151,6 +31283,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Hellscreams Heritage",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9443] = {
         decorID = 9443,
@@ -28233,6 +31368,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -28264,6 +31402,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -28295,6 +31436,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -28326,6 +31470,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -28358,6 +31505,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "A Frostbitten Tally",
+        vendorCosts = {
+            { amount = 8000, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Leave Our Mark" },
+        },
     },
     [9476] = {
         decorID = 9476,
@@ -28385,6 +31538,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28416,6 +31572,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28447,6 +31606,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -28479,6 +31641,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9480] = {
         decorID = 9480,
@@ -28507,6 +31672,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9481] = {
         decorID = 9481,
@@ -28535,6 +31703,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9482] = {
         decorID = 9482,
@@ -28563,6 +31734,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9483] = {
         decorID = 9483,
@@ -28590,6 +31764,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9484] = {
         decorID = 9484,
@@ -28618,6 +31795,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9485] = {
         decorID = 9485,
@@ -28646,6 +31826,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9486] = {
         decorID = 9486,
@@ -28673,6 +31856,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9487] = {
         decorID = 9487,
@@ -28700,6 +31886,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9488] = {
         decorID = 9488,
@@ -28727,6 +31916,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9489] = {
         decorID = 9489,
@@ -28754,6 +31946,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9490] = {
         decorID = 9490,
@@ -28781,6 +31976,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9491] = {
         decorID = 9491,
@@ -28809,6 +32007,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9492] = {
         decorID = 9492,
@@ -28837,6 +32038,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9493] = {
         decorID = 9493,
@@ -28865,6 +32069,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9494] = {
         decorID = 9494,
@@ -28893,6 +32100,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9495] = {
         decorID = 9495,
@@ -28921,6 +32131,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9496] = {
         decorID = 9496,
@@ -28949,6 +32162,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9497] = {
         decorID = 9497,
@@ -28977,6 +32193,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The War of Light and Shadow",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9624] = {
         decorID = 9624,
@@ -29004,6 +32223,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [9628] = {
         decorID = 9628,
@@ -29031,6 +32253,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [9629] = {
         decorID = 9629,
@@ -29058,6 +32283,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [10273] = {
         decorID = 10273,
@@ -29085,6 +32313,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -29116,6 +32347,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -29148,6 +32382,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Can We Heal This?",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Can We Heal This?" },
+        },
     },
     [10339] = {
         decorID = 10339,
@@ -29175,6 +32415,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29206,6 +32449,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29237,6 +32483,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29268,6 +32517,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29299,6 +32551,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29330,6 +32585,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29361,6 +32619,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29392,6 +32653,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29423,6 +32687,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29454,6 +32721,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29485,6 +32755,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29516,6 +32789,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29547,6 +32823,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29578,6 +32857,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29609,6 +32891,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29640,6 +32925,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29698,6 +32986,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -29729,6 +33020,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -29760,6 +33054,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [10778] = {
         decorID = 10778,
@@ -29788,6 +33085,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "A Last Resort",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [10791] = {
         decorID = 10791,
@@ -29815,6 +33115,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -29846,6 +33149,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [10853] = {
         decorID = 10853,
@@ -29873,6 +33179,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 475, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [10855] = {
         decorID = 10855,
@@ -29900,6 +33209,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -29931,6 +33243,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -29962,6 +33277,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [10858] = {
         decorID = 10858,
@@ -29990,6 +33308,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "De Legend of de Hash'ey",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "De Legend of de Hash'ey" },
+        },
     },
     [10860] = {
         decorID = 10860,
@@ -30018,6 +33342,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -30049,6 +33376,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        dropRate = 0.86,
     },
     [10888] = {
         decorID = 10888,
@@ -30103,6 +33431,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [10892] = {
         decorID = 10892,
@@ -30130,6 +33461,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -30161,6 +33495,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 8000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Quackenbush", npcID = 68363, x = 50.8, y = 26.8, zone = "Deeprun Tram", mapID = 499 },
             Horde = { name = "Paul North", npcID = 68364, x = 52.1, y = 28, zone = "Orgrimmar", mapID = 85 },
@@ -30192,6 +33529,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [10950] = {
         decorID = 10950,
@@ -30219,6 +33559,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The Burning Crusade",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [10952] = {
         decorID = 10952,
@@ -30246,6 +33589,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -30277,6 +33623,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 10, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [10963] = {
         decorID = 10963,
@@ -30304,6 +33653,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        vendorCosts = {
+            { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
     },
     [10964] = {
         decorID = 10964,
@@ -30331,6 +33683,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draconic Scribe's Basin" },
+        },
     },
     [10965] = {
         decorID = 10965,
@@ -30358,6 +33713,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Five Flights' Grimoire" },
+        },
     },
     [11127] = {
         decorID = 11127,
@@ -30385,6 +33743,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [11128] = {
         decorID = 11128,
@@ -30412,6 +33773,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 350, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [11130] = {
         decorID = 11130,
@@ -30439,6 +33803,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11131] = {
         decorID = 11131,
@@ -30467,6 +33834,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Return to Keeshan",
+        vendorCosts = {
+            { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionQuestChains = {
             Alliance = { questID = 28183 },
             Horde = { questID = 28425 },
@@ -30498,6 +33868,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11137] = {
         decorID = 11137,
@@ -30525,6 +33898,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        dropRate = 0.52,
     },
     [11138] = {
         decorID = 11138,
@@ -30552,6 +33926,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sunsmoke Censer" },
+        },
     },
     [11139] = {
         decorID = 11139,
@@ -30579,6 +33956,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -30611,6 +33991,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Blood in the Snow",
+        vendorCosts = {
+            { amount = 350, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11162] = {
         decorID = 11162,
@@ -30638,6 +34021,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wingrest Signal Brazier" },
+        },
     },
     [11163] = {
         decorID = 11163,
@@ -30665,6 +34051,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        dropRate = 0.63,
     },
     [11164] = {
         decorID = 11164,
@@ -30693,6 +34080,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "Enforced Relaxation",
+        vendorCosts = {
+            { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Enforced Relaxation" },
+        },
     },
     [11165] = {
         decorID = 11165,
@@ -30720,6 +34113,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Hanging Cauldron" },
+        },
     },
     [11274] = {
         decorID = 11274,
@@ -30748,6 +34144,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "A Binding Contract",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Binding Contract" },
+        },
     },
     [11275] = {
         decorID = 11275,
@@ -30775,6 +34177,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11276] = {
         decorID = 11276,
@@ -30802,6 +34207,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11278] = {
         decorID = 11278,
@@ -30830,6 +34238,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "The Nightfallen",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11279] = {
         decorID = 11279,
@@ -30858,6 +34270,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "The Nightfallen",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11280] = {
         decorID = 11280,
@@ -30885,6 +34301,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11281] = {
         decorID = 11281,
@@ -30912,6 +34331,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Arcan'dor Cutting Fountain" },
+        },
     },
     [11282] = {
         decorID = 11282,
@@ -30939,6 +34361,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Nightspire Fountain" },
+        },
     },
     [11283] = {
         decorID = 11283,
@@ -30966,6 +34391,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        dropRate = 0.12,
     },
     [11284] = {
         decorID = 11284,
@@ -31002,24 +34428,25 @@ NS.CatalogData.Items = {
         iconTexture = 7425939,
         asset = 7324189,
         uiModelSceneID = 1334,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 66,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [11296] = {
         decorID = 11296,
@@ -31048,6 +34475,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Classic",
         vendorUnlockAchievement = "Battle for Gilneas Victory",
+        vendorCosts = {
+            { amount = 450, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
@@ -31080,6 +34510,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "The Shredders of Irontree",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Shredders of Irontree" },
+        },
     },
     [11305] = {
         decorID = 11305,
@@ -31108,6 +34544,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Morbent's Bane",
+        vendorCosts = {
+            { amount = 175, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Morbent's Bane" },
+        },
     },
     [11307] = {
         decorID = 11307,
@@ -31135,6 +34577,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11315] = {
         decorID = 11315,
@@ -31163,6 +34608,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Got to Ketchum All",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11319] = {
         decorID = 11319,
@@ -31190,6 +34639,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [11323] = {
         decorID = 11323,
@@ -31217,6 +34669,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 800, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
+        },
     },
     [11324] = {
         decorID = 11324,
@@ -31244,6 +34699,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11325] = {
         decorID = 11325,
@@ -31271,6 +34729,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11326] = {
         decorID = 11326,
@@ -31298,6 +34759,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11327] = {
         decorID = 11327,
@@ -31325,6 +34789,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11328] = {
         decorID = 11328,
@@ -31353,6 +34820,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Reports Returned",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Reports Returned" },
+        },
     },
     [11333] = {
         decorID = 11333,
@@ -31380,6 +34853,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11334] = {
         decorID = 11334,
@@ -31407,6 +34883,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11370] = {
         decorID = 11370,
@@ -31434,6 +34913,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Bronze Banner of the Exiled" },
+        },
     },
     [11371] = {
         decorID = 11371,
@@ -31461,6 +34943,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Smith's Anvil" },
+        },
     },
     [11372] = {
         decorID = 11372,
@@ -31488,6 +34973,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Holo-Dais" },
+        },
     },
     [11373] = {
         decorID = 11373,
@@ -31515,6 +35003,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Holo-Path" },
+        },
     },
     [11374] = {
         decorID = 11374,
@@ -31542,6 +35033,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Crystal Forge" },
+        },
     },
     [11375] = {
         decorID = 11375,
@@ -31569,6 +35063,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Runic Anvil" },
+        },
     },
     [11376] = {
         decorID = 11376,
@@ -31596,6 +35093,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Stoppered Black Potion" },
+        },
     },
     [11377] = {
         decorID = 11377,
@@ -31623,6 +35123,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Pitchfork" },
+        },
     },
     [11378] = {
         decorID = 11378,
@@ -31650,6 +35153,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Alchemist's Retort" },
+        },
     },
     [11379] = {
         decorID = 11379,
@@ -31677,6 +35183,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Orcish Felblood Cauldron" },
+        },
     },
     [11380] = {
         decorID = 11380,
@@ -31704,6 +35213,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Starry Scrying Pool" },
+        },
     },
     [11381] = {
         decorID = 11381,
@@ -31731,6 +35243,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Boralus Bottle Lamp" },
+        },
     },
     [11382] = {
         decorID = 11382,
@@ -31758,6 +35273,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Zandalari Bottle Shipment" },
+        },
     },
     [11383] = {
         decorID = 11383,
@@ -31785,6 +35303,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Aspirant's Meditation Pool" },
+        },
     },
     [11384] = {
         decorID = 11384,
@@ -31812,6 +35333,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Bejeweled Venthyr Chalice" },
+        },
     },
     [11385] = {
         decorID = 11385,
@@ -31839,6 +35363,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Veil-Secured Animacone" },
+        },
     },
     [11386] = {
         decorID = 11386,
@@ -31866,6 +35393,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sintallow Candles" },
+        },
     },
     [11387] = {
         decorID = 11387,
@@ -31893,6 +35423,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dragon's Elixir Bottle" },
+        },
     },
     [11388] = {
         decorID = 11388,
@@ -31920,6 +35453,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tapestry of the Five Flights" },
+        },
     },
     [11431] = {
         decorID = 11431,
@@ -31947,6 +35483,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Aldor Stellar Console" },
+        },
     },
     [11432] = {
         decorID = 11432,
@@ -31974,6 +35513,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Mark of the Mages' Eye" },
+        },
     },
     [11433] = {
         decorID = 11433,
@@ -32001,6 +35543,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Twilight Fire Canister" },
+        },
     },
     [11434] = {
         decorID = 11434,
@@ -32028,6 +35573,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Table Lamp" },
+        },
     },
     [11435] = {
         decorID = 11435,
@@ -32055,6 +35603,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Intense Mogu Brazier" },
+        },
     },
     [11436] = {
         decorID = 11436,
@@ -32082,6 +35633,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Venthyr Anima Bottle" },
+        },
     },
     [11437] = {
         decorID = 11437,
@@ -32109,6 +35663,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -32140,6 +35697,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Apothecary's Worktable" },
+        },
     },
     [11439] = {
         decorID = 11439,
@@ -32167,6 +35727,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Stampwhistle's Postal Portal" },
+        },
     },
     [11440] = {
         decorID = 11440,
@@ -32194,6 +35757,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Nerubian Alchemist's Retort" },
+        },
     },
     [11451] = {
         decorID = 11451,
@@ -32221,6 +35787,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11453] = {
         decorID = 11453,
@@ -32249,6 +35819,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Mists of Pandaria",
         vendorUnlockAchievement = "Lorewalking: The Lich King",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11454] = {
         decorID = 11454,
@@ -32277,6 +35850,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Dragonflight",
         vendorUnlockQuest = "A Multi-Front Battle",
+        vendorCosts = {
+            { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Multi-Front Battle" },
+        },
     },
     [11455] = {
         decorID = 11455,
@@ -32332,6 +35911,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Mists of Pandaria",
         vendorUnlockAchievement = "Lorewalking: Ethereal Wisdom",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11457] = {
         decorID = 11457,
@@ -32360,6 +35942,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Mists of Pandaria",
         vendorUnlockAchievement = "Lorewalking: Blade's Bane",
+        vendorCosts = {
+            { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11461] = {
         decorID = 11461,
@@ -32387,6 +35972,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -32445,6 +36033,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -32476,6 +36067,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -32507,6 +36101,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -32538,6 +36135,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -32569,6 +36169,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 50, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [11484] = {
         decorID = 11484,
@@ -32596,6 +36199,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [11486] = {
         decorID = 11486,
@@ -32623,6 +36229,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11487] = {
         decorID = 11487,
@@ -32651,6 +36260,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Huln's War - The Nathrezim",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11489] = {
         decorID = 11489,
@@ -32678,6 +36291,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [11490] = {
         decorID = 11490,
@@ -32705,6 +36321,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Highmountain Tanner's Frame" },
+        },
     },
     [11491] = {
         decorID = 11491,
@@ -32733,6 +36352,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "The Skies of Highmountain",
+        vendorCosts = {
+            { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11492] = {
         decorID = 11492,
@@ -32760,6 +36383,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "\"Unity of Thorns\" Tapestry" },
+        },
     },
     [11493] = {
         decorID = 11493,
@@ -32787,6 +36413,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11494] = {
         decorID = 11494,
@@ -32814,6 +36443,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pyrewood Glass Bottle" },
+        },
     },
     [11495] = {
         decorID = 11495,
@@ -32841,6 +36473,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11496] = {
         decorID = 11496,
@@ -32868,6 +36503,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Smoke Lamp" },
+            { sourceType = "Profession", sourceDetail = "Standing Smoke Lamp" },
+        },
     },
     [11497] = {
         decorID = 11497,
@@ -32895,6 +36534,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Standing Smoke Lamp" },
+        },
     },
     [11498] = {
         decorID = 11498,
@@ -32923,6 +36565,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockQuest = "Pyrewood's Fall",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Pyrewood's Fall" },
+        },
     },
     [11499] = {
         decorID = 11499,
@@ -32950,6 +36598,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Flowers for Amalthea" },
+        },
     },
     [11500] = {
         decorID = 11500,
@@ -32977,6 +36628,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The Burning Crusade",
+        vendorCosts = {
+            { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11501] = {
         decorID = 11501,
@@ -33004,6 +36658,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Silvermoon Spire Fountain" },
+        },
     },
     [11502] = {
         decorID = 11502,
@@ -33031,6 +36688,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11503] = {
         decorID = 11503,
@@ -33058,6 +36718,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11708] = {
         decorID = 11708,
@@ -33085,6 +36748,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 125, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
+        },
     },
     [11718] = {
         decorID = 11718,
@@ -33112,6 +36778,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Small Gilnean Windmill" },
+        },
     },
     [11719] = {
         decorID = 11719,
@@ -33140,6 +36809,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -33172,6 +36844,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -33204,6 +36879,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
+        },
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -33235,6 +36913,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Snowfall Tribe Scare-Totem" },
+        },
     },
     [11723] = {
         decorID = 11723,
@@ -33262,6 +36943,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Green Potion" },
+        },
     },
     [11724] = {
         decorID = 11724,
@@ -33289,6 +36973,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Postbox" },
+        },
     },
     [11725] = {
         decorID = 11725,
@@ -33316,6 +37003,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Map" },
+        },
     },
     [11751] = {
         decorID = 11751,
@@ -33344,6 +37034,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Drum Circle",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11752] = {
         decorID = 11752,
@@ -33372,6 +37066,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Blood Debt",
+        vendorCosts = {
+            { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11753] = {
         decorID = 11753,
@@ -33400,6 +37098,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Empty Nest",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Empty Nest" },
+        },
     },
     [11754] = {
         decorID = 11754,
@@ -33454,6 +37159,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Camp Narache Rug" },
+        },
     },
     [11779] = {
         decorID = 11779,
@@ -33481,6 +37189,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Scaled Twilight Mosaic" },
+        },
     },
     [11814] = {
         decorID = 11814,
@@ -33562,6 +37273,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11874] = {
         decorID = 11874,
@@ -33589,6 +37303,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -33620,6 +37337,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Outland Mag'har Banner" },
+        },
     },
     [11879] = {
         decorID = 11879,
@@ -33647,6 +37367,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Arakkoa Decoy Scarecrow" },
+        },
     },
     [11880] = {
         decorID = 11880,
@@ -33674,6 +37397,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Talon King's Totem" },
+        },
     },
     [11881] = {
         decorID = 11881,
@@ -33701,6 +37427,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Holo-Projector Pedestal" },
+        },
     },
     [11882] = {
         decorID = 11882,
@@ -33728,6 +37457,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tempest Keep Cryo-Pod" },
+        },
     },
     [11883] = {
         decorID = 11883,
@@ -33755,6 +37487,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Weaver's Loom" },
+        },
     },
     [11884] = {
         decorID = 11884,
@@ -33782,6 +37517,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Transmitter" },
+        },
     },
     [11885] = {
         decorID = 11885,
@@ -33809,6 +37547,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Crystal Signpost" },
+        },
     },
     [11886] = {
         decorID = 11886,
@@ -33836,6 +37577,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Draenei Round Table" },
+        },
     },
     [11887] = {
         decorID = 11887,
@@ -33863,6 +37607,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Aldor Bookcase" },
+        },
     },
     [11888] = {
         decorID = 11888,
@@ -33890,6 +37637,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shattrath Sconce" },
+        },
     },
     [11889] = {
         decorID = 11889,
@@ -33917,6 +37667,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shattrath Lamppost" },
+        },
     },
     [11890] = {
         decorID = 11890,
@@ -33944,6 +37697,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Grand Drape of the Exiles" },
+        },
     },
     [11891] = {
         decorID = 11891,
@@ -33971,6 +37727,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Silver Dalaran Bench" },
+        },
     },
     [11892] = {
         decorID = 11892,
@@ -33998,6 +37757,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Post" },
+        },
     },
     [11893] = {
         decorID = 11893,
@@ -34025,6 +37787,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wolvar Postbag" },
+        },
     },
     [11894] = {
         decorID = 11894,
@@ -34052,6 +37817,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Dalaran Banner" },
+        },
     },
     [11895] = {
         decorID = 11895,
@@ -34079,6 +37847,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Scholar's Bookcase" },
+        },
     },
     [11896] = {
         decorID = 11896,
@@ -34106,6 +37877,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kirin Tor Sun Chandelier" },
+        },
     },
     [11897] = {
         decorID = 11897,
@@ -34133,6 +37907,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kirin Tor Crate" },
+        },
     },
     [11898] = {
         decorID = 11898,
@@ -34160,6 +37937,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Street Sign" },
+        },
     },
     [11899] = {
         decorID = 11899,
@@ -34171,7 +37951,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1452,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -34187,6 +37967,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        isShopItem = true,
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kirin Tor Glass Table" },
+        },
     },
     [11900] = {
         decorID = 11900,
@@ -34214,6 +37998,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "San'layn Blood Orb" },
+        },
     },
     [11901] = {
         decorID = 11901,
@@ -34241,6 +38028,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Icecrown Plague Canister" },
+        },
     },
     [11902] = {
         decorID = 11902,
@@ -34268,6 +38058,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Alchemist's Kit" },
+        },
     },
     [11903] = {
         decorID = 11903,
@@ -34295,6 +38088,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Halaa Bench" },
+        },
     },
     [11904] = {
         decorID = 11904,
@@ -34322,6 +38118,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Reconstructed Mogu Lightning Drill" },
+        },
     },
     [11905] = {
         decorID = 11905,
@@ -34350,6 +38149,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Oh, the Clawdacity!",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11906] = {
         decorID = 11906,
@@ -34378,6 +38180,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Wrath of the Lich King",
         vendorUnlockQuest = "Surrender... Not!",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Surrender... Not!" },
+        },
     },
     [11907] = {
         decorID = 11907,
@@ -34406,6 +38214,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Oh, the Clawdacity!",
+        vendorCosts = {
+            { amount = 20, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11908] = {
         decorID = 11908,
@@ -34434,6 +38245,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Legion",
         vendorUnlockQuest = "Mglrgrs Of Our Grmlgrlr",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11909] = {
         decorID = 11909,
@@ -34462,6 +38276,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Grand Fin-ale",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11910] = {
         decorID = 11910,
@@ -34489,6 +38306,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Display Shelves" },
+        },
     },
     [11911] = {
         decorID = 11911,
@@ -34516,6 +38336,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Failed Failure Detection Pylon" },
+        },
     },
     [11912] = {
         decorID = 11912,
@@ -34543,6 +38366,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Auto-Hammer" },
+        },
     },
     [11913] = {
         decorID = 11913,
@@ -34570,6 +38396,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Suramar Jeweler's Assortment" },
+        },
     },
     [11917] = {
         decorID = 11917,
@@ -34597,6 +38426,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Aspiring Soul's Chair" },
+        },
     },
     [11918] = {
         decorID = 11918,
@@ -34624,6 +38456,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ardenweald Lamppost" },
+        },
     },
     [11919] = {
         decorID = 11919,
@@ -34651,6 +38486,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Maldraxxian Crate" },
+        },
     },
     [11920] = {
         decorID = 11920,
@@ -34678,6 +38516,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tome of Maldraxxian Rituals" },
+        },
     },
     [11921] = {
         decorID = 11921,
@@ -34705,6 +38546,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kyrian Anima Barrel" },
+        },
     },
     [11922] = {
         decorID = 11922,
@@ -34732,6 +38576,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Hollow Night Fae Shrine" },
+        },
     },
     [11923] = {
         decorID = 11923,
@@ -34759,6 +38606,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Broker's Hex Table" },
+        },
     },
     [11924] = {
         decorID = 11924,
@@ -34786,6 +38636,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ardenweald Hanging Baskets" },
+        },
     },
     [11925] = {
         decorID = 11925,
@@ -34813,6 +38666,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Large Revendreth Storage Crate" },
+        },
     },
     [11926] = {
         decorID = 11926,
@@ -34840,6 +38696,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Margrave's Stitched Leather Rug" },
+        },
     },
     [11927] = {
         decorID = 11927,
@@ -34867,6 +38726,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Cartel Ta Bookcase" },
+        },
     },
     [11928] = {
         decorID = 11928,
@@ -34894,6 +38756,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Cartel Xy Capture Crate" },
+        },
     },
     [11929] = {
         decorID = 11929,
@@ -34921,6 +38786,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Titanic Tyrhold Fountain" },
+        },
     },
     [11930] = {
         decorID = 11930,
@@ -34949,6 +38817,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "The Wickless Candle",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Wickless Candle" },
+        },
     },
     [11931] = {
         decorID = 11931,
@@ -34977,6 +38851,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "New Candle, New Hope",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "New Candle, New Hope" },
+        },
     },
     [11932] = {
         decorID = 11932,
@@ -35005,6 +38885,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Bump Off the Boss",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11933] = {
         decorID = 11933,
@@ -35033,6 +38916,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Janky Candles",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Janky Candles" },
+        },
     },
     [11934] = {
         decorID = 11934,
@@ -35087,6 +38976,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Thunder Bluff Totem" },
+        },
     },
     [11936] = {
         decorID = 11936,
@@ -35114,6 +39006,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [11940] = {
         decorID = 11940,
@@ -35168,6 +39063,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kirin Tor Skyline Banner" },
+        },
     },
     [11942] = {
         decorID = 11942,
@@ -35196,6 +39094,10 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockAchievement = "Highmountain Tribe",
+        vendorCosts = {
+            { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
+            { amount = 12000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [11944] = {
         decorID = 11944,
@@ -35224,6 +39126,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Cataclysm",
         vendorUnlockAchievement = "Reclamation of Gilneas",
+        vendorCosts = {
+            { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [11945] = {
         decorID = 11945,
@@ -35251,6 +39156,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Pandaren Fishing Net" },
+        },
     },
     [11946] = {
         decorID = 11946,
@@ -35278,6 +39186,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Beloved Elekk Plushie" },
+        },
     },
     [11948] = {
         decorID = 11948,
@@ -35305,6 +39216,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [11952] = {
         decorID = 11952,
@@ -35332,6 +39246,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12154] = {
         decorID = 12154,
@@ -35359,6 +39276,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [12161] = {
         decorID = 12161,
@@ -35386,6 +39306,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Beloved Raptor Plushie" },
+        },
     },
     [12162] = {
         decorID = 12162,
@@ -35413,6 +39336,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sandfury Diplomat's Banner" },
+        },
     },
     [12163] = {
         decorID = 12163,
@@ -35440,6 +39366,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tidesage's Totem" },
+        },
     },
     [12164] = {
         decorID = 12164,
@@ -35467,6 +39396,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Drust Enchanter's Rod" },
+        },
     },
     [12165] = {
         decorID = 12165,
@@ -35494,6 +39426,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kyrian Aspirant's Rolled Cushion" },
+        },
     },
     [12171] = {
         decorID = 12171,
@@ -35602,6 +39537,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -35633,6 +39571,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -35664,6 +39605,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12196] = {
         decorID = 12196,
@@ -35691,6 +39635,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12197] = {
         decorID = 12197,
@@ -35718,6 +39665,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12198] = {
         decorID = 12198,
@@ -35745,6 +39695,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12199] = {
         decorID = 12199,
@@ -35772,6 +39725,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -35804,6 +39760,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockAchievement = "Secrets of Skettis",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12201] = {
         decorID = 12201,
@@ -35832,6 +39791,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "A Gathering of Shadows",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12202] = {
         decorID = 12202,
@@ -35860,6 +39822,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Kura's Vengeance",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12203] = {
         decorID = 12203,
@@ -35887,6 +39852,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Shadow-Sage Brakoss", npcID = 85946, x = 46.6, y = 75.2, zone = "Stormshield", mapID = 622 },
             Horde = { name = "Ravenspeaker Skeega", npcID = 86037, x = 52.4, y = 58.8, zone = "Warspear", mapID = 624 },
@@ -35946,6 +39914,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "When All is Aligned",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12206] = {
         decorID = 12206,
@@ -35973,6 +39944,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Shadow-Sage Brakoss", npcID = 85946, x = 46.6, y = 75.2, zone = "Stormshield", mapID = 622 },
             Horde = { name = "Ravenspeaker Skeega", npcID = 86037, x = 52.4, y = 58.8, zone = "Warspear", mapID = 624 },
@@ -36004,6 +39978,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Shadow-Sage Brakoss", npcID = 85946, x = 46.6, y = 75.2, zone = "Stormshield", mapID = 622 },
             Horde = { name = "Ravenspeaker Skeega", npcID = 86037, x = 52.4, y = 58.8, zone = "Warspear", mapID = 624 },
@@ -36036,6 +40013,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "Hot Seat",
+        vendorCosts = {
+            { amount = 750, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12209] = {
         decorID = 12209,
@@ -36064,6 +40044,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         vendorUnlockQuest = "The Avatar of Terokk",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [12210] = {
         decorID = 12210,
@@ -36091,6 +40074,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        vendorCosts = {
+            { amount = 175, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
+        },
     },
     [12211] = {
         decorID = 12211,
@@ -36118,6 +40104,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12212] = {
         decorID = 12212,
@@ -36145,6 +40134,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12217] = {
         decorID = 12217,
@@ -36172,6 +40164,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12218] = {
         decorID = 12218,
@@ -36199,6 +40194,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12220] = {
         decorID = 12220,
@@ -36226,6 +40224,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        vendorCosts = {
+            { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [12223] = {
         decorID = 12223,
@@ -36264,7 +40265,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1318,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -36280,6 +40281,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [12248] = {
         decorID = 12248,
@@ -36291,7 +40293,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1336,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -36307,6 +40309,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [12249] = {
         decorID = 12249,
@@ -36712,6 +40715,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 4000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Quackenbush", npcID = 68363, x = 50.8, y = 26.8, zone = "Deeprun Tram", mapID = 499 },
             Horde = { name = "Paul North", npcID = 68364, x = 52.1, y = 28, zone = "Orgrimmar", mapID = 85 },
@@ -36770,6 +40776,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14330] = {
         decorID = 14330,
@@ -36797,6 +40806,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        dropRate = 0.66,
     },
     [14350] = {
         decorID = 14350,
@@ -36824,6 +40834,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14351] = {
         decorID = 14351,
@@ -36851,6 +40864,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14352] = {
         decorID = 14352,
@@ -36878,6 +40894,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14358] = {
         decorID = 14358,
@@ -36905,6 +40924,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Multi-Front Battle" },
+        },
     },
     [14359] = {
         decorID = 14359,
@@ -36933,6 +40958,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Manaforge Omega: Dimensius Looms",
+        vendorCosts = {
+            { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
     },
     [14360] = {
         decorID = 14360,
@@ -36961,6 +40989,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "To Kill a Queen",
+        vendorCosts = {
+            { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "To Kill a Queen" },
+        },
     },
     [14361] = {
         decorID = 14361,
@@ -36988,6 +41022,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        vendorCosts = {
+            { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [14379] = {
         decorID = 14379,
@@ -37016,6 +41053,13 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         vendorUnlockQuest = "Can't Hold a Candle To You",
+        vendorCosts = {
+            { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Can't Hold a Candle To You" },
+        },
     },
     [14380] = {
         decorID = 14380,
@@ -37043,6 +41087,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Maldraxxian Runic Tablet" },
+        },
     },
     [14381] = {
         decorID = 14381,
@@ -37071,6 +41118,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
         vendorUnlockQuest = "Showdown in the Attic",
+        vendorCosts = {
+            { amount = 300, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Showdown in the Attic" },
+        },
     },
     [14382] = {
         decorID = 14382,
@@ -37098,6 +41151,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -37129,6 +41185,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -37144,7 +41203,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1318,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -37160,6 +41219,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [14433] = {
         decorID = 14433,
@@ -37171,7 +41231,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1318,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -37187,6 +41247,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [14461] = {
         decorID = 14461,
@@ -37214,6 +41275,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [14467] = {
         decorID = 14467,
@@ -37223,28 +41287,29 @@ NS.CatalogData.Items = {
         iconTexture = 7476679,
         asset = 7476464,
         uiModelSceneID = 1337,
-        zone = "",
-        mapID = nil,
+        zone = "Silvermoon City",
+        mapID = 2393,
         sourceType = "Vendor",
-        sourceDetail = "World Vendors",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 69,
         placementCost = 5,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
-        factionVendors = {
-            Alliance = { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
-            Horde = { name = "Gabbi", npcID = 261262, x = 48.2, y = 80.4, zone = "Orgrimmar", mapID = 85 },
+        expansion = "Midnight",
+        isShopItem = true,
+        vendorCosts = {
+            { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        altVendorName = "World Vendors",
     },
     [14553] = {
         decorID = 14553,
@@ -37272,6 +41337,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Draenei Crystal Chandelier" },
+        },
     },
     [14554] = {
         decorID = 14554,
@@ -37299,6 +41367,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Face the Tide" },
+        },
     },
     [14555] = {
         decorID = 14555,
@@ -37326,6 +41397,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Lush Telogrus Carpet" },
+        },
     },
     [14557] = {
         decorID = 14557,
@@ -37353,6 +41427,11 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Riftstone" },
+            { sourceType = "Treasure", sourceDetail = "Unstable Riftstone" },
+            { sourceType = "Quest", sourceDetail = "A Shady Place" },
+        },
     },
     [14558] = {
         decorID = 14558,
@@ -37380,6 +41459,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Entropic Illuminant" },
+        },
     },
     [14559] = {
         decorID = 14559,
@@ -37407,6 +41489,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Haranir Preserving Agents" },
+        },
     },
     [14579] = {
         decorID = 14579,
@@ -37434,6 +41519,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Embossed Sin'dorei Fur Rug" },
+        },
     },
     [14580] = {
         decorID = 14580,
@@ -37461,6 +41549,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ensorcelled Broom" },
+        },
     },
     [14581] = {
         decorID = 14581,
@@ -37488,6 +41579,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Silvermoon Anvil" },
+        },
     },
     [14582] = {
         decorID = 14582,
@@ -37515,6 +41609,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Masterwork Crafting Hammer" },
+        },
     },
     [14583] = {
         decorID = 14583,
@@ -37542,6 +41639,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 30, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "The Last Architect", npcID = 248854, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "The Last Architect", npcID = 248854, zone = "Razorwind Shores", mapID = 2351 },
@@ -37573,6 +41674,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shining Sin'dorei Hourglass" },
+        },
     },
     [14585] = {
         decorID = 14585,
@@ -37600,6 +41704,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Font of Gleaming Water" },
+        },
     },
     [14586] = {
         decorID = 14586,
@@ -37627,6 +41734,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ornamental Silvermoon Hanger" },
+            { sourceType = "Treasure", sourceDetail = "Ranger's Cache" },
+        },
     },
     [14587] = {
         decorID = 14587,
@@ -37654,6 +41765,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Silvermoon Hanger" },
+        },
     },
     [14588] = {
         decorID = 14588,
@@ -37681,6 +41795,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Animated Sin'dorei Pick" },
+        },
     },
     [14589] = {
         decorID = 14589,
@@ -37708,6 +41825,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Animated Sin'dorei Hammer" },
+        },
     },
     [14590] = {
         decorID = 14590,
@@ -37735,6 +41855,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Anvil" },
+        },
     },
     [14591] = {
         decorID = 14591,
@@ -37762,6 +41885,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Tenebrous Ren'dorei Armillary" },
+        },
     },
     [14592] = {
         decorID = 14592,
@@ -37789,6 +41915,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14593] = {
         decorID = 14593,
@@ -37816,6 +41945,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14594] = {
         decorID = 14594,
@@ -37843,6 +41975,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Floating Void-Touched Tome" },
+        },
     },
     [14595] = {
         decorID = 14595,
@@ -37870,6 +42005,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Stargazer" },
+        },
     },
     [14596] = {
         decorID = 14596,
@@ -37897,6 +42035,12 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Stellar Stash" },
+        },
     },
     [14597] = {
         decorID = 14597,
@@ -37924,6 +42068,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Stellar Stash" },
+        },
     },
     [14598] = {
         decorID = 14598,
@@ -37951,6 +42098,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Postal Repository" },
+        },
     },
     [14599] = {
         decorID = 14599,
@@ -37978,6 +42128,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Brilliant Phoenix Harp" },
+        },
     },
     [14600] = {
         decorID = 14600,
@@ -38005,6 +42158,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Spellbound Tome of Thalassian Magics" },
+        },
     },
     [14601] = {
         decorID = 14601,
@@ -38032,6 +42188,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Bejeweled Sin'dorei Lyre" },
+        },
     },
     [14602] = {
         decorID = 14602,
@@ -38059,6 +42218,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Strange, Different World" },
+        },
     },
     [14603] = {
         decorID = 14603,
@@ -38086,6 +42251,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14615] = {
         decorID = 14615,
@@ -38113,6 +42281,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Simple Haranir Table" },
+        },
     },
     [14616] = {
         decorID = 14616,
@@ -38140,6 +42311,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Rootflame Campfire" },
+        },
     },
     [14617] = {
         decorID = 14617,
@@ -38167,6 +42341,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Luxurious Silvermoon Lounge Cushion" },
+        },
     },
     [14618] = {
         decorID = 14618,
@@ -38194,6 +42371,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Plush Silvermoon Bed" },
+        },
     },
     [14619] = {
         decorID = 14619,
@@ -38221,6 +42401,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Chic Silvermoon Pillow" },
+        },
     },
     [14620] = {
         decorID = 14620,
@@ -38248,6 +42431,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Homely Sin'dorei Shelf" },
+        },
     },
     [14621] = {
         decorID = 14621,
@@ -38275,6 +42461,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Homely Wall Shelves" },
+        },
     },
     [14622] = {
         decorID = 14622,
@@ -38302,6 +42491,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilded Eversong Book" },
+        },
     },
     [14623] = {
         decorID = 14623,
@@ -38329,6 +42521,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Opened Sin'dorei Scroll" },
+        },
     },
     [14624] = {
         decorID = 14624,
@@ -38356,6 +42551,10 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Silvermoon Curtains" },
+            { sourceType = "Quest", sourceDetail = "Clothes Make the Man" },
+        },
     },
     [14625] = {
         decorID = 14625,
@@ -38383,6 +42582,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Stitched Haranir Rug" },
+        },
     },
     [14626] = {
         decorID = 14626,
@@ -38410,6 +42612,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Wild Hanging Scroll" },
+        },
     },
     [14627] = {
         decorID = 14627,
@@ -38437,6 +42642,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Warp Orb" },
+        },
     },
     [14631] = {
         decorID = 14631,
@@ -38464,6 +42672,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Nexus-Point Xenas: Eclipse" },
+        },
     },
     [14632] = {
         decorID = 14632,
@@ -38491,6 +42705,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14633] = {
         decorID = 14633,
@@ -38545,6 +42762,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14635] = {
         decorID = 14635,
@@ -38573,6 +42793,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Two Tons of Metal and Holy Fire",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14636] = {
         decorID = 14636,
@@ -38600,6 +42823,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Voidstrider Saddlebag" },
+        },
     },
     [14637] = {
         decorID = 14637,
@@ -38627,6 +42853,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sturdy Ren'dorei Cask" },
+        },
     },
     [14638] = {
         decorID = 14638,
@@ -38654,6 +42883,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Replica Haranir Mural" },
+        },
     },
     [14639] = {
         decorID = 14639,
@@ -38682,6 +42914,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "The Cauldron of Echoes",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Traveling Flowers" },
+        },
     },
     [14640] = {
         decorID = 14640,
@@ -38709,6 +42947,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Sin'dorei Phoenix Quill" },
+        },
     },
     [14641] = {
         decorID = 14641,
@@ -38736,6 +42977,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Lively Songwriter's Quill" },
+            { sourceType = "Treasure", sourceDetail = "Forgotten Ink and Quill" },
+        },
     },
     [14642] = {
         decorID = 14642,
@@ -38763,6 +43008,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Crafting Framework" },
+        },
     },
     [14643] = {
         decorID = 14643,
@@ -38790,6 +43038,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Void Projector" },
+        },
     },
     [14644] = {
         decorID = 14644,
@@ -38817,6 +43068,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
+        vendorCosts = {
+            { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [14676] = {
         decorID = 14676,
@@ -38844,6 +43098,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Kyrian Floating Lamp" },
+        },
     },
     [14677] = {
         decorID = 14677,
@@ -38871,6 +43128,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -38902,6 +43162,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -38933,6 +43196,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -38964,6 +43230,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -38995,6 +43264,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Small Telogrus Lamp" },
+        },
     },
     [14731] = {
         decorID = 14731,
@@ -39022,6 +43294,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Restful Bronze Bench" },
+        },
     },
     [14793] = {
         decorID = 14793,
@@ -39049,6 +43324,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39081,6 +43359,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Russula's Outreach",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14800] = {
         decorID = 14800,
@@ -39108,6 +43389,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39166,6 +43450,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14809] = {
         decorID = 14809,
@@ -39194,6 +43481,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "From This Point Forward",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "From This Point Forward" },
+        },
     },
     [14814] = {
         decorID = 14814,
@@ -39221,6 +43514,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -39252,6 +43548,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Quackenbush", npcID = 68363, x = 50.8, y = 26.8, zone = "Deeprun Tram", mapID = 499 },
             Horde = { name = "Paul North", npcID = 68364, x = 52.1, y = 28, zone = "Orgrimmar", mapID = 85 },
@@ -39283,6 +43582,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Darkmaster's Mystical Brazier" },
+        },
     },
     [14820] = {
         decorID = 14820,
@@ -39310,6 +43612,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Magnificent Towering Bookcase" },
+        },
     },
     [14822] = {
         decorID = 14822,
@@ -39365,6 +43670,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Wey'nan's Ward",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14824] = {
         decorID = 14824,
@@ -39392,6 +43700,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14825] = {
         decorID = 14825,
@@ -39419,6 +43730,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14827] = {
         decorID = 14827,
@@ -39447,6 +43761,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Root of the World",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14828] = {
         decorID = 14828,
@@ -39501,6 +43818,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39532,6 +43852,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39563,6 +43886,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39594,6 +43920,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39625,6 +43954,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39656,6 +43988,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -39687,6 +44022,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Ren'dorei Lightpost" },
+        },
     },
     [14838] = {
         decorID = 14838,
@@ -39698,7 +44036,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1334,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -39714,6 +44052,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [14839] = {
         decorID = 14839,
@@ -39725,7 +44064,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1334,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -39741,6 +44080,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [14965] = {
         decorID = 14965,
@@ -39768,6 +44108,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14967] = {
         decorID = 14967,
@@ -39795,6 +44138,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14968] = {
         decorID = 14968,
@@ -39823,6 +44169,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Aln'hara's Bloom",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14970] = {
         decorID = 14970,
@@ -39850,6 +44199,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [14971] = {
         decorID = 14971,
@@ -39877,6 +44229,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14972] = {
         decorID = 14972,
@@ -39904,6 +44259,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14977] = {
         decorID = 14977,
@@ -39931,6 +44289,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Gift of the Phoenix" },
+        },
         treasureVendorNpcID = 259864,
         treasureVendorX = 43.2,
         treasureVendorY = 47.4,
@@ -39962,6 +44326,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [14979] = {
         decorID = 14979,
@@ -39989,6 +44356,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [14985] = {
         decorID = 14985,
@@ -40016,6 +44386,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [14995] = {
         decorID = 14995,
@@ -40043,6 +44416,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [15013] = {
         decorID = 15013,
@@ -40070,6 +44446,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
+        },
     },
     [15059] = {
         decorID = 15059,
@@ -40097,6 +44476,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15060] = {
         decorID = 15060,
@@ -40124,6 +44506,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15061] = {
         decorID = 15061,
@@ -40179,6 +44564,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Paved in Ash",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15063] = {
         decorID = 15063,
@@ -40206,6 +44594,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15064] = {
         decorID = 15064,
@@ -40260,6 +44651,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15069] = {
         decorID = 15069,
@@ -40341,6 +44735,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Work Disruption" },
+        },
     },
     [15072] = {
         decorID = 15072,
@@ -40652,12 +45052,12 @@ NS.CatalogData.Items = {
         sourceType = "Vendor",
         sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -40665,9 +45065,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
-        factionVendors = {
-            Alliance = { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
-            Horde = { name = "Gabbi", npcID = 261262, x = 48.2, y = 80.4, zone = "Orgrimmar", mapID = 85 },
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
     },
     [15149] = {
@@ -40683,12 +45082,12 @@ NS.CatalogData.Items = {
         sourceType = "Vendor",
         sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -40696,9 +45095,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
-        factionVendors = {
-            Alliance = { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
-            Horde = { name = "Gabbi", npcID = 261262, x = 48.2, y = 80.4, zone = "Orgrimmar", mapID = 85 },
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
     },
     [15150] = {
@@ -40741,12 +45139,12 @@ NS.CatalogData.Items = {
         sourceType = "Vendor",
         sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -40754,9 +45152,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
-        factionVendors = {
-            Alliance = { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
-            Horde = { name = "Gabbi", npcID = 261262, x = 48.2, y = 80.4, zone = "Orgrimmar", mapID = 85 },
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
     },
     [15152] = {
@@ -40840,6 +45237,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "The Traveling Flowers",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15158] = {
         decorID = 15158,
@@ -40867,6 +45267,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15160] = {
         decorID = 15160,
@@ -40894,6 +45297,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15229] = {
         decorID = 15229,
@@ -40921,6 +45327,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15260] = {
         decorID = 15260,
@@ -40948,6 +45358,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "First, The Shells" },
+        },
     },
     [15399] = {
         decorID = 15399,
@@ -40975,6 +45391,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15400] = {
         decorID = 15400,
@@ -41002,6 +45421,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15401] = {
         decorID = 15401,
@@ -41029,6 +45451,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15402] = {
         decorID = 15402,
@@ -41056,6 +45481,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15403] = {
         decorID = 15403,
@@ -41083,6 +45511,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15404] = {
         decorID = 15404,
@@ -41110,6 +45541,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15405] = {
         decorID = 15405,
@@ -41137,6 +45571,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15406] = {
         decorID = 15406,
@@ -41164,6 +45601,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15407] = {
         decorID = 15407,
@@ -41191,6 +45631,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15408] = {
         decorID = 15408,
@@ -41218,6 +45661,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15409] = {
         decorID = 15409,
@@ -41227,24 +45673,28 @@ NS.CatalogData.Items = {
         iconTexture = 7504836,
         asset = 6049345,
         uiModelSceneID = 1339,
-        zone = "",
-        mapID = nil,
+        zone = "Silvermoon City",
+        mapID = 2393,
         sourceType = "Achievement",
         sourceDetail = "Inscribing at Midnight",
         achievementName = "Inscribing at Midnight",
-        vendorName = "World Vendors",
+        vendorName = "Irodalmin",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256026,
+        npcX = 48.2,
+        npcY = 51.6,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 66,
         placementCost = 1,
         firstAcquisitionBonus = 10,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        altVendorName = "World Vendors",
     },
     [15410] = {
         decorID = 15410,
@@ -41272,6 +45722,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15411] = {
         decorID = 15411,
@@ -41299,6 +45752,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15412] = {
         decorID = 15412,
@@ -41326,6 +45782,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15413] = {
         decorID = 15413,
@@ -41353,6 +45812,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15453] = {
         decorID = 15453,
@@ -41380,6 +45842,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15454] = {
         decorID = 15454,
@@ -41407,6 +45873,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -41438,6 +45907,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15457] = {
         decorID = 15457,
@@ -41465,6 +45937,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15458] = {
         decorID = 15458,
@@ -41492,6 +45967,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15459] = {
         decorID = 15459,
@@ -41519,6 +45997,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15460] = {
         decorID = 15460,
@@ -41546,6 +46027,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15463] = {
         decorID = 15463,
@@ -41574,6 +46058,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Root Dash Delivery",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Root Dash Delivery" },
+        },
     },
     [15467] = {
         decorID = 15467,
@@ -41628,6 +46118,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
+        },
     },
     [15478] = {
         decorID = 15478,
@@ -41655,6 +46148,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15479] = {
         decorID = 15479,
@@ -41682,6 +46178,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Plush Haranir Leather Pillow" },
+        },
     },
     [15480] = {
         decorID = 15480,
@@ -41709,6 +46208,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15481] = {
         decorID = 15481,
@@ -41764,6 +46266,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Fairbreeze Favors",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Fairbreeze Favors" },
+        },
     },
     [15484] = {
         decorID = 15484,
@@ -41791,6 +46299,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 1600, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
+        },
     },
     [15488] = {
         decorID = 15488,
@@ -41818,6 +46329,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15489] = {
         decorID = 15489,
@@ -41845,6 +46359,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 800, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
+        },
     },
     [15490] = {
         decorID = 15490,
@@ -41873,6 +46390,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Gnarldin Bashing",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Gnarldin Bashing" },
+        },
     },
     [15492] = {
         decorID = 15492,
@@ -41901,6 +46424,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Amani Clarion Call",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Amani Stand Strong" },
+        },
     },
     [15493] = {
         decorID = 15493,
@@ -41956,6 +46485,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Legends Never Die",
+        vendorCosts = {
+            { amount = 2, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15497] = {
         decorID = 15497,
@@ -41984,6 +46516,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "The Echoless Flame",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15499] = {
         decorID = 15499,
@@ -42011,6 +46546,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15500] = {
         decorID = 15500,
@@ -42038,6 +46576,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15501] = {
         decorID = 15501,
@@ -42065,6 +46606,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15502] = {
         decorID = 15502,
@@ -42092,6 +46636,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15503] = {
         decorID = 15503,
@@ -42119,6 +46666,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15504] = {
         decorID = 15504,
@@ -42146,6 +46696,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15550] = {
         decorID = 15550,
@@ -42173,6 +46726,10 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15551] = {
         decorID = 15551,
@@ -42200,6 +46757,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15552] = {
         decorID = 15552,
@@ -42227,6 +46788,10 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
+        vendorCosts = {
+            { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15553] = {
         decorID = 15553,
@@ -42238,7 +46803,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1334,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -42254,6 +46819,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [15554] = {
         decorID = 15554,
@@ -42265,7 +46831,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1334,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -42281,6 +46847,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [15555] = {
         decorID = 15555,
@@ -42292,7 +46859,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1339,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -42308,6 +46875,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [15567] = {
         decorID = 15567,
@@ -42416,6 +46984,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15572] = {
         decorID = 15572,
@@ -42444,6 +47015,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "The Amani Stand Strong",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Amani Clarion Call" },
+        },
     },
     [15573] = {
         decorID = 15573,
@@ -42471,6 +47048,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15574] = {
         decorID = 15574,
@@ -42525,6 +47105,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15576] = {
         decorID = 15576,
@@ -42579,6 +47162,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15579] = {
         decorID = 15579,
@@ -42606,6 +47192,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Third, Blow It Up" },
+        },
     },
     [15581] = {
         decorID = 15581,
@@ -42633,6 +47225,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15582] = {
         decorID = 15582,
@@ -42714,6 +47309,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15585] = {
         decorID = 15585,
@@ -42741,6 +47339,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15595] = {
         decorID = 15595,
@@ -42769,6 +47370,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
         vendorUnlockQuest = "The Leader Hozen",
+        vendorCosts = {
+            { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Leader Hozen" },
+        },
     },
     [15596] = {
         decorID = 15596,
@@ -42796,6 +47403,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15597] = {
         decorID = 15597,
@@ -42823,6 +47433,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15605] = {
         decorID = 15605,
@@ -42851,6 +47464,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
         vendorUnlockQuest = "The Jade Serpent",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15654] = {
         decorID = 15654,
@@ -42862,7 +47478,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1339,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -42878,6 +47494,7 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [15668] = {
         decorID = 15668,
@@ -42887,24 +47504,25 @@ NS.CatalogData.Items = {
         iconTexture = 7513315,
         asset = 7476057,
         uiModelSceneID = 1318,
-        zone = "",
-        mapID = nil,
-        sourceType = "Other",
-        sourceDetail = "",
+        zone = "Silvermoon City",
+        mapID = 2393,
+        sourceType = "Vendor",
+        sourceDetail = "Dennia Silvertongue",
         achievementName = "",
-        vendorName = "",
+        vendorName = "Dennia Silvertongue",
         professionName = "",
         questID = nil,
-        npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcID = 256828,
+        npcX = 51.0,
+        npcY = 56.5,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 66,
         placementCost = 1,
         firstAcquisitionBonus = 0,
-        expansion = "Unknown",
+        expansion = "Midnight",
+        isShopItem = true,
     },
     [15669] = {
         decorID = 15669,
@@ -42916,7 +47534,7 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1334,
         zone = "",
         mapID = nil,
-        sourceType = "Other",
+        sourceType = "Shop",
         sourceDetail = "",
         achievementName = "",
         vendorName = "",
@@ -42932,6 +47550,7 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        isShopItem = true,
     },
     [15741] = {
         decorID = 15741,
@@ -42959,6 +47578,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Legion",
+        vendorCosts = {
+            { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [15743] = {
         decorID = 15743,
@@ -42987,6 +47609,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Den of Nalorakk: A Taste of Vengeance",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
+        },
     },
     [15744] = {
         decorID = 15744,
@@ -43015,6 +47643,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "Den of Nalorakk: A Taste of Vengeance",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
+        },
     },
     [15745] = {
         decorID = 15745,
@@ -43043,6 +47677,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Den of Nalorakk: A Taste of Vengeance",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
+        },
     },
     [15746] = {
         decorID = 15746,
@@ -43070,6 +47710,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        additionalSources = {
+            { sourceType = "Treasure", sourceDetail = "Malignant Chest" },
+        },
     },
     [15747] = {
         decorID = 15747,
@@ -43178,6 +47821,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15758] = {
         decorID = 15758,
@@ -43286,6 +47932,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "A Matter of Strife and Death" },
+        },
     },
     [15769] = {
         decorID = 15769,
@@ -43313,6 +47965,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15851] = {
         decorID = 15851,
@@ -43340,6 +47995,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 3200, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
+        },
     },
     [15890] = {
         decorID = 15890,
@@ -43367,6 +48025,9 @@ NS.CatalogData.Items = {
         placementCost = 2,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [15891] = {
         decorID = 15891,
@@ -43394,6 +48055,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "First, The Shells" },
+        },
     },
     [15894] = {
         decorID = 15894,
@@ -43421,6 +48088,12 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Harvest" },
+        },
     },
     [15895] = {
         decorID = 15895,
@@ -43449,6 +48122,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockQuest = "Nothing Stands Forever",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [16012] = {
         decorID = 16012,
@@ -43476,6 +48152,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Sewer Gate" },
+        },
     },
     [16013] = {
         decorID = 16013,
@@ -43503,6 +48182,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Rolled Scarab Rug" },
+        },
     },
     [16014] = {
         decorID = 16014,
@@ -43530,6 +48212,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Aspirant's Ringed Banner" },
+        },
     },
     [16015] = {
         decorID = 16015,
@@ -43557,6 +48242,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Valdrakken Wall Shelf" },
+        },
     },
     [16027] = {
         decorID = 16027,
@@ -43908,6 +48596,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Glazed Sin'dorei Vial" },
+        },
     },
     [16083] = {
         decorID = 16083,
@@ -43935,6 +48626,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Shadow Council Torch" },
+        },
     },
     [16084] = {
         decorID = 16084,
@@ -43962,6 +48656,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Resizable All-Purpose Gear" },
+        },
     },
     [16085] = {
         decorID = 16085,
@@ -43989,6 +48686,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Home Defense Gadget" },
+        },
     },
     [16086] = {
         decorID = 16086,
@@ -44016,6 +48716,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Stranglekelp Sack" },
+        },
     },
     [16087] = {
         decorID = 16087,
@@ -44043,6 +48746,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Dalaran Sun Sconce" },
+        },
     },
     [16088] = {
         decorID = 16088,
@@ -44070,6 +48776,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Joybuzz's Joyful Wall of Trains" },
+        },
     },
     [16089] = {
         decorID = 16089,
@@ -44097,6 +48806,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Gilnean Spare Saddle" },
+        },
     },
     [16090] = {
         decorID = 16090,
@@ -44124,6 +48836,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Heart of the Forest Banner" },
+        },
     },
     [16092] = {
         decorID = 16092,
@@ -44153,6 +48868,12 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         unlockQuestID = 86663,
         vendorUnlockQuest = "Embers to a Flame",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Embers to a Flame" },
+        },
     },
     [16094] = {
         decorID = 16094,
@@ -44207,6 +48928,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Arakkoan Alchemist's Concoction" },
+        },
     },
     [16220] = {
         decorID = 16220,
@@ -44234,6 +48958,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Arakkoan Alchemist's Bottle" },
+        },
     },
     [16227] = {
         decorID = 16227,
@@ -44261,6 +48988,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44292,6 +49022,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44323,6 +49056,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44354,6 +49090,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44385,6 +49124,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44416,6 +49158,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44447,6 +49192,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44478,6 +49226,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44509,6 +49260,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44540,6 +49294,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44571,6 +49328,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44602,6 +49362,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44617,15 +49380,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44633,6 +49396,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16812] = {
         decorID = 16812,
@@ -44644,15 +49410,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44660,6 +49426,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16813] = {
         decorID = 16813,
@@ -44671,15 +49440,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44687,6 +49456,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16814] = {
         decorID = 16814,
@@ -44698,15 +49470,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44714,6 +49486,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16815] = {
         decorID = 16815,
@@ -44725,15 +49500,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44741,6 +49516,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16816] = {
         decorID = 16816,
@@ -44752,15 +49530,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44768,6 +49546,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16817] = {
         decorID = 16817,
@@ -44779,15 +49560,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44795,6 +49576,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16818] = {
         decorID = 16818,
@@ -44806,15 +49590,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44822,6 +49606,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16819] = {
         decorID = 16819,
@@ -44833,15 +49620,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44849,6 +49636,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16820] = {
         decorID = 16820,
@@ -44860,15 +49650,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44876,6 +49666,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16821] = {
         decorID = 16821,
@@ -44887,15 +49680,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44903,6 +49696,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16822] = {
         decorID = 16822,
@@ -44914,15 +49710,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44930,6 +49726,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16962] = {
         decorID = 16962,
@@ -44957,6 +49756,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 1, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
+        },
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -44972,15 +49774,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -44988,6 +49790,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16965] = {
         decorID = 16965,
@@ -44999,15 +49804,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45015,6 +49820,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16966] = {
         decorID = 16966,
@@ -45026,15 +49834,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45042,6 +49850,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16967] = {
         decorID = 16967,
@@ -45053,15 +49864,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45069,6 +49880,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16968] = {
         decorID = 16968,
@@ -45080,15 +49894,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45096,6 +49910,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16969] = {
         decorID = 16969,
@@ -45107,15 +49924,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45123,6 +49940,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16970] = {
         decorID = 16970,
@@ -45134,15 +49954,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45150,6 +49970,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16971] = {
         decorID = 16971,
@@ -45161,15 +49984,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45177,6 +50000,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16972] = {
         decorID = 16972,
@@ -45188,15 +50014,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45204,6 +50030,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [16973] = {
         decorID = 16973,
@@ -45215,15 +50044,15 @@ NS.CatalogData.Items = {
         uiModelSceneID = 1333,
         zone = "Silvermoon City",
         mapID = 2393,
-        sourceType = "Vendor",
-        sourceDetail = "Dennia Silvertongue",
+        sourceType = "Other",
+        sourceDetail = "",
         achievementName = "",
-        vendorName = "Dennia Silvertongue",
+        vendorName = "",
         professionName = "",
         questID = nil,
-        npcID = 256828,
-        npcX = 51,
-        npcY = 56.4,
+        npcID = nil,
+        npcX = nil,
+        npcY = nil,
         faction = "neutral",
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
@@ -45231,6 +50060,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [17439] = {
         decorID = 17439,
@@ -45259,6 +50091,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Mad Magisters (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17440] = {
         decorID = 17440,
@@ -45287,6 +50122,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Insane Inventors (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17441] = {
         decorID = 17441,
@@ -45315,6 +50153,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Ethereal Assassins (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17442] = {
         decorID = 17442,
@@ -45343,6 +50184,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Anger Management (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17443] = {
         decorID = 17443,
@@ -45371,6 +50215,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Sadistic Shamans (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17444] = {
         decorID = 17444,
@@ -45399,6 +50246,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Bloody Green Thumbs (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17446] = {
         decorID = 17446,
@@ -45427,6 +50277,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Blinded By The Light (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17447] = {
         decorID = 17447,
@@ -45455,6 +50308,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Outsmarting The Schemers (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17449] = {
         decorID = 17449,
@@ -45483,6 +50339,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Dominating The Void (Nightmare)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17450] = {
         decorID = 17450,
@@ -45511,6 +50370,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Chasing Death (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17452] = {
         decorID = 17452,
@@ -45539,6 +50401,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "No Rest For The Wretched (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17453] = {
         decorID = 17453,
@@ -45567,6 +50432,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "A Thorn In The Side (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17454] = {
         decorID = 17454,
@@ -45595,6 +50463,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Breaking The Blade (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17455] = {
         decorID = 17455,
@@ -45623,6 +50494,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Mad Magisters (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17456] = {
         decorID = 17456,
@@ -45651,6 +50525,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Insane Inventors (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17457] = {
         decorID = 17457,
@@ -45679,6 +50556,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Ethereal Assassins (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17458] = {
         decorID = 17458,
@@ -45707,6 +50587,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Anger Management (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17459] = {
         decorID = 17459,
@@ -45735,6 +50618,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Sadistic Shamans (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17460] = {
         decorID = 17460,
@@ -45763,6 +50649,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Bloody Green Thumbs (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17462] = {
         decorID = 17462,
@@ -45791,6 +50680,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Blinded By The Light (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17464] = {
         decorID = 17464,
@@ -45819,6 +50711,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Outsmarting The Schemers (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17465] = {
         decorID = 17465,
@@ -45847,6 +50742,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Dominating The Void (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17467] = {
         decorID = 17467,
@@ -45875,6 +50773,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Chasing Death (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17469] = {
         decorID = 17469,
@@ -45903,6 +50804,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "No Rest For The Wretched (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17472] = {
         decorID = 17472,
@@ -45931,6 +50835,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "A Thorn In The Side (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17474] = {
         decorID = 17474,
@@ -45959,6 +50866,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "Breaking The Blade (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17515] = {
         decorID = 17515,
@@ -45986,6 +50896,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Haranir Canopy Bed" },
+        },
     },
     [17516] = {
         decorID = 17516,
@@ -46013,6 +50926,9 @@ NS.CatalogData.Items = {
         placementCost = 2,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
     },
     [17518] = {
         decorID = 17518,
@@ -46040,6 +50956,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17519] = {
         decorID = 17519,
@@ -46067,6 +50986,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17520] = {
         decorID = 17520,
@@ -46095,6 +51017,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "A Different Kind Of Void (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17521] = {
         decorID = 17521,
@@ -46123,6 +51048,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The Fallen Farstriders (Nightmare)",
+        vendorCosts = {
+            { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17522] = {
         decorID = 17522,
@@ -46151,6 +51079,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "A Different Kind Of Void (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17523] = {
         decorID = 17523,
@@ -46179,6 +51110,9 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
         vendorUnlockAchievement = "The Fallen Farstriders (Hard)",
+        vendorCosts = {
+            { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
+        },
     },
     [17628] = {
         decorID = 17628,
@@ -46287,6 +51221,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46318,6 +51255,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46349,6 +51289,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46380,6 +51323,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46411,6 +51357,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46442,6 +51391,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -46473,6 +51425,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -46504,6 +51459,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -46535,6 +51493,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -46566,6 +51527,9 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Neighborhoods",
+        vendorCosts = {
+            { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -46597,6 +51561,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [17874] = {
         decorID = 17874,
@@ -46624,6 +51591,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [17886] = {
         decorID = 17886,
@@ -46652,6 +51622,12 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         vendorUnlockQuest = "The Foundation of Aln",
+        vendorCosts = {
+            { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "The Foundation of Aln" },
+        },
     },
     [17918] = {
         decorID = 17918,
@@ -46679,6 +51655,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [17919] = {
         decorID = 17919,
@@ -46706,6 +51685,9 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        vendorCosts = {
+            { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
+        },
     },
     [18396] = {
         decorID = 18396,
@@ -46841,6 +51823,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        patchAdded = "12.0.0",
     },
     [18485] = {
         decorID = 18485,
@@ -46895,6 +51878,12 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "All Become Prey" },
+        },
     },
     [18800] = {
         decorID = 18800,
@@ -46922,6 +51911,12 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        vendorCosts = {
+            { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
+        },
+        additionalSources = {
+            { sourceType = "Quest", sourceDetail = "Just In Case..." },
+        },
     },
     [19197] = {
         decorID = 19197,
@@ -47003,6 +51998,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Endless Codex of Blooming Light" },
+        },
     },
     [19231] = {
         decorID = 19231,
@@ -47030,6 +52028,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Endless Codex of Nature's Grace" },
+        },
     },
     [19234] = {
         decorID = 19234,
@@ -47057,6 +52058,9 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        additionalSources = {
+            { sourceType = "Profession", sourceDetail = "Endless Codex of the Voidtouched" },
+        },
     },
     [19252] = {
         decorID = 19252,
@@ -47087,52 +52091,78 @@ NS.CatalogData.Items = {
     },
 }
 
+NS.CatalogData.CurrencyInfo = {
+    [823] = "Interface\\ICONS\\INV_Apexis_Draenor.BLP",
+    [824] = "interface\\ICONS\\INV_Garrison_Resource.blp",
+    [1155] = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP",
+    [1220] = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP",
+    [1508] = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP",
+    [1560] = "Interface\\ICONS\\INV__Faction_WarResources.BLP",
+    [1710] = "Interface\\ICONS\\INV_Misc_AzsharaCoin.BLP",
+    [1767] = "Interface\\ICONS\\INV_Stygia.BLP",
+    [1792] = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP",
+    [1803] = "Interface\\ICONS\\INV_INSCRIPTION_80_VANTUSRUNE_NYALOTHA.BLP",
+    [1813] = "Interface\\ICONS\\Spell_AnimaBastion_Orb.BLP",
+    [2003] = "Interface\\ICONS\\INV_Faction_WarResources.BLP",
+    [2118] = "Interface\\ICONS\\INV_Misc_Powder_Thorium.blp",
+    [2657] = "Interface\\ICONS\\INV_7_0Raid_Trinket_05A.BLP",
+    [2803] = "Interface\\ICONS\\INV_Misc_ElvenCoins.blp",
+    [2815] = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP",
+    [3056] = "Interface\\ICONS\\INV_10_Tailoring_SilkRare_Color3.BLP",
+    [3316] = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP",
+    [3319] = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP",
+    [3363] = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp",
+    [3377] = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP",
+    [3379] = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp",
+    [3392] = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP",
+}
+
 NS.CatalogData.BySource = {
     Vendor = {
         9481, 9492, 9489, 9491, 9483, 8193, 1274, 9484, 9482, 2516, 9493, 9487, 9485, 2517, 9494, 9490, 9497, 9486, 9479, 388,
-        9496, 9488, 9480, 9495, 9629, 9478, 9421, 5881, 9041, 9054, 9045, 9035, 11323, 15571, 15851, 15460, 15490, 15572, 4561, 15455,
-        7701, 12196, 12203, 14360, 1795, 3985, 7699, 9476, 9420, 5559, 2323, 4474, 4457, 11328, 5893, 11495, 4456, 11502, 2112, 1888,
-        2109, 1834, 1989, 1772, 1773, 1770, 2110, 1771, 2113, 2111, 7896, 1987, 5120, 5292, 9267, 940, 939, 942, 946, 1177,
-        1180, 10349, 11334, 2433, 9036, 9037, 2091, 9043, 1801, 1802, 14815, 12263, 17870, 12154, 14359, 1163, 15596, 11936, 11333, 11327,
-        1878, 1994, 721, 675, 677, 15453, 8181, 16229, 10913, 2342, 521, 1701, 1702, 1245, 1486, 718, 498, 9440, 1455, 1452,
-        9472, 763, 8180, 14677, 7607, 14834, 14829, 14831, 14832, 14793, 9139, 15412, 9188, 15229, 12198, 7624, 15579, 14603, 14602, 15894,
-        14593, 15581, 15584, 15578, 5132, 15575, 4028, 4031, 496, 825, 2092, 17867, 772, 4468, 1889, 7782, 14971, 2549, 15148, 16964,
-        16821, 16819, 16971, 16813, 16968, 16966, 15151, 15149, 16822, 16812, 16815, 16817, 16969, 16814, 16973, 16820, 16818, 16967, 16816, 16972,
-        16811, 16970, 16965, 8989, 8182, 4429, 947, 7696, 14592, 1178, 3891, 16227, 2470, 676, 15400, 9165, 5689, 1160, 9186, 7694,
-        7691, 10962, 4159, 7698, 8192, 930, 8189, 4478, 5127, 5897, 9248, 1309, 11905, 14383, 10346, 10344, 1456, 2439, 1737, 4466,
-        4467, 4469, 9236, 9178, 9242, 15745, 5889, 5880, 1747, 1356, 991, 3826, 986, 11721, 990, 9254, 8917, 1162, 984, 11719,
-        1329, 985, 2474, 2590, 10860, 2254, 1487, 987, 8190, 1488, 1885, 5563, 4484, 3827, 10855, 12189, 1865, 1867, 1866, 1864,
-        4811, 4812, 4822, 4823, 4845, 4461, 1998, 8240, 8185, 2338, 11326, 14830, 14833, 11873, 5854, 479, 1244, 12199, 1236, 7687,
-        12195, 9477, 8874, 5558, 12220, 12211, 12217, 12212, 9182, 14978, 8811, 1861, 15478, 5113, 5112, 4407, 1901, 15063, 4459, 7668,
-        932, 10856, 12190, 4473, 9144, 17869, 9628, 9179, 9240, 9183, 1355, 1414, 15399, 5651, 8916, 15585, 3922, 15488, 10355, 9255,
-        14995, 520, 14979, 17871, 8918, 14985, 11503, 15499, 859, 1794, 1826, 1796, 11944, 860, 4465, 2341, 14381, 5111, 389, 16232,
-        8242, 1165, 994, 2458, 15059, 17918, 17919, 17874, 17873, 9055, 7693, 15744, 2495, 4424, 2453, 4425, 482, 11752, 11942, 7622,
-        2503, 14825, 14967, 14965, 2225, 14808, 14824, 4458, 11324, 14583, 16315, 8771, 8907, 12206, 12207, 1977, 1297, 4408, 2219, 15454,
-        2546, 7842, 9053, 9042, 12210, 1196, 5530, 5531, 11276, 10889, 10537, 839, 1437, 2088, 1739, 1438, 1745, 1978, 11480, 1700,
-        2228, 2334, 2333, 8770, 10352, 14678, 14679, 11952, 11948, 4427, 2510, 1694, 1884, 679, 1882, 1883, 1886, 1695, 11130, 16237,
-        14379, 3881, 3880, 11454, 1992, 724, 949, 2343, 1251, 9040, 11278, 2093, 10791, 488, 1997, 4026, 1453, 2090, 11128, 4428,
-        7686, 7625, 7623, 7621, 760, 762, 761, 10347, 16231, 16228, 16236, 16962, 2444, 2445, 12197, 2440, 2548, 1198, 717, 934,
-        941, 945, 4562, 3872, 10340, 7841, 7875, 2437, 10342, 2339, 2327, 10345, 10354, 14467, 8195, 10888, 3837, 2459, 3838, 11451,
-        4455, 7821, 7606, 7608, 3984, 1440, 4022, 3981, 4035, 14680, 7695, 1999, 2550, 11720, 2547, 2448, 11127, 8987, 2447, 15891,
-        766, 18800, 484, 485, 1919, 1354, 1413, 2118, 11874, 2114, 1879, 1723, 523, 522, 524, 2116, 1736, 2441, 525, 2115,
-        2117, 526, 1744, 9253, 18617, 11133, 8982, 2243, 15060, 1750, 80, 15597, 989, 17868, 1201, 1172, 3993, 3840, 3833, 3832,
-        3869, 8179, 3874, 7839, 1416, 725, 4471, 4464, 535, 536, 534, 14972, 9064, 5556, 17519, 17518, 1465, 14970, 4460, 2446,
-        17865, 17864, 8236, 11437, 4452, 4476, 2443, 4462, 4454, 11139, 10952, 2442, 4386, 4451, 4453, 2535, 1350, 1246, 1181, 3870,
-        1218, 14382, 1920, 12218, 1276, 1280, 4560, 716, 720, 1120, 7692, 1457, 5564, 1148, 1295, 1294, 7697, 827, 126, 15413,
-        15160, 2242, 1698, 4406, 1724, 1436, 1741, 17866, 1265, 1277, 15504, 15503, 15502, 10341, 1900, 17863, 15500, 7573, 9624, 2514,
-        2588, 8988, 1083, 8810, 1482, 8188, 4025, 11908, 15552, 2087, 2384, 9471, 7572, 7576, 2107, 2104, 10944, 1844, 1775, 1776,
-        2105, 7780, 1774, 2108, 1896, 2106, 1442, 4472, 714, 15158, 10273, 11500, 10950, 15483, 9423, 1227, 5528, 5562, 11491, 11753,
-        15743, 11479, 11461, 11481, 11482, 1990, 773, 723, 988, 1153, 2337, 938, 379, 1293, 9039, 2229, 10892, 8194, 2094, 11279,
-        2592, 10324, 771, 1444, 7836, 10367, 1466, 487, 1993, 1991, 14631, 927, 2098, 4470, 10857, 1259, 2086, 2241, 1155, 10343,
-        1979, 1699, 1189, 1231, 9168, 17872, 1863, 9047, 3877, 2103, 2099, 480, 11274, 4445, 1044, 530, 528, 527, 529, 4443,
-        5116, 2101, 4402, 4490, 770, 2100, 2102, 481, 4446, 4405, 16234, 4173, 491, 10348, 1435, 490, 15550, 489, 486, 15768,
-        15071, 15260, 1434, 1995, 14814, 9474, 495, 1122, 373, 494, 483, 378, 533, 374, 497, 2385, 9473, 493, 15013, 4463,
-        3983, 4024, 11483, 11708, 4038, 4040, 1481, 15551, 390, 2496, 5136, 11487, 1291, 1252, 1292, 14800, 1464, 722, 9422, 9419,
-        377, 15489, 1703, 15741, 8984, 9051, 1454, 1451, 9143, 7579, 5896, 5894, 2513, 2526, 2511, 7610, 2530, 768, 4033, 10339,
-        1740, 5877, 15065, 2454, 8910, 81, 1439, 2545, 8911, 5853, 8769, 15401, 7815, 7816, 7817, 943, 16235, 10853, 1268, 1263,
-        1262, 1266, 10852, 1258, 1257, 1269, 1692, 5532, 4168, 10963, 756, 7658, 14204, 14351, 14352, 14350, 15769, 14634, 14596, 14632,
-        7620, 7700, 1287, 15480, 2233, 2089, 492, 828, 10351, 1235, 1123, 1738, 2534, 5561, 8912, 15484, 1996, 478, 1862, 858,
-        1742, 726, 383, 4475, 10350, 1199, 11489, 11319, 11484, 1197, 16230, 16233, 1697, 15492, 16092,
+        9496, 9488, 9151, 9149, 9480, 9495, 9629, 9150, 9152, 9478, 9421, 5881, 9041, 9054, 9045, 9035, 11323, 15571, 15851, 15460,
+        15490, 15572, 4561, 15455, 7701, 12196, 12203, 14360, 1795, 3985, 7699, 9476, 9420, 5559, 2323, 4474, 4457, 11328, 5893, 11495,
+        4456, 11502, 2112, 1888, 2109, 1834, 1989, 1772, 1773, 1770, 2110, 1771, 2113, 2111, 7896, 1987, 5120, 5292, 9267, 940,
+        939, 942, 946, 1177, 1180, 10349, 11334, 2433, 9036, 9037, 2091, 9043, 1801, 1802, 14815, 12263, 17870, 12154, 14359, 1163,
+        15596, 11936, 11333, 11327, 1878, 1994, 721, 675, 677, 15453, 8181, 16229, 10913, 2342, 521, 1701, 1702, 1245, 1486, 718,
+        498, 9440, 1455, 1452, 9472, 763, 8180, 14677, 7607, 14834, 14829, 14831, 14832, 14793, 9139, 15412, 9188, 15229, 12198, 7624,
+        15579, 14603, 14602, 15894, 14593, 15581, 15584, 15578, 5132, 15575, 4028, 4031, 496, 825, 2092, 17867, 772, 4468, 1889, 7782,
+        14971, 2549, 15148, 15151, 15149, 8989, 8182, 4429, 947, 7696, 14592, 1178, 3891, 16227, 2470, 676, 15400, 9165, 5689, 1160,
+        9186, 7694, 7691, 10962, 4159, 7698, 8192, 930, 8189, 4478, 5127, 5897, 9248, 1309, 11905, 14383, 10346, 10344, 1456, 2439,
+        1737, 4466, 4467, 4469, 9236, 9178, 9242, 15745, 5889, 5880, 1747, 1356, 991, 3826, 986, 11721, 990, 9254, 8917, 1162,
+        984, 11719, 1329, 985, 2474, 2590, 10860, 2254, 1487, 987, 8190, 1488, 1885, 5563, 4484, 3827, 10855, 12189, 1865, 1867,
+        1866, 1864, 4811, 4812, 4822, 4823, 4845, 4461, 1998, 8240, 8185, 2338, 11326, 14830, 14833, 11873, 5854, 479, 1244, 12199,
+        1236, 7687, 12195, 9477, 8874, 5558, 12220, 12211, 12217, 12212, 9182, 14978, 8811, 1861, 15478, 5113, 5112, 4407, 1901, 15063,
+        4459, 7668, 932, 10856, 12190, 4473, 9144, 17869, 9628, 9179, 9240, 9183, 1355, 1414, 15399, 5651, 8916, 15585, 3922, 15488,
+        10355, 9255, 14995, 520, 14979, 17871, 8918, 14985, 11503, 15499, 859, 1794, 1826, 1796, 11944, 860, 4465, 2341, 14381, 5111,
+        389, 16232, 8242, 1165, 994, 2458, 15059, 17918, 17919, 17874, 17873, 9055, 7693, 15744, 2495, 4424, 2453, 4425, 482, 11752,
+        11942, 7622, 2503, 14825, 14967, 14965, 2225, 14808, 14824, 4458, 11324, 14583, 16315, 8771, 8907, 12206, 12207, 1977, 1297, 4408,
+        2219, 15454, 2546, 7842, 9053, 9042, 12210, 1196, 5530, 5531, 11276, 10889, 10537, 839, 1437, 2088, 1739, 1438, 1745, 1978,
+        11480, 1700, 2228, 2334, 2333, 8770, 10352, 14678, 14679, 11952, 11948, 4427, 2510, 1694, 1884, 679, 1882, 1883, 1886, 1695,
+        11130, 16237, 14379, 3881, 3880, 11454, 1992, 724, 949, 2343, 1251, 9040, 11278, 2093, 10791, 488, 1997, 4026, 1453, 2090,
+        11128, 4428, 7686, 7625, 7623, 7621, 1458, 2231, 760, 762, 761, 10347, 16231, 16228, 16236, 16962, 2444, 2445, 12197, 2440,
+        2548, 1198, 717, 934, 941, 945, 4562, 3872, 10340, 7841, 7875, 2437, 10342, 2339, 2327, 10345, 10354, 14467, 8195, 10888,
+        3837, 2459, 3838, 11451, 4455, 15668, 7821, 7606, 7608, 3984, 1440, 4022, 3981, 4035, 14680, 7695, 1999, 2550, 11720, 2547,
+        2448, 11127, 8987, 2447, 15891, 766, 18800, 484, 485, 1919, 1354, 1413, 2118, 11874, 2114, 1879, 1723, 523, 522, 524,
+        2116, 1736, 2441, 525, 2115, 2117, 526, 1744, 9253, 18617, 11133, 8982, 2243, 15060, 1750, 80, 15597, 989, 17868, 1201,
+        1172, 3993, 3840, 3833, 3832, 3869, 8179, 3874, 7839, 1416, 725, 4471, 4464, 535, 536, 534, 14972, 9064, 5556, 17519,
+        17518, 1465, 14970, 4460, 2446, 17865, 17864, 8236, 11437, 4452, 4476, 2443, 4462, 4454, 11139, 10952, 2442, 4386, 4451, 4453,
+        2535, 1350, 1246, 1181, 3870, 1218, 14382, 1920, 12218, 1276, 1280, 4560, 716, 720, 1120, 7692, 1457, 5564, 1148, 1295,
+        1294, 7697, 827, 126, 15413, 15160, 2242, 1698, 4406, 1724, 1436, 1741, 17866, 1265, 1277, 15504, 15503, 15502, 10341, 1900,
+        17863, 15500, 11287, 7573, 9624, 2514, 2588, 8988, 1083, 8810, 1482, 8188, 4025, 11908, 15552, 2087, 2384, 9471, 7572, 7576,
+        2107, 2104, 10944, 1844, 1775, 1776, 2105, 7780, 1774, 2108, 1896, 2106, 1442, 4472, 714, 15158, 10273, 11500, 10950, 15483,
+        9423, 1227, 5528, 5562, 11491, 11753, 15743, 11479, 11461, 11481, 11482, 1990, 773, 723, 988, 1153, 2337, 938, 379, 1293,
+        9039, 2229, 10892, 8194, 2094, 11279, 2592, 10324, 771, 1444, 7836, 10367, 1466, 487, 1993, 1991, 14631, 927, 2098, 4470,
+        10857, 1259, 2086, 2241, 1155, 10343, 1979, 1699, 1189, 1231, 9168, 17872, 1863, 9047, 3877, 2103, 2099, 480, 11274, 4445,
+        1044, 530, 528, 527, 529, 4443, 5116, 2101, 4402, 4490, 770, 2100, 2102, 481, 4446, 4405, 16234, 4173, 491, 10348,
+        1435, 490, 15550, 489, 486, 15768, 15071, 15260, 1434, 1995, 14814, 9474, 495, 1122, 373, 494, 483, 378, 533, 374,
+        497, 2385, 9473, 493, 15013, 4463, 3983, 4024, 11483, 11708, 4038, 4040, 1481, 15551, 390, 2496, 5136, 11487, 1291, 1252,
+        1292, 14800, 1464, 722, 9422, 9419, 377, 15489, 1703, 15741, 8984, 9051, 1454, 1451, 9143, 7579, 5896, 5894, 2513, 2526,
+        2511, 7610, 2530, 768, 4033, 10339, 1740, 5877, 15065, 2454, 8910, 81, 1439, 2545, 8911, 5853, 8769, 15401, 7815, 7816,
+        7817, 943, 16235, 10853, 1268, 1263, 1262, 1266, 10852, 1258, 1257, 1269, 1692, 5532, 4168, 10963, 756, 7658, 14204, 14351,
+        14352, 14350, 15769, 14634, 14596, 14632, 1894, 4843, 7620, 7700, 1287, 15480, 2233, 2089, 492, 828, 10351, 1235, 1123, 1738,
+        2534, 5561, 8912, 15484, 1996, 478, 1862, 858, 1742, 726, 383, 4475, 10350, 1199, 11489, 11319, 11484, 1197, 16230, 16233,
+        1697, 15492, 16092,
     },
     Quest = {
         12208, 9052, 1310, 17886, 9250, 4818, 9475, 9044, 15155, 1179, 11933, 1267, 4814, 9142, 1118, 2244, 2467, 7835, 5560, 4477,
@@ -47181,13 +52211,14 @@ NS.CatalogData.BySource = {
         11284, 15064, 12204, 2238, 4401, 14806, 1232, 1880, 2512, 2531, 14330, 1137, 15755, 15574, 19252, 17630, 18398, 15762,
     },
     Treasure = { 674, 1173, 14977, 8875, 1195, 1272, 14597, 15746 },
+    Shop = { 14432, 15555, 14838, 14839, 15554, 12247, 14433, 11899, 15553, 12248, 15669, 15654 },
     Other = {
-        2523, 9151, 9149, 9150, 9152, 14432, 15570, 15555, 14838, 14839, 1322, 11754, 15554, 12300, 7827, 7826, 7828, 15747, 15583, 764,
-        15153, 16028, 15147, 16037, 16029, 15144, 16031, 15142, 15145, 16033, 15146, 16038, 15143, 16034, 15150, 15152, 15073, 15074, 16030, 16036,
-        15072, 16027, 15070, 16035, 16032, 8238, 8178, 931, 1317, 925, 11814, 10887, 12247, 1324, 14433, 11899, 1458, 2231, 9443, 12171,
-        12223, 11940, 7825, 15668, 1326, 15553, 12248, 2324, 12251, 12256, 12255, 12254, 12253, 12252, 12257, 12262, 12261, 12260, 12259, 12258,
-        12250, 12249, 11287, 2431, 8176, 15669, 2434, 2432, 7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444, 8235, 11163, 1261, 14633,
-        1894, 4843, 1352, 11934, 751, 15654,
+        2523, 15570, 1322, 11754, 12300, 7827, 7826, 7828, 15747, 15583, 764, 16964, 15153, 16821, 16028, 15147, 16819, 16037, 16971, 16813,
+        16968, 16966, 16029, 15144, 16031, 16822, 15142, 16812, 15145, 16815, 16817, 16969, 16814, 16973, 16033, 16820, 15146, 16038, 16818, 15143,
+        16034, 15150, 15152, 15073, 15074, 16030, 16036, 15072, 16027, 16967, 16816, 15070, 16035, 16972, 16811, 16970, 16032, 16965, 8238, 8178,
+        931, 1317, 925, 11814, 10887, 1324, 9443, 12171, 12223, 11940, 7825, 1326, 2324, 12251, 12256, 12255, 12254, 12253, 12252, 12257,
+        12262, 12261, 12260, 12259, 12258, 12250, 12249, 2431, 8176, 2434, 2432, 7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444, 8235,
+        11163, 1261, 14633, 1352, 11934, 751,
     },
 }
 
@@ -47201,7 +52232,7 @@ NS.CatalogData.ByExpansion = {
     },
     ["The Burning Crusade"] = { 11500, 10950 },
     ["Wrath of the Lich King"] = { 5881, 5889, 5879, 5880, 5882, 18483, 923, 924, 11906, 4839, 5888, 14361, 4448 },
-    ["Cataclysm"] = { 1795, 2244, 1998, 1236, 859, 857, 1826, 11944, 860, 2245, 2242, 714, 1227 },
+    ["Cataclysm"] = { 1795, 2244, 1998, 859, 857, 1826, 11944, 860, 2245, 2242 },
     ["Mists of Pandaria"] = {
         11873, 5119, 5113, 5112, 15605, 9263, 15595, 3872, 5126, 1201, 1172, 3993, 3840, 3833, 3832, 3869, 3874, 3870, 11280, 14644,
         11456, 3995, 3877, 11453, 2512, 767, 11457, 4488,
@@ -47241,20 +52272,21 @@ NS.CatalogData.ByExpansion = {
         1277, 1693, 10857, 1259, 4029, 9168, 2533, 10853, 1268, 1263, 1262, 1266, 10852, 1258, 1257, 1269, 4172, 828,
     },
     ["Midnight"] = {
-        9481, 9492, 9489, 9491, 9483, 9484, 10542, 9482, 9493, 9487, 9485, 9494, 9490, 9497, 9486, 9479, 9496, 9488, 9480, 9495,
-        9629, 17886, 15567, 15568, 15571, 11325, 15460, 18485, 15490, 15572, 16094, 15455, 9250, 15758, 11328, 9475, 11502, 15467, 15493, 11334,
-        15155, 12154, 15596, 11936, 11333, 11327, 15756, 9440, 15573, 15412, 15579, 14603, 14602, 15894, 14593, 15582, 15581, 15584, 15578, 5132,
-        15575, 7782, 14971, 15148, 16964, 16821, 16819, 16971, 16813, 16968, 16966, 15151, 15149, 16822, 16812, 16815, 16817, 16969, 16814, 16973,
-        16820, 16818, 16967, 16816, 16972, 16811, 16970, 16965, 14592, 15400, 1160, 15576, 19197, 17629, 18397, 9248, 15745, 15481, 11326, 8874,
-        8872, 14978, 15478, 1901, 15063, 9628, 15399, 8993, 8889, 5651, 8916, 17516, 15585, 3922, 15488, 1173, 14995, 14977, 14979, 14985,
-        11503, 15499, 8875, 15059, 15744, 14822, 2503, 14799, 15463, 14825, 14967, 14968, 14965, 14639, 2225, 14808, 14824, 15497, 11324, 2219,
-        9249, 15069, 15761, 9252, 15501, 14641, 1198, 15061, 1489, 19198, 17628, 18396, 15408, 15457, 15458, 2459, 15494, 15891, 18800, 15757,
-        9253, 14554, 18617, 15060, 1908, 11499, 15597, 14972, 17459, 17443, 17458, 17442, 17464, 17447, 17457, 17441, 17465, 17449, 17523, 17521,
-        17467, 17450, 17455, 17439, 17519, 17518, 17522, 17520, 17460, 17444, 17472, 17453, 17456, 17440, 17474, 17454, 17462, 17446, 17469, 17452,
-        9251, 14970, 15895, 14827, 1080, 14823, 5564, 1148, 10327, 10778, 15413, 14828, 15160, 2232, 2605, 15504, 15503, 15502, 1147, 15500,
-        9624, 9439, 2588, 15062, 11470, 10944, 1195, 1446, 7780, 1896, 1442, 11284, 15158, 1159, 15064, 15483, 15743, 14631, 2224, 1726,
-        15768, 15071, 15260, 15013, 14635, 14806, 15065, 15401, 1137, 14204, 14351, 14352, 14350, 15769, 14634, 14596, 14632, 15746, 15890, 15755,
-        15574, 19252, 17630, 18398, 15762, 14809, 15480, 2233, 9441, 10858, 15492, 16092,
+        9481, 9492, 9489, 9491, 9483, 9484, 10542, 9482, 9493, 9487, 9485, 9494, 9490, 9497, 9486, 9479, 9496, 9488, 9151, 9149,
+        9480, 9495, 9629, 9150, 9152, 17886, 15567, 15568, 15571, 11325, 15460, 18485, 15490, 15572, 16094, 15455, 9250, 15758, 11328, 9475,
+        11502, 15467, 15493, 11334, 15155, 12154, 15596, 11936, 11333, 11327, 15756, 9440, 15573, 15412, 15579, 14603, 14602, 15894, 14593, 15582,
+        15581, 15584, 15578, 5132, 15575, 7782, 14971, 15148, 16964, 16821, 16819, 16971, 16813, 16968, 16966, 15151, 15149, 16822, 16812, 16815,
+        16817, 16969, 16814, 16973, 16820, 16818, 16967, 16816, 16972, 16811, 16970, 16965, 14592, 15400, 1160, 15576, 19197, 17629, 18397, 9248,
+        15745, 15481, 11326, 1236, 8874, 8872, 14978, 15478, 1901, 15063, 9628, 15399, 8993, 8889, 5651, 8916, 17516, 15585, 3922, 15488,
+        1173, 14995, 14977, 14979, 14985, 11503, 15499, 8875, 15059, 15744, 14822, 2503, 14799, 15463, 14825, 14967, 14968, 14965, 14639, 2225,
+        14808, 14824, 15497, 11324, 2219, 9249, 15069, 15761, 9252, 1458, 2231, 15501, 14641, 1198, 15061, 1489, 19198, 17628, 18396, 15408,
+        15457, 15409, 15458, 14467, 2459, 15668, 15494, 15891, 18800, 15757, 9253, 14554, 18617, 15060, 1908, 11499, 15597, 14972, 17459, 17443,
+        17458, 17442, 17464, 17447, 17457, 17441, 17465, 17449, 17523, 17521, 17467, 17450, 17455, 17439, 17519, 17518, 17522, 17520, 17460, 17444,
+        17472, 17453, 17456, 17440, 17474, 17454, 17462, 17446, 17469, 17452, 9251, 14970, 15895, 14827, 1080, 14823, 5564, 1148, 10327, 10778,
+        15413, 14828, 15160, 2232, 2605, 15504, 15503, 15502, 1147, 15500, 11287, 9624, 9439, 2588, 15062, 11470, 10944, 1195, 1446, 7780,
+        1896, 1442, 11284, 714, 15158, 1159, 15064, 15483, 1227, 15743, 14631, 2224, 1726, 15768, 15071, 15260, 15013, 14635, 14806, 15065,
+        15401, 1137, 14204, 14351, 14352, 14350, 15769, 14634, 14596, 14632, 15746, 15890, 1894, 4843, 15755, 15574, 19252, 17630, 18398, 15762,
+        14809, 15480, 2233, 9441, 10858, 15492, 16092,
     },
     ["Neighborhoods"] = {
         388, 9478, 9421, 7701, 7699, 9476, 9420, 4474, 4457, 4456, 2112, 1773, 2111, 10349, 17870, 721, 8181, 16229, 521, 1701,
@@ -47273,34 +52305,33 @@ NS.CatalogData.ByExpansion = {
         10351, 5561, 8912, 478, 1862, 1742, 4475, 10350, 16230, 16233,
     },
     ["Unknown"] = {
-        2523, 9151, 9149, 9150, 9152, 11492, 11887, 11431, 9238, 9239, 14432, 11323, 15570, 15851, 2301, 1792, 674, 14589, 14588, 11438,
-        11879, 16220, 16219, 11281, 11924, 11918, 8237, 11383, 16014, 11917, 15555, 14601, 11384, 2109, 1772, 1770, 2110, 1771, 2113, 11946,
-        14838, 12161, 14839, 1321, 2230, 1322, 1325, 11754, 15554, 8983, 9050, 11381, 755, 9170, 9046, 854, 922, 14599, 11923, 11370,
-        12300, 2596, 11755, 2468, 11927, 11928, 1163, 1878, 1994, 2342, 14619, 1486, 4034, 7827, 7826, 7828, 15229, 15747, 15583, 764,
-        4030, 496, 2549, 11885, 15153, 16028, 15147, 16037, 16029, 15144, 16031, 15142, 15145, 16033, 15146, 16038, 15143, 16034, 15150, 15152,
-        15073, 15074, 16030, 16036, 15072, 16027, 15070, 16035, 16032, 11912, 11910, 11892, 11375, 11895, 16012, 11898, 16087, 2227, 14816, 2436,
-        759, 2471, 9180, 9167, 9187, 4177, 4170, 10964, 14553, 11374, 8238, 11372, 11373, 11881, 11371, 8191, 11884, 11883, 8241, 8787,
-        8196, 8178, 931, 1317, 11387, 11455, 2593, 12164, 1737, 2452, 2472, 1282, 1356, 11721, 8917, 1162, 984, 11719, 1329, 985,
-        10860, 987, 925, 1488, 14579, 19229, 19231, 19234, 14580, 14558, 11911, 10965, 4407, 14594, 14585, 9241, 9184, 1406, 1725, 1791,
-        1355, 1414, 9255, 11894, 11886, 14622, 14581, 14587, 1217, 855, 11723, 11725, 11377, 11724, 1793, 1832, 16089, 1831, 1830, 16082,
-        11814, 2428, 2427, 2465, 2329, 10887, 4813, 389, 11890, 994, 17918, 17919, 17874, 17873, 9269, 11903, 3873, 3871, 1328, 17515,
-        14559, 12247, 1674, 16090, 8907, 1977, 11490, 4408, 11922, 16085, 14620, 14621, 1324, 14433, 2546, 7842, 749, 11901, 11435, 1437,
-        2088, 1739, 1438, 1745, 1700, 2331, 3876, 16088, 765, 929, 2237, 11897, 11899, 11941, 11896, 11921, 12165, 14676, 1992, 2093,
-        11925, 1997, 1142, 1458, 2231, 4174, 4175, 4176, 1119, 2548, 4164, 3839, 4562, 3875, 9443, 12171, 12223, 11940, 7825, 14555,
-        14617, 14820, 11919, 14380, 11926, 11432, 14582, 9243, 2328, 2438, 2340, 2325, 15402, 15403, 15404, 15405, 15406, 15407, 15410, 15411,
-        15409, 15459, 14467, 2591, 15668, 11440, 4032, 11282, 1748, 11720, 14623, 1326, 1409, 1354, 11379, 1405, 1351, 1413, 1415, 2114,
-        1879, 1723, 523, 524, 2116, 1736, 525, 2115, 1744, 14586, 80, 11878, 11902, 11378, 3892, 11945, 3878, 3831, 3868, 1194,
-        11434, 1187, 2429, 15479, 14618, 15553, 12248, 9038, 11494, 2446, 4386, 2535, 11904, 1168, 1280, 14590, 14642, 14835, 14598, 14595,
-        14643, 14627, 9245, 14638, 9268, 16084, 5133, 14731, 2324, 14557, 16013, 1247, 14616, 4406, 1724, 1436, 1260, 11900, 12251, 12256,
-        12255, 12254, 12253, 12252, 12257, 12262, 12261, 12260, 12259, 12258, 12250, 12249, 11287, 12162, 11779, 1984, 2460, 2431, 3994, 1746,
-        16083, 2001, 8176, 4041, 11889, 11888, 14584, 15552, 2087, 2384, 9471, 1270, 11891, 2104, 14624, 1844, 1776, 2105, 1774, 2108,
-        11501, 14615, 15669, 14640, 11386, 988, 1153, 11718, 2434, 1161, 2432, 2592, 14730, 1993, 1991, 11496, 5342, 11722, 14600, 2098,
-        7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444, 1169, 2241, 11439, 11497, 11380, 2332, 14625, 11376, 9048, 2099, 530, 528,
-        529, 2101, 2100, 16086, 1435, 1157, 15550, 14637, 495, 1122, 373, 494, 378, 374, 11138, 4037, 1219, 4036, 4023, 11913,
-        4039, 1827, 15551, 390, 2496, 11880, 11388, 1243, 1242, 1314, 1308, 8235, 11882, 14591, 4169, 377, 15489, 11935, 12163, 9266,
-        11929, 11920, 1272, 2454, 81, 11433, 1275, 4162, 2595, 4165, 4166, 4480, 11165, 11163, 4483, 4163, 16015, 11385, 11436, 4167,
-        1261, 14633, 1894, 4843, 14636, 1352, 11934, 829, 1123, 1738, 2534, 14626, 1410, 11162, 3904, 11893, 15484, 1996, 2240, 751,
-        1411, 726, 383, 1311, 11382, 1241, 1200, 15654, 1273, 1313, 1312,
+        2523, 11492, 11887, 11431, 9238, 9239, 14432, 11323, 15570, 15851, 2301, 1792, 674, 14589, 14588, 11438, 11879, 16220, 16219, 11281,
+        11924, 11918, 8237, 11383, 16014, 11917, 15555, 14601, 11384, 2109, 1772, 1770, 2110, 1771, 2113, 11946, 14838, 12161, 14839, 1321,
+        2230, 1322, 1325, 11754, 15554, 8983, 9050, 11381, 755, 9170, 9046, 854, 922, 14599, 11923, 11370, 12300, 2596, 11755, 2468,
+        11927, 11928, 1163, 1878, 1994, 2342, 14619, 1486, 4034, 7827, 7826, 7828, 15229, 15747, 15583, 764, 4030, 496, 2549, 11885,
+        15153, 16028, 15147, 16037, 16029, 15144, 16031, 15142, 15145, 16033, 15146, 16038, 15143, 16034, 15150, 15152, 15073, 15074, 16030, 16036,
+        15072, 16027, 15070, 16035, 16032, 11912, 11910, 11892, 11375, 11895, 16012, 11898, 16087, 2227, 14816, 2436, 759, 2471, 9180, 9167,
+        9187, 4177, 4170, 10964, 14553, 11374, 8238, 11372, 11373, 11881, 11371, 8191, 11884, 11883, 8241, 8787, 8196, 8178, 931, 1317,
+        11387, 11455, 2593, 12164, 1737, 2452, 2472, 1282, 1356, 11721, 8917, 1162, 984, 11719, 1329, 985, 10860, 987, 925, 1488,
+        14579, 19229, 19231, 19234, 14580, 14558, 11911, 10965, 4407, 14594, 14585, 9241, 9184, 1406, 1725, 1791, 1355, 1414, 9255, 11894,
+        11886, 14622, 14581, 14587, 1217, 855, 11723, 11725, 11377, 11724, 1793, 1832, 16089, 1831, 1830, 16082, 11814, 2428, 2427, 2465,
+        2329, 10887, 4813, 389, 11890, 994, 17918, 17919, 17874, 17873, 9269, 11903, 3873, 3871, 1328, 17515, 14559, 12247, 1674, 16090,
+        8907, 1977, 11490, 4408, 11922, 16085, 14620, 14621, 1324, 14433, 2546, 7842, 749, 11901, 11435, 1437, 2088, 1739, 1438, 1745,
+        1700, 2331, 3876, 16088, 765, 929, 2237, 11897, 11899, 11941, 11896, 11921, 12165, 14676, 1992, 2093, 11925, 1997, 1142, 4174,
+        4175, 4176, 1119, 2548, 4164, 3839, 4562, 3875, 9443, 12171, 12223, 11940, 7825, 14555, 14617, 14820, 11919, 14380, 11926, 11432,
+        14582, 9243, 2328, 2438, 2340, 2325, 15402, 15403, 15404, 15405, 15406, 15407, 15410, 15411, 15459, 2591, 11440, 4032, 11282, 1748,
+        11720, 14623, 1326, 1409, 1354, 11379, 1405, 1351, 1413, 1415, 2114, 1879, 1723, 523, 524, 2116, 1736, 525, 2115, 1744,
+        14586, 80, 11878, 11902, 11378, 3892, 11945, 3878, 3831, 3868, 1194, 11434, 1187, 2429, 15479, 14618, 15553, 12248, 9038, 11494,
+        2446, 4386, 2535, 11904, 1168, 1280, 14590, 14642, 14835, 14598, 14595, 14643, 14627, 9245, 14638, 9268, 16084, 5133, 14731, 2324,
+        14557, 16013, 1247, 14616, 4406, 1724, 1436, 1260, 11900, 12251, 12256, 12255, 12254, 12253, 12252, 12257, 12262, 12261, 12260, 12259,
+        12258, 12250, 12249, 12162, 11779, 1984, 2460, 2431, 3994, 1746, 16083, 2001, 8176, 4041, 11889, 11888, 14584, 15552, 2087, 2384,
+        9471, 1270, 11891, 2104, 14624, 1844, 1776, 2105, 1774, 2108, 11501, 14615, 15669, 14640, 11386, 988, 1153, 11718, 2434, 1161,
+        2432, 2592, 14730, 1993, 1991, 11496, 5342, 11722, 14600, 2098, 7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444, 1169, 2241,
+        11439, 11497, 11380, 2332, 14625, 11376, 9048, 2099, 530, 528, 529, 2101, 2100, 16086, 1435, 1157, 15550, 14637, 495, 1122,
+        373, 494, 378, 374, 11138, 4037, 1219, 4036, 4023, 11913, 4039, 1827, 15551, 390, 2496, 11880, 11388, 1243, 1242, 1314,
+        1308, 8235, 11882, 14591, 4169, 377, 15489, 11935, 12163, 9266, 11929, 11920, 1272, 2454, 81, 11433, 1275, 4162, 2595, 4165,
+        4166, 4480, 11165, 11163, 4483, 4163, 16015, 11385, 11436, 4167, 1261, 14633, 14636, 1352, 11934, 829, 1123, 1738, 2534, 14626,
+        1410, 11162, 3904, 11893, 15484, 1996, 2240, 751, 1411, 726, 383, 1311, 11382, 1241, 1200, 15654, 1273, 1313, 1312,
     },
 }
 
@@ -47344,7 +52375,7 @@ NS.CatalogData.ByProfession = {
 
 NS.CatalogData.ProfessionOrder = { "Alchemy", "Blacksmithing", "Cooking", "Enchanting", "Engineering", "Inscription", "Jewelcrafting", "Leatherworking", "Tailoring" }
 
-NS.CatalogData.SourceOrder = { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other" }
+NS.CatalogData.SourceOrder = { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Shop", "Other" }
 
 NS.CatalogData.ByZone = {
     ["Acherus: The Ebon Hold"] = { 5881, 5889, 5879, 5880, 5882, 5888, 14361 },
@@ -47456,11 +52487,12 @@ NS.CatalogData.ByZone = {
     ["Shrine of the Storm"] = { 1880 },
     ["Siege of Orgrimmar"] = { 9263 },
     ["Silvermoon City"] = {
-        9481, 9492, 9489, 9491, 9483, 9484, 9482, 9493, 9487, 9485, 9494, 9490, 9497, 9486, 9479, 9496, 9488, 9480, 9495, 9629,
-        15460, 15455, 15412, 15148, 16964, 16821, 16819, 16971, 16813, 16968, 16966, 15151, 15149, 16822, 16812, 16815, 16817, 16969, 16814, 16973,
-        16820, 16818, 16967, 16816, 16972, 16811, 16970, 16965, 15400, 9628, 15399, 2503, 15408, 15457, 15458, 11499, 17459, 17443, 17458, 17442,
-        17464, 17447, 17457, 17441, 17465, 17449, 17523, 17521, 17467, 17450, 17455, 17439, 17519, 17518, 17522, 17520, 17460, 17444, 17472, 17453,
-        17456, 17440, 17474, 17454, 17462, 17446, 17469, 17452, 15413, 1446, 7780, 15401,
+        9481, 9492, 9489, 9491, 9483, 9484, 9482, 9493, 9487, 9485, 9494, 9490, 9497, 9486, 9479, 9496, 9488, 9151, 9149, 9480,
+        9495, 9629, 9150, 9152, 15460, 15455, 15412, 15148, 16964, 16821, 16819, 16971, 16813, 16968, 16966, 15151, 15149, 16822, 16812, 16815,
+        16817, 16969, 16814, 16973, 16820, 16818, 16967, 16816, 16972, 16811, 16970, 16965, 15400, 1236, 9628, 15399, 2503, 1458, 2231, 15408,
+        15457, 15409, 15458, 14467, 15668, 11499, 17459, 17443, 17458, 17442, 17464, 17447, 17457, 17441, 17465, 17449, 17523, 17521, 17467, 17450,
+        17455, 17439, 17519, 17518, 17522, 17520, 17460, 17444, 17472, 17453, 17456, 17440, 17474, 17454, 17462, 17446, 17469, 17452, 15413, 11287,
+        1446, 7780, 714, 1227, 15401, 1894, 4843,
     },
     ["Silverpine Forest"] = { 11498 },
     ["Skyhold"] = { 5526, 11486, 5528, 5562, 5529, 5532, 5534 },
@@ -47501,7 +52533,7 @@ NS.CatalogData.ByZone = {
         9052, 9041, 9054, 9035, 9036, 9037, 2091, 9055, 9053, 9042, 12210, 9040, 1704, 9141, 9166, 9039, 8984, 9051, 9049, 9140,
     },
     ["Trueshot Lodge"] = { 5893, 5890, 5892, 1740, 5877, 4042, 5891 },
-    ["Twilight Highlands"] = { 2244, 1998, 1236, 2245, 2242, 714, 1227 },
+    ["Twilight Highlands"] = { 2244, 1998, 2245, 2242 },
     ["Undermine"] = {
         1274, 1267, 825, 14381, 10889, 11128, 11127, 1276, 4560, 1271, 827, 1265, 1277, 10857, 1259, 10853, 1268, 1263, 1262, 1266,
         10852, 1258, 1257, 1269,

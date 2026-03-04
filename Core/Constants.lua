@@ -14,7 +14,7 @@ NS.DEV_MODE = false
 -- Addon metadata
 -------------------------------------------------------------------------------
 NS.ADDON_NAME    = "HearthAndSeek"
-NS.ADDON_VERSION = "1.0.0"
+NS.ADDON_VERSION = "1.1.0"
 NS.ADDON_PREFIX  = "|cff00ccff[Hearth & Seek]|r "
 
 -------------------------------------------------------------------------------
@@ -64,6 +64,7 @@ NS.SourceIcons = {
     Profession  = "Interface\\Icons\\Trade_Tailoring",
     Drop        = "Interface\\Icons\\Achievement_Boss_Blackhand",
     Treasure    = "Interface\\Icons\\INV_Misc_Map02",
+    Shop        = "Interface\\Icons\\WoW_Store",
     Other       = "Interface\\Icons\\INV_Misc_QuestionMark",
 }
 
@@ -75,6 +76,7 @@ NS.SourceColors = {
     Profession  = { 0.60, 0.40, 0.20, 1.00 },
     Drop        = { 0.80, 0.40, 0.80, 1.00 },
     Treasure    = { 0.60, 0.90, 0.60, 1.00 },
+    Shop        = { 0.30, 0.80, 1.00, 1.00 },
     Other       = { 0.60, 0.60, 0.60, 1.00 },
 }
 

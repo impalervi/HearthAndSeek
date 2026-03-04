@@ -413,6 +413,16 @@ local function DismissAllPopups()
         end
     end
     if copyPopup and copyPopup:IsShown() then copyPopup:Hide() end
+    if detailPanel._detailsFlyout then
+        if detailPanel._detailsFlyout._hideTimer then
+            detailPanel._detailsFlyout._hideTimer:Cancel()
+            detailPanel._detailsFlyout._hideTimer = nil
+        end
+        detailPanel._detailsFlyout:Hide()
+        if detailPanel._detailsLabel then
+            detailPanel._detailsLabel:SetTextColor(0.4, 0.7, 1.0, 0.7)
+        end
+    end
 end
 
 -------------------------------------------------------------------------------
@@ -730,6 +740,143 @@ local function UpdateFavoriteStar(panel)
 end
 
 -------------------------------------------------------------------------------
+-- Big model viewer (Alt+Click on 3D viewer)
+-------------------------------------------------------------------------------
+local bigViewerFrame = nil
+
+function NS.UI.ShowBigModelViewer(item)
+    if not item or not item.asset or item.asset <= 0 then return end
+
+    -- Lazy-create the viewer frame
+    if not bigViewerFrame then
+        local f = CreateFrame("Frame", "HearthAndSeekBigViewer", UIParent, "BackdropTemplate")
+        f:SetFrameStrata("FULLSCREEN")
+        f:SetSize(1024, 768)
+        f:SetPoint("CENTER")
+        f:SetBackdrop({
+            bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = true, tileSize = 16, edgeSize = 16,
+            insets = { left = 4, right = 4, top = 4, bottom = 4 },
+        })
+        f:SetBackdropColor(0.05, 0.05, 0.05, 0.99)
+        f:SetBackdropBorderColor(0.90, 0.76, 0.25, 0.9)
+        f:EnableMouse(true)
+        f:SetMovable(true)
+        f:RegisterForDrag("LeftButton")
+        f:SetScript("OnDragStart", f.StartMoving)
+        f:SetScript("OnDragStop", f.StopMovingOrSizing)
+        f:SetClampedToScreen(true)
+        f:Hide()
+
+        -- Register for Escape to close
+        tinsert(UISpecialFrames, "HearthAndSeekBigViewer")
+
+        -- Dim backdrop behind the frame
+        local dimmer = CreateFrame("Frame", nil, f)
+        dimmer:SetFrameStrata("FULLSCREEN")
+        dimmer:SetFrameLevel(f:GetFrameLevel() - 1)
+        dimmer:SetAllPoints(UIParent)
+        dimmer:EnableMouse(true)
+        local dimTex = dimmer:CreateTexture(nil, "BACKGROUND")
+        dimTex:SetAllPoints()
+        dimTex:SetColorTexture(0.02, 0.005, 0.04, 0.65)
+        dimmer:SetScript("OnMouseDown", function() f:Hide() end)
+        f._dimmer = dimmer
+
+        -- Atlas background (same as detail panel)
+        local bgTex = f:CreateTexture(nil, "BACKGROUND", nil, 1)
+        bgTex:SetPoint("TOPLEFT", 6, -30)
+        bgTex:SetPoint("BOTTOMRIGHT", -6, 6)
+        bgTex:SetAtlas("catalog-list-preview-bg")
+        bgTex:SetVertexColor(1, 1, 1, 1)
+
+        -- Title bar
+        local title = f:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+        title:SetPoint("TOP", f, "TOP", 0, -8)
+        title:SetTextColor(0.90, 0.76, 0.25, 1)
+        f._title = title
+
+        -- Close button
+        local closeBtn = CreateFrame("Button", nil, f, "UIPanelCloseButton")
+        closeBtn:SetPoint("TOPRIGHT", f, "TOPRIGHT", -2, -2)
+
+        -- ModelScene
+        local bigScene = CreateFrame("ModelScene", nil, f,
+            "PanningModelSceneMixinTemplate")
+        bigScene:SetPoint("TOPLEFT", 12, -30)
+        bigScene:SetPoint("BOTTOMRIGHT", -12, 12)
+
+        -- Drag-to-rotate
+        local bDragX, bDragY = nil, nil
+        bigScene:HookScript("OnMouseDown", function(self, button)
+            if button == "LeftButton" then
+                bDragX, bDragY = GetCursorPosition()
+            end
+        end)
+        bigScene:HookScript("OnMouseUp", function(self, button)
+            if button == "LeftButton" then
+                bDragX, bDragY = nil, nil
+            end
+        end)
+        bigScene:HookScript("OnUpdate", function(self)
+            if bDragX and bDragY then
+                local x, y = GetCursorPosition()
+                local dx = (x - bDragX) * 0.015
+                local dy = (y - bDragY) * 0.015
+                bDragX, bDragY = x, y
+                local actor = self:GetActorByTag("decor")
+                if actor then
+                    actor:SetYaw((actor:GetYaw() or 0) + dx)
+                    actor:SetPitch((actor:GetPitch() or 0) - dy)
+                end
+            end
+        end)
+
+        -- ModelScene control buttons
+        local bigControls = CreateFrame("Frame", nil, f,
+            "ModelSceneControlFrameTemplate")
+        bigControls:SetPoint("BOTTOM", f, "BOTTOM", 0, 14)
+        bigControls:SetModelScene(bigScene)
+
+        -- Decorative corbels (bottom corners only)
+        local corbelBL = f:CreateTexture(nil, "OVERLAY")
+        corbelBL:SetAtlas("catalog-corbel-bottom-left")
+        corbelBL:SetSize(80, 60)
+        corbelBL:SetPoint("BOTTOMLEFT", f, "BOTTOMLEFT", 0, 0)
+
+        local corbelBR = f:CreateTexture(nil, "OVERLAY")
+        corbelBR:SetAtlas("catalog-corbel-bottom-right")
+        corbelBR:SetSize(80, 60)
+        corbelBR:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", 0, 0)
+
+        f._modelScene = bigScene
+
+        bigViewerFrame = f
+    end
+
+    -- Set up the model
+    local f = bigViewerFrame
+    f._title:SetText(item.name or "")
+    local sceneID = item.uiModelSceneID or 859
+    local ok = pcall(function()
+        f._modelScene:TransitionToModelSceneID(
+            sceneID,
+            CAMERA_TRANSITION_TYPE_IMMEDIATE,
+            CAMERA_MODIFICATION_TYPE_DISCARD,
+            true)
+    end)
+    if ok then
+        local actor = f._modelScene:GetActorByTag("decor")
+        if actor then
+            actor:SetPreferModelCollisionBounds(true)
+            actor:SetModelByFileID(item.asset)
+        end
+    end
+    f:Show()
+end
+
+-------------------------------------------------------------------------------
 -- InitCatalogDetail
 -------------------------------------------------------------------------------
 function NS.UI.InitCatalogDetail(parent)
@@ -754,17 +901,29 @@ function NS.UI.InitCatalogDetail(parent)
     -- Drag-to-rotate: left-drag horizontal = yaw, vertical = pitch (full 360°)
     local dragLastX, dragLastY = nil, nil
     local ctrlClickStart = nil
+    local altClickStart = nil
     modelScene:HookScript("OnMouseDown", function(self, button)
         if button == "LeftButton" then
             local x, y = GetCursorPosition()
             dragLastX, dragLastY = x, y
             ctrlClickStart = GetTime()
+            if IsAltKeyDown() and not IsControlKeyDown() then
+                altClickStart = GetTime()
+            else
+                altClickStart = nil
+            end
         end
     end)
     modelScene:HookScript("OnMouseUp", function(self, button)
         if button == "LeftButton" then
+            -- ALT+Click: open big model viewer (short click, not drag)
+            if altClickStart and IsAltKeyDown() then
+                local elapsed = GetTime() - altClickStart
+                if elapsed < 0.3 then
+                    NS.UI.ShowBigModelViewer(parent._currentItem)
+                end
             -- CTRL+Click: open larger preview (short click, not drag)
-            if IsControlKeyDown() then
+            elseif IsControlKeyDown() then
                 local elapsed = GetTime() - (ctrlClickStart or 0)
                 if elapsed < 0.3 then
                     local item = parent._currentItem
@@ -777,6 +936,7 @@ function NS.UI.InitCatalogDetail(parent)
             end
             dragLastX, dragLastY = nil, nil
             ctrlClickStart = nil
+            altClickStart = nil
         end
     end)
     modelScene:HookScript("OnUpdate", function(self)
@@ -1634,14 +1794,29 @@ function NS.UI.InitCatalogDetail(parent)
         end
         GameTooltip:AddLine(" ")
         GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link", 0.5, 0.5, 0.5)
+        local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
+        if chatOpen then
+            GameTooltip:AddLine("|cff55aaeeSHIFT+Left Click|r to link in chat", 0.5, 0.5, 0.5)
+        end
         GameTooltip:Show()
     end)
     nameHit:SetScript("OnLeave", function()
         GameTooltip:Hide()
     end)
     nameHit:SetScript("OnMouseUp", function(self, button)
-        if button == "LeftButton" and IsControlKeyDown() and self._itemID then
-            ShowCopyableURL("https://www.wowhead.com/item=" .. self._itemID)
+        if button == "LeftButton" then
+            if IsShiftKeyDown() then
+                -- Shift+Click: link item in chat
+                local editBox = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
+                if editBox and self._itemID then
+                    local _, chatLink = GetItemInfo(self._itemID)
+                    if chatLink then
+                        ChatEdit_InsertLink(chatLink)
+                    end
+                end
+            elseif IsControlKeyDown() and self._itemID then
+                ShowCopyableURL("https://www.wowhead.com/item=" .. self._itemID)
+            end
         end
     end)
     parent._itemNameHit = nameHit
@@ -1652,6 +1827,120 @@ function NS.UI.InitCatalogDetail(parent)
     infoHeader:SetPoint("TOPLEFT", parent._itemName, "BOTTOMLEFT", 0, -6)
     infoHeader:SetPoint("RIGHT", infoSection, "RIGHT", -4, 0)
     parent._infoHeader = infoHeader
+
+    -- DETAILS hover trigger (right side of INFO header row)
+    local detailsLabel = infoHeader:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    detailsLabel:SetPoint("TOPRIGHT", infoHeader, "TOPRIGHT", -2, 0)
+    detailsLabel:SetText("DETAILS")
+    detailsLabel:SetTextColor(0.4, 0.7, 1.0, 0.7)
+    detailsLabel:Hide()
+    parent._detailsLabel = detailsLabel
+
+    local detailsHit = CreateFrame("Frame", nil, infoHeader)
+    detailsHit:SetSize(60, 22)
+    detailsHit:SetPoint("TOPRIGHT", infoHeader, "TOPRIGHT", 0, 0)
+    detailsHit:EnableMouse(true)
+    detailsHit:SetFrameLevel(infoHeader:GetFrameLevel() + 5)
+    detailsHit:Hide()
+    parent._detailsHit = detailsHit
+
+    ---------------------------------------------------------------------------
+    -- DETAILS flyout panel (extends right beyond catalog frame on hover)
+    ---------------------------------------------------------------------------
+    local FLYOUT_W = 300
+    local FLYOUT_MAX_ROWS = 16
+    local FLYOUT_ROW_H = 18
+    local FLYOUT_TOP_PAD = 32  -- 8 top + 16 header + 4 sep + 4 gap
+
+    local catalogParent = parent:GetParent()
+    local detailsFlyout = CreateFrame("Frame", nil, catalogParent, "BackdropTemplate")
+    detailsFlyout:SetWidth(FLYOUT_W)
+    detailsFlyout:SetPoint("TOPLEFT", infoSection, "TOPRIGHT", 4, 0)
+    detailsFlyout:SetFrameStrata("DIALOG")
+    detailsFlyout:SetBackdrop({
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = true, tileSize = 16, edgeSize = 16,
+        insets = { left = 4, right = 4, top = 4, bottom = 4 },
+    })
+    detailsFlyout:SetBackdropColor(0.06, 0.06, 0.09, 0.97)
+    detailsFlyout:SetBackdropBorderColor(0.4, 0.7, 1.0, 0.8)
+    detailsFlyout:EnableMouse(true)
+    detailsFlyout:Hide()
+
+    -- Flyout header
+    local flyoutHeader = detailsFlyout:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    flyoutHeader:SetPoint("TOPLEFT", detailsFlyout, "TOPLEFT", 10, -8)
+    flyoutHeader:SetText("ITEM DETAILS")
+    flyoutHeader:SetTextColor(0.90, 0.76, 0.25, 1)
+    detailsFlyout._header = flyoutHeader
+
+    local flyoutSep1 = detailsFlyout:CreateTexture(nil, "ARTWORK")
+    flyoutSep1:SetHeight(1)
+    flyoutSep1:SetPoint("TOPLEFT", flyoutHeader, "BOTTOMLEFT", 0, -4)
+    flyoutSep1:SetPoint("RIGHT", detailsFlyout, "RIGHT", -10, 0)
+    flyoutSep1:SetColorTexture(0.72, 0.58, 0.25, 0.5)
+    detailsFlyout._sep1 = flyoutSep1
+
+    -- Pool of label+value row pairs
+    local flyoutRows = {}
+    for i = 1, FLYOUT_MAX_ROWS do
+        local lbl = detailsFlyout:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        lbl:SetJustifyH("LEFT")
+        lbl:SetTextColor(0.90, 0.76, 0.25, 1)
+        local val = detailsFlyout:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        val:SetJustifyH("LEFT")
+        val:SetTextColor(0.88, 0.88, 0.88, 1)
+        flyoutRows[i] = { lbl = lbl, val = val }
+    end
+    detailsFlyout._rows = flyoutRows
+
+    -- Optional separator between fixed and conditional sections
+    local flyoutSep2 = detailsFlyout:CreateTexture(nil, "ARTWORK")
+    flyoutSep2:SetHeight(1)
+    flyoutSep2:SetColorTexture(0.25, 0.25, 0.30, 0.6)
+    flyoutSep2:Hide()
+    detailsFlyout._sep2 = flyoutSep2
+    detailsFlyout._maxRows = FLYOUT_MAX_ROWS
+    detailsFlyout._rowH = FLYOUT_ROW_H
+    detailsFlyout._topPad = FLYOUT_TOP_PAD
+
+    -- Hover bridge: DETAILS label → flyout
+    detailsHit:SetScript("OnEnter", function()
+        if detailsFlyout._hideTimer then
+            detailsFlyout._hideTimer:Cancel()
+            detailsFlyout._hideTimer = nil
+        end
+        detailsLabel:SetTextColor(0.6, 0.85, 1.0, 1.0)
+        detailsFlyout:Show()
+    end)
+    detailsHit:SetScript("OnLeave", function()
+        detailsFlyout._hideTimer = C_Timer.NewTimer(0.08, function()
+            detailsFlyout._hideTimer = nil
+            if not detailsFlyout:IsMouseOver() then
+                detailsFlyout:Hide()
+                detailsLabel:SetTextColor(0.4, 0.7, 1.0, 0.7)
+            end
+        end)
+    end)
+
+    detailsFlyout:SetScript("OnEnter", function(self)
+        if self._hideTimer then
+            self._hideTimer:Cancel()
+            self._hideTimer = nil
+        end
+    end)
+    detailsFlyout:SetScript("OnLeave", function(self)
+        self._hideTimer = C_Timer.NewTimer(0.08, function()
+            self._hideTimer = nil
+            if not self:IsMouseOver() and not detailsHit:IsMouseOver() then
+                self:Hide()
+                detailsLabel:SetTextColor(0.4, 0.7, 1.0, 0.7)
+            end
+        end)
+    end)
+
+    parent._detailsFlyout = detailsFlyout
 
     -- Info row 1: Rarity | Indoor | Outdoor | Faction
     local infoRow1 = CreateInfoRow(infoSection, 4)
@@ -1664,6 +1953,42 @@ function NS.UI.InitCatalogDetail(parent)
     infoRow2:SetPoint("TOPLEFT", infoRow1, "BOTTOMLEFT", 0, -2)
     infoRow2:SetPoint("RIGHT", infoSection, "RIGHT", -4, 0)
     parent._infoRow2 = infoRow2
+
+    -- Pool of per-cost segments: FontString + hit frame (supports up to 3 currencies)
+    local MAX_COST_SEGS = 3
+    local costSegs = {}
+    for i = 1, MAX_COST_SEGS do
+        local segText = infoSection:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        segText:SetJustifyH("LEFT")
+        segText:SetTextColor(0.75, 0.75, 0.75, 1)
+        segText:Hide()
+
+        local segHit = CreateFrame("Frame", nil, infoSection)
+        segHit:EnableMouse(true)
+        segHit:SetFrameLevel(infoSection:GetFrameLevel() + 3)
+        segHit:Hide()
+        segHit:SetScript("OnEnter", function(self)
+            local cid = self._currencyID
+            if not cid or cid == 0 then return end
+            GameTooltip:SetOwner(self, "ANCHOR_BOTTOM")
+            GameTooltip:SetCurrencyByID(cid)
+            GameTooltip:Show()
+        end)
+        segHit:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+        costSegs[i] = { text = segText, hit = segHit }
+    end
+    -- Separator FontStrings between cost segments
+    local costSeps = {}
+    for i = 1, MAX_COST_SEGS - 1 do
+        local sep = infoSection:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        sep:SetText("+")
+        sep:SetTextColor(0.5, 0.5, 0.5, 1)
+        sep:Hide()
+        costSeps[i] = sep
+    end
+    parent._costSegs = costSegs
+    parent._costSeps = costSeps
 
     -- Collected status: full-width banner bar
     local collectedBanner = CreateFrame("Frame", nil, infoSection, "BackdropTemplate")
@@ -2387,6 +2712,118 @@ local function ResolveFactionQuestChain(item)
     end
 end
 
+-------------------------------------------------------------------------------
+-- Populate DETAILS flyout panel content for the given item.
+-------------------------------------------------------------------------------
+local function PopulateDetailsFlyout(item)
+    local flyout = detailPanel._detailsFlyout
+    if not flyout then return end
+    local rows = flyout._rows
+    local ROW_H = flyout._rowH
+    local TOP_PAD = flyout._topPad
+
+    -- Hide all rows and reset value colors
+    for i = 1, flyout._maxRows do
+        rows[i].lbl:Hide()
+        rows[i].val:Hide()
+        rows[i].val:SetTextColor(0.88, 0.88, 0.88, 1)
+    end
+    flyout._sep2:Hide()
+
+    local rowIdx = 0
+    local function AddRow(labelText, valueText)
+        rowIdx = rowIdx + 1
+        if rowIdx > flyout._maxRows then return end
+        local r = rows[rowIdx]
+        local yOff = -(TOP_PAD + (rowIdx - 1) * ROW_H)
+        r.lbl:ClearAllPoints()
+        r.lbl:SetPoint("TOPLEFT", flyout, "TOPLEFT", 10, yOff)
+        r.lbl:SetWidth(100)
+        r.lbl:SetText(labelText)
+        r.lbl:Show()
+        r.val:ClearAllPoints()
+        r.val:SetPoint("TOPLEFT", flyout, "TOPLEFT", 114, yOff)
+        r.val:SetPoint("RIGHT", flyout, "RIGHT", -10, 0)
+        r.val:SetText(valueText)
+        r.val:Show()
+        return r
+    end
+
+    -- Expansion (colored by expansion)
+    local expRow = AddRow("Expansion:", item.expansion or "Unknown")
+    if expRow then
+        local expHex = NS.ExpansionColors and NS.ExpansionColors[item.expansion]
+        if expHex then
+            local r = tonumber(expHex:sub(1, 2), 16) / 255
+            local g = tonumber(expHex:sub(3, 4), 16) / 255
+            local b = tonumber(expHex:sub(5, 6), 16) / 255
+            expRow.val:SetTextColor(r, g, b, 1)
+        end
+    end
+
+    -- Patch (if known)
+    if item.patchAdded and item.patchAdded ~= "" then
+        AddRow("Patch:", item.patchAdded)
+    end
+
+    -- Placement cost with Blizzard's housing icon format
+    local placeCostStr
+    if HOUSING_DECOR_PLACEMENT_COST_FORMAT then
+        placeCostStr = HOUSING_DECOR_PLACEMENT_COST_FORMAT:format(item.placementCost or 0)
+    else
+        placeCostStr = tostring(item.placementCost or 0)
+    end
+    AddRow("Place Cost:", placeCostStr)
+
+    -- Check for conditional rows
+    local fixedRowIdx = rowIdx
+    local hasConditional = false
+    if item.dropRate then hasConditional = true end
+    if item.professionSkill or (item.professionName and item.professionName ~= "") then
+        hasConditional = true
+    end
+    if item.additionalSources and #item.additionalSources > 0 then
+        hasConditional = true
+    end
+
+    if hasConditional then
+        -- Separator between fixed and conditional sections
+        local sepY = -(TOP_PAD + fixedRowIdx * ROW_H - ROW_H / 2 + 2)
+        flyout._sep2:ClearAllPoints()
+        flyout._sep2:SetPoint("TOPLEFT", flyout, "TOPLEFT", 10, sepY)
+        flyout._sep2:SetPoint("RIGHT", flyout, "RIGHT", -10, 0)
+        flyout._sep2:Show()
+
+        if item.dropRate then
+            AddRow("Drop Rate:", string.format("%.1f%%", item.dropRate))
+        end
+        if item.professionSkill or (item.professionName and item.professionName ~= "") then
+            local profStr = item.professionName or ""
+            if item.professionSkill and item.professionSkill ~= "" then
+                profStr = profStr ~= ""
+                    and (profStr .. " (" .. item.professionSkill .. ")")
+                    or item.professionSkill
+            end
+            if profStr ~= "" then
+                AddRow("Profession:", profStr)
+            end
+        end
+        if item.additionalSources then
+            for _, src in ipairs(item.additionalSources) do
+                local srcStr = src.sourceType or ""
+                if src.sourceDetail and src.sourceDetail ~= "" then
+                    srcStr = srcStr .. ": " .. src.sourceDetail
+                end
+                AddRow("Also from:", srcStr)
+            end
+        end
+    end
+
+    -- Dynamic height (cap rowIdx to max pool size)
+    local contentH = TOP_PAD + math.min(rowIdx, flyout._maxRows) * ROW_H + 12
+    flyout:SetHeight(contentH)
+end
+
 function NS.UI.CatalogDetail_ShowItem(item)
     if not detailPanel or not item then return end
     detailPanel._currentItem = item
@@ -2679,21 +3116,36 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
     end
 
+    -- Shop prerequisite note (items originally from the In-Game Shop)
+    if item.isShopItem and not vendorNoteText then
+        vendorNoteText = "|cff9955CC(Requires purchase of Midnight Epic Edition upgrade)|r"
+    end
+
     local vendorZoneWrapped = false
     if vendorName then
-        -- "Purchase from <faction icon> <NPC>" (auto-width, no right anchor for inline zone)
+        -- "Purchase from <faction icon> <NPC> in <Zone>" (single string, word-wrap)
         local factionIcon = ""
         if item.factionVendors then
             local pf = GetPlayerFaction()
             factionIcon = (FACTION_ICONS[pf] or "") .. " "
         end
-        detailPanel._vendorLine:SetText("|cff40b0ffPurchase from|r " .. factionIcon .. vendorName)
+        local vendorText = "|cff40b0ffPurchase from|r " .. factionIcon .. vendorName
+        if item.zone and item.zone ~= "" then
+            local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
+            local zoneDisplay = primaryZoneHex
+                and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
+                or item.zone
+            vendorText = vendorText .. " |cff888888in|r " .. zoneDisplay
+        end
         detailPanel._vendorLine:ClearAllPoints()
         detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
+        detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+        detailPanel._vendorLine:SetWordWrap(true)
+        detailPanel._vendorLine:SetText(vendorText)
         detailPanel._vendorLine:Show()
         showVendorLine = true
 
-        -- NPC hit frame data
+        -- NPC hit frame data (covers the full vendor line including zone)
         detailPanel._vendorHit._active = true
         detailPanel._vendorHit._vendorName = vendorName
         detailPanel._vendorHit._npcID = item.npcID
@@ -2705,32 +3157,12 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
         detailPanel._vendorHit:Show()
 
-        -- " in <Zone>" inline after vendor name, or wrapped to next line if it overflows
+        -- Zone hit frame (overlaps the full line — zone click handled via _vendorZoneHit)
         if item.zone and item.zone ~= "" then
-            -- Color zone names by faction (cities + neighborhoods)
-            local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
-            local zoneDisplay = primaryZoneHex
-                and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
-                or item.zone
-            detailPanel._vendorZonePart:SetText(" |cff888888in|r " .. zoneDisplay)
-            detailPanel._vendorZonePart:ClearAllPoints()
-
-            -- Measure whether both parts fit on one line
-            local availableW = detailPanel._middleChild:GetWidth() - 4
-            local vendorW = detailPanel._vendorLine:GetStringWidth() or 0
-            local zoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
-            if (vendorW + zoneW) > availableW then
-                -- Wrap to next line
-                detailPanel._vendorZonePart:SetText("|cff888888In|r " .. zoneDisplay)
-                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
-                vendorZoneWrapped = true
-            else
-                detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
-            end
-            detailPanel._vendorZonePart:Show()
+            detailPanel._vendorZonePart:Hide()
             detailPanel._vendorZoneHit._zoneName = item.zone
             detailPanel._vendorZoneHit:ClearAllPoints()
-            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
+            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorLine)
             detailPanel._vendorZoneHit:Show()
         else
             detailPanel._vendorZonePart:Hide()
@@ -2796,10 +3228,11 @@ function NS.UI.CatalogDetail_ShowItem(item)
 
         -- Note below vendor line (e.g. "available after completing the quest")
         if vendorNoteText then
-            detailPanel._vendorNote:SetText(vendorNoteText)
             detailPanel._vendorNote:ClearAllPoints()
             detailPanel._vendorNote:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+            detailPanel._vendorNote:SetWordWrap(true)
+            detailPanel._vendorNote:SetText(vendorNoteText)
             detailPanel._vendorNote:Show()
         else
             detailPanel._vendorNote:Hide()
@@ -2857,9 +3290,15 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if tvName then
             local treasureAnchor = treasureZoneWrapped
                 and detailPanel._treasureZonePart or detailPanel._treasureLine
-            detailPanel._vendorLine:SetText("|cff40b0ffPurchase from|r " .. tvName)
+            local tvText = "|cff40b0ffPurchase from|r " .. tvName
+            if tvZone ~= "" then
+                tvText = tvText .. " |cff888888in|r " .. tvZone
+            end
             detailPanel._vendorLine:ClearAllPoints()
             detailPanel._vendorLine:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
+            detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+            detailPanel._vendorLine:SetWordWrap(true)
+            detailPanel._vendorLine:SetText(tvText)
             detailPanel._vendorLine:Show()
             showVendorLine = true
 
@@ -2875,27 +3314,13 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
             detailPanel._vendorHit:Show()
 
-            -- " in <Zone>" inline after vendor name
+            detailPanel._vendorZonePart:Hide()
             if tvZone ~= "" then
-                detailPanel._vendorZonePart:SetText(" |cff888888in|r " .. tvZone)
-                detailPanel._vendorZonePart:ClearAllPoints()
-                local availW = detailPanel._middleChild:GetWidth() - 4
-                local vW = detailPanel._vendorLine:GetStringWidth() or 0
-                local zW = detailPanel._vendorZonePart:GetStringWidth() or 0
-                if (vW + zW) > availW then
-                    detailPanel._vendorZonePart:SetText("|cff888888In|r " .. tvZone)
-                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
-                    vendorZoneWrapped = true
-                else
-                    detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
-                end
-                detailPanel._vendorZonePart:Show()
                 detailPanel._vendorZoneHit._zoneName = tvZone
                 detailPanel._vendorZoneHit:ClearAllPoints()
-                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
+                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorLine)
                 detailPanel._vendorZoneHit:Show()
             else
-                detailPanel._vendorZonePart:Hide()
                 detailPanel._vendorZoneHit._zoneName = nil
                 detailPanel._vendorZoneHit:Hide()
             end
@@ -2903,9 +3328,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
             -- Note: available after finding the treasure
             detailPanel._vendorNote:SetText("|cff888888(available after finding the treasure)|r")
             detailPanel._vendorNote:ClearAllPoints()
-            local noteAnchor = vendorZoneWrapped
-                and detailPanel._vendorZonePart or detailPanel._vendorLine
-            detailPanel._vendorNote:SetPoint("TOPLEFT", noteAnchor, "BOTTOMLEFT", 0, -2)
+            detailPanel._vendorNote:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:Show()
         else
@@ -3256,7 +3679,77 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._infoRow2._cells[1]._text:SetTextColor(0.75, 0.75, 0.75, 1)
     detailPanel._infoRow2._cells[2]._text:SetText(placed .. " Placed")
     detailPanel._infoRow2._cells[2]._text:SetTextColor(0.75, 0.75, 0.75, 1)
-    detailPanel._infoRow2._cells[3]._text:SetText("")
+    -- Cell 3: Vendor cost — per-cost segments with individual tooltips
+    local cell3 = detailPanel._infoRow2._cells[3]
+    cell3._text:SetText("")
+    -- Reset all cost segments
+    for i = 1, #detailPanel._costSegs do
+        detailPanel._costSegs[i].text:Hide()
+        detailPanel._costSegs[i].hit:Hide()
+        detailPanel._costSegs[i].hit._currencyID = nil
+    end
+    for i = 1, #detailPanel._costSeps do
+        detailPanel._costSeps[i]:Hide()
+    end
+
+    if item.vendorCosts and #item.vendorCosts > 0 then
+        local numCosts = math.min(#item.vendorCosts, #detailPanel._costSegs)
+
+        -- Build each segment text and measure width
+        local segWidths = {}
+        local totalW = 0
+        for idx = 1, numCosts do
+            local cost = item.vendorCosts[idx]
+            local seg = detailPanel._costSegs[idx]
+            local costStr
+            if cost.currencyID == 0 then
+                costStr = cost.amount .. " |TINTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP:14:14|t"
+            else
+                local iconPath = cost.iconPath
+                    or (NS.CatalogData.CurrencyInfo and NS.CatalogData.CurrencyInfo[cost.currencyID])
+                    or "Interface\\Icons\\INV_Misc_QuestionMark"
+                costStr = cost.amount .. " |T" .. iconPath .. ":14:14|t"
+            end
+            seg.text:SetText(costStr)
+            seg.hit._currencyID = cost.currencyID
+            local w = seg.text:GetStringWidth() or 40
+            segWidths[idx] = w
+            totalW = totalW + w
+        end
+
+        -- Account for separator widths
+        local sepW = 0
+        if numCosts > 1 then
+            sepW = (detailPanel._costSeps[1]:GetStringWidth() or 8) + 4
+            totalW = totalW + (numCosts - 1) * sepW
+        end
+
+        -- Position segments centered within cell3
+        local cellW = cell3:GetWidth()
+        local curX = (cellW - totalW) / 2
+        for idx = 1, numCosts do
+            if idx > 1 then
+                local sep = detailPanel._costSeps[idx - 1]
+                sep:ClearAllPoints()
+                sep:SetPoint("LEFT", cell3, "LEFT", curX + 2, 0)
+                sep:Show()
+                curX = curX + sepW
+            end
+            local seg = detailPanel._costSegs[idx]
+            seg.text:ClearAllPoints()
+            seg.text:SetPoint("LEFT", cell3, "LEFT", curX, 0)
+            seg.text:Show()
+            seg.hit:ClearAllPoints()
+            seg.hit:SetAllPoints(seg.text)
+            seg.hit:Show()
+            curX = curX + segWidths[idx]
+        end
+    end
+
+    -- Populate DETAILS flyout content and show the trigger label
+    PopulateDetailsFlyout(item)
+    detailPanel._detailsLabel:Show()
+    detailPanel._detailsHit:Show()
 
     -- Collected status banner
     local hasItem = (stored + placed + redeemable) > 0
@@ -3279,6 +3772,15 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._crossPopup._pendingMapID = nil
     detailPanel._zidormiPopup:Hide()
     detailPanel._zidormiPopup._pendingMapID = nil
+    if detailPanel._detailsFlyout then
+        if detailPanel._detailsFlyout._hideTimer then
+            detailPanel._detailsFlyout._hideTimer:Cancel()
+            detailPanel._detailsFlyout._hideTimer = nil
+        end
+        detailPanel._detailsFlyout:Hide()
+        detailPanel._detailsLabel:SetTextColor(0.4, 0.7, 1.0, 0.7)
+    end
+    GameTooltip:Hide()
 
     -- Reset "Open Map" fallback state and dungeon entrance data
     detailPanel._waypointBtn._openMapID = nil
