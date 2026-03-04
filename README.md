@@ -1,5 +1,9 @@
 # Hearth & Seek: Decor Catalog
 
+<p align="center">
+  <img src="Project_Images/HearthAndSeek_400.png" alt="Hearth & Seek" width="260" />
+</p>
+
 A visual catalog of all Player Housing decorations in World of Warcraft, with collection tracking, source guides, and in-game navigation.
 
 ![Hearth & Seek main window](Project_Images/Screenshots/main.png)
