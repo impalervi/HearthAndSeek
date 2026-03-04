@@ -8,14 +8,6 @@ local addonName, NS = ...
 NS.UI = NS.UI or {}
 
 local detailPanel = nil
-local rotation = 0
-local pitch = 0           -- vertical rotation (tilt up/down)
-local camHeight = 0       -- vertical camera offset
-local autoRotate = true
-local isDragging = false
-local dragLastX = 0
-local dragLastY = 0
-local dragButton = nil    -- which button started the drag
 
 -------------------------------------------------------------------------------
 -- Map navigation helper.
@@ -744,123 +736,87 @@ function NS.UI.InitCatalogDetail(parent)
     detailPanel = parent
     local CatSizing = NS.CatalogSizing
 
-    -- Model container with dark background
-    local modelBg = CreateFrame("Frame", nil, parent, "BackdropTemplate")
+    -- Model container with Blizzard catalog atlas background
+    local modelBg = CreateFrame("Frame", nil, parent)
     modelBg:SetHeight(CatSizing.ModelViewerHeight)
     modelBg:SetPoint("TOPLEFT", parent, "TOPLEFT", 4, -4)
     modelBg:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -4, -4)
-    modelBg:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8X8" })
-    modelBg:SetBackdropColor(0.03, 0.03, 0.05, 1)
+    local bgTex = modelBg:CreateTexture(nil, "BACKGROUND")
+    bgTex:SetAllPoints()
+    bgTex:SetAtlas("catalog-list-preview-bg")
 
-    -- PlayerModel frame with drag-to-rotate and scroll-to-zoom
-    local model = CreateFrame("PlayerModel", nil, modelBg)
-    model:SetPoint("TOPLEFT", 6, -6)
-    model:SetPoint("BOTTOMRIGHT", -6, 6)
+    -- ModelScene with built-in drag-rotate, scroll-zoom, right-drag-pan
+    local modelScene = CreateFrame("ModelScene", nil, modelBg,
+        "PanningModelSceneMixinTemplate")
+    modelScene:SetPoint("TOPLEFT", 6, -6)
+    modelScene:SetPoint("BOTTOMRIGHT", -6, 6)
 
-    -- Camera distance by model scene — the item "size" field (65-69) barely
-    -- varies, so we use uiModelSceneID to pick a distance that fits the
-    -- typical visual scale of each scene category.
-    local SCENE_CAM_DIST = {
-        [1317] = 50,  -- very large outdoor (Elven Woodvine Trellis)
-        [1318] = 12,  -- floor items (rugs, coffins)
-        [1333] = 8,   -- tiny items (scrolls, platters)
-        [1334] = 4,   -- small furniture (chairs, trophies)
-        [1335] = 15,  -- medium furniture (floor lamps, wheelbarrows)
-        [1336] = 18,  -- large furniture (bookcases, doors)
-        [1337] = 120, -- large structures (fireplaces, Eye of Acherus)
-        [1338] = 12,  -- hanging items (chandeliers)
-        [1339] = 12,  -- flat items (paintings, windows)
-        [1452] = 30,  -- large outdoor (market stands)
-    }
-
-    model:SetScript("OnModelLoaded", function(self)
-        self:MakeCurrentCameraCustom()
-        self:SetPosition(0, 0, 0)
-        self:SetCameraPosition(0, 0, 0)
-        local sceneID = parent._currentItem and parent._currentItem.uiModelSceneID
-        local dist = SCENE_CAM_DIST[sceneID] or 14
-        self:SetCameraDistance(math.max(3, math.min(100, dist)))
-        rotation = 0
-        pitch = 0
-        camHeight = 0
-        autoRotate = true
-        isDragging = false
+    -- Drag-to-rotate: left-drag horizontal = yaw, vertical = pitch (full 360°)
+    local dragLastX, dragLastY = nil, nil
+    local ctrlClickStart = nil
+    modelScene:HookScript("OnMouseDown", function(self, button)
+        if button == "LeftButton" then
+            local x, y = GetCursorPosition()
+            dragLastX, dragLastY = x, y
+            ctrlClickStart = GetTime()
+        end
     end)
-
-    -- Dismiss popups on model click
-    model:SetScript("OnMouseDown", function() DismissAllPopups() end)
-
-    -- Drag-to-rotate: left-drag = horizontal, right-drag = vertical (camera height)
-    model:EnableMouse(true)
-    model:RegisterForDrag("LeftButton", "RightButton")
-    model:SetScript("OnDragStart", function(self, button)
-        isDragging = true
-        autoRotate = false
-        dragButton = button
-        local x, y = GetCursorPosition()
-        dragLastX = x
-        dragLastY = y
+    modelScene:HookScript("OnMouseUp", function(self, button)
+        if button == "LeftButton" then
+            -- CTRL+Click: open larger preview (short click, not drag)
+            if IsControlKeyDown() then
+                local elapsed = GetTime() - (ctrlClickStart or 0)
+                if elapsed < 0.3 then
+                    local item = parent._currentItem
+                    if item then
+                        local link = NS.UI.GetItemHyperlink
+                            and NS.UI.GetItemHyperlink(item.decorID)
+                        if link then DressUpItemLink(link) end
+                    end
+                end
+            end
+            dragLastX, dragLastY = nil, nil
+            ctrlClickStart = nil
+        end
     end)
-    local wasDragging = false
-    model:SetScript("OnDragStop", function(self)
-        wasDragging = isDragging
-        isDragging = false
-        dragButton = nil
-        C_Timer.After(0, function() wasDragging = false end)
-    end)
-
-    -- CTRL+Click: open Blizzard preview (OnMouseUp fires on all Frame types)
-    model:SetScript("OnMouseUp", function(self, button)
-        if wasDragging then return end
-        if button == "LeftButton" and IsControlKeyDown() then
-            local item = parent._currentItem
-            if not item then return end
-            local link = NS.UI.GetItemHyperlink and NS.UI.GetItemHyperlink(item.decorID)
-            if link then
-                DressUpItemLink(link)
+    modelScene:HookScript("OnUpdate", function(self)
+        if dragLastX and dragLastY then
+            local x, y = GetCursorPosition()
+            local dx = (x - dragLastX) * 0.02
+            local dy = (y - dragLastY) * 0.02
+            dragLastX, dragLastY = x, y
+            local actor = self:GetActorByTag("decor")
+            if actor then
+                actor:SetYaw((actor:GetYaw() or 0) + dx)
+                actor:SetPitch((actor:GetPitch() or 0) - dy)
             end
         end
     end)
 
-    -- OnUpdate: auto-rotate or user drag (horizontal + vertical)
-    model:SetScript("OnUpdate", function(self, elapsed)
-        if isDragging then
-            local curX, curY = GetCursorPosition()
-            if dragButton == "LeftButton" then
-                -- Horizontal rotation (yaw) + vertical rotation (pitch)
-                local dx = (curX - dragLastX) * 0.01
-                local dy = (curY - dragLastY) * 0.01
-                rotation = rotation + dx
-                pitch = math.max(-1.5, math.min(1.5, pitch + dy))
-                self:SetFacing(rotation)
-                pcall(self.SetPitch, self, pitch)
-            elseif dragButton == "RightButton" then
-                -- Vertical: adjust camera height
-                local delta = (curY - dragLastY) * 0.05
-                camHeight = math.max(-8, math.min(8, camHeight + delta))
-                self:SetCameraPosition(0, 0, camHeight)
-            end
-            dragLastX = curX
-            dragLastY = curY
-        elseif autoRotate and self:IsShown() and self:GetModelFileID() then
-            rotation = rotation + elapsed * 0.4
-            self:SetFacing(rotation)
-        end
-    end)
+    -- ModelScene control buttons (zoom, rotate, reset)
+    local controls = CreateFrame("Frame", nil, modelBg,
+        "ModelSceneControlFrameTemplate")
+    controls:SetPoint("BOTTOM", modelBg, "BOTTOM", 0, 8)
+    controls:SetModelScene(modelScene)
 
-    -- Scroll wheel zoom — proportional step so large models can zoom out fast
-    model:EnableMouseWheel(true)
-    model:SetScript("OnMouseWheel", function(self, delta)
-        local dist = self:GetCameraDistance() or 10
-        local step = math.max(2, dist * 0.15)
-        self:SetCameraDistance(math.max(1, math.min(200, dist - delta * step)))
-    end)
+    -- Decorative corbels
+    local corbelL = modelBg:CreateTexture(nil, "OVERLAY")
+    corbelL:SetAtlas("catalog-corbel-bottom-left")
+    corbelL:SetSize(66, 50)
+    corbelL:SetPoint("BOTTOMLEFT", modelBg, "BOTTOMLEFT", 0, 0)
 
-    parent._model = model
+    local corbelR = modelBg:CreateTexture(nil, "OVERLAY")
+    corbelR:SetAtlas("catalog-corbel-bottom-right")
+    corbelR:SetSize(66, 50)
+    corbelR:SetPoint("BOTTOMRIGHT", modelBg, "BOTTOMRIGHT", 0, 0)
+
+    parent._modelScene = modelScene
     parent._modelBg = modelBg
+    parent._modelControls = controls
 
     -- Watermark icon (shown before any item is selected)
-    -- Use parent as base, HIGH strata to float above PlayerModel 3D rendering
+    -- Child of parent (not modelBg) so it stays visible when modelBg is hidden.
+    -- HIGH strata required to render above ModelScene 3D content.
     local wmFrame = CreateFrame("Frame", nil, parent)
     wmFrame:SetPoint("TOPLEFT", modelBg, "TOPLEFT", 0, 0)
     wmFrame:SetPoint("BOTTOMRIGHT", modelBg, "BOTTOMRIGHT", 0, 0)
@@ -880,10 +836,10 @@ function NS.UI.InitCatalogDetail(parent)
     parent._noModelText:SetTextColor(0.4, 0.4, 0.4, 1)
     parent._noModelText:Hide()
 
-    -- Ctrl+Click hint
+    -- Ctrl+Click hint (centered between corbels at bottom of model frame)
     local ctrlHint = modelBg:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    ctrlHint:SetPoint("BOTTOM", modelBg, "BOTTOM", 0, 4)
-    ctrlHint:SetText("|cff666666CTRL+Left Click for Blizzard preview|r")
+    ctrlHint:SetPoint("BOTTOM", modelBg, "BOTTOM", 0, 6)
+    ctrlHint:SetText("|cff666666CTRL+Left Click for larger preview|r")
     parent._ctrlHint = ctrlHint
 
     ---------------------------------------------------------------------------
@@ -2447,12 +2403,6 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._bottomSection:Show()
     detailPanel._favBtn:Show()
 
-    -- Reset model rotation state for new item
-    autoRotate = true
-    isDragging = false
-    rotation = 0
-    camHeight = 0
-
     -- Name with quality color
     local qc = NS.QualityColors[item.quality] or NS.QualityColors[1]
     detailPanel._itemName:SetText(item.name)
@@ -2472,15 +2422,28 @@ function NS.UI.CatalogDetail_ShowItem(item)
     local colorHex = string.format("%02x%02x%02x",
         math.floor(qc[1] * 255), math.floor(qc[2] * 255), math.floor(qc[3] * 255))
 
-    -- 3D model
+    -- 3D model (ModelScene)
     if detailPanel._watermark then detailPanel._watermark:Hide() end
     if item.asset and item.asset > 0 then
-        detailPanel._model:Show()
-        detailPanel._model:ClearModel()
-        detailPanel._model:SetModel(item.asset)
+        local sceneID = item.uiModelSceneID or 859
+        local ok = pcall(function()
+            detailPanel._modelScene:TransitionToModelSceneID(
+                sceneID,
+                CAMERA_TRANSITION_TYPE_IMMEDIATE,
+                CAMERA_MODIFICATION_TYPE_DISCARD,
+                true)
+        end)
+        if ok then
+            local actor = detailPanel._modelScene:GetActorByTag("decor")
+            if actor then
+                actor:SetPreferModelCollisionBounds(true)
+                actor:SetModelByFileID(item.asset)
+            end
+            detailPanel._modelScene:Show()
+        end
         detailPanel._noModelText:Hide()
     else
-        detailPanel._model:Hide()
+        detailPanel._modelScene:Hide()
         detailPanel._noModelText:Show()
     end
 

@@ -27,7 +27,7 @@ local filteredItems = {}
 local scrollOffset = 0   -- row offset (0 = top)
 local totalRows = 0      -- total rows needed for all filtered items
 local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
-local thumbDragging = false  -- true while scrollbar thumb is being dragged
+local scrollBarUpdating = false  -- guard against recursive OnValueChanged
 
 -- Caches
 local hyperlinkCache = {}
@@ -490,46 +490,40 @@ local function GetOrCreateModelViewer()
 
     f._infoPanel = infoPanel
 
-    -- Model frame (above info panel)
-    local model = CreateFrame("PlayerModel", nil, f)
-    model:SetPoint("TOPLEFT", 6, -31)
-    model:SetPoint("BOTTOMRIGHT", infoPanel, "TOPRIGHT", -6, 4)
+    -- ModelScene frame (above info panel) with built-in drag/zoom/pan
+    local modelScene = CreateFrame("ModelScene", nil, f,
+        "PanningModelSceneMixinTemplate")
+    modelScene:SetPoint("TOPLEFT", 6, -31)
+    modelScene:SetPoint("BOTTOMRIGHT", infoPanel, "TOPRIGHT", -6, 4)
 
-    local viewerRotation = 0
-    local viewerDragging = false
-    local viewerLastX = 0
+    -- ModelScene control buttons (zoom, rotate, reset)
+    local ctrl = CreateFrame("Frame", nil, f, "ModelSceneControlFrameTemplate")
+    ctrl:SetPoint("BOTTOM", modelScene, "BOTTOM", 0, 8)
+    ctrl:SetModelScene(modelScene)
 
-    model:SetScript("OnModelLoaded", function(self)
-        self:MakeCurrentCameraCustom()
-        self:SetPosition(0, 0, 0)
-        self:SetCameraPosition(0, 0, 6)
-        self:SetCameraDistance(12)
-        viewerRotation = 0
-    end)
-
-    model:EnableMouse(true)
-    model:RegisterForDrag("LeftButton")
-    model:SetScript("OnDragStart", function(self)
-        viewerDragging = true
-        viewerLastX = GetCursorPosition()
-    end)
-    model:SetScript("OnDragStop", function(self)
-        viewerDragging = false
-    end)
-    model:SetScript("OnUpdate", function(self, elapsed)
-        if viewerDragging then
-            local curX = GetCursorPosition()
-            local delta = (curX - viewerLastX) * 0.01
-            viewerRotation = viewerRotation + delta
-            self:SetFacing(viewerRotation)
-            viewerLastX = curX
+    -- Drag-to-rotate: left-drag horizontal = yaw, vertical = pitch (full 360°)
+    local dragLastX, dragLastY = nil, nil
+    modelScene:HookScript("OnMouseDown", function(self, button)
+        if button == "LeftButton" then
+            local x, y = GetCursorPosition()
+            dragLastX, dragLastY = x, y
         end
     end)
-
-    model:EnableMouseWheel(true)
-    model:SetScript("OnMouseWheel", function(self, delta)
-        local dist = self:GetCameraDistance() or 12
-        self:SetCameraDistance(math.max(2, math.min(50, dist - delta * 2)))
+    modelScene:HookScript("OnMouseUp", function(self, button)
+        if button == "LeftButton" then dragLastX, dragLastY = nil, nil end
+    end)
+    modelScene:HookScript("OnUpdate", function(self)
+        if dragLastX and dragLastY then
+            local x, y = GetCursorPosition()
+            local dx = (x - dragLastX) * 0.02
+            local dy = (y - dragLastY) * 0.02
+            dragLastX, dragLastY = x, y
+            local actor = self:GetActorByTag("decor")
+            if actor then
+                actor:SetYaw((actor:GetYaw() or 0) + dx)
+                actor:SetPitch((actor:GetPitch() or 0) - dy)
+            end
+        end
     end)
 
     -- Resize grip
@@ -546,7 +540,7 @@ local function GetOrCreateModelViewer()
         f:StopMovingOrSizing()
     end)
 
-    f._model = model
+    f._modelScene = modelScene
     f:Hide()
     modelViewer = f
     return f
@@ -599,52 +593,56 @@ local function OpenModelViewer(item)
     end
     viewer._infoStorage:SetText(storageText)
 
-    -- Load model
-    viewer._model:ClearModel()
-    viewer._model:SetModel(item.asset)
+    -- Load model via ModelScene
+    local sceneID = item.uiModelSceneID or 859
+    pcall(function()
+        viewer._modelScene:TransitionToModelSceneID(
+            sceneID,
+            CAMERA_TRANSITION_TYPE_IMMEDIATE,
+            CAMERA_MODIFICATION_TYPE_DISCARD,
+            true)
+    end)
+    local actor = viewer._modelScene:GetActorByTag("decor")
+    if actor then
+        actor:SetPreferModelCollisionBounds(true)
+        actor:SetModelByFileID(item.asset)
+    end
     viewer:Show()
 end
 
+local RefreshGridButtons  -- forward declaration (defined below OnLoad)
+
 -------------------------------------------------------------------------------
 -- Grid button OnLoad (called from XML template)
--- Dark bg, TexCoord crop, WHITE8X8 border, ADD highlight
+-- Atlas bg, TexCoord crop, hover overlay
 -------------------------------------------------------------------------------
 function HearthAndSeek_CatalogItem_OnLoad(self)
-    -- Dark slot background
+    -- Atlas background (Blizzard housing catalog card)
     local slotBg = self:CreateTexture(nil, "BACKGROUND")
     slotBg:SetAllPoints()
-    slotBg:SetColorTexture(0, 0, 0, 0.5)
+    slotBg:SetAtlas("house-chest-list-Item-default")
+    self.SlotBg = slotBg
 
-    -- Icon texture with TexCoord crop
+    -- Hover overlay (atlas with additive blend)
+    local hoverBg = self:CreateTexture(nil, "BACKGROUND", nil, 1)
+    hoverBg:SetAllPoints()
+    hoverBg:SetAtlas("house-chest-list-Item-default")
+    hoverBg:SetAlpha(0.75)
+    hoverBg:SetBlendMode("ADD")
+    hoverBg:Hide()
+    self.HoverBg = hoverBg
+
+    -- Icon texture with TexCoord crop (10px inset + tighter crop for clean edges)
     local icon = self:CreateTexture(nil, "ARTWORK")
-    icon:SetPoint("TOPLEFT", 2, -2)
-    icon:SetPoint("BOTTOMRIGHT", -2, 2)
-    icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+    icon:SetPoint("TOPLEFT", 10, -10)
+    icon:SetPoint("BOTTOMRIGHT", -10, 10)
+    icon:SetTexCoord(0.10, 0.90, 0.10, 0.90)
     self.Icon = icon
-
-    -- Quality-colored border (BackdropTemplate with WHITE8X8 edge)
-    local border = CreateFrame("Frame", nil, self, "BackdropTemplate")
-    border:SetAllPoints()
-    border:SetBackdrop({
-        edgeFile = "Interface\\Buttons\\WHITE8X8",
-        edgeSize = 2,
-    })
-    border:SetBackdropBorderColor(1, 1, 1, 1)
-    border:SetFrameLevel(self:GetFrameLevel() + 2)
-    self.BorderFrame = border
-
-    -- Hover highlight (ButtonHilight-Square with ADD blend)
-    local hl = self:CreateTexture(nil, "HIGHLIGHT")
-    hl:SetPoint("TOPLEFT", 2, -2)
-    hl:SetPoint("BOTTOMRIGHT", -2, 2)
-    hl:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-    hl:SetBlendMode("ADD")
-    hl:SetAlpha(0.3)
 
     -- Collected checkmark
     local coll = self:CreateTexture(nil, "OVERLAY")
     coll:SetSize(20, 20)
-    coll:SetPoint("BOTTOMRIGHT", -2, 2)
+    coll:SetPoint("BOTTOMRIGHT", -4, 4)
     coll:SetTexture("Interface\\RaidFrame\\ReadyCheck-Ready")
     coll:Hide()
     self.Collected = coll
@@ -652,7 +650,7 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
     -- Favorite star (display-only, not clickable from grid)
     local favStar = self:CreateTexture(nil, "OVERLAY")
     favStar:SetSize(21, 21)
-    favStar:SetPoint("TOPLEFT", 3, -3)
+    favStar:SetPoint("TOPLEFT", 5, -5)
     favStar:SetAtlas("PetJournal-FavoritesIcon")
     favStar:SetVertexColor(1, 0.82, 0, 1)
     favStar:Hide()
@@ -733,12 +731,14 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
         end
         if NS.UI.CatalogDetail_ShowItem then
             NS.UI.CatalogDetail_ShowItem(item)
+            RefreshGridButtons()
         end
     end)
 
     -- Hover: native WoW tooltip + interaction hints + magnifying glass cursor
     self:SetScript("OnEnter", function(btn)
         if not btn.itemData then return end
+        btn.HoverBg:Show()
         SetCursor("INSPECT_CURSOR")
         GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
         local link = GetItemHyperlink(btn.itemData.decorID)
@@ -775,7 +775,8 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
         GameTooltip:Show()
     end)
 
-    self:SetScript("OnLeave", function()
+    self:SetScript("OnLeave", function(btn)
+        btn.HoverBg:Hide()
         ResetCursor()
         GameTooltip:Hide()
     end)
@@ -784,7 +785,7 @@ end
 -------------------------------------------------------------------------------
 -- Refresh grid buttons for current page
 -------------------------------------------------------------------------------
-local function RefreshGridButtons()
+RefreshGridButtons = function()
     if not CatSizing then return end
     local cols = CatSizing.GridColumns
     local startIdx = scrollOffset * cols + 1
@@ -802,6 +803,18 @@ local function RefreshGridButtons()
             btn.itemData = item
 
             if item then
+                -- Selected state: active atlas tinted golden for currently shown item
+                local selItem = NS.UI._currentDetailItem
+                if selItem and selItem.decorID == decorID then
+                    btn.SlotBg:SetAtlas("house-chest-list-Item-active")
+                    btn.SlotBg:SetDesaturated(true)
+                    btn.SlotBg:SetVertexColor(1.0, 0.82, 0.2, 1)
+                else
+                    btn.SlotBg:SetAtlas("house-chest-list-Item-default")
+                    btn.SlotBg:SetDesaturated(false)
+                    btn.SlotBg:SetVertexColor(1, 1, 1, 1)
+                end
+
                 -- Icon texture (lazy runtime lookup for items missing static icons)
                 local icon = item.iconTexture
                 if not icon or icon == 0 then
@@ -812,11 +825,6 @@ local function RefreshGridButtons()
                 else
                     btn.Icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
                 end
-
-                -- Quality-colored border (softer palette)
-                local bc = NS.QualityBorderColors and NS.QualityBorderColors[item.quality]
-                    or NS.QualityColors[item.quality] or NS.QualityColors[1]
-                btn.BorderFrame:SetBackdropBorderColor(bc[1], bc[2], bc[3], bc[4])
 
                 -- Owned checkmark (from ownership cache)
                 local ownInfo = ownershipCache[decorID]
@@ -831,7 +839,6 @@ local function RefreshGridButtons()
                 btn.Icon:SetAlpha(1.0)
             else
                 btn.Icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
-                btn.BorderFrame:SetBackdropBorderColor(0.3, 0.3, 0.3, 1)
                 btn.Collected:Hide()
                 btn.FavoriteStar:Hide()
             end
@@ -849,26 +856,16 @@ end
 -- Update scroll indicator
 -------------------------------------------------------------------------------
 local function UpdateScrollIndicator()
-    if not gridParent then return end
-    if gridParent._scrollThumb and gridParent._scrollTrack then
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        if maxScroll > 0 then
-            -- Skip repositioning while user is dragging the thumb
-            if not thumbDragging then
-                local trackH = gridParent._scrollTrack:GetHeight()
-                local thumbH = gridParent._scrollThumb:GetHeight()
-                local travel = trackH - thumbH
-                local frac = scrollOffset / maxScroll
-                gridParent._scrollThumb:ClearAllPoints()
-                gridParent._scrollThumb:SetPoint("TOP", gridParent._scrollTrack,
-                    "TOP", 0, -frac * travel)
-            end
-            gridParent._scrollTrack:Show()
-            gridParent._scrollThumb:Show()
-        else
-            gridParent._scrollTrack:Hide()
-            gridParent._scrollThumb:Hide()
-        end
+    if not gridParent or not gridParent._scrollBar then return end
+    local maxScroll = math.max(0, totalRows - visibleRows)
+    if maxScroll > 0 then
+        scrollBarUpdating = true
+        gridParent._scrollBar:SetMinMaxValues(0, maxScroll)
+        gridParent._scrollBar:SetValue(scrollOffset)
+        scrollBarUpdating = false
+        gridParent._scrollBar:Show()
+    else
+        gridParent._scrollBar:Hide()
     end
 end
 
@@ -1234,105 +1231,36 @@ function NS.UI.InitCatalogGrid(parent)
     parent._countText:SetPoint("BOTTOM", parent, "BOTTOM", 0, 10)
     parent._countText:SetTextColor(0.55, 0.55, 0.55, 1)
 
-    -- Scroll bar (thin track + draggable thumb on right edge of grid)
+    -- Scroll bar (simple Slider with Blizzard thumb art)
     local gridHeight = visibleRows * size + (visibleRows - 1) * gap
-    local trackFrame = CreateFrame("Frame", nil, parent)
-    trackFrame:SetSize(6, gridHeight)
-    trackFrame:SetPoint("TOPLEFT", parent, "TOP",
+    local scrollBar = CreateFrame("Slider", nil, parent)
+    scrollBar:SetSize(6, gridHeight)
+    scrollBar:SetPoint("TOPLEFT", parent, "TOP",
         gridWidth / 2 + 6, -40)
-    local trackBg = trackFrame:CreateTexture(nil, "BACKGROUND")
+    scrollBar:SetOrientation("VERTICAL")
+    scrollBar:SetMinMaxValues(0, 0)
+    scrollBar:SetValue(0)
+    scrollBar:SetValueStep(1)
+    scrollBar:SetObeyStepOnDrag(true)
+
+    local trackBg = scrollBar:CreateTexture(nil, "BACKGROUND")
     trackBg:SetAllPoints()
-    trackBg:SetColorTexture(0.15, 0.15, 0.15, 0.6)
-    trackFrame:EnableMouse(true)
-    parent._scrollTrack = trackFrame
+    trackBg:SetColorTexture(0.15, 0.15, 0.15, 0.5)
 
-    local thumbFrame = CreateFrame("Frame", nil, trackFrame)
-    thumbFrame:SetSize(6, 40)
-    thumbFrame:SetPoint("TOP", trackFrame, "TOP", 0, 0)
-    local thumbTex = thumbFrame:CreateTexture(nil, "ARTWORK")
-    thumbTex:SetAllPoints()
-    thumbTex:SetColorTexture(0.5, 0.5, 0.5, 0.8)
-    -- Hover highlight
-    local thumbHL = thumbFrame:CreateTexture(nil, "HIGHLIGHT")
-    thumbHL:SetAllPoints()
-    thumbHL:SetColorTexture(0.7, 0.7, 0.7, 0.9)
-    thumbFrame:EnableMouse(true)
-    thumbFrame:RegisterForDrag("LeftButton")
-    parent._scrollThumb = thumbFrame
+    scrollBar:SetThumbTexture("Interface\\Buttons\\WHITE8X8")
+    local thumb = scrollBar:GetThumbTexture()
+    thumb:SetAtlas("minimal-scrollbar-small-thumb-middle")
+    thumb:SetSize(6, 40)
 
-    -- Thumb drag handlers
-    thumbFrame:SetScript("OnDragStart", function()
-        thumbDragging = true
-    end)
-
-    thumbFrame:SetScript("OnDragStop", function()
-        thumbDragging = false
-        -- Snap to nearest row
-        scrollOffset = math.floor(scrollOffset + 0.5)
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        scrollOffset = math.max(0, math.min(scrollOffset, maxScroll))
-        RefreshGridButtons()
-        UpdateScrollIndicator()
-    end)
-
-    thumbFrame:SetScript("OnUpdate", function(self)
-        if not thumbDragging then return end
-        local scale = trackFrame:GetEffectiveScale()
-        local _, cursorY = GetCursorPosition()
-        cursorY = cursorY / scale
-
-        local trackH = trackFrame:GetHeight()
-        local thumbH = self:GetHeight()
-        local travel = trackH - thumbH
-        if travel <= 0 then return end
-
-        -- Track top in screen coords
-        local _, trackCenterY = trackFrame:GetCenter()
-        local trackTop = trackCenterY + trackH / 2
-
-        -- Fraction: 0 = top, 1 = bottom
-        local distFromTop = trackTop - cursorY - thumbH / 2
-        local frac = math.max(0, math.min(1, distFromTop / travel))
-
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        local newOffset = math.floor(frac * maxScroll + 0.5)
-        newOffset = math.max(0, math.min(newOffset, maxScroll))
-
-        -- Move thumb smoothly
-        self:ClearAllPoints()
-        self:SetPoint("TOP", trackFrame, "TOP", 0, -frac * travel)
-
-        -- Update grid when crossing a row boundary
+    scrollBar:SetScript("OnValueChanged", function(_, value)
+        if scrollBarUpdating then return end
+        local newOffset = math.floor(value + 0.5)
         if newOffset ~= scrollOffset then
             scrollOffset = newOffset
             RefreshGridButtons()
         end
     end)
-
-    -- Click on track to jump
-    trackFrame:SetScript("OnMouseDown", function(self, button)
-        if button ~= "LeftButton" then return end
-        local scale = self:GetEffectiveScale()
-        local _, cursorY = GetCursorPosition()
-        cursorY = cursorY / scale
-
-        local trackH = self:GetHeight()
-        local thumbH = thumbFrame:GetHeight()
-        local travel = trackH - thumbH
-        if travel <= 0 then return end
-
-        local _, trackCenterY = self:GetCenter()
-        local trackTop = trackCenterY + trackH / 2
-
-        local distFromTop = trackTop - cursorY - thumbH / 2
-        local frac = math.max(0, math.min(1, distFromTop / travel))
-
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        scrollOffset = math.floor(frac * maxScroll + 0.5)
-        scrollOffset = math.max(0, math.min(scrollOffset, maxScroll))
-        RefreshGridButtons()
-        UpdateScrollIndicator()
-    end)
+    parent._scrollBar = scrollBar
 
     -- Mouse wheel scrolling on the grid area
     parent:EnableMouseWheel(true)

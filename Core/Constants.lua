@@ -43,15 +43,7 @@ NS.QualityColors = {
     [5] = { 1.00, 0.50, 0.00, 1 },
 }
 
--- Softer border colors for grid icons (lower saturation/alpha than QualityColors)
-NS.QualityBorderColors = {
-    [0] = { 0.45, 0.45, 0.45, 0.7 },
-    [1] = { 0.65, 0.65, 0.65, 0.5 },
-    [2] = { 0.20, 0.70, 0.10, 0.7 },
-    [3] = { 0.15, 0.40, 0.70, 0.7 },
-    [4] = { 0.50, 0.25, 0.70, 0.7 },
-    [5] = { 0.75, 0.40, 0.10, 0.7 },
-}
+
 
 NS.QualityNames = {
     [0] = "Poor",
