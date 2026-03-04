@@ -186,6 +186,8 @@ local CONTINENT_OVERRIDES = {
     [95]  = { 13, "Eastern Kingdoms" },  -- Ghostlands
     [110] = { 13, "Eastern Kingdoms" },  -- Silvermoon City
     [122] = { 13, "Eastern Kingdoms" },  -- Isle of Quel'Danas
+    -- Mechagon — separate travel region (Blizzard navigation only works within)
+    [1462] = { 1462, "Mechagon" },       -- Mechagon Island
     -- Midnight zones — treated as separate continents for navigation
     [2405] = { 2405, "The Voidstorm" },  -- The Voidstorm
     [2413] = { 2413, "Harandar" },       -- Harandar
@@ -197,6 +199,7 @@ local CONTINENT_OVERRIDES = {
 -- needing to enumerate every individual mapID.
 local CONTINENT_NAME_REDIRECTS = {
     ["quel'thalas"]    = { 13, "Eastern Kingdoms" },
+    ["mechagon"]       = { 1462, "Mechagon" },
     ["the voidstorm"]  = { 2405, "The Voidstorm" },
     ["harandar"]       = { 2413, "Harandar" },
 }

@@ -1130,7 +1130,7 @@ ZONE_TO_CONTINENT: dict[str, str] = {
     "Boralus": "Kul Tiras",
     "Drustvar": "Kul Tiras",
     "Freehold": "Kul Tiras",
-    "Mechagon": "Kul Tiras",
+    "Mechagon": "Mechagon",
     "Vol'dun": "Zandalar",
     "Orgrimmar": "Kul Tiras",
     "Shrine of the Storm": "Kul Tiras",
