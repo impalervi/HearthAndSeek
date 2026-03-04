@@ -1243,7 +1243,7 @@ function NS.UI.InitCatalogDetail(parent)
 
         if firstIncomplete and not chainComplete then
             -- Try quest-giver coordinates for the next incomplete quest
-            local giverEntry = NS.QuestChains[firstIncomplete]
+            local giverEntry = NS.QuestChains and NS.QuestChains[firstIncomplete]
             if giverEntry and giverEntry.giverX and giverEntry.giverY and giverEntry.giverZone then
                 navX = giverEntry.giverX
                 navY = giverEntry.giverY
@@ -3121,7 +3121,6 @@ function NS.UI.CatalogDetail_ShowItem(item)
         vendorNoteText = "|cff9955CC(Requires purchase of Midnight Epic Edition upgrade)|r"
     end
 
-    local vendorZoneWrapped = false
     if vendorName then
         -- "Purchase from <faction icon> <NPC> in <Zone>" (single string, word-wrap)
         local factionIcon = ""
@@ -3171,8 +3170,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Alternate faction vendor (shown for items in both neighborhoods)
-        local altAnchor = vendorZoneWrapped
-            and detailPanel._vendorZonePart or detailPanel._vendorLine
+        local altAnchor = detailPanel._vendorLine
         if item.factionVendors then
             local playerFaction = GetPlayerFaction()
             local altFaction = (playerFaction == "Alliance") and "Horde" or "Alliance"
@@ -3397,8 +3395,6 @@ function NS.UI.CatalogDetail_ShowItem(item)
             chainAnchor = detailPanel._vendorNote
         elseif detailPanel._altVendorLine:IsShown() then
             chainAnchor = detailPanel._altVendorLine
-        elseif vendorZoneWrapped then
-            chainAnchor = detailPanel._vendorZonePart
         else
             chainAnchor = detailPanel._vendorLine
         end
@@ -4133,7 +4129,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     elseif chainAffectsNav then
         -- Pure Quest with chain (no vendor)
         if firstIncomplete then
-            local giverEntry = NS.QuestChains[firstIncomplete]
+            local giverEntry = NS.QuestChains and NS.QuestChains[firstIncomplete]
             local targetName = giverEntry and giverEntry.name or ""
             local hasGiverCoords = giverEntry and giverEntry.giverX
                 and giverEntry.giverY and giverEntry.giverZone
@@ -4529,14 +4525,23 @@ function NS.UI.CatalogDetail_ShowItem(item)
                 sourceH = sourceH + 2 + (mobLine:GetStringHeight() or 14)
             end
         end
+        if detailPanel._zoneLine:IsShown() then
+            sourceH = sourceH + 2 + (detailPanel._zoneLine:GetStringHeight() or 14)
+        end
         if detailPanel._vendorLine:IsShown() then
             sourceH = sourceH + 6 + (detailPanel._vendorLine:GetStringHeight() or 14)
         end
-        if detailPanel._vendorZonePart:IsShown() and vendorZoneWrapped then
-            sourceH = sourceH + 1 + (detailPanel._vendorZonePart:GetStringHeight() or 14)
-        end
         if detailPanel._vendorNote:IsShown() then
             sourceH = sourceH + 2 + (detailPanel._vendorNote:GetStringHeight() or 14)
+        end
+        if detailPanel._altVendorLine:IsShown() then
+            sourceH = sourceH + 1 + (detailPanel._altVendorLine:GetStringHeight() or 14)
+        end
+        if detailPanel._treasureLine:IsShown() then
+            sourceH = sourceH + 6 + (detailPanel._treasureLine:GetStringHeight() or 14)
+        end
+        if detailPanel._treasureZonePart:IsShown() and treasureZoneWrapped then
+            sourceH = sourceH + 1 + (detailPanel._treasureZonePart:GetStringHeight() or 14)
         end
         if detailPanel._sepBeforeChain:IsShown() then
             sourceH = sourceH + 6 + 1 -- gap + sepBeforeChain height
