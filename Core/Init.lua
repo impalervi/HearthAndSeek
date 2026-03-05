@@ -21,7 +21,10 @@ local DEFAULTS = {
         hide = false,
     },
     catalogPosition = nil,  -- Saved as { point, relativeTo, relativePoint, x, y }
-    settings = {},
+    catalogSize = nil,      -- Saved as { width, height } when window is resized
+    settings = {
+        iconSizeMultiplier = 1.0,  -- 0.5 to 1.5 (multiplier of default 110px)
+    },
     favorites = {},         -- { [decorID] = true } — account-wide favorite decor items
 }
 
@@ -52,6 +55,15 @@ local function InitSavedVars()
                 HearthAndSeekDB[k] = CopyTable(v)
             else
                 HearthAndSeekDB[k] = v
+            end
+        end
+    end
+
+    -- Merge nested settings keys (handles upgrades from older versions)
+    if type(DEFAULTS.settings) == "table" and type(HearthAndSeekDB.settings) == "table" then
+        for k, v in pairs(DEFAULTS.settings) do
+            if HearthAndSeekDB.settings[k] == nil then
+                HearthAndSeekDB.settings[k] = v
             end
         end
     end

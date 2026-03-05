@@ -928,6 +928,9 @@ local function RefreshFooterBar()
     end
 end
 
+-- Expose for OnSizeChanged to re-wrap filter chips on resize
+NS.UI._RefreshFooterBar = RefreshFooterBar
+
 -------------------------------------------------------------------------------
 -- ResetAllFilters: uncheck all sidebar filters and clear search text
 -------------------------------------------------------------------------------
@@ -1064,6 +1067,10 @@ function NS.UI.InitCatalog()
     catalogFrame:SetToplevel(true)      -- click brings to front
     catalogFrame:SetMovable(true)
     catalogFrame:EnableMouse(true)
+    catalogFrame:SetResizable(true)
+    if catalogFrame.SetResizeBounds then
+        catalogFrame:SetResizeBounds(CatSizing.FrameWidth, CatSizing.FrameHeight)
+    end
 
     local function SaveFramePosition()
         catalogFrame:StopMovingOrSizing()
@@ -1071,6 +1078,17 @@ function NS.UI.InitCatalog()
         if NS.db then
             NS.db.catalogPosition = { point, nil, relativePoint, x, y }
         end
+    end
+
+    local function SaveFrameSize()
+        catalogFrame:StopMovingOrSizing()
+        if NS.db then
+            NS.db.catalogSize = {
+                catalogFrame:GetWidth(),
+                catalogFrame:GetHeight(),
+            }
+        end
+        SaveFramePosition()
     end
     catalogFrame:SetScript("OnMouseDown", function(self, button)
         if button == "LeftButton" then self:StartMoving() end
@@ -1121,11 +1139,128 @@ function NS.UI.InitCatalog()
     closeBtn:SetPoint("TOPRIGHT", catalogFrame, "TOPRIGHT", -2, -2)
     closeBtn:SetScript("OnClick", function() catalogFrame:Hide() end)
 
+    -- Settings button (cogwheel, next to close button)
+    local settingsBtn = CreateFrame("Button", nil, titleBar)
+    settingsBtn:SetSize(20, 20)
+    settingsBtn:SetPoint("RIGHT", closeBtn, "LEFT", -8, 0)
+    local settingsIcon = settingsBtn:CreateTexture(nil, "ARTWORK")
+    settingsIcon:SetAllPoints()
+    settingsIcon:SetAtlas("OptionsIcon-Brown")
+    settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+    settingsBtn:SetScript("OnEnter", function()
+        settingsIcon:SetVertexColor(1, 0.82, 0, 1)
+    end)
+    settingsBtn:SetScript("OnLeave", function()
+        if not catalogFrame._settingsPanel:IsShown() then
+            settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+        end
+    end)
+    catalogFrame._settingsBtn = settingsBtn
+    catalogFrame._settingsIcon = settingsIcon
+
+    -- Settings panel (opens to the right of the main window)
+    local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
+    settingsPanel:SetWidth(220)
+    settingsPanel:SetHeight(190)
+    settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
+    settingsPanel:SetBackdrop({
+        bgFile   = "Interface\\Buttons\\WHITE8X8",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        edgeSize = 12,
+        insets   = { left = 3, right = 3, top = 3, bottom = 3 },
+    })
+    settingsPanel:SetBackdropColor(0.06, 0.06, 0.08, 0.97)
+    settingsPanel:SetBackdropBorderColor(0.20, 0.20, 0.22, 1)
+    settingsPanel:EnableMouse(true)
+    settingsPanel:Hide()
+    catalogFrame._settingsPanel = settingsPanel
+
+    -- Settings header
+    local settingsHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    settingsHeader:SetPoint("TOPLEFT", 12, -10)
+    settingsHeader:SetText("|cffffd200Settings|r")
+
+    -- Icon Size slider
+    local sliderLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sliderLabel:SetPoint("TOPLEFT", settingsHeader, "BOTTOMLEFT", 0, -14)
+    sliderLabel:SetText("Icon Size")
+    sliderLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
+    local sliderValue = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sliderValue:SetPoint("TOPRIGHT", settingsPanel, "TOPRIGHT", -12, -38)
+    sliderValue:SetTextColor(0.7, 0.7, 0.7, 1)
+
+    local DEFAULT_ICON_SIZE = 110
+    local iconSlider = CreateFrame("Slider", nil, settingsPanel, "OptionsSliderTemplate")
+    iconSlider:SetSize(180, 16)
+    iconSlider:SetPoint("TOPLEFT", sliderLabel, "BOTTOMLEFT", 2, -10)
+    iconSlider:SetMinMaxValues(0.5, 1.5)
+    iconSlider:SetValueStep(0.05)
+    iconSlider:SetObeyStepOnDrag(true)
+    iconSlider.Low:SetText("Small")
+    iconSlider.High:SetText("Large")
+
+    local currentMult = (NS.db and NS.db.settings and NS.db.settings.iconSizeMultiplier)
+        or 1.0
+    iconSlider:SetValue(currentMult)
+    sliderValue:SetText(math.floor(DEFAULT_ICON_SIZE * currentMult) .. "px")
+
+    iconSlider:SetScript("OnValueChanged", function(_, value)
+        local mult = math.floor(value * 20 + 0.5) / 20  -- snap to 0.05 steps
+        local newSize = math.floor(DEFAULT_ICON_SIZE * mult)
+        sliderValue:SetText(newSize .. "px")
+        CatSizing.GridItemSize = newSize
+        if NS.db and NS.db.settings then
+            NS.db.settings.iconSizeMultiplier = mult
+        end
+        if NS.UI.CatalogGrid_Reflow then
+            NS.UI.CatalogGrid_Reflow()
+        end
+    end)
+
+    -- Restore Default Icon Size button
+    local resetIconBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    resetIconBtn:SetSize(180, 22)
+    resetIconBtn:SetPoint("TOPLEFT", iconSlider, "BOTTOMLEFT", -2, -18)
+    resetIconBtn:SetText("Restore Default Icon Size")
+    resetIconBtn:SetScript("OnClick", function()
+        iconSlider:SetValue(1.0)
+    end)
+
+    -- Restore Default Window Size button
+    local resetWindowBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    resetWindowBtn:SetSize(180, 22)
+    resetWindowBtn:SetPoint("TOPLEFT", resetIconBtn, "BOTTOMLEFT", 0, -4)
+    resetWindowBtn:SetText("Restore Default Window Size")
+    resetWindowBtn:SetScript("OnClick", function()
+        catalogFrame:SetSize(CatSizing.FrameWidth, CatSizing.FrameHeight)
+        if NS.db then
+            NS.db.catalogSize = nil
+        end
+    end)
+
+    -- Toggle settings panel on button click
+    settingsBtn:SetScript("OnClick", function()
+        if settingsPanel:IsShown() then
+            settingsPanel:Hide()
+            settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+        else
+            settingsPanel:Show()
+            settingsIcon:SetVertexColor(1, 0.82, 0, 1)
+        end
+    end)
+
+    -- Hide settings panel when main frame hides
+    catalogFrame:HookScript("OnHide", function()
+        settingsPanel:Hide()
+        settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+    end)
+
     -- Search box
     local searchBox = CreateFrame("EditBox", "HearthAndSeekCatalogSearch", titleBar,
                                    "SearchBoxTemplate")
     searchBox:SetSize(CatSizing.SearchBoxWidth, 26)
-    searchBox:SetPoint("RIGHT", closeBtn, "LEFT", -8, 0)
+    searchBox:SetPoint("RIGHT", settingsBtn, "LEFT", -8, 0)
     searchBox:SetAutoFocus(false)
     searchBox:SetScript("OnTextChanged", function(self)
         SearchBoxTemplate_OnTextChanged(self)
@@ -1290,7 +1425,7 @@ function NS.UI.InitCatalog()
     local detail = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     detail:SetWidth(CatSizing.DetailPanelWidth)
     detail:SetPoint("TOPRIGHT", catalogFrame, "TOPRIGHT", -1, -33)
-    detail:SetPoint("BOTTOMRIGHT", catalogFrame, "BOTTOMRIGHT", -1, 1)
+    detail:SetPoint("BOTTOMRIGHT", catalogFrame, "BOTTOMRIGHT", -1, 15)
     detail:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8X8" })
     detail:SetBackdropColor(0.05, 0.05, 0.07, 1)
 
@@ -1301,10 +1436,39 @@ function NS.UI.InitCatalog()
     sepRight:SetPoint("BOTTOMRIGHT", detail, "BOTTOMLEFT", 0, 0)
     sepRight:SetColorTexture(0.25, 0.25, 0.28, 1)
 
+    -- Bottom status bar (spans center + right, below grid and detail)
+    local bottomBar = CreateFrame("Frame", nil, catalogFrame)
+    bottomBar:SetHeight(14)
+    bottomBar:SetPoint("BOTTOMLEFT", sidebar, "BOTTOMRIGHT", 1, 0)
+    bottomBar:SetPoint("BOTTOMRIGHT", catalogFrame, "BOTTOMRIGHT", -1, 1)
+
+    -- Bottom-right panel (under detail panel, matching its dark styling)
+    local bottomRight = CreateFrame("Frame", nil, bottomBar, "BackdropTemplate")
+    bottomRight:SetWidth(CatSizing.DetailPanelWidth)
+    bottomRight:SetPoint("TOPRIGHT", bottomBar, "TOPRIGHT", 0, 0)
+    bottomRight:SetPoint("BOTTOMRIGHT", bottomBar, "BOTTOMRIGHT", 0, 0)
+    bottomRight:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8X8" })
+    bottomRight:SetBackdropColor(0.05, 0.05, 0.07, 1)
+
+    -- Vertical separator extension under the grid|detail separator
+    local sepBottomRight = bottomBar:CreateTexture(nil, "ARTWORK")
+    sepBottomRight:SetWidth(1)
+    sepBottomRight:SetPoint("TOPRIGHT", bottomRight, "TOPLEFT", 0, 0)
+    sepBottomRight:SetPoint("BOTTOMRIGHT", bottomRight, "BOTTOMLEFT", 0, 0)
+    sepBottomRight:SetColorTexture(0.25, 0.25, 0.28, 1)
+
     -- Grid area (center)
     local grid = CreateFrame("Frame", nil, catalogFrame)
     grid:SetPoint("TOPLEFT", sidebar, "TOPRIGHT", 1, 0)
     grid:SetPoint("BOTTOMRIGHT", detail, "BOTTOMLEFT", -1, 0)
+
+    -- Count text on the bottom status bar (centered in the grid area)
+    local countText = bottomBar:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    countText:SetPoint("RIGHT", sepBottomRight, "LEFT", -8, 0)
+    countText:SetPoint("LEFT", bottomBar, "LEFT", 8, 0)
+    countText:SetJustifyH("CENTER")
+    countText:SetTextColor(0.55, 0.55, 0.55, 1)
+    grid._countText = countText  -- grid module reads this
 
     -- Initialize sub-components
     if NS.UI.InitCatalogGrid then
@@ -1518,11 +1682,71 @@ function NS.UI.InitCatalog()
     creditsName:SetText("|cffffd200Hearth & Seek|r")
     creditsName:SetAlpha(0.45)
 
-    -- Restore saved position
+    -- Resize grip (bottom-right of main frame, above the footer)
+    local resizeGrip = CreateFrame("Button", nil, catalogFrame)
+    resizeGrip:SetFrameLevel(catalogFrame:GetFrameLevel() + 10)
+    resizeGrip:SetSize(16, 16)
+    resizeGrip:SetPoint("BOTTOMRIGHT", catalogFrame, "BOTTOMRIGHT", -4, 4)
+    resizeGrip:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
+    resizeGrip:SetHighlightTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
+    resizeGrip:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Down")
+    local resizeTimer = nil
+    local isResizing = false
+
+    local function DoReflow()
+        if NS.UI.CatalogGrid_Reflow then
+            NS.UI.CatalogGrid_Reflow()
+        end
+        if NS.UI._RefreshFooterBar then
+            NS.UI._RefreshFooterBar()
+        end
+    end
+
+    resizeGrip:SetScript("OnMouseDown", function()
+        isResizing = true
+        catalogFrame:StartSizing("BOTTOMRIGHT")
+    end)
+    resizeGrip:SetScript("OnMouseUp", function()
+        isResizing = false
+        if resizeTimer then
+            resizeTimer:Cancel()
+            resizeTimer = nil
+        end
+        SaveFrameSize()
+        DoReflow()
+    end)
+
+    -- Throttle reflow during drag; immediate when not dragging (e.g. SetSize)
+    catalogFrame:SetScript("OnSizeChanged", function()
+        if not isResizing then
+            DoReflow()
+            return
+        end
+        if resizeTimer then return end
+        resizeTimer = C_Timer.NewTimer(0.1, function()
+            resizeTimer = nil
+            DoReflow()
+        end)
+    end)
+
+    -- Clean up resize state if frame is hidden during drag (e.g. ESC key)
+    catalogFrame:HookScript("OnHide", function()
+        isResizing = false
+        if resizeTimer then
+            resizeTimer:Cancel()
+            resizeTimer = nil
+        end
+    end)
+
+    -- Restore saved position and size
     if NS.db and NS.db.catalogPosition then
         local pos = NS.db.catalogPosition
         catalogFrame:ClearAllPoints()
         catalogFrame:SetPoint(pos[1], UIParent, pos[3], pos[4], pos[5])
+    end
+    if NS.db and NS.db.catalogSize then
+        local sz = NS.db.catalogSize
+        catalogFrame:SetSize(sz[1], sz[2])
     end
 
     catalogFrame:Hide()

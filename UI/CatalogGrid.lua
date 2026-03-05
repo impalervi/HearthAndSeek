@@ -9,6 +9,7 @@ NS.UI = NS.UI or {}
 local CatSizing = nil
 local gridButtons = {}
 local gridParent = nil
+local GRID_H_MARGIN = 24  -- fixed left/right margin inside the center panel
 
 -- Multi-select filter state (empty set = no filter = show all)
 local filterState = {
@@ -1224,14 +1225,28 @@ end
 function NS.UI.InitCatalogGrid(parent)
     CatSizing = NS.CatalogSizing
     gridParent = parent
-    visibleRows = CatSizing.GridRows
+
+    -- Apply saved icon size multiplier before computing layout
+    local mult = NS.db and NS.db.settings and NS.db.settings.iconSizeMultiplier
+    if mult and mult ~= 1.0 then
+        CatSizing.GridItemSize = math.floor(110 * mult)
+    end
+
+    -- Compute cols/rows dynamically from available space
+    local size = CatSizing.GridItemSize
+    local gap  = CatSizing.GridItemSpacing
+    local availW = parent:GetWidth() - GRID_H_MARGIN * 2
+    local availH = parent:GetHeight() - 50
+    local dynamicCols = math.max(1, math.floor((availW + gap) / (size + gap)))
+    local dynamicRows = math.max(1, math.floor((availH + gap) / (size + gap)))
+    CatSizing.GridColumns = dynamicCols
+    CatSizing.ItemsPerPage = dynamicCols * dynamicRows
+    visibleRows = dynamicRows
 
     -- Start building achievement name→ID cache in background batches
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local size = CatSizing.GridItemSize
-    local gap  = CatSizing.GridItemSpacing
     local numButtons = visibleRows * cols
 
     -- Calculate total grid dimensions to center it
@@ -1249,10 +1264,13 @@ function NS.UI.InitCatalogGrid(parent)
         gridButtons[i] = btn
     end
 
-    -- Count text (centered below grid)
-    parent._countText = parent:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    parent._countText:SetPoint("BOTTOM", parent, "BOTTOM", 0, 10)
-    parent._countText:SetTextColor(0.55, 0.55, 0.55, 1)
+    -- Count text — created externally on the bottom status bar if available,
+    -- otherwise fall back to a grid-anchored label
+    if not parent._countText then
+        parent._countText = parent:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        parent._countText:SetPoint("BOTTOM", parent, "BOTTOM", 0, 10)
+        parent._countText:SetTextColor(0.55, 0.55, 0.55, 1)
+    end
 
     -- Scroll bar (simple Slider with Blizzard thumb art)
     local gridHeight = visibleRows * size + (visibleRows - 1) * gap
@@ -1297,4 +1315,76 @@ function NS.UI.InitCatalogGrid(parent)
             UpdateScrollIndicator()
         end
     end)
+end
+
+-------------------------------------------------------------------------------
+-- Dynamic grid reflow (called on window resize or icon size change)
+-------------------------------------------------------------------------------
+function NS.UI.CatalogGrid_Reflow()
+    if not gridParent or not CatSizing then return end
+
+    local size = CatSizing.GridItemSize
+    local gap  = CatSizing.GridItemSpacing
+    local availW = gridParent:GetWidth() - GRID_H_MARGIN * 2  -- fixed margins
+    local availH = gridParent:GetHeight() - 50  -- top padding + count text
+
+    local newCols = math.max(1, math.floor((availW + gap) / (size + gap)))
+    local newRows = math.max(1, math.floor((availH + gap) / (size + gap)))
+
+    -- Skip if nothing changed (check cols, rows, AND icon size)
+    local lastSize = gridParent._lastIconSize or CatSizing.GridItemSize
+    if newCols == CatSizing.GridColumns and newRows == visibleRows
+       and size == lastSize then
+        return
+    end
+    gridParent._lastIconSize = size
+
+    CatSizing.GridColumns = newCols
+    visibleRows = newRows
+    CatSizing.ItemsPerPage = newCols * newRows
+
+    local numButtons = newRows * newCols
+    local gridWidth = newCols * size + (newCols - 1) * gap
+
+    -- Grow button pool if needed
+    for i = #gridButtons + 1, numButtons do
+        local btn = CreateFrame("Button", nil, gridParent,
+                                "HearthAndSeekCatalogItemTemplate")
+        btn:SetSize(size, size)
+        gridButtons[i] = btn
+    end
+
+    -- Reposition all buttons (and resize if icon size changed)
+    for i = 1, #gridButtons do
+        local btn = gridButtons[i]
+        btn:ClearAllPoints()
+        if i <= numButtons then
+            local col = (i - 1) % newCols
+            local row = math.floor((i - 1) / newCols)
+            btn:SetSize(size, size)
+            btn:SetPoint("CENTER", gridParent, "TOP",
+                -gridWidth / 2 + col * (size + gap) + size / 2,
+                -(40 + row * (size + gap) + size / 2))
+        else
+            btn:Hide()
+        end
+    end
+
+    -- Reposition and resize scroll bar
+    if gridParent._scrollBar then
+        local gridHeight = newRows * size + (newRows - 1) * gap
+        gridParent._scrollBar:ClearAllPoints()
+        gridParent._scrollBar:SetSize(6, gridHeight)
+        gridParent._scrollBar:SetPoint("TOPLEFT", gridParent, "TOP",
+            gridWidth / 2 + 6, -40)
+    end
+
+    -- Recalculate scroll state and refresh
+    local cols = CatSizing.GridColumns
+    totalRows = math.max(0, math.ceil(#filteredItems / cols))
+    local maxScroll = math.max(0, totalRows - visibleRows)
+    scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
+
+    RefreshGridButtons()
+    UpdateScrollIndicator()
 end
