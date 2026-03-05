@@ -2595,7 +2595,10 @@ function NS.UI.InitCatalogDetail(parent)
     parent._sepBeforeChain:SetColorTexture(0.25, 0.25, 0.28, 0.5)
     parent._sepBeforeChain:Hide()
 
-    local CHAIN_MAX_VISIBLE = 5
+    local CHAIN_MAX_VISIBLE = 7
+    local CHAIN_TRUNCATION_THRESHOLD = 8  -- chains > this get truncated display
+    local CHAIN_HEAD_COUNT = 2            -- show first N incomplete quests in head
+    local CHAIN_TAIL_COUNT = 3            -- show last N entries (incl. decor reward)
 
     local chainContainer = CreateFrame("Frame", nil, middleChild)
     -- Chain anchors below sepBeforeChain (set in ShowItem)
@@ -2669,6 +2672,9 @@ function NS.UI.InitCatalogDetail(parent)
     parent._chainContainer = chainContainer
     parent._chainLineHeight = CHAIN_LINE_HEIGHT
     parent._chainMaxVisible = CHAIN_MAX_VISIBLE
+    parent._chainTruncThreshold = CHAIN_TRUNCATION_THRESHOLD
+    parent._chainHeadCount = CHAIN_HEAD_COUNT
+    parent._chainTailCount = CHAIN_TAIL_COUNT
 
     -- Centered placeholder shown when no item is selected
     local placeholder = parent:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
@@ -3464,11 +3470,74 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Header: "Quest:" for single, "Quest Chain:" for multi-step
+        -- Always uses full chain length for truth
         local headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
         local completedColor = (completed == #chain) and "|cff1eff00" or "|cffffcc00"
         chainContainer._header:SetText(string.format(
             "|cffffd200%s|r %d/%d %scompleted|r",
             headerLabel, completed, #chain, completedColor))
+
+        -- Build display list (truncated for long chains)
+        -- Each entry: {type="quest", chainIdx=N} or {type="skip", count=N}
+        local displayList = {}
+        local truncThreshold = detailPanel._chainTruncThreshold
+        local headCount = detailPanel._chainHeadCount
+        local tailCount = detailPanel._chainTailCount
+
+        if #chain > truncThreshold then
+            -- Head segment: last completed + next N incomplete quests
+            local headIndices = {}
+            if not firstIncompleteIdx then
+                -- All completed: show chain start
+                headIndices[1] = 1
+            elseif firstIncompleteIdx == 1 then
+                -- None completed: show first N incomplete
+                for hi = 1, math.min(headCount, #chain) do
+                    headIndices[#headIndices + 1] = hi
+                end
+            else
+                -- Show last completed + next N incomplete
+                headIndices[1] = firstIncompleteIdx - 1
+                for hi = 0, headCount - 1 do
+                    local ci = firstIncompleteIdx + hi
+                    if ci <= #chain then
+                        headIndices[#headIndices + 1] = ci
+                    end
+                end
+            end
+
+            -- Tail segment: last tailCount entries
+            local tailStart = #chain - tailCount + 1
+            local lastHeadIdx = headIndices[#headIndices]
+
+            if lastHeadIdx >= tailStart then
+                -- Head overlaps tail: show everything from first head to end
+                for ci = headIndices[1], #chain do
+                    displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
+                end
+            else
+                -- Head entries
+                for _, ci in ipairs(headIndices) do
+                    displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
+                end
+                -- Skip line (omit if head is directly adjacent to tail)
+                local skipCount = tailStart - lastHeadIdx - 1
+                if skipCount > 0 then
+                    displayList[#displayList + 1] = { type = "skip", count = skipCount }
+                end
+                -- Tail entries
+                for ci = tailStart, #chain do
+                    displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
+                end
+            end
+        else
+            -- Short chain: show all entries
+            for ci = 1, #chain do
+                displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
+            end
+        end
+
+        local displayCount = #displayList
 
         -- Ensure enough FontString + hit frame entries exist in the pool
         local entries = chainContainer._entries
@@ -3476,7 +3545,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         local scrollChild = chainContainer._scrollChild
         local lineH = detailPanel._chainLineHeight
 
-        for i = #entries + 1, #chain do
+        for i = #entries + 1, displayCount do
             local fs = scrollChild:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
             fs:SetPoint("TOPLEFT", 0, -(i - 1) * lineH)
             fs:SetPoint("RIGHT", scrollChild, "RIGHT", 0, 0)
@@ -3523,102 +3592,115 @@ function NS.UI.CatalogDetail_ShowItem(item)
             hitFrames[i] = hf
         end
 
-        -- Populate entries
-        for i, entry in ipairs(chain) do
-            local fs = entries[i]
-            local hf = hitFrames[i]
-            local isComplete = entry.questID
-                and C_QuestLog.IsQuestFlaggedCompleted(entry.questID)
-            local prefix, color
+        -- Populate entries from display list
+        for slot, displayEntry in ipairs(displayList) do
+            local fs = entries[slot]
+            local hf = hitFrames[slot]
 
-            if not entry.questID then
-                -- Unknown quest ID — show as unknown status
-                prefix = "|cff888888?|r "
-                color = "|cff888888"
-            elseif isComplete then
-                prefix = "|TInterface\\RaidFrame\\ReadyCheck-Ready:0|t "
-                color = "|cff1eff00"
-            elseif i == firstIncompleteIdx then
-                prefix = "|cffffcc00>|r "
-                color = "|cffffcc00"
-            else
-                prefix = "  "
-                color = "|cff666666"
-            end
-
-            -- Highlight decor reward quests with a gold star icon
-            local suffix = ""
-            if entry.questID and entry.questID == item.questID then
-                -- This is the reward quest for the item we're viewing
-                suffix = " |TInterface\\GossipFrame\\ActiveQuestIcon:0|t|cffff8800 DECOR REWARD|r"
-            elseif entry.isDecorQuest then
-                -- Another quest in the chain that also rewards a decoration
-                suffix = " |TInterface\\GossipFrame\\ActiveQuestIcon:0|t|cff888888 DECOR REWARD (other)|r"
-            end
-
-            fs:SetText(prefix .. color .. entry.name .. "|r" .. suffix)
-            fs:Show()
-
-            -- Build tooltip content for hover
-            hf._tipTitle = entry.name
-            local tipLines = {}
-            if entry.questID then
-                tipLines[#tipLines + 1] = "|cff888888Quest ID: " .. entry.questID .. "|r"
-            else
-                tipLines[#tipLines + 1] = "|cff888888Quest ID unknown|r"
-            end
-            if isComplete then
-                tipLines[#tipLines + 1] = "|cff1eff00Completed|r"
-            elseif i == firstIncompleteIdx then
-                tipLines[#tipLines + 1] = "|cffffcc00Next in chain|r"
-            else
-                tipLines[#tipLines + 1] = "|cff666666Not yet available|r"
-            end
-            if entry.questID == item.questID then
-                tipLines[#tipLines + 1] = "|cffff8800Decor Reward|r"
-            elseif entry.isDecorQuest then
-                tipLines[#tipLines + 1] = "|cff888888Decor Reward (other item)|r"
-            end
-            local qcEntry = entry.questID
-                and NS.QuestChains and NS.QuestChains[entry.questID]
-            if qcEntry and qcEntry.giverName then
-                local giverLine = "Quest Giver: " .. qcEntry.giverName
-                if qcEntry.giverZone then
-                    giverLine = giverLine .. " (" .. qcEntry.giverZone .. ")"
-                end
-                tipLines[#tipLines + 1] = giverLine
-            end
-            hf._tipLines = tipLines
-            hf._questID = entry.questID
-            -- For DECOR REWARD entries: store decorID for CTRL+Right Click preview
-            if entry.questID and entry.questID == item.questID then
-                hf._isDecorReward = true
-                hf._decorID = item.decorID
-            elseif entry.isDecorQuest and NS.QuestChains and NS.QuestChains[entry.questID] then
-                hf._isDecorReward = true
-                hf._decorID = NS.QuestChains[entry.questID].decorID
-            else
+            if displayEntry.type == "skip" then
+                -- Skip line: dimmed text, no tooltip
+                local word = displayEntry.count == 1 and "quest" or "quests"
+                fs:SetText("  |cff666666... " .. displayEntry.count .. " more " .. word .. " ...|r")
+                fs:Show()
+                hf._tipTitle = nil
+                hf._tipLines = nil
+                hf._questID = nil
                 hf._isDecorReward = false
                 hf._decorID = nil
+                hf:Hide()
+            else
+                -- Quest entry from original chain
+                local ci = displayEntry.chainIdx
+                local entry = chain[ci]
+                local isComplete = entry.questID
+                    and C_QuestLog.IsQuestFlaggedCompleted(entry.questID)
+                local prefix, color
+
+                if not entry.questID then
+                    prefix = "|cff888888?|r "
+                    color = "|cff888888"
+                elseif isComplete then
+                    prefix = "|TInterface\\RaidFrame\\ReadyCheck-Ready:0|t "
+                    color = "|cff1eff00"
+                elseif ci == firstIncompleteIdx then
+                    prefix = "|cffffcc00>|r "
+                    color = "|cffffcc00"
+                else
+                    prefix = "  "
+                    color = "|cff666666"
+                end
+
+                -- Highlight decor reward quests with a gold star icon
+                local suffix = ""
+                if entry.questID and entry.questID == item.questID then
+                    suffix = " |TInterface\\GossipFrame\\ActiveQuestIcon:0|t|cffff8800 DECOR REWARD|r"
+                elseif entry.isDecorQuest then
+                    suffix = " |TInterface\\GossipFrame\\ActiveQuestIcon:0|t|cff888888 DECOR REWARD (other)|r"
+                end
+
+                fs:SetText(prefix .. color .. entry.name .. "|r" .. suffix)
+                fs:Show()
+
+                -- Build tooltip content for hover
+                hf._tipTitle = entry.name
+                local tipLines = {}
+                if entry.questID then
+                    tipLines[#tipLines + 1] = "|cff888888Quest ID: " .. entry.questID .. "|r"
+                else
+                    tipLines[#tipLines + 1] = "|cff888888Quest ID unknown|r"
+                end
+                if isComplete then
+                    tipLines[#tipLines + 1] = "|cff1eff00Completed|r"
+                elseif ci == firstIncompleteIdx then
+                    tipLines[#tipLines + 1] = "|cffffcc00Next in chain|r"
+                else
+                    tipLines[#tipLines + 1] = "|cff666666Not yet available|r"
+                end
+                if entry.questID == item.questID then
+                    tipLines[#tipLines + 1] = "|cffff8800Decor Reward|r"
+                elseif entry.isDecorQuest then
+                    tipLines[#tipLines + 1] = "|cff888888Decor Reward (other item)|r"
+                end
+                local qcEntry = entry.questID
+                    and NS.QuestChains and NS.QuestChains[entry.questID]
+                if qcEntry and qcEntry.giverName then
+                    local giverLine = "Quest Giver: " .. qcEntry.giverName
+                    if qcEntry.giverZone then
+                        giverLine = giverLine .. " (" .. qcEntry.giverZone .. ")"
+                    end
+                    tipLines[#tipLines + 1] = giverLine
+                end
+                hf._tipLines = tipLines
+                hf._questID = entry.questID
+                if entry.questID and entry.questID == item.questID then
+                    hf._isDecorReward = true
+                    hf._decorID = item.decorID
+                elseif entry.isDecorQuest and NS.QuestChains and NS.QuestChains[entry.questID] then
+                    hf._isDecorReward = true
+                    hf._decorID = NS.QuestChains[entry.questID].decorID
+                else
+                    hf._isDecorReward = false
+                    hf._decorID = nil
+                end
+                hf:Show()
             end
-            hf:Show()
         end
 
         -- Hide unused entries
-        for i = #chain + 1, #entries do
+        for i = displayCount + 1, #entries do
             entries[i]:Hide()
         end
-        for i = #chain + 1, #hitFrames do
+        for i = displayCount + 1, #hitFrames do
             hitFrames[i]:Hide()
         end
 
-        -- Size the scroll child to fit all entries
-        local totalHeight = #chain * lineH
+        -- Size the scroll child to fit display entries (not full chain)
+        local totalHeight = displayCount * lineH
         scrollChild:SetHeight(totalHeight)
 
-        -- Size the scroll viewport (max 7 visible lines)
+        -- Size the scroll viewport (max visible lines)
         local maxVisible = detailPanel._chainMaxVisible
-        local visibleCount = math.min(#chain, maxVisible)
+        local visibleCount = math.min(displayCount, maxVisible)
         local viewportH = visibleCount * lineH
         chainContainer._scrollFrame:SetHeight(viewportH)
 
@@ -3626,7 +3708,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         scrollChild:SetWidth(chainContainer._scrollFrame:GetWidth())
 
         -- Show/hide scrollbar
-        local needsScroll = #chain > maxVisible
+        local needsScroll = displayCount > maxVisible
         chainContainer._scrollTrack:SetShown(needsScroll)
         chainContainer._scrollThumb:SetShown(needsScroll)
         if needsScroll then

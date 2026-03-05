@@ -1,17 +1,14 @@
 """
-cleanup_quest_chains.py — Remove false prereqs from bulk-imported storyline quests.
+cleanup_quest_chains.py — Rebuild quest prereqs from verified Wowhead data.
 
-The enrich_quest_chains.py script has two bugs that create falsely long chains:
-1. Storyline fallback: treats prior storyline quest as prereq when no Series data
-2. Bulk import: imports entire zone storylines as linear prereq chains
+The enrich_quest_chains.py bulk-import can create falsely long chains by
+importing entire zone storylines as linear prereq chains. This script
+rebuilds quest_chains.json using verified data sources:
 
-This script fixes quest_chains.json by:
-- Reading each cached Wowhead page to extract ONLY Series-based prereqs
-- Reconstructing full Series chains (including intermediate quests)
-- Clearing prereqs for bulk-imported quests NOT in any verified Series chain
-- Applying manual fixes for chains verified outside of Wowhead Series data
-
-Result: only prereqs verified by Wowhead Series data or manual review are retained.
+1. Series data (preferred) — short, verified quest chains from Wowhead
+2. Storyline data (fallback) — when no Series exists, uses the storyline
+   order up to the quest's position (full length preserved for UI truncation)
+3. Manual fixes — for chains verified outside of Wowhead Series/Storyline
 """
 
 import json
@@ -43,19 +40,13 @@ MANUAL_FIXES: dict[int, dict] = {
 }
 
 
-# Storylines with <= this many quests are treated as real quest chains.
-# Longer storylines are usually zone-wide quest groupings (not linear prereqs).
-MAX_STORYLINE_CHAIN_LENGTH = 20
-
-
 def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]]:
     """Load all quest chain cache files and build verified prereqs.
 
     Uses two data sources from each cached Wowhead page:
     1. Series data (preferred) — short, verified quest chains
-    2. Storyline data (fallback) — used only when no Series data exists AND
-       the storyline has <= MAX_STORYLINE_CHAIN_LENGTH quests (short storylines
-       are real quest chains; long ones are zone-wide groupings)
+    2. Storyline data (fallback) — when no Series exists, uses the storyline
+       order up to the quest's position (full length; UI handles truncation)
 
     Returns:
         verified_prereqs: quest_id -> [prereq_id] or [] (from verified data)
@@ -118,36 +109,36 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
             if chain_ids and quest_id not in verified_prereqs:
                 verified_prereqs[quest_id] = [chain_ids[-1]]
 
-        elif storyline and len(storyline) <= MAX_STORYLINE_CHAIN_LENGTH:
-            # --- Short Storyline fallback ---
-            # Short storylines (≤ threshold) are real quest chains, not zone
-            # groupings. Build prereqs from the storyline order up to this quest.
-            storyline_count += 1
-            chain_ids = []
-            for entry in storyline:
-                sq = entry.get("quest_id")
-                if sq:
-                    chain_ids.append(sq)
-                    name = entry.get("name")
-                    if name:
-                        series_names[sq] = name
-                # Stop after the cached quest's position
-                if entry.get("quest_id") == quest_id or entry.get("is_current"):
-                    break
-
-            for i, sq in enumerate(chain_ids):
-                if i == 0:
-                    if sq not in verified_prereqs:
-                        verified_prereqs[sq] = []
-                else:
-                    prev_id = chain_ids[i - 1]
-                    if sq not in verified_prereqs:
-                        verified_prereqs[sq] = [prev_id]
-
         else:
-            # No Series data AND either no Storyline or Storyline too long
-            # (zone-wide grouping) — mark as verified empty
-            verified_prereqs[quest_id] = []
+            # --- Storyline fallback (full length) ---
+            # Build prereqs from the storyline order up to this quest's
+            # position. Full chain is preserved; the UI handles display
+            # truncation for long chains.
+            if storyline:
+                storyline_count += 1
+                chain_ids = []
+                for entry in storyline:
+                    sq = entry.get("quest_id")
+                    if sq:
+                        chain_ids.append(sq)
+                        name = entry.get("name")
+                        if name:
+                            series_names[sq] = name
+                    # Stop after the cached quest's position
+                    if entry.get("quest_id") == quest_id or entry.get("is_current"):
+                        break
+
+                for i, sq in enumerate(chain_ids):
+                    if i == 0:
+                        if sq not in verified_prereqs:
+                            verified_prereqs[sq] = []
+                    else:
+                        prev_id = chain_ids[i - 1]
+                        if sq not in verified_prereqs:
+                            verified_prereqs[sq] = [prev_id]
+            else:
+                # No storyline data at all — mark as verified empty
+                verified_prereqs[quest_id] = []
 
     logger.info(
         "Loaded %d cache files: %d with Series, %d with short Storyline, %d empty",
