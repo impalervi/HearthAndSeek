@@ -834,10 +834,22 @@ COVENANT_VENDORS: dict[str, int] = {
 TREASURE_COORDS: dict[int, tuple[float, float, str]] = {
     1173:  (38.89, 76.08, "Eversong Woods"),       # Triple-Locked Safebox
     1195:  (37.8,  52.6,  "Silvermoon City"),        # Incomplete Book of Sonnets
+    2233:  (62.91, 51.25, "Harandar"),               # Reliquary's Lost Paint Supplies
+    5111:  (57.72, 15.68, "The Jade Forest"),         # Golden Cloud Serpent chest
     8875:  (40.44, 60.90, "Eversong Woods"),         # Stone Vat
-    14977: (40.96, 19.47, "Eversong Woods"),         # Gift of the Phoenix
     14597: (52.24, 31.11, "Masters' Perch"),         # Stellar Stash
+    14641: (43.28, 69.48, "Eversong Woods"),         # Forgotten Ink and Quill
+    14977: (40.96, 19.47, "Eversong Woods"),         # Gift of the Phoenix
     15746: (53.21, 44.23, "The Voidstorm"),          # Malignant Chest
+}
+
+# False positive Treasure links from Wowhead — these are either unrelated legacy objects,
+# recipe sources, or associated with a different decor item.
+# Format: itemID → reason
+TREASURE_FALSE_POSITIVES: set[int] = {
+    262354,  # Riftstone — "Unstable Riftstone" is an unrelated Legion-era object
+    262456,  # Ornamental Silvermoon Hanger — "Ranger's Cache" drops the recipe, not the item
+    262466,  # Void Elf Table — "Stellar Stash" belongs to Void Elf Round Table (different item)
 }
 # Roaming vendors exist in BOTH zones with different NPC IDs:
 ROAMING_VENDORS: dict[str, dict] = {
@@ -1418,9 +1430,16 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     # object location (vendor coords from above are wrong for these).
     # Save vendor data first so we can emit it as separate fields.
     treasure_vendor_data = None
-    tc = TREASURE_COORDS.get(decor_id) if source_type == "Treasure" else None
-    if tc:
-        # Save vendor data before overriding (only if vendor has coords)
+    # Check if Treasure is primary OR additional source
+    has_treasure_additional = False
+    if item.get("_additionalSources"):
+        has_treasure_additional = any(
+            s.get("sourceType") == "Treasure" for s in item["_additionalSources"]
+        )
+    tc = TREASURE_COORDS.get(decor_id) if (source_type == "Treasure" or has_treasure_additional) else None
+    treasure_extra_coords = None  # for items where Treasure is additional, not primary
+    if tc and source_type == "Treasure":
+        # Primary Treasure: override main coords
         if vendor_name and item_npc_id and item_npc_x is not None:
             treasure_vendor_data = {
                 "npcID": item_npc_id,
@@ -1433,6 +1452,9 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         item_zone = tc[2]
         item_npc_id = None   # treasure objects, not NPCs
         coords_mismatch = False
+    elif tc:
+        # Treasure is additional source — store as separate fields, keep main coords
+        treasure_extra_coords = tc
 
     fields = [
         ("decorID", lua_number(item.get("decorID"))),
@@ -1543,6 +1565,16 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         tv_zone = treasure_vendor_data.get("zone") or ""
         if tv_zone:
             lines.append(f"        treasureVendorZone = {lua_string(tv_zone)},")
+
+    # Optional: treasure coords when Treasure is an additional source (not primary)
+    if treasure_extra_coords:
+        tc_zone = treasure_extra_coords[2]
+        tc_mapid = ZONE_TO_MAPID.get(tc_zone)
+        lines.append(f"        treasureX = {lua_number(treasure_extra_coords[0])},")
+        lines.append(f"        treasureY = {lua_number(treasure_extra_coords[1])},")
+        lines.append(f"        treasureZone = {lua_string(tc_zone)},")
+        if tc_mapid:
+            lines.append(f"        treasureMapID = {tc_mapid},")
 
     # Optional: alternate vendor (from comma-separated vendor names)
     if alt_vendor_name:
@@ -1723,6 +1755,9 @@ def main() -> None:
         # Additional sources (filter out NPC type — those are vendors/drops already handled)
         add_src = extra.get("additionalSources", [])
         filtered_src = [s for s in add_src if s.get("sourceType") not in ("NPC", "Item", "Starter", "Container") and not s.get("sourceType", "").startswith("Unknown")]
+        # Remove false positive Treasure links for specific items
+        if item_id in TREASURE_FALSE_POSITIVES:
+            filtered_src = [s for s in filtered_src if s.get("sourceType") != "Treasure"]
         if filtered_src:
             item["_additionalSources"] = filtered_src
 

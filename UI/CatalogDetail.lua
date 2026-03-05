@@ -1192,19 +1192,21 @@ function NS.UI.InitCatalogDetail(parent)
             return
         end
 
-        -- Treasure vendor navigation (player already owns item → vendor)
-        local tvData = parent._waypointBtn._treasureVendorData
-        if tvData then
-            if tvData.mapID and NS.Navigation and NS.Navigation.SetWaypoint then
-                NS.Navigation.SetWaypoint(tvData.mapID, tvData.x, tvData.y,
-                    tvData.name .. " (" .. tvData.zone .. ")")
+        -- Additional treasure source navigation (Treasure is not primary source)
+        local tCoords = parent._waypointBtn._treasureCoords
+        if tCoords then
+            local mapID = tCoords.mapID or GetZoneMapID(tCoords.zone)
+            if mapID and NS.Navigation and NS.Navigation.SetWaypoint then
+                local navLabel = (tCoords.zone or "Treasure")
+                NS.Navigation.SetWaypoint(mapID, tCoords.x, tCoords.y, navLabel)
                 if NS.Utils and NS.Utils.PrintMessage then
                     NS.Utils.PrintMessage(
-                        "Waypoint set: " .. tvData.name .. " in " .. tvData.zone)
+                        "Waypoint set: Treasure in " .. (tCoords.zone or "")
+                        .. string.format(" (%.1f, %.1f)", tCoords.x, tCoords.y))
                 end
             end
-            if tvData.mapID then
-                local isCross, continentName = GetCrossContinentInfo(tvData.mapID)
+            if mapID then
+                local isCross, continentName = GetCrossContinentInfo(mapID)
                 if isCross and parent._crossPopup then
                     local cExp = NS.ContinentExpansion and NS.ContinentExpansion[continentName]
                     local cHex = cExp and NS.ExpansionColors and NS.ExpansionColors[cExp] or "00CCFF"
@@ -1212,14 +1214,14 @@ function NS.UI.InitCatalogDetail(parent)
                         "Different travel region!\n"
                         .. "Navigate to |cff" .. cHex .. continentName .. "|r.\n"
                         .. "The map ping navigation system activates once you arrive.")
-                    parent._crossPopup._pendingMapID = tvData.mapID
+                    parent._crossPopup._pendingMapID = mapID
                     parent._crossPopup._pendingSuccess = {
-                        zone = tvData.zone, x = tvData.x, y = tvData.y,
+                        zone = tCoords.zone, x = tCoords.x, y = tCoords.y,
                     }
                     parent._crossPopup:Show()
                 else
-                    ForceOpenWorldMap(tvData.mapID)
-                    ShowWaypointSuccess(tvData.zone, tvData.x, tvData.y)
+                    ForceOpenWorldMap(mapID)
+                    ShowWaypointSuccess(tCoords.zone, tCoords.x, tCoords.y)
                 end
             end
             return
@@ -1425,6 +1427,47 @@ function NS.UI.InitCatalogDetail(parent)
         end
     end)
     parent._openMapBtn:Hide()
+
+    -- Alternate Navigate button (Treasure+Vendor dual navigation)
+    parent._altNavBtn = CreateFrame("Button", nil, bottomSection, "UIPanelButtonTemplate")
+    parent._altNavBtn:SetSize(CatSizing.DetailPanelWidth - 16, 28)
+    parent._altNavBtn:SetText("Navigate")
+    parent._altNavBtn:SetScript("OnClick", function()
+        DismissAllPopups()
+        local navData = parent._altNavBtn._navData
+        if not navData then return end
+        local mapID = navData.mapID or GetZoneMapID(navData.zone)
+        if mapID and NS.Navigation and NS.Navigation.SetWaypoint then
+            NS.Navigation.SetWaypoint(mapID, navData.x, navData.y,
+                (navData.label or navData.zone or ""))
+            if NS.Utils and NS.Utils.PrintMessage then
+                NS.Utils.PrintMessage(
+                    "Waypoint set: " .. (navData.label or "")
+                    .. " in " .. (navData.zone or "")
+                    .. string.format(" (%.1f, %.1f)", navData.x, navData.y))
+            end
+        end
+        if mapID then
+            local isCross, continentName = GetCrossContinentInfo(mapID)
+            if isCross and parent._crossPopup then
+                local cExp = NS.ContinentExpansion and NS.ContinentExpansion[continentName]
+                local cHex = cExp and NS.ExpansionColors and NS.ExpansionColors[cExp] or "00CCFF"
+                parent._crossPopup._text:SetText(
+                    "Different travel region!\n"
+                    .. "Navigate to |cff" .. cHex .. continentName .. "|r.\n"
+                    .. "The map ping navigation system activates once you arrive.")
+                parent._crossPopup._pendingMapID = mapID
+                parent._crossPopup._pendingSuccess = {
+                    zone = navData.zone, x = navData.x, y = navData.y,
+                }
+                parent._crossPopup:Show()
+            else
+                ForceOpenWorldMap(mapID)
+                ShowWaypointSuccess(navData.zone, navData.x, navData.y)
+            end
+        end
+    end)
+    parent._altNavBtn:Hide()
 
     -- Waypoint status text (above open-map button or waypoint button)
     parent._waypointStatus = bottomSection:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -2904,6 +2947,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
         and item.vendorUnlockAchievement ~= "" then
         srcText = srcText .. " |cffe6cc80+ Achievement|r"
     end
+    -- Indicate additional Treasure source (for non-Treasure primary items)
+    if item.sourceType ~= "Treasure" and item.treasureX and item.treasureY then
+        srcText = srcText .. " |cff60e060+ Treasure|r"
+    end
     detailPanel._sourceLine:SetText(srcText)
     detailPanel._sourceLine:SetTextColor(srcColor[1], srcColor[2], srcColor[3], 1)
 
@@ -3413,6 +3460,55 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._altVendorLine:Hide()
         detailPanel._altVendorHit:Hide()
         detailPanel._vendorNote:Hide()
+
+        -- Additional Treasure source: show treasure info for non-Treasure primary items
+        -- (e.g. Profession items with a treasure alternative)
+        if item.treasureX and item.treasureY
+                and item.treasureZone and item.treasureZone ~= "" then
+            local treasureName = ""
+            if item.additionalSources then
+                for _, src in ipairs(item.additionalSources) do
+                    if src.sourceType == "Treasure" and src.sourceDetail then
+                        treasureName = src.sourceDetail
+                        break
+                    end
+                end
+            end
+            if treasureName ~= "" then
+                detailPanel._treasureLine:SetText("|cff60e060Also found in:|r " .. treasureName)
+                detailPanel._treasureLine:ClearAllPoints()
+                detailPanel._treasureLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
+                detailPanel._treasureLine:Show()
+                showTreasureLine = true
+
+                detailPanel._treasureHit._active = true
+                detailPanel._treasureHit._treasureName = treasureName
+                detailPanel._treasureHit._treasureZone = item.treasureZone
+                detailPanel._treasureHit._treasureX = item.treasureX
+                detailPanel._treasureHit._treasureY = item.treasureY
+                detailPanel._treasureHit:ClearAllPoints()
+                detailPanel._treasureHit:SetAllPoints(detailPanel._treasureLine)
+                detailPanel._treasureHit:Show()
+
+                detailPanel._treasureZonePart:SetText(" |cff888888in|r " .. item.treasureZone)
+                detailPanel._treasureZonePart:ClearAllPoints()
+                local availableW = detailPanel._middleChild:GetWidth() - 4
+                local treasureW = detailPanel._treasureLine:GetStringWidth() or 0
+                local zoneW = detailPanel._treasureZonePart:GetStringWidth() or 0
+                if (treasureW + zoneW) > availableW then
+                    detailPanel._treasureZonePart:SetText("|cff888888In|r " .. item.treasureZone)
+                    detailPanel._treasureZonePart:SetPoint("TOPLEFT", detailPanel._treasureLine, "BOTTOMLEFT", 0, -1)
+                    treasureZoneWrapped = true
+                else
+                    detailPanel._treasureZonePart:SetPoint("LEFT", detailPanel._treasureLine, "RIGHT", 0, 0)
+                end
+                detailPanel._treasureZonePart:Show()
+                detailPanel._treasureZoneHit._zoneName = item.treasureZone
+                detailPanel._treasureZoneHit:ClearAllPoints()
+                detailPanel._treasureZoneHit:SetAllPoints(detailPanel._treasureZonePart)
+                detailPanel._treasureZoneHit:Show()
+            end
+        end
     end
 
     -- Determine anchor for chain area (below vendor note/alt vendor/zone/line, else last acquire)
@@ -3888,7 +3984,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._waypointBtn._openMapDrop = nil
     detailPanel._waypointBtn._entranceData = nil
     detailPanel._waypointBtn._hubData = nil
-    detailPanel._waypointBtn._treasureVendorData = nil
+    detailPanel._waypointBtn._treasureCoords = nil
+    detailPanel._altNavBtn._navData = nil
+    detailPanel._altNavBtn:Hide()
     detailPanel._openMapBtn._dungeonMapID = nil
     detailPanel._openMapBtn._bossName = nil
     detailPanel._openMapBtn._dungeonName = nil
@@ -3941,6 +4039,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
         and item.vendorName and item.vendorName ~= ""
 
     local hasCoords = item.npcX and item.npcY and item.zone and item.zone ~= ""
+    local hasTreasureCoords = item.treasureX and item.treasureY
+        and item.treasureZone and item.treasureZone ~= ""
 
     -- Check if coords can actually be pinned on the world map. Instance/dungeon
     -- zones have their own coordinate space that doesn't translate to the parent
@@ -4018,20 +4118,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
         isInNeighborhood = (playerMapID == 2352 or playerMapID == 2351)
     end
 
-    -- Treasure+Vendor: check if player already owns this decor
-    -- (found the treasure → can now buy from vendor instead)
+    -- Treasure+Vendor: item has both treasure coords and a secondary vendor
     local isTreasureVendor = item.sourceType == "Treasure"
         and item.vendorName and item.vendorName ~= ""
         and item.treasureVendorX and item.treasureVendorY
-    local treasureCollected = false
-    if isTreasureVendor then
-        local housingInfo = GetHousingInfo(item.decorID)
-        if housingInfo then
-            treasureCollected = (housingInfo.quantity or 0) > 0
-                or (housingInfo.numPlaced or 0) > 0
-                or (housingInfo.remainingRedeemable or 0) > 0
-        end
-    end
 
     if isOppositeFaction then
         -- Item is in a faction-specific neighborhood the player cannot access
@@ -4102,48 +4192,34 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
     elseif isTreasureVendor then
-        -- Treasure + Vendor: navigate to treasure first, then vendor once collected
-        if treasureCollected then
-            -- Player already found the treasure → navigate to vendor
-            local tvZone = item.treasureVendorZone or ""
-            local tvMapID, tvCoordsTrusted
-            if tvZone ~= "" then
-                tvMapID, tvCoordsTrusted = ResolveNavigableMap(tvZone)
-            end
-            if tvMapID and tvCoordsTrusted then
-                detailPanel._waypointBtn:Enable()
-                TruncateButtonText(detailPanel._waypointBtn, "Navigate (" .. item.vendorName .. ")")
-                -- Store vendor data for the OnClick handler
-                detailPanel._waypointBtn._treasureVendorData = {
-                    name = item.vendorName,
-                    npcID = item.treasureVendorNpcID,
-                    x = item.treasureVendorX,
-                    y = item.treasureVendorY,
-                    zone = tvZone,
-                    mapID = tvMapID,
-                }
-                detailPanel._waypointStatus:Hide()
-            else
-                -- Vendor zone can't be pinned (instance etc.)
-                detailPanel._waypointBtn:Enable()
-                TruncateButtonText(detailPanel._waypointBtn, "Navigate (nearby " .. item.vendorName .. ")")
-                detailPanel._waypointBtn._treasureVendorData = nil
-                detailPanel._waypointStatus:SetText("Vendor in: " .. tvZone)
-                detailPanel._waypointStatus:Show()
-            end
-        elseif hasCoords then
-            -- Not yet collected → navigate to treasure location
+        -- Treasure + Vendor: always show both Navigate buttons
+        -- Primary button → Navigate to treasure
+        if hasCoords then
             detailPanel._waypointBtn:Enable()
             TruncateButtonText(detailPanel._waypointBtn, "Navigate (" .. item.sourceDetail .. ")")
-            detailPanel._waypointBtn._treasureVendorData = nil
-            detailPanel._waypointStatus:Hide()
         else
-            -- Treasure has no coordinates
             detailPanel._waypointBtn:Disable()
-            detailPanel._waypointBtn:SetText("Navigate")
-            detailPanel._waypointBtn._treasureVendorData = nil
+            detailPanel._waypointBtn:SetText("Navigate (Treasure)")
             detailPanel._waypointStatus:SetText("No treasure coordinates available")
             detailPanel._waypointStatus:Show()
+        end
+        -- Secondary button → Navigate to vendor
+        local tvZone = item.treasureVendorZone or ""
+        local tvMapID, tvCoordsTrusted
+        if tvZone ~= "" then
+            tvMapID, tvCoordsTrusted = ResolveNavigableMap(tvZone)
+        end
+        if tvMapID and tvCoordsTrusted and item.treasureVendorX and item.treasureVendorY then
+            detailPanel._altNavBtn:Enable()
+            TruncateButtonText(detailPanel._altNavBtn, "Navigate (" .. item.vendorName .. ")")
+            detailPanel._altNavBtn._navData = {
+                label = item.vendorName,
+                x = item.treasureVendorX,
+                y = item.treasureVendorY,
+                zone = tvZone,
+                mapID = tvMapID,
+            }
+            detailPanel._altNavBtn:Show()
         end
 
     elseif isQuestVendor then
@@ -4285,6 +4361,28 @@ function NS.UI.CatalogDetail_ShowItem(item)
         else
             detailPanel._waypointStatus:Hide()
         end
+        -- Also has additional Treasure source → show second Navigate button
+        if hasTreasureCoords then
+            local treasureName = ""
+            if item.additionalSources then
+                for _, src in ipairs(item.additionalSources) do
+                    if src.sourceType == "Treasure" and src.sourceDetail then
+                        treasureName = src.sourceDetail
+                        break
+                    end
+                end
+            end
+            detailPanel._altNavBtn:Enable()
+            TruncateButtonText(detailPanel._altNavBtn, "Navigate (Treasure)")
+            detailPanel._altNavBtn._navData = {
+                label = treasureName ~= "" and treasureName or "Treasure",
+                x = item.treasureX,
+                y = item.treasureY,
+                zone = item.treasureZone,
+                mapID = item.treasureMapID,
+            }
+            detailPanel._altNavBtn:Show()
+        end
 
     elseif isInstanceZone then
         -- Instance/sub-zone: check for a known entrance in the outdoor world
@@ -4307,6 +4405,36 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._waypointStatus:SetText("Vendor inside: " .. item.zone)
             detailPanel._waypointStatus:Show()
         end
+
+    elseif hasTreasureCoords then
+        -- Treasure is an additional source with known coords
+        local treasureName = ""
+        if item.additionalSources then
+            for _, src in ipairs(item.additionalSources) do
+                if src.sourceType == "Treasure" and src.sourceDetail then
+                    treasureName = src.sourceDetail
+                    break
+                end
+            end
+        end
+        detailPanel._waypointBtn:Enable()
+        if treasureName ~= "" then
+            TruncateButtonText(detailPanel._waypointBtn, "Navigate (Treasure)")
+        else
+            detailPanel._waypointBtn:SetText("Navigate (Treasure)")
+        end
+        detailPanel._waypointBtn._treasureCoords = {
+            x = item.treasureX,
+            y = item.treasureY,
+            zone = item.treasureZone,
+            mapID = item.treasureMapID,
+        }
+        if treasureName ~= "" then
+            detailPanel._waypointStatus:SetText(treasureName .. " in " .. item.treasureZone)
+        else
+            detailPanel._waypointStatus:SetText("Treasure in " .. item.treasureZone)
+        end
+        detailPanel._waypointStatus:Show()
 
     else
         -- No coordinates available
@@ -4548,8 +4676,11 @@ function NS.UI.CatalogDetail_ShowItem(item)
         navStack[#navStack + 1] = { elem = detailPanel._wowheadLabel, gap = -4, isBtn = false }
         navStack[#navStack + 1] = { elem = detailPanel._wowheadBox, gap = -2, isBtn = false }
     end
-    -- Buttons: Navigate, Open Map (Drop), Zidormi, Achievement
+    -- Buttons: Navigate, Alt Navigate, Open Map (Drop), Zidormi, Achievement
     navStack[#navStack + 1] = { elem = detailPanel._waypointBtn, gap = -6, isBtn = true }
+    if detailPanel._altNavBtn:IsShown() then
+        navStack[#navStack + 1] = { elem = detailPanel._altNavBtn, gap = -4, isBtn = true }
+    end
     if detailPanel._openMapBtn:IsShown() then
         navStack[#navStack + 1] = { elem = detailPanel._openMapBtn, gap = -4, isBtn = true }
     end
