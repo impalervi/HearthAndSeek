@@ -1,6 +1,6 @@
 ## Interface: 120001
 ## Title: |cffffd200Hearth & Seek|r |cffaaaaaaDecor Catalog|r
-## Notes: Catalog and guide for collecting Player Housing decorations
+## Notes: Discover and navigate to every Player Housing decoration source — vendors, quests, treasures, and more
 ## Author: ImpalerV
 ## Version: 1.2.0
 ## SavedVariables: HearthAndSeekDB

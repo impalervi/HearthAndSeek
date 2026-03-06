@@ -4,21 +4,22 @@
   <img src="Project_Images/HearthAndSeek_400.png" alt="Hearth & Seek" width="260" />
 </p>
 
-A visual catalog of all Player Housing decorations in World of Warcraft, with collection tracking, source guides, and in-game navigation.
+Discover, track, and navigate to every Player Housing decoration in World of Warcraft — see where each item comes from and get directions straight to the source.
 
 ![Hearth & Seek main window](Project_Images/Screenshots/main.png)
 
 ## Features
 
-- **Browse 1,600+ decorations** in a grid with 3D model previews
-- **Collection tracking** — see what you own, what's placed, and what's still missing
-- **Source guides** — every item shows exactly how to get it (vendor, quest, achievement, drop, treasure, profession, or prey)
-- **Filter and search** — filter by source type, expansion, zone, profession, rarity, and collection status, all with live item counts
+- **Source guides** — every item shows exactly how to get it: vendor, quest, achievement, drop, treasure, profession, or prey
+- **In-game navigation** — coordinates and map pins for vendors, treasures, and drop locations using Blizzard's built-in waypoint system
 - **Quest chain tracking** — step-by-step progress through prerequisite quest chains with navigation to the next quest giver
-- **In-game navigation** — coordinates and map pins for vendors, treasures, and drop locations using Blizzard's built-in navigation system
-- **Favorites** — star decorations you're interested in for quick access later
-- **Faction vendor support** — shows Alliance and Horde vendors side by side, including Neighborhood rotating vendors
 - **Smart navigation** — handles cross-continent travel warnings, dungeon entrance pins, and Zidormi timeline zones
+- **Faction vendor support** — shows Alliance and Horde vendors side by side, including Neighborhood rotating vendors
+- **Browse 1,600+ decorations** in a grid with 3D model previews
+- **Filter and search** — filter by source type, expansion, zone, profession, rarity, and collection status, all with live item counts
+- **Collection tracking** — see what you own, what's placed, and what's still missing
+- **Favorites** — star decorations you're interested in for quick access later
+- **Smart search** — matches item names, vendor names, zones, keywords, and related terms
 
 ## Installation
 
@@ -37,7 +38,7 @@ Download from [CurseForge](https://www.curseforge.com/wow/addons/hearth-and-seek
 
 ## Usage
 
-- `/hs` or `/hideandseek` — Toggle the catalog window
+- `/hs` or `/hseek` or `/hearthandseek` — Toggle the catalog window
 - Click any decoration in the grid to see its details, source, and navigation options
 - Use the sidebar filters to narrow down what you're looking for
 - Click **Set Waypoint** or **Navigate** to get map pins and directions
