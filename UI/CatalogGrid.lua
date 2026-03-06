@@ -31,6 +31,112 @@ local totalRows = 0      -- total rows needed for all filtered items
 local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
 local scrollBarUpdating = false  -- guard against recursive OnValueChanged
 
+-------------------------------------------------------------------------------
+-- Search synonyms: query term → related terms to also search for.
+-- Only single-word exact matches trigger expansion.
+-------------------------------------------------------------------------------
+local SEARCH_SYNONYMS = {
+    -- Seating
+    chair       = { "stool", "bench", "seat", "throne" },
+    stool       = { "chair", "bench", "seat" },
+    bench       = { "chair", "stool", "seat" },
+    seat        = { "chair", "stool", "bench", "throne" },
+    throne      = { "chair", "seat" },
+    -- Tables & surfaces
+    table       = { "desk", "counter", "workbench", "stand" },
+    desk        = { "table", "counter", "workbench" },
+    counter     = { "table", "desk" },
+    -- Lighting
+    lamp        = { "lantern", "candle", "chandelier", "sconce" },
+    lantern     = { "lamp", "candle" },
+    candle      = { "lamp", "lantern", "candlestick" },
+    chandelier  = { "lamp" },
+    light       = { "lamp", "lantern", "candle", "chandelier", "sconce", "torch" },
+    -- Storage
+    shelf       = { "bookcase", "bookshelf", "rack" },
+    bookcase    = { "shelf", "bookshelf", "rack" },
+    bookshelf   = { "shelf", "bookcase", "rack" },
+    cabinet     = { "cupboard", "wardrobe", "armoire" },
+    chest       = { "trunk", "crate", "coffer", "strongbox" },
+    crate       = { "chest", "box", "trunk" },
+    box         = { "crate", "chest" },
+    barrel      = { "keg", "cask" },
+    keg         = { "barrel", "cask" },
+    -- Structural
+    door        = { "doorway", "gate", "archway" },
+    doorway     = { "door", "gate", "archway" },
+    gate        = { "door", "doorway" },
+    wall        = { "partition", "divider" },
+    pillar      = { "column", "post" },
+    column      = { "pillar", "post" },
+    fence       = { "railing", "barrier" },
+    railing     = { "fence", "barrier", "banister" },
+    stairs      = { "steps", "staircase" },
+    steps       = { "stairs", "staircase" },
+    -- Nature
+    tree        = { "sapling" },
+    flower      = { "blossom", "bloom", "poppy", "rose", "lily" },
+    plant       = { "bush", "shrub", "fern", "vine", "ivy" },
+    bush        = { "shrub", "hedge" },
+    shrub       = { "bush", "hedge" },
+    -- Decor
+    rug         = { "carpet", "mat" },
+    carpet      = { "rug", "mat" },
+    painting    = { "portrait", "artwork" },
+    banner      = { "flag", "pennant", "tapestry" },
+    flag        = { "banner", "pennant" },
+    tapestry    = { "banner", "curtain" },
+    curtain     = { "drape", "tapestry" },
+    -- Common
+    bed         = { "cot", "hammock", "mattress", "bunk" },
+    coffin      = { "casket", "sarcophagus" },
+    wagon       = { "cart", "carriage" },
+    cart        = { "wagon", "carriage" },
+    statue      = { "sculpture", "figurine", "bust" },
+    fountain    = { "well" },
+    weapon      = { "sword", "axe", "mace", "polearm", "dagger" },
+    sword       = { "blade" },
+    cauldron    = { "pot", "kettle" },
+    pot         = { "cauldron", "kettle", "vase", "planter" },
+}
+
+--- For short queries (≤3 chars), require word-boundary match to avoid false
+--- positives like "pet" matching "carpet". Iterates through all occurrences
+--- to find one that sits at word boundaries (non-alpha or string edge).
+local function WordBoundaryFind(haystack, needle)
+    local pos = 1
+    while true do
+        local s, e = haystack:find(needle, pos, true)
+        if not s then return nil end
+        local before = (s == 1) or not haystack:sub(s - 1, s - 1):match("%a")
+        local after = (e == #haystack) or not haystack:sub(e + 1, e + 1):match("%a")
+        if before and after then return s end
+        pos = e + 1
+    end
+end
+
+--- Check if haystack contains needle. Uses word-boundary matching for short
+--- needles (≤3 chars) and plain substring for longer ones.
+local function FieldContains(haystack, needle)
+    if not haystack then return false end
+    if #needle <= 3 then
+        return WordBoundaryFind(haystack, needle) ~= nil
+    end
+    return haystack:find(needle, 1, true) ~= nil
+end
+
+--- Expand a query into a list of search terms using the synonym table.
+--- Only exact single-word queries trigger expansion.
+local function ExpandSynonyms(query)
+    local synonyms = SEARCH_SYNONYMS[query]
+    if not synonyms then return { query } end
+    local terms = { query }
+    for _, s in ipairs(synonyms) do
+        terms[#terms + 1] = s
+    end
+    return terms
+end
+
 -- Caches
 local hyperlinkCache = {}
 local ownershipCache = {}       -- decorID → { collected=bool }
@@ -950,9 +1056,10 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local favoritesDB = NS.favorites or (NS.db and NS.db.favorites) or {}
     local hasFavFilter = filterState.onlyFavorites
 
-    -- Text search
+    -- Text search (with synonym expansion and word-boundary matching)
     local query = strtrim(filterState.searchText):lower()
     local hasQuery = query ~= ""
+    local searchTerms = hasQuery and ExpandSynonyms(query) or nil
 
     -- Dynamic count accumulators
     local dynCounts = {
@@ -974,38 +1081,58 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local item = NS.CatalogData.Items[id]
         if not item then break end
 
-        -- Text search applies to all dimensions (multi-field)
+        -- Text search applies to all dimensions (multi-field, synonym-aware)
         if hasQuery then
-            local found = (name and name:find(query, 1, true))
-                or (item.vendorName and item.vendorName:lower():find(query, 1, true))
-                or (item.zone and item.zone:lower():find(query, 1, true))
-                or (item.sourceDetail and item.sourceDetail:lower():find(query, 1, true))
-                or (item.professionName and item.professionName:lower():find(query, 1, true))
-                or (item.sourceType and item.sourceType:lower():find(query, 1, true))
-            -- Category/subcategory name matching
-            if not found and item.subcategoryIDs then
-                local subcatNames = NS.CatalogData and NS.CatalogData.SubcategoryNames
-                if subcatNames then
-                    for _, sid in ipairs(item.subcategoryIDs) do
-                        local sname = subcatNames[sid]
-                        if sname and sname:lower():find(query, 1, true) then
-                            found = true
-                            break
-                        end
-                    end
-                end
+            local found = false
+            local vendorLower = item.vendorName and item.vendorName:lower()
+            local zoneLower = item.zone and item.zone:lower()
+            local profLower = item.professionName and item.professionName:lower()
+            local srcTypeLower = item.sourceType and item.sourceType:lower()
+            -- Skip sourceDetail for Quest/Treasure — prevents quest names like
+            -- "Spare A Chair" from polluting furniture searches
+            local srcType = item.sourceType
+            local srcDetailLower = nil
+            if srcType ~= "Quest" and srcType ~= "Treasure" then
+                srcDetailLower = item.sourceDetail and item.sourceDetail:lower()
             end
-            if not found and item.categoryIDs then
-                local catNames = NS.CatalogData and NS.CatalogData.CategoryNames
-                if catNames then
-                    for _, cid in ipairs(item.categoryIDs) do
-                        local cname = catNames[cid]
-                        if cname and cname:lower():find(query, 1, true) then
-                            found = true
-                            break
+            for ti, term in ipairs(searchTerms) do
+                local isOriginal = (ti == 1) -- only the user's query searches all fields
+                if FieldContains(name, term)
+                    or FieldContains(vendorLower, term)
+                    or (isOriginal and FieldContains(zoneLower, term))
+                    or (isOriginal and FieldContains(srcDetailLower, term))
+                    or (isOriginal and FieldContains(profLower, term))
+                    or (isOriginal and FieldContains(srcTypeLower, term))
+                then
+                    found = true
+                    break
+                end
+                -- Category/subcategory name matching
+                if item.subcategoryIDs then
+                    local subcatNames = NS.CatalogData and NS.CatalogData.SubcategoryNames
+                    if subcatNames then
+                        for _, sid in ipairs(item.subcategoryIDs) do
+                            local sname = subcatNames[sid]
+                            if sname and FieldContains(sname:lower(), term) then
+                                found = true
+                                break
+                            end
                         end
                     end
                 end
+                if not found and item.categoryIDs then
+                    local catNames = NS.CatalogData and NS.CatalogData.CategoryNames
+                    if catNames then
+                        for _, cid in ipairs(item.categoryIDs) do
+                            local cname = catNames[cid]
+                            if cname and FieldContains(cname:lower(), term) then
+                                found = true
+                                break
+                            end
+                        end
+                    end
+                end
+                if found then break end
             end
             if not found then break end
         end
