@@ -33,3 +33,4 @@ UI\MinimapButton.lua
 UI\CatalogFrame.lua
 UI\CatalogGrid.lua
 UI\CatalogDetail.lua
+UI\WhatsNew.lua

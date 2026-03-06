@@ -24,6 +24,10 @@ local DEFAULTS = {
     catalogSize = nil,      -- Saved as { width, height } when window is resized
     settings = {
         iconSizeMultiplier = 1.0,  -- 0.5 to 1.5 (multiplier of default 110px)
+        showWhatsNew = true,       -- auto-show "What's New" callouts on update
+    },
+    whatsNew = {
+        lastSeenVersion = nil,     -- tracks which version's callouts were shown
     },
     favorites = {},         -- { [decorID] = true } — account-wide favorite decor items
 }
@@ -64,6 +68,15 @@ local function InitSavedVars()
         for k, v in pairs(DEFAULTS.settings) do
             if HearthAndSeekDB.settings[k] == nil then
                 HearthAndSeekDB.settings[k] = v
+            end
+        end
+    end
+
+    -- Merge nested whatsNew keys
+    if type(DEFAULTS.whatsNew) == "table" and type(HearthAndSeekDB.whatsNew) == "table" then
+        for k, v in pairs(DEFAULTS.whatsNew) do
+            if HearthAndSeekDB.whatsNew[k] == nil then
+                HearthAndSeekDB.whatsNew[k] = v
             end
         end
     end

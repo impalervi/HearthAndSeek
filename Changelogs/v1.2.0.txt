@@ -1,0 +1,9 @@
+v1.2.0
+
+New Features
+- Category Filters — filter by category and subcategory matching the Housing Catalog
+- Enhanced Search — now matches vendor names, zones, source types, and keywords
+- What's New callouts — new features highlighted on first open after updates
+
+Improvements
+- Resizable grid icons via Icon Size slider in Settings

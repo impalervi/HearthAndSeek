@@ -1482,11 +1482,12 @@ function NS.UI.InitCatalog()
     end)
     catalogFrame._settingsBtn = settingsBtn
     catalogFrame._settingsIcon = settingsIcon
+    NS.UI.RegisterWhatsNewAnchor("settingsBtn", settingsBtn)
 
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(190)
+    settingsPanel:SetHeight(225)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -1564,6 +1565,21 @@ function NS.UI.InitCatalog()
         end
     end)
 
+    -- "Show new feature tips" checkbox
+    local whatsNewCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    whatsNewCheck:SetSize(22, 22)
+    whatsNewCheck:SetPoint("TOPLEFT", resetWindowBtn, "BOTTOMLEFT", -2, -10)
+    whatsNewCheck:SetChecked(NS.db.settings.showWhatsNew ~= false)
+    whatsNewCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.showWhatsNew = self:GetChecked()
+        end
+    end)
+    local whatsNewLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    whatsNewLabel:SetPoint("LEFT", whatsNewCheck, "RIGHT", 2, 0)
+    whatsNewLabel:SetText("Show new feature tips")
+    whatsNewLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- Toggle settings panel on button click
     settingsBtn:SetScript("OnClick", function()
         if settingsPanel:IsShown() then
@@ -1579,6 +1595,10 @@ function NS.UI.InitCatalog()
     catalogFrame:HookScript("OnHide", function()
         settingsPanel:Hide()
         settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+        -- Dismiss any active What's New callouts
+        if NS.UI.DismissWhatsNew then
+            NS.UI.DismissWhatsNew()
+        end
     end)
 
     -- Search box
@@ -1603,6 +1623,7 @@ function NS.UI.InitCatalog()
     end)
     searchBox.Instructions:SetText("Search name, keyword, vendor, zone...")
     NS.UI._catalogSearchBox = searchBox
+    NS.UI.RegisterWhatsNewAnchor("searchBox", searchBox)
 
     -- Sidebar panel (left) — darker background
     local sidebar = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
@@ -1611,6 +1632,7 @@ function NS.UI.InitCatalog()
     sidebar:SetPoint("BOTTOMLEFT", catalogFrame, "BOTTOMLEFT", 1, 1)
     sidebar:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8X8" })
     sidebar:SetBackdropColor(0.04, 0.04, 0.06, 1)
+    NS.UI.RegisterWhatsNewAnchor("sidebar", sidebar)
 
     -- ScrollFrame inside sidebar (with thin scrollbar)
     local SIDEBAR_SB_WIDTH = 3
@@ -2096,6 +2118,13 @@ function NS.UI.ToggleCatalog()
         -- Re-render detail panel (quest chain, collected banner, etc.)
         if NS.UI.RefreshDetailPanel then
             NS.UI.RefreshDetailPanel()
+        end
+        -- Show "What's New" callouts on first open after install/update
+        if not NS.UI._whatsNewChecked then
+            NS.UI._whatsNewChecked = true
+            if NS.UI.TryShowWhatsNew then
+                NS.UI.TryShowWhatsNew()
+            end
         end
     end
 end
