@@ -996,10 +996,10 @@ function NS.UI.InitCatalogDetail(parent)
     parent._noModelText:SetTextColor(0.4, 0.4, 0.4, 1)
     parent._noModelText:Hide()
 
-    -- Ctrl+Click hint (centered between corbels at bottom of model frame)
+    -- Alt+Click hint (centered between corbels at bottom of model frame)
     local ctrlHint = modelBg:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     ctrlHint:SetPoint("BOTTOM", modelBg, "BOTTOM", 0, 6)
-    ctrlHint:SetText("|cff666666CTRL+Left Click for larger preview|r")
+    ctrlHint:SetText("|cff8a7340ALT+Left Click for full screen preview|r")
     parent._ctrlHint = ctrlHint
 
     ---------------------------------------------------------------------------
