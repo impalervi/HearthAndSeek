@@ -26,22 +26,111 @@ local BACKDROP_SOLID = {
 -- Widget references for dynamic count updates
 -- Each entry: { check = CheckButton, label = FontString, namePrefix = "display name" }
 local sidebarWidgets = {
-    favorites   = {},   -- ["onlyFavorites"] = { check, label, namePrefix }
-    collection  = {},   -- ["collected"] = {...}, ["notCollected"] = {...}, ["redeemable"] = {...}
-    sources     = {},   -- ["Vendor"] = {...}, ...
-    professions = {},   -- ["Tailoring"] = {...}, ...
-    expansions  = {},   -- ["Midnight"] = { check, label, toggle, container, expanded, zoneNames, namePrefix }
-    zones       = {},   -- ["Stormwind City"] = { check, label, namePrefix }
-    qualities   = {},   -- [1] = {...}, [2] = {...}, ...
+    favorites     = {},   -- ["onlyFavorites"] = { check, label, namePrefix }
+    collection    = {},   -- ["collected"] = {...}, ["notCollected"] = {...}
+    categories    = {},   -- [catID] = { check, label, namePrefix, childKeys }
+    subcategories = {},   -- [subcatID] = { check, label, namePrefix }
+    sources       = {},   -- ["Vendor"] = {...}, ...
+    professions   = {},   -- ["Tailoring"] = {...}, ...
+    expansions    = {},   -- ["Midnight"] = { check, label, toggle, container, expanded, childKeys, namePrefix }
+    zones         = {},   -- ["Stormwind City"] = { check, label, namePrefix }
+    qualities     = {},   -- [1] = {...}, [2] = {...}, ...
 }
+
+-------------------------------------------------------------------------------
+-- FILTER_SECTIONS — data-driven sidebar layout config
+-------------------------------------------------------------------------------
+local FILTER_SECTIONS = {
+    {
+        id = "favorites",
+        title = "FAVORITES",
+        type = "boolean",
+        items = {
+            { key = "onlyFavorites", label = "Only Favorites", color = {0.25, 0.78, 0.78},
+              countKey = "favorites" },
+        },
+        toggle = "CatalogGrid_ToggleFavorites",
+    },
+    {
+        id = "collection",
+        title = "COLLECTION",
+        type = "boolean_pair",
+        items = {
+            { key = "collected",    label = "Hide Collected",     color = {0.12, 1.00, 0.00} },
+            { key = "notCollected", label = "Hide Not Collected", color = {1.00, 0.27, 0.27} },
+        },
+        toggle = "CatalogGrid_ToggleCollection",
+    },
+    {
+        id = "categories",
+        title = "CATEGORY",
+        type = "hierarchical",
+        groupOrder = "CategoryOrder",
+        groupNames = "CategoryNames",
+        childMap = "CategorySubcategories",
+        childNames = "SubcategoryNames",
+        childCounts = "BySubcategory",
+        toggleChild = "CatalogGrid_ToggleSubcategory",
+        toggleGroup = "CatalogGrid_ToggleCategory",
+        widgetTable = "categories",
+        childWidgetTable = "subcategories",
+        uniformColor = { 0.85, 0.70, 0.30 },  -- gold
+    },
+    {
+        id = "sources",
+        title = "SOURCE",
+        type = "multiselect",
+        order = "SourceOrder",
+        counts = "BySource",
+        colors = "SourceColors",
+        toggle = "CatalogGrid_ToggleSource",
+        widgetTable = "sources",
+        subGroup = {
+            parentKey = "Profession",
+            order = "ProfessionOrder",
+            counts = "ByProfession",
+            icons = "ProfessionIcons",
+            color = { 0.60, 0.40, 0.20 },
+            toggleChild = "CatalogGrid_ToggleProfession",
+            toggleGroup = "CatalogGrid_ToggleAllProfessions",
+            widgetTable = "professions",
+        },
+    },
+    {
+        id = "expansions",
+        title = "EXPANSION",
+        type = "hierarchical",
+        groupOrder = "ExpansionOrder",
+        groupColors = "ExpansionColors",
+        childSource = "ZoneToExpansionMap",
+        childCounts = "ByZone",
+        toggleChild = "CatalogGrid_ToggleZone",
+        toggleGroup = "CatalogGrid_ToggleExpansion",
+        widgetTable = "expansions",
+        childWidgetTable = "zones",
+        defaultCollapsed = true,
+        childColorOverrides = {
+            ["Founder's Point"] = "3399FF",
+            ["Razorwind Shores"] = "FF3333",
+        },
+    },
+    {
+        id = "qualities",
+        title = "RARITY",
+        type = "multiselect",
+        order = "QualityOrder",
+        names = "QualityNames",
+        colors = "QualityColors",
+        toggle = "CatalogGrid_ToggleQuality",
+        widgetTable = "qualities",
+        defaultCollapsed = true,
+    },
+}
+
 -------------------------------------------------------------------------------
 -- Sidebar helpers: anchor-chained collapsible sections
 -------------------------------------------------------------------------------
 local allSections = {}        -- ordered list of section frames (for RecalcSidebarHeight)
-local expansionGroups = {}    -- ordered list of expansion group frames
-local expansionSection = nil  -- reference to EXPANSION section
-local sourceSection = nil     -- reference to SOURCE section
-local professionGroup = nil   -- expandable group for professions inside SOURCE
 
 local function RecalcSidebarHeight(scrollChild)
     local totalH = 4  -- top padding
@@ -58,49 +147,48 @@ local function RecalcSidebarHeight(scrollChild)
     end
 end
 
-local function RecalcExpansionHeight(scrollChild)
-    if not expansionSection then return end
+--- Generic: recalculate a hierarchical section's height from its group list.
+local function RecalcHierarchicalHeight(section, scrollChild)
+    if not section or not section._groups then return end
     local totalH = 0
-    for _, group in ipairs(expansionGroups) do
+    for _, group in ipairs(section._groups) do
         totalH = totalH + group:GetHeight()
     end
-    expansionSection._contentHeight = totalH
-    expansionSection._content:SetHeight(totalH)
-    if expansionSection._expanded then
-        expansionSection:SetHeight(20 + totalH)
+    section._contentHeight = totalH
+    section._content:SetHeight(totalH)
+    if section._expanded then
+        section:SetHeight(20 + totalH)
     end
     RecalcSidebarHeight(scrollChild)
 end
 
-local function RecalcSourceHeight(scrollChild)
-    if not sourceSection then return end
-    -- baseContentHeight includes 22px for profGroup header row (collapsed).
-    -- Replace that 22px with the actual current height when expanded.
-    local baseH = sourceSection._baseContentHeight or 0
-    if professionGroup then
-        baseH = baseH - 22 + professionGroup:GetHeight()
+--- Generic: recalculate a multiselect section with an embedded sub-group.
+local function RecalcMultiselectHeight(section, subGroupFrame, scrollChild)
+    if not section then return end
+    local baseH = section._baseContentHeight or 0
+    if subGroupFrame then
+        baseH = baseH - 22 + subGroupFrame:GetHeight()
     end
-    sourceSection._contentHeight = baseH
-    sourceSection._content:SetHeight(baseH)
-    if sourceSection._expanded then
-        sourceSection:SetHeight(20 + baseH)
+    section._contentHeight = baseH
+    section._content:SetHeight(baseH)
+    if section._expanded then
+        section:SetHeight(20 + baseH)
     end
     RecalcSidebarHeight(scrollChild)
 end
 
-local function UpdateProfessionCheckState()
-    local profWidget = sidebarWidgets.sources["Profession"]
-    if not profWidget then return end
+--- Generic: update a parent checkbox based on whether all children are checked.
+local function UpdateParentCheckState(parentWidget, childKeys, childWidgetTable)
+    if not parentWidget then return end
     local allChecked = true
-    local profOrder = NS.CatalogData and NS.CatalogData.ProfessionOrder or {}
-    for _, profName in ipairs(profOrder) do
-        local pWidget = sidebarWidgets.professions[profName]
-        if pWidget and not pWidget.check:GetChecked() then
+    for _, cKey in ipairs(childKeys) do
+        local cWidget = childWidgetTable[cKey]
+        if cWidget and not cWidget.check:GetChecked() then
             allChecked = false
             break
         end
     end
-    profWidget.check:SetChecked(allChecked)
+    parentWidget.check:SetChecked(allChecked)
 end
 
 local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
@@ -190,21 +278,7 @@ local function CreateFilterCheckbox(parent, labelText, yOffset, color, onClick)
     return check, yOffset - 22
 end
 
-local function UpdateExpansionCheckState(contName)
-    local contData = sidebarWidgets.expansions[contName]
-    if not contData then return end
-    local allChecked = true
-    for _, zName in ipairs(contData.zoneNames) do
-        local zWidget = sidebarWidgets.zones[zName]
-        if zWidget and not zWidget.check:GetChecked() then
-            allChecked = false
-            break
-        end
-    end
-    contData.check:SetChecked(allChecked)
-end
-
-local function CreateFilterGroup(contentFrame, contName, anchorFrame, color, zoneList, scrollChild)
+local function CreateFilterGroup(contentFrame, groupName, anchorFrame, color, childList, scrollChild, sectionRef, groupsListRef, childWidgetTbl, groupWidgetTbl, toggleGroupFn, toggleKey)
     local group = CreateFrame("Frame", nil, contentFrame)
     group:SetPoint("LEFT", contentFrame, "LEFT", 0, 0)
     group:SetPoint("RIGHT", contentFrame, "RIGHT", 0, 0)
@@ -221,19 +295,19 @@ local function CreateFilterGroup(contentFrame, contName, anchorFrame, color, zon
     row:SetPoint("TOPRIGHT", group, "TOPRIGHT", 0, 0)
 
     -- Checkbox for mass toggle (leftmost)
-    local contCheck = CreateFrame("CheckButton", nil, row, "UICheckButtonTemplate")
-    contCheck:SetSize(22, 22)
-    contCheck:SetPoint("LEFT", row, "LEFT", 4, 0)
+    local groupCheck = CreateFrame("CheckButton", nil, row, "UICheckButtonTemplate")
+    groupCheck:SetSize(22, 22)
+    groupCheck:SetPoint("LEFT", row, "LEFT", 4, 0)
 
     -- Label (after checkbox)
     local label = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    label:SetPoint("LEFT", contCheck, "RIGHT", 2, 0)
+    label:SetPoint("LEFT", groupCheck, "RIGHT", 2, 0)
     if color then
-        label:SetText("|cff" .. color .. contName .. "|r")
+        label:SetText("|cff" .. color .. groupName .. "|r")
     else
-        label:SetText(contName)
+        label:SetText(groupName)
     end
-    contCheck._label = label
+    groupCheck._label = label
 
     -- Toggle indicator (+/- at right edge of row, gold, larger font)
     local toggleText = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -241,31 +315,31 @@ local function CreateFilterGroup(contentFrame, contName, anchorFrame, color, zon
     toggleText:SetText("+")
     toggleText:SetTextColor(1.00, 0.82, 0.00, 1)
 
-    -- Zone container (below row, inside group)
-    local zonesFrame = CreateFrame("Frame", nil, group)
-    zonesFrame:SetPoint("TOPLEFT", row, "BOTTOMLEFT", 0, 0)
-    zonesFrame:SetPoint("RIGHT", group, "RIGHT", 0, 0)
-    zonesFrame:SetHeight(1)
-    zonesFrame:Hide()
+    -- Child container (below row, inside group)
+    local childFrame = CreateFrame("Frame", nil, group)
+    childFrame:SetPoint("TOPLEFT", row, "BOTTOMLEFT", 0, 0)
+    childFrame:SetPoint("RIGHT", group, "RIGHT", 0, 0)
+    childFrame:SetHeight(1)
+    childFrame:Hide()
 
     -- Group starts collapsed: height = just the header row
     group:SetHeight(22)
 
-    local numZones = #zoneList
+    local numChildren = #childList
 
     -- Mass toggle callback
-    contCheck:SetScript("OnClick", function(self)
+    groupCheck:SetScript("OnClick", function(self)
         local checked = self:GetChecked()
-        -- Update zone checkboxes FIRST so RefreshFooterBar sees correct state
-        local contData = sidebarWidgets.expansions[contName]
-        if contData then
-            for _, zName in ipairs(contData.zoneNames) do
-                local zWidget = sidebarWidgets.zones[zName]
-                if zWidget then zWidget.check:SetChecked(checked) end
+        -- Update child checkboxes FIRST so RefreshFooterBar sees correct state
+        local gData = groupWidgetTbl[groupName]
+        if gData and gData.childKeys then
+            for _, cKey in ipairs(gData.childKeys) do
+                local cWidget = childWidgetTbl[cKey]
+                if cWidget then cWidget.check:SetChecked(checked) end
             end
         end
-        if NS.UI.CatalogGrid_ToggleExpansion then
-            NS.UI.CatalogGrid_ToggleExpansion(contName, checked)
+        if toggleGroupFn then
+            toggleGroupFn(toggleKey or groupName, checked)
         end
     end)
 
@@ -275,27 +349,597 @@ local function CreateFilterGroup(contentFrame, contName, anchorFrame, color, zon
         group._expanded = not group._expanded
         if group._expanded then
             toggleText:SetText("-")
-            zonesFrame:SetHeight(numZones * 22)
-            zonesFrame:Show()
-            group:SetHeight(22 + numZones * 22)
+            childFrame:SetHeight(numChildren * 22)
+            childFrame:Show()
+            group:SetHeight(22 + numChildren * 22)
         else
             toggleText:SetText("+")
-            zonesFrame:SetHeight(1)
-            zonesFrame:Hide()
+            childFrame:SetHeight(1)
+            childFrame:Hide()
             group:SetHeight(22)
         end
-        RecalcExpansionHeight(scrollChild)
+        RecalcHierarchicalHeight(sectionRef, scrollChild)
     end
 
     -- Click area covers label + toggle (everything right of checkbox)
     local clickArea = CreateFrame("Button", nil, row)
-    clickArea:SetPoint("LEFT", contCheck, "RIGHT", 0, 0)
+    clickArea:SetPoint("LEFT", groupCheck, "RIGHT", 0, 0)
     clickArea:SetPoint("RIGHT", row, "RIGHT", 0, 0)
     clickArea:SetHeight(22)
     clickArea:SetScript("OnClick", ToggleExpand)
 
-    expansionGroups[#expansionGroups + 1] = group
-    return group, contCheck, label, zonesFrame
+    groupsListRef[#groupsListRef + 1] = group
+    return group, groupCheck, label, childFrame
+end
+
+-------------------------------------------------------------------------------
+-- SectionBuilders — dispatch table for building each section type
+-------------------------------------------------------------------------------
+local SectionBuilders = {}
+
+--- boolean: single toggle checkbox (e.g. Favorites)
+function SectionBuilders.boolean(scrollChild, sectionDef, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local items = sectionDef.items or {}
+
+    local yOff = 0
+    for _, itemDef in ipairs(items) do
+        local displayLabel = itemDef.label .. "  |cff40c8c8(0)|r"
+        local chk, newY = CreateFilterCheckbox(content, displayLabel, yOff, itemDef.color,
+            function(checked)
+                local fn = NS.UI[sectionDef.toggle]
+                if fn then fn(checked) end
+            end)
+        chk:SetChecked(false)
+        sidebarWidgets[sectionDef.id][itemDef.key] = {
+            check      = chk,
+            label      = chk._label,
+            namePrefix = itemDef.label,
+            countKey   = itemDef.countKey,
+        }
+        yOff = newY
+    end
+
+    section._contentHeight = #items * 22
+    content:SetHeight(section._contentHeight)
+    section:SetHeight(20 + section._contentHeight)
+    return section
+end
+
+--- boolean_pair: inverted toggle pair (e.g. Collection — checked = hide)
+function SectionBuilders.boolean_pair(scrollChild, sectionDef, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local items = sectionDef.items or {}
+
+    local yOff = 0
+    for _, itemDef in ipairs(items) do
+        local chk, newY = CreateFilterCheckbox(content, itemDef.label, yOff, itemDef.color,
+            function(checked)
+                -- checked = "Hide X" is active → invert for filterState (true = show)
+                local fn = NS.UI[sectionDef.toggle]
+                if fn then fn(itemDef.key, not checked) end
+            end)
+        chk:SetChecked(false)
+        sidebarWidgets[sectionDef.id][itemDef.key] = {
+            check      = chk,
+            label      = chk._label,
+            namePrefix = itemDef.label,
+        }
+        yOff = newY
+    end
+
+    section._contentHeight = #items * 22
+    content:SetHeight(section._contentHeight)
+    section:SetHeight(20 + section._contentHeight)
+    return section
+end
+
+--- multiselect: flat checkbox list with optional embedded sub-group (e.g. Source, Rarity)
+function SectionBuilders.multiselect(scrollChild, sectionDef, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local wTable = sectionDef.widgetTable   -- e.g. "sources", "qualities"
+    local subDef = sectionDef.subGroup
+
+    -- Resolve order list
+    local orderList
+    if sectionDef.order then
+        -- Check NS.CatalogData first, then NS root
+        orderList = (NS.CatalogData and NS.CatalogData[sectionDef.order])
+            or NS[sectionDef.order]
+    end
+    if not orderList then
+        -- Fallback for SOURCE
+        if wTable == "sources" then
+            orderList = { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other" }
+        elseif wTable == "qualities" then
+            orderList = { 1, 2, 3, 4, 5, 0 }
+        else
+            orderList = {}
+        end
+    end
+
+    -- Resolve counts table
+    local countsTable
+    if sectionDef.counts then
+        countsTable = NS.CatalogData and NS.CatalogData[sectionDef.counts]
+    end
+
+    -- Resolve colors table (check NS root first, then CatalogData)
+    local colorsTable
+    if sectionDef.colors then
+        colorsTable = NS[sectionDef.colors] or (NS.CatalogData and NS.CatalogData[sectionDef.colors])
+    end
+
+    -- Resolve names table
+    local namesTable
+    if sectionDef.names then
+        namesTable = NS[sectionDef.names] or (NS.CatalogData and NS.CatalogData[sectionDef.names])
+    end
+
+    -- Determine the sub-group parent key to skip in main loop
+    local skipKey = subDef and subDef.parentKey or nil
+
+    -- Pass 1: create checkboxes for all items except the sub-group parent
+    local yOff = 0
+    local itemCount = 0
+    for _, key in ipairs(orderList) do
+        if key == skipKey then
+            -- skip — sub-group is rendered after the main list
+        else
+            -- Compute count for this key
+            local count = 0
+            if countsTable and countsTable[key] then
+                if type(countsTable[key]) == "table" then
+                    count = #countsTable[key]
+                else
+                    count = countsTable[key]
+                end
+            elseif wTable == "qualities" then
+                -- Quality counts must be computed from Items table
+                if NS.CatalogData and NS.CatalogData.Items then
+                    for _, item in pairs(NS.CatalogData.Items) do
+                        if item.quality == key then count = count + 1 end
+                    end
+                end
+            end
+
+            if count > 0 then
+                local displayName = (namesTable and namesTable[key]) or (type(key) == "string" and key or ("Quality " .. key))
+                local itemColor = colorsTable and colorsTable[key] or nil
+                local labelText = displayName .. "  |cff888888(" .. count .. ")|r"
+
+                local chk, newY = CreateFilterCheckbox(content, labelText, yOff, itemColor,
+                    function(checked)
+                        local fn = NS.UI[sectionDef.toggle]
+                        if fn then fn(key, checked) end
+                    end)
+                sidebarWidgets[wTable][key] = {
+                    check      = chk,
+                    label      = chk._label,
+                    namePrefix = displayName,
+                }
+                yOff = newY
+                itemCount = itemCount + 1
+            end
+        end
+    end
+
+    -- Pass 2: create expandable sub-group if defined (e.g. Profession inside Source)
+    local subGroupFrame = nil
+    if subDef then
+        local subOrderList = NS.CatalogData and NS.CatalogData[subDef.order] or {}
+        local subCountsTable = NS.CatalogData and NS.CatalogData[subDef.counts] or {}
+        local subIconsTable = NS[subDef.icons] or {}
+        local subColor = subDef.color
+        local subWTable = subDef.widgetTable   -- e.g. "professions"
+
+        -- Compute total count for the parent key
+        local parentCount = 0
+        if countsTable and countsTable[skipKey] then
+            if type(countsTable[skipKey]) == "table" then
+                parentCount = #countsTable[skipKey]
+            else
+                parentCount = countsTable[skipKey]
+            end
+        end
+
+        local hasSubGroup = parentCount > 0 and #subOrderList > 0
+        if hasSubGroup then
+            local profGroup = CreateFrame("Frame", nil, content)
+            profGroup:SetPoint("LEFT", content, "LEFT", 0, 0)
+            profGroup:SetPoint("RIGHT", content, "RIGHT", 0, 0)
+            profGroup:SetPoint("TOP", content, "TOP", 0, yOff)
+            subGroupFrame = profGroup
+
+            -- Header row (22px) with checkbox + label + toggle
+            local profRow = CreateFrame("Frame", nil, profGroup)
+            profRow:SetHeight(22)
+            profRow:SetPoint("TOPLEFT", profGroup, "TOPLEFT", 0, 0)
+            profRow:SetPoint("TOPRIGHT", profGroup, "TOPRIGHT", 0, 0)
+
+            local parentColor = colorsTable and colorsTable[skipKey] or nil
+            local profCheck = CreateFrame("CheckButton", nil, profRow, "UICheckButtonTemplate")
+            profCheck:SetSize(22, 22)
+            profCheck:SetPoint("TOPLEFT", profRow, "TOPLEFT", 6, 0)
+
+            local profLabel = profRow:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+            profLabel:SetPoint("LEFT", profCheck, "RIGHT", 2, 0)
+            profLabel:SetText(skipKey .. "  |cff888888(" .. parentCount .. ")|r")
+            if parentColor then
+                profLabel:SetTextColor(parentColor[1], parentColor[2], parentColor[3], 1)
+            end
+            profCheck._label = profLabel
+
+            -- Toggle indicator (+/- at right edge, gold)
+            local profToggle = profRow:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            profToggle:SetPoint("RIGHT", profRow, "RIGHT", -8, 0)
+            profToggle:SetText("+")
+            profToggle:SetTextColor(1.00, 0.82, 0.00, 1)
+
+            -- Sub-checkboxes container
+            local subsFrame = CreateFrame("Frame", nil, profGroup)
+            subsFrame:SetPoint("TOPLEFT", profRow, "BOTTOMLEFT", 0, 0)
+            subsFrame:SetPoint("RIGHT", profGroup, "RIGHT", 0, 0)
+            subsFrame:SetHeight(1)
+            subsFrame:Hide()
+
+            -- Build sub-checkboxes
+            local subYOff = 0
+            local subCount = 0
+            local childNames = {}
+            for _, childKey in ipairs(subOrderList) do
+                local cCount = 0
+                if subCountsTable[childKey] then
+                    if type(subCountsTable[childKey]) == "table" then
+                        cCount = #subCountsTable[childKey]
+                    else
+                        cCount = subCountsTable[childKey]
+                    end
+                end
+                if cCount > 0 then
+                    local childIcon = subIconsTable[childKey]
+                    local cLabel = childKey .. "  |cff888888(" .. cCount .. ")|r"
+                    local cChk, newCY = CreateFilterCheckbox(subsFrame, cLabel, subYOff, subColor,
+                        function(checked)
+                            local fn = NS.UI[subDef.toggleChild]
+                            if fn then fn(childKey, checked) end
+                            UpdateParentCheckState(
+                                sidebarWidgets[wTable][skipKey],
+                                sidebarWidgets[wTable][skipKey] and sidebarWidgets[wTable][skipKey].childKeys or {},
+                                sidebarWidgets[subWTable]
+                            )
+                        end)
+                    -- Indent sub-checkboxes
+                    cChk:ClearAllPoints()
+                    cChk:SetPoint("TOPLEFT", subsFrame, "TOPLEFT", 28, subYOff)
+
+                    local displayPrefix = childKey
+                    if childIcon then
+                        displayPrefix = "|T" .. childIcon .. ":14:14|t " .. childKey
+                        cChk._label:SetText("|T" .. childIcon .. ":14:14|t " .. cLabel)
+                    end
+
+                    sidebarWidgets[subWTable][childKey] = {
+                        check      = cChk,
+                        label      = cChk._label,
+                        namePrefix = displayPrefix,
+                    }
+                    childNames[#childNames + 1] = childKey
+                    subYOff = newCY
+                    subCount = subCount + 1
+                end
+            end
+
+            -- Group starts collapsed
+            profGroup:SetHeight(22)
+            profGroup._expanded = false
+
+            -- Mass-toggle: checking header checks all sub-items
+            profCheck:SetScript("OnClick", function(self)
+                local checked = self:GetChecked()
+                for _, cName in ipairs(childNames) do
+                    local cWidget = sidebarWidgets[subWTable][cName]
+                    if cWidget then cWidget.check:SetChecked(checked) end
+                end
+                local fn = NS.UI[subDef.toggleGroup]
+                if fn then fn(checked) end
+            end)
+
+            -- Expand/collapse
+            local function ToggleSubGroupExpand()
+                profGroup._expanded = not profGroup._expanded
+                if profGroup._expanded then
+                    profToggle:SetText("-")
+                    subsFrame:SetHeight(subCount * 22)
+                    subsFrame:Show()
+                    profGroup:SetHeight(22 + subCount * 22)
+                else
+                    profToggle:SetText("+")
+                    subsFrame:SetHeight(1)
+                    subsFrame:Hide()
+                    profGroup:SetHeight(22)
+                end
+                RecalcMultiselectHeight(section, subGroupFrame, scrollChild)
+            end
+
+            local profClickArea = CreateFrame("Button", nil, profRow)
+            profClickArea:SetPoint("LEFT", profCheck, "RIGHT", 0, 0)
+            profClickArea:SetPoint("RIGHT", profRow, "RIGHT", 0, 0)
+            profClickArea:SetHeight(22)
+            profClickArea:SetScript("OnClick", ToggleSubGroupExpand)
+
+            sidebarWidgets[wTable][skipKey] = {
+                check        = profCheck,
+                label        = profLabel,
+                namePrefix   = skipKey,
+                childKeys    = childNames,
+                _isProfMaster = true,
+            }
+            itemCount = itemCount + 1
+        end
+    end
+
+    -- Base content height = item checkboxes (subGroup counts as one 22px row when collapsed)
+    section._baseContentHeight = itemCount * 22
+    section._contentHeight = section._baseContentHeight
+    content:SetHeight(section._contentHeight)
+    section:SetHeight(20 + section._contentHeight)
+
+    -- Store sub-group frame reference for height recalculation
+    section._subGroupFrame = subGroupFrame
+
+    -- Store recalc function on the section for external callers
+    section._recalcHeight = function()
+        RecalcMultiselectHeight(section, subGroupFrame, scrollChild)
+    end
+
+    -- Default collapsed behavior
+    if sectionDef.defaultCollapsed then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
+    return section
+end
+
+--- hierarchical: expandable groups with children (e.g. Category, Expansion)
+function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local wTable = sectionDef.widgetTable        -- e.g. "expansions", "categories"
+    local cwTable = sectionDef.childWidgetTable   -- e.g. "zones", "subcategories"
+
+    -- Store group list on the section
+    local groupsList = {}
+    section._groups = groupsList
+
+    -- Store recalc function on the section for expand/collapse
+    section._recalcHeight = function()
+        RecalcHierarchicalHeight(section, scrollChild)
+    end
+
+    -- Resolve the group order list
+    local groupOrder = NS.CatalogData and NS.CatalogData[sectionDef.groupOrder] or {}
+
+    -- Resolve toggle functions
+    local toggleChildFn = sectionDef.toggleChild and function(key, checked)
+        local fn = NS.UI[sectionDef.toggleChild]
+        if fn then fn(key, checked) end
+    end or nil
+    local toggleGroupFn = sectionDef.toggleGroup and function(groupName, checked)
+        local fn = NS.UI[sectionDef.toggleGroup]
+        if fn then fn(groupName, checked) end
+    end or nil
+
+    -- Resolve group colors (hex string table: groupName → hex)
+    local groupColorsTable
+    if sectionDef.groupColors then
+        groupColorsTable = NS[sectionDef.groupColors]
+            or (NS.CatalogData and NS.CatalogData[sectionDef.groupColors])
+    end
+
+    -- uniformColor: single RGB {r,g,b} applied to all groups/children as fallback
+    local uniformHex
+    if sectionDef.uniformColor then
+        local uc = sectionDef.uniformColor
+        uniformHex = string.format("%02X%02X%02X",
+            math.floor(uc[1] * 255 + 0.5),
+            math.floor(uc[2] * 255 + 0.5),
+            math.floor(uc[3] * 255 + 0.5))
+    end
+
+    -- Resolve group names (for named groups like categories)
+    local groupNamesTable
+    if sectionDef.groupNames then
+        groupNamesTable = NS.CatalogData and NS.CatalogData[sectionDef.groupNames]
+    end
+
+    -- Resolve child color overrides
+    local childColorOverrides = sectionDef.childColorOverrides or {}
+
+    -- Build the children map: groupKey → sorted list of { key, name, count }
+    local childrenByGroup = {}
+
+    if sectionDef.childMap then
+        -- Direct mapping: e.g. CategorySubcategories[catID] → list of subcatIDs
+        local childMap = NS.CatalogData and NS.CatalogData[sectionDef.childMap] or {}
+        local childNames = NS.CatalogData and NS.CatalogData[sectionDef.childNames] or {}
+        local childCountsMap = NS.CatalogData and NS.CatalogData[sectionDef.childCounts] or {}
+
+        for _, groupKey in ipairs(groupOrder) do
+            local children = childMap[groupKey]
+            if children then
+                local list = {}
+                for _, childKey in ipairs(children) do
+                    local cCount = 0
+                    if childCountsMap[childKey] then
+                        if type(childCountsMap[childKey]) == "table" then
+                            cCount = #childCountsMap[childKey]
+                        else
+                            cCount = childCountsMap[childKey]
+                        end
+                    end
+                    if cCount > 0 then
+                        list[#list + 1] = {
+                            key   = childKey,
+                            name  = childNames[childKey] or tostring(childKey),
+                            count = cCount,
+                        }
+                    end
+                end
+                if #list > 0 then
+                    table.sort(list, function(a, b) return a.name < b.name end)
+                    childrenByGroup[groupKey] = list
+                end
+            end
+        end
+    elseif sectionDef.childSource then
+        -- Reverse lookup: e.g. ZoneToExpansionMap (zone → expansion)
+        local reverseMap = NS.CatalogData and NS.CatalogData[sectionDef.childSource] or {}
+        local childCountsMap = NS.CatalogData and NS.CatalogData[sectionDef.childCounts] or {}
+
+        -- Group children by parent (reverse the map)
+        local grouped = {}
+        for childKey, parentKey in pairs(reverseMap) do
+            if childCountsMap[childKey] then
+                if not grouped[parentKey] then
+                    grouped[parentKey] = {}
+                end
+                local cCount = 0
+                if type(childCountsMap[childKey]) == "table" then
+                    cCount = #childCountsMap[childKey]
+                else
+                    cCount = childCountsMap[childKey]
+                end
+                if cCount > 0 then
+                    table.insert(grouped[parentKey], {
+                        key   = childKey,
+                        name  = childKey,   -- zone name IS the key
+                        count = cCount,
+                    })
+                end
+            end
+        end
+        -- Collect children not in the mapping → "Unknown"
+        for childKey, ids in pairs(childCountsMap) do
+            if not reverseMap[childKey] then
+                if not grouped["Unknown"] then
+                    grouped["Unknown"] = {}
+                end
+                local cCount = type(ids) == "table" and #ids or ids
+                if cCount > 0 then
+                    table.insert(grouped["Unknown"], { key = childKey, name = childKey, count = cCount })
+                end
+            end
+        end
+        -- Sort children alphabetically within each group
+        for _, list in pairs(grouped) do
+            table.sort(list, function(a, b) return a.name < b.name end)
+        end
+        childrenByGroup = grouped
+    end
+
+    -- Build full group order (append "Unknown" if needed)
+    local fullGroupOrder = {}
+    for _, gKey in ipairs(groupOrder) do
+        fullGroupOrder[#fullGroupOrder + 1] = gKey
+    end
+    if childrenByGroup["Unknown"] and #childrenByGroup["Unknown"] > 0 then
+        local found = false
+        for _, gKey in ipairs(fullGroupOrder) do
+            if gKey == "Unknown" then found = true; break end
+        end
+        if not found then
+            fullGroupOrder[#fullGroupOrder + 1] = "Unknown"
+        end
+    end
+
+    -- Create groups
+    local prevGroup = nil
+    local totalContentH = 0
+    for _, groupKey in ipairs(fullGroupOrder) do
+        local childList = childrenByGroup[groupKey]
+        if childList and #childList > 0 then
+            -- Resolve group display name
+            local groupDisplayName = (groupNamesTable and groupNamesTable[groupKey])
+                or (type(groupKey) == "string" and groupKey or tostring(groupKey))
+
+            -- Resolve group color (hex string)
+            local groupColor = groupColorsTable and groupColorsTable[groupDisplayName] or
+                (groupColorsTable and groupColorsTable[groupKey]) or uniformHex or "888888"
+
+            local group, groupCheck, groupLabel, childFrame = CreateFilterGroup(
+                content, groupDisplayName, prevGroup, groupColor, childList, scrollChild,
+                section, groupsList, sidebarWidgets[cwTable], sidebarWidgets[wTable],
+                toggleGroupFn, groupKey)
+
+            -- Store group widget data
+            local childKeys = {}
+            sidebarWidgets[wTable][groupKey] = {
+                check      = groupCheck,
+                label      = groupLabel,
+                expanded   = false,
+                childKeys  = childKeys,
+                namePrefix = "|cff" .. groupColor .. groupDisplayName .. "|r",
+            }
+            -- Also store under display name if different from key (for reverse lookups)
+            if groupDisplayName ~= groupKey then
+                sidebarWidgets[wTable][groupDisplayName] = sidebarWidgets[wTable][groupKey]
+            end
+
+            -- Create child checkboxes inside the child frame
+            local childYOff = 0
+            for _, cInfo in ipairs(childList) do
+                -- Determine child color: use override if present, else group color
+                local childColor = groupColor
+                if childColorOverrides[cInfo.name] then
+                    childColor = childColorOverrides[cInfo.name]
+                end
+
+                local cLabelText = "|cff" .. childColor .. cInfo.name .. "|r  |cff888888(" .. cInfo.count .. ")|r"
+
+                local cChk, newCY = CreateFilterCheckbox(childFrame, cLabelText, childYOff, nil,
+                    function(checked)
+                        if toggleChildFn then toggleChildFn(cInfo.key, checked) end
+                        UpdateParentCheckState(
+                            sidebarWidgets[wTable][groupKey],
+                            sidebarWidgets[wTable][groupKey] and sidebarWidgets[wTable][groupKey].childKeys or {},
+                            sidebarWidgets[cwTable]
+                        )
+                    end)
+                -- Indent child checkboxes
+                cChk:ClearAllPoints()
+                cChk:SetPoint("TOPLEFT", childFrame, "TOPLEFT", 28, childYOff)
+
+                sidebarWidgets[cwTable][cInfo.key] = {
+                    check      = cChk,
+                    label      = cChk._label,
+                    namePrefix = "|cff" .. childColor .. cInfo.name .. "|r",
+                }
+                childKeys[#childKeys + 1] = cInfo.key
+                childYOff = newCY
+            end
+
+            prevGroup = group
+            totalContentH = totalContentH + group:GetHeight()
+        end
+    end
+
+    -- Set section height (all groups start collapsed)
+    section._contentHeight = totalContentH
+    content:SetHeight(totalContentH)
+    section:SetHeight(20 + totalContentH)
+
+    -- Default collapsed behavior
+    if sectionDef.defaultCollapsed then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
+    return section
 end
 
 -------------------------------------------------------------------------------
@@ -304,403 +948,18 @@ end
 local function InitSidebarContent(scrollChild)
     -- Reset tracking tables
     allSections = {}
-    expansionGroups = {}
-    expansionSection = nil
-    sourceSection = nil
-    professionGroup = nil
-
-    ---------------------------------------------------------------------------
-    -- FAVORITES section
-    ---------------------------------------------------------------------------
-    local sectionFav, contentFav = CreateSidebarSection(scrollChild, "FAVORITES", nil)
-
-    local favChk, favNewY = CreateFilterCheckbox(contentFav, "Only Favorites  |cff40c8c8(0)|r", 0,
-        { 0.25, 0.78, 0.78 },
-        function(checked)
-            if NS.UI.CatalogGrid_ToggleFavorites then
-                NS.UI.CatalogGrid_ToggleFavorites(checked)
-            end
-        end)
-    favChk:SetChecked(false)
-    sidebarWidgets.favorites["onlyFavorites"] = {
-        check      = favChk,
-        label      = favChk._label,
-        namePrefix = "Only Favorites",
-    }
-    sectionFav._contentHeight = 22
-    contentFav:SetHeight(22)
-    sectionFav:SetHeight(20 + 22)
-
-    ---------------------------------------------------------------------------
-    -- COLLECTION section (all checked by default)
-    ---------------------------------------------------------------------------
-    local sectionColl, contentColl = CreateSidebarSection(scrollChild, "COLLECTION", sectionFav)
-
-    local collDefs = {
-        { key = "collected",    label = "Hide Collected",     color = { 0.12, 1.00, 0.00 } },
-        { key = "notCollected", label = "Hide Not Collected", color = { 1.00, 0.27, 0.27 } },
-    }
-
-    local yOff = 0
-    for _, def in ipairs(collDefs) do
-        local chk, newY = CreateFilterCheckbox(contentColl, def.label, yOff, def.color,
-            function(checked)
-                -- checked = "Hide X" is active → invert for filterState (true = show)
-                if NS.UI.CatalogGrid_ToggleCollection then
-                    NS.UI.CatalogGrid_ToggleCollection(def.key, not checked)
-                end
-            end)
-        chk:SetChecked(false)
-        sidebarWidgets.collection[def.key] = {
-            check      = chk,
-            label      = chk._label,
-            namePrefix = def.label,
-        }
-        yOff = newY
+    for key in pairs(sidebarWidgets) do
+        sidebarWidgets[key] = {}
     end
-    sectionColl._contentHeight = #collDefs * 22
-    contentColl:SetHeight(sectionColl._contentHeight)
-    sectionColl:SetHeight(20 + sectionColl._contentHeight)
 
-    ---------------------------------------------------------------------------
-    -- SOURCE section (with Profession sub-filters)
-    ---------------------------------------------------------------------------
-    local sectionSrc, contentSrc = CreateSidebarSection(scrollChild, "SOURCE", sectionColl)
-    sourceSection = sectionSrc
-
-    local sourceOrder = NS.CatalogData and NS.CatalogData.SourceOrder or
-        { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other" }
-    local professionOrder = NS.CatalogData and NS.CatalogData.ProfessionOrder or {}
-    local profSourceCount = NS.CatalogData and NS.CatalogData.BySource
-        and NS.CatalogData.BySource["Profession"]
-        and #NS.CatalogData.BySource["Profession"] or 0
-    local hasProfGroup = profSourceCount > 0 and #professionOrder > 0
-
-    -- Pass 1: create all non-Profession source checkboxes
-    yOff = 0
-    local srcCount = 0
-    for _, srcType in ipairs(sourceOrder) do
-        if srcType == "Profession" then
-            -- skip — rendered last so expansion doesn't shift other checkboxes
-        else
-            local count = NS.CatalogData and NS.CatalogData.BySource
-                and NS.CatalogData.BySource[srcType]
-                and #NS.CatalogData.BySource[srcType] or 0
-            if count > 0 then
-                local srcColor = NS.SourceColors and NS.SourceColors[srcType]
-                local label = srcType .. "  |cff888888(" .. count .. ")|r"
-                local chk, newY = CreateFilterCheckbox(contentSrc, label, yOff, srcColor,
-                    function(checked)
-                        if NS.UI.CatalogGrid_ToggleSource then
-                            NS.UI.CatalogGrid_ToggleSource(srcType, checked)
-                        end
-                    end)
-                sidebarWidgets.sources[srcType] = {
-                    check      = chk,
-                    label      = chk._label,
-                    namePrefix = srcType,
-                }
-                yOff = newY
-                srcCount = srcCount + 1
-            end
+    local prevSection = nil
+    for _, sectionDef in ipairs(FILTER_SECTIONS) do
+        local builder = SectionBuilders[sectionDef.type]
+        if builder then
+            prevSection = builder(scrollChild, sectionDef, prevSection)
         end
     end
 
-    -- Pass 2: create expandable Profession group at the bottom of SOURCE
-    if hasProfGroup then
-        local profGroup = CreateFrame("Frame", nil, contentSrc)
-        profGroup:SetPoint("LEFT", contentSrc, "LEFT", 0, 0)
-        profGroup:SetPoint("RIGHT", contentSrc, "RIGHT", 0, 0)
-        profGroup:SetPoint("TOP", contentSrc, "TOP", 0, yOff)
-        professionGroup = profGroup
-
-        -- Header row (22px) with checkbox + label + toggle
-        local profRow = CreateFrame("Frame", nil, profGroup)
-        profRow:SetHeight(22)
-        profRow:SetPoint("TOPLEFT", profGroup, "TOPLEFT", 0, 0)
-        profRow:SetPoint("TOPRIGHT", profGroup, "TOPRIGHT", 0, 0)
-
-        local srcColor = NS.SourceColors and NS.SourceColors["Profession"]
-        local profCheck = CreateFrame("CheckButton", nil, profRow, "UICheckButtonTemplate")
-        profCheck:SetSize(22, 22)
-        profCheck:SetPoint("TOPLEFT", profRow, "TOPLEFT", 6, 0)
-
-        local profLabel = profRow:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-        profLabel:SetPoint("LEFT", profCheck, "RIGHT", 2, 0)
-        profLabel:SetText("Profession  |cff888888(" .. profSourceCount .. ")|r")
-        if srcColor then
-            profLabel:SetTextColor(srcColor[1], srcColor[2], srcColor[3], 1)
-        end
-        profCheck._label = profLabel
-
-        -- Toggle indicator (+/- at right edge, gold)
-        local profToggle = profRow:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        profToggle:SetPoint("RIGHT", profRow, "RIGHT", -8, 0)
-        profToggle:SetText("+")
-        profToggle:SetTextColor(1.00, 0.82, 0.00, 1)
-
-        -- Profession sub-checkboxes container
-        local profsFrame = CreateFrame("Frame", nil, profGroup)
-        profsFrame:SetPoint("TOPLEFT", profRow, "BOTTOMLEFT", 0, 0)
-        profsFrame:SetPoint("RIGHT", profGroup, "RIGHT", 0, 0)
-        profsFrame:SetHeight(1)
-        profsFrame:Hide()
-
-        -- Build profession sub-checkboxes
-        local profYOff = 0
-        local profSubCount = 0
-        local profNames = {}
-        for _, profName in ipairs(professionOrder) do
-            local pCount = NS.CatalogData and NS.CatalogData.ByProfession
-                and NS.CatalogData.ByProfession[profName]
-                and #NS.CatalogData.ByProfession[profName] or 0
-            if pCount > 0 then
-                local profIcon = NS.ProfessionIcons and NS.ProfessionIcons[profName]
-                local profColor = { 0.60, 0.40, 0.20, 1.00 }
-                local pLabel = profName .. "  |cff888888(" .. pCount .. ")|r"
-                local pChk, newPY = CreateFilterCheckbox(profsFrame, pLabel, profYOff, profColor,
-                    function(checked)
-                        if NS.UI.CatalogGrid_ToggleProfession then
-                            NS.UI.CatalogGrid_ToggleProfession(profName, checked)
-                        end
-                        UpdateProfessionCheckState()
-                    end)
-                -- Indent sub-checkboxes
-                pChk:ClearAllPoints()
-                pChk:SetPoint("TOPLEFT", profsFrame, "TOPLEFT", 28, profYOff)
-
-                local displayPrefix = profName
-                if profIcon then
-                    displayPrefix = "|T" .. profIcon .. ":14:14|t " .. profName
-                    pChk._label:SetText("|T" .. profIcon .. ":14:14|t " .. pLabel)
-                end
-
-                sidebarWidgets.professions[profName] = {
-                    check      = pChk,
-                    label      = pChk._label,
-                    namePrefix = displayPrefix,
-                }
-                profNames[#profNames + 1] = profName
-                profYOff = newPY
-                profSubCount = profSubCount + 1
-            end
-        end
-
-        -- Group starts collapsed
-        profGroup:SetHeight(22)
-        profGroup._expanded = false
-
-        -- Mass-toggle: checking Profession header checks all sub-professions
-        profCheck:SetScript("OnClick", function(self)
-            local checked = self:GetChecked()
-            -- Update sub-checkboxes first
-            for _, pName in ipairs(profNames) do
-                local pWidget = sidebarWidgets.professions[pName]
-                if pWidget then pWidget.check:SetChecked(checked) end
-            end
-            if NS.UI.CatalogGrid_ToggleAllProfessions then
-                NS.UI.CatalogGrid_ToggleAllProfessions(checked)
-            end
-        end)
-
-        -- Expand/collapse
-        local function ToggleProfExpand()
-            profGroup._expanded = not profGroup._expanded
-            if profGroup._expanded then
-                profToggle:SetText("-")
-                profsFrame:SetHeight(profSubCount * 22)
-                profsFrame:Show()
-                profGroup:SetHeight(22 + profSubCount * 22)
-            else
-                profToggle:SetText("+")
-                profsFrame:SetHeight(1)
-                profsFrame:Hide()
-                profGroup:SetHeight(22)
-            end
-            RecalcSourceHeight(scrollChild)
-        end
-
-        local profClickArea = CreateFrame("Button", nil, profRow)
-        profClickArea:SetPoint("LEFT", profCheck, "RIGHT", 0, 0)
-        profClickArea:SetPoint("RIGHT", profRow, "RIGHT", 0, 0)
-        profClickArea:SetHeight(22)
-        profClickArea:SetScript("OnClick", ToggleProfExpand)
-
-        sidebarWidgets.sources["Profession"] = {
-            check      = profCheck,
-            label      = profLabel,
-            namePrefix = "Profession",
-            profNames  = profNames,
-            _isProfMaster = true,
-        }
-        srcCount = srcCount + 1
-    end
-
-    -- Base content height = source checkboxes (profGroup counts as one 22px row when collapsed)
-    sectionSrc._baseContentHeight = srcCount * 22
-    sectionSrc._contentHeight = sectionSrc._baseContentHeight
-    contentSrc:SetHeight(sectionSrc._contentHeight)
-    sectionSrc:SetHeight(20 + sectionSrc._contentHeight)
-
-    ---------------------------------------------------------------------------
-    -- EXPANSION section (Expansion > Zone collapsible hierarchy)
-    ---------------------------------------------------------------------------
-    local sectionExp, contentExp = CreateSidebarSection(scrollChild, "EXPANSION", sectionSrc)
-    expansionSection = sectionExp
-
-    local expOrder = NS.CatalogData and NS.CatalogData.ExpansionOrder or {}
-    local zoneToExp = NS.CatalogData and NS.CatalogData.ZoneToExpansionMap or {}
-    local byZone = NS.CatalogData and NS.CatalogData.ByZone or {}
-
-    -- Group zones by expansion (only zones that have items)
-    local expansionZonesMap = {}
-    for zone, expansion in pairs(zoneToExp) do
-        if byZone[zone] then
-            if not expansionZonesMap[expansion] then
-                expansionZonesMap[expansion] = {}
-            end
-            table.insert(expansionZonesMap[expansion], {
-                zone = zone,
-                count = #byZone[zone],
-            })
-        end
-    end
-    -- Collect zones not in the mapping
-    for zone, ids in pairs(byZone) do
-        if not zoneToExp[zone] then
-            if not expansionZonesMap["Unknown"] then
-                expansionZonesMap["Unknown"] = {}
-            end
-            table.insert(expansionZonesMap["Unknown"], { zone = zone, count = #ids })
-        end
-    end
-    -- Sort zones within each expansion alphabetically
-    for _, zoneList in pairs(expansionZonesMap) do
-        table.sort(zoneList, function(a, b) return a.zone < b.zone end)
-    end
-
-    -- Build full expansion order (append Unknown if needed)
-    local fullExpOrder = {}
-    for _, e in ipairs(expOrder) do
-        fullExpOrder[#fullExpOrder + 1] = e
-    end
-    if expansionZonesMap["Unknown"] and #expansionZonesMap["Unknown"] > 0 then
-        fullExpOrder[#fullExpOrder + 1] = "Unknown"
-    end
-
-    local prevGroup = nil
-    local expContentH = 0
-    for _, expName in ipairs(fullExpOrder) do
-        local zoneList = expansionZonesMap[expName]
-        if zoneList and #zoneList > 0 then
-            local expColor = NS.ExpansionColors and NS.ExpansionColors[expName] or "888888"
-
-            local group, expCheck, expLabel, zonesFrame = CreateFilterGroup(
-                contentExp, expName, prevGroup, expColor, zoneList, scrollChild)
-
-            -- Store expansion widget data
-            local zoneNames = {}
-            sidebarWidgets.expansions[expName] = {
-                check     = expCheck,
-                label     = expLabel,
-                expanded  = false,
-                zoneNames = zoneNames,
-                namePrefix = "|cff" .. expColor .. expName .. "|r",
-            }
-
-            -- Create zone checkboxes inside the zones frame
-            local zoneYOff = 0
-            for _, zInfo in ipairs(zoneList) do
-                local displayName = zInfo.zone
-                -- Neighborhood zones: color by faction instead of expansion color
-                local zoneColor = expColor
-                if expName == "Neighborhoods" then
-                    if zInfo.zone == "Founder's Point" then
-                        zoneColor = "3399FF"   -- Alliance blue
-                    elseif zInfo.zone == "Razorwind Shores" then
-                        zoneColor = "FF3333"   -- Horde red
-                    end
-                end
-                local zLabel = "|cff" .. zoneColor .. displayName .. "|r  |cff888888(" .. zInfo.count .. ")|r"
-
-                local zChk, newZY = CreateFilterCheckbox(zonesFrame, zLabel, zoneYOff, nil,
-                    function(checked)
-                        if NS.UI.CatalogGrid_ToggleZone then
-                            NS.UI.CatalogGrid_ToggleZone(zInfo.zone, checked)
-                        end
-                        UpdateExpansionCheckState(expName)
-                    end)
-                -- Indent zone checkboxes
-                zChk:ClearAllPoints()
-                zChk:SetPoint("TOPLEFT", zonesFrame, "TOPLEFT", 28, zoneYOff)
-
-                sidebarWidgets.zones[zInfo.zone] = {
-                    check      = zChk,
-                    label      = zChk._label,
-                    namePrefix = "|cff" .. zoneColor .. displayName .. "|r",
-                }
-                zoneNames[#zoneNames + 1] = zInfo.zone
-                zoneYOff = newZY
-            end
-
-            prevGroup = group
-            expContentH = expContentH + group:GetHeight()
-        end
-    end
-
-    -- Set EXPANSION section height (all expansion groups start collapsed)
-    sectionExp._contentHeight = expContentH
-    contentExp:SetHeight(expContentH)
-    sectionExp:SetHeight(20 + expContentH)
-
-    ---------------------------------------------------------------------------
-    -- RARITY section
-    ---------------------------------------------------------------------------
-    local sectionRar, contentRar = CreateSidebarSection(scrollChild, "RARITY", sectionExp)
-
-    local qualityOrder = NS.QualityOrder or { 1, 2, 3, 4, 5, 0 }
-    local qualityNames = NS.QualityNames or {}
-    local qualityColors = NS.QualityColors or {}
-
-    yOff = 0
-    local qualCount = 0
-    for _, q in ipairs(qualityOrder) do
-        local qName = qualityNames[q] or ("Quality " .. q)
-        local qc = qualityColors[q] or { 1, 1, 1, 1 }
-
-        local count = 0
-        if NS.CatalogData and NS.CatalogData.Items then
-            for _, item in pairs(NS.CatalogData.Items) do
-                if item.quality == q then count = count + 1 end
-            end
-        end
-
-        if count > 0 then
-            local label = qName .. "  |cff888888(" .. count .. ")|r"
-            local chk, newY = CreateFilterCheckbox(contentRar, label, yOff, qc,
-                function(checked)
-                    if NS.UI.CatalogGrid_ToggleQuality then
-                        NS.UI.CatalogGrid_ToggleQuality(q, checked)
-                    end
-                end)
-            sidebarWidgets.qualities[q] = {
-                check      = chk,
-                label      = chk._label,
-                namePrefix = qName,
-            }
-            yOff = newY
-            qualCount = qualCount + 1
-        end
-    end
-    sectionRar._contentHeight = qualCount * 22
-    contentRar:SetHeight(sectionRar._contentHeight)
-    -- Start rarity section collapsed by default
-    sectionRar._expanded = false
-    contentRar:Hide()
-    sectionRar._toggle:SetText("+")
-    sectionRar:SetHeight(20)
-
-    -- Calculate initial total scroll height
     RecalcSidebarHeight(scrollChild)
 end
 
@@ -797,111 +1056,153 @@ local function RefreshFooterBar()
         tag:Show()
     end
 
-    -- Favorites
-    local favWidgetTag = sidebarWidgets.favorites["onlyFavorites"]
-    if favWidgetTag and favWidgetTag.check:GetChecked() then
-        AddTag("Only Favorites", { 0.25, 0.78, 0.78 }, function()
-            favWidgetTag.check:SetChecked(false)
-            if NS.UI.CatalogGrid_ToggleFavorites then
-                NS.UI.CatalogGrid_ToggleFavorites(false)
-            end
-        end)
-    end
+    -- Data-driven footer tag generation: loop through FILTER_SECTIONS
+    for _, secDef in ipairs(FILTER_SECTIONS) do
 
-    -- Collection (show tags when "Hide X" is checked)
-    local collTagDefs = {
-        { key = "collected",    label = "Hide Collected",     color = { 0.12, 1.00, 0.00 } },
-        { key = "notCollected", label = "Hide Not Collected", color = { 1.00, 0.27, 0.27 } },
-    }
-    for _, def in ipairs(collTagDefs) do
-        local widget = sidebarWidgets.collection[def.key]
-        if widget and widget.check:GetChecked() then
-            AddTag(def.label, def.color, function()
-                widget.check:SetChecked(false)
-                if NS.UI.CatalogGrid_ToggleCollection then
-                    -- Unchecking "Hide X" → show that category again
-                    NS.UI.CatalogGrid_ToggleCollection(def.key, true)
-                end
-            end)
-        end
-    end
-
-    -- Sources (skip Profession master — its sub-checkboxes are shown separately)
-    local sourceOrder = NS.CatalogData and NS.CatalogData.SourceOrder
-        or { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other" }
-    for _, srcType in ipairs(sourceOrder) do
-        local widget = sidebarWidgets.sources[srcType]
-        if widget and not widget._isProfMaster and widget.check:GetChecked() then
-            local srcColor = NS.SourceColors and NS.SourceColors[srcType]
-            AddTag(srcType, srcColor, function()
-                widget.check:SetChecked(false)
-                if NS.UI.CatalogGrid_ToggleSource then
-                    NS.UI.CatalogGrid_ToggleSource(srcType, false)
-                end
-            end)
-        end
-    end
-
-    -- Qualities
-    local qualityOrder = NS.QualityOrder or { 1, 2, 3, 4, 5, 0 }
-    for _, q in ipairs(qualityOrder) do
-        local widget = sidebarWidgets.qualities[q]
-        if widget and widget.check:GetChecked() then
-            local qc = NS.QualityColors and NS.QualityColors[q]
-            local qName = NS.QualityNames and NS.QualityNames[q] or ("Quality " .. q)
-            AddTag(qName, qc, function()
-                widget.check:SetChecked(false)
-                if NS.UI.CatalogGrid_ToggleQuality then
-                    NS.UI.CatalogGrid_ToggleQuality(q, false)
-                end
-            end)
-        end
-    end
-
-    -- Professions
-    local profOrder = NS.CatalogData and NS.CatalogData.ProfessionOrder or {}
-    for _, profName in ipairs(profOrder) do
-        local widget = sidebarWidgets.professions[profName]
-        if widget and widget.check:GetChecked() then
-            AddTag(profName, { 0.60, 0.40, 0.20 }, function()
-                widget.check:SetChecked(false)
-                if NS.UI.CatalogGrid_ToggleProfession then
-                    NS.UI.CatalogGrid_ToggleProfession(profName, false)
-                end
-                UpdateProfessionCheckState()
-            end)
-        end
-    end
-
-    -- Zones (grouped by expansion for consistent ordering, colored by expansion)
-    local expOrder = NS.CatalogData and NS.CatalogData.ExpansionOrder or {}
-    for _, expName in ipairs(expOrder) do
-        local expData = sidebarWidgets.expansions[expName]
-        if expData then
-            -- Convert expansion hex color to RGB table for tags
-            local expColorHex = NS.ExpansionColors and NS.ExpansionColors[expName]
-            local tagColor = nil
-            if expColorHex then
-                local r = tonumber(expColorHex:sub(1, 2), 16) / 255
-                local g = tonumber(expColorHex:sub(3, 4), 16) / 255
-                local b = tonumber(expColorHex:sub(5, 6), 16) / 255
-                tagColor = { r, g, b }
-            end
-
-            for _, zName in ipairs(expData.zoneNames) do
-                local zWidget = sidebarWidgets.zones[zName]
-                if zWidget and zWidget.check:GetChecked() then
-                    AddTag(zName, tagColor, function()
-                        zWidget.check:SetChecked(false)
-                        if NS.UI.CatalogGrid_ToggleZone then
-                            NS.UI.CatalogGrid_ToggleZone(zName, false)
-                        end
-                        UpdateExpansionCheckState(expName)
+        if secDef.type == "boolean" then
+            -- Single toggle checkbox (Favorites)
+            for _, itemDef in ipairs(secDef.items or {}) do
+                local widget = sidebarWidgets[secDef.id][itemDef.key]
+                if widget and widget.check:GetChecked() then
+                    AddTag(itemDef.label, itemDef.color, function()
+                        widget.check:SetChecked(false)
+                        local fn = NS.UI[secDef.toggle]
+                        if fn then fn(false) end
                     end)
                 end
             end
+
+        elseif secDef.type == "boolean_pair" then
+            -- Inverted toggle pair (Collection)
+            for _, itemDef in ipairs(secDef.items or {}) do
+                local widget = sidebarWidgets[secDef.id][itemDef.key]
+                if widget and widget.check:GetChecked() then
+                    AddTag(itemDef.label, itemDef.color, function()
+                        widget.check:SetChecked(false)
+                        local fn = NS.UI[secDef.toggle]
+                        if fn then fn(itemDef.key, true) end
+                    end)
+                end
+            end
+
+        elseif secDef.type == "multiselect" then
+            local wTable = secDef.widgetTable
+            local subDef = secDef.subGroup
+
+            -- Resolve order list
+            local orderList = (NS.CatalogData and NS.CatalogData[secDef.order])
+                or NS[secDef.order]
+            if not orderList then
+                if wTable == "sources" then
+                    orderList = { "Vendor", "Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Other" }
+                elseif wTable == "qualities" then
+                    orderList = { 1, 2, 3, 4, 5, 0 }
+                else
+                    orderList = {}
+                end
+            end
+
+            -- Resolve colors table
+            local colorsTable
+            if secDef.colors then
+                colorsTable = NS[secDef.colors] or (NS.CatalogData and NS.CatalogData[secDef.colors])
+            end
+            -- Resolve names table
+            local namesTable
+            if secDef.names then
+                namesTable = NS[secDef.names] or (NS.CatalogData and NS.CatalogData[secDef.names])
+            end
+
+            local skipKey = subDef and subDef.parentKey or nil
+            for _, key in ipairs(orderList) do
+                local widget = sidebarWidgets[wTable][key]
+                if widget and not widget._isProfMaster and widget.check:GetChecked() then
+                    local tagColor = colorsTable and colorsTable[key] or nil
+                    local tagName = (namesTable and namesTable[key])
+                        or (type(key) == "string" and key or ("Quality " .. key))
+                    AddTag(tagName, tagColor, function()
+                        widget.check:SetChecked(false)
+                        local fn = NS.UI[secDef.toggle]
+                        if fn then fn(key, false) end
+                    end)
+                end
+            end
+
+            -- Sub-group children (e.g. Professions)
+            if subDef then
+                local subOrderList = NS.CatalogData and NS.CatalogData[subDef.order] or {}
+                local subWTable = subDef.widgetTable
+                for _, childKey in ipairs(subOrderList) do
+                    local widget = sidebarWidgets[subWTable][childKey]
+                    if widget and widget.check:GetChecked() then
+                        AddTag(childKey, subDef.color, function()
+                            widget.check:SetChecked(false)
+                            local fn = NS.UI[subDef.toggleChild]
+                            if fn then fn(childKey, false) end
+                            -- Update parent check state
+                            local parentWidget = sidebarWidgets[wTable][skipKey]
+                            if parentWidget and parentWidget.childKeys then
+                                UpdateParentCheckState(parentWidget, parentWidget.childKeys, sidebarWidgets[subWTable])
+                            end
+                        end)
+                    end
+                end
+            end
+
+        elseif secDef.type == "hierarchical" then
+            local wTable = secDef.widgetTable
+            local cwTable = secDef.childWidgetTable
+
+            -- Resolve group order
+            local groupOrder = NS.CatalogData and NS.CatalogData[secDef.groupOrder] or {}
+
+            -- Resolve child names table (for numeric keys like subcategory IDs)
+            local childNamesTable
+            if secDef.childNames then
+                childNamesTable = NS.CatalogData and NS.CatalogData[secDef.childNames]
+            end
+
+            -- Resolve group colors (hex string table)
+            local groupColorsTable
+            if secDef.groupColors then
+                groupColorsTable = NS[secDef.groupColors]
+                    or (NS.CatalogData and NS.CatalogData[secDef.groupColors])
+            end
+
+            for _, groupKey in ipairs(groupOrder) do
+                local gData = sidebarWidgets[wTable][groupKey]
+                if gData and gData.childKeys then
+                    -- Convert hex color to RGB table for tags
+                    local tagColor = secDef.uniformColor or nil
+                    if not tagColor and groupColorsTable then
+                        local hexColor = groupColorsTable[groupKey]
+                        if hexColor and type(hexColor) == "string" and #hexColor >= 6 then
+                            local r = tonumber(hexColor:sub(1, 2), 16) / 255
+                            local g = tonumber(hexColor:sub(3, 4), 16) / 255
+                            local b = tonumber(hexColor:sub(5, 6), 16) / 255
+                            tagColor = { r, g, b }
+                        end
+                    end
+
+                    for _, cKey in ipairs(gData.childKeys) do
+                        local cWidget = sidebarWidgets[cwTable][cKey]
+                        if cWidget and cWidget.check:GetChecked() then
+                            -- Resolve display name: use childNames table for numeric keys
+                            local tagLabel = (childNamesTable and childNamesTable[cKey])
+                                or (type(cKey) == "string" and cKey or tostring(cKey))
+                            AddTag(tagLabel, tagColor, function()
+                                cWidget.check:SetChecked(false)
+                                local fn = NS.UI[secDef.toggleChild]
+                                if fn then fn(cKey, false) end
+                                UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets[cwTable])
+                            end)
+                        end
+                    end
+                end
+            end
         end
-    end
+
+    end  -- for FILTER_SECTIONS
 
     -- Update footer height: grow downward, capped at MAX_ROWS with scroll
     local numRows = tagIdx > 0 and (yRow + 1) or 1  -- always at least 1 row for label
@@ -935,40 +1236,47 @@ NS.UI._RefreshFooterBar = RefreshFooterBar
 -- ResetAllFilters: uncheck all sidebar filters and clear search text
 -------------------------------------------------------------------------------
 function NS.UI.ResetAllFilters()
-    -- Favorites: uncheck
-    local favWidget = sidebarWidgets.favorites["onlyFavorites"]
-    if favWidget then
-        favWidget.check:SetChecked(false)
-    end
+    -- Data-driven: uncheck all widgets across all section types
+    for _, secDef in ipairs(FILTER_SECTIONS) do
 
-    -- Collection: uncheck all "Hide X" checkboxes (unchecked = show)
-    for _, widget in pairs(sidebarWidgets.collection) do
-        widget.check:SetChecked(false)
-    end
+        if secDef.type == "boolean" or secDef.type == "boolean_pair" then
+            for _, widget in pairs(sidebarWidgets[secDef.id]) do
+                widget.check:SetChecked(false)
+            end
 
-    -- Sources: uncheck all
-    for _, widget in pairs(sidebarWidgets.sources) do
-        widget.check:SetChecked(false)
-    end
+        elseif secDef.type == "multiselect" then
+            local wTable = secDef.widgetTable
+            for _, widget in pairs(sidebarWidgets[wTable]) do
+                widget.check:SetChecked(false)
+            end
+            -- Sub-group children
+            if secDef.subGroup then
+                local subWTable = secDef.subGroup.widgetTable
+                for _, widget in pairs(sidebarWidgets[subWTable]) do
+                    widget.check:SetChecked(false)
+                end
+                -- Update parent check state for the sub-group master
+                local skipKey = secDef.subGroup.parentKey
+                local parentWidget = sidebarWidgets[wTable][skipKey]
+                if parentWidget and parentWidget.childKeys then
+                    UpdateParentCheckState(parentWidget, parentWidget.childKeys, sidebarWidgets[subWTable])
+                end
+            end
 
-    -- Professions: uncheck all
-    for _, widget in pairs(sidebarWidgets.professions) do
-        widget.check:SetChecked(false)
-    end
-    UpdateProfessionCheckState()
+        elseif secDef.type == "hierarchical" then
+            local cwTable = secDef.childWidgetTable
+            for _, widget in pairs(sidebarWidgets[cwTable]) do
+                widget.check:SetChecked(false)
+            end
+            -- Update parent check states for all groups
+            local wTable = secDef.widgetTable
+            for _, gData in pairs(sidebarWidgets[wTable]) do
+                if gData.childKeys then
+                    UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets[cwTable])
+                end
+            end
+        end
 
-    -- Qualities: uncheck all
-    for _, widget in pairs(sidebarWidgets.qualities) do
-        widget.check:SetChecked(false)
-    end
-
-    -- Zones: uncheck all
-    for _, widget in pairs(sidebarWidgets.zones) do
-        widget.check:SetChecked(false)
-    end
-    -- Update expansion check states
-    for contName, _ in pairs(sidebarWidgets.expansions) do
-        UpdateExpansionCheckState(contName)
     end
 
     -- Clear search box
@@ -987,60 +1295,77 @@ end
 -- UpdateSidebarCounts: refresh all sidebar labels with dynamic counts
 -- Called from CatalogGrid after every filter application.
 -- counts = { sources={}, zones={}, qualities={}, professions={},
---            collection={ collected=N, notCollected=N } }
+--            subcategories={}, collection={ collected=N, notCollected=N },
+--            favorites=N }
 -------------------------------------------------------------------------------
 function NS.UI.UpdateSidebarCounts(counts)
     if not counts then return end
 
-    -- Favorites
-    local favWidget = sidebarWidgets.favorites["onlyFavorites"]
-    if favWidget then
-        local fc = counts.favorites or 0
-        favWidget.label:SetText(favWidget.namePrefix .. "  |cff40c8c8(" .. fc .. ")|r")
-    end
+    -- Data-driven count updates across all section types
+    for _, secDef in ipairs(FILTER_SECTIONS) do
 
-    -- Collection
-    for key, widget in pairs(sidebarWidgets.collection) do
-        local c = 0
-        if key == "collected" then
-            c = counts.collection and counts.collection.collected or 0
-        elseif key == "notCollected" then
-            c = counts.collection and counts.collection.notCollected or 0
+        if secDef.type == "boolean" then
+            -- Single value count (e.g. favorites)
+            for _, itemDef in ipairs(secDef.items or {}) do
+                local widget = sidebarWidgets[secDef.id][itemDef.key]
+                if widget then
+                    local c = 0
+                    if itemDef.countKey then
+                        c = counts[itemDef.countKey] or 0
+                    end
+                    widget.label:SetText(widget.namePrefix .. "  |cff40c8c8(" .. c .. ")|r")
+                end
+            end
+
+        elseif secDef.type == "boolean_pair" then
+            -- Keyed counts from a sub-table (e.g. collection.collected)
+            for key, widget in pairs(sidebarWidgets[secDef.id]) do
+                local c = counts.collection and counts.collection[key] or 0
+                widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
+            end
+
+        elseif secDef.type == "multiselect" then
+            local wTable = secDef.widgetTable
+            -- Main items: look up counts from the dimension table
+            local countsDim = counts[wTable]  -- e.g. counts.sources, counts.qualities
+            for key, widget in pairs(sidebarWidgets[wTable]) do
+                local c = countsDim and countsDim[key] or 0
+                widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
+            end
+            -- Sub-group children (e.g. professions)
+            if secDef.subGroup then
+                local subWTable = secDef.subGroup.widgetTable
+                local subCountsDim = counts[subWTable]
+                for childKey, widget in pairs(sidebarWidgets[subWTable]) do
+                    local c = subCountsDim and subCountsDim[childKey] or 0
+                    widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
+                end
+            end
+
+        elseif secDef.type == "hierarchical" then
+            local wTable = secDef.widgetTable
+            local cwTable = secDef.childWidgetTable
+            -- Determine which counts dimension to use for children
+            local childCountsDim = counts[cwTable]  -- e.g. counts.zones, counts.subcategories
+
+            -- Update child labels
+            for cKey, widget in pairs(sidebarWidgets[cwTable]) do
+                local c = childCountsDim and childCountsDim[cKey] or 0
+                widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
+            end
+
+            -- Update group labels (sum of child counts)
+            for _, gData in pairs(sidebarWidgets[wTable]) do
+                if gData.childKeys then
+                    local total = 0
+                    for _, cKey in ipairs(gData.childKeys) do
+                        total = total + (childCountsDim and childCountsDim[cKey] or 0)
+                    end
+                    gData.label:SetText(gData.namePrefix .. "  |cff888888(" .. total .. ")|r")
+                end
+            end
         end
-        widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
-    end
 
-    -- Sources
-    for srcType, widget in pairs(sidebarWidgets.sources) do
-        local c = counts.sources and counts.sources[srcType] or 0
-        widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
-    end
-
-    -- Professions
-    for profName, widget in pairs(sidebarWidgets.professions) do
-        local c = counts.professions and counts.professions[profName] or 0
-        widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
-    end
-
-    -- Zones
-    for zoneName, widget in pairs(sidebarWidgets.zones) do
-        local c = counts.zones and counts.zones[zoneName] or 0
-        widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
-    end
-
-    -- Expansion totals (sum of child zones)
-    for contName, contData in pairs(sidebarWidgets.expansions) do
-        local total = 0
-        for _, zName in ipairs(contData.zoneNames) do
-            total = total + (counts.zones and counts.zones[zName] or 0)
-        end
-        contData.label:SetText(contData.namePrefix .. "  |cff888888(" .. total .. ")|r")
-    end
-
-    -- Qualities
-    for q, widget in pairs(sidebarWidgets.qualities) do
-        local c = counts.qualities and counts.qualities[q] or 0
-        widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
     end
 
     -- Refresh footer bar active filter tags
@@ -1276,7 +1601,7 @@ function NS.UI.InitCatalog()
     searchBox:SetScript("OnEscapePressed", function(self)
         self:ClearFocus()
     end)
-    searchBox.Instructions:SetText("Search Decor")
+    searchBox.Instructions:SetText("Search name, keyword, vendor, zone...")
     NS.UI._catalogSearchBox = searchBox
 
     -- Sidebar panel (left) — darker background
@@ -1786,11 +2111,11 @@ function NS.UI.OpenCatalogForZone(zoneName)
     if zoneName and sidebarWidgets.zones[zoneName] then
         sidebarWidgets.zones[zoneName].check:SetChecked(true)
         -- Find the expansion for this zone and update its check state
-        for contName, contData in pairs(sidebarWidgets.expansions) do
-            if contData.zoneNames then
-                for _, zName in ipairs(contData.zoneNames) do
-                    if zName == zoneName then
-                        UpdateExpansionCheckState(contName)
+        for _, gData in pairs(sidebarWidgets.expansions) do
+            if gData.childKeys then
+                for _, cKey in ipairs(gData.childKeys) do
+                    if cKey == zoneName then
+                        UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets.zones)
                         break
                     end
                 end

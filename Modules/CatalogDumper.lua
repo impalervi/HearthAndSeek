@@ -97,6 +97,50 @@ function Dumper.DumpCatalog()
 end
 
 -------------------------------------------------------------------------------
+-- DumpCategories: Scans housing catalog categories and subcategories.
+-- Results are stored in HearthAndSeekDB.categoryDump.
+-------------------------------------------------------------------------------
+function Dumper.DumpCategories()
+    -- Ensure the storage table exists (wipe previous dump)
+    HearthAndSeekDB.categoryDump = {
+        categories = {},
+        subcategories = {},
+    }
+    local results = HearthAndSeekDB.categoryDump
+
+    local categoryCount = 0
+    local subcategoryCount = 0
+
+    -- Scan categories (IDs 1-10)
+    for categoryID = 1, 10 do
+        local success, info = pcall(C_HousingCatalog.GetCatalogCategoryInfo, categoryID)
+        if success and info and info.name and info.name ~= "" then
+            categoryCount = categoryCount + 1
+            results.categories[categoryID] = {
+                name = info.name,
+                subcategoryIDs = info.subcategoryIDs or {},
+            }
+        end
+    end
+
+    -- Scan subcategories (IDs 1-60)
+    for subcategoryID = 1, 60 do
+        local success, info = pcall(C_HousingCatalog.GetCatalogSubcategoryInfo, subcategoryID)
+        if success and info and info.name and info.name ~= "" then
+            subcategoryCount = subcategoryCount + 1
+            results.subcategories[subcategoryID] = {
+                name = info.name,
+            }
+        end
+    end
+
+    NS.Utils.PrintMessage(
+        string.format("Dumped %d categories, %d subcategories. /reload to save.",
+            categoryCount, subcategoryCount)
+    )
+end
+
+-------------------------------------------------------------------------------
 -- DumpBossFloorMaps: Scans the Encounter Journal for every boss encounter
 -- and resolves the correct dungeon floor mapID for each.
 -- Results are stored in HearthAndSeekDB.bossDump.

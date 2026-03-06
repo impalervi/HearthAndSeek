@@ -793,14 +793,80 @@ VENDOR_COORDS: dict[str, dict] = {
 }
 
 # Reverse lookup: mapID → zone name (for updating item zones when vendor mapID differs)
-MAPID_TO_ZONE: dict[int, str] = {v: k for k, v in ZONE_TO_MAPID.items()
-                                  if not k.endswith("r")}  # avoid duplicates
-# Rebuild cleanly to avoid alias collisions
-MAPID_TO_ZONE = {}
+# Prefer shorter / canonical zone names, skip aliases
+MAPID_TO_ZONE: dict[int, str] = {}
 for _zname, _zmapid in ZONE_TO_MAPID.items():
     # Prefer shorter / canonical zone names, skip aliases
     if _zmapid not in MAPID_TO_ZONE or len(_zname) < len(MAPID_TO_ZONE[_zmapid]):
         MAPID_TO_ZONE[_zmapid] = _zname
+
+# ---------------------------------------------------------------------------
+# Category / subcategory name mappings (verified via /hs debug dump categories)
+# ---------------------------------------------------------------------------
+CATEGORY_NAMES: dict[int, str] = {
+    1: "Furnishings",
+    2: "Structural",
+    3: "Accents",
+    4: "Lighting",
+    5: "Functional",
+    6: "Nature",
+    8: "Miscellaneous",
+    9: "Rooms",
+}
+
+SUBCATEGORY_NAMES: dict[int, str] = {
+    # Furnishings (category 1):
+    1: "Seating",
+    2: "Beds",
+    5: "Tables and Desks",
+    6: "Storage",
+    7: "Misc Furnishings",
+    # Structural (category 2):
+    3: "Doors",
+    4: "Walls and Columns",
+    8: "Windows",
+    9: "Large Structures",
+    10: "Misc Structural",
+    # Accents (category 3):
+    11: "Ornamental",
+    12: "Wall Hangings",
+    13: "Food and Drink",
+    14: "Floor",
+    15: "Misc Accents",
+    # Lighting (category 4):
+    16: "Large Lights",
+    17: "Wall Lights",
+    18: "Ceiling Lights",
+    19: "Small Lights",
+    20: "Ambient Lighting",
+    21: "Misc Lighting",
+    # Functional (category 5):
+    22: "Utility",
+    51: "Misc Functional",
+    # Nature (category 6):
+    25: "Large Foliage",
+    26: "Small Foliage",
+    27: "Bushes",
+    28: "Ground Cover",
+    29: "Misc Nature",
+    # Miscellaneous (category 8):
+    34: "Miscellaneous - All",
+    # Rooms (category 9):
+    35: "Rooms - All",
+}
+
+CATEGORY_SUBCATEGORIES: dict[int, list[int]] = {
+    1: [1, 5, 6, 2, 7],            # Furnishings
+    2: [3, 4, 8, 9, 10],           # Structural
+    3: [11, 12, 13, 14, 15],       # Accents
+    4: [16, 17, 18, 19, 20, 21],   # Lighting
+    5: [22, 51],                    # Functional
+    6: [25, 26, 27, 28, 29],       # Nature
+    8: [34],                        # Miscellaneous
+    9: [35],                        # Rooms
+}
+
+CATEGORY_ORDER: list[int] = [1, 2, 3, 4, 5, 6, 8, 9]  # display order
 
 # ---------------------------------------------------------------------------
 # Neighborhood vendor pairing: Alliance (Founder's Point) ↔ Horde (Razorwind Shores)
@@ -1658,6 +1724,14 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
                 lines.append(f'            {faction} = {{ {", ".join(parts)} }},')
         lines.append("        },")
 
+    # Category / subcategory IDs (from game catalog API)
+    cat_ids = item.get("categoryIDs", [])
+    subcat_ids = item.get("subcategoryIDs", [])
+    if cat_ids:
+        lines.append(f"        categoryIDs = {{{', '.join(str(x) for x in cat_ids)}}},")
+    if subcat_ids:
+        lines.append(f"        subcategoryIDs = {{{', '.join(str(x) for x in subcat_ids)}}},")
+
     lines.append("    },")
     return "\n".join(lines)
 
@@ -2106,6 +2180,9 @@ def main() -> None:
     by_zone: dict[str, list[tuple[int, str]]] = defaultdict(list)
     name_index: list[tuple[int, str]] = []
 
+    # BySubcategory index: subcategoryID → list of decorIDs
+    by_subcategory: dict[int, list[int]] = defaultdict(list)
+
     for item, source_type, source_detail, expansion, ach_name, vnd_name, prof_name in items_with_meta:
         decor_id = item["decorID"]
         name = item.get("name", "")
@@ -2117,6 +2194,8 @@ def main() -> None:
         if prof_name:
             by_profession[prof_name].append((decor_id, name))
         name_index.append((decor_id, name))
+        for sid in item.get("subcategoryIDs", []):
+            by_subcategory[sid].append(decor_id)
 
     # Sort within each bucket by name alphabetically
     for key in by_source:
@@ -2404,6 +2483,41 @@ def main() -> None:
         lines.append(f"    {{ {decor_id}, {lua_string(name.lower())} }},")
     lines.append("}")
     lines.append("")
+
+    # --- Category mapping tables ---
+    lines.append("-- Category / Subcategory metadata")
+    lines.append("NS.CatalogData.CategoryNames = {")
+    for cat_id in CATEGORY_ORDER:
+        name = CATEGORY_NAMES.get(cat_id, f"Category {cat_id}")
+        lines.append(f'    [{cat_id}] = {lua_string(name)},')
+    lines.append("}")
+
+    lines.append("")
+    lines.append("NS.CatalogData.SubcategoryNames = {")
+    for subcat_id in sorted(SUBCATEGORY_NAMES.keys()):
+        name = SUBCATEGORY_NAMES[subcat_id]
+        lines.append(f'    [{subcat_id}] = {lua_string(name)},')
+    lines.append("}")
+
+    lines.append("")
+    lines.append("NS.CatalogData.CategoryOrder = {" + ", ".join(str(x) for x in CATEGORY_ORDER) + "}")
+
+    lines.append("")
+    lines.append("NS.CatalogData.CategorySubcategories = {")
+    for cat_id in CATEGORY_ORDER:
+        subcats = CATEGORY_SUBCATEGORIES.get(cat_id, [])
+        lines.append(f"    [{cat_id}] = {{{', '.join(str(x) for x in subcats)}}},")
+    lines.append("}")
+
+    lines.append("")
+    lines.append("NS.CatalogData.BySubcategory = {")
+    for subcat_id in sorted(by_subcategory.keys()):
+        ids = by_subcategory[subcat_id]
+        lines.append(f"    [{subcat_id}] = {serialize_id_list(ids)},")
+    lines.append("}")
+    lines.append("")
+    logger.info("  Categories: %d categories, %d subcategories, BySubcategory: %d entries",
+                len(CATEGORY_NAMES), len(SUBCATEGORY_NAMES), len(by_subcategory))
 
     lua_content = "\n".join(lines)
 

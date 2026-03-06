@@ -79,6 +79,7 @@ local function InitSavedVars()
     if NS.DEV_MODE then
         HearthAndSeekDB.catalogDump = HearthAndSeekDB.catalogDump or {}
         HearthAndSeekDB.bossDump = HearthAndSeekDB.bossDump or {}
+        HearthAndSeekDB.categoryDump = HearthAndSeekDB.categoryDump or {}
     end
 
     NS.db = HearthAndSeekDB
@@ -170,6 +171,12 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
             else
                 NS.Utils.PrintMessage("CatalogDumper module not loaded.")
             end
+        elseif subCmd == "categories" then
+            if NS.CatalogDumper.DumpCategories then
+                NS.CatalogDumper.DumpCategories()
+            else
+                NS.Utils.PrintMessage("CatalogDumper module not loaded.")
+            end
         elseif subCmd == "zones" then
             local ztc = NS.CatalogData and NS.CatalogData.ZoneToContinentMap
             if not ztc then
@@ -206,7 +213,7 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
                 resolved, unresolved))
             NS.Utils.PrintMessage("Run /reload to persist, then use parse scripts to extract.")
         else
-            NS.Utils.PrintMessage("Dump commands: catalog, bosses, zones")
+            NS.Utils.PrintMessage("Dump commands: catalog, bosses, categories, zones")
         end
 
     elseif cmd == "debug" then
@@ -236,8 +243,33 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
                 and NS.UI._currentDetailItem then
                 NS.UI.CatalogDetail_ShowItem(NS.UI._currentDetailItem)
             end
+        elseif subCmd == "dump" then
+            -- Route /hs debug dump <X> to the same handlers as /hs dump <X>
+            local dumpCmd = arg:match("^(%S+)")
+            dumpCmd = dumpCmd and dumpCmd:lower() or ""
+            if dumpCmd == "categories" then
+                if NS.CatalogDumper.DumpCategories then
+                    NS.CatalogDumper.DumpCategories()
+                else
+                    NS.Utils.PrintMessage("CatalogDumper module not loaded.")
+                end
+            elseif dumpCmd == "catalog" or dumpCmd == "" then
+                if NS.CatalogDumper.DumpCatalog then
+                    NS.CatalogDumper.DumpCatalog()
+                else
+                    NS.Utils.PrintMessage("CatalogDumper module not loaded.")
+                end
+            elseif dumpCmd == "bosses" then
+                if NS.CatalogDumper.DumpBossFloorMaps then
+                    NS.CatalogDumper.DumpBossFloorMaps()
+                else
+                    NS.Utils.PrintMessage("CatalogDumper module not loaded.")
+                end
+            else
+                NS.Utils.PrintMessage("Debug dump commands: catalog, bosses, categories")
+            end
         else
-            NS.Utils.PrintMessage("Debug commands: faction <alliance|horde|default>")
+            NS.Utils.PrintMessage("Debug commands: faction <alliance|horde|default>, dump <catalog|bosses|categories>")
         end
 
     elseif cmd == "help" then
@@ -247,6 +279,7 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
         if NS.DEV_MODE then
             NS.Utils.PrintMessage("  /hs dump catalog - Dump catalog to SavedVariables")
             NS.Utils.PrintMessage("  /hs dump bosses - Dump boss floor maps")
+            NS.Utils.PrintMessage("  /hs dump categories - Dump catalog categories and subcategories")
             NS.Utils.PrintMessage("  /hs dump zones - Dump zone mapID mappings")
             NS.Utils.PrintMessage("  /hs debug faction <f> - Override faction")
         end

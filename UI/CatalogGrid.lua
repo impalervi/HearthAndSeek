@@ -23,6 +23,7 @@ local filterState = {
     notCollected    = true,
     -- Favorites filter
     onlyFavorites   = false,
+    subcategories = {},  -- { [subcatID] = true, ... }
 }
 local filteredItems = {}
 local scrollOffset = 0   -- row offset (0 = top)
@@ -938,6 +939,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local hasZoneFilter = next(filterState.zones) ~= nil
     local hasQualFilter = next(filterState.qualities) ~= nil
     local hasProfFilter = next(filterState.professions) ~= nil
+    local hasSubcatFilter = next(filterState.subcategories) ~= nil
 
     -- Collection filter: active only when partially checked
     local collAll  = filterState.collected and filterState.notCollected
@@ -958,6 +960,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         zones       = {},
         qualities   = {},
         professions = {},
+        subcategories = {},
         collection  = { collected = 0, notCollected = 0 },
         favorites   = 0,
     }
@@ -971,9 +974,40 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local item = NS.CatalogData.Items[id]
         if not item then break end
 
-        -- Text search applies to all dimensions
-        if hasQuery and (not name or not name:find(query, 1, true)) then
-            break
+        -- Text search applies to all dimensions (multi-field)
+        if hasQuery then
+            local found = (name and name:find(query, 1, true))
+                or (item.vendorName and item.vendorName:lower():find(query, 1, true))
+                or (item.zone and item.zone:lower():find(query, 1, true))
+                or (item.sourceDetail and item.sourceDetail:lower():find(query, 1, true))
+                or (item.professionName and item.professionName:lower():find(query, 1, true))
+                or (item.sourceType and item.sourceType:lower():find(query, 1, true))
+            -- Category/subcategory name matching
+            if not found and item.subcategoryIDs then
+                local subcatNames = NS.CatalogData and NS.CatalogData.SubcategoryNames
+                if subcatNames then
+                    for _, sid in ipairs(item.subcategoryIDs) do
+                        local sname = subcatNames[sid]
+                        if sname and sname:lower():find(query, 1, true) then
+                            found = true
+                            break
+                        end
+                    end
+                end
+            end
+            if not found and item.categoryIDs then
+                local catNames = NS.CatalogData and NS.CatalogData.CategoryNames
+                if catNames then
+                    for _, cid in ipairs(item.categoryIDs) do
+                        local cname = catNames[cid]
+                        if cname and cname:lower():find(query, 1, true) then
+                            found = true
+                            break
+                        end
+                    end
+                end
+            end
+            if not found then break end
         end
 
         -- Determine pass/fail for each dimension
@@ -1000,6 +1034,20 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local pProf = not hasProfFilter or (item.professionName and item.professionName ~= ""
                                             and filterState.professions[item.professionName] ~= nil)
 
+        local pCat = true
+        if hasSubcatFilter then
+            pCat = false
+            local subcats = item.subcategoryIDs
+            if subcats then
+                for _, sid in ipairs(subcats) do
+                    if filterState.subcategories[sid] then
+                        pCat = true
+                        break
+                    end
+                end
+            end
+        end
+
         -- Collection check
         local ownInfo = ownershipCache[id]
         local isCollected = ownInfo and ownInfo.collected or false
@@ -1017,7 +1065,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local pFav = not hasFavFilter or isFav
 
         -- Item passes ALL filters -> add to filtered list
-        if pSrc and pZone and pQual and pProf and pColl and pFav then
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
             filteredItems[#filteredItems + 1] = id
         end
 
@@ -1027,7 +1075,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
 
         -- Source counts (exclude source filter, include secondary sources).
         -- Items count in all applicable source buckets simultaneously.
-        if pZone and pQual and pProf and pColl and pFav then
+        if pZone and pQual and pProf and pColl and pFav and pCat then
             local st = item.sourceType or "Other"
             dynCounts.sources[st] = (dynCounts.sources[st] or 0) + 1
             -- Secondary sources
@@ -1045,7 +1093,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Zone counts (exclude zone filter)
-        if pSrc and pQual and pProf and pColl and pFav then
+        if pSrc and pQual and pProf and pColl and pFav and pCat then
             local z = item.zone or ""
             if z ~= "" then
                 dynCounts.zones[z] = (dynCounts.zones[z] or 0) + 1
@@ -1053,7 +1101,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Quality counts (exclude quality filter)
-        if pSrc and pZone and pProf and pColl and pFav then
+        if pSrc and pZone and pProf and pColl and pFav and pCat then
             local q = item.quality
             if q then
                 dynCounts.qualities[q] = (dynCounts.qualities[q] or 0) + 1
@@ -1061,7 +1109,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Profession counts (exclude profession filter)
-        if pSrc and pZone and pQual and pColl and pFav then
+        if pSrc and pZone and pQual and pColl and pFav and pCat then
             if item.professionName and item.professionName ~= "" then
                 local pn = item.professionName
                 dynCounts.professions[pn] = (dynCounts.professions[pn] or 0) + 1
@@ -1069,7 +1117,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Collection counts (exclude collection filter)
-        if pSrc and pZone and pQual and pProf and pFav then
+        if pSrc and pZone and pQual and pProf and pFav and pCat then
             if isCollected then
                 dynCounts.collection.collected = dynCounts.collection.collected + 1
             end
@@ -1079,8 +1127,18 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Favorites count (exclude favorites filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and isFav then
+        if pSrc and pZone and pQual and pProf and pColl and pCat and isFav then
             dynCounts.favorites = dynCounts.favorites + 1
+        end
+
+        -- Subcategory counts (exclude category filter)
+        if pSrc and pZone and pQual and pProf and pColl and pFav then
+            local subcats = item.subcategoryIDs
+            if subcats then
+                for _, sid in ipairs(subcats) do
+                    dynCounts.subcategories[sid] = (dynCounts.subcategories[sid] or 0) + 1
+                end
+            end
         end
 
     until true end
@@ -1206,11 +1264,37 @@ function NS.UI.CatalogGrid_IsFavorite(decorID)
     return favDB[decorID] and true or false
 end
 
+function NS.UI.CatalogGrid_ToggleSubcategory(subcatID, checked)
+    if checked then
+        filterState.subcategories[subcatID] = true
+    else
+        filterState.subcategories[subcatID] = nil
+    end
+    scrollOffset = 0
+    NS.UI.CatalogGrid_ApplyFilters()
+end
+
+function NS.UI.CatalogGrid_ToggleCategory(catID, checked)
+    local catSubcats = NS.CatalogData and NS.CatalogData.CategorySubcategories
+    if catSubcats and catSubcats[catID] then
+        for _, sid in ipairs(catSubcats[catID]) do
+            if checked then
+                filterState.subcategories[sid] = true
+            else
+                filterState.subcategories[sid] = nil
+            end
+        end
+    end
+    scrollOffset = 0
+    NS.UI.CatalogGrid_ApplyFilters()
+end
+
 function NS.UI.CatalogGrid_ResetFilters()
     filterState.sources = {}
     filterState.zones = {}
     filterState.qualities = {}
     filterState.professions = {}
+    filterState.subcategories = {}
     filterState.searchText = ""
     filterState.collected = true
     filterState.notCollected = true
