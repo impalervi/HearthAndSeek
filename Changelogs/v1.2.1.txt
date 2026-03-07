@@ -1,0 +1,4 @@
+v1.2.1
+
+Bug Fixes
+- Fixed collection count showing 0 on fresh login when Housing API data hasn't loaded yet
