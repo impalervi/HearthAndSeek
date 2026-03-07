@@ -29,6 +29,7 @@ BOSS_DUMP_JSON = SCRIPT_DIR / "data" / "boss_dump.json"
 FACTION_QUEST_OVERRIDES_JSON = SCRIPT_DIR / "data" / "faction_quest_overrides.json"
 VENDOR_REQUIREMENTS_JSON = SCRIPT_DIR / "data" / "vendor_requirements.json"
 SILVERMOON_VENDORS_JSON = SCRIPT_DIR / "data" / "silvermoon_vendors.json"
+THEMES_JSON = SCRIPT_DIR / "data" / "item_themes.json"
 LUA_OUTPUT = SCRIPT_DIR.parent.parent / "Data" / "CatalogData.lua"
 
 logging.basicConfig(
@@ -917,6 +918,31 @@ TREASURE_FALSE_POSITIVES: set[int] = {
     262456,  # Ornamental Silvermoon Hanger — "Ranger's Cache" drops the recipe, not the item
     262466,  # Void Elf Table — "Stellar Stash" belongs to Void Elf Round Table (different item)
 }
+# Treasure fixups — override sourceDetail, zone, coords, and add extra metadata
+# for treasure items with missing or generic data from the in-game dump.
+TREASURE_FIXUPS: dict[int, dict] = {
+    674: {  # Ancient Elven Highback Chair
+        "sourceDetail": "Glimmering Treasure Chest",
+        "zone": "Suramar",
+        "npcX": 34.8,
+        "npcY": 48.1,
+        "hintLine": [
+            {"text": "Complete scenario "},
+            {"text": "Withered Army Training", "type": "quest", "id": 43943},
+            {"text": " from "},
+            {"text": "First Arcanist Thalyssra", "type": "npc", "id": 97140},
+        ],
+    },
+    1272: {  # Trashfire Barrel
+        "sourceDetail": "Undermine Treasures",
+        "zone": "Undermine",
+        "containers": [
+            "Half-Empty Bag",
+            "Dented Crate",
+            "Uncovered Strongbox",
+        ],
+    },
+}
 # Roaming vendors exist in BOTH zones with different NPC IDs:
 ROAMING_VENDORS: dict[str, dict] = {
     '"High Tides" Ren': {"fp_npcID": 255222, "rs_npcID": 255325},
@@ -1522,6 +1548,19 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         # Treasure is additional source — store as separate fields, keep main coords
         treasure_extra_coords = tc
 
+    # --- Apply TREASURE_FIXUPS overrides ---
+    treasure_fixup = TREASURE_FIXUPS.get(decor_id) if source_type == "Treasure" else None
+    if treasure_fixup:
+        if "sourceDetail" in treasure_fixup:
+            source_detail = treasure_fixup["sourceDetail"]
+        if "zone" in treasure_fixup:
+            item_zone = treasure_fixup["zone"]
+        if "npcX" in treasure_fixup:
+            item_npc_x = treasure_fixup["npcX"]
+            item_npc_y = treasure_fixup["npcY"]
+            item_npc_id = None
+            coords_mismatch = False
+
     fields = [
         ("decorID", lua_number(item.get("decorID"))),
         ("name", lua_string(item.get("name"))),
@@ -1632,6 +1671,24 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         if tv_zone:
             lines.append(f"        treasureVendorZone = {lua_string(tv_zone)},")
 
+    # Optional: treasure hints (quest/NPC links for guided treasures)
+    if treasure_fixup and "hintLine" in treasure_fixup:
+        lines.append("        treasureHintLine = {")
+        for seg in treasure_fixup["hintLine"]:
+            parts = [f"text = {lua_string(seg['text'])}"]
+            if "type" in seg:
+                url = f"https://www.wowhead.com/{seg['type']}={seg['id']}"
+                parts.append(f"url = {lua_string(url)}")
+            lines.append(f"            {{ {', '.join(parts)} }},")
+        lines.append("        },")
+
+    # Optional: treasure containers (multi-spawn container names)
+    if treasure_fixup and "containers" in treasure_fixup:
+        lines.append("        treasureContainers = {")
+        for container in treasure_fixup["containers"]:
+            lines.append(f"            {lua_string(container)},")
+        lines.append("        },")
+
     # Optional: treasure coords when Treasure is an additional source (not primary)
     if treasure_extra_coords:
         tc_zone = treasure_extra_coords[2]
@@ -1732,6 +1789,15 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     if subcat_ids:
         lines.append(f"        subcategoryIDs = {{{', '.join(str(x) for x in subcat_ids)}}},")
 
+    # Theme IDs and scores (from compute_item_themes.py)
+    theme_ids = item.get("_themeIDs")
+    theme_scores = item.get("_themeScores")
+    if theme_ids:
+        lines.append(f"        themeIDs = {{{', '.join(str(t) for t in theme_ids)}}},")
+    if theme_scores:
+        score_parts = [f"[{tid}] = {score}" for tid, score in sorted(theme_scores.items())]
+        lines.append(f"        themeScores = {{{', '.join(score_parts)}}},")
+
     lines.append("    },")
     return "\n".join(lines)
 
@@ -1816,6 +1882,16 @@ def main() -> None:
     else:
         logger.info("No Wowhead extra data file (%s) — skipping extra fields", EXTRA_JSON)
 
+    # Load theme data (from compute_item_themes.py)
+    theme_data: dict = {"items": {}, "metadata": {}}
+    if THEMES_JSON.exists():
+        with open(THEMES_JSON, "r", encoding="utf-8") as f:
+            theme_data = json.load(f)
+        logger.info("Loaded theme data for %d items from %s",
+                     len(theme_data.get("items", {})), THEMES_JSON)
+    else:
+        logger.info("No theme data file (%s) — skipping themes", THEMES_JSON)
+
     # Merge extra data into catalog items
     extra_merged = 0
     for item in catalog:
@@ -1861,6 +1937,23 @@ def main() -> None:
 
     if extra_merged:
         logger.info("Merged Wowhead extra data into %d items", extra_merged)
+
+    # Merge theme data into catalog items
+    theme_items = theme_data.get("items", {})
+    themes_merged = 0
+    for item in catalog:
+        did_str = str(item.get("decorID", ""))
+        if did_str in theme_items:
+            item_themes = theme_items[did_str].get("themes", {})
+            if item_themes:
+                # themeIDs: sorted list of numeric theme IDs
+                tids = sorted(int(t) for t in item_themes.keys())
+                item["_themeIDs"] = tids
+                # themeScores: {themeID: score}
+                item["_themeScores"] = {int(t): s for t, s in item_themes.items()}
+                themes_merged += 1
+    if themes_merged:
+        logger.info("Merged theme data into %d items", themes_merged)
 
     # Load faction quest overrides (cross-faction quest chains)
     faction_quest_overrides: dict[str, dict] = {}
@@ -2159,6 +2252,10 @@ def main() -> None:
             if not item.get("npcID") and source_detail in DROP_NPC_IDS:
                 item["npcID"] = DROP_NPC_IDS[source_detail]
                 npc_fixup_count += 1
+        # Apply TREASURE_FIXUPS zone to item dict so expansion/index picks it up
+        tf = TREASURE_FIXUPS.get(item["decorID"])
+        if tf and source_type == "Treasure" and "zone" in tf:
+            item["zone"] = tf["zone"]
         expansion = get_expansion(item)
         achievement_name = get_achievement_name(item)
         vendor_name = "" if item.get("factionVendors") else get_vendor_name(item)
@@ -2518,6 +2615,49 @@ def main() -> None:
     lines.append("")
     logger.info("  Categories: %d categories, %d subcategories, BySubcategory: %d entries",
                 len(CATEGORY_NAMES), len(SUBCATEGORY_NAMES), len(by_subcategory))
+
+    # --- Theme metadata tables ---
+    theme_meta = theme_data.get("metadata", {})
+    theme_names = theme_meta.get("theme_names", {})
+    theme_groups = theme_meta.get("theme_groups", [])
+    theme_group_themes = theme_meta.get("theme_group_themes", {})
+    by_theme = theme_data.get("by_theme", {})
+
+    if theme_names:
+        lines.append("-- Theme metadata (from housing.wowdb.com community data)")
+        lines.append("NS.CatalogData.ThemeGroupNames = {")
+        for group in theme_groups:
+            lines.append(f"    [{group['id']}] = {lua_string(group['name'])},")
+        lines.append("}")
+        lines.append("")
+
+        lines.append("NS.CatalogData.ThemeGroupOrder = {"
+                      + ", ".join(str(g["id"]) for g in theme_groups) + "}")
+        lines.append("")
+
+        lines.append("NS.CatalogData.ThemeNames = {")
+        for tid_str in sorted(theme_names.keys(), key=int):
+            lines.append(f"    [{tid_str}] = {lua_string(theme_names[tid_str])},")
+        lines.append("}")
+        lines.append("")
+
+        lines.append("NS.CatalogData.ThemeGroupThemes = {")
+        for gid_str in sorted(theme_group_themes.keys(), key=int):
+            tids = theme_group_themes[gid_str]
+            lines.append(f"    [{gid_str}] = {{{', '.join(str(t) for t in tids)}}},")
+        lines.append("}")
+        lines.append("")
+
+        lines.append("NS.CatalogData.ByTheme = {")
+        for tid_str in sorted(by_theme.keys(), key=int):
+            ids = by_theme[tid_str]
+            lines.append(f"    [{tid_str}] = {serialize_id_list(ids)},")
+        lines.append("}")
+        lines.append("")
+
+        logger.info("  Themes: %d groups, %d themes, %d items themed",
+                     len(theme_groups), len(theme_names),
+                     theme_meta.get("items_themed", 0))
 
     lua_content = "\n".join(lines)
 

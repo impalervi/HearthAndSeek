@@ -25,6 +25,8 @@ local DEFAULTS = {
     settings = {
         iconSizeMultiplier = 1.0,  -- 0.5 to 1.5 (multiplier of default 110px)
         showWhatsNew = true,       -- auto-show "What's New" callouts on update
+        filterCollapsed = {},      -- { [sectionID] = true } — persisted collapse states
+        filterOrder = nil,         -- nil = default; array of section IDs when customized
     },
     whatsNew = {
         lastSeenVersion = nil,     -- tracks which version's callouts were shown

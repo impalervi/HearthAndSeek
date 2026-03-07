@@ -1,0 +1,14 @@
+v1.3.0
+
+New Features
+- Aesthetic & Culture Filters — browse decorations by theme: Sacred, Tavern, Macabre, Elven, and more
+- Customizable Sidebar — collapse, expand, and reorder filter sections with arrow buttons; layout saved across sessions
+- Smooth Scrolling — continuous mouse-wheel scrolling through the catalog grid
+
+Improvements
+- Minimap icon toggle in Settings
+- Theme keyword search with synonym expansion
+
+Bug Fixes
+- Fixed treasure items with missing source data
+- Fixed combat lockdown errors when interacting with achievement panel

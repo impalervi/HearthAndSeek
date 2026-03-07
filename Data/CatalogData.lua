@@ -40,6 +40,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {2, 20, 24, 26},
+        themeScores = {[2] = 28, [20] = 28, [24] = 35, [26] = 100},
     },
     [81] = {
         decorID = 81,
@@ -77,6 +79,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 100, [29] = 100},
     },
     [126] = {
         decorID = 126,
@@ -110,6 +114,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 23, 24, 26, 33},
+        themeScores = {[5] = 29, [23] = 100, [24] = 35, [26] = 32, [33] = 28},
     },
     [373] = {
         decorID = 373,
@@ -148,6 +154,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 10, 23, 29},
+        themeScores = {[6] = 45, [10] = 26, [23] = 100, [29] = 80},
     },
     [374] = {
         decorID = 374,
@@ -185,6 +193,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [377] = {
         decorID = 377,
@@ -222,6 +232,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {6, 10, 17, 19, 23, 24, 29},
+        themeScores = {[6] = 56, [10] = 33, [17] = 100, [19] = 56, [23] = 56, [24] = 56, [29] = 99},
     },
     [378] = {
         decorID = 378,
@@ -259,6 +271,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {10, 27, 29},
+        themeScores = {[10] = 33, [27] = 50, [29] = 100},
     },
     [379] = {
         decorID = 379,
@@ -295,6 +309,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {10, 27, 29, 31},
+        themeScores = {[10] = 27, [27] = 41, [29] = 55, [31] = 100},
     },
     [383] = {
         decorID = 383,
@@ -332,6 +348,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {6, 10, 17, 19, 23, 24, 29},
+        themeScores = {[6] = 46, [10] = 27, [17] = 83, [19] = 46, [23] = 46, [24] = 100, [29] = 55},
     },
     [388] = {
         decorID = 388,
@@ -368,6 +386,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [389] = {
         decorID = 389,
@@ -405,6 +425,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {10, 17, 19, 24, 29},
+        themeScores = {[10] = 33, [17] = 100, [19] = 56, [24] = 56, [29] = 66},
     },
     [390] = {
         decorID = 390,
@@ -442,6 +464,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 23, 29},
+        themeScores = {[6] = 31, [23] = 100, [29] = 55},
     },
     [478] = {
         decorID = 478,
@@ -478,6 +502,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3, 8},
         subcategoryIDs = {6, 15, 7, 34},
+        themeIDs = {17, 19, 24, 29},
+        themeScores = {[17] = 56, [19] = 56, [24] = 67, [29] = 100},
     },
     [479] = {
         decorID = 479,
@@ -514,6 +540,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2, 8},
         subcategoryIDs = {9, 34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [480] = {
         decorID = 480,
@@ -550,6 +578,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2, 8},
         subcategoryIDs = {9, 13, 34},
+        themeIDs = {5, 10, 21, 29},
+        themeScores = {[5] = 47, [10] = 33, [21] = 47, [29] = 100},
     },
     [481] = {
         decorID = 481,
@@ -586,6 +616,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 10, 21, 29},
+        themeScores = {[5] = 47, [10] = 33, [21] = 47, [29] = 100},
     },
     [482] = {
         decorID = 482,
@@ -622,6 +654,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [483] = {
         decorID = 483,
@@ -658,6 +692,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {6, 7, 34},
+        themeIDs = {17, 19, 24, 29},
+        themeScores = {[17] = 56, [19] = 56, [24] = 67, [29] = 100},
     },
     [484] = {
         decorID = 484,
@@ -694,6 +730,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {6, 7, 2, 34},
+        themeIDs = {17, 19, 24, 29},
+        themeScores = {[17] = 91, [19] = 44, [24] = 100, [29] = 79},
     },
     [485] = {
         decorID = 485,
@@ -730,6 +768,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2, 8},
         subcategoryIDs = {9, 34},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [486] = {
         decorID = 486,
@@ -766,6 +806,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2, 8},
         subcategoryIDs = {9, 34},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [487] = {
         decorID = 487,
@@ -802,6 +844,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [488] = {
         decorID = 488,
@@ -838,6 +882,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 19, 24, 29},
+        themeScores = {[17] = 46, [19] = 46, [24] = 100, [29] = 82},
     },
     [489] = {
         decorID = 489,
@@ -874,6 +920,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [490] = {
         decorID = 490,
@@ -910,6 +958,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [491] = {
         decorID = 491,
@@ -946,6 +996,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [492] = {
         decorID = 492,
@@ -982,6 +1034,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [493] = {
         decorID = 493,
@@ -1018,6 +1072,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {34, 7},
+        themeIDs = {5, 19, 21, 24, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [24] = 64, [29] = 100},
     },
     [494] = {
         decorID = 494,
@@ -1056,6 +1112,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [495] = {
         decorID = 495,
@@ -1093,6 +1151,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [496] = {
         decorID = 496,
@@ -1131,6 +1191,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [497] = {
         decorID = 497,
@@ -1170,6 +1232,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 27, 29},
+        themeScores = {[10] = 50, [27] = 75, [29] = 100},
     },
     [498] = {
         decorID = 498,
@@ -1206,6 +1270,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 10, 23, 29},
+        themeScores = {[6] = 84, [10] = 50, [23] = 84, [29] = 100},
     },
     [520] = {
         decorID = 520,
@@ -1242,6 +1308,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {6, 17, 19, 24, 25},
+        themeScores = {[6] = 60, [17] = 49, [19] = 47, [24] = 100, [25] = 37},
     },
     [521] = {
         decorID = 521,
@@ -1278,6 +1346,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {6},
+        themeScores = {[6] = 100},
     },
     [522] = {
         decorID = 522,
@@ -1314,6 +1384,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {13, 17, 24, 28},
+        themeScores = {[13] = 56, [17] = 100, [24] = 100, [28] = 56},
     },
     [523] = {
         decorID = 523,
@@ -1351,6 +1423,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {6, 13, 17, 23, 24, 28},
+        themeScores = {[6] = 96, [13] = 56, [17] = 100, [23] = 96, [24] = 100, [28] = 56},
     },
     [524] = {
         decorID = 524,
@@ -1388,6 +1462,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {6, 13, 17, 23, 24, 28},
+        themeScores = {[6] = 96, [13] = 56, [17] = 100, [23] = 96, [24] = 100, [28] = 56},
     },
     [525] = {
         decorID = 525,
@@ -1425,6 +1501,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 100, [28] = 100},
     },
     [526] = {
         decorID = 526,
@@ -1461,6 +1539,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {13, 17, 24, 28},
+        themeScores = {[13] = 56, [17] = 100, [24] = 100, [28] = 56},
     },
     [527] = {
         decorID = 527,
@@ -1497,6 +1577,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [528] = {
         decorID = 528,
@@ -1534,6 +1616,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [529] = {
         decorID = 529,
@@ -1572,6 +1656,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [530] = {
         decorID = 530,
@@ -1609,6 +1695,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [533] = {
         decorID = 533,
@@ -1645,6 +1733,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [534] = {
         decorID = 534,
@@ -1681,6 +1771,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [535] = {
         decorID = 535,
@@ -1717,6 +1809,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [536] = {
         decorID = 536,
@@ -1753,6 +1847,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [673] = {
         decorID = 673,
@@ -1783,6 +1879,8 @@ NS.CatalogData.Items = {
         dropRate = 0.08,
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21, 24, 25},
+        themeScores = {[5] = 39, [11] = 100, [19] = 60, [21] = 60, [24] = 76, [25] = 39},
     },
     [674] = {
         decorID = 674,
@@ -1792,26 +1890,34 @@ NS.CatalogData.Items = {
         iconTexture = 7416065,
         asset = 1096835,
         uiModelSceneID = 1335,
-        zone = "",
-        mapID = nil,
+        zone = "Suramar",
+        mapID = 680,
         sourceType = "Treasure",
-        sourceDetail = "World Glimmering Treasure Chest Drop",
+        sourceDetail = "Glimmering Treasure Chest",
         achievementName = "",
         vendorName = "",
         professionName = "",
         questID = nil,
         npcID = nil,
-        npcX = nil,
-        npcY = nil,
+        npcX = 34.8,
+        npcY = 48.1,
         faction = nil,
         isAllowedIndoors = true,
         isAllowedOutdoors = true,
         size = 67,
         placementCost = 1,
         firstAcquisitionBonus = 10,
-        expansion = "Unknown",
+        expansion = "Legion",
+        treasureHintLine = {
+            { text = "Complete scenario " },
+            { text = "Withered Army Training", url = "https://www.wowhead.com/quest=43943" },
+            { text = " from " },
+            { text = "First Arcanist Thalyssra", url = "https://www.wowhead.com/npc=97140" },
+        },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 25},
+        themeScores = {[5] = 52, [11] = 100, [25] = 39},
     },
     [675] = {
         decorID = 675,
@@ -1845,6 +1951,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 7},
+        themeIDs = {5, 6, 11, 21, 24},
+        themeScores = {[5] = 58, [6] = 37, [11] = 100, [21] = 34, [24] = 46},
     },
     [676] = {
         decorID = 676,
@@ -1878,6 +1986,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {5, 11, 24, 25},
+        themeScores = {[5] = 38, [11] = 100, [24] = 74, [25] = 38},
     },
     [677] = {
         decorID = 677,
@@ -1911,6 +2021,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 11, 19, 21, 23, 24},
+        themeScores = {[5] = 64, [6] = 40, [11] = 100, [19] = 40, [21] = 40, [23] = 40, [24] = 46},
     },
     [679] = {
         decorID = 679,
@@ -1943,6 +2055,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 6, 11, 19, 21, 23, 24, 25},
+        themeScores = {[5] = 93, [6] = 52, [11] = 78, [19] = 99, [21] = 52, [23] = 100, [24] = 47, [25] = 31},
     },
     [714] = {
         decorID = 714,
@@ -1980,6 +2094,8 @@ NS.CatalogData.Items = {
         altVendorZone = "Twilight Highlands",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [716] = {
         decorID = 716,
@@ -2012,6 +2128,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 20, 26},
+        themeScores = {[2] = 38, [5] = 63, [20] = 38, [26] = 100},
     },
     [717] = {
         decorID = 717,
@@ -2044,6 +2162,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 71, [5] = 100, [19] = 52, [23] = 27, [26] = 70, [31] = 27},
     },
     [718] = {
         decorID = 718,
@@ -2076,6 +2196,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 43, [5] = 100, [19] = 27, [23] = 27, [26] = 70, [31] = 27},
     },
     [720] = {
         decorID = 720,
@@ -2108,6 +2230,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 5, 19, 20, 21, 23, 26, 27},
+        themeScores = {[2] = 38, [5] = 57, [19] = 36, [20] = 38, [21] = 70, [23] = 41, [26] = 100, [27] = 36},
     },
     [721] = {
         decorID = 721,
@@ -2144,6 +2268,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 11},
+        themeIDs = {17, 19, 21, 24},
+        themeScores = {[17] = 45, [19] = 47, [21] = 31, [24] = 100},
     },
     [722] = {
         decorID = 722,
@@ -2180,6 +2306,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 11},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 38, [19] = 42, [24] = 100},
     },
     [723] = {
         decorID = 723,
@@ -2216,6 +2344,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 11},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 50, [19] = 34, [24] = 100},
     },
     [724] = {
         decorID = 724,
@@ -2252,6 +2382,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 11},
+        themeIDs = {17, 19, 21, 24},
+        themeScores = {[17] = 50, [19] = 34, [21] = 31, [24] = 100},
     },
     [725] = {
         decorID = 725,
@@ -2288,6 +2420,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 11},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 36, [19] = 34, [24] = 100},
     },
     [726] = {
         decorID = 726,
@@ -2326,6 +2460,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {17, 19, 24, 29},
+        themeScores = {[17] = 100, [19] = 56, [24] = 56, [29] = 66},
     },
     [749] = {
         decorID = 749,
@@ -2358,6 +2494,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {31},
+        themeScores = {[31] = 100},
     },
     [750] = {
         decorID = 750,
@@ -2390,6 +2528,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23, 26},
+        themeScores = {[19] = 30, [23] = 100, [26] = 36},
     },
     [751] = {
         decorID = 751,
@@ -2419,6 +2559,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {10, 17, 19, 21, 24, 27, 29},
+        themeScores = {[10] = 30, [17] = 52, [19] = 100, [21] = 47, [24] = 52, [27] = 46, [29] = 61},
     },
     [752] = {
         decorID = 752,
@@ -2452,6 +2594,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 11, 19, 21, 24, 33},
+        themeScores = {[5] = 100, [11] = 35, [19] = 39, [21] = 39, [24] = 44, [33] = 70},
     },
     [755] = {
         decorID = 755,
@@ -2484,6 +2628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {6, 10, 27},
+        themeScores = {[6] = 100, [10] = 65, [27] = 98},
     },
     [756] = {
         decorID = 756,
@@ -2517,6 +2663,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 34, [19] = 37, [23] = 100, [24] = 70},
     },
     [759] = {
         decorID = 759,
@@ -2549,6 +2697,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {4, 5, 19, 21},
+        themeScores = {[4] = 59, [5] = 100, [19] = 100, [21] = 100},
     },
     [760] = {
         decorID = 760,
@@ -2581,6 +2731,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24},
+        themeScores = {[23] = 100, [24] = 34},
     },
     [761] = {
         decorID = 761,
@@ -2613,6 +2765,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23, 24},
+        themeScores = {[19] = 49, [23] = 100, [24] = 51},
     },
     [762] = {
         decorID = 762,
@@ -2645,6 +2799,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23, 24},
+        themeScores = {[19] = 32, [23] = 100, [24] = 34},
     },
     [763] = {
         decorID = 763,
@@ -2677,6 +2833,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 32, [17] = 34, [19] = 48, [23] = 100, [24] = 85},
     },
     [764] = {
         decorID = 764,
@@ -2709,6 +2867,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 2, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 26, [2] = 45, [5] = 26, [19] = 26, [23] = 51, [24] = 29, [26] = 100, [31] = 31},
     },
     [765] = {
         decorID = 765,
@@ -2777,6 +2937,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 39, [19] = 38, [23] = 100, [24] = 61},
     },
     [767] = {
         decorID = 767,
@@ -2810,6 +2972,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 23, 26},
+        themeScores = {[1] = 42, [5] = 40, [23] = 100, [26] = 62},
     },
     [768] = {
         decorID = 768,
@@ -2846,6 +3010,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24, 26},
+        themeScores = {[23] = 100, [24] = 50, [26] = 44},
     },
     [770] = {
         decorID = 770,
@@ -2882,6 +3048,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 10, 21, 29},
+        themeScores = {[5] = 47, [10] = 33, [21] = 47, [29] = 100},
     },
     [771] = {
         decorID = 771,
@@ -2918,6 +3086,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [11] = 46, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [772] = {
         decorID = 772,
@@ -2954,6 +3124,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26, 29},
+        themeIDs = {5, 6, 17, 19, 21, 24, 25},
+        themeScores = {[5] = 45, [6] = 41, [17] = 47, [19] = 45, [21] = 45, [24] = 100, [25] = 27},
     },
     [773] = {
         decorID = 773,
@@ -2990,6 +3162,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27},
+        themeIDs = {11, 17, 24, 25},
+        themeScores = {[11] = 91, [17] = 100, [24] = 100, [25] = 56},
     },
     [825] = {
         decorID = 825,
@@ -3026,6 +3200,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [827] = {
         decorID = 827,
@@ -3062,6 +3238,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 8},
         subcategoryIDs = {34, 11},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [828] = {
         decorID = 828,
@@ -3094,6 +3272,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [829] = {
         decorID = 829,
@@ -3126,6 +3306,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [837] = {
         decorID = 837,
@@ -3159,6 +3341,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 80},
     },
     [838] = {
         decorID = 838,
@@ -3192,6 +3376,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 80},
     },
     [839] = {
         decorID = 839,
@@ -3224,6 +3410,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 11},
+        themeIDs = {17, 19, 22, 24},
+        themeScores = {[17] = 100, [19] = 29, [22] = 43, [24] = 98},
     },
     [840] = {
         decorID = 840,
@@ -3254,6 +3442,8 @@ NS.CatalogData.Items = {
         dropRate = 0.05,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 90, [19] = 26, [24] = 100},
     },
     [854] = {
         decorID = 854,
@@ -3287,6 +3477,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 2, 7, 15},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 60, [19] = 29, [24] = 100},
     },
     [855] = {
         decorID = 855,
@@ -3319,6 +3511,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 3},
         subcategoryIDs = {13, 22},
+        themeIDs = {6, 17, 19, 21, 24, 31},
+        themeScores = {[6] = 65, [17] = 49, [19] = 93, [21] = 69, [24] = 100, [31] = 46},
     },
     [857] = {
         decorID = 857,
@@ -3352,6 +3546,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {6, 17, 19, 23, 24, 27},
+        themeScores = {[6] = 100, [17] = 37, [19] = 37, [23] = 37, [24] = 37, [27] = 33},
     },
     [858] = {
         decorID = 858,
@@ -3385,6 +3581,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 15},
+        themeIDs = {6, 10, 17, 29},
+        themeScores = {[6] = 100, [10] = 39, [17] = 51, [29] = 39},
     },
     [859] = {
         decorID = 859,
@@ -3418,6 +3616,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 100, [17] = 75, [19] = 37, [23] = 37, [24] = 75},
     },
     [860] = {
         decorID = 860,
@@ -3451,6 +3651,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {6, 17, 19, 24},
+        themeScores = {[6] = 65, [17] = 67, [19] = 47, [24] = 100},
     },
     [862] = {
         decorID = 862,
@@ -3484,6 +3686,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 93, [24] = 100},
     },
     [863] = {
         decorID = 863,
@@ -3517,6 +3721,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 90, [19] = 28, [24] = 100},
     },
     [864] = {
         decorID = 864,
@@ -3550,6 +3756,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 93, [24] = 100},
     },
     [865] = {
         decorID = 865,
@@ -3582,6 +3790,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 90, [19] = 26, [24] = 100},
     },
     [922] = {
         decorID = 922,
@@ -3614,6 +3824,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 15},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 60, [19] = 29, [24] = 100},
     },
     [923] = {
         decorID = 923,
@@ -3650,6 +3862,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 93, [24] = 100},
     },
     [924] = {
         decorID = 924,
@@ -3686,6 +3900,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 93, [24] = 100},
     },
     [925] = {
         decorID = 925,
@@ -3718,6 +3934,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {3, 26, 31},
+        themeScores = {[3] = 100, [26] = 100, [31] = 33},
     },
     [926] = {
         decorID = 926,
@@ -3748,6 +3966,8 @@ NS.CatalogData.Items = {
         dropRate = 0.04,
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [927] = {
         decorID = 927,
@@ -3780,6 +4000,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 26},
+        themeIDs = {3, 11, 26},
+        themeScores = {[3] = 61, [11] = 100, [26] = 61},
     },
     [928] = {
         decorID = 928,
@@ -3814,6 +4036,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {3, 5, 11, 19, 21, 23, 24, 26, 33},
+        themeScores = {[3] = 32, [5] = 55, [11] = 50, [19] = 55, [21] = 55, [23] = 56, [24] = 31, [26] = 32, [33] = 100},
     },
     [929] = {
         decorID = 929,
@@ -3846,6 +4070,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {3, 19, 21, 26, 30},
+        themeScores = {[3] = 60, [19] = 92, [21] = 92, [26] = 60, [30] = 100},
     },
     [930] = {
         decorID = 930,
@@ -3882,6 +4108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {3, 5, 21, 23, 24},
+        themeScores = {[3] = 51, [5] = 73, [21] = 73, [23] = 85, [24] = 100},
     },
     [931] = {
         decorID = 931,
@@ -3911,6 +4139,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 38, [20] = 38, [26] = 100},
     },
     [932] = {
         decorID = 932,
@@ -3943,6 +4173,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 90},
     },
     [933] = {
         decorID = 933,
@@ -3976,6 +4208,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 80},
     },
     [934] = {
         decorID = 934,
@@ -4009,6 +4243,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 90},
     },
     [935] = {
         decorID = 935,
@@ -4042,6 +4278,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 90},
     },
     [936] = {
         decorID = 936,
@@ -4075,6 +4313,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 90},
     },
     [937] = {
         decorID = 937,
@@ -4108,6 +4348,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 75, [24] = 100},
     },
     [938] = {
         decorID = 938,
@@ -4140,6 +4382,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 29, [24] = 98},
     },
     [939] = {
         decorID = 939,
@@ -4172,6 +4416,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {17, 19, 22, 24},
+        themeScores = {[17] = 75, [19] = 44, [22] = 32, [24] = 100},
     },
     [940] = {
         decorID = 940,
@@ -4204,6 +4450,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {17, 19, 22, 24},
+        themeScores = {[17] = 75, [19] = 44, [22] = 32, [24] = 100},
     },
     [941] = {
         decorID = 941,
@@ -4236,6 +4484,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 62},
     },
     [942] = {
         decorID = 942,
@@ -4268,6 +4518,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {5, 17, 19, 21, 22, 24},
+        themeScores = {[5] = 29, [17] = 100, [19] = 58, [21] = 29, [22] = 43, [24] = 98},
     },
     [943] = {
         decorID = 943,
@@ -4300,6 +4552,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 90, [19] = 28, [24] = 100},
     },
     [944] = {
         decorID = 944,
@@ -4333,6 +4587,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 17, 23, 24},
+        themeScores = {[6] = 41, [17] = 100, [23] = 41, [24] = 97},
     },
     [945] = {
         decorID = 945,
@@ -4365,6 +4621,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 62},
     },
     [946] = {
         decorID = 946,
@@ -4397,6 +4655,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 22, 24},
+        themeScores = {[17] = 75, [22] = 32, [24] = 100},
     },
     [947] = {
         decorID = 947,
@@ -4433,6 +4693,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17, 18},
+        themeIDs = {17, 19, 24, 33},
+        themeScores = {[17] = 75, [19] = 42, [24] = 100, [33] = 55},
     },
     [948] = {
         decorID = 948,
@@ -4463,6 +4725,8 @@ NS.CatalogData.Items = {
         dropRate = 0.07,
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 62},
     },
     [949] = {
         decorID = 949,
@@ -4495,6 +4759,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 62},
     },
     [984] = {
         decorID = 984,
@@ -4533,6 +4799,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 11, 20, 26},
+        themeScores = {[2] = 30, [11] = 31, [20] = 30, [26] = 100},
     },
     [985] = {
         decorID = 985,
@@ -4570,6 +4838,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 5, 20, 26},
+        themeScores = {[2] = 25, [5] = 41, [20] = 25, [26] = 100},
     },
     [986] = {
         decorID = 986,
@@ -4606,6 +4876,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 50, [11] = 76, [26] = 100},
     },
     [987] = {
         decorID = 987,
@@ -4643,6 +4915,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 11, 20, 26},
+        themeScores = {[2] = 30, [11] = 31, [20] = 30, [26] = 100},
     },
     [988] = {
         decorID = 988,
@@ -4680,6 +4954,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 30, [20] = 30, [26] = 100},
     },
     [989] = {
         decorID = 989,
@@ -4716,6 +4992,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 26, 28},
+        themeScores = {[5] = 30, [26] = 100, [28] = 30},
     },
     [990] = {
         decorID = 990,
@@ -4755,6 +5033,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 38, [20] = 38, [26] = 100},
     },
     [991] = {
         decorID = 991,
@@ -4791,6 +5071,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 50, [11] = 76, [26] = 100},
     },
     [994] = {
         decorID = 994,
@@ -4828,6 +5110,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 11, 20, 26},
+        themeScores = {[2] = 30, [5] = 25, [11] = 31, [20] = 30, [26] = 100},
     },
     [1044] = {
         decorID = 1044,
@@ -4864,6 +5148,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [1080] = {
         decorID = 1080,
@@ -4897,6 +5183,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4, 3},
         subcategoryIDs = {11, 19},
+        themeIDs = {5, 9, 19, 21, 23, 25},
+        themeScores = {[5] = 98, [9] = 58, [19] = 98, [21] = 98, [23] = 100, [25] = 58},
     },
     [1083] = {
         decorID = 1083,
@@ -4933,6 +5221,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 2},
         subcategoryIDs = {6, 3},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 50, [19] = 46, [23] = 100, [24] = 72},
     },
     [1118] = {
         decorID = 1118,
@@ -4969,6 +5259,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [1119] = {
         decorID = 1119,
@@ -5001,6 +5293,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {4, 6, 19, 21, 24, 25, 28},
+        themeScores = {[4] = 61, [6] = 94, [19] = 100, [21] = 100, [24] = 100, [25] = 100, [28] = 61},
     },
     [1120] = {
         decorID = 1120,
@@ -5033,6 +5327,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [1121] = {
         decorID = 1121,
@@ -5066,6 +5362,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1122] = {
         decorID = 1122,
@@ -5103,6 +5401,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 33, [29] = 100},
     },
     [1123] = {
         decorID = 1123,
@@ -5140,6 +5440,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {24, 29},
+        themeScores = {[24] = 64, [29] = 100},
     },
     [1137] = {
         decorID = 1137,
@@ -5169,6 +5471,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {5, 21, 25},
+        themeScores = {[5] = 100, [21] = 100, [25] = 70},
     },
     [1142] = {
         decorID = 1142,
@@ -5201,6 +5505,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {9},
+        themeScores = {[9] = 100},
     },
     [1147] = {
         decorID = 1147,
@@ -5235,6 +5541,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Into the Lightbloom" },
         },
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [1148] = {
         decorID = 1148,
@@ -5271,6 +5579,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {16, 17, 24},
+        themeScores = {[16] = 85, [17] = 57, [24] = 100},
     },
     [1153] = {
         decorID = 1153,
@@ -5308,6 +5618,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 19, 21, 26},
+        themeScores = {[5] = 100, [11] = 57, [19] = 62, [21] = 62, [26] = 74},
     },
     [1155] = {
         decorID = 1155,
@@ -5344,6 +5656,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 26},
+        themeScores = {[5] = 42, [26] = 100},
     },
     [1157] = {
         decorID = 1157,
@@ -5376,6 +5690,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 9, 19, 21, 25},
+        themeScores = {[5] = 100, [9] = 78, [19] = 100, [21] = 100, [25] = 59},
     },
     [1159] = {
         decorID = 1159,
@@ -5412,6 +5728,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 85, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [1160] = {
         decorID = 1160,
@@ -5448,6 +5766,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 63, [26] = 100, [31] = 31},
     },
     [1161] = {
         decorID = 1161,
@@ -5480,6 +5800,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1162] = {
         decorID = 1162,
@@ -5517,6 +5839,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 66, [11] = 76, [26] = 100},
     },
     [1163] = {
         decorID = 1163,
@@ -5554,6 +5878,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 20, 26},
+        themeScores = {[2] = 30, [5] = 57, [20] = 30, [26] = 100},
     },
     [1165] = {
         decorID = 1165,
@@ -5590,6 +5916,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 100, [11] = 55, [26] = 68},
     },
     [1168] = {
         decorID = 1168,
@@ -5622,6 +5950,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 16, 19, 21, 23, 24, 25, 26},
+        themeScores = {[5] = 47, [6] = 47, [16] = 74, [19] = 93, [21] = 93, [23] = 47, [24] = 100, [25] = 45, [26] = 28},
     },
     [1169] = {
         decorID = 1169,
@@ -5654,6 +5984,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [1170] = {
         decorID = 1170,
@@ -5687,6 +6019,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1172] = {
         decorID = 1172,
@@ -5719,6 +6053,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [1173] = {
         decorID = 1173,
@@ -5758,6 +6094,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Eversong Woods",
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {1, 5, 23, 26},
+        themeScores = {[1] = 35, [5] = 78, [23] = 45, [26] = 100},
     },
     [1175] = {
         decorID = 1175,
@@ -5791,6 +6129,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 16, 23, 26},
+        themeScores = {[6] = 46, [16] = 72, [23] = 100, [26] = 27},
     },
     [1177] = {
         decorID = 1177,
@@ -5823,6 +6163,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {1, 5, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 43, [5] = 100, [17] = 28, [19] = 27, [23] = 27, [24] = 28, [26] = 70, [31] = 27},
     },
     [1178] = {
         decorID = 1178,
@@ -5855,6 +6197,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1179] = {
         decorID = 1179,
@@ -5891,6 +6235,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1180] = {
         decorID = 1180,
@@ -5923,6 +6269,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 16, 19, 21, 23, 26},
+        themeScores = {[5] = 63, [6] = 63, [16] = 100, [19] = 63, [21] = 63, [23] = 63, [26] = 37},
     },
     [1181] = {
         decorID = 1181,
@@ -5955,6 +6303,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 71, [5] = 100, [17] = 28, [19] = 27, [23] = 27, [24] = 58, [26] = 86, [31] = 27},
     },
     [1183] = {
         decorID = 1183,
@@ -5988,6 +6338,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1185] = {
         decorID = 1185,
@@ -6021,6 +6373,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1187] = {
         decorID = 1187,
@@ -6053,6 +6407,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [1188] = {
         decorID = 1188,
@@ -6086,6 +6442,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 5},
+        themeIDs = {16, 26, 30},
+        themeScores = {[16] = 100, [26] = 37, [30] = 62},
     },
     [1189] = {
         decorID = 1189,
@@ -6118,6 +6476,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1191] = {
         decorID = 1191,
@@ -6151,6 +6511,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4, 8},
         subcategoryIDs = {16, 34},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1192] = {
         decorID = 1192,
@@ -6184,6 +6546,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1193] = {
         decorID = 1193,
@@ -6217,6 +6581,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1194] = {
         decorID = 1194,
@@ -6249,6 +6615,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {11, 14, 26},
+        themeScores = {[11] = 61, [14] = 100, [26] = 38},
     },
     [1195] = {
         decorID = 1195,
@@ -6288,6 +6656,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Eversong Woods",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 75, [5] = 100, [19] = 29, [23] = 61, [26] = 74, [31] = 29},
     },
     [1196] = {
         decorID = 1196,
@@ -6321,6 +6691,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1197] = {
         decorID = 1197,
@@ -6353,6 +6725,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1198] = {
         decorID = 1198,
@@ -6385,6 +6759,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 100, [5] = 96, [19] = 38, [23] = 38, [26] = 99, [31] = 38},
     },
     [1199] = {
         decorID = 1199,
@@ -6417,6 +6793,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1200] = {
         decorID = 1200,
@@ -6449,6 +6827,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1201] = {
         decorID = 1201,
@@ -6481,6 +6861,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [1205] = {
         decorID = 1205,
@@ -6517,6 +6899,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {16, 26, 27},
+        themeScores = {[16] = 100, [26] = 33, [27] = 50},
     },
     [1216] = {
         decorID = 1216,
@@ -6550,6 +6934,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [1217] = {
         decorID = 1217,
@@ -6582,6 +6968,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 44},
     },
     [1218] = {
         decorID = 1218,
@@ -6614,6 +7002,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1219] = {
         decorID = 1219,
@@ -6646,6 +7036,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21, 33},
+        themeScores = {[5] = 96, [11] = 70, [19] = 72, [21] = 100, [33] = 68},
     },
     [1227] = {
         decorID = 1227,
@@ -6683,6 +7075,8 @@ NS.CatalogData.Items = {
         altVendorZone = "Twilight Highlands",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 71, [5] = 100, [19] = 27, [23] = 27, [26] = 70, [31] = 27},
     },
     [1231] = {
         decorID = 1231,
@@ -6716,6 +7110,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 27, 29},
+        themeScores = {[15] = 100, [25] = 45, [27] = 68, [29] = 45},
     },
     [1232] = {
         decorID = 1232,
@@ -6746,6 +7142,8 @@ NS.CatalogData.Items = {
         dropRate = 0.05,
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1235] = {
         decorID = 1235,
@@ -6780,6 +7178,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 15, 21, 24, 25, 29},
+        themeScores = {[5] = 53, [15] = 37, [21] = 100, [24] = 72, [25] = 37, [29] = 37},
     },
     [1236] = {
         decorID = 1236,
@@ -6817,6 +7217,8 @@ NS.CatalogData.Items = {
         altVendorZone = "Twilight Highlands",
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 43, [5] = 100, [19] = 48, [23] = 54, [26] = 86, [31] = 27},
     },
     [1241] = {
         decorID = 1241,
@@ -6849,6 +7251,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [1242] = {
         decorID = 1242,
@@ -6881,6 +7285,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1243] = {
         decorID = 1243,
@@ -6913,6 +7319,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1244] = {
         decorID = 1244,
@@ -6949,6 +7357,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 17, 21, 24, 29},
+        themeScores = {[5] = 47, [17] = 58, [21] = 47, [24] = 58, [29] = 100},
     },
     [1245] = {
         decorID = 1245,
@@ -6985,6 +7395,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 26, 28},
+        themeScores = {[5] = 66, [26] = 100, [28] = 50},
     },
     [1246] = {
         decorID = 1246,
@@ -7021,6 +7433,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {2, 5, 20, 26},
+        themeScores = {[2] = 30, [5] = 25, [20] = 30, [26] = 100},
     },
     [1247] = {
         decorID = 1247,
@@ -7053,6 +7467,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [1251] = {
         decorID = 1251,
@@ -7087,6 +7503,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1252] = {
         decorID = 1252,
@@ -7120,6 +7538,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8, 2},
         subcategoryIDs = {34, 9},
+        themeIDs = {15, 29},
+        themeScores = {[15] = 100, [29] = 39},
     },
     [1257] = {
         decorID = 1257,
@@ -7152,6 +7572,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1258] = {
         decorID = 1258,
@@ -7184,6 +7606,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1259] = {
         decorID = 1259,
@@ -7216,6 +7640,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1260] = {
         decorID = 1260,
@@ -7248,6 +7674,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1261] = {
         decorID = 1261,
@@ -7277,6 +7705,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1262] = {
         decorID = 1262,
@@ -7309,6 +7739,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1263] = {
         decorID = 1263,
@@ -7341,6 +7773,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1265] = {
         decorID = 1265,
@@ -7373,6 +7807,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1266] = {
         decorID = 1266,
@@ -7409,6 +7845,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1267] = {
         decorID = 1267,
@@ -7445,6 +7883,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 100},
     },
     [1268] = {
         decorID = 1268,
@@ -7477,6 +7917,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1269] = {
         decorID = 1269,
@@ -7509,6 +7951,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1270] = {
         decorID = 1270,
@@ -7541,6 +7985,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 100},
     },
     [1271] = {
         decorID = 1271,
@@ -7574,6 +8020,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1272] = {
         decorID = 1272,
@@ -7583,10 +8031,10 @@ NS.CatalogData.Items = {
         iconTexture = 7416929,
         asset = 5788649,
         uiModelSceneID = 1336,
-        zone = "",
-        mapID = nil,
+        zone = "Undermine",
+        mapID = 2346,
         sourceType = "Treasure",
-        sourceDetail = "Undermine",
+        sourceDetail = "Undermine Treasures",
         achievementName = "",
         vendorName = "",
         professionName = "",
@@ -7600,9 +8048,16 @@ NS.CatalogData.Items = {
         size = 68,
         placementCost = 5,
         firstAcquisitionBonus = 10,
-        expansion = "Unknown",
+        expansion = "The War Within",
+        treasureContainers = {
+            "Half-Empty Bag",
+            "Dented Crate",
+            "Uncovered Strongbox",
+        },
         categoryIDs = {1, 4},
         subcategoryIDs = {16, 6},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1273] = {
         decorID = 1273,
@@ -7635,6 +8090,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {8, 27, 32},
+        themeScores = {[8] = 100, [27] = 67, [32] = 44},
     },
     [1274] = {
         decorID = 1274,
@@ -7671,6 +8128,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {8, 17, 24, 32},
+        themeScores = {[8] = 100, [17] = 78, [24] = 78, [32] = 44},
     },
     [1275] = {
         decorID = 1275,
@@ -7703,6 +8162,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [1276] = {
         decorID = 1276,
@@ -7739,6 +8200,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 38},
     },
     [1277] = {
         decorID = 1277,
@@ -7769,6 +8232,8 @@ NS.CatalogData.Items = {
         vendorUnlockQuest = "Quick Gills for Gold Now",
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {8, 17, 24, 32},
+        themeScores = {[8] = 100, [17] = 78, [24] = 78, [32] = 44},
     },
     [1280] = {
         decorID = 1280,
@@ -7806,6 +8271,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {27, 29},
+        themeScores = {[27] = 50, [29] = 100},
     },
     [1281] = {
         decorID = 1281,
@@ -7842,6 +8309,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1282] = {
         decorID = 1282,
@@ -7874,6 +8343,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1287] = {
         decorID = 1287,
@@ -7908,6 +8379,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1291] = {
         decorID = 1291,
@@ -7942,6 +8415,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1292] = {
         decorID = 1292,
@@ -7975,6 +8450,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1293] = {
         decorID = 1293,
@@ -8008,6 +8485,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1294] = {
         decorID = 1294,
@@ -8042,6 +8521,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {15, 25, 27, 29},
+        themeScores = {[15] = 100, [25] = 45, [27] = 68, [29] = 45},
     },
     [1295] = {
         decorID = 1295,
@@ -8075,6 +8556,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 19, 21, 25, 29},
+        themeScores = {[15] = 100, [19] = 69, [21] = 69, [25] = 45, [29] = 45},
     },
     [1297] = {
         decorID = 1297,
@@ -8108,6 +8591,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1307] = {
         decorID = 1307,
@@ -8142,6 +8627,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1308] = {
         decorID = 1308,
@@ -8174,6 +8661,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [1309] = {
         decorID = 1309,
@@ -8208,6 +8697,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 15, 17, 19, 21, 24, 25, 29, 31},
+        themeScores = {[5] = 51, [15] = 67, [17] = 53, [19] = 51, [21] = 51, [24] = 53, [25] = 30, [29] = 30, [31] = 100},
     },
     [1310] = {
         decorID = 1310,
@@ -8241,6 +8732,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1311] = {
         decorID = 1311,
@@ -8273,6 +8766,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1312] = {
         decorID = 1312,
@@ -8305,6 +8800,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 100},
     },
     [1313] = {
         decorID = 1313,
@@ -8338,6 +8835,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1314] = {
         decorID = 1314,
@@ -8370,6 +8869,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 15, 19, 21, 24, 25, 27, 29},
+        themeScores = {[5] = 47, [15] = 86, [19] = 52, [21] = 100, [24] = 65, [25] = 33, [27] = 51, [29] = 33},
     },
     [1315] = {
         decorID = 1315,
@@ -8406,6 +8907,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 17, 19, 24, 28},
+        themeScores = {[4] = 59, [17] = 100, [19] = 100, [24] = 100, [28] = 59},
     },
     [1317] = {
         decorID = 1317,
@@ -8435,6 +8938,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {5, 3},
         subcategoryIDs = {13, 22},
+        themeIDs = {13, 28, 31},
+        themeScores = {[13] = 30, [28] = 60, [31] = 100},
     },
     [1318] = {
         decorID = 1318,
@@ -8472,6 +8977,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 23, 28},
+        themeScores = {[13] = 100, [23] = 33, [28] = 100},
     },
     [1321] = {
         decorID = 1321,
@@ -8504,6 +9011,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1322] = {
         decorID = 1322,
@@ -8533,6 +9042,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 27, 28},
+        themeScores = {[13] = 50, [27] = 75, [28] = 100},
     },
     [1323] = {
         decorID = 1323,
@@ -8563,6 +9074,8 @@ NS.CatalogData.Items = {
         dropRate = 0.15,
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1324] = {
         decorID = 1324,
@@ -8593,6 +9106,8 @@ NS.CatalogData.Items = {
         dropRate = 0.28,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 100, [28] = 99},
     },
     [1325] = {
         decorID = 1325,
@@ -8625,6 +9140,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 20, 28},
+        themeScores = {[13] = 100, [20] = 33, [28] = 100},
     },
     [1326] = {
         decorID = 1326,
@@ -8654,6 +9171,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 66, [28] = 100},
     },
     [1328] = {
         decorID = 1328,
@@ -8686,6 +9205,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [1329] = {
         decorID = 1329,
@@ -8723,6 +9244,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 11, 20, 26},
+        themeScores = {[2] = 30, [11] = 60, [20] = 30, [26] = 100},
     },
     [1350] = {
         decorID = 1350,
@@ -8759,6 +9282,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2, 11, 20, 26},
+        themeScores = {[2] = 30, [11] = 29, [20] = 30, [26] = 100},
     },
     [1351] = {
         decorID = 1351,
@@ -8791,6 +9316,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 100, [28] = 75},
     },
     [1352] = {
         decorID = 1352,
@@ -8820,6 +9347,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1353] = {
         decorID = 1353,
@@ -8853,6 +9382,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1354] = {
         decorID = 1354,
@@ -8885,6 +9416,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {13, 5},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 66, [28] = 100},
     },
     [1355] = {
         decorID = 1355,
@@ -8917,6 +9450,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
+        themeIDs = {13, 17, 24, 28},
+        themeScores = {[13] = 50, [17] = 88, [24] = 88, [28] = 100},
     },
     [1356] = {
         decorID = 1356,
@@ -8954,6 +9489,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2, 11, 20, 26},
+        themeScores = {[2] = 30, [11] = 29, [20] = 30, [26] = 100},
     },
     [1405] = {
         decorID = 1405,
@@ -8987,6 +9524,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {13, 27, 28},
+        themeScores = {[13] = 88, [27] = 100, [28] = 66},
     },
     [1406] = {
         decorID = 1406,
@@ -9019,6 +9558,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 13, 23, 28},
+        themeScores = {[6] = 84, [13] = 50, [23] = 84, [28] = 100},
     },
     [1407] = {
         decorID = 1407,
@@ -9051,6 +9592,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 66, [28] = 100},
     },
     [1408] = {
         decorID = 1408,
@@ -9085,6 +9628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1409] = {
         decorID = 1409,
@@ -9117,6 +9662,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 17, 24, 28},
+        themeScores = {[13] = 66, [17] = 88, [24] = 88, [28] = 100},
     },
     [1410] = {
         decorID = 1410,
@@ -9149,6 +9696,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 13, 19, 21, 23, 24, 26, 28, 31},
+        themeScores = {[1] = 50, [5] = 98, [13] = 28, [19] = 98, [21] = 48, [23] = 50, [24] = 56, [26] = 100, [28] = 57, [31] = 69},
     },
     [1411] = {
         decorID = 1411,
@@ -9181,6 +9730,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 27, 28},
+        themeScores = {[13] = 50, [27] = 75, [28] = 100},
     },
     [1412] = {
         decorID = 1412,
@@ -9218,6 +9769,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {11, 13, 28, 33},
+        themeScores = {[11] = 100, [13] = 61, [28] = 61, [33] = 95},
     },
     [1413] = {
         decorID = 1413,
@@ -9250,6 +9803,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 19, 21, 24, 25, 28},
+        themeScores = {[13] = 66, [19] = 81, [21] = 81, [24] = 81, [25] = 81, [28] = 100},
     },
     [1414] = {
         decorID = 1414,
@@ -9282,6 +9837,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1415] = {
         decorID = 1415,
@@ -9314,6 +9871,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {13, 27, 28},
+        themeScores = {[13] = 66, [27] = 75, [28] = 100},
     },
     [1416] = {
         decorID = 1416,
@@ -9346,6 +9905,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 6},
+        themeIDs = {5, 13, 17, 21, 24, 27, 28},
+        themeScores = {[5] = 70, [13] = 50, [17] = 88, [21] = 70, [24] = 88, [27] = 75, [28] = 100},
     },
     [1417] = {
         decorID = 1417,
@@ -9379,6 +9940,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 37},
     },
     [1418] = {
         decorID = 1418,
@@ -9412,6 +9975,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16, 26, 27},
+        themeScores = {[16] = 100, [26] = 33, [27] = 50},
     },
     [1434] = {
         decorID = 1434,
@@ -9448,6 +10013,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 12},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1435] = {
         decorID = 1435,
@@ -9485,6 +10052,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {24, 29},
+        themeScores = {[24] = 64, [29] = 100},
     },
     [1436] = {
         decorID = 1436,
@@ -9522,6 +10091,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {15, 28},
+        themeScores = {[15] = 60, [28] = 100},
     },
     [1437] = {
         decorID = 1437,
@@ -9559,6 +10130,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100, [28] = 57},
     },
     [1438] = {
         decorID = 1438,
@@ -9596,6 +10169,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100, [28] = 57},
     },
     [1439] = {
         decorID = 1439,
@@ -9632,6 +10207,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1440] = {
         decorID = 1440,
@@ -9665,6 +10242,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {5, 11, 12, 19, 21, 24, 33},
+        themeScores = {[5] = 100, [11] = 72, [12] = 30, [19] = 39, [21] = 39, [24] = 44, [33] = 35},
     },
     [1442] = {
         decorID = 1442,
@@ -9701,6 +10280,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [1443] = {
         decorID = 1443,
@@ -9734,6 +10315,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 13, 23, 24, 27, 28},
+        themeScores = {[6] = 83, [13] = 65, [23] = 100, [24] = 95, [27] = 74, [28] = 98},
     },
     [1444] = {
         decorID = 1444,
@@ -9766,6 +10349,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {5, 11, 19, 21, 33},
+        themeScores = {[5] = 100, [11] = 26, [19] = 28, [21] = 49, [33] = 51},
     },
     [1445] = {
         decorID = 1445,
@@ -9796,6 +10381,8 @@ NS.CatalogData.Items = {
         dropRate = 0.11,
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 23},
+        themeScores = {[6] = 100, [23] = 37},
     },
     [1446] = {
         decorID = 1446,
@@ -9829,6 +10416,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {1, 5, 19, 26},
+        themeScores = {[1] = 35, [5] = 100, [19] = 44, [26] = 71},
     },
     [1451] = {
         decorID = 1451,
@@ -9865,6 +10454,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1452] = {
         decorID = 1452,
@@ -9901,6 +10492,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {6, 17, 24, 28},
+        themeScores = {[6] = 76, [17] = 88, [24] = 88, [28] = 100},
     },
     [1453] = {
         decorID = 1453,
@@ -9937,6 +10530,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {17, 24, 28},
+        themeScores = {[17] = 88, [24] = 88, [28] = 100},
     },
     [1454] = {
         decorID = 1454,
@@ -9973,6 +10568,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 11, 19, 21, 29},
+        themeScores = {[5] = 56, [11] = 53, [19] = 56, [21] = 56, [29] = 100},
     },
     [1455] = {
         decorID = 1455,
@@ -10009,6 +10606,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1456] = {
         decorID = 1456,
@@ -10045,6 +10644,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 21, 27, 29},
+        themeScores = {[5] = 47, [21] = 47, [27] = 50, [29] = 100},
     },
     [1457] = {
         decorID = 1457,
@@ -10081,6 +10682,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 19, 21, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [29] = 100},
     },
     [1458] = {
         decorID = 1458,
@@ -10111,6 +10714,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {1, 5, 19, 23, 26, 30, 31},
+        themeScores = {[1] = 78, [5] = 97, [19] = 50, [23] = 50, [26] = 100, [30] = 48, [31] = 50},
     },
     [1464] = {
         decorID = 1464,
@@ -10143,6 +10748,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {5, 11, 19, 21, 33},
+        themeScores = {[5] = 100, [11] = 35, [19] = 39, [21] = 39, [33] = 35},
     },
     [1465] = {
         decorID = 1465,
@@ -10175,6 +10782,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {5, 11, 19, 21, 23, 33},
+        themeScores = {[5] = 100, [11] = 35, [19] = 39, [21] = 39, [23] = 30, [33] = 35},
     },
     [1466] = {
         decorID = 1466,
@@ -10207,6 +10816,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 38, [5] = 97, [11] = 34, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [1481] = {
         decorID = 1481,
@@ -10240,6 +10851,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {6, 17, 23},
+        themeScores = {[6] = 100, [17] = 30, [23] = 40},
     },
     [1482] = {
         decorID = 1482,
@@ -10276,6 +10889,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {26},
+        themeScores = {[26] = 100},
     },
     [1486] = {
         decorID = 1486,
@@ -10313,6 +10928,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 26, 28},
+        themeScores = {[5] = 66, [26] = 100, [28] = 50},
     },
     [1487] = {
         decorID = 1487,
@@ -10349,6 +10966,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26},
+        themeScores = {[2] = 30, [5] = 82, [11] = 60, [19] = 32, [20] = 30, [21] = 32, [26] = 100},
     },
     [1488] = {
         decorID = 1488,
@@ -10386,6 +11005,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {5, 11, 26, 28},
+        themeScores = {[5] = 42, [11] = 100, [26] = 63, [28] = 31},
     },
     [1489] = {
         decorID = 1489,
@@ -10422,6 +11043,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 26},
+        themeScores = {[1] = 50, [5] = 81, [26] = 100},
     },
     [1674] = {
         decorID = 1674,
@@ -10451,6 +11074,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 20, 24, 26},
+        themeScores = {[2] = 50, [20] = 50, [24] = 60, [26] = 100},
     },
     [1692] = {
         decorID = 1692,
@@ -10488,6 +11113,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21, 23, 25, 33},
+        themeScores = {[5] = 88, [11] = 32, [19] = 55, [21] = 96, [23] = 64, [25] = 32, [33] = 100},
     },
     [1693] = {
         decorID = 1693,
@@ -10520,6 +11147,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21, 25, 33},
+        themeScores = {[5] = 91, [11] = 34, [19] = 57, [21] = 100, [25] = 34, [33] = 52},
     },
     [1694] = {
         decorID = 1694,
@@ -10552,6 +11181,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 19, 21, 24, 25, 31},
+        themeScores = {[5] = 91, [11] = 77, [19] = 51, [21] = 51, [24] = 58, [25] = 30, [31] = 100},
     },
     [1695] = {
         decorID = 1695,
@@ -10585,6 +11216,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 72, [11] = 100, [19] = 40, [21] = 40},
     },
     [1697] = {
         decorID = 1697,
@@ -10618,6 +11251,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {16, 23, 26},
+        themeScores = {[16] = 100, [23] = 49, [26] = 37},
     },
     [1698] = {
         decorID = 1698,
@@ -10654,6 +11289,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {17, 19, 21, 24, 25, 28},
+        themeScores = {[17] = 52, [19] = 47, [21] = 47, [24] = 100, [25] = 47, [28] = 58},
     },
     [1699] = {
         decorID = 1699,
@@ -10690,6 +11327,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1700] = {
         decorID = 1700,
@@ -10727,6 +11366,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1701] = {
         decorID = 1701,
@@ -10763,6 +11404,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {11, 29},
+        themeScores = {[11] = 53, [29] = 100},
     },
     [1702] = {
         decorID = 1702,
@@ -10799,6 +11442,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1703] = {
         decorID = 1703,
@@ -10832,6 +11477,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [1704] = {
         decorID = 1704,
@@ -10865,6 +11512,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {6, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 33, [19] = 61, [21] = 31, [23] = 63, [24] = 100, [25] = 31},
     },
     [1723] = {
         decorID = 1723,
@@ -10904,6 +11553,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1724] = {
         decorID = 1724,
@@ -10941,6 +11592,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 24, 28},
+        themeScores = {[17] = 88, [24] = 88, [28] = 100},
     },
     [1725] = {
         decorID = 1725,
@@ -10973,6 +11626,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1726] = {
         decorID = 1726,
@@ -11009,6 +11664,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7, 6},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [1736] = {
         decorID = 1736,
@@ -11046,6 +11703,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1737] = {
         decorID = 1737,
@@ -11083,6 +11742,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1738] = {
         decorID = 1738,
@@ -11120,6 +11781,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1739] = {
         decorID = 1739,
@@ -11157,6 +11820,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {24, 29},
+        themeScores = {[24] = 64, [29] = 100},
     },
     [1740] = {
         decorID = 1740,
@@ -11189,6 +11854,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {5, 21, 24},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100},
     },
     [1741] = {
         decorID = 1741,
@@ -11221,6 +11888,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 11, 19, 21, 25},
+        themeScores = {[5] = 35, [11] = 91, [19] = 91, [21] = 100, [25] = 35},
     },
     [1742] = {
         decorID = 1742,
@@ -11257,6 +11926,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 23, 29},
+        themeScores = {[6] = 56, [23] = 56, [29] = 100},
     },
     [1744] = {
         decorID = 1744,
@@ -11294,6 +11965,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1745] = {
         decorID = 1745,
@@ -11331,6 +12004,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {24, 29},
+        themeScores = {[24] = 64, [29] = 100},
     },
     [1746] = {
         decorID = 1746,
@@ -11363,6 +12038,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {5, 6, 11, 12, 23, 24, 26, 33},
+        themeScores = {[5] = 86, [6] = 55, [11] = 50, [12] = 32, [23] = 55, [24] = 63, [26] = 32, [33] = 100},
     },
     [1747] = {
         decorID = 1747,
@@ -11399,6 +12076,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {5, 6, 11, 17, 19, 21, 23, 24, 25, 33},
+        themeScores = {[5] = 50, [6] = 31, [11] = 28, [17] = 33, [19] = 62, [21] = 62, [23] = 31, [24] = 100, [25] = 30, [33] = 28},
     },
     [1748] = {
         decorID = 1748,
@@ -11431,6 +12110,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {4, 6, 23, 28},
+        themeScores = {[4] = 58, [6] = 100, [23] = 100, [28] = 58},
     },
     [1749] = {
         decorID = 1749,
@@ -11461,6 +12142,8 @@ NS.CatalogData.Items = {
         dropRate = 0.85,
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {4, 6, 17, 23, 24, 28},
+        themeScores = {[4] = 27, [6] = 45, [17] = 47, [23] = 45, [24] = 100, [28] = 27},
     },
     [1750] = {
         decorID = 1750,
@@ -11493,6 +12176,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {4, 6, 23, 24, 28},
+        themeScores = {[4] = 51, [6] = 87, [23] = 87, [24] = 100, [28] = 51},
     },
     [1770] = {
         decorID = 1770,
@@ -11533,6 +12218,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1771] = {
         decorID = 1771,
@@ -11570,6 +12257,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1772] = {
         decorID = 1772,
@@ -11607,6 +12296,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1773] = {
         decorID = 1773,
@@ -11643,6 +12334,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1774] = {
         decorID = 1774,
@@ -11680,6 +12373,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [1775] = {
         decorID = 1775,
@@ -11716,6 +12411,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [1776] = {
         decorID = 1776,
@@ -11753,6 +12450,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [1791] = {
         decorID = 1791,
@@ -11785,6 +12484,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1792] = {
         decorID = 1792,
@@ -11817,6 +12518,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {13, 19, 24, 28},
+        themeScores = {[13] = 50, [19] = 78, [24] = 96, [28] = 100},
     },
     [1793] = {
         decorID = 1793,
@@ -11849,6 +12552,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 84, [17] = 88, [19] = 31, [23] = 31, [24] = 100},
     },
     [1794] = {
         decorID = 1794,
@@ -11881,6 +12586,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24, 25},
+        themeScores = {[5] = 36, [6] = 100, [17] = 67, [19] = 72, [21] = 72, [23] = 37, [24] = 74, [25] = 35},
     },
     [1795] = {
         decorID = 1795,
@@ -11914,6 +12621,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29, 25},
+        themeIDs = {6, 17, 19, 21, 24},
+        themeScores = {[6] = 60, [17] = 67, [19] = 69, [21] = 45, [24] = 100},
     },
     [1796] = {
         decorID = 1796,
@@ -11946,6 +12655,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10, 4},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 84, [17] = 88, [19] = 31, [23] = 31, [24] = 100},
     },
     [1801] = {
         decorID = 1801,
@@ -11979,6 +12690,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 33, [6] = 100, [17] = 81, [19] = 39, [21] = 33, [23] = 80, [24] = 81},
     },
     [1802] = {
         decorID = 1802,
@@ -12015,6 +12728,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {6, 17, 19, 24},
+        themeScores = {[6] = 60, [17] = 67, [19] = 47, [24] = 100},
     },
     [1826] = {
         decorID = 1826,
@@ -12048,6 +12763,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 84, [17] = 88, [19] = 31, [23] = 31, [24] = 100},
     },
     [1827] = {
         decorID = 1827,
@@ -12080,6 +12797,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {6, 23},
+        themeScores = {[6] = 100, [23] = 40},
     },
     [1829] = {
         decorID = 1829,
@@ -12116,6 +12835,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 100, [17] = 70, [19] = 39, [23] = 40, [24] = 39},
     },
     [1830] = {
         decorID = 1830,
@@ -12148,6 +12869,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 84, [17] = 64, [19] = 31, [23] = 31, [24] = 100},
     },
     [1831] = {
         decorID = 1831,
@@ -12180,6 +12903,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 84, [17] = 64, [19] = 31, [23] = 31, [24] = 100},
     },
     [1832] = {
         decorID = 1832,
@@ -12212,6 +12937,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {6, 17, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 85, [17] = 57, [19] = 30, [21] = 30, [23] = 31, [24] = 100, [25] = 30},
     },
     [1833] = {
         decorID = 1833,
@@ -12248,6 +12975,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {6, 17, 19, 21, 23},
+        themeScores = {[6] = 100, [17] = 30, [19] = 36, [21] = 36, [23] = 40},
     },
     [1834] = {
         decorID = 1834,
@@ -12280,6 +13009,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1836] = {
         decorID = 1836,
@@ -12310,6 +13041,8 @@ NS.CatalogData.Items = {
         dropRate = 0.09,
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 11, 19, 21, 25},
+        themeScores = {[5] = 100, [11] = 86, [19] = 55, [21] = 97, [25] = 33},
     },
     [1844] = {
         decorID = 1844,
@@ -12347,6 +13080,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [1861] = {
         decorID = 1861,
@@ -12379,6 +13114,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 11, 19, 21, 23, 25},
+        themeScores = {[5] = 58, [11] = 58, [19] = 58, [21] = 72, [23] = 100, [25] = 58},
     },
     [1862] = {
         decorID = 1862,
@@ -12415,6 +13152,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 19, 21, 24, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [24] = 64, [29] = 100},
     },
     [1863] = {
         decorID = 1863,
@@ -12451,6 +13190,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1864] = {
         decorID = 1864,
@@ -12487,6 +13228,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 10, 19, 21},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100},
     },
     [1865] = {
         decorID = 1865,
@@ -12523,6 +13266,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 10, 19, 21},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100},
     },
     [1866] = {
         decorID = 1866,
@@ -12559,6 +13304,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 10, 19, 21},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100},
     },
     [1867] = {
         decorID = 1867,
@@ -12595,6 +13342,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 10, 19, 21},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100},
     },
     [1878] = {
         decorID = 1878,
@@ -12632,6 +13381,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 11, 29},
+        themeScores = {[6] = 51, [11] = 51, [29] = 100},
     },
     [1879] = {
         decorID = 1879,
@@ -12669,6 +13420,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1880] = {
         decorID = 1880,
@@ -12699,6 +13452,8 @@ NS.CatalogData.Items = {
         dropRate = 0.05,
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
+        themeIDs = {6, 10, 19, 23, 24, 27},
+        themeScores = {[6] = 49, [10] = 28, [19] = 44, [23] = 93, [24] = 100, [27] = 72},
     },
     [1881] = {
         decorID = 1881,
@@ -12732,6 +13487,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {5, 11, 19, 21, 25, 33},
+        themeScores = {[5] = 100, [11] = 97, [19] = 62, [21] = 62, [25] = 37, [33] = 57},
     },
     [1882] = {
         decorID = 1882,
@@ -12768,6 +13525,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 11, 24, 25},
+        themeScores = {[5] = 52, [11] = 100, [24] = 76, [25] = 39},
     },
     [1883] = {
         decorID = 1883,
@@ -12801,6 +13560,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 11, 24, 25},
+        themeScores = {[5] = 52, [11] = 100, [24] = 76, [25] = 39},
     },
     [1884] = {
         decorID = 1884,
@@ -12834,6 +13595,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 25},
+        themeScores = {[5] = 52, [11] = 100, [25] = 39},
     },
     [1885] = {
         decorID = 1885,
@@ -12867,6 +13630,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 25},
+        themeScores = {[5] = 100, [11] = 75, [25] = 75},
     },
     [1886] = {
         decorID = 1886,
@@ -12900,6 +13665,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 72, [11] = 100, [19] = 40, [21] = 40},
     },
     [1887] = {
         decorID = 1887,
@@ -12933,6 +13700,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 32, [11] = 100, [19] = 37, [21] = 67},
     },
     [1888] = {
         decorID = 1888,
@@ -12965,6 +13734,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 6, 11, 25},
+        themeScores = {[5] = 39, [6] = 60, [11] = 100, [25] = 39},
     },
     [1889] = {
         decorID = 1889,
@@ -12998,6 +13769,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 11, 25},
+        themeScores = {[5] = 39, [11] = 100, [25] = 39},
     },
     [1893] = {
         decorID = 1893,
@@ -13028,6 +13801,8 @@ NS.CatalogData.Items = {
         dropRate = 0.66,
         categoryIDs = {6, 3},
         subcategoryIDs = {29, 15},
+        themeIDs = {10, 17, 19, 21, 24},
+        themeScores = {[10] = 27, [17] = 47, [19] = 41, [21] = 41, [24] = 100},
     },
     [1894] = {
         decorID = 1894,
@@ -13058,6 +13833,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {18, 24, 33},
+        themeScores = {[18] = 60, [24] = 54, [33] = 100},
     },
     [1896] = {
         decorID = 1896,
@@ -13090,6 +13867,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 61, [19] = 61, [23] = 38, [26] = 100, [31] = 38},
     },
     [1900] = {
         decorID = 1900,
@@ -13123,6 +13902,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {6, 10, 23, 27},
+        themeScores = {[6] = 100, [10] = 58, [23] = 100, [27] = 58},
     },
     [1901] = {
         decorID = 1901,
@@ -13155,6 +13936,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 74, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [1908] = {
         decorID = 1908,
@@ -13191,6 +13974,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {1, 5, 6, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 45, [5] = 100, [6] = 25, [17] = 29, [19] = 29, [23] = 29, [24] = 29, [26] = 63, [31] = 29},
     },
     [1919] = {
         decorID = 1919,
@@ -13223,6 +14008,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 38, [5] = 97, [11] = 34, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [1920] = {
         decorID = 1920,
@@ -13255,6 +14042,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 38, [5] = 97, [11] = 34, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [1977] = {
         decorID = 1977,
@@ -13292,6 +14081,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [1978] = {
         decorID = 1978,
@@ -13328,6 +14119,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 84, [19] = 84, [24] = 84, [28] = 100},
     },
     [1979] = {
         decorID = 1979,
@@ -13367,6 +14160,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [1984] = {
         decorID = 1984,
@@ -13399,6 +14194,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {6, 8, 23, 32},
+        themeScores = {[6] = 65, [8] = 100, [23] = 65, [32] = 38},
     },
     [1987] = {
         decorID = 1987,
@@ -13431,6 +14228,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 64, [11] = 100, [19] = 40, [21] = 40},
     },
     [1989] = {
         decorID = 1989,
@@ -13463,6 +14262,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [1990] = {
         decorID = 1990,
@@ -13495,6 +14296,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 11, 25},
+        themeScores = {[5] = 39, [11] = 100, [25] = 39},
     },
     [1991] = {
         decorID = 1991,
@@ -13532,6 +14335,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {27, 29},
+        themeScores = {[27] = 50, [29] = 100},
     },
     [1992] = {
         decorID = 1992,
@@ -13569,6 +14374,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1993] = {
         decorID = 1993,
@@ -13606,6 +14413,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6, 5},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1994] = {
         decorID = 1994,
@@ -13643,6 +14452,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 23, 29},
+        themeScores = {[6] = 51, [23] = 57, [29] = 100},
     },
     [1995] = {
         decorID = 1995,
@@ -13679,6 +14490,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [1996] = {
         decorID = 1996,
@@ -13716,6 +14529,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 19, 21, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [29] = 100},
     },
     [1997] = {
         decorID = 1997,
@@ -13753,6 +14568,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {24, 29},
+        themeScores = {[24] = 64, [29] = 100},
     },
     [1998] = {
         decorID = 1998,
@@ -13785,6 +14602,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [1999] = {
         decorID = 1999,
@@ -13821,6 +14640,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2000] = {
         decorID = 2000,
@@ -13851,6 +14672,8 @@ NS.CatalogData.Items = {
         dropRate = 0.07,
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {5, 11, 19, 25},
+        themeScores = {[5] = 100, [11] = 100, [19] = 100, [25] = 100},
     },
     [2001] = {
         decorID = 2001,
@@ -13883,6 +14706,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [2086] = {
         decorID = 2086,
@@ -13915,6 +14740,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 4},
         subcategoryIDs = {16, 29},
+        themeIDs = {5, 11, 19, 21, 24, 25},
+        themeScores = {[5] = 44, [11] = 68, [19] = 79, [21] = 100, [24] = 58, [25] = 42},
     },
     [2087] = {
         decorID = 2087,
@@ -13952,6 +14779,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {17, 24, 28},
+        themeScores = {[17] = 88, [24] = 88, [28] = 100},
     },
     [2088] = {
         decorID = 2088,
@@ -13989,6 +14818,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2089] = {
         decorID = 2089,
@@ -14025,6 +14856,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2090] = {
         decorID = 2090,
@@ -14061,6 +14894,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2091] = {
         decorID = 2091,
@@ -14093,6 +14928,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {5, 6, 10, 11, 17, 19, 21, 24, 25},
+        themeScores = {[5] = 49, [6] = 45, [10] = 29, [11] = 47, [17] = 52, [19] = 97, [21] = 97, [24] = 100, [25] = 47},
     },
     [2092] = {
         decorID = 2092,
@@ -14129,6 +14966,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2093] = {
         decorID = 2093,
@@ -14166,6 +15005,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23, 28},
+        themeScores = {[23] = 97, [28] = 100},
     },
     [2094] = {
         decorID = 2094,
@@ -14202,6 +15043,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 15, 28},
+        themeScores = {[6] = 76, [15] = 60, [28] = 100},
     },
     [2098] = {
         decorID = 2098,
@@ -14239,6 +15082,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 84, [19] = 84, [24] = 84, [28] = 100},
     },
     [2099] = {
         decorID = 2099,
@@ -14276,6 +15121,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2100] = {
         decorID = 2100,
@@ -14313,6 +15160,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2101] = {
         decorID = 2101,
@@ -14350,6 +15199,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2102] = {
         decorID = 2102,
@@ -14386,6 +15237,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2103] = {
         decorID = 2103,
@@ -14422,6 +15275,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2104] = {
         decorID = 2104,
@@ -14459,6 +15314,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2105] = {
         decorID = 2105,
@@ -14496,6 +15353,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2106] = {
         decorID = 2106,
@@ -14532,6 +15391,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2107] = {
         decorID = 2107,
@@ -14568,6 +15429,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2108] = {
         decorID = 2108,
@@ -14605,6 +15468,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2109] = {
         decorID = 2109,
@@ -14642,6 +15507,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [2110] = {
         decorID = 2110,
@@ -14679,6 +15546,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11, 26},
+        themeScores = {[11] = 100, [26] = 39},
     },
     [2111] = {
         decorID = 2111,
@@ -14715,6 +15584,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11, 26},
+        themeScores = {[11] = 100, [26] = 39},
     },
     [2112] = {
         decorID = 2112,
@@ -14751,6 +15622,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11, 26},
+        themeScores = {[11] = 100, [26] = 39},
     },
     [2113] = {
         decorID = 2113,
@@ -14788,6 +15661,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {11, 26},
+        themeScores = {[11] = 100, [26] = 39},
     },
     [2114] = {
         decorID = 2114,
@@ -14825,6 +15700,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {17, 24, 28},
+        themeScores = {[17] = 100, [24] = 100, [28] = 56},
     },
     [2115] = {
         decorID = 2115,
@@ -14862,6 +15739,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2116] = {
         decorID = 2116,
@@ -14899,6 +15778,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2117] = {
         decorID = 2117,
@@ -14935,6 +15816,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2118] = {
         decorID = 2118,
@@ -14971,6 +15854,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {4},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2219] = {
         decorID = 2219,
@@ -15003,6 +15888,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {9, 19, 21, 24, 25},
+        themeScores = {[9] = 51, [19] = 79, [21] = 79, [24] = 100, [25] = 51},
     },
     [2224] = {
         decorID = 2224,
@@ -15039,6 +15926,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {6, 9, 23, 25},
+        themeScores = {[6] = 89, [9] = 58, [23] = 100, [25] = 58},
     },
     [2225] = {
         decorID = 2225,
@@ -15071,6 +15960,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {5, 9, 19, 21, 24, 25},
+        themeScores = {[5] = 87, [9] = 68, [19] = 87, [21] = 87, [24] = 100, [25] = 51},
     },
     [2226] = {
         decorID = 2226,
@@ -15107,6 +15998,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {4, 17, 24, 28},
+        themeScores = {[4] = 56, [17] = 100, [24] = 100, [28] = 56},
     },
     [2227] = {
         decorID = 2227,
@@ -15139,6 +16032,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 17, 24, 28},
+        themeScores = {[4] = 75, [17] = 100, [24] = 100, [28] = 56},
     },
     [2228] = {
         decorID = 2228,
@@ -15171,6 +16066,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 6, 23, 28},
+        themeScores = {[4] = 98, [6] = 83, [23] = 100, [28] = 49},
     },
     [2229] = {
         decorID = 2229,
@@ -15203,6 +16100,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 6, 23, 28},
+        themeScores = {[4] = 98, [6] = 83, [23] = 100, [28] = 49},
     },
     [2230] = {
         decorID = 2230,
@@ -15235,6 +16134,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [2231] = {
         decorID = 2231,
@@ -15265,6 +16166,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {1, 5, 19, 23, 26, 30, 31},
+        themeScores = {[1] = 45, [5] = 100, [19] = 29, [23] = 29, [26] = 74, [30] = 44, [31] = 29},
     },
     [2232] = {
         decorID = 2232,
@@ -15301,6 +16204,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [2233] = {
         decorID = 2233,
@@ -15340,6 +16245,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Harandar",
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [2237] = {
         decorID = 2237,
@@ -15372,6 +16279,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 6, 23, 24, 28},
+        themeScores = {[4] = 49, [6] = 83, [23] = 100, [24] = 95, [28] = 49},
     },
     [2238] = {
         decorID = 2238,
@@ -15402,6 +16311,8 @@ NS.CatalogData.Items = {
         dropRate = 0.04,
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2239] = {
         decorID = 2239,
@@ -15438,6 +16349,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2240] = {
         decorID = 2240,
@@ -15470,6 +16383,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2241] = {
         decorID = 2241,
@@ -15499,6 +16414,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [2242] = {
         decorID = 2242,
@@ -15531,6 +16448,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [2243] = {
         decorID = 2243,
@@ -15563,6 +16482,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2244] = {
         decorID = 2244,
@@ -15599,6 +16520,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10, 9},
+        themeIDs = {4, 24, 28},
+        themeScores = {[4] = 100, [24] = 96, [28] = 50},
     },
     [2245] = {
         decorID = 2245,
@@ -15635,6 +16558,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {4, 5, 21, 24, 28},
+        themeScores = {[4] = 100, [5] = 70, [21] = 70, [24] = 96, [28] = 50},
     },
     [2246] = {
         decorID = 2246,
@@ -15665,6 +16590,8 @@ NS.CatalogData.Items = {
         dropRate = 0.4,
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {4, 6, 28},
+        themeScores = {[4] = 86, [6] = 100, [28] = 65},
     },
     [2254] = {
         decorID = 2254,
@@ -15701,6 +16628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26},
+        themeScores = {[2] = 30, [5] = 51, [11] = 60, [19] = 32, [20] = 30, [21] = 32, [26] = 100},
     },
     [2301] = {
         decorID = 2301,
@@ -15733,6 +16662,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 97, [19] = 94, [21] = 44, [23] = 99, [26] = 100, [31] = 50},
     },
     [2322] = {
         decorID = 2322,
@@ -15763,6 +16694,8 @@ NS.CatalogData.Items = {
         vendorUnlockAchievement = "M.C.: Hammered",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2323] = {
         decorID = 2323,
@@ -15795,6 +16728,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 15},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2324] = {
         decorID = 2324,
@@ -15824,6 +16759,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2325] = {
         decorID = 2325,
@@ -15853,6 +16790,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2326] = {
         decorID = 2326,
@@ -15886,6 +16825,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10, 9},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2327] = {
         decorID = 2327,
@@ -15918,6 +16859,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {7, 21, 32},
+        themeScores = {[7] = 80, [21] = 100, [32] = 80},
     },
     [2328] = {
         decorID = 2328,
@@ -15947,6 +16890,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2329] = {
         decorID = 2329,
@@ -15979,6 +16924,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2330] = {
         decorID = 2330,
@@ -16012,6 +16959,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2331] = {
         decorID = 2331,
@@ -16044,6 +16993,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2332] = {
         decorID = 2332,
@@ -16076,6 +17027,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 50},
     },
     [2333] = {
         decorID = 2333,
@@ -16108,6 +17061,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {4, 24, 28},
+        themeScores = {[4] = 100, [24] = 96, [28] = 50},
     },
     [2334] = {
         decorID = 2334,
@@ -16140,6 +17095,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {4, 24, 28},
+        themeScores = {[4] = 100, [24] = 96, [28] = 50},
     },
     [2337] = {
         decorID = 2337,
@@ -16172,6 +17129,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2338] = {
         decorID = 2338,
@@ -16204,6 +17163,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2339] = {
         decorID = 2339,
@@ -16236,6 +17197,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 21, 32},
+        themeScores = {[7] = 80, [21] = 100, [32] = 80},
     },
     [2340] = {
         decorID = 2340,
@@ -16268,6 +17231,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2341] = {
         decorID = 2341,
@@ -16300,6 +17265,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2342] = {
         decorID = 2342,
@@ -16338,6 +17305,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2343] = {
         decorID = 2343,
@@ -16370,6 +17339,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2384] = {
         decorID = 2384,
@@ -16407,6 +17378,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23, 28},
+        themeScores = {[23] = 97, [28] = 100},
     },
     [2385] = {
         decorID = 2385,
@@ -16443,6 +17416,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 2},
         subcategoryIDs = {10, 29},
+        themeIDs = {5, 19, 21, 24, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [24] = 64, [29] = 100},
     },
     [2427] = {
         decorID = 2427,
@@ -16472,6 +17447,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2428] = {
         decorID = 2428,
@@ -16501,6 +17478,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2429] = {
         decorID = 2429,
@@ -16530,6 +17509,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2430] = {
         decorID = 2430,
@@ -16560,6 +17541,8 @@ NS.CatalogData.Items = {
         vendorUnlockAchievement = "Junkyard Apprentice",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2431] = {
         decorID = 2431,
@@ -16589,6 +17572,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2432] = {
         decorID = 2432,
@@ -16618,6 +17603,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 75, [32] = 100},
     },
     [2433] = {
         decorID = 2433,
@@ -16647,6 +17634,8 @@ NS.CatalogData.Items = {
         expansion = "Battle for Azeroth",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2434] = {
         decorID = 2434,
@@ -16676,6 +17665,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2435] = {
         decorID = 2435,
@@ -16706,6 +17697,8 @@ NS.CatalogData.Items = {
         vendorUnlockAchievement = "Junkyard Scavenger",
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2436] = {
         decorID = 2436,
@@ -16738,6 +17731,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2437] = {
         decorID = 2437,
@@ -16770,6 +17765,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2438] = {
         decorID = 2438,
@@ -16799,6 +17796,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1, 2},
         subcategoryIDs = {9, 6},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2439] = {
         decorID = 2439,
@@ -16835,6 +17834,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2440] = {
         decorID = 2440,
@@ -16871,6 +17872,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2441] = {
         decorID = 2441,
@@ -16907,6 +17910,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {6, 34},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2442] = {
         decorID = 2442,
@@ -16943,6 +17948,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2443] = {
         decorID = 2443,
@@ -16979,6 +17986,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2444] = {
         decorID = 2444,
@@ -17015,6 +18024,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2445] = {
         decorID = 2445,
@@ -17051,6 +18062,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {24, 28},
+        themeScores = {[24] = 96, [28] = 100},
     },
     [2446] = {
         decorID = 2446,
@@ -17088,6 +18101,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100, [28] = 57},
     },
     [2447] = {
         decorID = 2447,
@@ -17124,6 +18139,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24, 28},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100, [28] = 57},
     },
     [2448] = {
         decorID = 2448,
@@ -17160,6 +18177,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 23, 28},
+        themeScores = {[6] = 84, [23] = 84, [28] = 100},
     },
     [2452] = {
         decorID = 2452,
@@ -17192,6 +18211,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {4, 20, 28},
+        themeScores = {[4] = 100, [20] = 25, [28] = 75},
     },
     [2453] = {
         decorID = 2453,
@@ -17228,6 +18249,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {13},
+        themeScores = {[13] = 100},
     },
     [2454] = {
         decorID = 2454,
@@ -17265,6 +18288,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [2458] = {
         decorID = 2458,
@@ -17301,6 +18326,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26, 33},
+        themeScores = {[2] = 30, [5] = 58, [11] = 31, [19] = 32, [20] = 30, [21] = 32, [26] = 100, [33] = 29},
     },
     [2459] = {
         decorID = 2459,
@@ -17333,6 +18360,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 96, [19] = 94, [21] = 44, [23] = 50, [26] = 100, [31] = 69},
     },
     [2460] = {
         decorID = 2460,
@@ -17365,6 +18394,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 78, [5] = 96, [19] = 50, [23] = 99, [24] = 56, [26] = 100, [31] = 50},
     },
     [2465] = {
         decorID = 2465,
@@ -17397,6 +18428,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2466] = {
         decorID = 2466,
@@ -17434,6 +18467,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [2467] = {
         decorID = 2467,
@@ -17470,6 +18505,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [2468] = {
         decorID = 2468,
@@ -17502,6 +18539,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {6},
+        themeScores = {[6] = 100},
     },
     [2469] = {
         decorID = 2469,
@@ -17538,6 +18577,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2, 5},
+        themeScores = {[2] = 100, [5] = 66},
     },
     [2470] = {
         decorID = 2470,
@@ -17567,6 +18608,8 @@ NS.CatalogData.Items = {
         expansion = "The War Within",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {4, 5, 6, 19, 21, 24, 25, 31},
+        themeScores = {[4] = 30, [5] = 51, [6] = 46, [19] = 100, [21] = 100, [24] = 48, [25] = 48, [31] = 99},
     },
     [2471] = {
         decorID = 2471,
@@ -17599,6 +18642,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {4, 31},
+        themeScores = {[4] = 30, [31] = 100},
     },
     [2472] = {
         decorID = 2472,
@@ -17631,6 +18676,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {4, 31},
+        themeScores = {[4] = 40, [31] = 100},
     },
     [2474] = {
         decorID = 2474,
@@ -17667,6 +18714,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26},
+        themeScores = {[2] = 30, [5] = 51, [11] = 29, [19] = 32, [20] = 30, [21] = 32, [26] = 100},
     },
     [2495] = {
         decorID = 2495,
@@ -17740,6 +18789,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [2503] = {
         decorID = 2503,
@@ -17772,6 +18823,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18, 19},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [2510] = {
         decorID = 2510,
@@ -17844,6 +18897,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [2512] = {
         decorID = 2512,
@@ -17874,6 +18929,8 @@ NS.CatalogData.Items = {
         dropRate = 0.08,
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14, 23},
+        themeScores = {[14] = 35, [23] = 100},
     },
     [2513] = {
         decorID = 2513,
@@ -17910,6 +18967,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 30},
+        themeScores = {[23] = 100, [30] = 25},
     },
     [2514] = {
         decorID = 2514,
@@ -17946,6 +19005,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 21, 23, 24},
+        themeScores = {[19] = 63, [21] = 32, [23] = 100, [24] = 65},
     },
     [2516] = {
         decorID = 2516,
@@ -17979,6 +19040,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 12, 17, 19, 24},
+        themeScores = {[5] = 47, [12] = 28, [17] = 100, [19] = 48, [24] = 100},
     },
     [2517] = {
         decorID = 2517,
@@ -18012,6 +19075,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [2523] = {
         decorID = 2523,
@@ -18041,6 +19106,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {15},
+        themeScores = {[15] = 100},
     },
     [2526] = {
         decorID = 2526,
@@ -18077,6 +19144,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 23, 24},
+        themeScores = {[17] = 71, [23] = 100, [24] = 48},
     },
     [2529] = {
         decorID = 2529,
@@ -18113,6 +19182,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 23},
+        themeScores = {[2] = 27, [23] = 100},
     },
     [2530] = {
         decorID = 2530,
@@ -18146,6 +19217,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 23, 26},
+        themeScores = {[2] = 45, [23] = 100, [26] = 36},
     },
     [2531] = {
         decorID = 2531,
@@ -18176,6 +19249,8 @@ NS.CatalogData.Items = {
         dropRate = 0.12,
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26},
+        themeScores = {[1] = 30, [5] = 30, [19] = 30, [23] = 100, [26] = 74},
     },
     [2532] = {
         decorID = 2532,
@@ -18209,6 +19284,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 23},
+        themeScores = {[5] = 34, [23] = 100},
     },
     [2533] = {
         decorID = 2533,
@@ -18242,6 +19319,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {4, 23},
+        themeScores = {[4] = 32, [23] = 100},
     },
     [2534] = {
         decorID = 2534,
@@ -18279,6 +19358,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 100, [29] = 100},
     },
     [2535] = {
         decorID = 2535,
@@ -18316,6 +19397,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [2545] = {
         decorID = 2545,
@@ -18352,6 +19435,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [2546] = {
         decorID = 2546,
@@ -18389,6 +19474,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [2547] = {
         decorID = 2547,
@@ -18425,6 +19512,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24, 28, 29},
+        themeScores = {[17] = 88, [24] = 88, [28] = 50, [29] = 100},
     },
     [2548] = {
         decorID = 2548,
@@ -18462,6 +19551,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 50, [29] = 100},
     },
     [2549] = {
         decorID = 2549,
@@ -18499,6 +19590,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 17, 19, 24, 28, 29},
+        themeScores = {[6] = 76, [17] = 84, [19] = 84, [24] = 84, [28] = 50, [29] = 100},
     },
     [2550] = {
         decorID = 2550,
@@ -18535,6 +19628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24, 28, 29},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100, [28] = 28, [29] = 57},
     },
     [2588] = {
         decorID = 2588,
@@ -18567,6 +19662,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 3},
         subcategoryIDs = {13, 29, 11},
+        themeIDs = {9, 24, 25},
+        themeScores = {[9] = 51, [24] = 100, [25] = 51},
     },
     [2590] = {
         decorID = 2590,
@@ -18603,6 +19700,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 1},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26},
+        themeScores = {[2] = 30, [5] = 82, [11] = 29, [19] = 32, [20] = 30, [21] = 32, [26] = 100},
     },
     [2591] = {
         decorID = 2591,
@@ -18635,6 +19734,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {14, 31},
+        themeScores = {[14] = 69, [31] = 100},
     },
     [2592] = {
         decorID = 2592,
@@ -18672,6 +19773,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 50, [29] = 100},
     },
     [2593] = {
         decorID = 2593,
@@ -18704,6 +19807,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [2594] = {
         decorID = 2594,
@@ -18740,6 +19845,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [2595] = {
         decorID = 2595,
@@ -18772,6 +19879,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2, 31},
+        themeScores = {[2] = 38, [31] = 100},
     },
     [2596] = {
         decorID = 2596,
@@ -18804,6 +19913,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2, 6},
+        themeScores = {[2] = 91, [6] = 100},
     },
     [2605] = {
         decorID = 2605,
@@ -18840,6 +19951,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
+        themeIDs = {25, 29},
+        themeScores = {[25] = 100, [29] = 33},
     },
     [3826] = {
         decorID = 3826,
@@ -18876,6 +19989,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {2, 17, 20, 24, 26},
+        themeScores = {[2] = 30, [17] = 34, [20] = 30, [24] = 34, [26] = 100},
     },
     [3827] = {
         decorID = 3827,
@@ -18912,6 +20027,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {5, 11, 26, 28},
+        themeScores = {[5] = 66, [11] = 80, [26] = 100, [28] = 50},
     },
     [3831] = {
         decorID = 3831,
@@ -18944,6 +20061,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3832] = {
         decorID = 3832,
@@ -18976,6 +20095,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 14, 23, 26, 27},
+        themeScores = {[6] = 64, [14] = 100, [23] = 77, [26] = 38, [27] = 57},
     },
     [3833] = {
         decorID = 3833,
@@ -19008,6 +20129,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 14, 23, 26},
+        themeScores = {[6] = 46, [14] = 72, [23] = 100, [26] = 27},
     },
     [3837] = {
         decorID = 3837,
@@ -19074,6 +20197,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 15},
+        themeIDs = {19, 21, 23, 24, 25, 33},
+        themeScores = {[19] = 97, [21] = 50, [23] = 100, [24] = 97, [25] = 50, [33] = 30},
     },
     [3839] = {
         decorID = 3839,
@@ -19106,6 +20231,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {14, 23, 24, 26},
+        themeScores = {[14] = 100, [23] = 85, [24] = 84, [26] = 43},
     },
     [3840] = {
         decorID = 3840,
@@ -19138,6 +20265,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 13},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3867] = {
         decorID = 3867,
@@ -19171,6 +20300,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 2},
         subcategoryIDs = {3, 9, 51},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 46, [19] = 46, [24] = 100},
     },
     [3868] = {
         decorID = 3868,
@@ -19203,6 +20334,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3869] = {
         decorID = 3869,
@@ -19236,6 +20369,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4, 2},
         subcategoryIDs = {10, 16},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3870] = {
         decorID = 3870,
@@ -19268,6 +20403,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3871] = {
         decorID = 3871,
@@ -19300,6 +20437,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3872] = {
         decorID = 3872,
@@ -19332,6 +20471,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4, 3},
         subcategoryIDs = {11, 18, 16},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3873] = {
         decorID = 3873,
@@ -19364,6 +20505,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 3},
         subcategoryIDs = {22, 13},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3874] = {
         decorID = 3874,
@@ -19396,6 +20539,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10, 9},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3875] = {
         decorID = 3875,
@@ -19428,6 +20573,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 100},
     },
     [3876] = {
         decorID = 3876,
@@ -19460,6 +20607,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3877] = {
         decorID = 3877,
@@ -19492,6 +20641,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 6, 13},
+        themeIDs = {14, 26, 31},
+        themeScores = {[14] = 100, [26] = 43, [31] = 29},
     },
     [3878] = {
         decorID = 3878,
@@ -19524,6 +20675,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3880] = {
         decorID = 3880,
@@ -19561,6 +20714,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [3881] = {
         decorID = 3881,
@@ -19596,6 +20751,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
             Horde = { name = "Joruh", npcID = 254606, x = 38.8, y = 72, zone = "Orgrimmar", mapID = 85 },
         },
+        themeIDs = {2, 14, 20, 26},
+        themeScores = {[2] = 50, [14] = 31, [20] = 50, [26] = 100},
     },
     [3884] = {
         decorID = 3884,
@@ -19629,6 +20786,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3885] = {
         decorID = 3885,
@@ -19662,6 +20821,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3886] = {
         decorID = 3886,
@@ -19695,6 +20856,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3887] = {
         decorID = 3887,
@@ -19728,6 +20891,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3890] = {
         decorID = 3890,
@@ -19765,6 +20930,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 26, [5] = 26, [19] = 73, [23] = 49, [24] = 91, [26] = 100, [31] = 26},
     },
     [3891] = {
         decorID = 3891,
@@ -19797,6 +20964,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {32},
+        themeScores = {[32] = 100},
     },
     [3892] = {
         decorID = 3892,
@@ -19829,6 +20998,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4, 2},
         subcategoryIDs = {16, 10, 7},
+        themeIDs = {6, 14, 23, 26},
+        themeScores = {[6] = 64, [14] = 100, [23] = 64, [26] = 38},
     },
     [3893] = {
         decorID = 3893,
@@ -19866,6 +21037,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 29},
+        themeScores = {[20] = 33, [29] = 100},
     },
     [3894] = {
         decorID = 3894,
@@ -19899,6 +21072,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3895] = {
         decorID = 3895,
@@ -19932,6 +21107,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3896] = {
         decorID = 3896,
@@ -19965,6 +21142,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3897] = {
         decorID = 3897,
@@ -19998,6 +21177,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [3898] = {
         decorID = 3898,
@@ -20035,6 +21216,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 29},
+        themeScores = {[20] = 33, [29] = 100},
     },
     [3899] = {
         decorID = 3899,
@@ -20072,6 +21255,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 29},
+        themeScores = {[20] = 33, [29] = 100},
     },
     [3900] = {
         decorID = 3900,
@@ -20106,6 +21291,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 66, [27] = 100},
     },
     [3902] = {
         decorID = 3902,
@@ -20140,6 +21327,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10},
+        themeScores = {[10] = 100},
     },
     [3903] = {
         decorID = 3903,
@@ -20174,6 +21363,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10},
+        themeScores = {[10] = 100},
     },
     [3904] = {
         decorID = 3904,
@@ -20206,6 +21397,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3905] = {
         decorID = 3905,
@@ -20240,6 +21433,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10},
+        themeScores = {[10] = 100},
     },
     [3906] = {
         decorID = 3906,
@@ -20274,6 +21469,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10, 33},
+        themeScores = {[10] = 66, [33] = 100},
     },
     [3907] = {
         decorID = 3907,
@@ -20308,6 +21505,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 21, 23, 24},
+        themeScores = {[19] = 100, [21] = 81, [23] = 100, [24] = 100},
     },
     [3922] = {
         decorID = 3922,
@@ -20340,6 +21539,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [3981] = {
         decorID = 3981,
@@ -20376,6 +21577,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 2},
         subcategoryIDs = {9, 1},
+        themeIDs = {5, 12, 19, 21, 33},
+        themeScores = {[5] = 100, [12] = 30, [19] = 39, [21] = 39, [33] = 35},
     },
     [3982] = {
         decorID = 3982,
@@ -20409,6 +21612,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {5, 11, 19, 21, 33},
+        themeScores = {[5] = 100, [11] = 72, [19] = 39, [21] = 39, [33] = 35},
     },
     [3983] = {
         decorID = 3983,
@@ -20442,6 +21647,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 12, 19, 21, 24, 26, 33},
+        themeScores = {[5] = 91, [11] = 52, [12] = 34, [19] = 57, [21] = 100, [24] = 65, [26] = 34, [33] = 52},
     },
     [3984] = {
         decorID = 3984,
@@ -20475,6 +21682,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 11, 12, 26, 33},
+        themeScores = {[5] = 86, [11] = 50, [12] = 43, [26] = 32, [33] = 100},
     },
     [3985] = {
         decorID = 3985,
@@ -20508,6 +21717,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 19, 21},
+        themeScores = {[5] = 100, [19] = 39, [21] = 39},
     },
     [3993] = {
         decorID = 3993,
@@ -20540,6 +21751,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 38},
     },
     [3994] = {
         decorID = 3994,
@@ -20572,6 +21785,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [3995] = {
         decorID = 3995,
@@ -20608,6 +21823,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
+        themeIDs = {14, 26},
+        themeScores = {[14] = 100, [26] = 43},
     },
     [4022] = {
         decorID = 4022,
@@ -20641,6 +21858,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 11, 12, 17, 19, 21, 24},
+        themeScores = {[5] = 100, [11] = 72, [12] = 30, [17] = 40, [19] = 62, [21] = 39, [24] = 40},
     },
     [4023] = {
         decorID = 4023,
@@ -20673,6 +21892,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 11, 12, 24, 26},
+        themeScores = {[5] = 51, [11] = 79, [12] = 51, [24] = 100, [26] = 51},
     },
     [4024] = {
         decorID = 4024,
@@ -20706,6 +21927,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {5, 12, 19, 21, 24, 26},
+        themeScores = {[5] = 100, [12] = 38, [19] = 58, [21] = 58, [24] = 73, [26] = 38},
     },
     [4025] = {
         decorID = 4025,
@@ -20739,6 +21962,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 12, 26, 33},
+        themeScores = {[5] = 97, [12] = 32, [26] = 32, [33] = 100},
     },
     [4026] = {
         decorID = 4026,
@@ -20771,6 +21996,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 11, 12, 23, 26, 33},
+        themeScores = {[5] = 97, [6] = 55, [11] = 52, [12] = 32, [23] = 55, [26] = 32, [33] = 100},
     },
     [4027] = {
         decorID = 4027,
@@ -20801,6 +22028,8 @@ NS.CatalogData.Items = {
         dropRate = 0.02,
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 19, 21, 26},
+        themeScores = {[5] = 100, [11] = 72, [19] = 39, [21] = 39, [26] = 30},
     },
     [4028] = {
         decorID = 4028,
@@ -20834,6 +22063,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 19, 21, 24, 26, 33},
+        themeScores = {[5] = 100, [11] = 35, [19] = 39, [21] = 39, [24] = 44, [26] = 30, [33] = 35},
     },
     [4029] = {
         decorID = 4029,
@@ -20867,6 +22098,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 12, 26},
+        themeScores = {[5] = 65, [11] = 100, [12] = 65, [26] = 65},
     },
     [4030] = {
         decorID = 4030,
@@ -20899,6 +22132,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 12, 24, 26},
+        themeScores = {[5] = 51, [11] = 79, [12] = 51, [24] = 100, [26] = 51},
     },
     [4031] = {
         decorID = 4031,
@@ -20935,6 +22170,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 12, 24, 26, 33},
+        themeScores = {[5] = 51, [11] = 79, [12] = 51, [24] = 100, [26] = 51, [33] = 79},
     },
     [4032] = {
         decorID = 4032,
@@ -20967,6 +22204,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 12, 19, 21, 23, 26, 33},
+        themeScores = {[5] = 83, [11] = 100, [12] = 42, [19] = 48, [21] = 88, [23] = 42, [26] = 31, [33] = 48},
     },
     [4033] = {
         decorID = 4033,
@@ -20999,6 +22238,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 12, 23, 26, 33},
+        themeScores = {[5] = 100, [6] = 57, [12] = 33, [23] = 57, [26] = 33, [33] = 50},
     },
     [4034] = {
         decorID = 4034,
@@ -21031,6 +22272,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 12, 19, 21, 24, 25, 26},
+        themeScores = {[5] = 100, [12] = 33, [19] = 54, [21] = 54, [24] = 54, [25] = 54, [26] = 33},
     },
     [4035] = {
         decorID = 4035,
@@ -21064,6 +22307,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 12, 26, 33},
+        themeScores = {[5] = 83, [11] = 100, [12] = 42, [26] = 31, [33] = 48},
     },
     [4036] = {
         decorID = 4036,
@@ -21097,6 +22342,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 11, 12, 24, 26},
+        themeScores = {[5] = 51, [11] = 79, [12] = 51, [24] = 100, [26] = 51},
     },
     [4037] = {
         decorID = 4037,
@@ -21129,6 +22376,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 12, 19, 21, 26, 33},
+        themeScores = {[5] = 86, [12] = 32, [19] = 84, [21] = 40, [26] = 32, [33] = 100},
     },
     [4038] = {
         decorID = 4038,
@@ -21162,6 +22411,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 12, 24, 26},
+        themeScores = {[5] = 51, [12] = 51, [24] = 100, [26] = 51},
     },
     [4039] = {
         decorID = 4039,
@@ -21194,6 +22445,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 100, [11] = 35, [19] = 39, [21] = 39},
     },
     [4040] = {
         decorID = 4040,
@@ -21231,6 +22484,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {5, 6, 11, 12, 19, 21, 23, 24, 26, 33},
+        themeScores = {[5] = 100, [6] = 63, [11] = 57, [12] = 37, [19] = 62, [21] = 62, [23] = 63, [24] = 71, [26] = 37, [33] = 57},
     },
     [4041] = {
         decorID = 4041,
@@ -21263,6 +22518,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 12, 26, 33},
+        themeScores = {[5] = 43, [12] = 32, [26] = 32, [33] = 100},
     },
     [4042] = {
         decorID = 4042,
@@ -21295,6 +22552,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
+        themeIDs = {2, 20, 24, 26},
+        themeScores = {[2] = 50, [20] = 50, [24] = 60, [26] = 100},
     },
     [4159] = {
         decorID = 4159,
@@ -21327,6 +22586,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4160] = {
         decorID = 4160,
@@ -21360,6 +22621,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 100},
     },
     [4161] = {
         decorID = 4161,
@@ -21393,6 +22656,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4162] = {
         decorID = 4162,
@@ -21425,6 +22690,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4163] = {
         decorID = 4163,
@@ -21458,6 +22725,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4164] = {
         decorID = 4164,
@@ -21490,6 +22759,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 19, 21, 24, 26},
+        themeScores = {[2] = 100, [5] = 70, [19] = 70, [21] = 70, [24] = 80, [26] = 41},
     },
     [4165] = {
         decorID = 4165,
@@ -21523,6 +22794,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {2, 24, 26},
+        themeScores = {[2] = 100, [24] = 80, [26] = 41},
     },
     [4166] = {
         decorID = 4166,
@@ -21555,6 +22828,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {2, 11, 24, 26},
+        themeScores = {[2] = 100, [11] = 67, [24] = 80, [26] = 41},
     },
     [4167] = {
         decorID = 4167,
@@ -21587,6 +22862,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 3},
         subcategoryIDs = {29, 11, 26},
+        themeIDs = {2, 20, 24, 26},
+        themeScores = {[2] = 95, [20] = 38, [24] = 46, [26] = 100},
     },
     [4168] = {
         decorID = 4168,
@@ -21619,6 +22896,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4169] = {
         decorID = 4169,
@@ -21651,6 +22930,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34, 11},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 95, [20] = 38, [26] = 100},
     },
     [4170] = {
         decorID = 4170,
@@ -21683,6 +22964,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {2, 19, 20, 21, 26},
+        themeScores = {[2] = 95, [19] = 36, [20] = 38, [21] = 36, [26] = 100},
     },
     [4172] = {
         decorID = 4172,
@@ -21715,6 +22998,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 95, [20] = 38, [26] = 100},
     },
     [4173] = {
         decorID = 4173,
@@ -21747,6 +23032,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 23, 26},
+        themeScores = {[2] = 45, [23] = 100, [26] = 47},
     },
     [4174] = {
         decorID = 4174,
@@ -21779,6 +23066,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 23},
+        themeScores = {[2] = 28, [23] = 100},
     },
     [4175] = {
         decorID = 4175,
@@ -21811,6 +23100,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 23, 24},
+        themeScores = {[6] = 26, [23] = 100, [24] = 30},
     },
     [4176] = {
         decorID = 4176,
@@ -21843,6 +23134,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [4177] = {
         decorID = 4177,
@@ -21875,6 +23168,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4180] = {
         decorID = 4180,
@@ -21908,6 +23203,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2, 19, 20, 23, 24, 26},
+        themeScores = {[2] = 94, [19] = 47, [20] = 50, [23] = 47, [24] = 47, [26] = 100},
     },
     [4181] = {
         decorID = 4181,
@@ -21941,6 +23238,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {21, 24},
+        themeScores = {[21] = 64, [24] = 100},
     },
     [4386] = {
         decorID = 4386,
@@ -21978,6 +23277,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [4401] = {
         decorID = 4401,
@@ -22008,6 +23309,8 @@ NS.CatalogData.Items = {
         dropRate = 0.19,
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [4402] = {
         decorID = 4402,
@@ -22040,6 +23343,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [4403] = {
         decorID = 4403,
@@ -22074,6 +23379,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 10, 19, 21, 29},
+        themeScores = {[5] = 84, [10] = 50, [19] = 84, [21] = 84, [29] = 100},
     },
     [4404] = {
         decorID = 4404,
@@ -22111,6 +23418,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 10, 19, 21, 29},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100, [29] = 59},
     },
     [4405] = {
         decorID = 4405,
@@ -22147,6 +23456,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [4406] = {
         decorID = 4406,
@@ -22179,6 +23490,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29},
+        themeIDs = {2, 11, 18, 25, 33},
+        themeScores = {[2] = 87, [11] = 100, [18] = 71, [25] = 61, [33] = 71},
     },
     [4407] = {
         decorID = 4407,
@@ -22211,6 +23524,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29},
+        themeIDs = {2, 11, 18, 25, 33},
+        themeScores = {[2] = 87, [11] = 100, [18] = 71, [25] = 61, [33] = 71},
     },
     [4408] = {
         decorID = 4408,
@@ -22243,6 +23558,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29},
+        themeIDs = {2, 18, 33},
+        themeScores = {[2] = 100, [18] = 82, [33] = 82},
     },
     [4423] = {
         decorID = 4423,
@@ -22279,6 +23596,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 12},
+        themeIDs = {5, 11, 33},
+        themeScores = {[5] = 32, [11] = 100, [33] = 73},
     },
     [4424] = {
         decorID = 4424,
@@ -22315,6 +23634,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {32},
+        themeScores = {[32] = 100},
     },
     [4425] = {
         decorID = 4425,
@@ -22351,6 +23672,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [4427] = {
         decorID = 4427,
@@ -22459,6 +23782,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {26, 31},
+        themeScores = {[26] = 42, [31] = 100},
     },
     [4443] = {
         decorID = 4443,
@@ -22491,6 +23816,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {10, 29, 31},
+        themeScores = {[10] = 100, [29] = 100, [31] = 33},
     },
     [4444] = {
         decorID = 4444,
@@ -22527,6 +23854,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 15},
+        themeIDs = {5, 10, 19, 21, 24, 25, 29},
+        themeScores = {[5] = 46, [10] = 32, [19] = 53, [21] = 100, [24] = 53, [25] = 53, [29] = 65},
     },
     [4445] = {
         decorID = 4445,
@@ -22559,6 +23888,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {10, 24, 29},
+        themeScores = {[10] = 51, [24] = 100, [29] = 51},
     },
     [4446] = {
         decorID = 4446,
@@ -22591,6 +23922,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8, 2},
         subcategoryIDs = {25, 29, 34, 10},
+        themeIDs = {5, 10, 19, 21, 24, 29},
+        themeScores = {[5] = 52, [10] = 30, [19] = 100, [21] = 100, [24] = 59, [29] = 30},
     },
     [4447] = {
         decorID = 4447,
@@ -22627,6 +23960,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 3, 8, 2},
         subcategoryIDs = {25, 29, 34, 11, 10},
+        themeIDs = {5, 10, 11, 19, 21, 24, 29},
+        themeScores = {[5] = 84, [10] = 50, [11] = 80, [19] = 84, [21] = 84, [24] = 96, [29] = 100},
     },
     [4448] = {
         decorID = 4448,
@@ -22663,6 +23998,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2, 8},
         subcategoryIDs = {9, 34},
+        themeIDs = {10, 17, 19, 24, 29},
+        themeScores = {[10] = 27, [17] = 46, [19] = 46, [24] = 100, [29] = 55},
     },
     [4451] = {
         decorID = 4451,
@@ -22771,6 +24108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29, 25},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 48, [24] = 100},
     },
     [4454] = {
         decorID = 4454,
@@ -22807,6 +24146,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {27},
+        themeScores = {[27] = 100},
     },
     [4455] = {
         decorID = 4455,
@@ -22843,6 +24184,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 26},
+        themeIDs = {5, 11, 19, 21, 31},
+        themeScores = {[5] = 51, [11] = 48, [19] = 51, [21] = 89, [31] = 100},
     },
     [4456] = {
         decorID = 4456,
@@ -22879,6 +24222,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 53, [11] = 100, [19] = 53, [21] = 53},
     },
     [4457] = {
         decorID = 4457,
@@ -22915,6 +24260,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25},
+        themeIDs = {1, 5, 6, 11, 17, 19, 21, 23, 24, 25, 26, 31},
+        themeScores = {[1] = 33, [5] = 33, [6] = 30, [11] = 31, [17] = 68, [19] = 99, [21] = 31, [23] = 33, [24] = 100, [25] = 31, [26] = 67, [31] = 33},
     },
     [4458] = {
         decorID = 4458,
@@ -23023,6 +24370,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {27},
+        themeScores = {[27] = 100},
     },
     [4461] = {
         decorID = 4461,
@@ -23131,6 +24480,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [4464] = {
         decorID = 4464,
@@ -23167,6 +24518,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26, 27},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [11] = 46, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [4465] = {
         decorID = 4465,
@@ -23203,6 +24556,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 50, [19] = 70, [23] = 46, [24] = 100},
     },
     [4466] = {
         decorID = 4466,
@@ -23239,6 +24594,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25},
+        themeIDs = {5, 11, 17, 19, 21, 24},
+        themeScores = {[5] = 95, [11] = 91, [17] = 100, [19] = 95, [21] = 95, [24] = 100},
     },
     [4467] = {
         decorID = 4467,
@@ -23275,6 +24632,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25},
+        themeIDs = {11, 17, 19, 21, 24, 25, 33},
+        themeScores = {[11] = 47, [17] = 52, [19] = 47, [21] = 47, [24] = 100, [25] = 47, [33] = 45},
     },
     [4468] = {
         decorID = 4468,
@@ -23311,6 +24670,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29, 26, 25},
+        themeIDs = {5, 6, 17, 19, 21, 24},
+        themeScores = {[5] = 45, [6] = 41, [17] = 47, [19] = 45, [21] = 45, [24] = 100},
     },
     [4469] = {
         decorID = 4469,
@@ -23347,6 +24708,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25},
+        themeIDs = {11, 17, 19, 21, 24, 25, 33},
+        themeScores = {[11] = 47, [17] = 52, [19] = 47, [21] = 47, [24] = 100, [25] = 47, [33] = 45},
     },
     [4470] = {
         decorID = 4470,
@@ -23383,6 +24746,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {5, 11, 19, 21},
+        themeScores = {[5] = 57, [11] = 55, [19] = 57, [21] = 100},
     },
     [4471] = {
         decorID = 4471,
@@ -23419,6 +24784,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {6, 11, 23},
+        themeScores = {[6] = 100, [11] = 45, [23] = 47},
     },
     [4472] = {
         decorID = 4472,
@@ -23455,6 +24822,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27},
+        themeIDs = {1, 5, 19, 23, 25, 26, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [25] = 28, [26] = 100, [31] = 50},
     },
     [4473] = {
         decorID = 4473,
@@ -23527,6 +24896,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 29},
+        themeIDs = {1, 5, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [17] = 51, [19] = 50, [23] = 50, [24] = 51, [26] = 100, [31] = 50},
     },
     [4475] = {
         decorID = 4475,
@@ -23635,6 +25006,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 8},
         subcategoryIDs = {34, 11},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4478] = {
         decorID = 4478,
@@ -23667,6 +25040,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {2, 20, 24, 26},
+        themeScores = {[2] = 71, [20] = 38, [24] = 46, [26] = 100},
     },
     [4479] = {
         decorID = 4479,
@@ -23703,6 +25078,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 71},
     },
     [4480] = {
         decorID = 4480,
@@ -23735,6 +25112,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 66, [20] = 35, [26] = 100},
     },
     [4481] = {
         decorID = 4481,
@@ -23768,6 +25147,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2, 5, 23, 26},
+        themeScores = {[2] = 100, [5] = 66, [23] = 55, [26] = 41},
     },
     [4482] = {
         decorID = 4482,
@@ -23801,6 +25182,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 20, 26, 27},
+        themeScores = {[2] = 71, [20] = 38, [26] = 100, [27] = 36},
     },
     [4483] = {
         decorID = 4483,
@@ -23833,6 +25216,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [4484] = {
         decorID = 4484,
@@ -23869,6 +25254,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 26, 28},
+        themeScores = {[5] = 66, [11] = 80, [26] = 100, [28] = 50},
     },
     [4485] = {
         decorID = 4485,
@@ -23903,6 +25290,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 10, 19, 21, 29},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100, [29] = 59},
     },
     [4486] = {
         decorID = 4486,
@@ -23937,6 +25326,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 10, 17, 23, 24, 29},
+        themeScores = {[6] = 83, [10] = 49, [17] = 86, [23] = 100, [24] = 86, [29] = 49},
     },
     [4487] = {
         decorID = 4487,
@@ -23973,6 +25364,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [4488] = {
         decorID = 4488,
@@ -24008,6 +25401,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 10, 19, 21, 29},
+        themeScores = {[5] = 84, [10] = 50, [19] = 84, [21] = 84, [29] = 100},
     },
     [4490] = {
         decorID = 4490,
@@ -24040,6 +25435,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [4560] = {
         decorID = 4560,
@@ -24072,6 +25469,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 38},
     },
     [4561] = {
         decorID = 4561,
@@ -24104,6 +25503,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {11, 33},
+        themeScores = {[11] = 100, [33] = 37},
     },
     [4562] = {
         decorID = 4562,
@@ -24141,6 +25542,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 11, 20, 26},
+        themeScores = {[2] = 30, [5] = 25, [11] = 31, [20] = 30, [26] = 100},
     },
     [4811] = {
         decorID = 4811,
@@ -24173,6 +25576,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [4812] = {
         decorID = 4812,
@@ -24205,6 +25610,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [4813] = {
         decorID = 4813,
@@ -24238,6 +25645,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [4814] = {
         decorID = 4814,
@@ -24274,6 +25683,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {6, 17, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 60, [17] = 33, [19] = 30, [21] = 30, [23] = 64, [24] = 100, [25] = 30},
     },
     [4815] = {
         decorID = 4815,
@@ -24310,6 +25721,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 17, 19, 24, 29},
+        themeScores = {[10] = 28, [17] = 100, [19] = 48, [24] = 100, [29] = 28},
     },
     [4816] = {
         decorID = 4816,
@@ -24343,6 +25756,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 27, 29},
+        themeScores = {[10] = 66, [27] = 100, [29] = 66},
     },
     [4818] = {
         decorID = 4818,
@@ -24376,6 +25791,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {34, 5},
+        themeIDs = {6, 10, 23, 27, 29},
+        themeScores = {[6] = 100, [10] = 58, [23] = 100, [27] = 89, [29] = 58},
     },
     [4819] = {
         decorID = 4819,
@@ -24412,6 +25829,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 20, 29},
+        themeScores = {[10] = 100, [20] = 33, [29] = 100},
     },
     [4822] = {
         decorID = 4822,
@@ -24448,6 +25867,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 26},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [4823] = {
         decorID = 4823,
@@ -24484,6 +25905,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 26},
+        themeIDs = {5, 19, 21, 25},
+        themeScores = {[5] = 100, [19] = 100, [21] = 100, [25] = 59},
     },
     [4839] = {
         decorID = 4839,
@@ -24517,6 +25940,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {6, 10, 29},
+        themeScores = {[6] = 100, [10] = 65, [29] = 65},
     },
     [4841] = {
         decorID = 4841,
@@ -24550,6 +25975,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {6, 10, 29},
+        themeScores = {[6] = 100, [10] = 65, [29] = 65},
     },
     [4843] = {
         decorID = 4843,
@@ -24580,6 +26007,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {24, 33},
+        themeScores = {[24] = 81, [33] = 100},
     },
     [4844] = {
         decorID = 4844,
@@ -24613,6 +26042,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {10, 17, 24, 29},
+        themeScores = {[10] = 56, [17] = 100, [24] = 100, [29] = 56},
     },
     [4845] = {
         decorID = 4845,
@@ -24649,6 +26080,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 26},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [5111] = {
         decorID = 5111,
@@ -24685,6 +26118,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Dornogal",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 14, 20, 26},
+        themeScores = {[2] = 50, [14] = 72, [20] = 50, [26] = 100},
     },
     [5112] = {
         decorID = 5112,
@@ -24717,6 +26152,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {14, 20},
+        themeScores = {[14] = 100, [20] = 25},
     },
     [5113] = {
         decorID = 5113,
@@ -24749,6 +26186,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {11, 10},
+        themeIDs = {14, 27, 30},
+        themeScores = {[14] = 77, [27] = 90, [30] = 100},
     },
     [5115] = {
         decorID = 5115,
@@ -24785,6 +26224,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 10, 17, 19, 21, 24, 29},
+        themeScores = {[5] = 40, [10] = 28, [17] = 100, [19] = 48, [21] = 40, [24] = 100, [29] = 28},
     },
     [5116] = {
         decorID = 5116,
@@ -24817,6 +26258,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [5117] = {
         decorID = 5117,
@@ -24849,6 +26292,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 3, 8},
         subcategoryIDs = {34, 11, 51},
+        themeIDs = {17, 19, 22, 24},
+        themeScores = {[17] = 88, [19] = 31, [22] = 46, [24] = 100},
     },
     [5119] = {
         decorID = 5119,
@@ -24881,6 +26326,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {14, 27},
+        themeScores = {[14] = 85, [27] = 100},
     },
     [5120] = {
         decorID = 5120,
@@ -24913,6 +26360,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 22, 24},
+        themeScores = {[17] = 88, [19] = 31, [22] = 46, [24] = 100},
     },
     [5126] = {
         decorID = 5126,
@@ -24945,6 +26394,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [5127] = {
         decorID = 5127,
@@ -24977,6 +26428,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 6, 17, 19, 21, 22, 23, 24, 33},
+        themeScores = {[5] = 67, [6] = 68, [17] = 70, [19] = 67, [21] = 67, [22] = 100, [23] = 81, [24] = 70, [33] = 40},
     },
     [5128] = {
         decorID = 5128,
@@ -25009,6 +26462,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {14, 9},
+        themeIDs = {17, 22, 24, 33},
+        themeScores = {[17] = 83, [22] = 67, [24] = 100, [33] = 26},
     },
     [5132] = {
         decorID = 5132,
@@ -25041,6 +26496,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {18, 24, 33},
+        themeScores = {[18] = 28, [24] = 48, [33] = 100},
     },
     [5133] = {
         decorID = 5133,
@@ -25073,6 +26530,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 15},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 50, [26] = 100},
     },
     [5136] = {
         decorID = 5136,
@@ -25106,6 +26565,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [5292] = {
         decorID = 5292,
@@ -25138,6 +26599,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
+        themeIDs = {17, 22, 33},
+        themeScores = {[17] = 53, [22] = 100, [33] = 40},
     },
     [5342] = {
         decorID = 5342,
@@ -25170,6 +26633,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {6, 17, 23},
+        themeScores = {[6] = 100, [17] = 30, [23] = 40},
     },
     [5525] = {
         decorID = 5525,
@@ -25202,6 +26667,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
+        themeIDs = {22, 24},
+        themeScores = {[22] = 100, [24] = 90},
     },
     [5526] = {
         decorID = 5526,
@@ -25266,6 +26733,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {12, 6},
+        themeIDs = {22},
+        themeScores = {[22] = 100},
     },
     [5528] = {
         decorID = 5528,
@@ -25330,6 +26799,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [5530] = {
         decorID = 5530,
@@ -25362,6 +26833,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {22},
+        themeScores = {[22] = 100},
     },
     [5531] = {
         decorID = 5531,
@@ -25394,6 +26867,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 8},
         subcategoryIDs = {34, 11},
+        themeIDs = {22, 24},
+        themeScores = {[22] = 100, [24] = 90},
     },
     [5532] = {
         decorID = 5532,
@@ -25426,6 +26901,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {20},
+        themeScores = {[20] = 33},
     },
     [5534] = {
         decorID = 5534,
@@ -25458,6 +26935,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [5555] = {
         decorID = 5555,
@@ -25490,6 +26969,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {34, 5},
+        themeIDs = {22, 24, 33},
+        themeScores = {[22] = 100, [24] = 68, [33] = 35},
     },
     [5556] = {
         decorID = 5556,
@@ -25522,6 +27003,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 20, 23, 24, 26, 30},
+        themeScores = {[2] = 81, [20] = 50, [23] = 53, [24] = 60, [26] = 100, [30] = 52},
     },
     [5558] = {
         decorID = 5558,
@@ -25554,6 +27037,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 100, [20] = 39, [26] = 79},
     },
     [5559] = {
         decorID = 5559,
@@ -25586,6 +27071,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [5560] = {
         decorID = 5560,
@@ -25622,6 +27109,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [5561] = {
         decorID = 5561,
@@ -25658,6 +27147,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2, 8},
         subcategoryIDs = {9, 34},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [5562] = {
         decorID = 5562,
@@ -25690,6 +27181,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 11},
+        themeIDs = {20, 28},
+        themeScores = {[20] = 33, [28] = 100},
     },
     [5563] = {
         decorID = 5563,
@@ -25726,6 +27219,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 5, 11, 20, 26},
+        themeScores = {[2] = 30, [5] = 56, [11] = 31, [20] = 30, [26] = 100},
     },
     [5564] = {
         decorID = 5564,
@@ -25758,6 +27253,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 37, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [5575] = {
         decorID = 5575,
@@ -25790,6 +27287,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 22, 23, 24},
+        themeScores = {[19] = 44, [22] = 37, [23] = 100, [24] = 70},
     },
     [5651] = {
         decorID = 5651,
@@ -25822,6 +27321,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1},
         subcategoryIDs = {6, 29},
+        themeIDs = {25, 31},
+        themeScores = {[25] = 100, [31] = 33},
     },
     [5689] = {
         decorID = 5689,
@@ -25854,6 +27355,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {2, 17, 24},
+        themeScores = {[2] = 100, [17] = 73, [24] = 73},
     },
     [5853] = {
         decorID = 5853,
@@ -25888,6 +27391,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 50, [29] = 100},
     },
     [5854] = {
         decorID = 5854,
@@ -25924,6 +27429,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [5877] = {
         decorID = 5877,
@@ -25956,6 +27463,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 19, 21},
+        themeScores = {[5] = 47, [19] = 52, [21] = 100},
     },
     [5878] = {
         decorID = 5878,
@@ -25988,6 +27497,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {5, 11, 19, 21, 23},
+        themeScores = {[5] = 41, [11] = 39, [19] = 79, [21] = 79, [23] = 100},
     },
     [5879] = {
         decorID = 5879,
@@ -26020,6 +27531,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {13, 17, 24},
+        themeScores = {[13] = 27, [17] = 82, [24] = 100},
     },
     [5880] = {
         decorID = 5880,
@@ -26052,6 +27565,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 23, 24},
+        themeScores = {[17] = 41, [23] = 100, [24] = 49},
     },
     [5881] = {
         decorID = 5881,
@@ -26084,6 +27599,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 48, [19] = 49, [24] = 100},
     },
     [5882] = {
         decorID = 5882,
@@ -26116,6 +27633,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {13, 17, 20},
+        themeScores = {[13] = 77, [17] = 100, [20] = 25},
     },
     [5888] = {
         decorID = 5888,
@@ -26148,6 +27667,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {13, 17, 24},
+        themeScores = {[13] = 52, [17] = 67, [24] = 100},
     },
     [5889] = {
         decorID = 5889,
@@ -26183,6 +27704,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 57},
     },
     [5890] = {
         decorID = 5890,
@@ -26215,6 +27738,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [5891] = {
         decorID = 5891,
@@ -26247,6 +27772,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [5892] = {
         decorID = 5892,
@@ -26279,6 +27806,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24},
+        themeScores = {[23] = 100, [24] = 27},
     },
     [5893] = {
         decorID = 5893,
@@ -26311,6 +27840,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {17, 19, 24, 25},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100, [25] = 59},
     },
     [5894] = {
         decorID = 5894,
@@ -26375,6 +27906,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [5896] = {
         decorID = 5896,
@@ -26439,6 +27972,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {11, 19, 21, 24, 25},
+        themeScores = {[11] = 51, [19] = 100, [21] = 100, [24] = 51, [25] = 51},
     },
     [5898] = {
         decorID = 5898,
@@ -26471,6 +28006,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 3},
         subcategoryIDs = {11, 29},
+        themeIDs = {5, 19, 21, 24, 25},
+        themeScores = {[5] = 34, [19] = 100, [21] = 100, [24] = 73, [25] = 54},
     },
     [7571] = {
         decorID = 7571,
@@ -26503,6 +28040,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {24, 30},
+        themeScores = {[24] = 100, [30] = 86},
     },
     [7572] = {
         decorID = 7572,
@@ -26535,6 +28074,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [7573] = {
         decorID = 7573,
@@ -26567,6 +28108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 23, 30},
+        themeScores = {[6] = 100, [23] = 100, [30] = 98},
     },
     [7574] = {
         decorID = 7574,
@@ -26599,6 +28142,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 26, 30},
+        themeScores = {[23] = 100, [26] = 38, [30] = 25},
     },
     [7575] = {
         decorID = 7575,
@@ -26631,6 +28176,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {1, 5, 17, 19, 23, 24, 26, 30, 31},
+        themeScores = {[1] = 33, [5] = 33, [17] = 33, [19] = 62, [23] = 62, [24] = 100, [26] = 85, [30] = 51, [31] = 33},
     },
     [7576] = {
         decorID = 7576,
@@ -26663,6 +28210,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [7577] = {
         decorID = 7577,
@@ -26695,6 +28244,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [7579] = {
         decorID = 7579,
@@ -26727,6 +28278,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [7606] = {
         decorID = 7606,
@@ -26759,6 +28312,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {19, 23, 24, 30},
+        themeScores = {[19] = 44, [23] = 44, [24] = 100, [30] = 96},
     },
     [7607] = {
         decorID = 7607,
@@ -26789,6 +28344,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        themeIDs = {30, 33},
+        themeScores = {[30] = 100, [33] = 90},
     },
     [7608] = {
         decorID = 7608,
@@ -26821,6 +28378,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {1, 5, 19, 23, 26, 30, 31},
+        themeScores = {[1] = 38, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [30] = 74, [31] = 38},
     },
     [7609] = {
         decorID = 7609,
@@ -26853,6 +28412,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 3},
         subcategoryIDs = {11, 51},
+        themeIDs = {26, 30},
+        themeScores = {[26] = 60, [30] = 100},
     },
     [7610] = {
         decorID = 7610,
@@ -26887,6 +28448,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 23, 24},
+        themeScores = {[6] = 31, [23] = 100, [24] = 36},
     },
     [7620] = {
         decorID = 7620,
@@ -26921,6 +28484,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [7621] = {
         decorID = 7621,
@@ -26955,6 +28520,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {22},
+        themeScores = {[22] = 100},
     },
     [7622] = {
         decorID = 7622,
@@ -26989,6 +28556,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 47, [24] = 100},
     },
     [7623] = {
         decorID = 7623,
@@ -27023,6 +28592,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [7624] = {
         decorID = 7624,
@@ -27057,6 +28628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [7625] = {
         decorID = 7625,
@@ -27091,6 +28664,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {22},
+        themeScores = {[22] = 100},
     },
     [7658] = {
         decorID = 7658,
@@ -27161,6 +28736,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7686] = {
         decorID = 7686,
@@ -27195,6 +28772,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [7687] = {
         decorID = 7687,
@@ -27229,6 +28808,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 22, 24},
+        themeScores = {[17] = 37, [22] = 28, [24] = 100},
     },
     [7690] = {
         decorID = 7690,
@@ -27299,6 +28880,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7692] = {
         decorID = 7692,
@@ -27335,6 +28918,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100},
     },
     [7693] = {
         decorID = 7693,
@@ -27371,6 +28956,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 19, 21, 25},
+        themeScores = {[5] = 52, [19] = 100, [21] = 100, [25] = 30},
     },
     [7694] = {
         decorID = 7694,
@@ -27407,6 +28994,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7695] = {
         decorID = 7695,
@@ -27443,6 +29032,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7696] = {
         decorID = 7696,
@@ -27479,6 +29070,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7697] = {
         decorID = 7697,
@@ -27515,6 +29108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7698] = {
         decorID = 7698,
@@ -27551,6 +29146,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7699] = {
         decorID = 7699,
@@ -27587,6 +29184,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 23},
+        themeScores = {[6] = 89, [23] = 100},
     },
     [7700] = {
         decorID = 7700,
@@ -27623,6 +29222,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 18, 19, 20, 24, 26, 33},
+        themeScores = {[2] = 81, [18] = 31, [19] = 27, [20] = 42, [24] = 52, [26] = 85, [33] = 100},
     },
     [7701] = {
         decorID = 7701,
@@ -27659,6 +29260,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 2},
         subcategoryIDs = {51, 10},
+        themeIDs = {2, 24, 33},
+        themeScores = {[2] = 100, [24] = 80, [33] = 64},
     },
     [7780] = {
         decorID = 7780,
@@ -27691,6 +29294,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [7782] = {
         decorID = 7782,
@@ -27723,6 +29328,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 79, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [7815] = {
         decorID = 7815,
@@ -27755,6 +29362,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 21, 24},
+        themeScores = {[17] = 25, [19] = 94, [21] = 46, [24] = 100},
     },
     [7816] = {
         decorID = 7816,
@@ -27787,6 +29396,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 21, 23, 24},
+        themeScores = {[17] = 49, [19] = 100, [21] = 60, [23] = 40, [24] = 96},
     },
     [7817] = {
         decorID = 7817,
@@ -27819,6 +29430,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {17, 19, 24, 27},
+        themeScores = {[17] = 46, [19] = 46, [24] = 100, [27] = 41},
     },
     [7818] = {
         decorID = 7818,
@@ -27851,6 +29464,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {17, 19, 21, 24, 25},
+        themeScores = {[17] = 32, [19] = 63, [21] = 30, [24] = 100, [25] = 30},
     },
     [7819] = {
         decorID = 7819,
@@ -27883,6 +29498,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 46, [19] = 46, [24] = 100},
     },
     [7820] = {
         decorID = 7820,
@@ -27915,6 +29532,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {19, 23, 24},
+        themeScores = {[19] = 45, [23] = 100, [24] = 73},
     },
     [7821] = {
         decorID = 7821,
@@ -27947,6 +29566,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [7822] = {
         decorID = 7822,
@@ -27979,6 +29600,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [7823] = {
         decorID = 7823,
@@ -28011,6 +29634,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24, 30, 33},
+        themeScores = {[23] = 100, [24] = 27, [30] = 25, [33] = 42},
     },
     [7824] = {
         decorID = 7824,
@@ -28043,6 +29668,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {18, 23, 30, 33},
+        themeScores = {[18] = 28, [23] = 100, [30] = 40, [33] = 28},
     },
     [7825] = {
         decorID = 7825,
@@ -28072,6 +29699,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [7826] = {
         decorID = 7826,
@@ -28101,6 +29730,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100},
     },
     [7827] = {
         decorID = 7827,
@@ -28130,6 +29761,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100},
     },
     [7828] = {
         decorID = 7828,
@@ -28159,6 +29792,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
+        themeIDs = {2, 19, 20, 21, 26},
+        themeScores = {[2] = 50, [19] = 48, [20] = 50, [21] = 48, [26] = 100},
     },
     [7829] = {
         decorID = 7829,
@@ -28188,6 +29823,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {5, 4},
         subcategoryIDs = {22, 18, 21},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [7830] = {
         decorID = 7830,
@@ -28217,6 +29854,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {6, 1},
         subcategoryIDs = {6, 29},
+        themeIDs = {11, 25},
+        themeScores = {[11] = 100, [25] = 61},
     },
     [7835] = {
         decorID = 7835,
@@ -28253,6 +29892,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8, 2},
         subcategoryIDs = {34, 10},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [7836] = {
         decorID = 7836,
@@ -28289,6 +29930,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [7837] = {
         decorID = 7837,
@@ -28321,6 +29964,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {24, 30},
+        themeScores = {[24] = 100, [30] = 86},
     },
     [7838] = {
         decorID = 7838,
@@ -28353,6 +29998,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 31, [19] = 29, [21] = 29, [23] = 100, [24] = 65, [25] = 29},
     },
     [7839] = {
         decorID = 7839,
@@ -28417,6 +30064,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {13, 20, 21},
+        themeScores = {[13] = 81, [20] = 26, [21] = 100},
     },
     [7842] = {
         decorID = 7842,
@@ -28454,6 +30103,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [7873] = {
         decorID = 7873,
@@ -28486,6 +30137,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {11, 19, 21, 24},
+        themeScores = {[11] = 100, [19] = 48, [21] = 88, [24] = 61},
     },
     [7874] = {
         decorID = 7874,
@@ -28518,6 +30171,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {4},
+        themeScores = {[4] = 100},
     },
     [7875] = {
         decorID = 7875,
@@ -28550,6 +30205,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 21, 24, 25},
+        themeScores = {[17] = 52, [19] = 47, [21] = 47, [24] = 100, [25] = 47},
     },
     [7896] = {
         decorID = 7896,
@@ -28586,6 +30243,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {6, 11, 19, 21, 23},
+        themeScores = {[6] = 37, [11] = 100, [19] = 37, [21] = 67, [23] = 41},
     },
     [8176] = {
         decorID = 8176,
@@ -28618,6 +30277,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 26, 27},
+        themeScores = {[3] = 66, [26] = 66, [27] = 100},
     },
     [8177] = {
         decorID = 8177,
@@ -28655,6 +30316,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8178] = {
         decorID = 8178,
@@ -28684,6 +30347,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {3, 5, 21, 26, 33},
+        themeScores = {[3] = 32, [5] = 46, [21] = 46, [26] = 32, [33] = 100},
     },
     [8179] = {
         decorID = 8179,
@@ -28720,6 +30385,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [8180] = {
         decorID = 8180,
@@ -28756,6 +30423,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {31},
+        themeScores = {[31] = 100},
     },
     [8181] = {
         decorID = 8181,
@@ -28792,6 +30461,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 19, 21, 23, 31},
+        themeScores = {[5] = 62, [19] = 62, [21] = 62, [23] = 49, [31] = 100},
     },
     [8182] = {
         decorID = 8182,
@@ -28828,6 +30499,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {31},
+        themeScores = {[31] = 100},
     },
     [8185] = {
         decorID = 8185,
@@ -28860,6 +30533,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8186] = {
         decorID = 8186,
@@ -28897,6 +30572,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8187] = {
         decorID = 8187,
@@ -28931,6 +30608,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8188] = {
         decorID = 8188,
@@ -28963,6 +30642,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 5, 11, 19, 21, 24, 26},
+        themeScores = {[3] = 51, [5] = 87, [11] = 83, [19] = 87, [21] = 87, [24] = 100, [26] = 51},
     },
     [8189] = {
         decorID = 8189,
@@ -28996,6 +30677,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8190] = {
         decorID = 8190,
@@ -29028,6 +30711,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 6},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8191] = {
         decorID = 8191,
@@ -29060,6 +30745,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {3, 5, 19, 21, 26, 33},
+        themeScores = {[3] = 45, [5] = 47, [19] = 52, [21] = 100, [26] = 33, [33] = 50},
     },
     [8192] = {
         decorID = 8192,
@@ -29092,6 +30779,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19, 21},
+        themeIDs = {3, 17, 18, 24, 26, 33},
+        themeScores = {[3] = 56, [17] = 100, [18] = 65, [24] = 100, [26] = 56, [33] = 65},
     },
     [8193] = {
         decorID = 8193,
@@ -29124,6 +30813,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {3, 5, 19, 21, 24, 26},
+        themeScores = {[3] = 51, [5] = 87, [19] = 87, [21] = 87, [24] = 100, [26] = 51},
     },
     [8194] = {
         decorID = 8194,
@@ -29156,6 +30847,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 11, 26, 30},
+        themeScores = {[3] = 60, [11] = 92, [26] = 60, [30] = 100},
     },
     [8195] = {
         decorID = 8195,
@@ -29193,6 +30886,8 @@ NS.CatalogData.Items = {
         altVendorZone = "Val'sharah",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [8196] = {
         decorID = 8196,
@@ -29225,6 +30920,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8235] = {
         decorID = 8235,
@@ -29254,6 +30951,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8236] = {
         decorID = 8236,
@@ -29290,6 +30989,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {17, 24, 28, 29},
+        themeScores = {[17] = 88, [24] = 88, [28] = 50, [29] = 100},
     },
     [8237] = {
         decorID = 8237,
@@ -29322,6 +31023,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {3, 19, 21, 26},
+        themeScores = {[3] = 64, [19] = 100, [21] = 100, [26] = 64},
     },
     [8238] = {
         decorID = 8238,
@@ -29351,6 +31054,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 5, 21, 26},
+        themeScores = {[3] = 94, [5] = 100, [21] = 100, [26] = 70},
     },
     [8239] = {
         decorID = 8239,
@@ -29388,6 +31093,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8240] = {
         decorID = 8240,
@@ -29424,6 +31131,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {3, 24, 26, 30},
+        themeScores = {[3] = 51, [24] = 100, [26] = 51, [30] = 86},
     },
     [8241] = {
         decorID = 8241,
@@ -29456,6 +31165,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {3, 24, 26, 33},
+        themeScores = {[3] = 64, [24] = 62, [26] = 64, [33] = 100},
     },
     [8242] = {
         decorID = 8242,
@@ -29488,6 +31199,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8768] = {
         decorID = 8768,
@@ -29518,6 +31231,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        themeIDs = {19, 30},
+        themeScores = {[19] = 60, [30] = 100},
     },
     [8769] = {
         decorID = 8769,
@@ -29554,6 +31269,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [8770] = {
         decorID = 8770,
@@ -29588,6 +31305,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {17, 24, 28},
+        themeScores = {[17] = 88, [24] = 88, [28] = 100},
     },
     [8771] = {
         decorID = 8771,
@@ -29627,6 +31346,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [8772] = {
         decorID = 8772,
@@ -29662,6 +31383,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Battle for Shattrath" },
         },
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8785] = {
         decorID = 8785,
@@ -29699,6 +31422,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {3, 26},
+        themeScores = {[3] = 100, [26] = 100},
     },
     [8786] = {
         decorID = 8786,
@@ -29736,6 +31461,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {3, 11, 26, 30},
+        themeScores = {[3] = 60, [11] = 92, [26] = 60, [30] = 100},
     },
     [8787] = {
         decorID = 8787,
@@ -29768,6 +31495,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {3, 5, 11, 19, 21, 24, 26, 33},
+        themeScores = {[3] = 30, [5] = 51, [11] = 47, [19] = 100, [21] = 51, [24] = 29, [26] = 30, [33] = 93},
     },
     [8810] = {
         decorID = 8810,
@@ -29802,6 +31531,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
+        themeIDs = {11, 21, 24},
+        themeScores = {[11] = 83, [21] = 64, [24] = 100},
     },
     [8811] = {
         decorID = 8811,
@@ -29836,6 +31567,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {22, 24},
+        themeScores = {[22] = 68, [24] = 100},
     },
     [8872] = {
         decorID = 8872,
@@ -29868,6 +31601,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 59},
     },
     [8874] = {
         decorID = 8874,
@@ -29900,6 +31635,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 61, [19] = 61, [21] = 28, [23] = 32, [26] = 83, [31] = 100},
     },
     [8875] = {
         decorID = 8875,
@@ -29936,6 +31673,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Eversong Woods",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 31},
+        themeScores = {[1] = 30, [5] = 48, [31] = 100},
     },
     [8889] = {
         decorID = 8889,
@@ -29965,6 +31704,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
+        themeIDs = {24, 25},
+        themeScores = {[24] = 100, [25] = 51},
     },
     [8907] = {
         decorID = 8907,
@@ -30002,6 +31743,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [8910] = {
         decorID = 8910,
@@ -30038,6 +31781,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 50, [29] = 100},
     },
     [8911] = {
         decorID = 8911,
@@ -30074,6 +31819,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [8912] = {
         decorID = 8912,
@@ -30110,6 +31857,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 17, 19, 24, 28, 29},
+        themeScores = {[6] = 76, [17] = 84, [19] = 84, [24] = 84, [28] = 50, [29] = 100},
     },
     [8916] = {
         decorID = 8916,
@@ -30142,6 +31891,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [8917] = {
         decorID = 8917,
@@ -30179,6 +31930,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {5, 11, 19, 21, 26},
+        themeScores = {[5] = 100, [11] = 50, [19] = 55, [21] = 55, [26] = 66},
     },
     [8918] = {
         decorID = 8918,
@@ -30215,6 +31968,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 27, [26] = 100},
     },
     [8982] = {
         decorID = 8982,
@@ -30247,6 +32002,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 26, 28},
+        themeScores = {[4] = 100, [26] = 33, [28] = 100},
     },
     [8983] = {
         decorID = 8983,
@@ -30279,6 +32036,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 10, 27},
+        themeScores = {[6] = 61, [10] = 39, [27] = 100},
     },
     [8984] = {
         decorID = 8984,
@@ -30311,6 +32070,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 17, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 32, [17] = 32, [19] = 63, [21] = 30, [23] = 69, [24] = 100, [25] = 30},
     },
     [8987] = {
         decorID = 8987,
@@ -30347,6 +32108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {19, 21},
+        themeScores = {[19] = 100, [21] = 100},
     },
     [8988] = {
         decorID = 8988,
@@ -30419,6 +32182,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 19, 21, 31},
+        themeScores = {[5] = 71, [19] = 71, [21] = 71, [31] = 100},
     },
     [8993] = {
         decorID = 8993,
@@ -30452,6 +32217,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1, 8},
         subcategoryIDs = {34, 7, 29},
+        themeIDs = {24, 25},
+        themeScores = {[24] = 100, [25] = 51},
     },
     [9035] = {
         decorID = 9035,
@@ -30485,6 +32252,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9036] = {
         decorID = 9036,
@@ -30517,6 +32286,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {10, 11, 27},
+        themeScores = {[10] = 39, [11] = 64, [27] = 100},
     },
     [9037] = {
         decorID = 9037,
@@ -30549,6 +32320,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {6, 10, 11, 23, 27},
+        themeScores = {[6] = 100, [10] = 58, [11] = 94, [23] = 100, [27] = 58},
     },
     [9038] = {
         decorID = 9038,
@@ -30581,6 +32354,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9039] = {
         decorID = 9039,
@@ -30613,6 +32388,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9040] = {
         decorID = 9040,
@@ -30645,6 +32422,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9041] = {
         decorID = 9041,
@@ -30678,6 +32457,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9042] = {
         decorID = 9042,
@@ -30710,6 +32491,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 24, 27},
+        themeScores = {[10] = 39, [24] = 76, [27] = 100},
     },
     [9043] = {
         decorID = 9043,
@@ -30742,6 +32525,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 10, 19, 21, 23, 24, 25, 27},
+        themeScores = {[6] = 91, [10] = 28, [19] = 88, [21] = 88, [23] = 57, [24] = 100, [25] = 45, [27] = 28},
     },
     [9044] = {
         decorID = 9044,
@@ -30778,6 +32563,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {6, 10, 19, 21, 24, 25, 27},
+        themeScores = {[6] = 43, [10] = 28, [19] = 45, [21] = 45, [24] = 100, [25] = 45, [27] = 28},
     },
     [9045] = {
         decorID = 9045,
@@ -30810,6 +32597,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {6, 10, 23, 27},
+        themeScores = {[6] = 49, [10] = 29, [23] = 100, [27] = 29},
     },
     [9046] = {
         decorID = 9046,
@@ -30842,6 +32631,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {5, 6, 10, 21, 27},
+        themeScores = {[5] = 56, [6] = 61, [10] = 39, [21] = 56, [27] = 100},
     },
     [9047] = {
         decorID = 9047,
@@ -30874,6 +32665,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {5, 10, 21, 27},
+        themeScores = {[5] = 100, [10] = 70, [21] = 100, [27] = 70},
     },
     [9048] = {
         decorID = 9048,
@@ -30906,6 +32699,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 10, 19, 21, 27},
+        themeScores = {[5] = 100, [10] = 59, [19] = 100, [21] = 100, [27] = 59},
     },
     [9049] = {
         decorID = 9049,
@@ -30942,6 +32737,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9050] = {
         decorID = 9050,
@@ -30974,6 +32771,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 6, 10, 19, 21, 23, 27},
+        themeScores = {[5] = 52, [6] = 100, [10] = 30, [19] = 52, [21] = 52, [23] = 62, [27] = 77},
     },
     [9051] = {
         decorID = 9051,
@@ -31006,6 +32805,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 10, 19, 21, 23, 24, 25, 27},
+        themeScores = {[6] = 67, [10] = 39, [19] = 64, [21] = 64, [23] = 67, [24] = 64, [25] = 64, [27] = 100},
     },
     [9052] = {
         decorID = 9052,
@@ -31042,6 +32843,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9053] = {
         decorID = 9053,
@@ -31074,6 +32877,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {10, 17, 19, 24, 27},
+        themeScores = {[10] = 39, [17] = 67, [19] = 67, [24] = 67, [27] = 100},
     },
     [9054] = {
         decorID = 9054,
@@ -31107,6 +32912,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9055] = {
         decorID = 9055,
@@ -31140,6 +32947,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9064] = {
         decorID = 9064,
@@ -31176,6 +32985,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [9065] = {
         decorID = 9065,
@@ -31205,6 +33016,8 @@ NS.CatalogData.Items = {
         expansion = "Battle for Azeroth",
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [9139] = {
         decorID = 9139,
@@ -31237,6 +33050,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 6, 10, 19, 21, 24, 27},
+        themeScores = {[5] = 87, [6] = 79, [10] = 51, [19] = 87, [21] = 87, [24] = 100, [27] = 51},
     },
     [9140] = {
         decorID = 9140,
@@ -31270,6 +33085,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 39, [27] = 100},
     },
     [9141] = {
         decorID = 9141,
@@ -31303,6 +33120,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9142] = {
         decorID = 9142,
@@ -31336,6 +33155,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9143] = {
         decorID = 9143,
@@ -31372,6 +33193,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 50, [28] = 100},
     },
     [9144] = {
         decorID = 9144,
@@ -31408,6 +33231,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {10, 29},
+        themeScores = {[10] = 100, [29] = 100},
     },
     [9149] = {
         decorID = 9149,
@@ -31438,6 +33263,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [9150] = {
         decorID = 9150,
@@ -31468,6 +33295,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 29, [33] = 100},
     },
     [9151] = {
         decorID = 9151,
@@ -31498,6 +33327,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 27, [33] = 100},
     },
     [9152] = {
         decorID = 9152,
@@ -31528,6 +33359,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [9165] = {
         decorID = 9165,
@@ -31562,6 +33395,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 47, [24] = 100},
     },
     [9166] = {
         decorID = 9166,
@@ -31598,6 +33433,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {10, 27},
+        themeScores = {[10] = 100, [27] = 100},
     },
     [9167] = {
         decorID = 9167,
@@ -31630,6 +33467,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {4, 6, 23, 28},
+        themeScores = {[4] = 58, [6] = 100, [23] = 100, [28] = 58},
     },
     [9168] = {
         decorID = 9168,
@@ -31666,6 +33505,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9169] = {
         decorID = 9169,
@@ -31699,6 +33540,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9170] = {
         decorID = 9170,
@@ -31731,6 +33574,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9178] = {
         decorID = 9178,
@@ -31767,6 +33612,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [9179] = {
         decorID = 9179,
@@ -31803,6 +33650,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9180] = {
         decorID = 9180,
@@ -31835,6 +33684,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 6, 23, 28},
+        themeScores = {[4] = 27, [6] = 46, [23] = 100, [28] = 27},
     },
     [9181] = {
         decorID = 9181,
@@ -31868,6 +33719,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9182] = {
         decorID = 9182,
@@ -31904,6 +33757,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9183] = {
         decorID = 9183,
@@ -31940,6 +33795,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9184] = {
         decorID = 9184,
@@ -31972,6 +33829,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9185] = {
         decorID = 9185,
@@ -32005,6 +33864,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9186] = {
         decorID = 9186,
@@ -32038,6 +33899,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9187] = {
         decorID = 9187,
@@ -32070,6 +33933,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {4, 19, 28},
+        themeScores = {[4] = 63, [19] = 100, [28] = 63},
     },
     [9188] = {
         decorID = 9188,
@@ -32103,6 +33968,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9236] = {
         decorID = 9236,
@@ -32135,6 +34002,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [9237] = {
         decorID = 9237,
@@ -32168,6 +34037,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9238] = {
         decorID = 9238,
@@ -32201,6 +34072,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9239] = {
         decorID = 9239,
@@ -32233,6 +34106,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9240] = {
         decorID = 9240,
@@ -32269,6 +34144,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9241] = {
         decorID = 9241,
@@ -32301,6 +34178,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 27, 28},
+        themeScores = {[4] = 66, [27] = 100, [28] = 66},
     },
     [9242] = {
         decorID = 9242,
@@ -32337,6 +34216,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [9243] = {
         decorID = 9243,
@@ -32369,6 +34250,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9244] = {
         decorID = 9244,
@@ -32406,6 +34289,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 75},
     },
     [9245] = {
         decorID = 9245,
@@ -32438,6 +34323,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {4, 19, 23, 24, 28},
+        themeScores = {[4] = 32, [19] = 100, [23] = 49, [24] = 49, [28] = 32},
     },
     [9246] = {
         decorID = 9246,
@@ -32474,6 +34361,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 8},
         subcategoryIDs = {6, 34},
+        themeIDs = {4, 28, 31},
+        themeScores = {[4] = 100, [28] = 100, [31] = 33},
     },
     [9247] = {
         decorID = 9247,
@@ -32506,6 +34395,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 28, 31},
+        themeScores = {[4] = 100, [28] = 100, [31] = 33},
     },
     [9248] = {
         decorID = 9248,
@@ -32538,6 +34429,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 34, [6] = 72, [17] = 34, [19] = 100, [21] = 65, [23] = 34, [24] = 73},
     },
     [9249] = {
         decorID = 9249,
@@ -32571,6 +34464,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {26},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [9250] = {
         decorID = 9250,
@@ -32604,6 +34499,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 23},
+        themeScores = {[16] = 97, [23] = 100},
     },
     [9251] = {
         decorID = 9251,
@@ -32637,6 +34534,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23},
+        themeScores = {[19] = 58, [23] = 100},
     },
     [9252] = {
         decorID = 9252,
@@ -32670,6 +34569,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 100, [11] = 100, [26] = 100},
     },
     [9253] = {
         decorID = 9253,
@@ -32702,6 +34603,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {10},
+        themeScores = {[10] = 100},
     },
     [9254] = {
         decorID = 9254,
@@ -32738,6 +34641,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {2, 5, 11, 19, 20, 21, 24, 26},
+        themeScores = {[2] = 30, [5] = 58, [11] = 60, [19] = 32, [20] = 30, [21] = 32, [24] = 37, [26] = 100},
     },
     [9255] = {
         decorID = 9255,
@@ -32775,6 +34680,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 20, 26},
+        themeScores = {[2] = 30, [5] = 56, [20] = 30, [26] = 100},
     },
     [9263] = {
         decorID = 9263,
@@ -32805,6 +34712,8 @@ NS.CatalogData.Items = {
         dropRate = 0.13,
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {13, 28},
+        themeScores = {[13] = 100, [28] = 49},
     },
     [9266] = {
         decorID = 9266,
@@ -32837,6 +34746,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 72, [17] = 100, [19] = 67, [23] = 72, [24] = 42},
     },
     [9267] = {
         decorID = 9267,
@@ -32870,6 +34781,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {17, 22, 24},
+        themeScores = {[17] = 67, [22] = 29, [24] = 100},
     },
     [9268] = {
         decorID = 9268,
@@ -32902,6 +34815,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9269] = {
         decorID = 9269,
@@ -32934,6 +34849,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {4, 28},
+        themeScores = {[4] = 100, [28] = 100},
     },
     [9419] = {
         decorID = 9419,
@@ -32973,6 +34890,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [9420] = {
         decorID = 9420,
@@ -33009,6 +34928,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 42, [5] = 100, [19] = 27, [23] = 54, [26] = 69, [31] = 27},
     },
     [9421] = {
         decorID = 9421,
@@ -33045,6 +34966,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 77, [26] = 100, [31] = 38},
     },
     [9422] = {
         decorID = 9422,
@@ -33081,6 +35004,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 78, [5] = 96, [19] = 78, [23] = 99, [24] = 56, [26] = 100, [31] = 50},
     },
     [9423] = {
         decorID = 9423,
@@ -33117,6 +35042,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15, 13},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 96, [19] = 59, [21] = 28, [23] = 31, [26] = 100, [31] = 37},
     },
     [9424] = {
         decorID = 9424,
@@ -33149,6 +35076,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {10, 17, 24, 29},
+        themeScores = {[10] = 27, [17] = 47, [24] = 100, [29] = 54},
     },
     [9439] = {
         decorID = 9439,
@@ -33185,6 +35114,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {13},
+        themeScores = {[13] = 100},
     },
     [9440] = {
         decorID = 9440,
@@ -33217,6 +35148,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 13, 25},
+        themeScores = {[6] = 100, [13] = 65, [25] = 65},
     },
     [9441] = {
         decorID = 9441,
@@ -33250,6 +35183,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 23},
+        themeScores = {[6] = 49, [23] = 100},
     },
     [9443] = {
         decorID = 9443,
@@ -33279,6 +35214,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {5, 4},
         subcategoryIDs = {22, 17},
+        themeIDs = {11},
+        themeScores = {[11] = 100},
     },
     [9444] = {
         decorID = 9444,
@@ -33308,6 +35245,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 21, 24},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100},
     },
     [9471] = {
         decorID = 9471,
@@ -33345,6 +35284,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [9472] = {
         decorID = 9472,
@@ -33379,6 +35320,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {5, 19, 21, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [29] = 100},
     },
     [9473] = {
         decorID = 9473,
@@ -33415,6 +35358,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5, 7},
+        themeIDs = {5, 19, 21, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [29] = 100},
     },
     [9474] = {
         decorID = 9474,
@@ -33451,6 +35396,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {27, 29},
+        themeScores = {[27] = 50, [29] = 100},
     },
     [9475] = {
         decorID = 9475,
@@ -33487,6 +35434,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 67, [24] = 100},
     },
     [9476] = {
         decorID = 9476,
@@ -33523,6 +35472,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 75, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [9477] = {
         decorID = 9477,
@@ -33559,6 +35510,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 26},
+        themeScores = {[1] = 35, [5] = 43, [19] = 42, [26] = 100},
     },
     [9478] = {
         decorID = 9478,
@@ -33595,6 +35548,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 61, [5] = 74, [19] = 38, [23] = 77, [24] = 43, [26] = 100, [31] = 38},
     },
     [9479] = {
         decorID = 9479,
@@ -33628,6 +35583,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 100, [5] = 73, [19] = 38, [23] = 38, [26] = 99, [31] = 38},
     },
     [9480] = {
         decorID = 9480,
@@ -33661,6 +35618,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [9481] = {
         decorID = 9481,
@@ -33694,6 +35653,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 26},
+        themeScores = {[1] = 35, [5] = 64, [19] = 42, [26] = 100},
     },
     [9482] = {
         decorID = 9482,
@@ -33727,6 +35688,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31, 33},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [24] = 43, [26] = 100, [31] = 38, [33] = 33},
     },
     [9483] = {
         decorID = 9483,
@@ -33759,6 +35722,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 6, 19, 23, 26, 29, 31},
+        themeScores = {[1] = 74, [5] = 91, [6] = 41, [19] = 46, [23] = 100, [26] = 93, [29] = 27, [31] = 46},
     },
     [9484] = {
         decorID = 9484,
@@ -33792,6 +35757,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [9485] = {
         decorID = 9485,
@@ -33825,6 +35792,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 11, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [11] = 34, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [9486] = {
         decorID = 9486,
@@ -33857,6 +35826,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 29, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [29] = 28, [31] = 50},
     },
     [9487] = {
         decorID = 9487,
@@ -33889,6 +35860,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 29, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [29] = 28, [31] = 50},
     },
     [9488] = {
         decorID = 9488,
@@ -33921,6 +35894,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 29},
+        themeScores = {[1] = 100, [29] = 100},
     },
     [9489] = {
         decorID = 9489,
@@ -33953,6 +35928,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 29, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [29] = 28, [31] = 50},
     },
     [9490] = {
         decorID = 9490,
@@ -33985,6 +35962,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 29},
+        themeScores = {[1] = 100, [29] = 100},
     },
     [9491] = {
         decorID = 9491,
@@ -34018,6 +35997,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 6, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [6] = 31, [19] = 34, [23] = 41, [26] = 89, [31] = 34},
     },
     [9492] = {
         decorID = 9492,
@@ -34051,6 +36032,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 100, [5] = 73, [19] = 38, [23] = 38, [26] = 99, [31] = 38},
     },
     [9493] = {
         decorID = 9493,
@@ -34084,6 +36067,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 26},
+        themeScores = {[1] = 35, [5] = 43, [26] = 100},
     },
     [9494] = {
         decorID = 9494,
@@ -34117,6 +36102,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [9495] = {
         decorID = 9495,
@@ -34150,6 +36137,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 11, 26, 30},
+        themeScores = {[1] = 60, [11] = 92, [26] = 60, [30] = 100},
     },
     [9496] = {
         decorID = 9496,
@@ -34183,6 +36172,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 38, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [9497] = {
         decorID = 9497,
@@ -34216,6 +36207,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [9624] = {
         decorID = 9624,
@@ -34248,6 +36241,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 21},
+        themeScores = {[19] = 100, [21] = 100},
     },
     [9628] = {
         decorID = 9628,
@@ -34280,6 +36275,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 29, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [29] = 28, [31] = 50},
     },
     [9629] = {
         decorID = 9629,
@@ -34312,6 +36309,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 11, 19, 23, 26, 29, 30, 31},
+        themeScores = {[1] = 78, [5] = 50, [11] = 44, [19] = 50, [23] = 50, [26] = 100, [29] = 28, [30] = 48, [31] = 50},
     },
     [10273] = {
         decorID = 10273,
@@ -34348,6 +36347,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 79, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [10324] = {
         decorID = 10324,
@@ -34384,6 +36385,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {13, 28, 29},
+        themeScores = {[13] = 50, [28] = 50, [29] = 100},
     },
     [10327] = {
         decorID = 10327,
@@ -34420,6 +36423,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [10339] = {
         decorID = 10339,
@@ -34456,6 +36461,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10340] = {
         decorID = 10340,
@@ -34492,6 +36499,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 23, 32},
+        themeScores = {[7] = 58, [23] = 100, [32] = 58},
     },
     [10341] = {
         decorID = 10341,
@@ -34528,6 +36537,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {7, 8, 32},
+        themeScores = {[7] = 80, [8] = 100, [32] = 80},
     },
     [10342] = {
         decorID = 10342,
@@ -34564,6 +36575,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10343] = {
         decorID = 10343,
@@ -34598,6 +36611,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10344] = {
         decorID = 10344,
@@ -34632,6 +36647,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10345] = {
         decorID = 10345,
@@ -34666,6 +36683,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {7, 32},
+        themeScores = {[7] = 75, [32] = 100},
     },
     [10346] = {
         decorID = 10346,
@@ -34702,6 +36721,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 75, [32] = 100},
     },
     [10347] = {
         decorID = 10347,
@@ -34736,6 +36757,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
         },
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10348] = {
         decorID = 10348,
@@ -34772,6 +36795,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10349] = {
         decorID = 10349,
@@ -34808,6 +36833,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10350] = {
         decorID = 10350,
@@ -34844,6 +36871,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 75, [32] = 100},
     },
     [10351] = {
         decorID = 10351,
@@ -34880,6 +36909,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10352] = {
         decorID = 10352,
@@ -34916,6 +36947,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10354] = {
         decorID = 10354,
@@ -34952,6 +36985,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10355] = {
         decorID = 10355,
@@ -34988,6 +37023,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [10356] = {
         decorID = 10356,
@@ -35017,6 +37054,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {11, 19, 21, 24},
+        themeScores = {[11] = 83, [19] = 79, [21] = 79, [24] = 100},
     },
     [10367] = {
         decorID = 10367,
@@ -35053,6 +37092,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [10537] = {
         decorID = 10537,
@@ -35089,6 +37130,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 75, [32] = 100},
     },
     [10542] = {
         decorID = 10542,
@@ -35152,6 +37195,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [10791] = {
         decorID = 10791,
@@ -35188,6 +37233,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [10852] = {
         decorID = 10852,
@@ -35220,6 +37267,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [10853] = {
         decorID = 10853,
@@ -35252,6 +37301,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [10855] = {
         decorID = 10855,
@@ -35288,6 +37339,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {10},
+        themeScores = {[10] = 100},
     },
     [10856] = {
         decorID = 10856,
@@ -35324,6 +37377,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {10, 25},
+        themeScores = {[10] = 100, [25] = 100},
     },
     [10857] = {
         decorID = 10857,
@@ -35356,6 +37411,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {8, 32},
+        themeScores = {[8] = 100, [32] = 44},
     },
     [10858] = {
         decorID = 10858,
@@ -35392,6 +37449,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [10860] = {
         decorID = 10860,
@@ -35429,6 +37488,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 30, [20] = 30, [26] = 100},
     },
     [10887] = {
         decorID = 10887,
@@ -35459,6 +37520,8 @@ NS.CatalogData.Items = {
         dropRate = 0.86,
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 75},
     },
     [10888] = {
         decorID = 10888,
@@ -35488,6 +37551,8 @@ NS.CatalogData.Items = {
         expansion = "Dragonflight",
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {11, 19, 21, 23, 24, 25},
+        themeScores = {[11] = 73, [19] = 88, [21] = 44, [23] = 93, [24] = 100, [25] = 28},
     },
     [10889] = {
         decorID = 10889,
@@ -35520,6 +37585,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {8, 17, 24, 32},
+        themeScores = {[8] = 100, [17] = 78, [24] = 78, [32] = 44},
     },
     [10892] = {
         decorID = 10892,
@@ -35556,6 +37623,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [10913] = {
         decorID = 10913,
@@ -35590,6 +37659,8 @@ NS.CatalogData.Items = {
             Alliance = { name = "Quackenbush", npcID = 68363, x = 50.8, y = 26.8, zone = "Deeprun Tram", mapID = 499 },
             Horde = { name = "Paul North", npcID = 68364, x = 52.1, y = 28, zone = "Orgrimmar", mapID = 85 },
         },
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [10944] = {
         decorID = 10944,
@@ -35622,6 +37693,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [10950] = {
         decorID = 10950,
@@ -35654,6 +37727,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 71, [5] = 100, [19] = 27, [23] = 27, [26] = 70, [31] = 27},
     },
     [10952] = {
         decorID = 10952,
@@ -35722,6 +37797,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4, 3},
         subcategoryIDs = {12, 17},
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [10963] = {
         decorID = 10963,
@@ -35752,6 +37829,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        themeIDs = {2},
+        themeScores = {[2] = 100},
     },
     [10964] = {
         decorID = 10964,
@@ -35784,6 +37863,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {2, 19, 20, 21, 23, 24, 26},
+        themeScores = {[2] = 70, [19] = 100, [20] = 28, [21] = 27, [23] = 32, [24] = 26, [26] = 56},
     },
     [10965] = {
         decorID = 10965,
@@ -35816,6 +37897,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 19, 23, 24, 26},
+        themeScores = {[2] = 44, [19] = 45, [23] = 100, [24] = 38, [26] = 35},
     },
     [11127] = {
         decorID = 11127,
@@ -35848,6 +37931,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {8},
+        themeScores = {[8] = 100},
     },
     [11128] = {
         decorID = 11128,
@@ -35880,6 +37965,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {8, 31},
+        themeScores = {[8] = 68, [31] = 100},
     },
     [11130] = {
         decorID = 11130,
@@ -35912,6 +37999,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {4},
+        themeScores = {[4] = 100},
     },
     [11131] = {
         decorID = 11131,
@@ -35949,6 +38038,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {4},
+        themeScores = {[4] = 100},
     },
     [11133] = {
         decorID = 11133,
@@ -35981,6 +38072,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {4, 26},
+        themeScores = {[4] = 100, [26] = 25},
     },
     [11137] = {
         decorID = 11137,
@@ -36011,6 +38104,8 @@ NS.CatalogData.Items = {
         dropRate = 0.52,
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {2, 17, 24},
+        themeScores = {[2] = 79, [17] = 100, [24] = 100},
     },
     [11138] = {
         decorID = 11138,
@@ -36043,6 +38138,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 24, 26, 30, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 77, [24] = 43, [26] = 100, [30] = 37, [31] = 38},
     },
     [11139] = {
         decorID = 11139,
@@ -36079,6 +38176,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [11160] = {
         decorID = 11160,
@@ -36112,6 +38211,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {4},
+        themeScores = {[4] = 100},
     },
     [11162] = {
         decorID = 11162,
@@ -36144,6 +38245,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 100},
     },
     [11163] = {
         decorID = 11163,
@@ -36174,6 +38277,8 @@ NS.CatalogData.Items = {
         dropRate = 0.63,
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [11164] = {
         decorID = 11164,
@@ -36210,6 +38315,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {2, 26},
+        themeScores = {[2] = 100, [26] = 41},
     },
     [11165] = {
         decorID = 11165,
@@ -36242,6 +38349,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {2, 19, 23, 24, 26},
+        themeScores = {[2] = 100, [19] = 63, [23] = 63, [24] = 63, [26] = 41},
     },
     [11274] = {
         decorID = 11274,
@@ -36276,6 +38385,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Binding Contract" },
         },
+        themeIDs = {10, 29},
+        themeScores = {[10] = 50, [29] = 100},
     },
     [11275] = {
         decorID = 11275,
@@ -36308,6 +38419,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24},
+        themeScores = {[23] = 100, [24] = 27},
     },
     [11276] = {
         decorID = 11276,
@@ -36340,6 +38453,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [11278] = {
         decorID = 11278,
@@ -36374,6 +38489,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [11279] = {
         decorID = 11279,
@@ -36408,6 +38525,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [11280] = {
         decorID = 11280,
@@ -36440,6 +38559,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {14, 23},
+        themeScores = {[14] = 100, [23] = 91},
     },
     [11281] = {
         decorID = 11281,
@@ -36472,6 +38593,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 11, 19, 21, 24},
+        themeScores = {[5] = 74, [11] = 70, [19] = 72, [21] = 100, [24] = 43},
     },
     [11282] = {
         decorID = 11282,
@@ -36504,6 +38627,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 11, 12, 19, 21, 24, 33},
+        themeScores = {[5] = 100, [11] = 48, [12] = 30, [19] = 98, [21] = 88, [24] = 58, [33] = 91},
     },
     [11283] = {
         decorID = 11283,
@@ -36534,6 +38659,8 @@ NS.CatalogData.Items = {
         dropRate = 0.12,
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {11, 12, 21},
+        themeScores = {[11] = 100, [12] = 65, [21] = 80},
     },
     [11284] = {
         decorID = 11284,
@@ -36563,6 +38690,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 75, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [11287] = {
         decorID = 11287,
@@ -36630,6 +38759,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {6, 17, 23, 24, 27},
+        themeScores = {[6] = 100, [17] = 62, [23] = 40, [24] = 98, [27] = 35},
     },
     [11301] = {
         decorID = 11301,
@@ -36666,6 +38797,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 17, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 70, [17] = 68, [19] = 65, [21] = 31, [23] = 33, [24] = 100, [25] = 31},
     },
     [11305] = {
         decorID = 11305,
@@ -36702,6 +38835,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 100, [17] = 75, [19] = 37, [23] = 37, [24] = 75},
     },
     [11307] = {
         decorID = 11307,
@@ -36734,6 +38869,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {6, 17, 19, 22, 23, 24},
+        themeScores = {[6] = 29, [17] = 52, [19] = 29, [22] = 60, [23] = 100, [24] = 62},
     },
     [11315] = {
         decorID = 11315,
@@ -36768,6 +38905,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 39, [29] = 39},
     },
     [11319] = {
         decorID = 11319,
@@ -36800,6 +38939,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [11323] = {
         decorID = 11323,
@@ -36832,6 +38973,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [11324] = {
         decorID = 11324,
@@ -36864,6 +39007,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [11325] = {
         decorID = 11325,
@@ -36894,6 +39039,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [11326] = {
         decorID = 11326,
@@ -36958,6 +39105,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 16, 20, 23, 26},
+        themeScores = {[2] = 50, [16] = 52, [20] = 50, [23] = 53, [26] = 100},
     },
     [11328] = {
         decorID = 11328,
@@ -36994,6 +39143,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [11333] = {
         decorID = 11333,
@@ -37026,6 +39177,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 23},
+        themeScores = {[16] = 97, [23] = 100},
     },
     [11334] = {
         decorID = 11334,
@@ -37090,6 +39243,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11371] = {
         decorID = 11371,
@@ -37122,6 +39277,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11372] = {
         decorID = 11372,
@@ -37154,6 +39311,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 14},
+        themeIDs = {3, 19, 33},
+        themeScores = {[3] = 94, [19] = 100, [33] = 58},
     },
     [11373] = {
         decorID = 11373,
@@ -37186,6 +39345,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 14},
+        themeIDs = {3, 19, 33},
+        themeScores = {[3] = 94, [19] = 100, [33] = 58},
     },
     [11374] = {
         decorID = 11374,
@@ -37216,6 +39377,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Crystal Forge" },
         },
+        themeIDs = {3, 33},
+        themeScores = {[3] = 79, [33] = 100},
     },
     [11375] = {
         decorID = 11375,
@@ -37246,6 +39409,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Runic Anvil" },
         },
+        themeIDs = {17, 19, 24, 33},
+        themeScores = {[17] = 100, [19] = 75, [24] = 100, [33] = 85},
     },
     [11376] = {
         decorID = 11376,
@@ -37278,6 +39443,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 49, [17] = 50, [19] = 100, [21] = 49, [23] = 50, [24] = 50},
     },
     [11377] = {
         decorID = 11377,
@@ -37310,6 +39477,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34, 34},
+        themeIDs = {5, 6, 17, 19, 21, 24},
+        themeScores = {[5] = 90, [6] = 100, [17] = 94, [19] = 90, [21] = 90, [24] = 94},
     },
     [11378] = {
         decorID = 11378,
@@ -37340,6 +39509,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Alchemist's Retort" },
         },
+        themeIDs = {14, 19, 23, 24},
+        themeScores = {[14] = 81, [19] = 47, [23] = 100, [24] = 47},
     },
     [11379] = {
         decorID = 11379,
@@ -37370,6 +39541,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Felblood Cauldron" },
         },
+        themeIDs = {5, 17, 19, 21, 22, 24},
+        themeScores = {[5] = 48, [17] = 100, [19] = 97, [21] = 48, [22] = 72, [24] = 100},
     },
     [11380] = {
         decorID = 11380,
@@ -37402,6 +39575,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 6, 12, 19, 21, 23},
+        themeScores = {[5] = 94, [6] = 60, [12] = 35, [19] = 91, [21] = 100, [23] = 60},
     },
     [11381] = {
         decorID = 11381,
@@ -37432,6 +39607,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boralus Bottle Lamp" },
         },
+        themeIDs = {5, 6, 10, 17, 21, 23, 24},
+        themeScores = {[5] = 41, [6] = 94, [10] = 29, [17] = 51, [21] = 41, [23] = 100, [24] = 51},
     },
     [11382] = {
         decorID = 11382,
@@ -37464,6 +39641,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [11383] = {
         decorID = 11383,
@@ -37496,6 +39675,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {21, 30},
+        themeScores = {[21] = 74, [30] = 100},
     },
     [11384] = {
         decorID = 11384,
@@ -37528,6 +39709,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {17, 19, 21, 23, 24},
+        themeScores = {[17] = 59, [19] = 62, [21] = 41, [23] = 37, [24] = 100},
     },
     [11385] = {
         decorID = 11385,
@@ -37558,6 +39741,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Veil-Secured Animacone" },
         },
+        themeIDs = {21},
+        themeScores = {[21] = 100},
     },
     [11386] = {
         decorID = 11386,
@@ -37590,6 +39775,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 17, 19, 21, 23, 24, 26},
+        themeScores = {[5] = 38, [17] = 38, [19] = 74, [21] = 36, [23] = 38, [24] = 100, [26] = 38},
     },
     [11387] = {
         decorID = 11387,
@@ -37620,6 +39807,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dragon's Elixir Bottle" },
         },
+        themeIDs = {2, 19, 20, 21, 23, 26},
+        themeScores = {[2] = 100, [19] = 38, [20] = 39, [21] = 38, [23] = 42, [26] = 79},
     },
     [11388] = {
         decorID = 11388,
@@ -37652,6 +39841,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2, 24, 26},
+        themeScores = {[2] = 100, [24] = 80, [26] = 41},
     },
     [11431] = {
         decorID = 11431,
@@ -37682,6 +39873,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aldor Stellar Console" },
         },
+        themeIDs = {3, 19},
+        themeScores = {[3] = 100, [19] = 74},
     },
     [11432] = {
         decorID = 11432,
@@ -37714,6 +39907,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {19, 23},
+        themeScores = {[19] = 100, [23] = 66},
     },
     [11433] = {
         decorID = 11433,
@@ -37746,6 +39941,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23, 24},
+        themeScores = {[19] = 81, [23] = 88, [24] = 100},
     },
     [11434] = {
         decorID = 11434,
@@ -37778,6 +39975,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {14, 19},
+        themeScores = {[14] = 100, [19] = 96},
     },
     [11435] = {
         decorID = 11435,
@@ -37810,6 +40009,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {19},
+        themeScores = {[19] = 100},
     },
     [11436] = {
         decorID = 11436,
@@ -37840,6 +40041,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Venthyr Anima Bottle" },
         },
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 44, [19] = 94, [23] = 47, [24] = 100},
     },
     [11437] = {
         decorID = 11437,
@@ -37876,6 +40079,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [11438] = {
         decorID = 11438,
@@ -37908,6 +40113,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5, 5},
+        themeIDs = {5, 17, 19, 21, 24},
+        themeScores = {[5] = 31, [17] = 64, [19] = 62, [21] = 31, [24] = 100},
     },
     [11439] = {
         decorID = 11439,
@@ -37938,6 +40145,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stampwhistle's Postal Portal" },
         },
+        themeIDs = {19},
+        themeScores = {[19] = 100},
     },
     [11440] = {
         decorID = 11440,
@@ -37970,6 +40179,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 25, [19] = 71, [23] = 47, [24] = 100},
     },
     [11451] = {
         decorID = 11451,
@@ -38003,6 +40214,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {18, 23, 30, 33},
+        themeScores = {[18] = 27, [23] = 40, [30] = 63, [33] = 100},
     },
     [11453] = {
         decorID = 11453,
@@ -38036,6 +40249,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24},
+        themeScores = {[23] = 100, [24] = 50},
     },
     [11454] = {
         decorID = 11454,
@@ -38072,6 +40287,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {11, 19, 21},
+        themeScores = {[11] = 91, [19] = 55, [21] = 100},
     },
     [11455] = {
         decorID = 11455,
@@ -38101,6 +40318,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {15, 12},
+        themeIDs = {19, 23, 24, 33},
+        themeScores = {[19] = 44, [23] = 44, [24] = 100, [33] = 44},
     },
     [11456] = {
         decorID = 11456,
@@ -38132,6 +40351,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        themeIDs = {18, 19, 23, 24, 33},
+        themeScores = {[18] = 27, [19] = 36, [23] = 84, [24] = 36, [33] = 100},
     },
     [11457] = {
         decorID = 11457,
@@ -38165,6 +40386,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 33},
+        themeScores = {[23] = 100, [33] = 42},
     },
     [11461] = {
         decorID = 11461,
@@ -38201,6 +40424,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [11470] = {
         decorID = 11470,
@@ -38230,6 +40455,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 31, [23] = 63, [26] = 100, [31] = 31},
     },
     [11479] = {
         decorID = 11479,
@@ -38266,6 +40493,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [11480] = {
         decorID = 11480,
@@ -38302,6 +40531,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {17, 19, 24, 28, 29},
+        themeScores = {[17] = 100, [19] = 56, [24] = 56, [28] = 33, [29] = 66},
     },
     [11481] = {
         decorID = 11481,
@@ -38338,6 +40569,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 11, 19, 21, 28, 29},
+        themeScores = {[5] = 84, [11] = 80, [19] = 84, [21] = 84, [28] = 50, [29] = 100},
     },
     [11482] = {
         decorID = 11482,
@@ -38374,6 +40607,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [11483] = {
         decorID = 11483,
@@ -38406,6 +40641,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 11, 12, 19, 21},
+        themeScores = {[5] = 100, [11] = 94, [12] = 30, [19] = 50, [21] = 50},
     },
     [11484] = {
         decorID = 11484,
@@ -38438,6 +40675,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [11486] = {
         decorID = 11486,
@@ -38470,6 +40709,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 26, [5] = 26, [19] = 26, [23] = 50, [26] = 100, [31] = 26},
     },
     [11487] = {
         decorID = 11487,
@@ -38504,6 +40745,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {15, 21, 25, 29},
+        themeScores = {[15] = 100, [21] = 48, [25] = 39, [29] = 39},
     },
     [11489] = {
         decorID = 11489,
@@ -38536,6 +40779,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {16, 26},
+        themeScores = {[16] = 100, [26] = 33},
     },
     [11490] = {
         decorID = 11490,
@@ -38568,6 +40813,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {15, 21, 25, 29},
+        themeScores = {[15] = 100, [21] = 56, [25] = 45, [29] = 45},
     },
     [11491] = {
         decorID = 11491,
@@ -38602,6 +40849,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11492] = {
         decorID = 11492,
@@ -38634,6 +40883,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 21, 24, 29},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100, [29] = 51},
     },
     [11493] = {
         decorID = 11493,
@@ -38666,6 +40917,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 21, 24, 25},
+        themeScores = {[19] = 61, [21] = 61, [24] = 61, [25] = 100},
     },
     [11494] = {
         decorID = 11494,
@@ -38698,6 +40951,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 11, 17, 19, 21, 23, 24, 25},
+        themeScores = {[6] = 97, [11] = 35, [17] = 40, [19] = 73, [21] = 37, [23] = 39, [24] = 100, [25] = 37},
     },
     [11495] = {
         decorID = 11495,
@@ -38730,6 +40985,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 23, 24, 27},
+        themeScores = {[6] = 100, [23] = 40, [24] = 45, [27] = 35},
     },
     [11496] = {
         decorID = 11496,
@@ -38763,6 +41020,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {6, 17, 19, 21, 23, 24},
+        themeScores = {[6] = 100, [17] = 39, [19] = 76, [21] = 36, [23] = 40, [24] = 86},
     },
     [11497] = {
         decorID = 11497,
@@ -38795,6 +41054,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 75, [17] = 53, [19] = 30, [23] = 30, [24] = 100},
     },
     [11498] = {
         decorID = 11498,
@@ -38831,6 +41092,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {6, 17, 19, 23, 24},
+        themeScores = {[6] = 100, [17] = 37, [19] = 37, [23] = 37, [24] = 37},
     },
     [11499] = {
         decorID = 11499,
@@ -38863,6 +41126,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 71, [5] = 100, [19] = 27, [23] = 27, [26] = 76, [31] = 27},
     },
     [11500] = {
         decorID = 11500,
@@ -38893,6 +41158,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 43, [5] = 100, [19] = 27, [23] = 27, [26] = 70, [31] = 27},
     },
     [11501] = {
         decorID = 11501,
@@ -38925,6 +41192,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 97, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [11502] = {
         decorID = 11502,
@@ -38957,6 +41226,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 4},
         subcategoryIDs = {7, 21},
+        themeIDs = {1, 5, 19, 23, 26},
+        themeScores = {[1] = 58, [5] = 100, [19] = 44, [23] = 45, [26] = 99},
     },
     [11503] = {
         decorID = 11503,
@@ -38989,6 +41260,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 75, [5] = 100, [19] = 29, [23] = 29, [26] = 80, [31] = 29},
     },
     [11708] = {
         decorID = 11708,
@@ -39021,6 +41294,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 11, 12, 19, 21, 25},
+        themeScores = {[5] = 100, [11] = 94, [12] = 30, [19] = 50, [21] = 88, [25] = 30},
     },
     [11718] = {
         decorID = 11718,
@@ -39053,6 +41328,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24, 29},
+        themeScores = {[5] = 45, [6] = 96, [17] = 47, [19] = 45, [21] = 45, [23] = 45, [24] = 100, [29] = 27},
     },
     [11719] = {
         decorID = 11719,
@@ -39090,6 +41367,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 5, 11, 19, 20, 21, 26},
+        themeScores = {[2] = 30, [5] = 51, [11] = 60, [19] = 32, [20] = 30, [21] = 32, [26] = 100},
     },
     [11720] = {
         decorID = 11720,
@@ -39127,6 +41406,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 5, 11, 20, 26},
+        themeScores = {[2] = 30, [5] = 25, [11] = 29, [20] = 30, [26] = 100},
     },
     [11721] = {
         decorID = 11721,
@@ -39164,6 +41445,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {5, 11, 19, 21, 26},
+        themeScores = {[5] = 100, [11] = 60, [19] = 62, [21] = 62, [26] = 74},
     },
     [11722] = {
         decorID = 11722,
@@ -39196,6 +41479,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [11723] = {
         decorID = 11723,
@@ -39228,6 +41513,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 31, [6] = 66, [17] = 64, [19] = 62, [21] = 31, [23] = 63, [24] = 100},
     },
     [11724] = {
         decorID = 11724,
@@ -39260,6 +41547,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 6, 17, 19, 21, 23},
+        themeScores = {[5] = 47, [6] = 100, [17] = 36, [19] = 47, [21] = 47, [23] = 47},
     },
     [11725] = {
         decorID = 11725,
@@ -39292,6 +41581,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {2, 6, 17, 19, 20, 23, 24, 26, 27},
+        themeScores = {[2] = 29, [6] = 66, [17] = 88, [19] = 31, [20] = 29, [23] = 56, [24] = 100, [26] = 58, [27] = 28},
     },
     [11751] = {
         decorID = 11751,
@@ -39326,6 +41617,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11752] = {
         decorID = 11752,
@@ -39360,6 +41653,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11753] = {
         decorID = 11753,
@@ -39397,6 +41692,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11754] = {
         decorID = 11754,
@@ -39426,6 +41723,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11755] = {
         decorID = 11755,
@@ -39458,6 +41757,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {15, 25, 29},
+        themeScores = {[15] = 100, [25] = 45, [29] = 45},
     },
     [11779] = {
         decorID = 11779,
@@ -39490,6 +41791,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {2, 6, 20, 23, 24, 26},
+        themeScores = {[2] = 94, [6] = 53, [20] = 50, [23] = 53, [24] = 60, [26] = 100},
     },
     [11814] = {
         decorID = 11814,
@@ -39519,6 +41822,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [11872] = {
         decorID = 11872,
@@ -39548,6 +41853,8 @@ NS.CatalogData.Items = {
         expansion = "Legion",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 45, [5] = 100, [19] = 56, [21] = 28, [23] = 50, [26] = 57, [31] = 34},
     },
     [11873] = {
         decorID = 11873,
@@ -39580,6 +41887,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {14, 23, 26},
+        themeScores = {[14] = 100, [23] = 85, [26] = 43},
     },
     [11874] = {
         decorID = 11874,
@@ -39616,6 +41925,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {28, 29},
+        themeScores = {[28] = 50, [29] = 100},
     },
     [11878] = {
         decorID = 11878,
@@ -39648,6 +41959,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {3, 13, 20, 28},
+        themeScores = {[3] = 100, [13] = 91, [20] = 30, [28] = 91},
     },
     [11879] = {
         decorID = 11879,
@@ -39680,6 +41993,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3, 17, 24},
+        themeScores = {[3] = 35, [17] = 100, [24] = 96},
     },
     [11880] = {
         decorID = 11880,
@@ -39712,6 +42027,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3, 15, 19, 21},
+        themeScores = {[3] = 71, [15] = 78, [19] = 100, [21] = 100},
     },
     [11881] = {
         decorID = 11881,
@@ -39744,6 +42061,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11882] = {
         decorID = 11882,
@@ -39776,6 +42095,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11883] = {
         decorID = 11883,
@@ -39808,6 +42129,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11884] = {
         decorID = 11884,
@@ -39840,6 +42163,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3, 23},
+        themeScores = {[3] = 100, [23] = 70},
     },
     [11885] = {
         decorID = 11885,
@@ -39872,6 +42197,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11886] = {
         decorID = 11886,
@@ -39904,6 +42231,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [11887] = {
         decorID = 11887,
@@ -39936,6 +42265,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {3, 6, 23, 29},
+        themeScores = {[3] = 54, [6] = 83, [23] = 100, [29] = 49},
     },
     [11888] = {
         decorID = 11888,
@@ -39968,6 +42299,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {3, 19, 33},
+        themeScores = {[3] = 100, [19] = 47, [33] = 73},
     },
     [11889] = {
         decorID = 11889,
@@ -40000,6 +42333,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21, 16},
+        themeIDs = {3, 33},
+        themeScores = {[3] = 100, [33] = 73},
     },
     [11890] = {
         decorID = 11890,
@@ -40032,6 +42367,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {3, 17, 19, 24, 33},
+        themeScores = {[3] = 38, [17] = 64, [19] = 31, [24] = 100, [33] = 56},
     },
     [11891] = {
         decorID = 11891,
@@ -40064,6 +42401,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {11, 19, 21, 24, 25, 26},
+        themeScores = {[11] = 99, [19] = 100, [21] = 100, [24] = 100, [25] = 100, [26] = 61},
     },
     [11892] = {
         decorID = 11892,
@@ -40160,6 +42499,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {19, 26, 33},
+        themeScores = {[19] = 32, [26] = 43, [33] = 100},
     },
     [11895] = {
         decorID = 11895,
@@ -40192,6 +42533,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [11896] = {
         decorID = 11896,
@@ -40224,6 +42567,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {26},
+        themeScores = {[26] = 100},
     },
     [11897] = {
         decorID = 11897,
@@ -40256,6 +42601,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [11898] = {
         decorID = 11898,
@@ -40288,6 +42635,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 21},
+        themeScores = {[5] = 100, [21] = 100},
     },
     [11899] = {
         decorID = 11899,
@@ -40321,6 +42670,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 31, [5] = 60, [19] = 31, [23] = 31, [26] = 100, [31] = 31},
     },
     [11900] = {
         decorID = 11900,
@@ -40353,6 +42704,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 36, [5] = 36, [17] = 37, [19] = 36, [23] = 36, [24] = 100, [26] = 73, [31] = 36},
     },
     [11901] = {
         decorID = 11901,
@@ -40385,6 +42738,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 64, [19] = 31, [24] = 100},
     },
     [11902] = {
         decorID = 11902,
@@ -40417,6 +42772,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 5},
+        themeIDs = {14, 19, 23, 24},
+        themeScores = {[14] = 76, [19] = 44, [23] = 44, [24] = 100},
     },
     [11903] = {
         decorID = 11903,
@@ -40449,6 +42806,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {3, 29},
+        themeScores = {[3] = 100, [29] = 47},
     },
     [11904] = {
         decorID = 11904,
@@ -40481,6 +42840,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [11905] = {
         decorID = 11905,
@@ -40514,6 +42875,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24, 27, 29},
+        themeScores = {[17] = 100, [24] = 100, [27] = 85, [29] = 56},
     },
     [11906] = {
         decorID = 11906,
@@ -40550,6 +42913,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {27, 29},
+        themeScores = {[27] = 100, [29] = 66},
     },
     [11907] = {
         decorID = 11907,
@@ -40583,6 +42948,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 24, 27},
+        themeScores = {[17] = 100, [24] = 100, [27] = 85},
     },
     [11908] = {
         decorID = 11908,
@@ -40616,6 +42983,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {20, 21, 29},
+        themeScores = {[20] = 26, [21] = 100, [29] = 80},
     },
     [11909] = {
         decorID = 11909,
@@ -40649,6 +43018,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {21},
+        themeScores = {[21] = 100},
     },
     [11910] = {
         decorID = 11910,
@@ -40681,6 +43052,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [11911] = {
         decorID = 11911,
@@ -40773,6 +43146,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 5, 19, 20, 21, 26, 33},
+        themeScores = {[2] = 38, [5] = 79, [19] = 40, [20] = 38, [21] = 40, [26] = 100, [33] = 36},
     },
     [11917] = {
         decorID = 11917,
@@ -40805,6 +43180,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [11918] = {
         decorID = 11918,
@@ -40837,6 +43214,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 4},
         subcategoryIDs = {16, 29},
+        themeIDs = {11, 19, 21, 25},
+        themeScores = {[11] = 62, [19] = 60, [21] = 100, [25] = 38},
     },
     [11919] = {
         decorID = 11919,
@@ -40901,6 +43280,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 23, 24},
+        themeScores = {[6] = 29, [23] = 100, [24] = 71},
     },
     [11921] = {
         decorID = 11921,
@@ -40933,6 +43314,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 20, 23, 26},
+        themeScores = {[2] = 50, [20] = 50, [23] = 53, [26] = 100},
     },
     [11922] = {
         decorID = 11922,
@@ -40965,6 +43348,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29, 25},
+        themeIDs = {11, 19, 21},
+        themeScores = {[11] = 76, [19] = 37, [21] = 100},
     },
     [11923] = {
         decorID = 11923,
@@ -41029,6 +43414,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 19, 21, 24, 25},
+        themeScores = {[5] = 27, [11] = 26, [19] = 78, [21] = 100, [24] = 26, [25] = 26},
     },
     [11925] = {
         decorID = 11925,
@@ -41061,6 +43448,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 17, 19, 21, 24, 25},
+        themeScores = {[5] = 27, [17] = 56, [19] = 82, [21] = 54, [24] = 100, [25] = 26},
     },
     [11926] = {
         decorID = 11926,
@@ -41093,6 +43482,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {13, 17, 19, 24},
+        themeScores = {[13] = 59, [17] = 100, [19] = 100, [24] = 100},
     },
     [11927] = {
         decorID = 11927,
@@ -41125,6 +43516,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [11928] = {
         decorID = 11928,
@@ -41261,6 +43654,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 31, [6] = 31, [17] = 88, [19] = 62, [21] = 31, [23] = 63, [24] = 100},
     },
     [11932] = {
         decorID = 11932,
@@ -41294,6 +43689,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 100, [24] = 100},
     },
     [11933] = {
         decorID = 11933,
@@ -41330,6 +43727,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {6, 17, 24, 29},
+        themeScores = {[6] = 41, [17] = 47, [24] = 100, [29] = 27},
     },
     [11934] = {
         decorID = 11934,
@@ -41359,6 +43758,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {5, 21, 24},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100},
     },
     [11935] = {
         decorID = 11935,
@@ -41391,6 +43792,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {15},
+        themeScores = {[15] = 100},
     },
     [11936] = {
         decorID = 11936,
@@ -41423,6 +43826,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 16, 20, 23, 26},
+        themeScores = {[2] = 50, [16] = 52, [20] = 50, [23] = 53, [26] = 100},
     },
     [11940] = {
         decorID = 11940,
@@ -41452,6 +43857,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
+        themeIDs = {5, 21, 24},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100},
     },
     [11941] = {
         decorID = 11941,
@@ -41484,6 +43891,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {5, 19, 21, 23, 24, 33},
+        themeScores = {[5] = 46, [19] = 82, [21] = 46, [23] = 49, [24] = 49, [33] = 100},
     },
     [11942] = {
         decorID = 11942,
@@ -41518,6 +43927,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {10},
+        themeIDs = {17, 24, 27},
+        themeScores = {[17] = 47, [24] = 100, [27] = 40},
     },
     [11944] = {
         decorID = 11944,
@@ -41551,6 +43962,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24, 29},
+        themeScores = {[5] = 45, [6] = 96, [17] = 47, [19] = 45, [21] = 45, [23] = 45, [24] = 100, [29] = 27},
     },
     [11945] = {
         decorID = 11945,
@@ -41583,6 +43996,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 14},
+        themeIDs = {6, 14, 23},
+        themeScores = {[6] = 100, [14] = 95, [23] = 100},
     },
     [11946] = {
         decorID = 11946,
@@ -41615,6 +44030,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 3, 19, 20, 21, 23, 26},
+        themeScores = {[2] = 50, [3] = 31, [19] = 48, [20] = 50, [21] = 48, [23] = 53, [26] = 100},
     },
     [11948] = {
         decorID = 11948,
@@ -41647,6 +44064,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [11952] = {
         decorID = 11952,
@@ -41679,6 +44098,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12154] = {
         decorID = 12154,
@@ -41711,6 +44132,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {6, 16, 23, 25},
+        themeScores = {[6] = 49, [16] = 77, [23] = 100, [25] = 29},
     },
     [12161] = {
         decorID = 12161,
@@ -41743,6 +44166,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 16, 19, 20, 21, 23, 26},
+        themeScores = {[2] = 50, [16] = 83, [19] = 48, [20] = 50, [21] = 48, [23] = 53, [26] = 100},
     },
     [12162] = {
         decorID = 12162,
@@ -41775,6 +44200,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [12163] = {
         decorID = 12163,
@@ -41807,6 +44234,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {10, 19, 27},
+        themeScores = {[10] = 63, [19] = 100, [27] = 96},
     },
     [12164] = {
         decorID = 12164,
@@ -41837,6 +44266,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Drust Enchanter's Rod" },
         },
+        themeIDs = {19},
+        themeScores = {[19] = 100},
     },
     [12165] = {
         decorID = 12165,
@@ -41869,6 +44300,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {26, 30},
+        themeScores = {[26] = 60, [30] = 100},
     },
     [12171] = {
         decorID = 12171,
@@ -41898,6 +44331,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {5, 21, 24},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100},
     },
     [12172] = {
         decorID = 12172,
@@ -41927,6 +44362,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {5, 6, 11, 19, 21, 23},
+        themeScores = {[5] = 52, [6] = 52, [11] = 47, [19] = 100, [21] = 100, [23] = 52},
     },
     [12173] = {
         decorID = 12173,
@@ -41992,6 +44429,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [12190] = {
         decorID = 12190,
@@ -42028,6 +44467,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [12195] = {
         decorID = 12195,
@@ -42060,6 +44501,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12196] = {
         decorID = 12196,
@@ -42092,6 +44535,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12197] = {
         decorID = 12197,
@@ -42124,6 +44569,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12198] = {
         decorID = 12198,
@@ -42156,6 +44603,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12199] = {
         decorID = 12199,
@@ -42192,6 +44641,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {5, 19, 21, 27, 29},
+        themeScores = {[5] = 56, [19] = 56, [21] = 56, [27] = 50, [29] = 100},
     },
     [12200] = {
         decorID = 12200,
@@ -42258,6 +44709,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 27, [5] = 50, [19] = 52, [23] = 100, [26] = 55, [31] = 27},
     },
     [12202] = {
         decorID = 12202,
@@ -42291,6 +44744,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 46, [19] = 46, [23] = 93, [24] = 100},
     },
     [12203] = {
         decorID = 12203,
@@ -42327,6 +44782,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 53, [19] = 46, [23] = 98, [24] = 100},
     },
     [12204] = {
         decorID = 12204,
@@ -42389,6 +44846,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 21, 23, 24},
+        themeScores = {[5] = 28, [21] = 28, [23] = 100, [24] = 38},
     },
     [12206] = {
         decorID = 12206,
@@ -42425,6 +44884,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 17, 19, 21, 23, 24},
+        themeScores = {[5] = 27, [17] = 33, [19] = 29, [21] = 27, [23] = 54, [24] = 100},
     },
     [12207] = {
         decorID = 12207,
@@ -42461,6 +44922,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 21, 23},
+        themeScores = {[5] = 100, [21] = 100, [23] = 93},
     },
     [12208] = {
         decorID = 12208,
@@ -42494,6 +44957,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
+        themeIDs = {17, 24},
+        themeScores = {[17] = 47, [24] = 100},
     },
     [12209] = {
         decorID = 12209,
@@ -42559,6 +45024,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {8},
+        themeIDs = {6, 10, 23, 24, 27},
+        themeScores = {[6] = 67, [10] = 39, [23] = 67, [24] = 76, [27] = 100},
     },
     [12211] = {
         decorID = 12211,
@@ -42591,6 +45058,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12212] = {
         decorID = 12212,
@@ -42623,6 +45092,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12217] = {
         decorID = 12217,
@@ -42655,6 +45126,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12218] = {
         decorID = 12218,
@@ -42687,6 +45160,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12220] = {
         decorID = 12220,
@@ -42719,6 +45194,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [12223] = {
         decorID = 12223,
@@ -42748,6 +45225,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 11, 21, 24},
+        themeScores = {[5] = 73, [11] = 83, [21] = 73, [24] = 100},
     },
     [12247] = {
         decorID = 12247,
@@ -42778,6 +45257,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [12248] = {
         decorID = 12248,
@@ -42808,6 +45289,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 15},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [12249] = {
         decorID = 12249,
@@ -43250,6 +45733,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {28},
+        themeScores = {[28] = 100},
     },
     [12300] = {
         decorID = 12300,
@@ -43311,6 +45796,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [14330] = {
         decorID = 14330,
@@ -43341,6 +45828,8 @@ NS.CatalogData.Items = {
         dropRate = 0.66,
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 100, [20] = 39, [26] = 79},
     },
     [14350] = {
         decorID = 14350,
@@ -43373,6 +45862,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [14351] = {
         decorID = 14351,
@@ -43405,6 +45896,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [14352] = {
         decorID = 14352,
@@ -43437,6 +45930,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [14358] = {
         decorID = 14358,
@@ -43472,6 +45967,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 6, 11, 21},
+        themeScores = {[5] = 39, [6] = 60, [11] = 100, [21] = 49},
     },
     [14359] = {
         decorID = 14359,
@@ -43541,6 +46038,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {5, 6, 10, 11, 19, 21, 24, 25, 27},
+        themeScores = {[5] = 47, [6] = 43, [10] = 28, [11] = 88, [19] = 93, [21] = 93, [24] = 100, [25] = 45, [27] = 42},
     },
     [14361] = {
         decorID = 14361,
@@ -43573,6 +46072,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {6, 17, 23, 24},
+        themeScores = {[6] = 31, [17] = 56, [23] = 100, [24] = 68},
     },
     [14379] = {
         decorID = 14379,
@@ -43610,6 +46111,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {2, 16, 20, 26, 27},
+        themeScores = {[2] = 94, [16] = 52, [20] = 50, [26] = 100, [27] = 47},
     },
     [14380] = {
         decorID = 14380,
@@ -43642,6 +46145,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {13, 24},
+        themeScores = {[13] = 52, [24] = 100},
     },
     [14381] = {
         decorID = 14381,
@@ -43678,6 +46183,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {8, 27},
+        themeScores = {[8] = 100, [27] = 67},
     },
     [14382] = {
         decorID = 14382,
@@ -43714,6 +46221,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [14383] = {
         decorID = 14383,
@@ -43780,6 +46289,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {29},
+        themeScores = {[29] = 100},
     },
     [14433] = {
         decorID = 14433,
@@ -43842,6 +46353,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [14467] = {
         decorID = 14467,
@@ -43876,6 +46389,8 @@ NS.CatalogData.Items = {
         altVendorName = "World Vendors",
         categoryIDs = {2},
         subcategoryIDs = {9},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [14553] = {
         decorID = 14553,
@@ -43908,6 +46423,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {3},
+        themeScores = {[3] = 100},
     },
     [14554] = {
         decorID = 14554,
@@ -43940,6 +46457,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {11, 18, 33},
+        themeScores = {[11] = 38, [18] = 51, [33] = 100},
     },
     [14555] = {
         decorID = 14555,
@@ -43972,6 +46491,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 80, [33] = 100},
     },
     [14557] = {
         decorID = 14557,
@@ -44005,6 +46526,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14558] = {
         decorID = 14558,
@@ -44037,6 +46560,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {19, 23, 24, 33},
+        themeScores = {[19] = 37, [23] = 37, [24] = 37, [33] = 100},
     },
     [14559] = {
         decorID = 14559,
@@ -44069,6 +46594,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9, 19, 21},
+        themeScores = {[9] = 86, [19] = 100, [21] = 100},
     },
     [14579] = {
         decorID = 14579,
@@ -44101,6 +46628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 23, 24, 26},
+        themeScores = {[1] = 35, [5] = 82, [23] = 44, [24] = 25, [26] = 100},
     },
     [14580] = {
         decorID = 14580,
@@ -44133,6 +46662,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 42, [5] = 100, [19] = 42, [23] = 27, [26] = 54, [31] = 27},
     },
     [14581] = {
         decorID = 14581,
@@ -44165,6 +46696,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 72, [5] = 88, [19] = 45, [23] = 45, [26] = 100, [31] = 45},
     },
     [14582] = {
         decorID = 14582,
@@ -44197,6 +46730,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [14583] = {
         decorID = 14583,
@@ -44234,6 +46769,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {5, 3},
         subcategoryIDs = {11, 51},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 50, [19] = 49, [23] = 49, [26] = 100, [31] = 26},
     },
     [14584] = {
         decorID = 14584,
@@ -44266,6 +46803,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 51, [5] = 100, [19] = 32, [23] = 65, [26] = 65, [31] = 32},
     },
     [14585] = {
         decorID = 14585,
@@ -44298,6 +46837,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 69, [26] = 69, [31] = 34},
     },
     [14586] = {
         decorID = 14586,
@@ -44330,6 +46871,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 74, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [14587] = {
         decorID = 14587,
@@ -44362,6 +46905,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 72, [5] = 88, [19] = 45, [23] = 45, [26] = 100, [31] = 45},
     },
     [14588] = {
         decorID = 14588,
@@ -44394,6 +46939,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 51, [5] = 100, [19] = 51, [23] = 32, [26] = 65, [31] = 32},
     },
     [14589] = {
         decorID = 14589,
@@ -44426,6 +46973,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 51, [5] = 100, [19] = 51, [23] = 32, [26] = 65, [31] = 32},
     },
     [14590] = {
         decorID = 14590,
@@ -44458,6 +47007,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 18, 33},
+        themeScores = {[5] = 31, [18] = 95, [33] = 100},
     },
     [14591] = {
         decorID = 14591,
@@ -44490,6 +47041,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {18, 19, 21, 24, 33},
+        themeScores = {[18] = 32, [19] = 50, [21] = 50, [24] = 63, [33] = 100},
     },
     [14592] = {
         decorID = 14592,
@@ -44522,6 +47075,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 18, 19, 21, 23, 24, 33},
+        themeScores = {[5] = 40, [18] = 28, [19] = 88, [21] = 85, [23] = 93, [24] = 100, [33] = 53},
     },
     [14593] = {
         decorID = 14593,
@@ -44554,6 +47109,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 54, [33] = 100},
     },
     [14594] = {
         decorID = 14594,
@@ -44586,6 +47143,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {19, 23, 24, 33},
+        themeScores = {[19] = 34, [23] = 100, [24] = 38, [33] = 50},
     },
     [14595] = {
         decorID = 14595,
@@ -44618,6 +47177,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 39, [33] = 100},
     },
     [14596] = {
         decorID = 14596,
@@ -44650,6 +47211,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {24, 33},
+        themeScores = {[24] = 43, [33] = 100},
     },
     [14597] = {
         decorID = 14597,
@@ -44682,6 +47245,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {11, 18, 19, 21, 33},
+        themeScores = {[11] = 55, [18] = 34, [19] = 53, [21] = 53, [33] = 100},
     },
     [14598] = {
         decorID = 14598,
@@ -44714,6 +47279,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {18, 19, 33},
+        themeScores = {[18] = 39, [19] = 39, [33] = 100},
     },
     [14599] = {
         decorID = 14599,
@@ -44746,6 +47313,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {5},
+        themeScores = {[5] = 100},
     },
     [14600] = {
         decorID = 14600,
@@ -44778,6 +47347,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 19, 23, 24, 26},
+        themeScores = {[1] = 35, [19] = 35, [23] = 100, [24] = 25, [26] = 87},
     },
     [14601] = {
         decorID = 14601,
@@ -44810,6 +47381,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 47, [5] = 100, [19] = 47, [23] = 47, [26] = 94, [31] = 47},
     },
     [14602] = {
         decorID = 14602,
@@ -44845,6 +47418,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {5, 11, 18, 19, 21, 24, 33},
+        themeScores = {[5] = 46, [11] = 52, [18] = 32, [19] = 50, [21] = 97, [24] = 63, [33] = 100},
     },
     [14603] = {
         decorID = 14603,
@@ -44877,6 +47452,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {18, 19, 21, 24, 33},
+        themeScores = {[18] = 32, [19] = 50, [21] = 50, [24] = 63, [33] = 100},
     },
     [14615] = {
         decorID = 14615,
@@ -44909,6 +47486,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [14616] = {
         decorID = 14616,
@@ -44941,6 +47520,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9},
+        themeScores = {[9] = 100},
     },
     [14617] = {
         decorID = 14617,
@@ -44973,6 +47554,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 50, [19] = 26, [23] = 46, [26] = 100, [31] = 26},
     },
     [14618] = {
         decorID = 14618,
@@ -45005,6 +47588,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 34, [26] = 69, [31] = 34},
     },
     [14619] = {
         decorID = 14619,
@@ -45037,6 +47622,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 74, [19] = 49, [23] = 26, [26] = 100, [31] = 26},
     },
     [14620] = {
         decorID = 14620,
@@ -45069,6 +47656,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 79, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [14621] = {
         decorID = 14621,
@@ -45101,6 +47690,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 74, [19] = 49, [23] = 26, [26] = 100, [31] = 26},
     },
     [14622] = {
         decorID = 14622,
@@ -45133,6 +47724,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 19, 23, 26},
+        themeScores = {[1] = 35, [19] = 43, [23] = 100, [26] = 49},
     },
     [14623] = {
         decorID = 14623,
@@ -45165,6 +47758,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 31, [19] = 26, [23] = 76, [26] = 100, [31] = 26},
     },
     [14624] = {
         decorID = 14624,
@@ -45198,6 +47793,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 21, 23, 24, 26, 31},
+        themeScores = {[1] = 41, [5] = 100, [19] = 51, [21] = 25, [23] = 25, [24] = 29, [26] = 99, [31] = 25},
     },
     [14625] = {
         decorID = 14625,
@@ -45230,6 +47827,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {9},
+        themeScores = {[9] = 100},
     },
     [14626] = {
         decorID = 14626,
@@ -45262,6 +47861,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {9, 23},
+        themeScores = {[9] = 100, [23] = 33},
     },
     [14627] = {
         decorID = 14627,
@@ -45294,6 +47895,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14631] = {
         decorID = 14631,
@@ -45327,6 +47930,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Nexus-Point Xenas: Eclipse" },
         },
+        themeIDs = {18},
+        themeScores = {[18] = 100},
     },
     [14632] = {
         decorID = 14632,
@@ -45359,6 +47964,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {18, 24, 33},
+        themeScores = {[18] = 25, [24] = 49, [33] = 100},
     },
     [14633] = {
         decorID = 14633,
@@ -45388,6 +47995,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {18, 19, 21, 33},
+        themeScores = {[18] = 34, [19] = 52, [21] = 52, [33] = 100},
     },
     [14634] = {
         decorID = 14634,
@@ -45420,6 +48029,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {19, 21, 33},
+        themeScores = {[19] = 34, [21] = 34, [33] = 100},
     },
     [14635] = {
         decorID = 14635,
@@ -45453,6 +48064,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {18, 19, 21, 33},
+        themeScores = {[18] = 64, [19] = 100, [21] = 100, [33] = 64},
     },
     [14636] = {
         decorID = 14636,
@@ -45485,6 +48098,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14637] = {
         decorID = 14637,
@@ -45517,6 +48132,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {11, 18, 33},
+        themeScores = {[11] = 63, [18] = 39, [33] = 100},
     },
     [14638] = {
         decorID = 14638,
@@ -45549,6 +48166,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [14639] = {
         decorID = 14639,
@@ -45585,6 +48204,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9},
+        themeScores = {[9] = 100},
     },
     [14640] = {
         decorID = 14640,
@@ -45617,6 +48238,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 51, [5] = 100, [19] = 32, [23] = 71, [24] = 36, [26] = 65, [31] = 32},
     },
     [14641] = {
         decorID = 14641,
@@ -45654,6 +48277,8 @@ NS.CatalogData.Items = {
         treasureMapID = 2395,
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 53, [5] = 65, [19] = 33, [23] = 100, [26] = 67, [31] = 33},
     },
     [14642] = {
         decorID = 14642,
@@ -45686,6 +48311,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14643] = {
         decorID = 14643,
@@ -45718,6 +48345,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 33},
+        themeScores = {[23] = 44, [33] = 100},
     },
     [14644] = {
         decorID = 14644,
@@ -45750,6 +48379,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 2},
         subcategoryIDs = {10, 25},
+        themeIDs = {14, 24},
+        themeScores = {[14] = 100, [24] = 84},
     },
     [14676] = {
         decorID = 14676,
@@ -45782,6 +48413,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 19, 21, 23},
+        themeScores = {[5] = 57, [19] = 57, [21] = 100, [23] = 58},
     },
     [14677] = {
         decorID = 14677,
@@ -45818,6 +48451,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24, 33},
+        themeScores = {[23] = 100, [24] = 35, [33] = 28},
     },
     [14678] = {
         decorID = 14678,
@@ -45854,6 +48489,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 23, 24, 33},
+        themeScores = {[19] = 47, [23] = 100, [24] = 47, [33] = 94},
     },
     [14679] = {
         decorID = 14679,
@@ -45890,6 +48527,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 23, 24, 33},
+        themeScores = {[19] = 98, [23] = 98, [24] = 98, [33] = 100},
     },
     [14680] = {
         decorID = 14680,
@@ -45926,6 +48565,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 23, 24},
+        themeScores = {[19] = 47, [23] = 100, [24] = 47},
     },
     [14730] = {
         decorID = 14730,
@@ -45958,6 +48599,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 45, [33] = 100},
     },
     [14731] = {
         decorID = 14731,
@@ -45990,6 +48633,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100},
     },
     [14793] = {
         decorID = 14793,
@@ -46026,6 +48671,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14799] = {
         decorID = 14799,
@@ -46059,6 +48706,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14800] = {
         decorID = 14800,
@@ -46095,6 +48744,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 21, 33},
+        themeScores = {[19] = 50, [21] = 50, [33] = 100},
     },
     [14806] = {
         decorID = 14806,
@@ -46124,6 +48775,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [14808] = {
         decorID = 14808,
@@ -46156,6 +48809,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [14809] = {
         decorID = 14809,
@@ -46192,6 +48847,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14814] = {
         decorID = 14814,
@@ -46228,6 +48885,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 13},
+        themeIDs = {10, 31},
+        themeScores = {[10] = 100, [31] = 33},
     },
     [14815] = {
         decorID = 14815,
@@ -46264,6 +48923,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {13, 20},
+        themeScores = {[13] = 100, [20] = 33},
     },
     [14816] = {
         decorID = 14816,
@@ -46296,6 +48957,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {17, 19, 24, 33},
+        themeScores = {[17] = 83, [19] = 90, [24] = 100, [33] = 42},
     },
     [14820] = {
         decorID = 14820,
@@ -46328,6 +48991,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 2, 5, 6, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [2] = 45, [5] = 26, [6] = 25, [19] = 26, [23] = 81, [26] = 100, [31] = 26},
     },
     [14822] = {
         decorID = 14822,
@@ -46357,6 +49022,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14823] = {
         decorID = 14823,
@@ -46390,6 +49057,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14824] = {
         decorID = 14824,
@@ -46422,6 +49091,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {5, 9, 19, 21, 24, 25},
+        themeScores = {[5] = 87, [9] = 68, [19] = 87, [21] = 87, [24] = 100, [25] = 51},
     },
     [14825] = {
         decorID = 14825,
@@ -46454,6 +49125,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {6, 9, 23, 25},
+        themeScores = {[6] = 100, [9] = 58, [23] = 100, [25] = 58},
     },
     [14827] = {
         decorID = 14827,
@@ -46487,6 +49160,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14828] = {
         decorID = 14828,
@@ -46516,6 +49191,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14829] = {
         decorID = 14829,
@@ -46552,6 +49229,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [14830] = {
         decorID = 14830,
@@ -46588,6 +49267,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {31},
+        themeScores = {[31] = 100},
     },
     [14831] = {
         decorID = 14831,
@@ -46660,6 +49341,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [14833] = {
         decorID = 14833,
@@ -46732,6 +49415,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [14835] = {
         decorID = 14835,
@@ -46764,6 +49449,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 18, 33},
+        themeScores = {[5] = 31, [18] = 95, [33] = 100},
     },
     [14838] = {
         decorID = 14838,
@@ -46794,6 +49481,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 19, 20, 21, 23, 26},
+        themeScores = {[2] = 50, [19] = 48, [20] = 50, [21] = 48, [23] = 53, [26] = 100},
     },
     [14839] = {
         decorID = 14839,
@@ -46824,6 +49513,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 6, 17, 19, 20, 21, 23, 24, 26},
+        themeScores = {[2] = 49, [6] = 47, [17] = 52, [19] = 100, [20] = 49, [21] = 47, [23] = 52, [24] = 52, [26] = 98},
     },
     [14965] = {
         decorID = 14965,
@@ -46856,6 +49547,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {17},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14967] = {
         decorID = 14967,
@@ -46888,6 +49581,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14968] = {
         decorID = 14968,
@@ -46921,6 +49616,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 100},
     },
     [14970] = {
         decorID = 14970,
@@ -46953,6 +49650,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 15},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 61, [5] = 75, [19] = 38, [23] = 38, [26] = 100, [31] = 38},
     },
     [14971] = {
         decorID = 14971,
@@ -46985,6 +49684,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 97, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [14972] = {
         decorID = 14972,
@@ -47017,6 +49718,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 74, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [14977] = {
         decorID = 14977,
@@ -47056,6 +49759,8 @@ NS.CatalogData.Items = {
         treasureVendorZone = "Eversong Woods",
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 47, [5] = 74, [19] = 29, [23] = 29, [26] = 100, [31] = 29},
     },
     [14978] = {
         decorID = 14978,
@@ -47088,6 +49793,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {1, 5, 19, 23, 26, 31, 33},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50, [33] = 44},
     },
     [14979] = {
         decorID = 14979,
@@ -47120,6 +49827,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 34, [26] = 76, [31] = 34},
     },
     [14985] = {
         decorID = 14985,
@@ -47152,6 +49861,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 100, [19] = 51, [21] = 25, [23] = 25, [26] = 57, [31] = 25},
     },
     [14995] = {
         decorID = 14995,
@@ -47184,6 +49895,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {1, 5, 11, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [11] = 32, [19] = 66, [21] = 31, [23] = 69, [26] = 69, [31] = 34},
     },
     [15013] = {
         decorID = 15013,
@@ -47216,6 +49929,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 96, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [15059] = {
         decorID = 15059,
@@ -47248,6 +49963,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 34, [26] = 69, [31] = 34},
     },
     [15060] = {
         decorID = 15060,
@@ -47280,6 +49997,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 34, [26] = 76, [31] = 34},
     },
     [15061] = {
         decorID = 15061,
@@ -47309,6 +50028,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 41, [26] = 89, [31] = 34},
     },
     [15062] = {
         decorID = 15062,
@@ -47342,6 +50063,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 26},
+        themeScores = {[1] = 31, [5] = 57, [19] = 31, [26] = 100},
     },
     [15063] = {
         decorID = 15063,
@@ -47374,6 +50097,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 21, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 66, [21] = 31, [23] = 34, [26] = 69, [31] = 34},
     },
     [15064] = {
         decorID = 15064,
@@ -47403,6 +50128,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 40, [5] = 100, [19] = 40, [23] = 56, [26] = 51, [31] = 25},
     },
     [15065] = {
         decorID = 15065,
@@ -47435,6 +50162,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 55, [23] = 34, [26] = 69, [31] = 34},
     },
     [15069] = {
         decorID = 15069,
@@ -47464,6 +50193,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 55, [5] = 100, [19] = 34, [23] = 34, [26] = 69, [31] = 34},
     },
     [15070] = {
         decorID = 15070,
@@ -47528,6 +50259,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 54, [33] = 100},
     },
     [15072] = {
         decorID = 15072,
@@ -47557,6 +50290,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 21},
+        themeScores = {[19] = 100, [21] = 100},
     },
     [15073] = {
         decorID = 15073,
@@ -47644,6 +50379,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [15141] = {
         decorID = 15141,
@@ -47673,6 +50410,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {6},
         subcategoryIDs = {25},
+        themeIDs = {11, 25},
+        themeScores = {[11] = 100, [25] = 61},
     },
     [15142] = {
         decorID = 15142,
@@ -47702,6 +50441,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [15143] = {
         decorID = 15143,
@@ -47879,6 +50620,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [15149] = {
         decorID = 15149,
@@ -47940,6 +50683,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {2, 20, 26},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100},
     },
     [15151] = {
         decorID = 15151,
@@ -48061,6 +50806,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [15158] = {
         decorID = 15158,
@@ -48093,6 +50840,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15160] = {
         decorID = 15160,
@@ -48125,6 +50874,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15229] = {
         decorID = 15229,
@@ -48193,6 +50944,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 53, [33] = 100},
     },
     [15399] = {
         decorID = 15399,
@@ -48225,6 +50978,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 19, 21, 24},
+        themeScores = {[5] = 87, [19] = 87, [21] = 87, [24] = 100},
     },
     [15400] = {
         decorID = 15400,
@@ -48257,6 +51012,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {17, 19, 24, 27},
+        themeScores = {[17] = 46, [19] = 46, [24] = 100, [27] = 41},
     },
     [15401] = {
         decorID = 15401,
@@ -48289,6 +51046,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 21, 24, 33},
+        themeScores = {[5] = 73, [21] = 73, [24] = 100, [33] = 79},
     },
     [15402] = {
         decorID = 15402,
@@ -48321,6 +51080,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15403] = {
         decorID = 15403,
@@ -48353,6 +51114,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15404] = {
         decorID = 15404,
@@ -48385,6 +51148,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15405] = {
         decorID = 15405,
@@ -48417,6 +51182,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15406] = {
         decorID = 15406,
@@ -48449,6 +51216,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15407] = {
         decorID = 15407,
@@ -48481,6 +51250,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15408] = {
         decorID = 15408,
@@ -48513,6 +51284,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15409] = {
         decorID = 15409,
@@ -48546,6 +51319,8 @@ NS.CatalogData.Items = {
         altVendorName = "World Vendors",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 23, 26},
+        themeScores = {[1] = 100, [23] = 33, [26] = 100},
     },
     [15410] = {
         decorID = 15410,
@@ -48578,6 +51353,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15411] = {
         decorID = 15411,
@@ -48610,6 +51387,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15412] = {
         decorID = 15412,
@@ -48642,6 +51421,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {24, 33},
+        themeScores = {[24] = 100, [33] = 79},
     },
     [15413] = {
         decorID = 15413,
@@ -48674,6 +51455,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [15453] = {
         decorID = 15453,
@@ -48707,6 +51490,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 6, 11, 23, 25},
+        themeScores = {[5] = 58, [6] = 100, [11] = 58, [23] = 100, [25] = 58},
     },
     [15454] = {
         decorID = 15454,
@@ -48775,6 +51560,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {5, 11, 26},
+        themeScores = {[5] = 50, [11] = 100, [26] = 38},
     },
     [15457] = {
         decorID = 15457,
@@ -48807,6 +51594,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15458] = {
         decorID = 15458,
@@ -48839,6 +51628,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15459] = {
         decorID = 15459,
@@ -48871,6 +51662,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
+        themeIDs = {1, 26},
+        themeScores = {[1] = 100, [26] = 100},
     },
     [15460] = {
         decorID = 15460,
@@ -48903,6 +51696,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15463] = {
         decorID = 15463,
@@ -48939,6 +51734,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {9, 25, 31},
+        themeScores = {[9] = 30, [25] = 30, [31] = 100},
     },
     [15467] = {
         decorID = 15467,
@@ -48968,6 +51765,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {2, 20, 23, 25, 26, 30},
+        themeScores = {[2] = 50, [20] = 50, [23] = 53, [25] = 31, [26] = 100, [30] = 52},
     },
     [15477] = {
         decorID = 15477,
@@ -49032,6 +51831,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 9, 11, 19, 21, 25},
+        themeScores = {[5] = 100, [9] = 78, [11] = 95, [19] = 100, [21] = 100, [25] = 59},
     },
     [15479] = {
         decorID = 15479,
@@ -49064,6 +51865,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 9, 19, 21, 25},
+        themeScores = {[5] = 100, [9] = 78, [19] = 100, [21] = 100, [25] = 59},
     },
     [15480] = {
         decorID = 15480,
@@ -49096,6 +51899,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {6, 9, 23, 25},
+        themeScores = {[6] = 100, [9] = 78, [23] = 100, [25] = 58},
     },
     [15481] = {
         decorID = 15481,
@@ -49125,6 +51930,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {19, 21, 25},
+        themeScores = {[19] = 100, [21] = 100, [25] = 64},
     },
     [15483] = {
         decorID = 15483,
@@ -49161,6 +51968,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 41, [5] = 79, [19] = 26, [23] = 26, [26] = 100, [31] = 26},
     },
     [15484] = {
         decorID = 15484,
@@ -49193,6 +52002,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15488] = {
         decorID = 15488,
@@ -49225,6 +52036,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 33},
+        themeScores = {[20] = 100, [33] = 100},
     },
     [15489] = {
         decorID = 15489,
@@ -49257,6 +52070,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15490] = {
         decorID = 15490,
@@ -49293,6 +52108,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15492] = {
         decorID = 15492,
@@ -49329,6 +52146,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15493] = {
         decorID = 15493,
@@ -49358,6 +52177,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {5, 21, 25},
+        themeScores = {[5] = 100, [21] = 100, [25] = 70},
     },
     [15494] = {
         decorID = 15494,
@@ -49391,6 +52212,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
+        themeIDs = {9},
+        themeScores = {[9] = 100},
     },
     [15497] = {
         decorID = 15497,
@@ -49424,6 +52247,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
+        themeIDs = {9, 25},
+        themeScores = {[9] = 100, [25] = 75},
     },
     [15499] = {
         decorID = 15499,
@@ -49456,6 +52281,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 72, [5] = 45, [19] = 45, [23] = 45, [26] = 100, [31] = 45},
     },
     [15500] = {
         decorID = 15500,
@@ -49488,6 +52315,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21, 19},
+        themeIDs = {1, 5, 19, 23, 26, 30, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 99, [26] = 100, [30] = 48, [31] = 50},
     },
     [15501] = {
         decorID = 15501,
@@ -49520,6 +52349,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28},
+        themeIDs = {5, 21, 25},
+        themeScores = {[5] = 100, [21] = 100, [25] = 70},
     },
     [15502] = {
         decorID = 15502,
@@ -49552,6 +52383,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {5, 21, 25},
+        themeScores = {[5] = 100, [21] = 100, [25] = 70},
     },
     [15503] = {
         decorID = 15503,
@@ -49584,6 +52417,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [15504] = {
         decorID = 15504,
@@ -49616,6 +52451,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {29},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [15550] = {
         decorID = 15550,
@@ -49745,6 +52582,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {6, 3},
         subcategoryIDs = {11, 29},
+        themeIDs = {6},
+        themeScores = {[6] = 100},
     },
     [15554] = {
         decorID = 15554,
@@ -49834,6 +52673,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15568] = {
         decorID = 15568,
@@ -49863,6 +52704,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {4},
         subcategoryIDs = {18, 19},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15570] = {
         decorID = 15570,
@@ -49892,6 +52735,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16, 30},
+        themeScores = {[16] = 100, [30] = 62},
     },
     [15571] = {
         decorID = 15571,
@@ -49924,6 +52769,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16, 23},
+        themeScores = {[16] = 100, [23] = 64},
     },
     [15572] = {
         decorID = 15572,
@@ -49960,6 +52807,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15573] = {
         decorID = 15573,
@@ -49992,6 +52841,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15574] = {
         decorID = 15574,
@@ -50021,6 +52872,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15575] = {
         decorID = 15575,
@@ -50053,6 +52906,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15576] = {
         decorID = 15576,
@@ -50082,6 +52937,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15578] = {
         decorID = 15578,
@@ -50114,6 +52971,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 23, 33},
+        themeScores = {[19] = 34, [23] = 59, [33] = 100},
     },
     [15579] = {
         decorID = 15579,
@@ -50149,6 +53008,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {31, 33},
+        themeScores = {[31] = 33, [33] = 100},
     },
     [15581] = {
         decorID = 15581,
@@ -50181,6 +53042,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15582] = {
         decorID = 15582,
@@ -50210,6 +53073,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23, 33},
+        themeScores = {[23] = 30, [33] = 100},
     },
     [15583] = {
         decorID = 15583,
@@ -50239,6 +53104,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23, 33},
+        themeScores = {[23] = 39, [33] = 100},
     },
     [15584] = {
         decorID = 15584,
@@ -50271,6 +53138,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {18, 23, 33},
+        themeScores = {[18] = 28, [23] = 42, [33] = 100},
     },
     [15585] = {
         decorID = 15585,
@@ -50303,6 +53172,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19},
+        themeIDs = {23, 24, 33},
+        themeScores = {[23] = 27, [24] = 31, [33] = 100},
     },
     [15595] = {
         decorID = 15595,
@@ -50339,6 +53210,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [15596] = {
         decorID = 15596,
@@ -50371,6 +53244,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 23},
+        themeScores = {[16] = 97, [23] = 100},
     },
     [15597] = {
         decorID = 15597,
@@ -50403,6 +53278,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 53, [33] = 100},
     },
     [15605] = {
         decorID = 15605,
@@ -50436,6 +53313,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
+        themeIDs = {14},
+        themeScores = {[14] = 100},
     },
     [15654] = {
         decorID = 15654,
@@ -50466,6 +53345,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {7, 32},
+        themeScores = {[7] = 100, [32] = 100},
     },
     [15668] = {
         decorID = 15668,
@@ -50526,6 +53407,8 @@ NS.CatalogData.Items = {
         isShopItem = true,
         categoryIDs = {6, 3},
         subcategoryIDs = {26, 11},
+        themeIDs = {26},
+        themeScores = {[26] = 100},
     },
     [15741] = {
         decorID = 15741,
@@ -50558,6 +53441,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {15, 21},
+        themeScores = {[15] = 100, [21] = 56},
     },
     [15743] = {
         decorID = 15743,
@@ -50594,6 +53479,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16, 17, 24},
+        themeScores = {[16] = 100, [17] = 66, [24] = 66},
     },
     [15744] = {
         decorID = 15744,
@@ -50630,6 +53517,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15745] = {
         decorID = 15745,
@@ -50666,6 +53555,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [15746] = {
         decorID = 15746,
@@ -50698,6 +53589,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 34, [33] = 100},
     },
     [15747] = {
         decorID = 15747,
@@ -50727,6 +53620,8 @@ NS.CatalogData.Items = {
         expansion = "Unknown",
         categoryIDs = {4},
         subcategoryIDs = {21, 19},
+        themeIDs = {17, 18, 24, 33},
+        themeScores = {[17] = 58, [18] = 71, [24] = 58, [33] = 100},
     },
     [15755] = {
         decorID = 15755,
@@ -50756,6 +53651,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15756] = {
         decorID = 15756,
@@ -50785,6 +53682,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15757] = {
         decorID = 15757,
@@ -50817,6 +53716,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15758] = {
         decorID = 15758,
@@ -50846,6 +53747,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [15761] = {
         decorID = 15761,
@@ -50875,6 +53778,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23, 33},
+        themeScores = {[23] = 67, [33] = 100},
     },
     [15762] = {
         decorID = 15762,
@@ -50904,6 +53809,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {2, 20, 26, 33},
+        themeScores = {[2] = 50, [20] = 50, [26] = 100, [33] = 31},
     },
     [15768] = {
         decorID = 15768,
@@ -50939,6 +53846,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {18, 20, 33},
+        themeScores = {[18] = 100, [20] = 33, [33] = 33},
     },
     [15769] = {
         decorID = 15769,
@@ -50971,6 +53880,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 34, [33] = 100},
     },
     [15851] = {
         decorID = 15851,
@@ -51003,6 +53914,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {1},
+        themeIDs = {6, 16, 23},
+        themeScores = {[6] = 100, [16] = 58, [23] = 100},
     },
     [15890] = {
         decorID = 15890,
@@ -51035,6 +53948,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {18, 20, 33},
+        themeScores = {[18] = 100, [20] = 33, [33] = 33},
     },
     [15891] = {
         decorID = 15891,
@@ -51070,6 +53985,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 100, [33] = 33},
     },
     [15894] = {
         decorID = 15894,
@@ -51105,6 +54022,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {18, 23, 33},
+        themeScores = {[18] = 58, [23] = 100, [33] = 90},
     },
     [15895] = {
         decorID = 15895,
@@ -51138,6 +54057,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 64, [33] = 100},
     },
     [16012] = {
         decorID = 16012,
@@ -51170,6 +54091,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 47, [19] = 27, [24] = 100},
     },
     [16013] = {
         decorID = 16013,
@@ -51202,6 +54125,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {5, 17, 21, 24},
+        themeScores = {[5] = 80, [17] = 100, [21] = 80, [24] = 100},
     },
     [16014] = {
         decorID = 16014,
@@ -51234,6 +54159,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {30},
+        themeScores = {[30] = 100},
     },
     [16015] = {
         decorID = 16015,
@@ -51266,6 +54193,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {6},
+        themeIDs = {2, 19, 20, 21, 26},
+        themeScores = {[2] = 94, [19] = 48, [20] = 50, [21] = 48, [26] = 100},
     },
     [16027] = {
         decorID = 16027,
@@ -51646,6 +54575,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 3, 5, 17, 19, 23, 24, 26, 31},
+        themeScores = {[1] = 74, [3] = 30, [5] = 100, [17] = 48, [19] = 47, [23] = 47, [24] = 48, [26] = 94, [31] = 47},
     },
     [16083] = {
         decorID = 16083,
@@ -51678,6 +54609,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {21},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 62, [19] = 34, [24] = 100},
     },
     [16084] = {
         decorID = 16084,
@@ -51710,6 +54643,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {7},
+        themeScores = {[7] = 100},
     },
     [16085] = {
         decorID = 16085,
@@ -51742,6 +54677,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {12},
+        themeIDs = {7},
+        themeScores = {[7] = 100},
     },
     [16086] = {
         decorID = 16086,
@@ -51772,6 +54709,8 @@ NS.CatalogData.Items = {
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stranglekelp Sack" },
         },
+        themeIDs = {3, 5, 21, 25},
+        themeScores = {[3] = 77, [5] = 100, [21] = 100, [25] = 70},
     },
     [16087] = {
         decorID = 16087,
@@ -51804,6 +54743,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {19, 17},
+        themeIDs = {5, 21},
+        themeScores = {[5] = 100, [21] = 100},
     },
     [16088] = {
         decorID = 16088,
@@ -51868,6 +54809,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {6},
+        themeScores = {[6] = 100},
     },
     [16090] = {
         decorID = 16090,
@@ -51900,6 +54843,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {15},
+        themeIDs = {11, 21, 25},
+        themeScores = {[11] = 71, [21] = 100, [25] = 44},
     },
     [16092] = {
         decorID = 16092,
@@ -51937,6 +54882,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {4},
         subcategoryIDs = {18},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [16094] = {
         decorID = 16094,
@@ -51966,6 +54913,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {16, 17, 24},
+        themeScores = {[16] = 88, [17] = 58, [24] = 100},
     },
     [16219] = {
         decorID = 16219,
@@ -51998,6 +54947,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {3, 17, 19, 23, 24},
+        themeScores = {[3] = 30, [17] = 46, [19] = 46, [23] = 47, [24] = 100},
     },
     [16220] = {
         decorID = 16220,
@@ -52030,6 +54981,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {17, 19, 23, 24},
+        themeScores = {[17] = 64, [19] = 31, [23] = 31, [24] = 100},
     },
     [16227] = {
         decorID = 16227,
@@ -52210,6 +55163,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {2},
         subcategoryIDs = {3},
+        themeIDs = {5, 21, 27},
+        themeScores = {[5] = 93, [21] = 93, [27] = 100},
     },
     [16232] = {
         decorID = 16232,
@@ -52318,6 +55273,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [16235] = {
         decorID = 16235,
@@ -52426,6 +55383,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {5, 19, 21},
+        themeScores = {[5] = 47, [19] = 52, [21] = 100},
     },
     [16315] = {
         decorID = 16315,
@@ -52462,6 +55421,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {13},
+        themeIDs = {31},
+        themeScores = {[31] = 100},
     },
     [16811] = {
         decorID = 16811,
@@ -52718,6 +55679,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {19, 21},
+        themeScores = {[19] = 100, [21] = 100},
     },
     [16819] = {
         decorID = 16819,
@@ -52750,6 +55713,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [16820] = {
         decorID = 16820,
@@ -52782,6 +55747,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [16821] = {
         decorID = 16821,
@@ -52846,6 +55813,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [16962] = {
         decorID = 16962,
@@ -52914,6 +55883,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
     [16965] = {
         decorID = 16965,
@@ -52946,6 +55917,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [16966] = {
         decorID = 16966,
@@ -52978,6 +55951,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [16967] = {
         decorID = 16967,
@@ -53106,6 +56081,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {17, 19, 24},
+        themeScores = {[17] = 100, [19] = 100, [24] = 100},
     },
     [16971] = {
         decorID = 16971,
@@ -53235,6 +56212,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17440] = {
         decorID = 17440,
@@ -53268,6 +56247,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 32},
+        themeScores = {[1] = 100, [32] = 33},
     },
     [17441] = {
         decorID = 17441,
@@ -53301,6 +56282,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 33},
+        themeScores = {[1] = 100, [33] = 33},
     },
     [17442] = {
         decorID = 17442,
@@ -53334,6 +56317,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17443] = {
         decorID = 17443,
@@ -53367,6 +56352,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17444] = {
         decorID = 17444,
@@ -53400,6 +56387,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17446] = {
         decorID = 17446,
@@ -53433,6 +56422,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17447] = {
         decorID = 17447,
@@ -53466,6 +56457,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17449] = {
         decorID = 17449,
@@ -53499,6 +56492,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17450] = {
         decorID = 17450,
@@ -53532,6 +56527,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17452] = {
         decorID = 17452,
@@ -53565,6 +56562,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17453] = {
         decorID = 17453,
@@ -53598,6 +56597,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17454] = {
         decorID = 17454,
@@ -53631,6 +56632,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17455] = {
         decorID = 17455,
@@ -53664,6 +56667,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17456] = {
         decorID = 17456,
@@ -53697,6 +56702,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 32},
+        themeScores = {[1] = 100, [32] = 33},
     },
     [17457] = {
         decorID = 17457,
@@ -53730,6 +56737,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 33},
+        themeScores = {[1] = 100, [33] = 33},
     },
     [17458] = {
         decorID = 17458,
@@ -53763,6 +56772,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17459] = {
         decorID = 17459,
@@ -53796,6 +56807,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17460] = {
         decorID = 17460,
@@ -53829,6 +56842,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17462] = {
         decorID = 17462,
@@ -53862,6 +56877,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17464] = {
         decorID = 17464,
@@ -53895,6 +56912,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17465] = {
         decorID = 17465,
@@ -53928,6 +56947,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17467] = {
         decorID = 17467,
@@ -53961,6 +56982,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17469] = {
         decorID = 17469,
@@ -53994,6 +57017,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17472] = {
         decorID = 17472,
@@ -54027,6 +57052,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17474] = {
         decorID = 17474,
@@ -54060,6 +57087,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17515] = {
         decorID = 17515,
@@ -54092,6 +57121,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {24},
+        themeScores = {[24] = 100},
     },
     [17516] = {
         decorID = 17516,
@@ -54156,6 +57187,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [17519] = {
         decorID = 17519,
@@ -54188,6 +57221,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {7},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 72, [5] = 87, [19] = 45, [23] = 45, [26] = 100, [31] = 45},
     },
     [17520] = {
         decorID = 17520,
@@ -54221,6 +57256,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5},
+        themeScores = {[1] = 100, [5] = 33},
     },
     [17521] = {
         decorID = 17521,
@@ -54254,6 +57291,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1},
+        themeScores = {[1] = 100},
     },
     [17522] = {
         decorID = 17522,
@@ -54287,6 +57326,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5},
+        themeScores = {[1] = 100, [5] = 33},
     },
     [17523] = {
         decorID = 17523,
@@ -54320,6 +57361,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 78, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [17628] = {
         decorID = 17628,
@@ -54349,6 +57392,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [17629] = {
         decorID = 17629,
@@ -54378,6 +57423,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 21},
+        themeScores = {[20] = 100, [21] = 100},
     },
     [17630] = {
         decorID = 17630,
@@ -54407,6 +57454,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [17863] = {
         decorID = 17863,
@@ -54443,6 +57492,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 25, 26},
+        themeIDs = {25, 27},
+        themeScores = {[25] = 66, [27] = 100},
     },
     [17864] = {
         decorID = 17864,
@@ -54479,6 +57530,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 26},
+        themeIDs = {25},
+        themeScores = {[25] = 100},
     },
     [17865] = {
         decorID = 17865,
@@ -54515,6 +57568,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 28, 26},
+        themeIDs = {11, 25},
+        themeScores = {[11] = 100, [25] = 61},
     },
     [17866] = {
         decorID = 17866,
@@ -54551,6 +57606,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 28, 26},
+        themeIDs = {11, 25},
+        themeScores = {[11] = 100, [25] = 61},
     },
     [17867] = {
         decorID = 17867,
@@ -54587,6 +57644,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 28, 26},
+        themeIDs = {17, 24, 25},
+        themeScores = {[17] = 100, [24] = 100, [25] = 56},
     },
     [17868] = {
         decorID = 17868,
@@ -54623,6 +57682,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 28, 26},
+        themeIDs = {1, 5, 19, 23, 25, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 50, [25] = 28, [26] = 100, [31] = 50},
     },
     [17869] = {
         decorID = 17869,
@@ -54659,6 +57720,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 26},
+        themeIDs = {5, 11, 19, 21, 25},
+        themeScores = {[5] = 100, [11] = 95, [19] = 100, [21] = 100, [25] = 59},
     },
     [17870] = {
         decorID = 17870,
@@ -54695,6 +57758,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 26},
+        themeIDs = {11, 25},
+        themeScores = {[11] = 100, [25] = 61},
     },
     [17871] = {
         decorID = 17871,
@@ -54731,6 +57796,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {27, 28, 26},
+        themeIDs = {1, 5, 19, 23, 25, 26, 31},
+        themeScores = {[1] = 45, [5] = 45, [19] = 45, [23] = 45, [25] = 26, [26] = 100, [31] = 45},
     },
     [17872] = {
         decorID = 17872,
@@ -54767,6 +57834,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {6},
         subcategoryIDs = {28, 26},
+        themeIDs = {1, 5, 11, 19, 23, 25, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [11] = 46, [19] = 50, [23] = 50, [25] = 28, [26] = 100, [31] = 50},
     },
     [17873] = {
         decorID = 17873,
@@ -54799,6 +57868,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {11, 24},
+        themeScores = {[11] = 83, [24] = 100},
     },
     [17874] = {
         decorID = 17874,
@@ -54831,6 +57902,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {11, 24},
+        themeScores = {[11] = 83, [24] = 100},
     },
     [17886] = {
         decorID = 17886,
@@ -54867,6 +57940,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {9, 25, 30},
+        themeScores = {[9] = 60, [25] = 60, [30] = 100},
     },
     [17918] = {
         decorID = 17918,
@@ -54899,6 +57974,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {25, 29},
+        themeScores = {[25] = 100, [29] = 100},
     },
     [17919] = {
         decorID = 17919,
@@ -54931,6 +58008,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {14},
+        themeIDs = {11, 24},
+        themeScores = {[11] = 83, [24] = 100},
     },
     [18396] = {
         decorID = 18396,
@@ -54960,6 +58039,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 50, [26] = 100, [31] = 50},
     },
     [18397] = {
         decorID = 18397,
@@ -54989,6 +58070,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20, 21},
+        themeScores = {[20] = 100, [21] = 100},
     },
     [18398] = {
         decorID = 18398,
@@ -55018,6 +58101,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {20},
+        themeScores = {[20] = 100},
     },
     [18483] = {
         decorID = 18483,
@@ -55047,6 +58132,8 @@ NS.CatalogData.Items = {
         expansion = "Wrath of the Lich King",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {24, 33},
+        themeScores = {[24] = 100, [33] = 79},
     },
     [18484] = {
         decorID = 18484,
@@ -55077,6 +58164,8 @@ NS.CatalogData.Items = {
         patchAdded = "12.0.0",
         categoryIDs = {4},
         subcategoryIDs = {16},
+        themeIDs = {5, 6, 17, 19, 21, 23, 24, 30},
+        themeScores = {[5] = 100, [6] = 51, [17] = 40, [19] = 51, [21] = 51, [23] = 51, [24] = 58, [30] = 50},
     },
     [18485] = {
         decorID = 18485,
@@ -55106,6 +58195,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {8},
         subcategoryIDs = {34},
+        themeIDs = {16},
+        themeScores = {[16] = 100},
     },
     [18617] = {
         decorID = 18617,
@@ -55141,6 +58232,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {5},
+        themeIDs = {33},
+        themeScores = {[33] = 100},
     },
     [18800] = {
         decorID = 18800,
@@ -55176,6 +58269,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {1},
         subcategoryIDs = {2},
+        themeIDs = {18, 33},
+        themeScores = {[18] = 53, [33] = 100},
     },
     [19197] = {
         decorID = 19197,
@@ -55205,6 +58300,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23, 24},
+        themeScores = {[23] = 88, [24] = 100},
     },
     [19198] = {
         decorID = 19198,
@@ -55234,6 +58331,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 19, 23, 26, 31},
+        themeScores = {[1] = 50, [5] = 50, [19] = 50, [23] = 99, [26] = 100, [31] = 50},
     },
     [19229] = {
         decorID = 19229,
@@ -55266,6 +58365,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 5, 6, 19, 23, 24, 26, 30, 31},
+        themeScores = {[1] = 49, [5] = 60, [6] = 31, [19] = 49, [23] = 100, [24] = 35, [26] = 63, [30] = 30, [31] = 31},
     },
     [19231] = {
         decorID = 19231,
@@ -55298,6 +58399,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 6, 19, 23, 24},
+        themeScores = {[1] = 49, [6] = 83, [19] = 49, [23] = 100, [24] = 95},
     },
     [19234] = {
         decorID = 19234,
@@ -55330,6 +58433,8 @@ NS.CatalogData.Items = {
         },
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {1, 6, 19, 23, 24, 33},
+        themeScores = {[1] = 26, [6] = 45, [19] = 26, [23] = 100, [24] = 51, [33] = 81},
     },
     [19252] = {
         decorID = 19252,
@@ -55359,6 +58464,8 @@ NS.CatalogData.Items = {
         expansion = "Midnight",
         categoryIDs = {3},
         subcategoryIDs = {11},
+        themeIDs = {23},
+        themeScores = {[23] = 100},
     },
 }
 
@@ -55514,15 +58621,15 @@ NS.CatalogData.ByExpansion = {
         1408, 4816, 12201, 1412,
     },
     ["Legion"] = {
-        2516, 752, 2517, 7690, 3985, 926, 5893, 5120, 5292, 9267, 1801, 1802, 14358, 7873, 675, 677, 15453, 7607, 7609, 11275,
-        7624, 4028, 4031, 1889, 947, 3982, 676, 9165, 930, 8189, 15477, 5127, 5128, 5897, 1309, 11905, 11907, 7874, 1747, 7837,
-        1885, 7687, 11872, 8811, 5555, 11752, 11942, 7622, 1297, 5530, 5527, 5531, 11276, 1694, 1884, 679, 1882, 1883, 1887, 1886,
-        1695, 14379, 1251, 11278, 4026, 7686, 7625, 7623, 7621, 7841, 7875, 11493, 11283, 8195, 673, 11909, 8768, 7821, 7606, 7608,
-        3984, 1440, 3981, 4035, 1919, 4027, 7839, 1465, 1920, 7822, 5890, 7819, 5525, 5117, 5526, 11486, 5892, 11307, 5575, 5878,
-        7823, 7838, 1295, 1294, 1741, 7824, 5898, 8810, 4025, 1881, 11908, 5528, 5562, 5529, 11751, 11491, 11753, 1307, 1293, 11279,
-        1444, 1466, 2086, 7820, 1231, 3983, 4024, 11483, 11708, 4038, 4040, 5136, 11315, 11487, 1291, 1252, 1292, 1464, 1232, 1703,
-        15741, 7579, 750, 5896, 5894, 5895, 2531, 7610, 2530, 4033, 1740, 5877, 4042, 7815, 7816, 7817, 14461, 7818, 5891, 1692,
-        5532, 5534, 7658, 14597, 7620, 1287, 1235,
+        2516, 752, 2517, 7690, 674, 3985, 926, 5893, 5120, 5292, 9267, 1801, 1802, 14358, 7873, 675, 677, 15453, 7607, 7609,
+        11275, 7624, 4028, 4031, 1889, 947, 3982, 676, 9165, 930, 8189, 15477, 5127, 5128, 5897, 1309, 11905, 11907, 7874, 1747,
+        7837, 1885, 7687, 11872, 8811, 5555, 11752, 11942, 7622, 1297, 5530, 5527, 5531, 11276, 1694, 1884, 679, 1882, 1883, 1887,
+        1886, 1695, 14379, 1251, 11278, 4026, 7686, 7625, 7623, 7621, 7841, 7875, 11493, 11283, 8195, 673, 11909, 8768, 7821, 7606,
+        7608, 3984, 1440, 3981, 4035, 1919, 4027, 7839, 1465, 1920, 7822, 5890, 7819, 5525, 5117, 5526, 11486, 5892, 11307, 5575,
+        5878, 7823, 7838, 1295, 1294, 1741, 7824, 5898, 8810, 4025, 1881, 11908, 5528, 5562, 5529, 11751, 11491, 11753, 1307, 1293,
+        11279, 1444, 1466, 2086, 7820, 1231, 3983, 4024, 11483, 11708, 4038, 4040, 5136, 11315, 11487, 1291, 1252, 1292, 1464, 1232,
+        1703, 15741, 7579, 750, 5896, 5894, 5895, 2531, 7610, 2530, 4033, 1740, 5877, 4042, 7815, 7816, 7817, 14461, 7818, 5891,
+        1692, 5532, 5534, 7658, 14597, 7620, 1287, 1235,
     },
     ["Battle for Azeroth"] = {
         9052, 9041, 9054, 9045, 9035, 1310, 2323, 940, 939, 942, 946, 1180, 2433, 1175, 9036, 9037, 2091, 9043, 9044, 1179,
@@ -55540,7 +58647,7 @@ NS.CatalogData.ByExpansion = {
         1274, 12196, 14360, 9169, 11933, 14359, 1267, 763, 9188, 12198, 825, 3891, 2470, 9185, 9186, 10962, 9236, 9178, 9242, 12195,
         12220, 12211, 12217, 12212, 9182, 9237, 1861, 9179, 9240, 9183, 1121, 2330, 14381, 5111, 9246, 10889, 11952, 11948, 2532, 11931,
         11930, 11932, 11128, 760, 762, 761, 12197, 1749, 9247, 4022, 11127, 1750, 1893, 9181, 12218, 1276, 4560, 1271, 827, 1265,
-        1277, 1693, 10857, 1259, 4029, 9168, 2533, 10853, 1268, 1263, 1262, 1266, 10852, 1258, 1257, 1269, 4172, 828,
+        1277, 1693, 10857, 1259, 4029, 9168, 2533, 1272, 10853, 1268, 1263, 1262, 1266, 10852, 1258, 1257, 1269, 4172, 828,
     },
     ["Midnight"] = {
         9481, 9492, 9489, 9491, 9483, 9484, 10542, 9482, 9493, 9487, 9485, 9494, 9490, 9497, 9486, 9479, 9496, 9488, 9151, 9149,
@@ -55575,35 +58682,34 @@ NS.CatalogData.ByExpansion = {
         10351, 5561, 8912, 478, 1862, 1742, 4475, 10350, 16230, 16233,
     },
     ["Unknown"] = {
-        2523, 11492, 11887, 11431, 9238, 9239, 14432, 11323, 15570, 15851, 2301, 1792, 674, 14589, 14588, 11438, 11879, 16220, 16219, 11281,
-        11924, 11918, 8237, 11383, 16014, 11917, 15555, 14601, 11384, 2109, 1772, 1770, 2110, 1771, 2113, 11946, 14838, 12161, 14839, 1321,
-        2230, 1322, 1325, 11754, 15554, 8983, 9050, 11381, 755, 9170, 9046, 854, 922, 14599, 11923, 11370, 12300, 2596, 11755, 2468,
-        11927, 11928, 1163, 1878, 1994, 2342, 14619, 1486, 4034, 7827, 7826, 7828, 15229, 15747, 15583, 764, 4030, 496, 2549, 11885,
-        16964, 15153, 16821, 16028, 15147, 16819, 16037, 16971, 16813, 16968, 16966, 16029, 15144, 16031, 16822, 15142, 16812, 15145, 16815, 16817,
-        16969, 16814, 16973, 16033, 16820, 15146, 16038, 16818, 15143, 16034, 15150, 15152, 15073, 15074, 16030, 16036, 15072, 16027, 16967, 16816,
-        15070, 16035, 16972, 16811, 16970, 16032, 16965, 11912, 11910, 11892, 11375, 11895, 16012, 11898, 16087, 2227, 14816, 2436, 759, 2471,
-        9180, 9167, 9187, 4177, 4170, 10964, 14553, 11374, 8238, 11372, 11373, 11881, 11371, 8191, 11884, 11883, 8241, 8787, 8196, 8178,
-        931, 1317, 11387, 11455, 2593, 12164, 1737, 2452, 2472, 1282, 1356, 11721, 8917, 1162, 984, 11719, 1329, 985, 10860, 987,
-        925, 1488, 14579, 19229, 19231, 19234, 14580, 14558, 11911, 10965, 4407, 14594, 14585, 9241, 9184, 1406, 1725, 1791, 1355, 1414,
-        9255, 11894, 11886, 14622, 14581, 14587, 1217, 855, 11723, 11725, 11377, 11724, 1793, 1832, 16089, 1831, 1830, 16082, 11814, 2428,
-        2427, 2465, 2329, 10887, 4813, 389, 11890, 994, 17918, 17919, 17874, 17873, 9269, 11903, 3873, 3871, 1328, 17515, 14559, 12247,
-        1674, 16090, 8907, 1977, 11490, 4408, 11922, 16085, 14620, 14621, 1324, 14433, 2546, 7842, 749, 11901, 11435, 1437, 2088, 1739,
-        1438, 1745, 1700, 2331, 3876, 16088, 765, 929, 2237, 11897, 11899, 11941, 11896, 11921, 12165, 14676, 1992, 2093, 11925, 1997,
-        1142, 4174, 4175, 4176, 1119, 2548, 4164, 3839, 4562, 3875, 9443, 12171, 12223, 11940, 7825, 14555, 14617, 14820, 11919, 14380,
-        11926, 11432, 14582, 9243, 2328, 2438, 2340, 2325, 15402, 15403, 15404, 15405, 15406, 15407, 15410, 15411, 15459, 2591, 11440, 4032,
-        11282, 1748, 11720, 14623, 1326, 1409, 1354, 11379, 1405, 1351, 1413, 1415, 2114, 1879, 1723, 523, 524, 2116, 1736, 525,
-        2115, 1744, 14586, 80, 11878, 11902, 11378, 3892, 11945, 3878, 3831, 3868, 1194, 11434, 1187, 2429, 15479, 14618, 15553, 12248,
-        9038, 11494, 2446, 4386, 2535, 11904, 1168, 1280, 14590, 14642, 14835, 14598, 14595, 14643, 14627, 9245, 14638, 9268, 16084, 5133,
-        14731, 2324, 14557, 16013, 1247, 14616, 4406, 1724, 1436, 1260, 11900, 12251, 12256, 12255, 12254, 12253, 12252, 12257, 12262, 12261,
-        12260, 12259, 12258, 12250, 12249, 12162, 11779, 1984, 2460, 2431, 3994, 1746, 16083, 2001, 8176, 4041, 11889, 11888, 14584, 15552,
-        2087, 2384, 9471, 1270, 11891, 2104, 14624, 1844, 1776, 2105, 1774, 2108, 11501, 14615, 15669, 14640, 11386, 988, 1153, 11718,
-        2434, 1161, 2432, 2592, 14730, 1993, 1991, 11496, 5342, 11722, 14600, 2098, 7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444,
-        1169, 2241, 11439, 11497, 11380, 2332, 14625, 11376, 9048, 2099, 530, 528, 529, 2101, 2100, 16086, 1435, 1157, 15550, 14637,
-        495, 1122, 373, 494, 378, 374, 11138, 4037, 1219, 4036, 4023, 11913, 4039, 1827, 15551, 390, 2496, 11880, 11388, 1243,
-        1242, 1314, 1308, 8235, 11882, 14591, 4169, 377, 15489, 11935, 12163, 9266, 11929, 11920, 1272, 2454, 81, 11433, 1275, 4162,
-        2595, 4165, 4166, 4480, 11165, 11163, 4483, 4163, 16015, 11385, 11436, 4167, 1261, 14633, 14636, 1352, 11934, 829, 1123, 1738,
-        2534, 14626, 1410, 11162, 3904, 11893, 15484, 1996, 2240, 751, 1411, 726, 383, 1311, 11382, 1241, 1200, 15654, 1273, 1313,
-        1312,
+        2523, 11492, 11887, 11431, 9238, 9239, 14432, 11323, 15570, 15851, 2301, 1792, 14589, 14588, 11438, 11879, 16220, 16219, 11281, 11924,
+        11918, 8237, 11383, 16014, 11917, 15555, 14601, 11384, 2109, 1772, 1770, 2110, 1771, 2113, 11946, 14838, 12161, 14839, 1321, 2230,
+        1322, 1325, 11754, 15554, 8983, 9050, 11381, 755, 9170, 9046, 854, 922, 14599, 11923, 11370, 12300, 2596, 11755, 2468, 11927,
+        11928, 1163, 1878, 1994, 2342, 14619, 1486, 4034, 7827, 7826, 7828, 15229, 15747, 15583, 764, 4030, 496, 2549, 11885, 16964,
+        15153, 16821, 16028, 15147, 16819, 16037, 16971, 16813, 16968, 16966, 16029, 15144, 16031, 16822, 15142, 16812, 15145, 16815, 16817, 16969,
+        16814, 16973, 16033, 16820, 15146, 16038, 16818, 15143, 16034, 15150, 15152, 15073, 15074, 16030, 16036, 15072, 16027, 16967, 16816, 15070,
+        16035, 16972, 16811, 16970, 16032, 16965, 11912, 11910, 11892, 11375, 11895, 16012, 11898, 16087, 2227, 14816, 2436, 759, 2471, 9180,
+        9167, 9187, 4177, 4170, 10964, 14553, 11374, 8238, 11372, 11373, 11881, 11371, 8191, 11884, 11883, 8241, 8787, 8196, 8178, 931,
+        1317, 11387, 11455, 2593, 12164, 1737, 2452, 2472, 1282, 1356, 11721, 8917, 1162, 984, 11719, 1329, 985, 10860, 987, 925,
+        1488, 14579, 19229, 19231, 19234, 14580, 14558, 11911, 10965, 4407, 14594, 14585, 9241, 9184, 1406, 1725, 1791, 1355, 1414, 9255,
+        11894, 11886, 14622, 14581, 14587, 1217, 855, 11723, 11725, 11377, 11724, 1793, 1832, 16089, 1831, 1830, 16082, 11814, 2428, 2427,
+        2465, 2329, 10887, 4813, 389, 11890, 994, 17918, 17919, 17874, 17873, 9269, 11903, 3873, 3871, 1328, 17515, 14559, 12247, 1674,
+        16090, 8907, 1977, 11490, 4408, 11922, 16085, 14620, 14621, 1324, 14433, 2546, 7842, 749, 11901, 11435, 1437, 2088, 1739, 1438,
+        1745, 1700, 2331, 3876, 16088, 765, 929, 2237, 11897, 11899, 11941, 11896, 11921, 12165, 14676, 1992, 2093, 11925, 1997, 1142,
+        4174, 4175, 4176, 1119, 2548, 4164, 3839, 4562, 3875, 9443, 12171, 12223, 11940, 7825, 14555, 14617, 14820, 11919, 14380, 11926,
+        11432, 14582, 9243, 2328, 2438, 2340, 2325, 15402, 15403, 15404, 15405, 15406, 15407, 15410, 15411, 15459, 2591, 11440, 4032, 11282,
+        1748, 11720, 14623, 1326, 1409, 1354, 11379, 1405, 1351, 1413, 1415, 2114, 1879, 1723, 523, 524, 2116, 1736, 525, 2115,
+        1744, 14586, 80, 11878, 11902, 11378, 3892, 11945, 3878, 3831, 3868, 1194, 11434, 1187, 2429, 15479, 14618, 15553, 12248, 9038,
+        11494, 2446, 4386, 2535, 11904, 1168, 1280, 14590, 14642, 14835, 14598, 14595, 14643, 14627, 9245, 14638, 9268, 16084, 5133, 14731,
+        2324, 14557, 16013, 1247, 14616, 4406, 1724, 1436, 1260, 11900, 12251, 12256, 12255, 12254, 12253, 12252, 12257, 12262, 12261, 12260,
+        12259, 12258, 12250, 12249, 12162, 11779, 1984, 2460, 2431, 3994, 1746, 16083, 2001, 8176, 4041, 11889, 11888, 14584, 15552, 2087,
+        2384, 9471, 1270, 11891, 2104, 14624, 1844, 1776, 2105, 1774, 2108, 11501, 14615, 15669, 14640, 11386, 988, 1153, 11718, 2434,
+        1161, 2432, 2592, 14730, 1993, 1991, 11496, 5342, 11722, 14600, 2098, 7829, 12173, 10356, 15141, 7830, 15140, 12172, 9444, 1169,
+        2241, 11439, 11497, 11380, 2332, 14625, 11376, 9048, 2099, 530, 528, 529, 2101, 2100, 16086, 1435, 1157, 15550, 14637, 495,
+        1122, 373, 494, 378, 374, 11138, 4037, 1219, 4036, 4023, 11913, 4039, 1827, 15551, 390, 2496, 11880, 11388, 1243, 1242,
+        1314, 1308, 8235, 11882, 14591, 4169, 377, 15489, 11935, 12163, 9266, 11929, 11920, 2454, 81, 11433, 1275, 4162, 2595, 4165,
+        4166, 4480, 11165, 11163, 4483, 4163, 16015, 11385, 11436, 4167, 1261, 14633, 14636, 1352, 11934, 829, 1123, 1738, 2534, 14626,
+        1410, 11162, 3904, 11893, 15484, 1996, 2240, 751, 1411, 726, 383, 1311, 11382, 1241, 1200, 15654, 1273, 1313, 1312,
     },
 }
 
@@ -55780,8 +58886,8 @@ NS.CatalogData.ByZone = {
         4444,
     },
     ["Suramar"] = {
-        2516, 752, 3985, 4028, 4031, 3982, 1747, 1885, 4026, 3984, 1440, 3981, 4035, 1919, 1465, 1920, 4025, 11908, 1444, 1466,
-        3983, 4024, 11483, 11708, 4038, 4040, 1464, 4033,
+        2516, 752, 674, 3985, 4028, 4031, 3982, 1747, 1885, 4026, 3984, 1440, 3981, 4035, 1919, 1465, 1920, 4025, 11908, 1444,
+        1466, 3983, 4024, 11483, 11708, 4038, 4040, 1464, 4033,
     },
     ["Talador"] = { 12202 },
     ["Teldrassil"] = { 1794, 1796, 1829, 858 },
@@ -55806,8 +58912,8 @@ NS.CatalogData.ByZone = {
     ["Trueshot Lodge"] = { 5893, 5890, 5892, 1740, 5877, 4042, 5891 },
     ["Twilight Highlands"] = { 2244, 1998, 2245, 2242 },
     ["Undermine"] = {
-        1274, 1267, 825, 14381, 10889, 11128, 11127, 1276, 4560, 1271, 827, 1265, 1277, 10857, 1259, 10853, 1268, 1263, 1262, 1266,
-        10852, 1258, 1257, 1269,
+        1274, 1267, 825, 14381, 10889, 11128, 11127, 1276, 4560, 1271, 827, 1265, 1277, 10857, 1259, 1272, 10853, 1268, 1263, 1262,
+        1266, 10852, 1258, 1257, 1269,
     },
     ["Val'sharah"] = { 1801, 1802, 675, 677, 15453, 1889, 676, 1694, 1884, 679, 1882, 1883, 1887, 1886, 1695, 8195, 1881, 1692 },
     ["Valdrakken"] = { 5559, 5689, 7835, 5560, 4477, 4159, 4478, 2469, 4481, 5558, 4160, 5556, 2594, 4180, 4168, 11164, 10963, 4479 },
@@ -59260,4 +62366,388 @@ NS.CatalogData.BySubcategory = {
         16972, 16973, 18485,
     },
     [51] = { 3867, 5117, 7609, 7701, 14583 },
+}
+
+-- Theme metadata (from housing.wowdb.com community data)
+NS.CatalogData.ThemeGroupNames = {
+    [1] = "Culture",
+    [2] = "Aesthetic",
+}
+
+NS.CatalogData.ThemeGroupOrder = {1, 2}
+
+NS.CatalogData.ThemeNames = {
+    [1] = "Blood Elf",
+    [2] = "Dracthyr",
+    [3] = "Draenei",
+    [4] = "Dwarven",
+    [5] = "Elven",
+    [6] = "Gilnean",
+    [7] = "Gnomish",
+    [8] = "Goblin",
+    [9] = "Haranir",
+    [10] = "Human",
+    [11] = "Night Elf",
+    [12] = "Nightborne",
+    [13] = "Orcish",
+    [14] = "Pandaren",
+    [15] = "Tauren",
+    [16] = "Troll",
+    [17] = "Undead",
+    [18] = "Void Elf",
+    [19] = "Arcane",
+    [20] = "Armory",
+    [21] = "Fae",
+    [22] = "Fel",
+    [23] = "Lorekeeper",
+    [24] = "Macabre",
+    [25] = "Nature",
+    [26] = "Noble",
+    [27] = "Pirate",
+    [28] = "Rugged",
+    [29] = "Rustic",
+    [30] = "Sacred",
+    [31] = "Tavern",
+    [32] = "Tinker",
+    [33] = "Void",
+}
+
+NS.CatalogData.ThemeGroupThemes = {
+    [1] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18},
+    [2] = {19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33},
+}
+
+NS.CatalogData.ByTheme = {
+    [1] = {
+        1198, 9479, 9480, 9488, 9490, 9492, 9494, 9497, 15402, 15403, 15404, 15405, 15406, 15407, 15408, 15409, 15410, 15411, 15457, 15458,
+        15459, 17439, 17440, 17441, 17442, 17443, 17444, 17446, 17447, 17449, 17450, 17452, 17453, 17454, 17455, 17456, 17457, 17458, 17459, 17460,
+        17462, 17464, 17465, 17467, 17469, 17472, 17474, 17520, 17521, 17522, 1458, 2301, 2459, 2460, 4472, 8872, 9422, 9486, 9487, 9489,
+        9628, 9629, 14582, 14971, 14978, 15500, 17518, 17523, 1195, 11503, 9483, 16082, 14581, 14587, 15499, 17519, 717, 1181, 1227, 10950,
+        11499, 714, 1442, 1896, 1901, 2104, 2105, 2106, 2107, 2108, 2503, 7780, 9419, 9421, 9476, 9478, 9482, 9484, 9485, 9496,
+        10944, 11138, 11284, 11501, 14970, 9495, 11502, 9491, 14585, 14618, 14979, 14995, 15059, 15060, 15061, 15063, 15065, 15069, 14641, 14584,
+        14588, 14589, 14640, 1159, 1160, 1410, 1489, 1774, 1775, 1776, 1844, 5133, 5564, 7782, 8874, 9423, 11470, 17868, 17872, 771,
+        4464, 4474, 9152, 14382, 17628, 18396, 19198, 19229, 19231, 14977, 14601, 1908, 2231, 11872, 17871, 718, 1177, 1236, 11500, 767,
+        9420, 14580, 10273, 14583, 14586, 14617, 14619, 14620, 14621, 14623, 14624, 14820, 14972, 14985, 15013, 15483, 15064, 1466, 1919, 1920,
+        7608, 11900, 1173, 1446, 9477, 9481, 9493, 14579, 14600, 14622, 7575, 4457, 11899, 15062, 2531, 8875, 8918, 12201, 764, 3890,
+        19234, 11486,
+    },
+    [2] = {
+        2469, 4159, 4160, 4161, 4162, 4163, 4164, 4165, 4166, 4168, 4177, 4477, 4479, 4481, 4483, 5558, 5559, 5560, 5689, 7698,
+        7701, 7835, 10962, 10963, 11162, 11163, 11164, 11165, 11387, 11388, 14330, 4408, 7695, 7696, 7668, 2593, 2594, 7691, 7694, 7697,
+        4167, 4169, 4170, 4172, 4180, 11779, 16015, 14379, 2596, 4406, 4407, 5556, 7700, 11137, 4478, 4482, 10964, 4480, 3881, 5111,
+        11946, 12161, 15467, 15762, 1674, 4042, 7828, 14838, 11327, 11936, 11921, 7692, 7826, 7827, 14731, 15150, 14839, 764, 2530, 4173,
+        14820, 10965, 716, 720, 931, 990, 11913, 2595, 984, 987, 988, 994, 1163, 1246, 1329, 1350, 1356, 1487, 2254, 2458,
+        2474, 2590, 3826, 4562, 5563, 9254, 9255, 10860, 11719, 11720, 11725, 80, 4174, 2529, 985,
+    },
+    [3] = {
+        925, 926, 8177, 8185, 8186, 8187, 8189, 8190, 8196, 8235, 8239, 8242, 8772, 8785, 11370, 11371, 11431, 11878, 11881, 11882,
+        11883, 11884, 11885, 11886, 11888, 11889, 11903, 14553, 8238, 11372, 11373, 11374, 16086, 11880, 8176, 8237, 8241, 927, 929, 8194,
+        8786, 8192, 11887, 930, 8188, 8193, 8240, 8191, 11890, 11879, 928, 8178, 11946, 8787, 16082, 16219,
+    },
+    [4] = {
+        1118, 1120, 1216, 2001, 2230, 2238, 2239, 2240, 2241, 2242, 2243, 2244, 2245, 2331, 2332, 2333, 2334, 2452, 8982, 9168,
+        9169, 9170, 9178, 9179, 9181, 9182, 9183, 9184, 9185, 9186, 9188, 9236, 9237, 9238, 9239, 9240, 9242, 9243, 9244, 9246,
+        9247, 9268, 9269, 11130, 11131, 11133, 11160, 7874, 2228, 2229, 2246, 2227, 9241, 9187, 1119, 759, 1315, 1748, 9167, 2226,
+        1750, 2237, 2472, 2533, 9245, 2470, 2471, 1749, 9180,
+    },
+    [5] = {
+        717, 718, 752, 759, 1137, 1153, 1157, 1165, 1177, 1181, 1195, 1227, 1236, 1440, 1444, 1446, 1464, 1465, 1836, 1864,
+        1865, 1866, 1867, 1881, 1885, 1908, 2000, 2231, 3981, 3982, 3985, 4022, 4024, 4027, 4028, 4033, 4034, 4039, 4040, 4404,
+        4485, 4823, 8238, 8917, 9047, 9048, 9252, 9420, 9491, 10950, 11282, 11483, 11499, 11500, 11502, 11503, 11708, 11721, 11872, 14580,
+        14584, 14585, 14588, 14589, 14618, 14624, 14640, 14979, 14985, 14995, 15059, 15060, 15061, 15063, 15064, 15065, 15069, 15478, 15479, 15493,
+        15501, 15502, 16082, 16086, 17869, 14601, 12207, 18484, 11898, 16087, 14599, 1080, 1410, 714, 1458, 1466, 1919, 1920, 2301, 4025,
+        4026, 7780, 9419, 10944, 11138, 11501, 14971, 1198, 1219, 2459, 2460, 9422, 9423, 15013, 4466, 11380, 679, 16231, 1693, 1694,
+        3983, 9483, 11377, 1692, 14581, 14587, 2225, 8188, 8193, 9139, 14824, 17519, 15399, 1746, 3984, 4037, 1159, 4403, 4447, 4488,
+        11481, 4032, 4035, 1487, 2590, 14579, 1489, 16013, 7782, 10273, 11913, 14620, 15483, 1173, 9476, 11284, 14970, 1901, 9478, 11281,
+        14586, 14619, 14621, 14972, 14977, 930, 9479, 9492, 11492, 12223, 15401, 9444, 1740, 12171, 11940, 11934, 1695, 1886, 8989, 1416,
+        2245, 4164, 5127, 1162, 1245, 1486, 2469, 3827, 4481, 4484, 4029, 14641, 677, 1987, 9481, 716, 1180, 8181, 1896, 8874,
+        11899, 19229, 675, 1861, 2458, 9254, 15453, 720, 1163, 15062, 4470, 14676, 493, 1454, 1457, 1862, 1996, 2385, 5563, 9046,
+        9255, 9472, 9473, 12199, 928, 1235, 4456, 674, 1882, 1883, 1884, 4446, 7693, 9050, 12172, 1309, 2254, 2470, 2474, 4023,
+        4030, 4031, 4036, 4038, 8787, 11719, 4455, 986, 991, 1160, 1747, 1774, 1775, 1776, 1844, 4472, 8872, 9486, 9487, 9489,
+        9628, 9629, 11470, 14582, 14583, 14617, 14978, 15455, 15500, 17518, 17523, 17868, 17872, 12201, 771, 4464, 4474, 9152, 14382, 17628,
+        18396, 19198, 2091, 11376, 8875, 11379, 480, 481, 770, 1168, 1244, 1314, 1456, 2516, 8191, 14360, 11724, 5877, 16237, 4444,
+        8178, 11941, 14602, 772, 11718, 11944, 15499, 17871, 4468, 2086, 4041, 9477, 9493, 1155, 1488, 985, 11381, 5878, 767, 5115,
+        14592, 673, 1888, 1889, 1990, 14358, 676, 1442, 2104, 2105, 2106, 2107, 2108, 2503, 7608, 9421, 9482, 9484, 9485, 9496,
+        11386, 5564, 1794, 11900, 1741, 5898, 2532, 9248, 1801, 7575, 17520, 17522, 4457, 1887, 4423, 14590, 14623, 14835, 11438, 11723,
+        11931, 989, 2531, 126, 942, 12205, 11924, 11925, 12206, 764, 3890, 14820, 11486, 994, 1246, 4562, 11720,
+    },
+    [6] = {
+        755, 857, 858, 859, 1445, 1481, 1748, 1794, 1801, 1827, 1829, 1833, 1900, 2246, 4818, 4839, 4841, 5342, 9037, 9050,
+        9167, 9440, 11296, 11305, 11495, 11496, 11498, 14825, 15453, 15480, 15553, 15851, 16089, 4471, 11377, 11724, 2596, 2468, 521, 11945,
+        7573, 11494, 523, 524, 11718, 11944, 1119, 11381, 9043, 2224, 7699, 1750, 1832, 498, 1406, 1793, 1796, 1826, 1830, 1831,
+        2448, 1443, 2228, 2229, 2237, 4486, 11887, 19231, 9139, 1452, 2094, 2549, 8912, 11497, 9266, 9248, 11301, 5127, 9051, 12210,
+        11725, 11723, 855, 860, 1984, 3832, 3892, 1180, 4040, 8983, 9046, 520, 1795, 1802, 1888, 4814, 11380, 14358, 4033, 377,
+        1742, 1746, 4026, 11779, 679, 12172, 1878, 1994, 18484, 1880, 9045, 12154, 9441, 1168, 14839, 383, 1175, 2470, 3833, 9180,
+        373, 1749, 2091, 19234, 9044, 14360, 772, 944, 9483, 11933, 4468, 677, 675, 7896, 1704, 763, 8984, 390, 1747, 7610,
+        9491, 19229, 7838, 14361, 11931, 4457, 11307, 11920, 4175, 1908, 14820,
+    },
+    [7] = {
+        2322, 2323, 2324, 2325, 2326, 2328, 2329, 2330, 2337, 2338, 2340, 2341, 2343, 2427, 2428, 2429, 2430, 2431, 2433, 2434,
+        2435, 2436, 2437, 2438, 2465, 2466, 2467, 10339, 10342, 10343, 10344, 10347, 10348, 10349, 10351, 10352, 10354, 10355, 10887, 11814,
+        15654, 16084, 16085, 2327, 2339, 10341, 2432, 10345, 10346, 10350, 10537, 10340,
+    },
+    [8] = {
+        825, 827, 828, 829, 1121, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272,
+        1273, 1274, 1275, 1276, 1277, 1984, 4560, 10341, 10852, 10853, 10857, 10889, 11127, 14381, 11128,
+    },
+    [9] = {
+        1142, 1247, 1328, 1726, 2232, 2233, 14615, 14616, 14625, 14626, 14638, 14639, 14799, 14808, 14809, 14822, 14823, 14827, 14828, 14965,
+        14967, 14968, 15155, 15494, 15497, 14559, 1157, 15478, 15479, 15480, 2225, 14824, 17886, 1080, 2224, 14825, 2219, 2588, 15463,
+    },
+    [10] = {
+        1044, 3902, 3903, 3905, 4401, 4402, 4405, 4443, 4819, 5116, 9039, 9040, 9049, 9055, 9141, 9142, 9144, 9166, 9253, 10855,
+        10856, 14814, 9047, 3900, 3906, 4816, 755, 4839, 4841, 12163, 1864, 1865, 1866, 1867, 4404, 4485, 9048, 1900, 4818, 9037,
+        4844, 4445, 9139, 388, 496, 497, 498, 527, 528, 529, 530, 4403, 4447, 4487, 4488, 4490, 4811, 4812, 4813, 11274,
+        4486, 858, 8983, 9035, 9036, 9038, 9041, 9042, 9046, 9051, 9052, 9053, 9054, 9140, 12210, 374, 377, 378, 389, 479,
+        480, 481, 482, 490, 491, 494, 495, 770, 1122, 4444, 751, 4446, 9050, 2091, 9045, 11381, 1880, 4815, 5115, 9043,
+        9044, 14360, 379, 383, 1893, 4448, 9424, 373,
+    },
+    [11] = {
+        673, 674, 675, 676, 677, 927, 1412, 1488, 1695, 1770, 1771, 1772, 1773, 1834, 1882, 1883, 1884, 1886, 1887, 1888,
+        1889, 1987, 1989, 1990, 2000, 2109, 2110, 2111, 2112, 2113, 4029, 4032, 4035, 4406, 4407, 4423, 4561, 5891, 7830, 7896,
+        8195, 9252, 11283, 14358, 15141, 15455, 17865, 17866, 17870, 7873, 4456, 9443, 7829, 4463, 11891, 1881, 15478, 17869, 9037, 11483,
+        11708, 8194, 8786, 9495, 773, 1741, 11454, 4466, 14360, 1836, 8188, 12223, 17919, 17874, 17873, 8810, 10356, 3827, 4447, 4484,
+        11481, 4023, 4030, 4031, 4036, 679, 1694, 986, 991, 1162, 11922, 1885, 10888, 1440, 3982, 4022, 4027, 16090, 1219, 11281,
+        2086, 4166, 9036, 14637, 11918, 1194, 1329, 1487, 2254, 9254, 11719, 11721, 1861, 15453, 1153, 4040, 1165, 14597, 4470, 1454,
+        1701, 3983, 4026, 14602, 1878, 5897, 928, 1746, 3984, 8917, 11282, 4455, 2091, 8787, 4467, 4469, 12172, 17872, 771, 4464,
+        4471, 9629, 5878, 14554, 752, 1464, 1465, 4028, 4039, 11494, 1466, 1693, 1919, 1920, 9485, 1692, 14995, 984, 987, 994,
+        2458, 4562, 5563, 4457, 1350, 1356, 2474, 2590, 11720, 1747, 1444, 11924,
+    },
+    [12] = {
+        4029, 11283, 4023, 4030, 4031, 4036, 4038, 3984, 4032, 4035, 4024, 4040, 11380, 3983, 4033, 4034, 1746, 4025, 4026, 4037,
+        4041, 1440, 3981, 4022, 11282, 11483, 11708, 2516,
+    },
+    [13] = {
+        525, 1318, 1324, 1325, 1351, 9263, 14815, 2453, 9439, 11878, 1405, 7841, 5882, 1326, 1354, 1407, 1409, 1413, 1415, 1443,
+        9440, 1412, 11926, 522, 523, 524, 526, 5888, 14380, 81, 1321, 1322, 1323, 1352, 1353, 1355, 1406, 1408, 1411, 1414,
+        1416, 1723, 1725, 1736, 1744, 1791, 1792, 1977, 2548, 2592, 5853, 8910, 9143, 10324, 1317, 1410, 5879,
+    },
+    [14] = {
+        1169, 1172, 1187, 1194, 1201, 3831, 3832, 3839, 3840, 3868, 3869, 3870, 3871, 3872, 3873, 3874, 3875, 3876, 3877, 3878,
+        3880, 3892, 3904, 3993, 3994, 3995, 5126, 11280, 11873, 14644, 15595, 15605, 11434, 5112, 11904, 8179, 11945, 5119, 11378, 5113,
+        11902, 3833, 5111, 2591, 2512, 3881,
+    },
+    [15] = {
+        1231, 1232, 1242, 1243, 1251, 1252, 1281, 1282, 1287, 1291, 1292, 1293, 1294, 1295, 1297, 1307, 1308, 1703, 5136, 11315,
+        11487, 11490, 11491, 11751, 11752, 11753, 11754, 11755, 15741, 2523, 11935, 1314, 11880, 1309, 1436, 2094, 1235,
+    },
+    [16] = {
+        1161, 1170, 1178, 1179, 1180, 1183, 1185, 1188, 1189, 1191, 1192, 1193, 1196, 1197, 1199, 1200, 1205, 1217, 1218, 1241,
+        1310, 1311, 1312, 1313, 1417, 1418, 1697, 10858, 11319, 11382, 11484, 11489, 14204, 14350, 14351, 14352, 15158, 15160, 15484, 15489,
+        15490, 15492, 15567, 15568, 15570, 15571, 15572, 15573, 15743, 15744, 15745, 16092, 18485, 11323, 11324, 11325, 11328, 12162, 15460, 9250,
+        11333, 15596, 16094, 1148, 12161, 12154, 1168, 1175, 15851, 14379, 11327, 11936,
+    },
+    [17] = {
+        377, 389, 522, 523, 524, 526, 726, 773, 837, 838, 839, 932, 933, 934, 935, 936, 938, 941, 942, 944,
+        945, 948, 949, 1315, 1437, 1438, 2114, 2226, 2227, 2446, 2447, 2516, 2550, 4815, 4844, 5115, 5893, 8192, 9266, 11375,
+        11480, 11905, 17867, 4466, 11379, 16819, 16966, 16970, 16820, 16822, 10913, 15142, 4453, 11926, 14461, 5889, 5882, 11879, 11907, 16013,
+        11137, 11276, 11897, 11932, 7623, 7624, 7686, 11278, 11377, 862, 864, 923, 924, 484, 840, 863, 865, 943, 1355, 1409,
+        1416, 1452, 1453, 1724, 1793, 1796, 1826, 2087, 2547, 8236, 8770, 5120, 5117, 11725, 11931, 4486, 1978, 2098, 2549, 8912,
+        383, 14816, 5128, 5879, 1801, 1274, 1277, 10889, 859, 937, 939, 940, 946, 947, 11305, 5689, 2526, 1829, 5127, 11301,
+        4457, 860, 1794, 1795, 1802, 9053, 9267, 9475, 5888, 15743, 1830, 1831, 11890, 11438, 11723, 11901, 16220, 11296, 16083, 854,
+        922, 11384, 1244, 15747, 16094, 1148, 1832, 478, 483, 11925, 14361, 1309, 11497, 12203, 5292, 751, 1698, 2091, 11307, 4467,
+        4469, 7875, 14839, 858, 11381, 4474, 723, 724, 1083, 4465, 11376, 520, 855, 7816, 16082, 5881, 772, 1749, 1893, 9424,
+        11718, 11933, 11944, 16012, 4468, 7622, 12208, 9165, 11942, 488, 4448, 12202, 16219, 3867, 7817, 7819, 15400, 721, 11436, 5880,
+        4022, 11494, 18484, 11496, 766, 722, 11386, 857, 7687, 11498, 11900, 725, 11724, 756, 763, 3826, 9248, 1747, 4814, 7575,
+        12206, 8984, 7818, 1481, 1833, 5342, 1908, 1177, 1181, 7815, 11440,
+    },
+    [18] = {
+        14631, 15768, 15890, 15891, 14590, 14835, 4408, 14555, 4406, 4407, 15747, 8192, 14635, 15895, 1894, 15894, 14593, 15071, 15260, 15597,
+        18800, 14554, 14730, 14595, 14598, 14637, 14597, 14633, 15746, 15769, 14591, 14602, 14603, 7700, 9150, 14592, 15584, 7824, 5132, 11451,
+        11456, 9151, 14632,
+    },
+    [19] = {
+        751, 759, 1119, 1157, 1315, 1864, 1865, 1866, 1867, 2000, 2470, 4404, 4446, 4485, 4823, 5893, 5898, 7693, 7816, 8237,
+        8787, 9048, 9187, 9245, 9624, 10964, 11372, 11373, 11432, 11439, 11891, 12163, 14559, 14635, 15478, 15479, 15481, 17869, 5897, 11435,
+        12164, 3907, 12172, 9248, 11376, 16819, 16966, 16970, 16820, 16822, 10913, 15142, 11926, 14461, 14839, 8987, 11880, 15072, 16818, 679,
+        4457, 1080, 1410, 11282, 14679, 2091, 3838, 11379, 11434, 4466, 2301, 2459, 7815, 11436, 855, 1168, 14360, 929, 1741, 11380,
+        14816, 11377, 9043, 10888, 14592, 2225, 8188, 8193, 9139, 14824, 15399, 1978, 2098, 2549, 4037, 4403, 4447, 4488, 8912, 11481,
+        11925, 11941, 1413, 11433, 2086, 2219, 5878, 10356, 1792, 9422, 11924, 11496, 11375, 11386, 11431, 3890, 11494, 1219, 1794, 11281,
+        11440, 8989, 4164, 4465, 1295, 1795, 9053, 9266, 5127, 14995, 15063, 11301, 9051, 1180, 2514, 8984, 11165, 7818, 1153, 1747,
+        1881, 4022, 4040, 7575, 11384, 11721, 8181, 11438, 11723, 11931, 1704, 1896, 8874, 11493, 673, 8768, 11918, 9423, 942, 1861,
+        4024, 9251, 1693, 3983, 4470, 14676, 377, 389, 478, 483, 493, 726, 1454, 1457, 1862, 1996, 2385, 9472, 9473, 11480,
+        11872, 12199, 928, 1692, 1836, 8917, 11454, 15065, 4034, 4444, 14597, 4456, 717, 1314, 8191, 9050, 14633, 12201, 5877, 16237,
+        1309, 1694, 14588, 14589, 14624, 14985, 4455, 18484, 1458, 2460, 4472, 8872, 9486, 9487, 9489, 9628, 9629, 11483, 11708, 14582,
+        14591, 14602, 14603, 14971, 14978, 15500, 17518, 17523, 17868, 17872, 771, 4464, 4474, 9152, 14382, 17628, 18396, 19198, 14800, 761,
+        14583, 14619, 14621, 19229, 19231, 5881, 763, 1236, 1437, 1438, 2446, 2447, 2516, 2550, 4032, 4815, 5115, 11946, 12161, 7873,
+        4453, 7828, 14838, 16015, 520, 721, 860, 1698, 1802, 11378, 11888, 16082, 4467, 4469, 7875, 14601, 4180, 14678, 14680, 11724,
+        383, 488, 1083, 4448, 9483, 12203, 12202, 16219, 3867, 7817, 7819, 15400, 772, 9044, 10965, 11718, 11944, 14581, 14587, 15499,
+        17519, 17871, 7820, 4468, 484, 939, 940, 1446, 1880, 11502, 11902, 5575, 7606, 11455, 14622, 722, 947, 9477, 9481, 14580,
+        1893, 677, 1695, 1886, 1987, 11913, 15064, 752, 1440, 1464, 1465, 1801, 1829, 3981, 3982, 3985, 4027, 4028, 4039, 14598,
+        714, 1198, 1442, 1466, 1901, 1919, 1920, 2104, 2105, 2106, 2107, 2108, 2503, 7608, 7780, 9419, 9421, 9476, 9478, 9479,
+        9482, 9484, 9485, 9492, 9496, 10944, 11138, 11284, 11387, 11501, 14970, 766, 756, 857, 859, 1887, 7896, 11305, 11498, 11922,
+        14558, 720, 1833, 4170, 11900, 11456, 14600, 723, 724, 725, 9491, 14585, 14594, 14618, 14634, 14979, 15059, 15060, 15061, 15069,
+        15578, 16083, 14641, 762, 1487, 2254, 2458, 2474, 2590, 9254, 11719, 11894, 14584, 14640, 1159, 1160, 1774, 1775, 1776, 1793,
+        1796, 1826, 1830, 1831, 1844, 5564, 7782, 11470, 11890, 11899, 15062, 5120, 5117, 11725, 11901, 16220, 750, 1832, 2531, 4814,
+        11497, 839, 938, 1195, 1908, 2231, 11307, 11503, 14977, 7838, 12206, 854, 922, 863, 943, 1444, 718, 1177, 1181, 1227,
+        7700, 9420, 10950, 11499, 11500, 16012, 764, 840, 865, 10273, 14586, 14617, 14620, 14623, 14820, 14972, 15013, 15483, 19234, 11486,
+    },
+    [20] = {
+        3884, 3885, 3886, 3887, 3894, 3895, 3896, 3897, 5529, 5534, 7579, 14806, 15488, 17629, 17630, 18397, 18398, 3881, 5111, 5556,
+        11946, 12161, 15467, 15762, 4180, 11779, 1674, 4042, 7828, 14838, 16015, 14379, 11327, 11936, 11921, 7692, 7826, 7827, 14731, 15150,
+        14839, 7700, 5558, 11387, 14330, 716, 720, 931, 990, 4167, 4169, 4170, 4172, 4478, 4482, 11913, 4480, 1325, 3893, 3898,
+        3899, 4819, 5532, 5562, 14815, 15768, 15890, 984, 987, 988, 994, 1163, 1246, 1329, 1350, 1356, 1487, 2254, 2458, 2474,
+        2590, 3826, 4562, 5563, 9254, 9255, 10860, 11719, 11720, 11878, 11725, 80, 10964, 11908, 7841, 985, 2452, 5882, 5112,
+    },
+    [21] = {
+        759, 1119, 1137, 1157, 1219, 1235, 1314, 1693, 1741, 1864, 1865, 1866, 1867, 2086, 2327, 2339, 2470, 3983, 4404, 4444,
+        4446, 4485, 4823, 5898, 7693, 8191, 8237, 8238, 9047, 9048, 9624, 11281, 11380, 11385, 11454, 11891, 11908, 11918, 11922, 11924,
+        14559, 14635, 15478, 15479, 15481, 15493, 15501, 15502, 16086, 16090, 17869, 5897, 4470, 12172, 12207, 14676, 5877, 8987, 11880, 15072,
+        16237, 16818, 7841, 11898, 16087, 11909, 17629, 18397, 1080, 1836, 2091, 14602, 1692, 4466, 1168, 14360, 16231, 929, 11377, 4455,
+        4032, 9043, 11282, 11708, 7873, 2225, 8188, 8193, 9139, 14824, 15399, 14592, 4403, 4447, 4488, 11481, 1413, 3907, 11283, 16013,
+        2219, 5878, 10356, 11383, 930, 11492, 12223, 15401, 9444, 1740, 12171, 11940, 11934, 1794, 1861, 8989, 720, 1416, 2245, 4164,
+        855, 1295, 1887, 7896, 5127, 9248, 9051, 8810, 4181, 1180, 1153, 1747, 1881, 4040, 11721, 8181, 11493, 673, 7816, 4024,
+        493, 1454, 1457, 1862, 1996, 2385, 9046, 9472, 9473, 11490, 12199, 15741, 928, 8917, 4034, 11925, 14597, 4456, 679, 9050,
+        14633, 1309, 1694, 8787, 18484, 3838, 11483, 14591, 14603, 14800, 1444, 14358, 11376, 1410, 11487, 11946, 12161, 11379, 7828, 14838,
+        16015, 480, 481, 751, 770, 1244, 1456, 1698, 4467, 4469, 7875, 11724, 14839, 8178, 11941, 7815, 772, 1795, 9044, 11718,
+        11944, 4468, 2301, 2459, 10888, 1893, 11381, 11384, 677, 1695, 1886, 1987, 4037, 5115, 11913, 752, 1440, 1464, 1465, 3981,
+        3982, 3985, 4022, 4027, 4028, 4039, 11387, 11494, 1833, 4170, 11386, 11496, 675, 14634, 1801, 1487, 2254, 2458, 2474, 2514,
+        2590, 9254, 11719, 721, 724, 1704, 11301, 14995, 15063, 4457, 11438, 11723, 11931, 1832, 4814, 8984, 7818, 942, 7838, 8874,
+        9423, 11872, 12205, 10964, 12206, 14624, 14985,
+    },
+    [22] = {
+        7621, 7625, 5292, 5555, 5127, 5530, 5527, 5531, 5525, 11379, 8811, 5128, 11307, 5120, 5117, 839, 942, 5575, 939, 940,
+        946, 9267, 7687,
+    },
+    [23] = {
+        126, 373, 390, 679, 750, 756, 760, 761, 762, 763, 767, 1080, 1083, 1175, 1443, 1748, 1861, 1900, 1998, 2224,
+        2228, 2229, 2237, 2511, 2512, 2513, 2514, 2526, 2529, 2530, 2531, 2533, 3833, 3838, 4173, 4174, 4175, 4176, 4486, 4818,
+        5892, 7610, 9037, 9045, 9167, 9180, 9251, 9483, 10340, 10965, 11275, 11307, 11378, 11381, 11887, 11920, 12154, 14594, 14600, 14622,
+        14641, 14825, 15453, 15480, 15851, 15894, 19229, 19231, 19234, 14677, 5880, 2532, 766, 768, 5575, 7574, 7820, 7823, 7824, 7838,
+        5878, 11453, 11457, 14361, 12205, 12201, 3907, 14678, 14680, 7699, 11945, 9250, 11333, 15596, 9441, 14829, 14832, 15148, 16964, 19252,
+        16234, 7573, 11895, 11927, 2301, 2460, 9422, 15500, 19198, 12203, 14679, 2093, 2384, 523, 524, 1880, 10888, 14592, 12207, 12202,
+        11280, 11433, 19197, 1750, 930, 3839, 11873, 498, 1406, 2448, 11456, 14820, 5127, 1801, 3832, 9421, 9478, 11138, 14623, 9266,
+        14640, 11884, 8984, 14585, 14995, 9051, 12210, 15761, 11432, 1984, 14584, 1692, 3892, 4814, 15571, 1160, 1180, 1704, 4040, 11165,
+        11470, 11723, 11931, 7575, 9050, 1195, 11380, 15578, 14676, 1994, 4033, 9043, 377, 928, 1742, 15064, 11725, 1746, 4026, 4481,
+        1236, 9420, 12206, 5556, 11946, 12161, 15467, 11779, 14838, 11327, 11936, 11921, 12172, 14839, 764, 18484, 1410, 1458, 2459, 4472,
+        8872, 9486, 9487, 9489, 9628, 9629, 11872, 14582, 14971, 14978, 17518, 17523, 17868, 17872, 11486, 771, 4464, 4474, 9152, 14382,
+        17628, 18396, 11376, 1697, 3890, 9245, 11941, 14583, 8181, 1168, 16082, 11436, 11440, 4471, 14601, 4180, 11724, 16219, 383, 14617,
+        4465, 1173, 1749, 11502, 11718, 11944, 14581, 14587, 15499, 17519, 17871, 11902, 14579, 14643, 7606, 11455, 4032, 11387, 15584, 720,
+        944, 7896, 9491, 15061, 677, 1481, 1827, 1829, 1833, 5342, 7816, 11296, 11451, 11495, 11496, 11494, 15583, 714, 1198, 1442,
+        1466, 1896, 1901, 1919, 1920, 2104, 2105, 2106, 2107, 2108, 2503, 7608, 7780, 9419, 9476, 9479, 9482, 9484, 9485, 9492,
+        9496, 10944, 11284, 11386, 11501, 14970, 857, 859, 1445, 1794, 11305, 11384, 11498, 14558, 11900, 14618, 14979, 15059, 15060, 15063,
+        15065, 15069, 9248, 1318, 11301, 14626, 15409, 4457, 8874, 10964, 14588, 14589, 1159, 1747, 1774, 1775, 1776, 1793, 1796, 1826,
+        1830, 1831, 1832, 1844, 5564, 7782, 9423, 11899, 16220, 1465, 11497, 15582, 1908, 2231, 11503, 14977, 717, 718, 1177, 1181,
+        1227, 10950, 11499, 11500, 14580, 15585, 10273, 14586, 14619, 14620, 14621, 14972, 15013, 15483, 14624, 14985,
+    },
+    [24] = {
+        383, 484, 488, 520, 522, 523, 524, 526, 721, 722, 723, 724, 725, 772, 773, 840, 855, 860, 862, 863,
+        864, 865, 923, 924, 930, 937, 939, 940, 943, 946, 947, 1119, 1148, 1168, 1315, 1437, 1438, 1698, 1704, 1747,
+        1749, 1750, 1793, 1795, 1796, 1802, 1826, 1830, 1831, 1832, 1880, 1893, 2091, 2114, 2219, 2225, 2226, 2227, 2446, 2447,
+        2516, 2550, 2588, 4023, 4030, 4031, 4036, 4038, 4445, 4448, 4814, 4815, 4844, 5115, 5893, 7575, 7620, 7687, 8188, 8192,
+        8193, 8240, 8811, 8889, 8984, 8993, 9043, 9044, 9139, 9267, 9424, 10888, 11301, 11375, 11384, 11386, 11492, 11494, 11497, 11718,
+        11890, 11891, 11902, 11905, 11925, 11933, 11944, 12247, 12248, 14360, 14592, 14824, 16012, 16094, 17867, 4457, 4467, 4469, 5881, 7815,
+        7818, 7875, 11436, 11440, 11433, 14816, 4466, 4465, 12223, 17919, 17874, 17873, 8810, 10356, 11900, 3907, 7606, 11455, 12203, 12206,
+        5120, 5117, 11379, 5128, 11725, 12202, 4468, 11438, 11723, 11931, 15399, 18483, 15412, 15401, 16819, 16966, 16970, 16820, 16822, 10913,
+        15142, 16219, 3867, 4453, 16083, 854, 922, 7817, 7819, 11901, 11926, 14461, 15400, 16220, 9475, 5879, 5888, 11279, 7837, 7622,
+        9065, 7825, 7571, 12208, 9444, 14467, 1740, 11910, 9165, 17515, 12171, 15413, 5895, 11942, 11940, 14380, 4181, 11934, 19197, 11722,
+        11907, 16013, 11137, 11276, 11897, 11932, 7623, 7624, 7686, 11278, 839, 938, 942, 11296, 14679, 944, 3838, 1792, 2244, 2245,
+        2333, 2334, 2445, 4447, 7816, 11879, 1443, 2237, 19231, 11377, 3890, 932, 934, 935, 936, 5531, 5525, 1355, 1409, 1416,
+        1452, 1453, 1724, 2087, 2547, 8236, 8770, 4486, 11496, 763, 1978, 2098, 2549, 3839, 8912, 14644, 1413, 1801, 4843, 837,
+        838, 933, 4164, 4165, 4166, 7701, 11388, 1274, 1277, 10889, 673, 1882, 1883, 9042, 12210, 859, 11305, 676, 1794, 4024,
+        5689, 5898, 7820, 9248, 1083, 1235, 4040, 11920, 756, 5575, 5127, 14361, 5555, 478, 483, 9053, 15743, 1314, 2514, 3983,
+        7838, 493, 1123, 1435, 1739, 1745, 1862, 1997, 2385, 9051, 1746, 11165, 14591, 14602, 14603, 941, 945, 948, 949, 8241,
+        11307, 11493, 766, 7873, 5556, 11779, 1674, 4042, 4446, 1181, 1244, 1694, 2086, 11282, 15747, 18484, 5889, 377, 389, 726,
+        1410, 2460, 9422, 11480, 1894, 4034, 1309, 4444, 751, 7700, 14839, 761, 11381, 19234, 5897, 4474, 768, 11453, 11376, 9245,
+        11941, 14632, 5880, 2470, 2526, 16082, 5132, 679, 11378, 4180, 14678, 14680, 675, 677, 4167, 4478, 11495, 752, 1440, 4028,
+        9478, 9482, 11138, 11281, 14596, 9266, 4022, 1829, 10965, 14594, 12205, 857, 9254, 11498, 14558, 7610, 14640, 11456, 80, 126,
+        19229, 14677, 760, 762, 3826, 928, 15585, 4175, 764, 1908, 8787, 14624, 1177, 5892, 11275, 7823, 10964, 11924, 14579, 14600,
+    },
+    [25] = {
+        1119, 1147, 1247, 1328, 2000, 2605, 4822, 4845, 5651, 8916, 9249, 10327, 10778, 10856, 11493, 11891, 12189, 12190, 14799, 14809,
+        14822, 14823, 14827, 14828, 14965, 14967, 14968, 15140, 15503, 15504, 17864, 17918, 1413, 1726, 1885, 2232, 2233, 14615, 14638, 14808,
+        15155, 15497, 1137, 15493, 15501, 15502, 16086, 17863, 9440, 9051, 15481, 4406, 4407, 7830, 15141, 17865, 17866, 17870, 17886, 1157,
+        4823, 5893, 15478, 15479, 17869, 1080, 1861, 2224, 14825, 15453, 15480, 773, 17867, 4034, 5898, 4444, 2219, 2225, 2588, 8889,
+        8993, 14824, 5897, 3838, 2470, 1698, 2091, 4467, 4469, 7875, 1168, 1231, 1232, 1251, 1282, 1287, 1293, 1294, 1295, 1297,
+        1307, 1703, 9043, 9044, 11490, 11491, 11751, 11752, 11753, 11754, 11755, 14360, 16090, 2086, 673, 674, 1242, 1243, 1281, 1291,
+        1292, 1308, 1882, 1883, 1884, 1888, 1889, 1990, 5136, 11315, 11487, 676, 11918, 520, 1235, 1881, 11494, 1741, 1794, 1693,
+        1314, 1836, 1692, 679, 1704, 11301, 15467, 4457, 1309, 1694, 1747, 1832, 4814, 7693, 8984, 11708, 15463, 7818, 12154, 7838,
+        4472, 10888, 17868, 17872, 772, 11924, 11925, 17871,
+    },
+    [26] = {
+        80, 714, 716, 720, 764, 925, 926, 931, 984, 985, 986, 987, 988, 989, 990, 991, 994, 1155, 1159, 1160,
+        1162, 1163, 1173, 1245, 1246, 1312, 1329, 1350, 1356, 1410, 1442, 1458, 1466, 1482, 1486, 1487, 1489, 1774, 1775, 1776,
+        1844, 1896, 1901, 1919, 1920, 2104, 2105, 2106, 2107, 2108, 2254, 2301, 2458, 2459, 2460, 2474, 2503, 2590, 3826, 3827,
+        3875, 3881, 3890, 4160, 4167, 4169, 4170, 4172, 4472, 4478, 4480, 4482, 4484, 4562, 5111, 5133, 5556, 5563, 5564, 7608,
+        7780, 7782, 8177, 8185, 8186, 8187, 8189, 8190, 8196, 8235, 8239, 8242, 8772, 8785, 8872, 8918, 9252, 9254, 9255, 9419,
+        9421, 9422, 9423, 9476, 9477, 9478, 9480, 9481, 9482, 9484, 9485, 9486, 9487, 9489, 9493, 9494, 9496, 9497, 9628, 9629,
+        10273, 10860, 10944, 11138, 11162, 11284, 11470, 11501, 11719, 11720, 11896, 11899, 11913, 11946, 12161, 14579, 14581, 14582, 14583, 14586,
+        14587, 14617, 14619, 14620, 14621, 14623, 14820, 14970, 14971, 14972, 14977, 14978, 15013, 15062, 15402, 15403, 15404, 15405, 15406, 15407,
+        15408, 15409, 15410, 15411, 15457, 15458, 15459, 15467, 15483, 15499, 15500, 15669, 15762, 17518, 17519, 17523, 17868, 17871, 17872, 11486,
+        771, 4464, 4474, 9152, 14382, 17628, 18396, 19198, 4180, 11779, 1674, 4042, 7828, 14838, 16015, 14379, 11327, 11936, 11921, 7692,
+        7826, 7827, 14731, 15150, 1198, 9479, 9492, 11502, 14624, 14839, 16082, 14601, 9483, 9491, 15061, 14600, 1181, 1236, 7575, 7700,
+        8874, 11503, 5558, 11387, 14330, 11499, 14979, 15060, 1153, 1195, 2231, 2531, 11721, 11900, 1446, 4479, 717, 718, 1177, 1227,
+        8238, 10950, 11500, 9420, 14585, 14618, 14995, 15059, 15063, 15065, 15069, 1165, 14641, 4457, 8176, 8917, 4029, 14584, 14588, 14589,
+        14640, 8237, 8241, 1488, 1908, 19229, 767, 927, 11891, 929, 7609, 8194, 8786, 9495, 12165, 11725, 11872, 14985, 8192, 10964,
+        12201, 14580, 4023, 4030, 4031, 4036, 4038, 8188, 8193, 8240, 15064, 14622, 4173, 1217, 768, 3839, 3870, 3871, 3872, 3873,
+        3874, 3876, 3877, 3994, 3995, 11873, 11894, 4429, 4159, 4161, 4162, 4163, 4164, 4165, 4166, 4168, 4177, 4477, 4481, 4483,
+        11163, 11164, 11165, 11388, 2110, 2111, 2112, 2113, 1169, 1172, 1187, 1194, 1201, 3831, 3832, 3840, 3868, 3869, 3878, 3892,
+        3904, 3993, 4024, 11386, 15455, 7574, 1161, 1178, 1179, 1180, 1183, 1185, 1188, 1191, 1192, 1196, 1218, 1310, 1311, 1313,
+        1417, 1697, 4040, 750, 2530, 10965, 3983, 1170, 1189, 1193, 1197, 1199, 1200, 1205, 1241, 1418, 4033, 4034, 8191, 8982,
+        11319, 11484, 11489, 126, 928, 1746, 3984, 4025, 4026, 4037, 4041, 8178, 4032, 4035, 4027, 4028, 8787, 1168, 1175, 3833,
+        11133,
+    },
+    [27] = {
+        1405, 3900, 4816, 8176, 8983, 9035, 9036, 9038, 9039, 9040, 9041, 9042, 9046, 9049, 9051, 9052, 9053, 9054, 9055, 9140,
+        9141, 9142, 9166, 9241, 11906, 12210, 17863, 5119, 4460, 4454, 16231, 755, 12163, 5113, 4818, 11905, 11907, 9050, 497, 1322,
+        1411, 1415, 1416, 1443, 1880, 9047, 1231, 1294, 1273, 14381, 9048, 1900, 9037, 3832, 1314, 9139, 378, 1205, 1280, 1418,
+        1456, 1991, 9474, 12199, 14379, 751, 14360, 379, 7817, 15400, 11942, 720, 4482, 11296, 11495, 857, 9045, 9043, 9044, 11725,
+    },
+    [28] = {
+        81, 525, 1318, 1321, 1322, 1323, 1325, 1326, 1352, 1353, 1354, 1355, 1406, 1407, 1408, 1409, 1411, 1413, 1414, 1415,
+        1416, 1436, 1439, 1451, 1452, 1453, 1699, 1700, 1723, 1724, 1725, 1736, 1737, 1744, 1791, 1792, 1879, 1977, 1978, 1979,
+        2001, 2087, 2088, 2090, 2092, 2093, 2094, 2098, 2115, 2116, 2117, 2118, 2230, 2241, 2384, 2439, 2440, 2441, 2442, 2443,
+        2444, 2445, 2448, 2454, 2534, 4425, 5561, 5562, 8769, 8770, 8771, 8907, 8982, 9143, 9168, 9169, 9170, 9179, 9181, 9182,
+        9183, 9184, 9185, 9186, 9188, 9237, 9238, 9239, 9240, 9243, 9246, 9247, 9268, 9269, 11437, 11917, 12263, 1324, 1443, 11878,
+        1118, 1120, 1216, 1351, 2242, 2452, 9178, 9236, 9242, 9244, 1405, 9241, 2246, 9187, 1119, 1412, 1317, 1315, 1698, 1748,
+        9167, 1410, 1437, 1438, 2446, 2447, 522, 523, 524, 526, 2114, 2226, 2227, 1750, 1245, 1486, 2238, 2239, 2240, 2243,
+        2244, 2245, 2331, 2332, 2333, 2334, 2535, 2545, 2546, 2547, 2548, 2549, 2592, 3827, 4386, 4484, 5853, 5854, 7836, 7842,
+        8236, 8910, 8911, 8912, 10324, 10367, 10791, 10892, 11139, 11461, 11479, 11481, 11482, 11874, 2228, 2229, 2237, 9263, 11480, 9245,
+        1488, 989, 2550, 1749, 9180,
+    },
+    [29] = {
+        81, 374, 378, 388, 478, 479, 480, 481, 482, 483, 485, 486, 487, 489, 490, 491, 492, 493, 494, 495,
+        496, 497, 498, 527, 528, 529, 530, 533, 534, 535, 536, 770, 1044, 1122, 1123, 1244, 1280, 1434, 1435, 1454,
+        1455, 1456, 1457, 1701, 1702, 1738, 1739, 1742, 1745, 1862, 1863, 1878, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1999,
+        2089, 2099, 2100, 2101, 2102, 2103, 2342, 2385, 2496, 2534, 2535, 2545, 2546, 2547, 2548, 2549, 2592, 3893, 3898, 3899,
+        4386, 4401, 4402, 4403, 4405, 4443, 4447, 4487, 4488, 4490, 4811, 4812, 4813, 4819, 5116, 5853, 5854, 7836, 7842, 8236,
+        8910, 8911, 8912, 9064, 9144, 9471, 9472, 9473, 9474, 9488, 9490, 10324, 10367, 10791, 10892, 11139, 11274, 11461, 11479, 11481,
+        11482, 11874, 12199, 14432, 17918, 377, 488, 373, 11908, 484, 389, 726, 4816, 11480, 11906, 4444, 4839, 4841, 751, 4404,
+        4485, 4818, 2550, 4844, 11905, 379, 383, 390, 4448, 9424, 4445, 11492, 4486, 11887, 11903, 1231, 1232, 1251, 1282, 1287,
+        1293, 1294, 1295, 1297, 1307, 1703, 11490, 11491, 11751, 11752, 11753, 11754, 11755, 858, 1242, 1243, 1252, 1281, 1291, 1292,
+        1308, 5136, 11315, 11487, 1235, 1314, 2605, 1309, 4446, 4815, 5115, 9486, 9487, 9489, 9628, 9629, 9483, 11718, 11933, 11944,
+    },
+    [30] = {
+        929, 7609, 8194, 8768, 8786, 9495, 12165, 16014, 17886, 5113, 7607, 11383, 5890, 7572, 7576, 7577, 7821, 7822, 9149, 7573,
+        7606, 8240, 7837, 7571, 7608, 11451, 1188, 15570, 5556, 15467, 7575, 18484, 1458, 9629, 15500, 2231, 7824, 11138, 19229, 2513,
+        7574, 7823,
+    },
+    [31] = {
+        379, 1309, 1317, 1694, 2471, 2472, 2591, 4429, 8874, 8875, 11128, 15463, 4455, 8181, 8989, 8180, 8182, 2595, 16315, 749,
+        14830, 2470, 1410, 2459, 8872, 1458, 2301, 2460, 4472, 9422, 9486, 9487, 9489, 9628, 9629, 14582, 14971, 14978, 15500, 17518,
+        17523, 17868, 17872, 771, 4464, 4474, 9152, 14382, 17628, 18396, 19198, 16082, 14601, 855, 9483, 14581, 14587, 15499, 17519, 17871,
+        714, 1198, 1442, 1466, 1896, 1901, 1919, 1920, 2104, 2105, 2106, 2107, 2108, 2503, 7608, 7780, 9419, 9421, 9476, 9478,
+        9479, 9482, 9484, 9485, 9492, 9496, 10944, 11138, 11284, 11501, 14970, 9423, 11900, 9491, 11872, 14585, 14618, 14979, 14995, 15059,
+        15060, 15061, 15063, 15065, 15069, 925, 4443, 5651, 7575, 9246, 9247, 14641, 14814, 15579, 4457, 14584, 14588, 14589, 14640, 764,
+        1159, 1160, 1774, 1775, 1776, 1844, 5564, 7782, 11470, 11899, 19229, 1195, 1908, 2231, 3877, 11503, 14977, 717, 718, 1177,
+        1181, 1227, 1236, 9420, 10950, 11499, 11500, 14580, 12201, 3890, 10273, 14583, 14586, 14617, 14619, 14620, 14621, 14623, 14820, 14972,
+        15013, 15483, 11486, 14624, 14985, 15064,
+    },
+    [32] = {
+        1267, 1270, 2323, 2324, 2325, 2326, 2328, 2337, 2338, 2340, 2343, 2429, 2430, 2431, 2432, 2433, 2434, 2436, 2437, 2438,
+        2467, 3891, 4424, 10339, 10342, 10343, 10344, 10345, 10346, 10347, 10348, 10349, 10350, 10351, 10352, 10354, 10355, 10537, 11814, 15654,
+        2327, 2339, 10341, 2322, 2329, 2330, 2341, 2427, 2428, 2435, 2465, 2466, 10887, 10340, 825, 827, 828, 829, 1121, 1257,
+        1258, 1259, 1260, 1261, 1262, 1263, 1265, 1266, 1268, 1269, 1271, 1272, 1273, 1274, 1275, 1277, 10852, 10853, 10857, 10889,
+        1276, 1984, 4560, 17440, 17456,
+    },
+    [33] = {
+        928, 1692, 1746, 1894, 3906, 3984, 4025, 4026, 4037, 4041, 4843, 7700, 8178, 8241, 9150, 11374, 11451, 11894, 11941, 14554,
+        14555, 14557, 14558, 14590, 14591, 14593, 14595, 14596, 14597, 14598, 14602, 14603, 14627, 14632, 14633, 14634, 14636, 14637, 14642, 14643,
+        14730, 14835, 15071, 15260, 15574, 15575, 15576, 15578, 15579, 15581, 15582, 15583, 15584, 15585, 15597, 15746, 15747, 15755, 15756, 15757,
+        15758, 15761, 15769, 15895, 18617, 18800, 11456, 14679, 3922, 9151, 14793, 14800, 5132, 14834, 12217, 12220, 12212, 11952, 11948, 2517,
+        12195, 12196, 12197, 12198, 12211, 12218, 15488, 16965, 1412, 14678, 8787, 11282, 15894, 7607, 11375, 4408, 19234, 4031, 18483, 15412,
+        15401, 4423, 11888, 11889, 4406, 4407, 752, 1219, 8192, 7701, 14635, 11372, 11373, 1881, 4040, 11890, 947, 14592, 1693, 3983,
+        1444, 4033, 8191, 14594, 4032, 4035, 4467, 4469, 14978, 11455, 7823, 11457, 14816, 5292, 5127, 4561, 11913, 1440, 1464, 1465,
+        3981, 3982, 4028, 5555, 9482, 15768, 15890, 15891, 17441, 17457, 15762, 3838, 2458, 126, 1747, 14677, 7824, 5128,
+    },
 }

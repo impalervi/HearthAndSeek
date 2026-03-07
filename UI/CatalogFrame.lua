@@ -35,6 +35,7 @@ local sidebarWidgets = {
     expansions    = {},   -- ["Midnight"] = { check, label, toggle, container, expanded, childKeys, namePrefix }
     zones         = {},   -- ["Stormwind City"] = { check, label, namePrefix }
     qualities     = {},   -- [1] = {...}, [2] = {...}, ...
+    themes        = {},   -- [themeID] = { check, label, namePrefix }
 }
 
 -------------------------------------------------------------------------------
@@ -62,6 +63,33 @@ local FILTER_SECTIONS = {
         toggle = "CatalogGrid_ToggleCollection",
     },
     {
+        id = "themes_aesthetic",
+        title = "AESTHETIC",
+        type = "theme_group",
+        groupID = 2,
+        widgetTable = "themes",
+
+        toggle = "CatalogGrid_ToggleTheme",
+        -- Per-theme colors keyed by theme name
+        themeColors = {
+            ["Arcane"]     = { 0.60, 0.40, 0.90 },  -- purple
+            ["Armory"]     = { 0.70, 0.55, 0.35 },  -- bronze
+            ["Fae"]        = { 0.55, 0.85, 0.65 },  -- mint green
+            ["Fel"]        = { 0.55, 0.80, 0.25 },  -- fel green
+            ["Lorekeeper"] = { 0.75, 0.65, 0.45 },  -- parchment tan
+            ["Macabre"]    = { 0.65, 0.45, 0.55 },  -- dusty rose
+            ["Nature"]     = { 0.40, 0.75, 0.40 },  -- forest green
+            ["Noble"]      = { 0.85, 0.75, 0.35 },  -- gold
+            ["Pirate"]     = { 0.70, 0.55, 0.40 },  -- weathered wood
+            ["Rugged"]     = { 0.65, 0.55, 0.45 },  -- leather brown
+            ["Rustic"]     = { 0.80, 0.65, 0.45 },  -- warm straw
+            ["Sacred"]     = { 0.90, 0.85, 0.50 },  -- holy light
+            ["Tavern"]     = { 0.80, 0.60, 0.30 },  -- amber
+            ["Tinker"]     = { 0.60, 0.70, 0.75 },  -- steel blue
+            ["Void"]       = { 0.50, 0.35, 0.70 },  -- deep violet
+        },
+    },
+    {
         id = "categories",
         title = "CATEGORY",
         type = "hierarchical",
@@ -77,6 +105,17 @@ local FILTER_SECTIONS = {
         uniformColor = { 0.85, 0.70, 0.30 },  -- gold
     },
     {
+        id = "themes_culture",
+        title = "CULTURE",
+        type = "theme_group",
+        groupID = 1,
+        widgetTable = "themes",
+
+        toggle = "CatalogGrid_ToggleTheme",
+        uniformColor = { 0.70, 0.55, 0.30 },  -- warm bronze
+        defaultCollapsed = true,
+    },
+    {
         id = "sources",
         title = "SOURCE",
         type = "multiselect",
@@ -85,6 +124,7 @@ local FILTER_SECTIONS = {
         colors = "SourceColors",
         toggle = "CatalogGrid_ToggleSource",
         widgetTable = "sources",
+        defaultCollapsed = true,
         subGroup = {
             parentKey = "Profession",
             order = "ProfessionOrder",
@@ -131,6 +171,77 @@ local FILTER_SECTIONS = {
 -- Sidebar helpers: anchor-chained collapsible sections
 -------------------------------------------------------------------------------
 local allSections = {}        -- ordered list of section frames (for RecalcSidebarHeight)
+local sidebarScrollChild      -- module-level ref for rebuilding sidebar from settings
+
+--- Resolve whether a section should start collapsed (saved state overrides default).
+local function ShouldStartCollapsed(sectionDef)
+    local saved = NS.db and NS.db.settings and NS.db.settings.filterCollapsed
+    if saved and saved[sectionDef.id] ~= nil then
+        return saved[sectionDef.id]
+    end
+    return sectionDef.defaultCollapsed
+end
+
+--- Resolve effective section order (saved order overrides FILTER_SECTIONS default).
+local function GetOrderedSections()
+    local savedOrder = NS.db and NS.db.settings and NS.db.settings.filterOrder
+    if not savedOrder then return FILTER_SECTIONS end
+
+    local byID = {}
+    for _, def in ipairs(FILTER_SECTIONS) do
+        byID[def.id] = def
+    end
+
+    local ordered = {}
+    local used = {}
+    for _, id in ipairs(savedOrder) do
+        if byID[id] then
+            ordered[#ordered + 1] = byID[id]
+            used[id] = true
+        end
+    end
+    -- Append any new sections not in saved order (e.g. added in an update)
+    for _, def in ipairs(FILTER_SECTIONS) do
+        if not used[def.id] then
+            ordered[#ordered + 1] = def
+        end
+    end
+    return ordered
+end
+
+--- Re-anchor all sections in allSections order (no frame recreation).
+local function ReanchorAllSections(scrollChild)
+    for i, section in ipairs(allSections) do
+        section:ClearPoint("TOP")
+        if i == 1 then
+            section:SetPoint("TOP", scrollChild, "TOP", 0, -4)
+        else
+            section:SetPoint("TOP", allSections[i - 1], "BOTTOM", 0, -6)
+        end
+    end
+end
+
+--- Update arrow visibility: hide ▲ on first section, ▼ on last.
+local function UpdateArrowVisibility()
+    for i, section in ipairs(allSections) do
+        if section._upArrow then
+            if i == 1 then section._upArrow:Hide() else section._upArrow:Show() end
+        end
+        if section._downArrow then
+            if i == #allSections then section._downArrow:Hide() else section._downArrow:Show() end
+        end
+    end
+end
+
+--- Save current section order to DB.
+local function SaveSectionOrder()
+    if not (NS.db and NS.db.settings) then return end
+    local order = {}
+    for _, sec in ipairs(allSections) do
+        order[#order + 1] = sec._sectionID
+    end
+    NS.db.settings.filterOrder = order
+end
 
 local function RecalcSidebarHeight(scrollChild)
     local totalH = 4  -- top padding
@@ -191,7 +302,7 @@ local function UpdateParentCheckState(parentWidget, childKeys, childWidgetTable)
     parentWidget.check:SetChecked(allChecked)
 end
 
-local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
+local function CreateSidebarSection(scrollChild, sectionID, title, anchorFrame, gap)
     local section = CreateFrame("Frame", nil, scrollChild)
     section:SetPoint("LEFT", scrollChild, "LEFT", 0, 0)
     section:SetPoint("RIGHT", scrollChild, "RIGHT", 0, 0)
@@ -200,6 +311,9 @@ local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
     else
         section:SetPoint("TOP", scrollChild, "TOP", 0, -4)
     end
+
+    section._sectionID = sectionID
+    section._scrollChild = scrollChild
 
     -- Header row (clickable to collapse/expand)
     local header = CreateFrame("Button", nil, section)
@@ -213,11 +327,66 @@ local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
     titleFS:SetText(title)
     titleFS:SetTextColor(0.50, 0.50, 0.50, 1)
 
-    -- Toggle indicator (- = expanded, + = collapsed)
-    local toggleText = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    toggleText:SetPoint("RIGHT", header, "RIGHT", -8, 0)
+    -- Toggle indicator (- = expanded, + = collapsed) with hover effect
+    local toggleBtn = CreateFrame("Button", nil, header)
+    toggleBtn:SetSize(16, 20)
+    toggleBtn:SetPoint("RIGHT", header, "RIGHT", -4, 0)
+    local toggleText = toggleBtn:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+    toggleText:SetPoint("CENTER", 0, 0)
     toggleText:SetText("-")
-    toggleText:SetTextColor(1.00, 0.82, 0.00, 1)
+    toggleText:SetTextColor(0.60, 0.50, 0.10, 0.7)
+    toggleBtn:SetScript("OnEnter", function() toggleText:SetTextColor(1.00, 0.82, 0.00, 1) end)
+    toggleBtn:SetScript("OnLeave", function() toggleText:SetTextColor(0.60, 0.50, 0.10, 0.7) end)
+
+    -- Reorder arrows — texture buttons left of the +/- toggle
+    local function CreateArrowButton(texturePath, xOffset, yOffset)
+        local btn = CreateFrame("Button", nil, header)
+        btn:SetSize(18, 18)
+        btn:SetPoint("RIGHT", header, "RIGHT", xOffset, yOffset or 0)
+        local tex = btn:CreateTexture(nil, "ARTWORK")
+        tex:SetAllPoints()
+        tex:SetTexture(texturePath)
+        tex:SetVertexColor(0.50, 0.50, 0.50, 0.7)
+        btn._tex = tex
+        btn:SetScript("OnEnter", function() tex:SetVertexColor(1.00, 0.82, 0.00, 1) end)
+        btn:SetScript("OnLeave", function() tex:SetVertexColor(0.50, 0.50, 0.50, 0.7) end)
+        return btn
+    end
+
+    local upArrow = CreateArrowButton("Interface\\Buttons\\Arrow-Up-Up", -38, 3)
+    local downArrow = CreateArrowButton("Interface\\Buttons\\Arrow-Down-Up", -22, -3)
+
+    upArrow:SetScript("OnClick", function()
+        -- Find this section's index in allSections
+        for i, sec in ipairs(allSections) do
+            if sec == section then
+                if i <= 1 then return end
+                allSections[i], allSections[i - 1] = allSections[i - 1], allSections[i]
+                SaveSectionOrder()
+                ReanchorAllSections(scrollChild)
+                RecalcSidebarHeight(scrollChild)
+                UpdateArrowVisibility()
+                return
+            end
+        end
+    end)
+
+    downArrow:SetScript("OnClick", function()
+        for i, sec in ipairs(allSections) do
+            if sec == section then
+                if i >= #allSections then return end
+                allSections[i], allSections[i + 1] = allSections[i + 1], allSections[i]
+                SaveSectionOrder()
+                ReanchorAllSections(scrollChild)
+                RecalcSidebarHeight(scrollChild)
+                UpdateArrowVisibility()
+                return
+            end
+        end
+    end)
+
+    section._upArrow = upArrow
+    section._downArrow = downArrow
 
     -- Underline (amber-gold, matching right sidebar section headers)
     local underline = header:CreateTexture(nil, "ARTWORK")
@@ -237,7 +406,7 @@ local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
     section._expanded = true
     section._contentHeight = 0
 
-    header:SetScript("OnClick", function()
+    local function ToggleCollapse()
         section._expanded = not section._expanded
         if section._expanded then
             content:Show()
@@ -248,8 +417,14 @@ local function CreateSidebarSection(scrollChild, title, anchorFrame, gap)
             toggleText:SetText("+")
             section:SetHeight(20)
         end
+        -- Persist collapse state
+        if NS.db and NS.db.settings then
+            NS.db.settings.filterCollapsed[sectionID] = (not section._expanded) or nil
+        end
         RecalcSidebarHeight(scrollChild)
-    end)
+    end
+    header:SetScript("OnClick", ToggleCollapse)
+    toggleBtn:SetScript("OnClick", ToggleCollapse)
 
     allSections[#allSections + 1] = section
     return section, content
@@ -379,7 +554,7 @@ local SectionBuilders = {}
 
 --- boolean: single toggle checkbox (e.g. Favorites)
 function SectionBuilders.boolean(scrollChild, sectionDef, prevSection)
-    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.id, sectionDef.title, prevSection)
     local items = sectionDef.items or {}
 
     local yOff = 0
@@ -403,12 +578,21 @@ function SectionBuilders.boolean(scrollChild, sectionDef, prevSection)
     section._contentHeight = #items * 22
     content:SetHeight(section._contentHeight)
     section:SetHeight(20 + section._contentHeight)
+
+    -- Restore collapsed state (saved preference overrides default)
+    if ShouldStartCollapsed(sectionDef) then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
     return section
 end
 
 --- boolean_pair: inverted toggle pair (e.g. Collection — checked = hide)
 function SectionBuilders.boolean_pair(scrollChild, sectionDef, prevSection)
-    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.id, sectionDef.title, prevSection)
     local items = sectionDef.items or {}
 
     local yOff = 0
@@ -431,12 +615,21 @@ function SectionBuilders.boolean_pair(scrollChild, sectionDef, prevSection)
     section._contentHeight = #items * 22
     content:SetHeight(section._contentHeight)
     section:SetHeight(20 + section._contentHeight)
+
+    -- Restore collapsed state (saved preference overrides default)
+    if ShouldStartCollapsed(sectionDef) then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
     return section
 end
 
 --- multiselect: flat checkbox list with optional embedded sub-group (e.g. Source, Rarity)
 function SectionBuilders.multiselect(scrollChild, sectionDef, prevSection)
-    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.id, sectionDef.title, prevSection)
     local wTable = sectionDef.widgetTable   -- e.g. "sources", "qualities"
     local subDef = sectionDef.subGroup
 
@@ -483,9 +676,7 @@ function SectionBuilders.multiselect(scrollChild, sectionDef, prevSection)
     local yOff = 0
     local itemCount = 0
     for _, key in ipairs(orderList) do
-        if key == skipKey then
-            -- skip — sub-group is rendered after the main list
-        else
+        if key ~= skipKey then
             -- Compute count for this key
             local count = 0
             if countsTable and countsTable[key] then
@@ -693,8 +884,8 @@ function SectionBuilders.multiselect(scrollChild, sectionDef, prevSection)
         RecalcMultiselectHeight(section, subGroupFrame, scrollChild)
     end
 
-    -- Default collapsed behavior
-    if sectionDef.defaultCollapsed then
+    -- Restore collapsed state (saved preference overrides default)
+    if ShouldStartCollapsed(sectionDef) then
         section._expanded = false
         content:Hide()
         section._toggle:SetText("+")
@@ -706,7 +897,7 @@ end
 
 --- hierarchical: expandable groups with children (e.g. Category, Expansion)
 function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
-    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.id, sectionDef.title, prevSection)
     local wTable = sectionDef.widgetTable        -- e.g. "expansions", "categories"
     local cwTable = sectionDef.childWidgetTable   -- e.g. "zones", "subcategories"
 
@@ -806,12 +997,8 @@ function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
                 if not grouped[parentKey] then
                     grouped[parentKey] = {}
                 end
-                local cCount = 0
-                if type(childCountsMap[childKey]) == "table" then
-                    cCount = #childCountsMap[childKey]
-                else
-                    cCount = childCountsMap[childKey]
-                end
+                local raw = childCountsMap[childKey]
+                local cCount = type(raw) == "table" and #raw or raw
                 if cCount > 0 then
                     table.insert(grouped[parentKey], {
                         key   = childKey,
@@ -931,8 +1118,109 @@ function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
     content:SetHeight(totalContentH)
     section:SetHeight(20 + totalContentH)
 
-    -- Default collapsed behavior
-    if sectionDef.defaultCollapsed then
+    -- Restore collapsed state (saved preference overrides default)
+    if ShouldStartCollapsed(sectionDef) then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
+    return section
+end
+
+--- theme_group: flat list of theme checkboxes for a single theme group
+--- (Culture or Aesthetic). Reads theme metadata from CatalogData.
+function SectionBuilders.theme_group(scrollChild, sectionDef, prevSection)
+    local groupID = sectionDef.groupID
+    local themeGroupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+    local themeNames = NS.CatalogData and NS.CatalogData.ThemeNames
+    local byTheme = NS.CatalogData and NS.CatalogData.ByTheme
+
+    -- Skip section entirely if no theme data loaded
+    if not themeGroupThemes or not themeNames then return prevSection end
+
+    local themeIDs = themeGroupThemes[groupID]
+    if not themeIDs or #themeIDs == 0 then return prevSection end
+
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.id, sectionDef.title, prevSection)
+    local wTable = sectionDef.widgetTable  -- "themes"
+
+    -- Color helpers: per-theme colors or uniform fallback
+    local perThemeColors = sectionDef.themeColors  -- { ["Name"] = {r,g,b} } or nil
+    local uniformHex = "888888"
+    if sectionDef.uniformColor then
+        local uc = sectionDef.uniformColor
+        uniformHex = string.format("%02X%02X%02X",
+            math.floor(uc[1] * 255 + 0.5),
+            math.floor(uc[2] * 255 + 0.5),
+            math.floor(uc[3] * 255 + 0.5))
+    end
+
+    local function getThemeHex(themeName)
+        if perThemeColors and perThemeColors[themeName] then
+            local tc = perThemeColors[themeName]
+            return string.format("%02X%02X%02X",
+                math.floor(tc[1] * 255 + 0.5),
+                math.floor(tc[2] * 255 + 0.5),
+                math.floor(tc[3] * 255 + 0.5))
+        end
+        return uniformHex
+    end
+
+    local function getThemeTagColor(themeName)
+        if perThemeColors and perThemeColors[themeName] then
+            return perThemeColors[themeName]
+        end
+        return sectionDef.uniformColor
+    end
+
+    -- Build sorted theme list: { themeID, name, count }
+    local themeList = {}
+    for _, tid in ipairs(themeIDs) do
+        local name = themeNames[tid]
+        local count = byTheme and byTheme[tid] and #byTheme[tid] or 0
+        if name and count > 0 then
+            themeList[#themeList + 1] = { id = tid, name = name, count = count }
+        end
+    end
+    table.sort(themeList, function(a, b) return a.name < b.name end)
+
+    if #themeList == 0 then return prevSection end
+
+    -- Resolve toggle function
+    local toggleFnName = sectionDef.toggle
+    local toggleFn = toggleFnName and function(themeID, checked)
+        local fn = NS.UI[toggleFnName]
+        if fn then fn(themeID, checked) end
+    end or nil
+
+    -- Create checkboxes
+    local yOff = -2
+    for _, tInfo in ipairs(themeList) do
+        local hex = getThemeHex(tInfo.name)
+        local labelText = "|cff" .. hex .. tInfo.name .. "|r  |cff888888(" .. tInfo.count .. ")|r"
+        local chk, newY = CreateFilterCheckbox(content, labelText, yOff, nil,
+            function(checked)
+                if toggleFn then toggleFn(tInfo.id, checked) end
+            end)
+
+        sidebarWidgets[wTable][tInfo.id] = {
+            check      = chk,
+            label      = chk._label,
+            namePrefix = "|cff" .. hex .. tInfo.name .. "|r",
+            tagColor   = getThemeTagColor(tInfo.name),
+        }
+        yOff = newY
+    end
+
+    local totalH = math.abs(yOff) + 2
+    section._contentHeight = totalH
+    content:SetHeight(totalH)
+    section:SetHeight(20 + totalH)
+
+    -- Restore collapsed state (saved preference overrides default)
+    if ShouldStartCollapsed(sectionDef) then
         section._expanded = false
         content:Hide()
         section._toggle:SetText("+")
@@ -946,14 +1234,24 @@ end
 -- Build sidebar content inside scroll child
 -------------------------------------------------------------------------------
 local function InitSidebarContent(scrollChild)
+    sidebarScrollChild = scrollChild
+
+    -- Park existing section frames (WoW has no frame destructor)
+    for _, section in ipairs(allSections) do
+        section:Hide()
+        section:ClearAllPoints()
+        section:SetParent(UIParent)
+    end
+
     -- Reset tracking tables
     allSections = {}
     for key in pairs(sidebarWidgets) do
         sidebarWidgets[key] = {}
     end
 
+    local orderedDefs = GetOrderedSections()
     local prevSection = nil
-    for _, sectionDef in ipairs(FILTER_SECTIONS) do
+    for _, sectionDef in ipairs(orderedDefs) do
         local builder = SectionBuilders[sectionDef.type]
         if builder then
             prevSection = builder(scrollChild, sectionDef, prevSection)
@@ -961,6 +1259,7 @@ local function InitSidebarContent(scrollChild)
     end
 
     RecalcSidebarHeight(scrollChild)
+    UpdateArrowVisibility()
 end
 
 -------------------------------------------------------------------------------
@@ -1200,6 +1499,25 @@ local function RefreshFooterBar()
                     end
                 end
             end
+
+        elseif secDef.type == "theme_group" then
+            local wTable = secDef.widgetTable  -- "themes"
+            local themeNames = NS.CatalogData and NS.CatalogData.ThemeNames or {}
+            -- Only iterate themes belonging to THIS group (avoid triplication)
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget and widget.check:GetChecked() then
+                    local tagLabel = themeNames[tid] or tostring(tid)
+                    local tagColor = widget.tagColor or secDef.uniformColor or nil
+                    AddTag(tagLabel, tagColor, function()
+                        widget.check:SetChecked(false)
+                        local fn = NS.UI[secDef.toggle]
+                        if fn then fn(tid, false) end
+                    end)
+                end
+            end
         end
 
     end  -- for FILTER_SECTIONS
@@ -1273,6 +1591,18 @@ function NS.UI.ResetAllFilters()
             for _, gData in pairs(sidebarWidgets[wTable]) do
                 if gData.childKeys then
                     UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets[cwTable])
+                end
+            end
+
+        elseif secDef.type == "theme_group" then
+            local wTable = secDef.widgetTable
+            -- Only iterate themes belonging to THIS group
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget then
+                    widget.check:SetChecked(false)
                 end
             end
         end
@@ -1362,6 +1692,21 @@ function NS.UI.UpdateSidebarCounts(counts)
                         total = total + (childCountsDim and childCountsDim[cKey] or 0)
                     end
                     gData.label:SetText(gData.namePrefix .. "  |cff888888(" .. total .. ")|r")
+                end
+            end
+
+        elseif secDef.type == "theme_group" then
+            -- Theme checkboxes: counts come from dynCounts.themes
+            local themeCounts = counts.themes
+            local wTable = secDef.widgetTable  -- "themes"
+            -- Only iterate themes belonging to THIS group
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget then
+                    local c = themeCounts and themeCounts[tid] or 0
+                    widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
                 end
             end
         end
@@ -1487,7 +1832,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(225)
+    settingsPanel:SetHeight(350)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -1501,19 +1846,38 @@ function NS.UI.InitCatalog()
     settingsPanel:Hide()
     catalogFrame._settingsPanel = settingsPanel
 
+    -- Separator helper (reusable for section dividers)
+    local function CreateSettingsSep(parent, anchorFrame, offsetY)
+        local sep = parent:CreateTexture(nil, "ARTWORK")
+        sep:SetHeight(1)
+        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", 0, offsetY or -10)
+        sep:SetPoint("RIGHT", parent, "RIGHT", -12, 0)
+        sep:SetColorTexture(0.25, 0.25, 0.28, 0.6)
+        return sep
+    end
+
     -- Settings header
     local settingsHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     settingsHeader:SetPoint("TOPLEFT", 12, -10)
     settingsHeader:SetText("|cffffd200Settings|r")
 
+    -- === DISPLAY section ===
+    local displaySep = CreateSettingsSep(settingsPanel, settingsHeader, -10)
+
+    local displayHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    displayHeader:SetPoint("TOPLEFT", displaySep, "BOTTOMLEFT", 0, -8)
+    displayHeader:SetText("DISPLAY")
+    displayHeader:SetTextColor(1, 0.82, 0, 0.8)
+
     -- Icon Size slider
     local sliderLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    sliderLabel:SetPoint("TOPLEFT", settingsHeader, "BOTTOMLEFT", 0, -14)
+    sliderLabel:SetPoint("TOPLEFT", displayHeader, "BOTTOMLEFT", 0, -8)
     sliderLabel:SetText("Icon Size")
     sliderLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     local sliderValue = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    sliderValue:SetPoint("TOPRIGHT", settingsPanel, "TOPRIGHT", -12, -38)
+    sliderValue:SetPoint("RIGHT", settingsPanel, "RIGHT", -12, 0)
+    sliderValue:SetPoint("TOP", sliderLabel, "TOP", 0, 0)
     sliderValue:SetTextColor(0.7, 0.7, 0.7, 1)
 
     local DEFAULT_ICON_SIZE = 110
@@ -1544,32 +1908,44 @@ function NS.UI.InitCatalog()
         end
     end)
 
-    -- Restore Default Icon Size button
-    local resetIconBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
-    resetIconBtn:SetSize(180, 22)
-    resetIconBtn:SetPoint("TOPLEFT", iconSlider, "BOTTOMLEFT", -2, -18)
-    resetIconBtn:SetText("Restore Default Icon Size")
-    resetIconBtn:SetScript("OnClick", function()
-        iconSlider:SetValue(1.0)
-    end)
+    -- === GENERAL section ===
+    local generalSep = CreateSettingsSep(settingsPanel, iconSlider, -14)
 
-    -- Restore Default Window Size button
-    local resetWindowBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
-    resetWindowBtn:SetSize(180, 22)
-    resetWindowBtn:SetPoint("TOPLEFT", resetIconBtn, "BOTTOMLEFT", 0, -4)
-    resetWindowBtn:SetText("Restore Default Window Size")
-    resetWindowBtn:SetScript("OnClick", function()
-        catalogFrame:SetSize(CatSizing.FrameWidth, CatSizing.FrameHeight)
-        if NS.db then
-            NS.db.catalogSize = nil
+    local generalHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    generalHeader:SetPoint("TOPLEFT", generalSep, "BOTTOMLEFT", 0, -8)
+    generalHeader:SetText("GENERAL")
+    generalHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    -- "Show minimap icon" checkbox
+    local LDBIcon = LibStub("LibDBIcon-1.0", true)
+
+    local minimapCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    minimapCheck:SetSize(22, 22)
+    minimapCheck:SetPoint("TOPLEFT", generalHeader, "BOTTOMLEFT", -2, -6)
+    minimapCheck:SetChecked(not (NS.db and NS.db.minimapIcon and NS.db.minimapIcon.hide))
+    minimapCheck:SetScript("OnClick", function(self)
+        local hide = not self:GetChecked()
+        if NS.db and NS.db.minimapIcon then
+            NS.db.minimapIcon.hide = hide
+        end
+        if LDBIcon then
+            if hide then
+                LDBIcon:Hide("HearthAndSeek")
+            else
+                LDBIcon:Show("HearthAndSeek")
+            end
         end
     end)
+    local minimapLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    minimapLabel:SetPoint("LEFT", minimapCheck, "RIGHT", 2, 0)
+    minimapLabel:SetText("Show minimap icon")
+    minimapLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     -- "Show new feature tips" checkbox
     local whatsNewCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
     whatsNewCheck:SetSize(22, 22)
-    whatsNewCheck:SetPoint("TOPLEFT", resetWindowBtn, "BOTTOMLEFT", -2, -10)
-    whatsNewCheck:SetChecked(NS.db.settings.showWhatsNew ~= false)
+    whatsNewCheck:SetPoint("TOPLEFT", minimapCheck, "BOTTOMLEFT", 0, -4)
+    whatsNewCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showWhatsNew == false))
     whatsNewCheck:SetScript("OnClick", function(self)
         if NS.db and NS.db.settings then
             NS.db.settings.showWhatsNew = self:GetChecked()
@@ -1579,6 +1955,53 @@ function NS.UI.InitCatalog()
     whatsNewLabel:SetPoint("LEFT", whatsNewCheck, "RIGHT", 2, 0)
     whatsNewLabel:SetText("Show new feature tips")
     whatsNewLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
+    -- === RESTORE DEFAULTS section ===
+    local restoreSep = CreateSettingsSep(settingsPanel, whatsNewCheck, -10)
+
+    local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
+    restoreHeader:SetText("RESTORE DEFAULTS")
+    restoreHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    -- Restore Default Icon Size button
+    local resetIconBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    resetIconBtn:SetSize(180, 22)
+    resetIconBtn:SetPoint("TOPLEFT", restoreHeader, "BOTTOMLEFT", 2, -8)
+    resetIconBtn:SetText("Icon Size")
+    resetIconBtn:SetScript("OnClick", function()
+        iconSlider:SetValue(1.0)
+    end)
+
+    -- Restore Default Window Size button
+    local resetWindowBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    resetWindowBtn:SetSize(180, 22)
+    resetWindowBtn:SetPoint("TOPLEFT", resetIconBtn, "BOTTOMLEFT", 0, -4)
+    resetWindowBtn:SetText("Window Size")
+    resetWindowBtn:SetScript("OnClick", function()
+        catalogFrame:SetSize(CatSizing.FrameWidth, CatSizing.FrameHeight)
+        if NS.db then
+            NS.db.catalogSize = nil
+        end
+    end)
+
+    -- Restore Default Filter Layout button
+    local resetFiltersBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    resetFiltersBtn:SetSize(180, 22)
+    resetFiltersBtn:SetPoint("TOPLEFT", resetWindowBtn, "BOTTOMLEFT", 0, -4)
+    resetFiltersBtn:SetText("Filter Layout")
+    resetFiltersBtn:SetScript("OnClick", function()
+        if NS.db and NS.db.settings then
+            NS.db.settings.filterOrder = nil
+            NS.db.settings.filterCollapsed = {}
+        end
+        if sidebarScrollChild then
+            InitSidebarContent(sidebarScrollChild)
+            if NS.UI.CatalogGrid_ResetFilters then
+                NS.UI.CatalogGrid_ResetFilters()
+            end
+        end
+    end)
 
     -- Toggle settings panel on button click
     settingsBtn:SetScript("OnClick", function()

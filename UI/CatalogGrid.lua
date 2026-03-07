@@ -10,6 +10,36 @@ local CatSizing = nil
 local gridButtons = {}
 local gridParent = nil
 local GRID_H_MARGIN = 24  -- fixed left/right margin inside the center panel
+local BASE_ICON_SIZE = 110
+
+-- Compute overlay sizes/offsets scaled to current icon size
+local function GetOverlayMetrics()
+    local iconSize = CatSizing and CatSizing.GridItemSize or BASE_ICON_SIZE
+    local scale = iconSize / BASE_ICON_SIZE
+    return {
+        checkSize   = math.floor(20 * scale + 0.5),
+        checkOffset = math.floor(6 * scale + 0.5),
+        starSize    = math.floor(21 * scale + 0.5),
+        starOffset  = math.floor(8 * scale + 0.5),
+    }
+end
+
+-- Update overlays on all existing grid buttons after icon size change
+local function UpdateOverlayMetrics()
+    local m = GetOverlayMetrics()
+    for _, btn in ipairs(gridButtons) do
+        if btn.Collected then
+            btn.Collected:SetSize(m.checkSize, m.checkSize)
+            btn.Collected:ClearAllPoints()
+            btn.Collected:SetPoint("BOTTOMRIGHT", -m.checkOffset, m.checkOffset)
+        end
+        if btn.FavoriteStar then
+            btn.FavoriteStar:SetSize(m.starSize, m.starSize)
+            btn.FavoriteStar:ClearAllPoints()
+            btn.FavoriteStar:SetPoint("TOPLEFT", m.starOffset, -m.starOffset)
+        end
+    end
+end
 
 -- Multi-select filter state (empty set = no filter = show all)
 local filterState = {
@@ -24,12 +54,16 @@ local filterState = {
     -- Favorites filter
     onlyFavorites   = false,
     subcategories = {},  -- { [subcatID] = true, ... }
+    themes        = {},  -- { [themeID] = true, ... }
 }
 local filteredItems = {}
-local scrollOffset = 0   -- row offset (0 = top)
+local scrollOffset = 0   -- fractional row offset (e.g. 2.3 = row 2 + 30%)
 local totalRows = 0      -- total rows needed for all filtered items
 local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
 local scrollBarUpdating = false  -- guard against recursive OnValueChanged
+local scrollTarget = 0   -- target scroll position for smooth animation
+local scrollAnimFrame = nil  -- OnUpdate frame for smooth scrolling
+local BASE_SCROLL_SPEED = 15  -- exponential decay constant (scaled by row height)
 
 -------------------------------------------------------------------------------
 -- Search synonyms: query term → related terms to also search for.
@@ -98,6 +132,46 @@ local SEARCH_SYNONYMS = {
     sword       = { "blade" },
     cauldron    = { "pot", "kettle" },
     pot         = { "cauldron", "kettle", "vase", "planter" },
+    -- Theme keywords (map common terms to theme names)
+    holy        = { "sacred" },
+    divine      = { "sacred" },
+    chapel      = { "sacred" },
+    cathedral   = { "sacred" },
+    altar       = { "sacred" },
+    gothic      = { "macabre" },
+    spooky      = { "macabre" },
+    dark        = { "macabre" },
+    creepy      = { "macabre" },
+    elegant     = { "noble" },
+    regal       = { "noble" },
+    royal       = { "noble" },
+    magical     = { "arcane" },
+    mystic      = { "arcane" },
+    enchanted   = { "arcane" },
+    cozy        = { "rustic", "tavern" },
+    cottage     = { "rustic" },
+    library     = { "lorekeeper" },
+    scholar     = { "lorekeeper" },
+    study       = { "lorekeeper" },
+    pub         = { "tavern" },
+    inn         = { "tavern" },
+    kitchen     = { "tavern" },
+    druid       = { "nature" },
+    forest      = { "nature" },
+    garden      = { "nature" },
+    fairy       = { "fae" },
+    whimsical   = { "fae" },
+    nautical    = { "pirate" },
+    ship        = { "pirate" },
+    steampunk   = { "tinker" },
+    gnome       = { "tinker", "gnomish" },
+    engineer    = { "tinker" },
+    trophy      = { "armory" },
+    military    = { "armory" },
+    barracks    = { "armory" },
+    demonic     = { "fel" },
+    shadow      = { "void" },
+    cosmic      = { "void" },
 }
 
 --- For short queries (≤3 chars), require word-boundary match to avoid false
@@ -783,18 +857,19 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
     icon:SetTexCoord(0.10, 0.90, 0.10, 0.90)
     self.Icon = icon
 
-    -- Collected checkmark
+    -- Collected checkmark (scaled to icon size)
+    local m = GetOverlayMetrics()
     local coll = self:CreateTexture(nil, "OVERLAY")
-    coll:SetSize(20, 20)
-    coll:SetPoint("BOTTOMRIGHT", -4, 4)
+    coll:SetSize(m.checkSize, m.checkSize)
+    coll:SetPoint("BOTTOMRIGHT", -m.checkOffset, m.checkOffset)
     coll:SetTexture("Interface\\RaidFrame\\ReadyCheck-Ready")
     coll:Hide()
     self.Collected = coll
 
     -- Favorite star (display-only, not clickable from grid)
     local favStar = self:CreateTexture(nil, "OVERLAY")
-    favStar:SetSize(21, 21)
-    favStar:SetPoint("TOPLEFT", 5, -5)
+    favStar:SetSize(m.starSize, m.starSize)
+    favStar:SetPoint("TOPLEFT", m.starOffset, -m.starOffset)
     favStar:SetAtlas("PetJournal-FavoritesIcon")
     favStar:SetVertexColor(1, 0.82, 0, 1)
     favStar:Hide()
@@ -826,8 +901,9 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
             else
                 -- Right click: open achievement panel for Achievement/Prey items
                 if item.achievementName and item.achievementName ~= "" then
+                    if InCombatLockdown() then return end
                     if not AchievementFrame then
-                        if not C_AddOns.IsAddOnLoaded("Blizzard_AchievementUI") then
+                        if C_AddOns and not C_AddOns.IsAddOnLoaded("Blizzard_AchievementUI") then
                             pcall(C_AddOns.LoadAddOn, "Blizzard_AchievementUI")
                         end
                         if not AchievementFrame and ToggleAchievementFrame then
@@ -948,11 +1024,25 @@ end
 RefreshGridButtons = function()
     if not CatSizing then return end
     local cols = CatSizing.GridColumns
-    local startIdx = scrollOffset * cols + 1
+    local size = CatSizing.GridItemSize
+    local gap  = CatSizing.GridItemSpacing
+    local rowInt = math.floor(scrollOffset)
+    local frac = scrollOffset - rowInt
+    local pixelShift = frac * (size + gap)  -- how far to shift buttons up
+    local startIdx = rowInt * cols + 1
+    local gridWidth = cols * size + (cols - 1) * gap
 
-    for i = 1, visibleRows * cols do
+    for i = 1, (visibleRows + 2) * cols do  -- +2 rows: clipped hint + smooth scroll buffer
         local btn = gridButtons[i]
         if not btn then break end
+
+        -- Reposition button with pixel offset for smooth scrolling
+        local col = (i - 1) % cols
+        local row = math.floor((i - 1) / cols)
+        btn:ClearAllPoints()
+        btn:SetPoint("CENTER", gridParent, "TOP",
+            -gridWidth / 2 + col * (size + gap) + size / 2,
+            -(40 + row * (size + gap) + size / 2) + pixelShift)
 
         local decorID = filteredItems[startIdx + i - 1]
 
@@ -1021,12 +1111,48 @@ local function UpdateScrollIndicator()
     if maxScroll > 0 then
         scrollBarUpdating = true
         gridParent._scrollBar:SetMinMaxValues(0, maxScroll)
+        gridParent._scrollBar:SetValueStep(0.001)  -- fractional for smooth scroll
+        gridParent._scrollBar:SetObeyStepOnDrag(false)
         gridParent._scrollBar:SetValue(scrollOffset)
         scrollBarUpdating = false
         gridParent._scrollBar:Show()
     else
         gridParent._scrollBar:Hide()
     end
+end
+
+-- Stop any running smooth scroll animation
+local function StopSmoothScroll()
+    if scrollAnimFrame then
+        scrollAnimFrame:SetScript("OnUpdate", nil)
+    end
+end
+
+-- Smoothly animate scrollOffset toward scrollTarget
+local function StartSmoothScroll()
+    if not scrollAnimFrame then
+        scrollAnimFrame = CreateFrame("Frame")
+    end
+    scrollAnimFrame:SetScript("OnUpdate", function(_, elapsed)
+        local diff = scrollTarget - scrollOffset
+        if math.abs(diff) < 0.01 then
+            scrollOffset = scrollTarget
+            scrollAnimFrame:SetScript("OnUpdate", nil)
+        else
+            local gap = CatSizing and CatSizing.GridItemSpacing or 10
+            local rowH = (CatSizing and CatSizing.GridItemSize or BASE_ICON_SIZE) + gap
+            local speed = BASE_SCROLL_SPEED * (BASE_ICON_SIZE + gap) / rowH
+            scrollOffset = scrollOffset + diff * math.min(1, elapsed * speed)
+        end
+        RefreshGridButtons()
+        UpdateScrollIndicator()
+    end)
+end
+
+local function SetScrollTarget(target)
+    local maxScroll = math.max(0, totalRows - visibleRows)
+    scrollTarget = math.max(0, math.min(target, maxScroll))
+    StartSmoothScroll()
 end
 
 -------------------------------------------------------------------------------
@@ -1085,6 +1211,9 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local favoritesDB = NS.favorites or (NS.db and NS.db.favorites) or {}
     local hasFavFilter = filterState.onlyFavorites
 
+    -- Theme filter
+    local hasThemeFilter = next(filterState.themes) ~= nil
+
     -- Text search (with synonym expansion and word-boundary matching)
     local query = strtrim(filterState.searchText):lower()
     local hasQuery = query ~= ""
@@ -1097,6 +1226,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         qualities   = {},
         professions = {},
         subcategories = {},
+        themes      = {},
         collection  = { collected = 0, notCollected = 0 },
         favorites   = 0,
     }
@@ -1155,6 +1285,19 @@ function NS.UI.CatalogGrid_ApplyFilters()
                         for _, cid in ipairs(item.categoryIDs) do
                             local cname = catNames[cid]
                             if cname and FieldContains(cname:lower(), term) then
+                                found = true
+                                break
+                            end
+                        end
+                    end
+                end
+                -- Theme name matching (e.g. "sacred", "arcane", "elven")
+                if not found and item.themeIDs then
+                    local tNames = NS.CatalogData and NS.CatalogData.ThemeNames
+                    if tNames then
+                        for _, tid in ipairs(item.themeIDs) do
+                            local tname = tNames[tid]
+                            if tname and FieldContains(tname:lower(), term) then
                                 found = true
                                 break
                             end
@@ -1220,8 +1363,20 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local isFav = favoritesDB[id] and true or false
         local pFav = not hasFavFilter or isFav
 
+        -- Theme check
+        local pTheme = true
+        if hasThemeFilter then
+            pTheme = false
+            local tids = item.themeIDs
+            if tids then
+                for _, tid in ipairs(tids) do
+                    if filterState.themes[tid] then pTheme = true; break end
+                end
+            end
+        end
+
         -- Item passes ALL filters -> add to filtered list
-        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
         end
 
@@ -1231,7 +1386,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
 
         -- Source counts (exclude source filter, include secondary sources).
         -- Items count in all applicable source buckets simultaneously.
-        if pZone and pQual and pProf and pColl and pFav and pCat then
+        if pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
             local st = item.sourceType or "Other"
             dynCounts.sources[st] = (dynCounts.sources[st] or 0) + 1
             -- Secondary sources
@@ -1249,7 +1404,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Zone counts (exclude zone filter)
-        if pSrc and pQual and pProf and pColl and pFav and pCat then
+        if pSrc and pQual and pProf and pColl and pFav and pCat and pTheme then
             local z = item.zone or ""
             if z ~= "" then
                 dynCounts.zones[z] = (dynCounts.zones[z] or 0) + 1
@@ -1257,7 +1412,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Quality counts (exclude quality filter)
-        if pSrc and pZone and pProf and pColl and pFav and pCat then
+        if pSrc and pZone and pProf and pColl and pFav and pCat and pTheme then
             local q = item.quality
             if q then
                 dynCounts.qualities[q] = (dynCounts.qualities[q] or 0) + 1
@@ -1265,7 +1420,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Profession counts (exclude profession filter)
-        if pSrc and pZone and pQual and pColl and pFav and pCat then
+        if pSrc and pZone and pQual and pColl and pFav and pCat and pTheme then
             if item.professionName and item.professionName ~= "" then
                 local pn = item.professionName
                 dynCounts.professions[pn] = (dynCounts.professions[pn] or 0) + 1
@@ -1273,7 +1428,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Collection counts (exclude collection filter)
-        if pSrc and pZone and pQual and pProf and pFav and pCat then
+        if pSrc and pZone and pQual and pProf and pFav and pCat and pTheme then
             if isCollected then
                 dynCounts.collection.collected = dynCounts.collection.collected + 1
             end
@@ -1283,12 +1438,12 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Favorites count (exclude favorites filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and pCat and isFav then
+        if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme and isFav then
             dynCounts.favorites = dynCounts.favorites + 1
         end
 
         -- Subcategory counts (exclude category filter)
-        if pSrc and pZone and pQual and pProf and pColl and pFav then
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
                 for _, sid in ipairs(subcats) do
@@ -1297,13 +1452,51 @@ function NS.UI.CatalogGrid_ApplyFilters()
             end
         end
 
+        -- Theme counts (exclude theme filter, include all other filters)
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
+            local tids = item.themeIDs
+            if tids then
+                for _, tid in ipairs(tids) do
+                    dynCounts.themes[tid] = (dynCounts.themes[tid] or 0) + 1
+                end
+            end
+        end
+
     until true end
 
+    -- Confidence sorting: when theme filter is active, sort by max theme score
+    if hasThemeFilter then
+        local itemsDB = NS.CatalogData and NS.CatalogData.Items or {}
+        table.sort(filteredItems, function(idA, idB)
+            local itemA = itemsDB[idA]
+            local itemB = itemsDB[idB]
+            local sa, sb = 0, 0
+            if itemA and itemA.themeScores then
+                for tid in pairs(filterState.themes) do
+                    local s = itemA.themeScores[tid]
+                    if s and s > sa then sa = s end
+                end
+            end
+            if itemB and itemB.themeScores then
+                for tid in pairs(filterState.themes) do
+                    local s = itemB.themeScores[tid]
+                    if s and s > sb then sb = s end
+                end
+            end
+            if sa ~= sb then return sa > sb end
+            local nameA = itemA and itemA.name or ""
+            local nameB = itemB and itemB.name or ""
+            return nameA < nameB
+        end)
+    end
+
     -- Scroll state
+    StopSmoothScroll()
     local cols = CatSizing.GridColumns
     totalRows = math.max(0, math.ceil(#filteredItems / cols))
     local maxScroll = math.max(0, totalRows - visibleRows)
     scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
+    scrollTarget = scrollOffset
 
     -- Refresh grid, scroll indicator, count text
     RefreshGridButtons()
@@ -1326,6 +1519,7 @@ function NS.UI.CatalogGrid_ToggleSource(sourceType, checked)
         filterState.sources[sourceType] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1336,6 +1530,7 @@ function NS.UI.CatalogGrid_ToggleZone(zone, checked)
         filterState.zones[zone] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1352,6 +1547,7 @@ function NS.UI.CatalogGrid_ToggleExpansion(expansion, checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1362,6 +1558,7 @@ function NS.UI.CatalogGrid_ToggleQuality(quality, checked)
         filterState.qualities[quality] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1372,6 +1569,7 @@ function NS.UI.CatalogGrid_ToggleProfession(profession, checked)
         filterState.professions[profession] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1388,18 +1586,21 @@ function NS.UI.CatalogGrid_ToggleAllProfessions(checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
 function NS.UI.CatalogGrid_ToggleCollection(stateKey, checked)
     filterState[stateKey] = checked
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
 function NS.UI.CatalogGrid_ToggleFavorites(checked)
     filterState.onlyFavorites = checked
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1427,6 +1628,7 @@ function NS.UI.CatalogGrid_ToggleSubcategory(subcatID, checked)
         filterState.subcategories[subcatID] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1442,6 +1644,18 @@ function NS.UI.CatalogGrid_ToggleCategory(catID, checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
+    NS.UI.CatalogGrid_ApplyFilters()
+end
+
+function NS.UI.CatalogGrid_ToggleTheme(themeID, checked)
+    if checked then
+        filterState.themes[themeID] = true
+    else
+        filterState.themes[themeID] = nil
+    end
+    scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1451,11 +1665,13 @@ function NS.UI.CatalogGrid_ResetFilters()
     filterState.qualities = {}
     filterState.professions = {}
     filterState.subcategories = {}
+    filterState.themes = {}
     filterState.searchText = ""
     filterState.collected = true
     filterState.notCollected = true
     filterState.onlyFavorites = false
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1465,6 +1681,7 @@ end
 function NS.UI.InitCatalogGrid(parent)
     CatSizing = NS.CatalogSizing
     gridParent = parent
+    parent:SetClipsChildren(true)
 
     -- Apply saved icon size multiplier before computing layout
     local mult = NS.db and NS.db.settings and NS.db.settings.iconSizeMultiplier
@@ -1487,7 +1704,7 @@ function NS.UI.InitCatalogGrid(parent)
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local numButtons = visibleRows * cols
+    local numButtons = (visibleRows + 2) * cols  -- +2 rows: clipped hint + smooth scroll buffer
 
     -- Calculate total grid dimensions to center it
     local gridWidth  = cols * size + (cols - 1) * gap
@@ -1504,6 +1721,8 @@ function NS.UI.InitCatalogGrid(parent)
         gridButtons[i] = btn
     end
 
+    parent._lastIconSize = size
+
     -- Count text — created externally on the bottom status bar if available,
     -- otherwise fall back to a grid-anchored label
     if not parent._countText then
@@ -1513,7 +1732,8 @@ function NS.UI.InitCatalogGrid(parent)
     end
 
     -- Scroll bar (simple Slider with Blizzard thumb art)
-    local gridHeight = visibleRows * size + (visibleRows - 1) * gap
+    local panelH = parent:GetHeight()
+    local gridHeight = panelH > 50 and (panelH - 50) or (visibleRows * size + (visibleRows - 1) * gap)
     local scrollBar = CreateFrame("Slider", nil, parent)
     scrollBar:SetSize(6, gridHeight)
     scrollBar:SetPoint("TOPLEFT", parent, "TOP",
@@ -1521,8 +1741,8 @@ function NS.UI.InitCatalogGrid(parent)
     scrollBar:SetOrientation("VERTICAL")
     scrollBar:SetMinMaxValues(0, 0)
     scrollBar:SetValue(0)
-    scrollBar:SetValueStep(1)
-    scrollBar:SetObeyStepOnDrag(true)
+    scrollBar:SetValueStep(0.001)
+    scrollBar:SetObeyStepOnDrag(false)
 
     local trackBg = scrollBar:CreateTexture(nil, "BACKGROUND")
     trackBg:SetAllPoints()
@@ -1535,25 +1755,17 @@ function NS.UI.InitCatalogGrid(parent)
 
     scrollBar:SetScript("OnValueChanged", function(_, value)
         if scrollBarUpdating then return end
-        local newOffset = math.floor(value + 0.5)
-        if newOffset ~= scrollOffset then
-            scrollOffset = newOffset
-            RefreshGridButtons()
-        end
+        StopSmoothScroll()
+        scrollOffset = value
+        scrollTarget = value
+        RefreshGridButtons()
     end)
     parent._scrollBar = scrollBar
 
-    -- Mouse wheel scrolling on the grid area
+    -- Mouse wheel scrolling on the grid area (smooth)
     parent:EnableMouseWheel(true)
     parent:SetScript("OnMouseWheel", function(_, delta)
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        local newOffset = scrollOffset - delta
-        newOffset = math.max(0, math.min(newOffset, maxScroll))
-        if newOffset ~= scrollOffset then
-            scrollOffset = newOffset
-            RefreshGridButtons()
-            UpdateScrollIndicator()
-        end
+        SetScrollTarget(scrollTarget - delta)
     end)
 end
 
@@ -1583,7 +1795,7 @@ function NS.UI.CatalogGrid_Reflow()
     visibleRows = newRows
     CatSizing.ItemsPerPage = newCols * newRows
 
-    local numButtons = newRows * newCols
+    local numButtons = (newRows + 2) * newCols  -- +2 rows: clipped hint + smooth scroll buffer
     local gridWidth = newCols * size + (newCols - 1) * gap
 
     -- Grow button pool if needed
@@ -1612,7 +1824,7 @@ function NS.UI.CatalogGrid_Reflow()
 
     -- Reposition and resize scroll bar
     if gridParent._scrollBar then
-        local gridHeight = newRows * size + (newRows - 1) * gap
+        local gridHeight = gridParent:GetHeight() - 50  -- full panel height minus top + bottom padding
         gridParent._scrollBar:ClearAllPoints()
         gridParent._scrollBar:SetSize(6, gridHeight)
         gridParent._scrollBar:SetPoint("TOPLEFT", gridParent, "TOP",
@@ -1620,11 +1832,14 @@ function NS.UI.CatalogGrid_Reflow()
     end
 
     -- Recalculate scroll state and refresh
+    StopSmoothScroll()
     local cols = CatSizing.GridColumns
     totalRows = math.max(0, math.ceil(#filteredItems / cols))
     local maxScroll = math.max(0, totalRows - visibleRows)
     scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
+    scrollTarget = scrollOffset
 
+    UpdateOverlayMetrics()
     RefreshGridButtons()
     UpdateScrollIndicator()
 end
