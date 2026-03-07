@@ -1487,7 +1487,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(225)
+    settingsPanel:SetHeight(300)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -1501,19 +1501,36 @@ function NS.UI.InitCatalog()
     settingsPanel:Hide()
     catalogFrame._settingsPanel = settingsPanel
 
+    -- Separator helper (reusable for section dividers)
+    local function CreateSettingsSep(parent, anchorFrame, offsetY)
+        local sep = parent:CreateTexture(nil, "ARTWORK")
+        sep:SetHeight(1)
+        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", 0, offsetY or -10)
+        sep:SetPoint("RIGHT", parent, "RIGHT", -12, 0)
+        sep:SetColorTexture(0.25, 0.25, 0.28, 0.6)
+        return sep
+    end
+
     -- Settings header
     local settingsHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     settingsHeader:SetPoint("TOPLEFT", 12, -10)
     settingsHeader:SetText("|cffffd200Settings|r")
 
+    -- === DISPLAY section ===
+    local displayHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    displayHeader:SetPoint("TOPLEFT", settingsHeader, "BOTTOMLEFT", 0, -14)
+    displayHeader:SetText("DISPLAY")
+    displayHeader:SetTextColor(1, 0.82, 0, 0.8)
+
     -- Icon Size slider
     local sliderLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    sliderLabel:SetPoint("TOPLEFT", settingsHeader, "BOTTOMLEFT", 0, -14)
+    sliderLabel:SetPoint("TOPLEFT", displayHeader, "BOTTOMLEFT", 0, -8)
     sliderLabel:SetText("Icon Size")
     sliderLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     local sliderValue = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    sliderValue:SetPoint("TOPRIGHT", settingsPanel, "TOPRIGHT", -12, -38)
+    sliderValue:SetPoint("RIGHT", settingsPanel, "RIGHT", -12, 0)
+    sliderValue:SetPoint("TOP", sliderLabel, "TOP", 0, 0)
     sliderValue:SetTextColor(0.7, 0.7, 0.7, 1)
 
     local DEFAULT_ICON_SIZE = 110
@@ -1565,11 +1582,44 @@ function NS.UI.InitCatalog()
         end
     end)
 
+    -- === GENERAL section ===
+    local generalSep = CreateSettingsSep(settingsPanel, resetWindowBtn, -10)
+
+    local generalHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    generalHeader:SetPoint("TOPLEFT", generalSep, "BOTTOMLEFT", 0, -8)
+    generalHeader:SetText("GENERAL")
+    generalHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    -- "Show minimap icon" checkbox
+    local LDBIcon = LibStub("LibDBIcon-1.0", true)
+
+    local minimapCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    minimapCheck:SetSize(22, 22)
+    minimapCheck:SetPoint("TOPLEFT", generalHeader, "BOTTOMLEFT", -2, -6)
+    minimapCheck:SetChecked(not (NS.db and NS.db.minimapIcon and NS.db.minimapIcon.hide))
+    minimapCheck:SetScript("OnClick", function(self)
+        local hide = not self:GetChecked()
+        if NS.db and NS.db.minimapIcon then
+            NS.db.minimapIcon.hide = hide
+        end
+        if LDBIcon then
+            if hide then
+                LDBIcon:Hide("HearthAndSeek")
+            else
+                LDBIcon:Show("HearthAndSeek")
+            end
+        end
+    end)
+    local minimapLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    minimapLabel:SetPoint("LEFT", minimapCheck, "RIGHT", 2, 0)
+    minimapLabel:SetText("Show minimap icon")
+    minimapLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- "Show new feature tips" checkbox
     local whatsNewCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
     whatsNewCheck:SetSize(22, 22)
-    whatsNewCheck:SetPoint("TOPLEFT", resetWindowBtn, "BOTTOMLEFT", -2, -10)
-    whatsNewCheck:SetChecked(NS.db.settings.showWhatsNew ~= false)
+    whatsNewCheck:SetPoint("TOPLEFT", minimapCheck, "BOTTOMLEFT", 0, -4)
+    whatsNewCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showWhatsNew == false))
     whatsNewCheck:SetScript("OnClick", function(self)
         if NS.db and NS.db.settings then
             NS.db.settings.showWhatsNew = self:GetChecked()
