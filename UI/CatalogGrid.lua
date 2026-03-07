@@ -10,6 +10,36 @@ local CatSizing = nil
 local gridButtons = {}
 local gridParent = nil
 local GRID_H_MARGIN = 24  -- fixed left/right margin inside the center panel
+local BASE_ICON_SIZE = 110
+
+-- Compute overlay sizes/offsets scaled to current icon size
+local function GetOverlayMetrics()
+    local iconSize = CatSizing and CatSizing.GridItemSize or BASE_ICON_SIZE
+    local scale = iconSize / BASE_ICON_SIZE
+    return {
+        checkSize   = math.floor(20 * scale + 0.5),
+        checkOffset = math.floor(6 * scale + 0.5),
+        starSize    = math.floor(21 * scale + 0.5),
+        starOffset  = math.floor(8 * scale + 0.5),
+    }
+end
+
+-- Update overlays on all existing grid buttons after icon size change
+local function UpdateOverlayMetrics()
+    local m = GetOverlayMetrics()
+    for _, btn in ipairs(gridButtons) do
+        if btn.Collected then
+            btn.Collected:SetSize(m.checkSize, m.checkSize)
+            btn.Collected:ClearAllPoints()
+            btn.Collected:SetPoint("BOTTOMRIGHT", -m.checkOffset, m.checkOffset)
+        end
+        if btn.FavoriteStar then
+            btn.FavoriteStar:SetSize(m.starSize, m.starSize)
+            btn.FavoriteStar:ClearAllPoints()
+            btn.FavoriteStar:SetPoint("TOPLEFT", m.starOffset, -m.starOffset)
+        end
+    end
+end
 
 -- Multi-select filter state (empty set = no filter = show all)
 local filterState = {
@@ -783,18 +813,19 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
     icon:SetTexCoord(0.10, 0.90, 0.10, 0.90)
     self.Icon = icon
 
-    -- Collected checkmark
+    -- Collected checkmark (scaled to icon size)
+    local m = GetOverlayMetrics()
     local coll = self:CreateTexture(nil, "OVERLAY")
-    coll:SetSize(20, 20)
-    coll:SetPoint("BOTTOMRIGHT", -4, 4)
+    coll:SetSize(m.checkSize, m.checkSize)
+    coll:SetPoint("BOTTOMRIGHT", -m.checkOffset, m.checkOffset)
     coll:SetTexture("Interface\\RaidFrame\\ReadyCheck-Ready")
     coll:Hide()
     self.Collected = coll
 
     -- Favorite star (display-only, not clickable from grid)
     local favStar = self:CreateTexture(nil, "OVERLAY")
-    favStar:SetSize(21, 21)
-    favStar:SetPoint("TOPLEFT", 5, -5)
+    favStar:SetSize(m.starSize, m.starSize)
+    favStar:SetPoint("TOPLEFT", m.starOffset, -m.starOffset)
     favStar:SetAtlas("PetJournal-FavoritesIcon")
     favStar:SetVertexColor(1, 0.82, 0, 1)
     favStar:Hide()
@@ -1626,6 +1657,7 @@ function NS.UI.CatalogGrid_Reflow()
     local maxScroll = math.max(0, totalRows - visibleRows)
     scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
 
+    UpdateOverlayMetrics()
     RefreshGridButtons()
     UpdateScrollIndicator()
 end
