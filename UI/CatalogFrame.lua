@@ -70,7 +70,6 @@ local FILTER_SECTIONS = {
         widgetTable = "themes",
 
         toggle = "CatalogGrid_ToggleTheme",
-        defaultCollapsed = true,
         -- Per-theme colors keyed by theme name
         themeColors = {
             ["Arcane"]     = { 0.60, 0.40, 0.90 },  -- purple

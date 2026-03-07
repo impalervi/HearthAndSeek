@@ -132,6 +132,46 @@ local SEARCH_SYNONYMS = {
     sword       = { "blade" },
     cauldron    = { "pot", "kettle" },
     pot         = { "cauldron", "kettle", "vase", "planter" },
+    -- Theme keywords (map common terms to theme names)
+    holy        = { "sacred" },
+    divine      = { "sacred" },
+    chapel      = { "sacred" },
+    cathedral   = { "sacred" },
+    altar       = { "sacred" },
+    gothic      = { "macabre" },
+    spooky      = { "macabre" },
+    dark        = { "macabre" },
+    creepy      = { "macabre" },
+    elegant     = { "noble" },
+    regal       = { "noble" },
+    royal       = { "noble" },
+    magical     = { "arcane" },
+    mystic      = { "arcane" },
+    enchanted   = { "arcane" },
+    cozy        = { "rustic", "tavern" },
+    cottage     = { "rustic" },
+    library     = { "lorekeeper" },
+    scholar     = { "lorekeeper" },
+    study       = { "lorekeeper" },
+    pub         = { "tavern" },
+    inn         = { "tavern" },
+    kitchen     = { "tavern" },
+    druid       = { "nature" },
+    forest      = { "nature" },
+    garden      = { "nature" },
+    fairy       = { "fae" },
+    whimsical   = { "fae" },
+    nautical    = { "pirate" },
+    ship        = { "pirate" },
+    steampunk   = { "tinker" },
+    gnome       = { "tinker", "gnomish" },
+    engineer    = { "tinker" },
+    trophy      = { "armory" },
+    military    = { "armory" },
+    barracks    = { "armory" },
+    demonic     = { "fel" },
+    shadow      = { "void" },
+    cosmic      = { "void" },
 }
 
 --- For short queries (≤3 chars), require word-boundary match to avoid false
@@ -1245,6 +1285,19 @@ function NS.UI.CatalogGrid_ApplyFilters()
                         for _, cid in ipairs(item.categoryIDs) do
                             local cname = catNames[cid]
                             if cname and FieldContains(cname:lower(), term) then
+                                found = true
+                                break
+                            end
+                        end
+                    end
+                end
+                -- Theme name matching (e.g. "sacred", "arcane", "elven")
+                if not found and item.themeIDs then
+                    local tNames = NS.CatalogData and NS.CatalogData.ThemeNames
+                    if tNames then
+                        for _, tid in ipairs(item.themeIDs) do
+                            local tname = tNames[tid]
+                            if tname and FieldContains(tname:lower(), term) then
                                 found = true
                                 break
                             end
