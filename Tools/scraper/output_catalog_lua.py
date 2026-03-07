@@ -917,6 +917,31 @@ TREASURE_FALSE_POSITIVES: set[int] = {
     262456,  # Ornamental Silvermoon Hanger — "Ranger's Cache" drops the recipe, not the item
     262466,  # Void Elf Table — "Stellar Stash" belongs to Void Elf Round Table (different item)
 }
+# Treasure fixups — override sourceDetail, zone, coords, and add extra metadata
+# for treasure items with missing or generic data from the in-game dump.
+TREASURE_FIXUPS: dict[int, dict] = {
+    674: {  # Ancient Elven Highback Chair
+        "sourceDetail": "Glimmering Treasure Chest",
+        "zone": "Suramar",
+        "npcX": 34.8,
+        "npcY": 48.1,
+        "hintLine": [
+            {"text": "Complete scenario "},
+            {"text": "Withered Army Training", "type": "quest", "id": 43943},
+            {"text": " from "},
+            {"text": "First Arcanist Thalyssra", "type": "npc", "id": 97140},
+        ],
+    },
+    1272: {  # Trashfire Barrel
+        "sourceDetail": "Undermine Treasures",
+        "zone": "Undermine",
+        "containers": [
+            "Half-Empty Bag",
+            "Dented Crate",
+            "Uncovered Strongbox",
+        ],
+    },
+}
 # Roaming vendors exist in BOTH zones with different NPC IDs:
 ROAMING_VENDORS: dict[str, dict] = {
     '"High Tides" Ren': {"fp_npcID": 255222, "rs_npcID": 255325},
@@ -1522,6 +1547,19 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         # Treasure is additional source — store as separate fields, keep main coords
         treasure_extra_coords = tc
 
+    # --- Apply TREASURE_FIXUPS overrides ---
+    treasure_fixup = TREASURE_FIXUPS.get(decor_id) if source_type == "Treasure" else None
+    if treasure_fixup:
+        if "sourceDetail" in treasure_fixup:
+            source_detail = treasure_fixup["sourceDetail"]
+        if "zone" in treasure_fixup:
+            item_zone = treasure_fixup["zone"]
+        if "npcX" in treasure_fixup:
+            item_npc_x = treasure_fixup["npcX"]
+            item_npc_y = treasure_fixup["npcY"]
+            item_npc_id = None
+            coords_mismatch = False
+
     fields = [
         ("decorID", lua_number(item.get("decorID"))),
         ("name", lua_string(item.get("name"))),
@@ -1631,6 +1669,24 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         tv_zone = treasure_vendor_data.get("zone") or ""
         if tv_zone:
             lines.append(f"        treasureVendorZone = {lua_string(tv_zone)},")
+
+    # Optional: treasure hints (quest/NPC links for guided treasures)
+    if treasure_fixup and "hintLine" in treasure_fixup:
+        lines.append("        treasureHintLine = {")
+        for seg in treasure_fixup["hintLine"]:
+            parts = [f"text = {lua_string(seg['text'])}"]
+            if "type" in seg:
+                url = f"https://www.wowhead.com/{seg['type']}={seg['id']}"
+                parts.append(f"url = {lua_string(url)}")
+            lines.append(f"            {{ {', '.join(parts)} }},")
+        lines.append("        },")
+
+    # Optional: treasure containers (multi-spawn container names)
+    if treasure_fixup and "containers" in treasure_fixup:
+        lines.append("        treasureContainers = {")
+        for container in treasure_fixup["containers"]:
+            lines.append(f"            {lua_string(container)},")
+        lines.append("        },")
 
     # Optional: treasure coords when Treasure is an additional source (not primary)
     if treasure_extra_coords:
@@ -2159,6 +2215,10 @@ def main() -> None:
             if not item.get("npcID") and source_detail in DROP_NPC_IDS:
                 item["npcID"] = DROP_NPC_IDS[source_detail]
                 npc_fixup_count += 1
+        # Apply TREASURE_FIXUPS zone to item dict so expansion/index picks it up
+        tf = TREASURE_FIXUPS.get(item["decorID"])
+        if tf and source_type == "Treasure" and "zone" in tf:
+            item["zone"] = tf["zone"]
         expansion = get_expansion(item)
         achievement_name = get_achievement_name(item)
         vendor_name = "" if item.get("factionVendors") else get_vendor_name(item)

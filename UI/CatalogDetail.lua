@@ -2627,6 +2627,72 @@ function NS.UI.InitCatalogDetail(parent)
     treasureZoneHit:Hide()
     parent._treasureZoneHit = treasureZoneHit
 
+    -- Treasure hint lines pool: quest/NPC links for guided treasures (max 4)
+    local MAX_TREASURE_HINTS = 4
+    local treasureHintLines = {}
+    for i = 1, MAX_TREASURE_HINTS do
+        local hintText = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        hintText:SetJustifyH("LEFT")
+        hintText:SetTextColor(0.7, 0.7, 0.7, 1)
+        hintText:Hide()
+
+        local hintHit = CreateFrame("Frame", nil, middleChild)
+        hintHit:EnableMouse(true)
+        hintHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
+        hintHit:Hide()
+        hintHit:SetScript("OnEnter", function(self)
+            if not self._hintText then return end
+            SetCursor("INSPECT_CURSOR")
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:AddLine(self._hintText, 1, 1, 1)
+            GameTooltip:AddLine(" ")
+            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to view on Wowhead")
+            GameTooltip:Show()
+        end)
+        hintHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+        hintHit:SetScript("OnMouseUp", function(self, button)
+            if button ~= "LeftButton" or not IsControlKeyDown() then return end
+            if self._url then ShowCopyableURL(self._url) end
+        end)
+
+        treasureHintLines[i] = { text = hintText, hit = hintHit }
+    end
+    parent._treasureHintLines = treasureHintLines
+
+    -- Treasure container lines pool: multi-spawn container names (max 6)
+    local MAX_CONTAINER_LINES = 6
+    local containerLines = {}
+    for i = 1, MAX_CONTAINER_LINES do
+        local cText = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        cText:SetJustifyH("LEFT")
+        cText:SetTextColor(0.7, 0.7, 0.7, 1)
+        cText:Hide()
+
+        local cHit = CreateFrame("Frame", nil, middleChild)
+        cHit:EnableMouse(true)
+        cHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
+        cHit:Hide()
+        cHit:SetScript("OnEnter", function(self)
+            if not self._containerName then return end
+            SetCursor("INSPECT_CURSOR")
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:AddLine(self._containerName, 1, 1, 1)
+            GameTooltip:AddLine(" ")
+            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to search on Wowhead")
+            GameTooltip:Show()
+        end)
+        cHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+        cHit:SetScript("OnMouseUp", function(self, button)
+            if button ~= "LeftButton" or not IsControlKeyDown() then return end
+            if self._containerName then
+                ShowCopyableURL("https://www.wowhead.com/search?q=" .. self._containerName)
+            end
+        end)
+
+        containerLines[i] = { text = cText, hit = cHit }
+    end
+    parent._containerLines = containerLines
+
     ---------------------------------------------------------------------------
     -- Quest Chain scroll frame (shown only for Quest items with chain data)
     ---------------------------------------------------------------------------
@@ -3127,6 +3193,20 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._treasureZonePart:Hide()
     detailPanel._treasureZoneHit._zoneName = nil
     detailPanel._treasureZoneHit:Hide()
+    detailPanel._hintRowCount = nil
+    detailPanel._hintLineAnchor = nil
+    for i = 1, #detailPanel._treasureHintLines do
+        detailPanel._treasureHintLines[i].text:Hide()
+        detailPanel._treasureHintLines[i].text:SetTextColor(0.7, 0.7, 0.7, 1)
+        detailPanel._treasureHintLines[i].hit:Hide()
+        detailPanel._treasureHintLines[i].hit._hintText = nil
+        detailPanel._treasureHintLines[i].hit._url = nil
+    end
+    for i = 1, #detailPanel._containerLines do
+        detailPanel._containerLines[i].text:Hide()
+        detailPanel._containerLines[i].hit:Hide()
+        detailPanel._containerLines[i].hit._containerName = nil
+    end
 
     -- Determine vendor name for the "Purchase from" line
     local vendorName = nil
@@ -3343,6 +3423,75 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._treasureZoneHit:Hide()
         end
 
+        -- Treasure hint line: inline segments with wrapping (e.g. "Complete scenario X from Y")
+        local lastTreasureSubElem = treasureZoneWrapped
+            and detailPanel._treasureZonePart or detailPanel._treasureLine
+        if item.treasureHintLine and #item.treasureHintLine > 0 then
+            local numSegs = math.min(#item.treasureHintLine, #detailPanel._treasureHintLines)
+            local availableW = detailPanel._middleChild:GetWidth() - 4
+            local accWidth = 0
+            local lineAnchor = nil
+            local hintRows = 1
+            local prevSeg = nil
+            for i = 1, numSegs do
+                local seg = item.treasureHintLine[i]
+                local line = detailPanel._treasureHintLines[i]
+                line.text:ClearAllPoints()
+                if i == 1 then
+                    line.text:SetText("  " .. seg.text)
+                    line.text:SetPoint("TOPLEFT", lastTreasureSubElem, "BOTTOMLEFT", 0, -2)
+                    lineAnchor = line.text
+                    accWidth = line.text:GetStringWidth() or 0
+                else
+                    line.text:SetText(seg.text)
+                    local segW = line.text:GetStringWidth() or 0
+                    if accWidth + segW > availableW then
+                        line.text:SetText("  " .. seg.text)
+                        line.text:SetPoint("TOPLEFT", lineAnchor, "BOTTOMLEFT", 0, -1)
+                        lineAnchor = line.text
+                        accWidth = line.text:GetStringWidth() or 0
+                        hintRows = hintRows + 1
+                    else
+                        line.text:SetPoint("LEFT", prevSeg, "RIGHT", 0, 0)
+                        accWidth = accWidth + segW
+                    end
+                end
+                if seg.url then
+                    line.text:SetTextColor(0.85, 0.85, 0.55, 1)
+                    line.hit._hintText = seg.text
+                    line.hit._url = seg.url
+                    line.hit:ClearAllPoints()
+                    line.hit:SetAllPoints(line.text)
+                    line.hit:Show()
+                else
+                    line.text:SetTextColor(0.7, 0.7, 0.7, 1)
+                end
+                line.text:Show()
+                prevSeg = line.text
+            end
+            detailPanel._hintRowCount = hintRows
+            detailPanel._hintLineAnchor = lineAnchor
+            lastTreasureSubElem = lineAnchor
+        end
+
+        -- Treasure container lines (multi-spawn container names)
+        if item.treasureContainers then
+            local numContainers = math.min(#item.treasureContainers, #detailPanel._containerLines)
+            for i = 1, numContainers do
+                local containerName = item.treasureContainers[i]
+                local line = detailPanel._containerLines[i]
+                line.text:SetText("  " .. containerName)
+                line.text:ClearAllPoints()
+                line.text:SetPoint("TOPLEFT", lastTreasureSubElem, "BOTTOMLEFT", 0, -2)
+                line.text:Show()
+                line.hit._containerName = containerName
+                line.hit:ClearAllPoints()
+                line.hit:SetAllPoints(line.text)
+                line.hit:Show()
+                lastTreasureSubElem = line.text
+            end
+        end
+
         -- Vendor line for Treasure items with a secondary vendor
         local tvName = item.vendorName and item.vendorName ~= "" and item.vendorName or nil
         local tvNpcID = item.treasureVendorNpcID
@@ -3350,8 +3499,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         local tvY = item.treasureVendorY
         local tvZone = item.treasureVendorZone or item.zone or ""
         if tvName then
-            local treasureAnchor = treasureZoneWrapped
-                and detailPanel._treasureZonePart or detailPanel._treasureLine
+            local treasureAnchor = lastTreasureSubElem
             local tvNpcText = "|cff40b0ffPurchase from|r " .. tvName
             detailPanel._vendorLine:ClearAllPoints()
             detailPanel._vendorLine:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
@@ -3525,10 +3673,21 @@ function NS.UI.CatalogDetail_ShowItem(item)
             chainAnchor = detailPanel._vendorLine
         end
     elseif showTreasureLine then
+        -- Start with the basic treasure anchor
         if treasureZoneWrapped then
             chainAnchor = detailPanel._treasureZonePart
         else
             chainAnchor = detailPanel._treasureLine
+        end
+        -- Walk down through visible hint line / container lines
+        if detailPanel._treasureHintLines[1].text:IsShown() then
+            chainAnchor = detailPanel._hintLineAnchor or detailPanel._treasureHintLines[1].text
+        end
+        for i = #detailPanel._containerLines, 1, -1 do
+            if detailPanel._containerLines[i].text:IsShown() then
+                chainAnchor = detailPanel._containerLines[i].text
+                break
+            end
         end
     end
 
@@ -4782,6 +4941,16 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
         if detailPanel._treasureZonePart:IsShown() and treasureZoneWrapped then
             sourceH = sourceH + 1 + (detailPanel._treasureZonePart:GetStringHeight() or 14)
+        end
+        if detailPanel._treasureHintLines[1].text:IsShown() then
+            local lineH = detailPanel._treasureHintLines[1].text:GetStringHeight() or 12
+            local rows = detailPanel._hintRowCount or 1
+            sourceH = sourceH + 2 + lineH * rows + (rows - 1) * 1
+        end
+        for i = 1, #detailPanel._containerLines do
+            if detailPanel._containerLines[i].text:IsShown() then
+                sourceH = sourceH + 2 + (detailPanel._containerLines[i].text:GetStringHeight() or 12)
+            end
         end
         if detailPanel._sepBeforeChain:IsShown() then
             sourceH = sourceH + 6 + 1 -- gap + sepBeforeChain height
