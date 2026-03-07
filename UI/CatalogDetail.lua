@@ -2754,28 +2754,28 @@ function NS.UI.InitCatalogDetail(parent)
     end)
 
     -- Minimal scrollbar track + thumb
-    local scrollTrack = CreateFrame("Frame", nil, chainContainer)
-    scrollTrack:SetWidth(4)
-    scrollTrack:SetPoint("TOPRIGHT", chainContainer, "TOPRIGHT", 0, -18)
-    scrollTrack:SetPoint("BOTTOMRIGHT", chainContainer, "BOTTOMRIGHT")
+    local chainTrack = CreateFrame("Frame", nil, chainContainer)
+    chainTrack:SetWidth(4)
+    chainTrack:SetPoint("TOPRIGHT", chainContainer, "TOPRIGHT", 0, -18)
+    chainTrack:SetPoint("BOTTOMRIGHT", chainContainer, "BOTTOMRIGHT")
 
-    local trackBg = scrollTrack:CreateTexture(nil, "BACKGROUND")
-    trackBg:SetAllPoints()
-    trackBg:SetColorTexture(0.15, 0.15, 0.18, 0.5)
+    local chainTrackBg = chainTrack:CreateTexture(nil, "BACKGROUND")
+    chainTrackBg:SetAllPoints()
+    chainTrackBg:SetColorTexture(0.15, 0.15, 0.18, 0.5)
 
-    local scrollThumb = CreateFrame("Frame", nil, scrollTrack)
-    scrollThumb:SetWidth(4)
-    scrollThumb:SetHeight(20)
-    scrollThumb:SetPoint("TOP", scrollTrack, "TOP")
+    local chainThumb = CreateFrame("Frame", nil, chainTrack)
+    chainThumb:SetWidth(4)
+    chainThumb:SetHeight(20)
+    chainThumb:SetPoint("TOP", chainTrack, "TOP")
 
-    local thumbTex = scrollThumb:CreateTexture(nil, "OVERLAY")
-    thumbTex:SetAllPoints()
-    thumbTex:SetColorTexture(0.4, 0.4, 0.45, 0.8)
+    local chainThumbTex = chainThumb:CreateTexture(nil, "OVERLAY")
+    chainThumbTex:SetAllPoints()
+    chainThumbTex:SetColorTexture(0.4, 0.4, 0.45, 0.8)
 
     chainContainer._scrollFrame = scrollFrame
     chainContainer._scrollChild = scrollChild
-    chainContainer._scrollTrack = scrollTrack
-    chainContainer._scrollThumb = scrollThumb
+    chainContainer._scrollTrack = chainTrack
+    chainContainer._scrollThumb = chainThumb
     chainContainer._entries = {}
     chainContainer._hitFrames = {}
 

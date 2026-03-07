@@ -523,9 +523,7 @@ function SectionBuilders.multiselect(scrollChild, sectionDef, prevSection)
     local yOff = 0
     local itemCount = 0
     for _, key in ipairs(orderList) do
-        if key == skipKey then
-            -- skip — sub-group is rendered after the main list
-        else
+        if key ~= skipKey then
             -- Compute count for this key
             local count = 0
             if countsTable and countsTable[key] then
@@ -846,12 +844,8 @@ function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
                 if not grouped[parentKey] then
                     grouped[parentKey] = {}
                 end
-                local cCount = 0
-                if type(childCountsMap[childKey]) == "table" then
-                    cCount = #childCountsMap[childKey]
-                else
-                    cCount = childCountsMap[childKey]
-                end
+                local raw = childCountsMap[childKey]
+                local cCount = type(raw) == "table" and #raw or raw
                 if cCount > 0 then
                     table.insert(grouped[parentKey], {
                         key   = childKey,
