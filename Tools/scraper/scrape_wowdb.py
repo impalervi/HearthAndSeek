@@ -1,537 +1,579 @@
+#!/usr/bin/env python3
+"""Scrape housing.wowdb.com for themed collection data.
+
+Two modes:
+  --sets   Scrape community-curated sets (listing pages + quality set details)
+  --items  Scrape per-item culture/style tags for our catalog items
+
+Both modes cache responses in data/wowdb_cache/ and report progress every 10%.
+
+Usage:
+  python scrape_wowdb.py --sets          # Scrape community sets (~2 min cached)
+  python scrape_wowdb.py --items         # Scrape per-item tags (~55 min uncached)
+  python scrape_wowdb.py --all           # Both modes
+  python scrape_wowdb.py --items --no-cache  # Force re-fetch
+
+Output:
+  data/wowdb_sets.json       — Community set metadata, decorID lists, tags
+  data/wowdb_item_tags.json  — Per-item culture/style/class/theme tags
+
+See also:
+  scrape_wowdb_quests.py — Scrapes quest-sourced decor items (seed data for enrichment).
+  compute_item_themes.py — Combines scrape outputs into final theme scores.
 """
-scrape_wowdb.py - Scrape WoWDB's housing decor database.
 
-Targets the WoWDB Housing Decor catalog filtered by quest sources:
-  https://housing.wowdb.com/decor/?source_types=Quest
-
-The catalog is paginated (14 pages at ~24 items per page as of writing).
-Each page returns an HTML listing of decor items with metadata including
-category, subcategory, budget, quest source, vendor NPC, currency, tags,
-and interior/exterior placement.
-
-Strategy:
-  1. Fetch each paginated list page.
-  2. Parse the item cards/rows from the HTML.
-  3. Optionally follow individual item detail pages for richer data.
-  4. Save all items to data/wowdb_quests.json.
-
-Output: data/wowdb_quests.json
-"""
-
+import argparse
+import hashlib
 import json
 import logging
 import re
 import sys
 import time
 from pathlib import Path
-from typing import Any
 
 import requests
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
+logger = logging.getLogger("scrape_wowdb")
 
-BASE_URL = "https://housing.wowdb.com/decor/"
-QUERY_PARAMS = "?source_types=Quest"
-TOTAL_PAGES = 14
-ITEMS_PER_PAGE = 24
+DATA_DIR = Path(__file__).parent / "data"
+CACHE_DIR = DATA_DIR / "wowdb_cache"
+CATALOG_PATH = DATA_DIR / "enriched_catalog.json"
 
-OUTPUT_DIR = Path(__file__).resolve().parent / "data"
-OUTPUT_FILE = OUTPUT_DIR / "wowdb_quests.json"
+SETS_OUTPUT = DATA_DIR / "wowdb_sets.json"
+ITEMS_OUTPUT = DATA_DIR / "wowdb_item_tags.json"
+
+BASE_URL = "https://housing.wowdb.com"
+RATE_LIMIT_SECONDS = 2.0
+REQUEST_TIMEOUT = 30
 
 HEADERS = {
     "User-Agent": (
-        "HearthAndSeek-Scraper/0.1 "
-        "(+https://github.com/ImpalerV/HearthAndSeek; educational WoW addon project)"
+        "HearthAndSeek-DataPipeline/1.0 "
+        "(WoW Housing Addon; +https://github.com/ImpalerV/HearthAndSeek)"
     ),
     "Accept": "text/html,application/xhtml+xml",
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-REQUEST_DELAY = 1.5  # seconds between requests
+# Minimum thresholds for quality sets
+MIN_LIKES = 5
+MIN_ITEMS = 5
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-)
-logger = logging.getLogger("scrape_wowdb")
+# Known tag categories for classification
+CULTURE_TAGS = {
+    "alliance", "blood elf", "bronzebeard dwarf", "dark iron dwarf",
+    "dracthyr", "draenei", "dwarven", "earthen-dornish", "earthen",
+    "elven", "gilnean", "gnomish", "goblin", "haranir", "horde",
+    "human", "kul tiran", "night elf", "nightborne", "orcish",
+    "pandaren", "tauren", "troll", "undead", "void elf", "vrykul",
+    "vulpera", "wildhammer dwarf", "zandalari troll", "worgen",
+}
+STYLE_TAGS = {
+    "bold", "casual", "cozy", "cute", "elegant", "fae", "fel",
+    "lavish", "light", "magical", "mechanical", "nature", "pirate",
+    "romantic", "simple", "spooky", "void", "whimsical",
+}
+CLASS_TAGS = {
+    "death knight", "demon hunter", "druid", "evoker", "hunter",
+    "mage", "monk", "paladin", "priest", "rogue", "shaman",
+    "warlock", "warrior",
+}
+ROOM_TAGS = {
+    "armory", "attic", "basement", "bathroom", "bedroom",
+    "breakfast room", "brewery", "chapel", "closet", "conservatory",
+    "dining room", "dungeon", "family room", "foyer", "greenhouse",
+    "hallway", "kitchen", "library", "living room", "lounge",
+    "nursery", "observatory", "pantry", "sitting room", "storage",
+    "sunroom", "tavern", "throne room", "trophy room", "vault",
+    "wine cellar", "workshop",
+}
+SEASONAL_TAGS = {"fall", "spring", "summer", "winter"}
 
 
-# ---------------------------------------------------------------------------
-# Parsing helpers
-# ---------------------------------------------------------------------------
-
-def _extract_decor_id_from_url(url: str) -> int | None:
-    """
-    Extract decor ID from a WoWDB URL like '/decor/12345/some-slug/'.
-    """
-    match = re.search(r"/decor/(\d+)/", url)
-    return int(match.group(1)) if match else None
-
-
-def _clean_text(text: str | None) -> str:
-    """Strip and normalize whitespace in a text string."""
-    if text is None:
-        return ""
-    return re.sub(r"\s+", " ", text.strip())
-
-
-def _extract_tags(element: Tag) -> dict[str, list[str]]:
-    """
-    Extract tag metadata from an item element.
-
-    WoWDB tags items with categories like culture, size, style, theme.
-    These are typically displayed as badge/label elements within the item card.
-    """
-    tags: dict[str, list[str]] = {
-        "culture": [],
-        "size": [],
-        "style": [],
-        "theme": [],
-    }
-
-    # Look for tag elements - WoWDB uses various class patterns
-    tag_elements = element.find_all(
-        class_=re.compile(r"tag|badge|label|chip", re.IGNORECASE)
-    )
-    for tag_el in tag_elements:
-        tag_text = _clean_text(tag_el.get_text())
-        if not tag_text:
-            continue
-
-        # Try to categorize the tag based on known patterns or data attributes
-        category = tag_el.get("data-category", "").lower()
-        if category in tags:
-            tags[category].append(tag_text)
-        else:
-            # Heuristic: try to categorize by known tag values
-            tag_lower = tag_text.lower()
-            if tag_lower in (
-                "human", "dwarven", "elven", "orcish", "tauren", "forsaken",
-                "gnomish", "trollish", "draenei", "blood elf", "goblin",
-                "pandaren", "nightborne", "void elf", "zandalari",
-            ):
-                tags["culture"].append(tag_text)
-            elif tag_lower in ("small", "medium", "large", "tiny"):
-                tags["size"].append(tag_text)
-            elif tag_lower in (
-                "rustic", "elegant", "arcane", "nature", "dark", "industrial",
-                "nautical", "festive", "military",
-            ):
-                tags["style"].append(tag_text)
-            else:
-                tags["theme"].append(tag_text)
-
-    return tags
+def classify_tag(tag_name: str) -> str:
+    """Classify a tag into a category."""
+    lower = tag_name.lower().strip()
+    if lower in CULTURE_TAGS:
+        return "culture"
+    if lower in STYLE_TAGS:
+        return "style"
+    if lower in CLASS_TAGS:
+        return "class"
+    if lower in ROOM_TAGS:
+        return "room"
+    if lower in SEASONAL_TAGS:
+        return "seasonal"
+    return "other"
 
 
 # ---------------------------------------------------------------------------
-# Page-level parsing
+# Caching & HTTP
 # ---------------------------------------------------------------------------
 
-def _parse_list_page(html: str) -> list[dict[str, Any]]:
-    """
-    Parse a single WoWDB decor listing page and extract item records.
-
-    WoWDB (housing.wowdb.com) uses a Bootstrap card grid layout. Each item
-    is a ``<div class="card item-card h-100" data-item-id="...">`` containing:
-      - Item name in ``<div class="item-card-category-bar item-name-bar">``
-      - Category breadcrumb in ``<div class="... category-bar ...">``
-      - Budget cost in ``<span class="... budget-display ...">``
-      - Sources in ``<div class="... item-card-sources">``
-      - Interior/Exterior badge in a ``<span class="badge ...">``
-    """
-    soup = BeautifulSoup(html, "lxml")
-    items: list[dict[str, Any]] = []
-
-    # Primary selector: the exact container class used by WoWDB
-    item_containers = soup.find_all("div", class_="item-card")
-
-    # If the primary selector fails, fall back to broader searches
-    if not item_containers:
-        item_containers = (
-            soup.find_all("div", class_=re.compile(r"decor-item|listing-item", re.I))
-            or soup.find_all("tr", class_=re.compile(r"decor|item", re.I))
-        )
-
-    # If still nothing, try to find parent containers of decor links
-    if not item_containers:
-        logger.debug("No item card containers found, searching for item links directly.")
-        item_containers = _find_item_containers_fallback(soup)
-
-    for container in item_containers:
-        record = _parse_item_container(container)
-        if record and record.get("decor_name"):
-            items.append(record)
-
-    # Fallback: parse the entire page for decor links if structured parsing fails
-    if not items:
-        items = _parse_page_fallback(soup)
-
-    return items
+def cache_key(url: str) -> Path:
+    """Generate a cache file path for a URL."""
+    h = hashlib.md5(url.encode()).hexdigest()[:12]
+    slug = re.sub(r"[^a-zA-Z0-9]", "_", url.split("//", 1)[-1])[:80]
+    return CACHE_DIR / f"{slug}_{h}.html"
 
 
-def _find_item_containers_fallback(soup: BeautifulSoup) -> list[Tag]:
-    """
-    Fallback strategy: find parent containers of decor links.
-    """
-    containers = []
-    seen_parents: set[int] = set()
-
-    for link in soup.find_all("a", href=re.compile(r"/decor/\d+/")):
-        parent = link.parent
-        if parent and id(parent) not in seen_parents:
-            seen_parents.add(id(parent))
-            containers.append(parent)
-
-    return containers
+_use_cache = True  # module-level flag
 
 
-def _parse_item_container(container: Tag) -> dict[str, Any]:
-    """
-    Parse a single item card container into a structured record.
+def fetch_page(url: str) -> str | None:
+    """Fetch a page with caching and rate limiting."""
+    cache_path = cache_key(url)
 
-    Expected HTML structure (housing.wowdb.com as of 2025):
+    if _use_cache and cache_path.exists():
+        return cache_path.read_text(encoding="utf-8")
 
-    .. code-block:: html
-
-        <div class="card item-card h-100" data-item-id="1211">
-          <!-- image, budget badge, interior/exterior badge -->
-          <div class="item-card-category-bar item-name-bar">
-            <h6><a href="/decor/9052/admirals-bed-9052/" class="... quality-uncommon">
-              Admiral's Bed</a></h6>
-          </div>
-          <div class="item-card-category-bar category-bar small text-muted">
-            <a href="/decor/furnishings/">Furnishings</a>
-            <span>›</span>
-            <a href="/decor/furnishings/beds/">Beds</a>
-          </div>
-          <div class="card-body ...">
-            <div class="... item-card-sources">
-              <!-- Quest source row -->
-              <div class="mb-1 mb-2">
-                <small>
-                  <img ... title="Quest">
-                  <a href="https://beta.wowdb.com/quests/53720">Allegiance of Kul Tiras</a>
-                  <span class="text-muted fst-italic">(Stormwind City, Boralus Harbor)</span>
-                </small>
-              </div>
-              <!-- Vendor row -->
-              <div class="mb-1">
-                <small>
-                  <img ... title="Vendor">
-                  <a href="https://beta.wowdb.com/npcs/252345">Pearl Barlow</a>
-                  <span class="text-muted fst-italic">(Tiragarde Sound)</span>
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-    """
-    record: dict[str, Any] = {
-        "decor_name": None,
-        "decor_id": None,
-        "category": None,
-        "subcategory": None,
-        "budget_cost": None,
-        "quest_source": None,
-        "quest_zone": None,
-        "vendor_npc": None,
-        "currency_cost": None,
-        "interior_exterior": None,
-        "tags": {"culture": [], "size": [], "style": [], "theme": []},
-        "detail_url": None,
-    }
-
-    # ------------------------------------------------------------------
-    # Item name & ID  (from the name-bar link to /decor/<id>/<slug>/)
-    # ------------------------------------------------------------------
-    name_bar = container.find("div", class_="item-name-bar")
-    if name_bar:
-        decor_link = name_bar.find("a", href=re.compile(r"/decor/\d+/"))
-        if decor_link:
-            record["decor_name"] = _clean_text(decor_link.get_text())
-            href = decor_link.get("href", "")
-            record["decor_id"] = _extract_decor_id_from_url(href)
-            record["detail_url"] = href
-    else:
-        # Fallback: any decor link in the container
-        decor_link = container.find("a", href=re.compile(r"/decor/\d+/"))
-        if decor_link:
-            record["decor_name"] = _clean_text(decor_link.get_text())
-            href = decor_link.get("href", "")
-            record["decor_id"] = _extract_decor_id_from_url(href)
-            record["detail_url"] = href
-
-    # ------------------------------------------------------------------
-    # Category / Subcategory  (from the category-bar breadcrumb links)
-    # ------------------------------------------------------------------
-    cat_bar = container.find("div", class_="category-bar")
-    if cat_bar:
-        cat_links = cat_bar.find_all("a")
-        if len(cat_links) >= 1:
-            record["category"] = _clean_text(cat_links[0].get_text())
-        if len(cat_links) >= 2:
-            record["subcategory"] = _clean_text(cat_links[1].get_text())
-
-    # ------------------------------------------------------------------
-    # Budget cost  (from <span class="... budget-display ...">)
-    # The span contains an <img alt="Budget"> followed by a number.
-    # ------------------------------------------------------------------
-    budget_el = container.find(class_=re.compile(r"budget-display"))
-    if budget_el:
-        budget_text = budget_el.get_text()
-        budget_match = re.search(r"(\d+)", budget_text)
-        if budget_match:
-            record["budget_cost"] = int(budget_match.group(1))
-
-    # ------------------------------------------------------------------
-    # Sources section  (quest, vendor, currency)
-    # Each source type is identified by an <img> icon with a title attr:
-    #   title="Quest"  -> quest row
-    #   title="Vendor"  -> vendor row
-    #   title="Cost"    -> currency row
-    # The zone is in a <span class="text-muted fst-italic"> after the
-    # source link, containing text like "(Zone1, Zone2)".
-    # ------------------------------------------------------------------
-    sources_div = container.find(class_="item-card-sources")
-    if sources_div:
-        # Find all source icon images to identify source types
-        source_icons = sources_div.find_all("img", class_="source-icon")
-        for icon in source_icons:
-            source_type = (icon.get("title") or icon.get("alt") or "").strip().lower()
-            # The icon's parent <small> contains the link and zone span
-            parent_small = icon.find_parent("small")
-            if not parent_small:
-                continue
-
-            if source_type == "quest":
-                # Quest name: prefer the <a> link to wowdb.com/quests/...
-                quest_link = parent_small.find(
-                    "a", href=re.compile(r"/quests/\d+")
-                )
-                if quest_link:
-                    record["quest_source"] = _clean_text(quest_link.get_text())
-                else:
-                    # Some quests are plain text (no link). Extract all
-                    # direct text from the <small>, excluding child elements
-                    # like <img>, <span>, and <a>.
-                    quest_text_parts = []
-                    for child in parent_small.children:
-                        if isinstance(child, str):
-                            part = child.strip()
-                            if part:
-                                quest_text_parts.append(part)
-                    quest_name = " ".join(quest_text_parts)
-                    if quest_name:
-                        record["quest_source"] = quest_name
-
-                # Quest zone from the italic span after the quest link
-                zone_span = parent_small.find(
-                    "span", class_=re.compile(r"fst-italic|text-muted")
-                )
-                if zone_span:
-                    zone_text = _clean_text(zone_span.get_text())
-                    # Strip surrounding parentheses: "(Zone1, Zone2)" -> "Zone1, Zone2"
-                    zone_text = zone_text.strip("()")
-                    if zone_text:
-                        record["quest_zone"] = zone_text
-
-            elif source_type == "vendor":
-                # Vendor NPC name from the <a> link to wowdb.com/npcs/...
-                npc_link = parent_small.find(
-                    "a", href=re.compile(r"/npcs/\d+")
-                )
-                if npc_link:
-                    record["vendor_npc"] = _clean_text(npc_link.get_text())
-
-            elif source_type == "cost":
-                # Currency: amount + currency name
-                cost_text = _clean_text(parent_small.get_text())
-                if cost_text:
-                    record["currency_cost"] = cost_text
-
-    # Fallback for sources if the icon-based approach found nothing
-    if not record["quest_source"]:
-        quest_el = container.find("a", href=re.compile(r"/quests/\d+"))
-        if quest_el:
-            record["quest_source"] = _clean_text(quest_el.get_text())
-    if not record["vendor_npc"]:
-        npc_el = container.find("a", href=re.compile(r"/npcs/\d+"))
-        if npc_el:
-            record["vendor_npc"] = _clean_text(npc_el.get_text())
-
-    # ------------------------------------------------------------------
-    # Quest zone fallback: if the icon-based approach didn't find a zone,
-    # look for any italic span with parenthesized text near a quest link.
-    # ------------------------------------------------------------------
-    if not record["quest_zone"] and sources_div:
-        for italic_span in sources_div.find_all("span", class_="fst-italic"):
-            span_text = _clean_text(italic_span.get_text())
-            if span_text.startswith("(") and span_text.endswith(")"):
-                zone_text = span_text.strip("()")
-                if zone_text:
-                    record["quest_zone"] = zone_text
-                    break
-
-    # ------------------------------------------------------------------
-    # Interior / Exterior  (from badge element in the image overlay area)
-    # e.g. <span class="badge ...">Interior Only</span>
-    # ------------------------------------------------------------------
-    placement_badge = container.find(
-        "span", class_="badge",
-        string=re.compile(r"interior|exterior", re.I)
-    )
-    if placement_badge:
-        badge_text = _clean_text(placement_badge.get_text()).lower()
-        if "interior" in badge_text and "exterior" in badge_text:
-            record["interior_exterior"] = "Both"
-        elif "interior" in badge_text:
-            record["interior_exterior"] = "Interior"
-        elif "exterior" in badge_text:
-            record["interior_exterior"] = "Exterior"
-
-    # ------------------------------------------------------------------
-    # Tags
-    # ------------------------------------------------------------------
-    record["tags"] = _extract_tags(container)
-
-    return record
-
-
-def _parse_page_fallback(soup: BeautifulSoup) -> list[dict[str, Any]]:
-    """
-    Last-resort fallback: extract any decor links found on the page.
-    This produces minimal records but ensures we capture at least the item
-    names and IDs even if the page structure is unexpected.
-    """
-    items: list[dict[str, Any]] = []
-    seen_ids: set[int] = set()
-
-    for link in soup.find_all("a", href=re.compile(r"/decor/\d+/")):
-        href = link.get("href", "")
-        decor_id = _extract_decor_id_from_url(href)
-
-        if decor_id is None or decor_id in seen_ids:
-            continue
-        seen_ids.add(decor_id)
-
-        name = _clean_text(link.get_text())
-        if not name:
-            continue
-
-        items.append({
-            "decor_name": name,
-            "decor_id": decor_id,
-            "category": None,
-            "subcategory": None,
-            "budget_cost": None,
-            "quest_source": None,
-            "quest_zone": None,
-            "vendor_npc": None,
-            "currency_cost": None,
-            "interior_exterior": None,
-            "tags": {"culture": [], "size": [], "style": [], "theme": []},
-            "detail_url": href,
-        })
-
-    return items
-
-
-# ---------------------------------------------------------------------------
-# Pagination and main scraping loop
-# ---------------------------------------------------------------------------
-
-def fetch_page(page: int) -> str | None:
-    """Fetch a single paginated list page from WoWDB."""
-    if page == 1:
-        url = f"{BASE_URL}{QUERY_PARAMS}"
-    else:
-        url = f"{BASE_URL}{QUERY_PARAMS}&page={page}"
-
-    logger.info("Fetching page %d: %s", page, url)
+    time.sleep(RATE_LIMIT_SECONDS)
     try:
-        response = requests.get(url, headers=HEADERS, timeout=30)
-        response.raise_for_status()
-        logger.info("Page %d: received %d bytes", page, len(response.text))
-        return response.text
-    except requests.RequestException as exc:
-        logger.error("Failed to fetch page %d: %s", page, exc)
+        resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        if resp.status_code == 429:
+            logger.warning("Rate limited on %s, waiting 30s...", url)
+            time.sleep(30)
+            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        if resp.status_code == 404:
+            logger.debug("404 for %s (item may not exist on site)", url)
+            # Cache 404s too to avoid re-fetching
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text("<!-- 404 -->", encoding="utf-8")
+            return None
+        if resp.status_code != 200:
+            logger.warning("HTTP %d for %s", resp.status_code, url)
+            return None
+        html = resp.text
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        cache_path.write_text(html, encoding="utf-8")
+        return html
+    except requests.RequestException as e:
+        logger.error("Request failed for %s: %s", url, e)
         return None
 
 
-def scrape_all_pages() -> list[dict[str, Any]]:
-    """
-    Scrape all paginated pages of the WoWDB quest decor catalog.
+def progress_report(current: int, total: int, label: str,
+                    last_pct: list[int]) -> None:
+    """Report progress every 10%."""
+    if total == 0:
+        return
+    pct = int(current / total * 100)
+    threshold = (pct // 10) * 10
+    if threshold > 0 and threshold not in last_pct:
+        last_pct.append(threshold)
+        logger.info("  [%s] %d%% (%d/%d)", label, pct, current, total)
 
-    The scraper detects the actual number of pages by checking for
-    pagination controls on the first page. Falls back to TOTAL_PAGES
-    if detection fails.
-    """
-    all_items: list[dict[str, Any]] = []
-    seen_ids: set[int] = set()
 
-    for page in range(1, TOTAL_PAGES + 1):
-        html = fetch_page(page)
-        if html is None:
-            logger.warning("Skipping page %d due to fetch failure.", page)
+# ---------------------------------------------------------------------------
+# Set listing parsing
+# ---------------------------------------------------------------------------
+
+def parse_set_listing_page(html: str) -> list[dict]:
+    """Parse a set listing page, extracting set metadata.
+
+    Each set is a Bootstrap card inside a .col div:
+      <div class="col">
+        <div class="card h-100">
+          <a href="/sets/{id}/{slug}/" class="text-decoration-none">
+            ...
+            <div class="card-body">
+              <h5 class="card-title ...">Set Name</h5>
+              <p ...>by <span class="text-info">Author</span></p>
+              <div class="d-flex ...">
+                <span><i class="bi bi-collection me-1"></i>46 items</span>
+                <span><i class="bi bi-heart me-1"></i>565</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    """
+    soup = BeautifulSoup(html, "lxml")
+    sets_found = []
+    seen_ids = set()
+
+    for link in soup.find_all("a", href=re.compile(r"/sets/\d+/")):
+        href = link.get("href", "")
+        m = re.match(r"/sets/(\d+)/", href)
+        if not m:
+            continue
+        set_id = int(m.group(1))
+        if set_id in seen_ids:
+            continue
+        seen_ids.add(set_id)
+
+        # Name from h5.card-title
+        h5 = link.find("h5")
+        name = h5.get_text(strip=True) if h5 else ""
+
+        # Stats are in spans inside the card-body
+        text = link.get_text(" ", strip=True)
+
+        # Item count: "N items"
+        items_match = re.search(r"(\d+)\s*items?", text)
+        item_count = int(items_match.group(1)) if items_match else 0
+
+        # Likes: number after heart icon — appears as last standalone number
+        # in the card text (after "N items")
+        likes = 0
+        # The heart span contains just the number after the icon
+        spans = link.find_all("span")
+        for span in spans:
+            span_text = span.get_text(strip=True)
+            # Heart icon span: just a number (no "items" text)
+            if span.find("i", class_=re.compile(r"bi-heart")):
+                num_match = re.search(r"(\d+)", span_text)
+                if num_match:
+                    likes = int(num_match.group(1))
+                    break
+
+        # Fallback: last number in text after items count
+        if likes == 0:
+            all_nums = re.findall(r"(\d+)", text)
+            if len(all_nums) >= 2:
+                likes = int(all_nums[-1])
+
+        sets_found.append({
+            "set_id": set_id,
+            "name": name,
+            "likes": likes,
+            "item_count": item_count,
+        })
+
+    return sets_found
+
+
+def get_total_pages(html: str) -> int:
+    """Extract total page count from pagination links."""
+    soup = BeautifulSoup(html, "lxml")
+    # Links use &page=N or ?page=N — match either
+    page_links = soup.find_all("a", href=re.compile(r"page=\d+"))
+    max_page = 1
+    for link in page_links:
+        m = re.search(r"page=(\d+)", link.get("href", ""))
+        if m:
+            max_page = max(max_page, int(m.group(1)))
+    return max_page
+
+
+# ---------------------------------------------------------------------------
+# Set detail parsing
+# ---------------------------------------------------------------------------
+
+def parse_set_detail(html: str) -> dict:
+    """Parse a set detail page for decorIDs and tags."""
+    soup = BeautifulSoup(html, "lxml")
+    result = {"decorIDs": [], "tags": [], "likes": 0}
+
+    # Extract decorIDs from /decor/{id}/ links
+    seen_ids = set()
+    for link in soup.find_all("a", href=re.compile(r"/decor/\d+/")):
+        m = re.match(r"/decor/(\d+)/", link.get("href", ""))
+        if m:
+            did = int(m.group(1))
+            if did not in seen_ids:
+                seen_ids.add(did)
+                result["decorIDs"].append(did)
+
+    # Extract tags from /sets/?tags= links
+    for link in soup.find_all("a", href=re.compile(r"/sets/\?tags=")):
+        tag_text = link.get_text(strip=True)
+        if tag_text and tag_text not in result["tags"]:
+            result["tags"].append(tag_text)
+
+    # Also look for tag-like elements (badges, pills, etc.)
+    for el in soup.find_all(class_=re.compile(r"tag|badge|pill", re.I)):
+        tag_text = el.get_text(strip=True)
+        if tag_text and tag_text not in result["tags"] and len(tag_text) < 30:
+            result["tags"].append(tag_text)
+
+    # Extract likes count
+    text = soup.get_text()
+    likes_match = re.search(r"(\d+)\s*likes?", text, re.I)
+    if likes_match:
+        result["likes"] = int(likes_match.group(1))
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Item tag parsing
+# ---------------------------------------------------------------------------
+
+def parse_item_tags(html: str) -> dict:
+    """Parse an individual decor item page for culture/style tags.
+
+    Tags have CSS classes that identify their type:
+      tag-culture, tag-{race}  → Culture
+      tag-style                → Style (also includes some culture tags)
+      tag-theme                → Additional style/theme
+      tag-expansion, tag-size, tag-tertiary_categories → Ignored
+    """
+    result = {"culture": [], "style": [], "class": [], "theme": []}
+
+    if not html or html.strip() == "<!-- 404 -->":
+        return result
+
+    soup = BeautifulSoup(html, "lxml")
+
+    # CSS class approach: each tag <a> has "tag tag-{type} ..." classes
+    for a_tag in soup.find_all("a", class_=re.compile(r"\btag\b")):
+        tag_text = a_tag.get_text(strip=True)
+        if not tag_text or len(tag_text) > 40:
             continue
 
-        items = _parse_list_page(html)
-        logger.info("Page %d: parsed %d items", page, len(items))
+        classes = set(a_tag.get("class", []))
 
-        # Deduplicate by decor_id
-        new_count = 0
-        for item in items:
-            did = item.get("decor_id")
-            if did and did not in seen_ids:
-                seen_ids.add(did)
-                all_items.append(item)
-                new_count += 1
-            elif did is None:
-                all_items.append(item)
-                new_count += 1
+        # Determine category from CSS class
+        if "tag-culture" in classes:
+            if tag_text not in result["culture"]:
+                result["culture"].append(tag_text)
+            continue
 
-        logger.info("Page %d: %d new unique items (total: %d)", page, new_count, len(all_items))
+        # Race-specific classes (tag-human, tag-elven, tag-orcish, etc.)
+        race_classes = classes & {
+            "tag-human", "tag-elven", "tag-orcish", "tag-dwarven",
+            "tag-gnomish", "tag-goblin", "tag-tauren", "tag-troll",
+            "tag-undead", "tag-draenei", "tag-pandaren", "tag-nightborne",
+            "tag-night-elf", "tag-blood-elf", "tag-void-elf",
+            "tag-dark-iron-dwarf", "tag-gilnean", "tag-vulpera",
+            "tag-dracthyr", "tag-earthen", "tag-haranir", "tag-vrykul",
+        }
+        if race_classes:
+            if tag_text not in result["culture"]:
+                result["culture"].append(tag_text)
+            continue
 
-        # If we got zero items from a page, we may have hit the end
-        if not items:
-            logger.info("Page %d returned no items. Stopping pagination.", page)
-            break
+        if "tag-style" in classes:
+            # Style section sometimes includes faction/culture tags
+            cat = classify_tag(tag_text)
+            if cat == "culture":
+                if tag_text not in result["culture"]:
+                    result["culture"].append(tag_text)
+            elif cat == "class":
+                if tag_text not in result["class"]:
+                    result["class"].append(tag_text)
+            else:
+                if tag_text not in result["style"]:
+                    result["style"].append(tag_text)
+            continue
 
-        # Polite delay
-        if page < TOTAL_PAGES:
-            time.sleep(REQUEST_DELAY)
+        if "tag-theme" in classes:
+            if tag_text not in result["theme"]:
+                result["theme"].append(tag_text)
+            continue
 
-    return all_items
+        # Skip non-theme tags (expansion, size, tertiary)
+        skip_classes = {
+            "tag-expansion", "tag-size", "tag-tertiary_categories",
+            "tag-midnight", "tag-warlords-of-draenor", "tag-the-war-within",
+        }
+        if classes & skip_classes:
+            continue
+
+        # Fallback: classify by known tag lists
+        cat = classify_tag(tag_text)
+        if cat == "culture" and tag_text not in result["culture"]:
+            result["culture"].append(tag_text)
+        elif cat == "style" and tag_text not in result["style"]:
+            result["style"].append(tag_text)
+        elif cat == "class" and tag_text not in result["class"]:
+            result["class"].append(tag_text)
+
+    return result
 
 
-def main() -> None:
-    """Main entry point: scrape all WoWDB quest decor pages and save to JSON."""
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+# ---------------------------------------------------------------------------
+# Main scraping flows
+# ---------------------------------------------------------------------------
 
-    logger.info("=== Scraping WoWDB Quest Decor Catalog ===")
-    items = scrape_all_pages()
+def scrape_sets() -> None:
+    """Scrape community sets: listing pages + quality set details."""
+    logger.info("=== Phase 1: Scraping Set Listings ===")
 
-    # Remove the detail_url field from output (internal use only)
-    for item in items:
-        item.pop("detail_url", None)
+    first_url = f"{BASE_URL}/sets/?page=1&sort=liked"
+    first_html = fetch_page(first_url)
+    if not first_html:
+        logger.error("Failed to fetch first listing page")
+        return
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
-        json.dump(items, fh, indent=2, ensure_ascii=False)
+    total_pages = get_total_pages(first_html)
+    logger.info("  Found %d listing pages to scan", total_pages)
 
-    logger.info("Saved %d items to %s", len(items), OUTPUT_FILE)
+    all_sets: dict[int, dict] = {}
+    last_pct: list[int] = []
 
-    if not items:
+    for page_num in range(1, total_pages + 1):
+        url = f"{BASE_URL}/sets/?page={page_num}&sort=liked"
+        html = fetch_page(url)
+        if not html:
+            continue
+
+        page_sets = parse_set_listing_page(html)
+        for s in page_sets:
+            sid = s["set_id"]
+            if sid not in all_sets:
+                all_sets[sid] = s
+
+        progress_report(page_num, total_pages, "listings", last_pct)
+
+    logger.info("  Collected %d unique sets from listings", len(all_sets))
+
+    # Filter to quality sets (AND: must have both engagement and content)
+    quality_sets = {
+        sid: s for sid, s in all_sets.items()
+        if s["likes"] >= MIN_LIKES and s["item_count"] >= MIN_ITEMS
+    }
+
+    # Fallback if likes parsing failed
+    if len(quality_sets) < 30:
         logger.warning(
-            "No items were extracted from WoWDB. The page structure may have "
-            "changed or the site may require JavaScript rendering. Check "
-            "Scraper_Notes.md for the manual entry fallback format."
+            "Only %d quality sets found — likes parsing may be incomplete. "
+            "Taking top 500 sets by listing order instead.",
+            len(quality_sets),
         )
+        sorted_sets = list(all_sets.items())[:500]
+        quality_sets = dict(sorted_sets)
 
-    logger.info("WoWDB scraping complete.")
+    logger.info("=== Phase 2: Scraping %d Set Details ===", len(quality_sets))
+    last_pct = []
+    scraped = 0
+    total_quality = len(quality_sets)
+
+    for sid, meta in quality_sets.items():
+        slug = re.sub(r"[^a-z0-9]+", "-", meta["name"].lower()).strip("-")
+        url = f"{BASE_URL}/sets/{sid}/{slug}-{sid}/"
+        html = fetch_page(url)
+
+        if html:
+            detail = parse_set_detail(html)
+            meta["decorIDs"] = detail["decorIDs"]
+            if detail["tags"]:
+                meta["tags"] = detail["tags"]
+            else:
+                meta["tags"] = []
+            if detail["likes"] > meta.get("likes", 0):
+                meta["likes"] = detail["likes"]
+        else:
+            meta["decorIDs"] = []
+            meta["tags"] = []
+
+        scraped += 1
+        progress_report(scraped, total_quality, "set details", last_pct)
+
+    # Save
+    output = {
+        "metadata": {
+            "scraped": time.strftime("%Y-%m-%d"),
+            "total_sets_found": len(all_sets),
+            "quality_sets_scraped": len(quality_sets),
+        },
+        "sets": {str(sid): s for sid, s in quality_sets.items()},
+    }
+    SETS_OUTPUT.write_text(json.dumps(output, indent=2), encoding="utf-8")
+    logger.info("Saved %d sets to %s", len(quality_sets), SETS_OUTPUT)
+
+    # Stats
+    sets_with_tags = sum(1 for s in quality_sets.values() if s.get("tags"))
+    sets_with_items = sum(1 for s in quality_sets.values() if s.get("decorIDs"))
+    total_refs = sum(len(s.get("decorIDs", [])) for s in quality_sets.values())
+    unique_ids = set()
+    for s in quality_sets.values():
+        unique_ids.update(s.get("decorIDs", []))
+
+    logger.info("  Sets with tags: %d / %d", sets_with_tags, len(quality_sets))
+    logger.info("  Sets with items: %d / %d", sets_with_items, len(quality_sets))
+    logger.info("  Total item refs: %d, unique decorIDs: %d", total_refs, len(unique_ids))
+
+
+def scrape_items() -> None:
+    """Scrape per-item culture/style tags for catalog items."""
+    logger.info("=== Scraping Item Tags ===")
+
+    if not CATALOG_PATH.exists():
+        logger.error("enriched_catalog.json not found at %s", CATALOG_PATH)
+        return
+
+    with open(CATALOG_PATH, encoding="utf-8") as f:
+        catalog = json.load(f)
+
+    decor_ids = sorted(set(item["decorID"] for item in catalog if "decorID" in item))
+    logger.info("  Scanning %d decorIDs from catalog", len(decor_ids))
+
+    items_data: dict[str, dict] = {}
+    items_with_tags = 0
+    last_pct: list[int] = []
+
+    for idx, did in enumerate(decor_ids):
+        url = f"{BASE_URL}/decor/{did}/"
+        html = fetch_page(url)
+
+        if html and html.strip() != "<!-- 404 -->":
+            tags = parse_item_tags(html)
+            items_data[str(did)] = tags
+            if tags["culture"] or tags["style"] or tags["class"] or tags["theme"]:
+                items_with_tags += 1
+        else:
+            items_data[str(did)] = {
+                "culture": [], "style": [], "class": [], "theme": [],
+            }
+
+        progress_report(idx + 1, len(decor_ids), "items", last_pct)
+
+    # Save
+    output = {
+        "metadata": {
+            "scraped": time.strftime("%Y-%m-%d"),
+            "total_items": len(decor_ids),
+            "items_with_tags": items_with_tags,
+            "items_without_tags": len(decor_ids) - items_with_tags,
+        },
+        "items": items_data,
+    }
+    ITEMS_OUTPUT.write_text(json.dumps(output, indent=2), encoding="utf-8")
+    logger.info("Saved %d items to %s", len(items_data), ITEMS_OUTPUT)
+    logger.info("  With tags: %d, without: %d", items_with_tags,
+                len(decor_ids) - items_with_tags)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Scrape housing.wowdb.com for theme data"
+    )
+    parser.add_argument("--sets", action="store_true",
+                        help="Scrape community-curated sets")
+    parser.add_argument("--items", action="store_true",
+                        help="Scrape per-item culture/style tags")
+    parser.add_argument("--all", action="store_true",
+                        help="Scrape both sets and items")
+    parser.add_argument("--no-cache", action="store_true",
+                        help="Ignore cached responses")
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="Verbose logging")
+    args = parser.parse_args()
+
+    level = logging.DEBUG if args.verbose else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    )
+
+    if not args.sets and not args.items and not args.all:
+        parser.print_help()
+        sys.exit(1)
+
+    if args.no_cache:
+        global _use_cache
+        _use_cache = False
+
+    if args.sets or args.all:
+        scrape_sets()
+
+    if args.items or args.all:
+        scrape_items()
+
+    logger.info("Done!")
 
 
 if __name__ == "__main__":

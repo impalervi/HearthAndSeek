@@ -267,7 +267,7 @@ def main() -> None:
     logger.info("Total WoWDB items: %d", len(wowdb_items))
 
     if not wowdb_items:
-        logger.warning("No WoWDB items. Run scrape_wowdb.py first.")
+        logger.warning("No WoWDB items. Run scrape_wowdb_quests.py first.")
 
     # Merge: WoWDB is the authoritative catalog
     merged: list[dict[str, Any]] = []

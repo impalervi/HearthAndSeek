@@ -54,6 +54,7 @@ local filterState = {
     -- Favorites filter
     onlyFavorites   = false,
     subcategories = {},  -- { [subcatID] = true, ... }
+    themes        = {},  -- { [themeID] = true, ... }
 }
 local filteredItems = {}
 local scrollOffset = 0   -- fractional row offset (e.g. 2.3 = row 2 + 30%)
@@ -1170,6 +1171,9 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local favoritesDB = NS.favorites or (NS.db and NS.db.favorites) or {}
     local hasFavFilter = filterState.onlyFavorites
 
+    -- Theme filter
+    local hasThemeFilter = next(filterState.themes) ~= nil
+
     -- Text search (with synonym expansion and word-boundary matching)
     local query = strtrim(filterState.searchText):lower()
     local hasQuery = query ~= ""
@@ -1182,6 +1186,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         qualities   = {},
         professions = {},
         subcategories = {},
+        themes      = {},
         collection  = { collected = 0, notCollected = 0 },
         favorites   = 0,
     }
@@ -1305,8 +1310,20 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local isFav = favoritesDB[id] and true or false
         local pFav = not hasFavFilter or isFav
 
+        -- Theme check
+        local pTheme = true
+        if hasThemeFilter then
+            pTheme = false
+            local tids = item.themeIDs
+            if tids then
+                for _, tid in ipairs(tids) do
+                    if filterState.themes[tid] then pTheme = true; break end
+                end
+            end
+        end
+
         -- Item passes ALL filters -> add to filtered list
-        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
         end
 
@@ -1316,7 +1333,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
 
         -- Source counts (exclude source filter, include secondary sources).
         -- Items count in all applicable source buckets simultaneously.
-        if pZone and pQual and pProf and pColl and pFav and pCat then
+        if pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
             local st = item.sourceType or "Other"
             dynCounts.sources[st] = (dynCounts.sources[st] or 0) + 1
             -- Secondary sources
@@ -1334,7 +1351,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Zone counts (exclude zone filter)
-        if pSrc and pQual and pProf and pColl and pFav and pCat then
+        if pSrc and pQual and pProf and pColl and pFav and pCat and pTheme then
             local z = item.zone or ""
             if z ~= "" then
                 dynCounts.zones[z] = (dynCounts.zones[z] or 0) + 1
@@ -1342,7 +1359,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Quality counts (exclude quality filter)
-        if pSrc and pZone and pProf and pColl and pFav and pCat then
+        if pSrc and pZone and pProf and pColl and pFav and pCat and pTheme then
             local q = item.quality
             if q then
                 dynCounts.qualities[q] = (dynCounts.qualities[q] or 0) + 1
@@ -1350,7 +1367,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Profession counts (exclude profession filter)
-        if pSrc and pZone and pQual and pColl and pFav and pCat then
+        if pSrc and pZone and pQual and pColl and pFav and pCat and pTheme then
             if item.professionName and item.professionName ~= "" then
                 local pn = item.professionName
                 dynCounts.professions[pn] = (dynCounts.professions[pn] or 0) + 1
@@ -1358,7 +1375,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Collection counts (exclude collection filter)
-        if pSrc and pZone and pQual and pProf and pFav and pCat then
+        if pSrc and pZone and pQual and pProf and pFav and pCat and pTheme then
             if isCollected then
                 dynCounts.collection.collected = dynCounts.collection.collected + 1
             end
@@ -1368,12 +1385,12 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Favorites count (exclude favorites filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and pCat and isFav then
+        if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme and isFav then
             dynCounts.favorites = dynCounts.favorites + 1
         end
 
         -- Subcategory counts (exclude category filter)
-        if pSrc and pZone and pQual and pProf and pColl and pFav then
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
                 for _, sid in ipairs(subcats) do
@@ -1382,7 +1399,43 @@ function NS.UI.CatalogGrid_ApplyFilters()
             end
         end
 
+        -- Theme counts (exclude theme filter, include all other filters)
+        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
+            local tids = item.themeIDs
+            if tids then
+                for _, tid in ipairs(tids) do
+                    dynCounts.themes[tid] = (dynCounts.themes[tid] or 0) + 1
+                end
+            end
+        end
+
     until true end
+
+    -- Confidence sorting: when theme filter is active, sort by max theme score
+    if hasThemeFilter then
+        local itemsDB = NS.CatalogData and NS.CatalogData.Items or {}
+        table.sort(filteredItems, function(idA, idB)
+            local itemA = itemsDB[idA]
+            local itemB = itemsDB[idB]
+            local sa, sb = 0, 0
+            if itemA and itemA.themeScores then
+                for tid in pairs(filterState.themes) do
+                    local s = itemA.themeScores[tid]
+                    if s and s > sa then sa = s end
+                end
+            end
+            if itemB and itemB.themeScores then
+                for tid in pairs(filterState.themes) do
+                    local s = itemB.themeScores[tid]
+                    if s and s > sb then sb = s end
+                end
+            end
+            if sa ~= sb then return sa > sb end
+            local nameA = itemA and itemA.name or ""
+            local nameB = itemB and itemB.name or ""
+            return nameA < nameB
+        end)
+    end
 
     -- Scroll state
     StopSmoothScroll()
@@ -1542,12 +1595,24 @@ function NS.UI.CatalogGrid_ToggleCategory(catID, checked)
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
+function NS.UI.CatalogGrid_ToggleTheme(themeID, checked)
+    if checked then
+        filterState.themes[themeID] = true
+    else
+        filterState.themes[themeID] = nil
+    end
+    scrollOffset = 0
+    scrollTarget = 0
+    NS.UI.CatalogGrid_ApplyFilters()
+end
+
 function NS.UI.CatalogGrid_ResetFilters()
     filterState.sources = {}
     filterState.zones = {}
     filterState.qualities = {}
     filterState.professions = {}
     filterState.subcategories = {}
+    filterState.themes = {}
     filterState.searchText = ""
     filterState.collected = true
     filterState.notCollected = true

@@ -35,6 +35,7 @@ local sidebarWidgets = {
     expansions    = {},   -- ["Midnight"] = { check, label, toggle, container, expanded, childKeys, namePrefix }
     zones         = {},   -- ["Stormwind City"] = { check, label, namePrefix }
     qualities     = {},   -- [1] = {...}, [2] = {...}, ...
+    themes        = {},   -- [themeID] = { check, label, namePrefix }
 }
 
 -------------------------------------------------------------------------------
@@ -62,6 +63,34 @@ local FILTER_SECTIONS = {
         toggle = "CatalogGrid_ToggleCollection",
     },
     {
+        id = "themes_aesthetic",
+        title = "AESTHETIC",
+        type = "theme_group",
+        groupID = 2,
+        widgetTable = "themes",
+
+        toggle = "CatalogGrid_ToggleTheme",
+        defaultCollapsed = true,
+        -- Per-theme colors keyed by theme name
+        themeColors = {
+            ["Arcane"]     = { 0.60, 0.40, 0.90 },  -- purple
+            ["Armory"]     = { 0.70, 0.55, 0.35 },  -- bronze
+            ["Fae"]        = { 0.55, 0.85, 0.65 },  -- mint green
+            ["Fel"]        = { 0.55, 0.80, 0.25 },  -- fel green
+            ["Lorekeeper"] = { 0.75, 0.65, 0.45 },  -- parchment tan
+            ["Macabre"]    = { 0.65, 0.45, 0.55 },  -- dusty rose
+            ["Nature"]     = { 0.40, 0.75, 0.40 },  -- forest green
+            ["Noble"]      = { 0.85, 0.75, 0.35 },  -- gold
+            ["Pirate"]     = { 0.70, 0.55, 0.40 },  -- weathered wood
+            ["Rugged"]     = { 0.65, 0.55, 0.45 },  -- leather brown
+            ["Rustic"]     = { 0.80, 0.65, 0.45 },  -- warm straw
+            ["Sacred"]     = { 0.90, 0.85, 0.50 },  -- holy light
+            ["Tavern"]     = { 0.80, 0.60, 0.30 },  -- amber
+            ["Tinker"]     = { 0.60, 0.70, 0.75 },  -- steel blue
+            ["Void"]       = { 0.50, 0.35, 0.70 },  -- deep violet
+        },
+    },
+    {
         id = "categories",
         title = "CATEGORY",
         type = "hierarchical",
@@ -77,6 +106,17 @@ local FILTER_SECTIONS = {
         uniformColor = { 0.85, 0.70, 0.30 },  -- gold
     },
     {
+        id = "themes_culture",
+        title = "CULTURE",
+        type = "theme_group",
+        groupID = 1,
+        widgetTable = "themes",
+
+        toggle = "CatalogGrid_ToggleTheme",
+        uniformColor = { 0.70, 0.55, 0.30 },  -- warm bronze
+        defaultCollapsed = true,
+    },
+    {
         id = "sources",
         title = "SOURCE",
         type = "multiselect",
@@ -85,6 +125,7 @@ local FILTER_SECTIONS = {
         colors = "SourceColors",
         toggle = "CatalogGrid_ToggleSource",
         widgetTable = "sources",
+        defaultCollapsed = true,
         subGroup = {
             parentKey = "Profession",
             order = "ProfessionOrder",
@@ -942,6 +983,107 @@ function SectionBuilders.hierarchical(scrollChild, sectionDef, prevSection)
     return section
 end
 
+--- theme_group: flat list of theme checkboxes for a single theme group
+--- (Culture or Aesthetic). Reads theme metadata from CatalogData.
+function SectionBuilders.theme_group(scrollChild, sectionDef, prevSection)
+    local groupID = sectionDef.groupID
+    local themeGroupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+    local themeNames = NS.CatalogData and NS.CatalogData.ThemeNames
+    local byTheme = NS.CatalogData and NS.CatalogData.ByTheme
+
+    -- Skip section entirely if no theme data loaded
+    if not themeGroupThemes or not themeNames then return prevSection end
+
+    local themeIDs = themeGroupThemes[groupID]
+    if not themeIDs or #themeIDs == 0 then return prevSection end
+
+    local section, content = CreateSidebarSection(scrollChild, sectionDef.title, prevSection)
+    local wTable = sectionDef.widgetTable  -- "themes"
+
+    -- Color helpers: per-theme colors or uniform fallback
+    local perThemeColors = sectionDef.themeColors  -- { ["Name"] = {r,g,b} } or nil
+    local uniformHex = "888888"
+    if sectionDef.uniformColor then
+        local uc = sectionDef.uniformColor
+        uniformHex = string.format("%02X%02X%02X",
+            math.floor(uc[1] * 255 + 0.5),
+            math.floor(uc[2] * 255 + 0.5),
+            math.floor(uc[3] * 255 + 0.5))
+    end
+
+    local function getThemeHex(themeName)
+        if perThemeColors and perThemeColors[themeName] then
+            local tc = perThemeColors[themeName]
+            return string.format("%02X%02X%02X",
+                math.floor(tc[1] * 255 + 0.5),
+                math.floor(tc[2] * 255 + 0.5),
+                math.floor(tc[3] * 255 + 0.5))
+        end
+        return uniformHex
+    end
+
+    local function getThemeTagColor(themeName)
+        if perThemeColors and perThemeColors[themeName] then
+            return perThemeColors[themeName]
+        end
+        return sectionDef.uniformColor
+    end
+
+    -- Build sorted theme list: { themeID, name, count }
+    local themeList = {}
+    for _, tid in ipairs(themeIDs) do
+        local name = themeNames[tid]
+        local count = byTheme and byTheme[tid] and #byTheme[tid] or 0
+        if name and count > 0 then
+            themeList[#themeList + 1] = { id = tid, name = name, count = count }
+        end
+    end
+    table.sort(themeList, function(a, b) return a.name < b.name end)
+
+    if #themeList == 0 then return prevSection end
+
+    -- Resolve toggle function
+    local toggleFnName = sectionDef.toggle
+    local toggleFn = toggleFnName and function(themeID, checked)
+        local fn = NS.UI[toggleFnName]
+        if fn then fn(themeID, checked) end
+    end or nil
+
+    -- Create checkboxes
+    local yOff = -2
+    for _, tInfo in ipairs(themeList) do
+        local hex = getThemeHex(tInfo.name)
+        local labelText = "|cff" .. hex .. tInfo.name .. "|r  |cff888888(" .. tInfo.count .. ")|r"
+        local chk, newY = CreateFilterCheckbox(content, labelText, yOff, nil,
+            function(checked)
+                if toggleFn then toggleFn(tInfo.id, checked) end
+            end)
+
+        sidebarWidgets[wTable][tInfo.id] = {
+            check      = chk,
+            label      = chk._label,
+            namePrefix = "|cff" .. hex .. tInfo.name .. "|r",
+            tagColor   = getThemeTagColor(tInfo.name),
+        }
+        yOff = newY
+    end
+
+    local totalH = math.abs(yOff) + 2
+    section._contentHeight = totalH
+    content:SetHeight(totalH)
+    section:SetHeight(20 + totalH)
+
+    -- Default collapsed
+    if sectionDef.defaultCollapsed then
+        section._expanded = false
+        content:Hide()
+        section._toggle:SetText("+")
+        section:SetHeight(20)
+    end
+
+    return section
+end
+
 -------------------------------------------------------------------------------
 -- Build sidebar content inside scroll child
 -------------------------------------------------------------------------------
@@ -1200,6 +1342,25 @@ local function RefreshFooterBar()
                     end
                 end
             end
+
+        elseif secDef.type == "theme_group" then
+            local wTable = secDef.widgetTable  -- "themes"
+            local themeNames = NS.CatalogData and NS.CatalogData.ThemeNames or {}
+            -- Only iterate themes belonging to THIS group (avoid triplication)
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget and widget.check:GetChecked() then
+                    local tagLabel = themeNames[tid] or tostring(tid)
+                    local tagColor = widget.tagColor or secDef.uniformColor or nil
+                    AddTag(tagLabel, tagColor, function()
+                        widget.check:SetChecked(false)
+                        local fn = NS.UI[secDef.toggle]
+                        if fn then fn(tid, false) end
+                    end)
+                end
+            end
         end
 
     end  -- for FILTER_SECTIONS
@@ -1273,6 +1434,18 @@ function NS.UI.ResetAllFilters()
             for _, gData in pairs(sidebarWidgets[wTable]) do
                 if gData.childKeys then
                     UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets[cwTable])
+                end
+            end
+
+        elseif secDef.type == "theme_group" then
+            local wTable = secDef.widgetTable
+            -- Only iterate themes belonging to THIS group
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget then
+                    widget.check:SetChecked(false)
                 end
             end
         end
@@ -1362,6 +1535,21 @@ function NS.UI.UpdateSidebarCounts(counts)
                         total = total + (childCountsDim and childCountsDim[cKey] or 0)
                     end
                     gData.label:SetText(gData.namePrefix .. "  |cff888888(" .. total .. ")|r")
+                end
+            end
+
+        elseif secDef.type == "theme_group" then
+            -- Theme checkboxes: counts come from dynCounts.themes
+            local themeCounts = counts.themes
+            local wTable = secDef.widgetTable  -- "themes"
+            -- Only iterate themes belonging to THIS group
+            local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+            for _, tid in ipairs(groupThemes) do
+                local widget = sidebarWidgets[wTable][tid]
+                if widget then
+                    local c = themeCounts and themeCounts[tid] or 0
+                    widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
                 end
             end
         end
