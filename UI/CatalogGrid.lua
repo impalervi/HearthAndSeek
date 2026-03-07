@@ -56,10 +56,13 @@ local filterState = {
     subcategories = {},  -- { [subcatID] = true, ... }
 }
 local filteredItems = {}
-local scrollOffset = 0   -- row offset (0 = top)
+local scrollOffset = 0   -- fractional row offset (e.g. 2.3 = row 2 + 30%)
 local totalRows = 0      -- total rows needed for all filtered items
 local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
 local scrollBarUpdating = false  -- guard against recursive OnValueChanged
+local scrollTarget = 0   -- target scroll position for smooth animation
+local scrollAnimFrame = nil  -- OnUpdate frame for smooth scrolling
+local BASE_SCROLL_SPEED = 15  -- exponential decay constant (scaled by row height)
 
 -------------------------------------------------------------------------------
 -- Search synonyms: query term → related terms to also search for.
@@ -980,11 +983,25 @@ end
 RefreshGridButtons = function()
     if not CatSizing then return end
     local cols = CatSizing.GridColumns
-    local startIdx = scrollOffset * cols + 1
+    local size = CatSizing.GridItemSize
+    local gap  = CatSizing.GridItemSpacing
+    local rowInt = math.floor(scrollOffset)
+    local frac = scrollOffset - rowInt
+    local pixelShift = frac * (size + gap)  -- how far to shift buttons up
+    local startIdx = rowInt * cols + 1
+    local gridWidth = cols * size + (cols - 1) * gap
 
-    for i = 1, (visibleRows + 1) * cols do  -- +1 row for partial clipped hint
+    for i = 1, (visibleRows + 2) * cols do  -- +2 rows: clipped hint + smooth scroll buffer
         local btn = gridButtons[i]
         if not btn then break end
+
+        -- Reposition button with pixel offset for smooth scrolling
+        local col = (i - 1) % cols
+        local row = math.floor((i - 1) / cols)
+        btn:ClearAllPoints()
+        btn:SetPoint("CENTER", gridParent, "TOP",
+            -gridWidth / 2 + col * (size + gap) + size / 2,
+            -(40 + row * (size + gap) + size / 2) + pixelShift)
 
         local decorID = filteredItems[startIdx + i - 1]
 
@@ -1053,12 +1070,48 @@ local function UpdateScrollIndicator()
     if maxScroll > 0 then
         scrollBarUpdating = true
         gridParent._scrollBar:SetMinMaxValues(0, maxScroll)
+        gridParent._scrollBar:SetValueStep(0.001)  -- fractional for smooth scroll
+        gridParent._scrollBar:SetObeyStepOnDrag(false)
         gridParent._scrollBar:SetValue(scrollOffset)
         scrollBarUpdating = false
         gridParent._scrollBar:Show()
     else
         gridParent._scrollBar:Hide()
     end
+end
+
+-- Stop any running smooth scroll animation
+local function StopSmoothScroll()
+    if scrollAnimFrame then
+        scrollAnimFrame:SetScript("OnUpdate", nil)
+    end
+end
+
+-- Smoothly animate scrollOffset toward scrollTarget
+local function StartSmoothScroll()
+    if not scrollAnimFrame then
+        scrollAnimFrame = CreateFrame("Frame")
+    end
+    scrollAnimFrame:SetScript("OnUpdate", function(_, elapsed)
+        local diff = scrollTarget - scrollOffset
+        if math.abs(diff) < 0.01 then
+            scrollOffset = scrollTarget
+            scrollAnimFrame:SetScript("OnUpdate", nil)
+        else
+            local gap = CatSizing and CatSizing.GridItemSpacing or 10
+            local rowH = (CatSizing and CatSizing.GridItemSize or BASE_ICON_SIZE) + gap
+            local speed = BASE_SCROLL_SPEED * (BASE_ICON_SIZE + gap) / rowH
+            scrollOffset = scrollOffset + diff * math.min(1, elapsed * speed)
+        end
+        RefreshGridButtons()
+        UpdateScrollIndicator()
+    end)
+end
+
+local function SetScrollTarget(target)
+    local maxScroll = math.max(0, totalRows - visibleRows)
+    scrollTarget = math.max(0, math.min(target, maxScroll))
+    StartSmoothScroll()
 end
 
 -------------------------------------------------------------------------------
@@ -1332,10 +1385,12 @@ function NS.UI.CatalogGrid_ApplyFilters()
     until true end
 
     -- Scroll state
+    StopSmoothScroll()
     local cols = CatSizing.GridColumns
     totalRows = math.max(0, math.ceil(#filteredItems / cols))
     local maxScroll = math.max(0, totalRows - visibleRows)
     scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
+    scrollTarget = scrollOffset
 
     -- Refresh grid, scroll indicator, count text
     RefreshGridButtons()
@@ -1358,6 +1413,7 @@ function NS.UI.CatalogGrid_ToggleSource(sourceType, checked)
         filterState.sources[sourceType] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1368,6 +1424,7 @@ function NS.UI.CatalogGrid_ToggleZone(zone, checked)
         filterState.zones[zone] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1384,6 +1441,7 @@ function NS.UI.CatalogGrid_ToggleExpansion(expansion, checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1394,6 +1452,7 @@ function NS.UI.CatalogGrid_ToggleQuality(quality, checked)
         filterState.qualities[quality] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1404,6 +1463,7 @@ function NS.UI.CatalogGrid_ToggleProfession(profession, checked)
         filterState.professions[profession] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1420,18 +1480,21 @@ function NS.UI.CatalogGrid_ToggleAllProfessions(checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
 function NS.UI.CatalogGrid_ToggleCollection(stateKey, checked)
     filterState[stateKey] = checked
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
 function NS.UI.CatalogGrid_ToggleFavorites(checked)
     filterState.onlyFavorites = checked
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1459,6 +1522,7 @@ function NS.UI.CatalogGrid_ToggleSubcategory(subcatID, checked)
         filterState.subcategories[subcatID] = nil
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1474,6 +1538,7 @@ function NS.UI.CatalogGrid_ToggleCategory(catID, checked)
         end
     end
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1488,6 +1553,7 @@ function NS.UI.CatalogGrid_ResetFilters()
     filterState.notCollected = true
     filterState.onlyFavorites = false
     scrollOffset = 0
+    scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
@@ -1520,7 +1586,7 @@ function NS.UI.InitCatalogGrid(parent)
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local numButtons = (visibleRows + 1) * cols  -- +1 row for partial clipped hint
+    local numButtons = (visibleRows + 2) * cols  -- +2 rows: clipped hint + smooth scroll buffer
 
     -- Calculate total grid dimensions to center it
     local gridWidth  = cols * size + (cols - 1) * gap
@@ -1536,6 +1602,8 @@ function NS.UI.InitCatalogGrid(parent)
             -(40 + row * (size + gap) + size / 2))
         gridButtons[i] = btn
     end
+
+    parent._lastIconSize = size
 
     -- Count text — created externally on the bottom status bar if available,
     -- otherwise fall back to a grid-anchored label
@@ -1554,8 +1622,8 @@ function NS.UI.InitCatalogGrid(parent)
     scrollBar:SetOrientation("VERTICAL")
     scrollBar:SetMinMaxValues(0, 0)
     scrollBar:SetValue(0)
-    scrollBar:SetValueStep(1)
-    scrollBar:SetObeyStepOnDrag(true)
+    scrollBar:SetValueStep(0.001)
+    scrollBar:SetObeyStepOnDrag(false)
 
     local trackBg = scrollBar:CreateTexture(nil, "BACKGROUND")
     trackBg:SetAllPoints()
@@ -1568,25 +1636,17 @@ function NS.UI.InitCatalogGrid(parent)
 
     scrollBar:SetScript("OnValueChanged", function(_, value)
         if scrollBarUpdating then return end
-        local newOffset = math.floor(value + 0.5)
-        if newOffset ~= scrollOffset then
-            scrollOffset = newOffset
-            RefreshGridButtons()
-        end
+        StopSmoothScroll()
+        scrollOffset = value
+        scrollTarget = value
+        RefreshGridButtons()
     end)
     parent._scrollBar = scrollBar
 
-    -- Mouse wheel scrolling on the grid area
+    -- Mouse wheel scrolling on the grid area (smooth)
     parent:EnableMouseWheel(true)
     parent:SetScript("OnMouseWheel", function(_, delta)
-        local maxScroll = math.max(0, totalRows - visibleRows)
-        local newOffset = scrollOffset - delta
-        newOffset = math.max(0, math.min(newOffset, maxScroll))
-        if newOffset ~= scrollOffset then
-            scrollOffset = newOffset
-            RefreshGridButtons()
-            UpdateScrollIndicator()
-        end
+        SetScrollTarget(scrollTarget - delta)
     end)
 end
 
@@ -1616,7 +1676,7 @@ function NS.UI.CatalogGrid_Reflow()
     visibleRows = newRows
     CatSizing.ItemsPerPage = newCols * newRows
 
-    local numButtons = (newRows + 1) * newCols  -- +1 row for partial clipped hint
+    local numButtons = (newRows + 2) * newCols  -- +2 rows: clipped hint + smooth scroll buffer
     local gridWidth = newCols * size + (newCols - 1) * gap
 
     -- Grow button pool if needed
@@ -1653,10 +1713,12 @@ function NS.UI.CatalogGrid_Reflow()
     end
 
     -- Recalculate scroll state and refresh
+    StopSmoothScroll()
     local cols = CatSizing.GridColumns
     totalRows = math.max(0, math.ceil(#filteredItems / cols))
     local maxScroll = math.max(0, totalRows - visibleRows)
     scrollOffset = math.min(math.max(scrollOffset, 0), maxScroll)
+    scrollTarget = scrollOffset
 
     UpdateOverlayMetrics()
     RefreshGridButtons()
