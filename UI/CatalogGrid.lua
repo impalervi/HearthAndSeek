@@ -982,7 +982,7 @@ RefreshGridButtons = function()
     local cols = CatSizing.GridColumns
     local startIdx = scrollOffset * cols + 1
 
-    for i = 1, visibleRows * cols do
+    for i = 1, (visibleRows + 1) * cols do  -- +1 row for partial clipped hint
         local btn = gridButtons[i]
         if not btn then break end
 
@@ -1497,6 +1497,7 @@ end
 function NS.UI.InitCatalogGrid(parent)
     CatSizing = NS.CatalogSizing
     gridParent = parent
+    parent:SetClipsChildren(true)
 
     -- Apply saved icon size multiplier before computing layout
     local mult = NS.db and NS.db.settings and NS.db.settings.iconSizeMultiplier
@@ -1519,7 +1520,7 @@ function NS.UI.InitCatalogGrid(parent)
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local numButtons = visibleRows * cols
+    local numButtons = (visibleRows + 1) * cols  -- +1 row for partial clipped hint
 
     -- Calculate total grid dimensions to center it
     local gridWidth  = cols * size + (cols - 1) * gap
@@ -1615,7 +1616,7 @@ function NS.UI.CatalogGrid_Reflow()
     visibleRows = newRows
     CatSizing.ItemsPerPage = newCols * newRows
 
-    local numButtons = newRows * newCols
+    local numButtons = (newRows + 1) * newCols  -- +1 row for partial clipped hint
     local gridWidth = newCols * size + (newCols - 1) * gap
 
     -- Grow button pool if needed
