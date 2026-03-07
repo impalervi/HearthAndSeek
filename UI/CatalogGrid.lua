@@ -141,6 +141,9 @@ end
 local hyperlinkCache = {}
 local ownershipCache = {}       -- decorID → { collected=bool }
 local ownershipCacheBuilt = false
+local ownershipRetryCount = 0
+local OWNERSHIP_MAX_RETRIES = 5
+local OWNERSHIP_RETRY_DELAY = 1.0  -- seconds between retries
 local achievementCache = nil
 local achievementCacheReady = false
 local achievementCacheNextID = 1
@@ -159,6 +162,8 @@ local function BuildOwnershipCache()
     if not NS.CatalogData or not NS.CatalogData.NameIndex then return end
     local entryType = Enum.HousingCatalogEntryType and Enum.HousingCatalogEntryType.Decor or 1
 
+    local missingCount = 0
+
     for _, entry in ipairs(NS.CatalogData.NameIndex) do
         local id = entry[1]
         local ok, info = pcall(C_HousingCatalog.GetCatalogEntryInfoByRecordID, entryType, id, true)
@@ -170,9 +175,29 @@ local function BuildOwnershipCache()
             ownershipCache[id] = {
                 collected  = hasItem,
             }
+        else
+            missingCount = missingCount + 1
         end
     end
+
     ownershipCacheBuilt = true
+
+    -- If many items returned nil, the Housing Catalog API may not be ready yet.
+    -- Schedule a retry to re-query after the data loads.
+    if missingCount > 0 and ownershipRetryCount < OWNERSHIP_MAX_RETRIES then
+        ownershipRetryCount = ownershipRetryCount + 1
+        C_Timer.After(OWNERSHIP_RETRY_DELAY, function()
+            ownershipCacheBuilt = false
+            ownershipCache = {}
+            BuildOwnershipCache()
+            if NS.UI.CatalogGrid_ApplyFilters then
+                NS.UI.CatalogGrid_ApplyFilters()
+            end
+            if NS.UI.RefreshDetailPanel then
+                NS.UI.RefreshDetailPanel()
+            end
+        end)
+    end
 end
 
 --- Lazy icon lookup: query the housing catalog API at render time for items
@@ -209,6 +234,7 @@ function NS.UI.RefreshOwnershipCache()
     ownershipCacheBuilt = false
     ownershipCache = {}
     iconCache = {}
+    ownershipRetryCount = 0
     BuildOwnershipCache()
 end
 
@@ -221,6 +247,9 @@ local refreshFrame = CreateFrame("Frame")
 refreshFrame:RegisterEvent("HOUSE_DECOR_ADDED_TO_CHEST")
 refreshFrame:RegisterEvent("QUEST_TURNED_IN")
 refreshFrame:RegisterEvent("ACHIEVEMENT_EARNED")
+refreshFrame:RegisterEvent("HOUSING_STORAGE_UPDATED")
+refreshFrame:RegisterEvent("HOUSING_STORAGE_ENTRY_UPDATED")
+refreshFrame:RegisterEvent("NEW_HOUSING_ITEM_ACQUIRED")
 
 local refreshPending = false
 local function ScheduleCollectionRefresh()
