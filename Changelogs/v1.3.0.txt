@@ -4,15 +4,10 @@ New Features
 - Aesthetic & Culture Filters — browse decorations by theme: Sacred, Tavern, Macabre, Elven, and more
 - Customizable Sidebar — collapse, expand, and reorder filter sections with arrow buttons; layout saved across sessions
 - Smooth Scrolling — continuous mouse-wheel scrolling through the catalog grid
-- Settings Redesign — reorganized settings panel with Display, General, and Restore Defaults sections
 
 Improvements
-- Partial row hint — clipped bottom row signals more items below
-- Favorite star and checkmark scale with icon size
 - Minimap icon toggle in Settings
 - Theme keyword search with synonym expansion
-- Scrollbar extends to full grid height including partial rows
-- What's New callouts for v1.3.0 features
 
 Bug Fixes
 - Fixed treasure items with missing source data
