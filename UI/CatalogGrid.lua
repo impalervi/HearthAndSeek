@@ -826,8 +826,9 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
             else
                 -- Right click: open achievement panel for Achievement/Prey items
                 if item.achievementName and item.achievementName ~= "" then
+                    if InCombatLockdown() then return end
                     if not AchievementFrame then
-                        if not C_AddOns.IsAddOnLoaded("Blizzard_AchievementUI") then
+                        if C_AddOns and not C_AddOns.IsAddOnLoaded("Blizzard_AchievementUI") then
                             pcall(C_AddOns.LoadAddOn, "Blizzard_AchievementUI")
                         end
                         if not AchievementFrame and ToggleAchievementFrame then

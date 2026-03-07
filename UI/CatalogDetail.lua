@@ -455,8 +455,9 @@ end
 -------------------------------------------------------------------------------
 local function OpenAchievementByName(achievementName)
     if not achievementName or achievementName == "" then return end
+    if InCombatLockdown() then return end
     if not AchievementFrame then
-        pcall(C_AddOns.LoadAddOn, "Blizzard_AchievementUI")
+        if C_AddOns then pcall(C_AddOns.LoadAddOn, "Blizzard_AchievementUI") end
         if not AchievementFrame and ToggleAchievementFrame then
             ToggleAchievementFrame()
             if AchievementFrame and AchievementFrame:IsShown() then
