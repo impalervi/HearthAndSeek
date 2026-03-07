@@ -23,8 +23,8 @@ NS.UI = NS.UI or {}
 --   Add more via NS.UI.RegisterWhatsNewAnchor("key", frame)
 --   NOTE: Avoid anchoring to frames inside a ScrollFrame — HelpTip parents
 --   its callout to the anchor, so ScrollFrame clipping will hide it.
---   NOTE: Consecutive entries must use different anchors (HelpTip:Show hides
---   any existing tip on the same anchor, which would fire onHideCallback).
+--   NOTE: Consecutive entries on the same anchor are supported — the
+--   transitioning flag prevents onHideCallback from ending the sequence.
 --
 -- Available targetPoints:
 --   TopEdgeLeft, TopEdgeCenter, TopEdgeRight,
@@ -42,6 +42,23 @@ NS.UI = NS.UI or {}
 -------------------------------------------------------------------------------
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
+    {
+        version = "1.3.0",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Aesthetic & Culture Filters|r\nBrowse decorations by theme — Sacred, Tavern, Macabre, Elven, and more. Find decor that fits the home you're building.",
+                anchorTo = "sidebar",
+                targetPoint = "RightEdgeCenter",
+                alignment = "Center",
+            },
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Customizable Filter Layout|r\nCollapse and reorder filter sections with the arrow buttons. Your layout is saved across sessions. Reset anytime in Settings.",
+                anchorTo = "sidebar",
+                targetPoint = "RightEdgeTop",
+                alignment = "Center",
+            },
+        },
+    },
     {
         version = "1.2.0",
         entries = {
@@ -105,6 +122,7 @@ end
 -------------------------------------------------------------------------------
 local currentEntries = nil
 local currentIndex = 0
+local transitioning = false  -- guards onHideCallback during same-anchor transitions
 
 -------------------------------------------------------------------------------
 -- Determine which entries to show (or nil if none)
@@ -209,8 +227,10 @@ local function EnsureHelpTipVisible(anchor)
         -- Override OnClick: Blizzard's default calls Acknowledge (which advances
         -- to next entry). We want X to skip the entire What's New flow instead.
         frame.CloseButton:SetScript("OnClick", function()
+            transitioning = true   -- suppress onHideCallback during X dismiss
             FinishWhatsNew()
             HelpTip:HideAll(anchor)
+            transitioning = false
         end)
     end
 end
@@ -236,6 +256,11 @@ local function ShowNextEntry()
             local point = HelpTip.Point[entry.targetPoint] or HelpTip.Point.BottomEdgeCenter
             local align = HelpTip.Alignment[entry.alignment] or HelpTip.Alignment.Center
 
+            -- Set transitioning flag before Show — if the next entry uses the
+            -- same anchor, HelpTip:Show hides the current tip first, firing
+            -- onHideCallback with acknowledged=false. The flag prevents that
+            -- from prematurely ending the whole sequence.
+            transitioning = true
             HelpTip:Show(anchor, {
                 text = displayText,
                 buttonStyle = isLast and HelpTip.ButtonStyle.GotIt
@@ -249,11 +274,12 @@ local function ShowNextEntry()
                     ShowNextEntry()
                 end,
                 onHideCallback = function(acknowledged)
-                    if not acknowledged then
+                    if not acknowledged and not transitioning then
                         FinishWhatsNew()
                     end
                 end,
             })
+            transitioning = false
 
             EnsureHelpTipVisible(anchor)
 
@@ -288,9 +314,11 @@ end
 --- Dismiss active callouts (called when catalog frame hides mid-sequence).
 function NS.UI.DismissWhatsNew()
     if currentEntries then
+        transitioning = true   -- suppress onHideCallback during teardown
         FinishWhatsNew()
         for _, anchor in pairs(ANCHOR_TARGETS) do
             HelpTip:HideAll(anchor)
         end
+        transitioning = false
     end
 end

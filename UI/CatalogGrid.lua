@@ -1732,7 +1732,8 @@ function NS.UI.InitCatalogGrid(parent)
     end
 
     -- Scroll bar (simple Slider with Blizzard thumb art)
-    local gridHeight = visibleRows * size + (visibleRows - 1) * gap
+    local panelH = parent:GetHeight()
+    local gridHeight = panelH > 50 and (panelH - 50) or (visibleRows * size + (visibleRows - 1) * gap)
     local scrollBar = CreateFrame("Slider", nil, parent)
     scrollBar:SetSize(6, gridHeight)
     scrollBar:SetPoint("TOPLEFT", parent, "TOP",
@@ -1823,7 +1824,7 @@ function NS.UI.CatalogGrid_Reflow()
 
     -- Reposition and resize scroll bar
     if gridParent._scrollBar then
-        local gridHeight = newRows * size + (newRows - 1) * gap
+        local gridHeight = gridParent:GetHeight() - 50  -- full panel height minus top + bottom padding
         gridParent._scrollBar:ClearAllPoints()
         gridParent._scrollBar:SetSize(6, gridHeight)
         gridParent._scrollBar:SetPoint("TOPLEFT", gridParent, "TOP",
