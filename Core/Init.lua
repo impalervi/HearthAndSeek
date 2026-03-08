@@ -283,14 +283,8 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
             else
                 NS.Utils.PrintMessage("Debug dump commands: catalog, bosses, categories")
             end
-        elseif subCmd == "review" then
-            if NS.UI.OpenThemeReviewer then
-                NS.UI.OpenThemeReviewer(arg)
-            else
-                NS.Utils.PrintMessage("ThemeReviewer module not loaded.")
-            end
         else
-            NS.Utils.PrintMessage("Debug commands: faction, dump, review [all|<aesthetic>]")
+            NS.Utils.PrintMessage("Debug commands: faction, dump")
         end
 
     elseif cmd == "help" then
@@ -303,7 +297,6 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
             NS.Utils.PrintMessage("  /hs dump categories - Dump catalog categories and subcategories")
             NS.Utils.PrintMessage("  /hs dump zones - Dump zone mapID mappings")
             NS.Utils.PrintMessage("  /hs debug faction <f> - Override faction")
-            NS.Utils.PrintMessage("  /hs debug review [all|<aesthetic>] - Review theme assignments")
         end
 
     else

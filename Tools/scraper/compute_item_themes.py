@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 """Compute theme scores for decor items.
 
-Combines three data sources:
+Culture themes (racial/faction) use a three-source algorithm:
   1. Per-item tags from housing.wowdb.com (weight 3.0)
   2. Set membership voting — items in themed sets (weight = log(likes+1))
   3. Item name patterns — regex fallback (weight 1.0)
+
+Aesthetic themes use visual classifications from montage grid analysis
+(data/montages/visual_classifications.json), which achieved 76.7% accuracy
+vs 54.7% for the text-based algorithm in blind comparison.
+
+Override priority: manual annotations > visual classifications > algorithm.
 
 Outputs data/item_themes.json with per-item theme assignments and scores.
 
 Theme groups:
   - Culture: racial/faction aesthetics (Elven, Dwarven, Orcish, etc.)
-  - Aesthetic: build fantasies (Arcane, Macabre, Noble, Lorekeeper, Tavern, etc.)
+  - Aesthetic: build fantasies (Arcane Sanctum, Haunted Manor, Royal Court, etc.)
 """
 
 import json
@@ -28,6 +34,7 @@ SETS_PATH = DATA_DIR / "wowdb_sets.json"
 ITEMS_PATH = DATA_DIR / "wowdb_item_tags.json"
 CATALOG_PATH = DATA_DIR / "enriched_catalog.json"
 OUTPUT_PATH = DATA_DIR / "item_themes.json"
+VISUAL_PATH = DATA_DIR / "montages" / "visual_classifications.json"
 
 # Source weights
 ITEM_TAG_WEIGHT = 3.0  # Direct per-item tags (highest confidence)
@@ -37,8 +44,8 @@ NAME_PATTERN_WEIGHT = 1.0  # Regex name matching (lowest confidence)
 # Per-theme name pattern weight overrides — high-signal patterns that should
 # compete with item tags so they survive normalization on multi-themed items
 NAME_PATTERN_BOOSTS: dict[str, float] = {
-    "Sacred": 5.0,  # Sacred patterns are high-signal and definitive; needs to
-                     # survive normalization against strong competing themes
+    "Sacred Temple": 5.0,  # Sacred patterns are high-signal and definitive; needs to
+                           # survive normalization against strong competing themes
 }
 
 # Sacred exclusions: items matching these patterns skip Sacred name-pattern scoring
@@ -50,8 +57,9 @@ SACRED_EXCLUSIONS = [
     re.compile(r"\bNight Fae\b", re.I),
 ]
 
-# Curated Sacred items: decorIDs that are definitively Sacred but can't be captured
-# algorithmically because their Lorekeeper scores are overwhelmingly high
+# Curated Sacred Temple items: decorIDs that are definitively Sacred Temple
+# but can't be captured algorithmically because their Scholar's Archive scores
+# are overwhelmingly high
 SACRED_GUARANTEED: set[int] = {
     7574,   # Replica Libram of Ancient Kings (Paladin OH holy text)
     7823,   # Replica Word of the Conclave (Priest OH sacred text)
@@ -108,37 +116,37 @@ TAG_TO_THEME: dict[str, str] = {
     # "Horde" getting scored as Orcish). Specific race tags handle these items.
 
     # Aesthetic — item style tags
-    "elegant": "Noble",
-    "lavish": "Noble",
-    "light": "Sacred",       # wowdb "Light" items are sacred (Sanctum of Light, Naaru, etc.)
-    "magical": "Arcane",
-    "nature": "Nature",
-    "spooky": "Macabre",
-    "dark": "Macabre",
-    "fae": "Fae",
-    "mechanical": "Tinker",
-    "void": "Void",
-    "fel": "Fel",
-    "simple": "Rustic",
-    "casual": "Rustic",
-    "bold": "Rugged",
-    "pirate": "Pirate",
+    "elegant": "Royal Court",
+    "lavish": "Royal Court",
+    "light": "Sacred Temple",  # wowdb "Light" items are sacred (Sanctum of Light, Naaru, etc.)
+    "magical": "Arcane Sanctum",
+    "nature": "Wild Garden",
+    "spooky": "Haunted Manor",
+    "dark": "Haunted Manor",
+    "fae": "Enchanted Grove",
+    "mechanical": "Tinker's Workshop",
+    "void": "Void Rift",
+    "fel": "Fel Forge",
+    "simple": "Cottage Hearth",
+    "casual": "Cottage Hearth",
+    "bold": "Primal Camp",
+    "pirate": "Seafarer's Haven",
     # Dropped (too vague / catch-all): cozy, cute, whimsical, romantic
     # Dropped (seasonal, too few items): spring, fall, summer
 
     # Aesthetic — tag-theme CSS class tags (wowdb meta-aesthetics)
-    "opulent": "Noble",
-    "rugged": "Rugged",
-    "folk": "Rustic",
+    "opulent": "Royal Court",
+    "rugged": "Primal Camp",
+    "folk": "Cottage Hearth",
 
     # Aesthetic — set tags (room types from community sets)
-    "library": "Lorekeeper",
-    "kitchen": "Tavern",
-    "dining room": "Tavern",
-    "wine cellar": "Tavern",
-    "pantry": "Tavern",
-    "breakfast room": "Tavern",
-    "trophy room": "Armory",
+    "library": "Scholar's Archive",
+    "kitchen": "Feast Hall",
+    "dining room": "Feast Hall",
+    "wine cellar": "Feast Hall",
+    "pantry": "Feast Hall",
+    "breakfast room": "Feast Hall",
+    "trophy room": "War Room",
 }
 
 # Theme → group assignment
@@ -154,21 +162,21 @@ CULTURE_THEMES = {
     "Earthen", "Haranir", "Vrykul",
 }
 AESTHETIC_THEMES = {
-    "Arcane",       # Mage tower, crystal chamber, enchanting workshop
-    "Macabre",      # Haunted house, dark sanctum, crypt
-    "Noble",        # Palace, ballroom, formal dining, gilded halls
-    "Rustic",       # Cottage, farmhouse, homespun, pastoral
-    "Rugged",       # War camp, frontier lodge, outpost
-    "Nature",       # Druidic grove, wilderness, greenhouse
-    "Fae",          # Enchanted forest, Ardenweald, dreamscape
-    "Void",         # Shadow realm, K'areshi, cosmic horror
-    "Fel",          # Demonic lair, Legion, infernal
-    "Tinker",       # Gnomish workshop, steampunk lab, engineering
-    "Pirate",       # Ship cabin, coastal tavern, nautical
-    "Lorekeeper",   # Scholar's study, library, dark academia
-    "Tavern",       # Pub, kitchen, feast hall, inn
-    "Armory",       # War room, armory, trophy hall, barracks
-    "Sacred",       # Chapel, shrine, temple, holy sanctum
+    "Arcane Sanctum",       # Mage tower, crystal chamber, enchanting workshop
+    "Haunted Manor",        # Coffins, cobwebs, spiked iron, gothic decay
+    "Royal Court",          # Palace, ballroom, formal dining, gilded halls
+    "Cottage Hearth",       # Cottage, farmhouse, homespun, pastoral
+    "Primal Camp",        # War camp, frontier lodge, tribal outpost
+    "Wild Garden",          # Druidic grove, wilderness, landscaping
+    "Enchanted Grove",      # Moonlit wood, fae-touched, Ardenweald magic
+    "Void Rift",            # Shadow realm, K'areshi, cosmic horror
+    "Fel Forge",            # Demonic lair, Legion, infernal
+    "Tinker's Workshop",    # Gnomish workshop, steampunk lab, engineering
+    "Seafarer's Haven",     # Ship cabin, nautical, maritime brass
+    "Scholar's Archive",    # Library, scrolls, dark academia
+    "Feast Hall",           # Pub, kitchen, feast hall, market stalls
+    "War Room",             # War room, weapon racks, trophy hall
+    "Sacred Temple",        # Chapel, shrine, temple, holy sanctum
 }
 
 for t in CULTURE_THEMES:
@@ -223,91 +231,91 @@ NAME_PATTERNS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bVulpera\b", re.I), "Vulpera"),
     (re.compile(r"\bUndead\b", re.I), "Undead"),
 
-    # Aesthetic — Arcane (mage tower, crystal chamber, enchanting)
-    (re.compile(r"\b(Arcane|Mystic|Enchanted|Enchanting)\b", re.I), "Arcane"),
-    (re.compile(r"\b(Runic|Rune)\b", re.I), "Arcane"),
+    # Aesthetic — Arcane Sanctum (mage tower, crystal chamber, enchanting)
+    (re.compile(r"\b(Arcane|Mystic|Enchanted|Enchanting)\b", re.I), "Arcane Sanctum"),
+    (re.compile(r"\b(Runic|Rune)\b", re.I), "Arcane Sanctum"),
 
-    # Aesthetic — Macabre (haunted house, dark sanctum, crypt)
-    (re.compile(r"\b(Spooky|Haunted|Ghastly|Macabre|Cursed)\b", re.I), "Macabre"),
-    (re.compile(r"\b(Coffin|Cobweb|Tombstone|Gravestone|Skull)\b", re.I), "Macabre"),
-    (re.compile(r"\b(Candelabra|Candlestick)\b", re.I), "Macabre"),
-    (re.compile(r"\b(Dead|Death)\b", re.I), "Macabre"),
-    (re.compile(r"\b(Crypt|Mausoleum|Catacomb)\b", re.I), "Macabre"),
+    # Aesthetic — Haunted Manor (coffins, cobwebs, gothic decay)
+    (re.compile(r"\b(Spooky|Haunted|Ghastly|Macabre|Cursed)\b", re.I), "Haunted Manor"),
+    (re.compile(r"\b(Coffin|Cobweb|Tombstone|Gravestone|Skull)\b", re.I), "Haunted Manor"),
+    (re.compile(r"\b(Candelabra|Candlestick)\b", re.I), "Haunted Manor"),
+    (re.compile(r"\b(Dead|Death)\b", re.I), "Haunted Manor"),
+    (re.compile(r"\b(Crypt|Mausoleum|Catacomb)\b", re.I), "Haunted Manor"),
 
-    # Aesthetic — Noble (palace, ballroom, gilded halls)
-    (re.compile(r"\b(Ornate|Gilded|Regal|Opulent)\b", re.I), "Noble"),
+    # Aesthetic — Royal Court (palace, ballroom, gilded halls)
+    (re.compile(r"\b(Ornate|Gilded|Regal|Opulent)\b", re.I), "Royal Court"),
 
-    # Aesthetic — Rustic (cottage, farmhouse, homespun)
-    (re.compile(r"\b(Rustic|Farmhouse|Weathered|Homespun)\b", re.I), "Rustic"),
+    # Aesthetic — Cottage Hearth (cottage, farmhouse, homespun)
+    (re.compile(r"\b(Rustic|Farmhouse|Weathered|Homespun)\b", re.I), "Cottage Hearth"),
 
-    # Aesthetic — Nature (druidic grove, wilderness)
-    (re.compile(r"\b(Verdant|Overgrown|Mossy)\b", re.I), "Nature"),
+    # Aesthetic — Wild Garden (druidic grove, wilderness, landscaping)
+    (re.compile(r"\b(Verdant|Overgrown|Mossy)\b", re.I), "Wild Garden"),
 
-    # Aesthetic — Fae (enchanted forest, Ardenweald, dreamscape)
-    (re.compile(r"\b(Fae|Faerie|Dreamrift|Ardenweald)\b", re.I), "Fae"),
+    # Aesthetic — Enchanted Grove (moonlit wood, Ardenweald, dreamscape)
+    (re.compile(r"\b(Fae|Faerie|Dreamrift|Ardenweald)\b", re.I), "Enchanted Grove"),
 
-    # Aesthetic — Void (shadow realm, K'areshi, cosmic horror)
-    (re.compile(r"\b(Void|Ethereal)\b", re.I), "Void"),
+    # Aesthetic — Void Rift (shadow realm, K'areshi, cosmic horror)
+    (re.compile(r"\b(Void|Ethereal)\b", re.I), "Void Rift"),
 
-    # Aesthetic — Fel (demonic lair, Legion, infernal)
-    (re.compile(r"\b(Fel|Demonic|Felfire)\b", re.I), "Fel"),
+    # Aesthetic — Fel Forge (demonic lair, Legion, infernal)
+    (re.compile(r"\b(Fel|Demonic|Felfire)\b", re.I), "Fel Forge"),
 
-    # Aesthetic — Tinker (gnomish workshop, steampunk lab)
-    (re.compile(r"\b(Mechanical|Clockwork|Gearwork|Tinker)\b", re.I), "Tinker"),
+    # Aesthetic — Tinker's Workshop (gnomish workshop, steampunk lab)
+    (re.compile(r"\b(Mechanical|Clockwork|Gearwork|Tinker)\b", re.I), "Tinker's Workshop"),
 
-    # Aesthetic — Pirate (ship cabin, coastal, nautical)
-    (re.compile(r"\b(Pirate|Buccaneer|Swashbuckler)\b", re.I), "Pirate"),
+    # Aesthetic — Seafarer's Haven (ship cabin, coastal, nautical)
+    (re.compile(r"\b(Pirate|Buccaneer|Swashbuckler)\b", re.I), "Seafarer's Haven"),
 
-    # Aesthetic — Lorekeeper (library, scholar's study, dark academia)
-    (re.compile(r"\b(Books?|Tomes?|Codex|Grimoire)\b", re.I), "Lorekeeper"),
-    (re.compile(r"\b(Scrolls?|Parchment|Manuscript)\b", re.I), "Lorekeeper"),
-    (re.compile(r"\b(Bookshelf|Bookcase|Library)\b", re.I), "Lorekeeper"),
-    (re.compile(r"\b(Quill|Lectern|Scribe)\b", re.I), "Lorekeeper"),
-    (re.compile(r"\bArchive\b", re.I), "Lorekeeper"),
+    # Aesthetic — Scholar's Archive (library, scrolls, dark academia)
+    (re.compile(r"\b(Books?|Tomes?|Codex|Grimoire)\b", re.I), "Scholar's Archive"),
+    (re.compile(r"\b(Scrolls?|Parchment|Manuscript)\b", re.I), "Scholar's Archive"),
+    (re.compile(r"\b(Bookshelf|Bookcase|Library)\b", re.I), "Scholar's Archive"),
+    (re.compile(r"\b(Quill|Lectern|Scribe)\b", re.I), "Scholar's Archive"),
+    (re.compile(r"\bArchive\b", re.I), "Scholar's Archive"),
 
-    # Aesthetic — Tavern (pub, kitchen, feast hall, inn)
-    (re.compile(r"\b(Tavern|Innkeeper)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Keg|Barrel)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Mug|Tankard|Stein|Goblet|Chalice)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Brew|Wine|Ale|Mead)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Platter|Feast|Banquet)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Stove|Oven|Kettle|Cooking)\b", re.I), "Tavern"),
-    (re.compile(r"\b(Decanter|Flagon|Carafe)\b", re.I), "Tavern"),
-    (re.compile(r"\bFood Cart\b", re.I), "Tavern"),
+    # Aesthetic — Feast Hall (pub, kitchen, feast hall, inn)
+    (re.compile(r"\b(Tavern|Innkeeper)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Keg|Barrel)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Mug|Tankard|Stein|Goblet|Chalice)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Brew|Wine|Ale|Mead)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Platter|Feast|Banquet)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Stove|Oven|Kettle|Cooking)\b", re.I), "Feast Hall"),
+    (re.compile(r"\b(Decanter|Flagon|Carafe)\b", re.I), "Feast Hall"),
+    (re.compile(r"\bFood Cart\b", re.I), "Feast Hall"),
 
-    # Aesthetic — Armory (war room, armory, trophy hall)
-    (re.compile(r"\bBanner\b", re.I), "Armory"),
-    (re.compile(r"\b(Weapon Rack|Spear Rack|Shield Wall)\b", re.I), "Armory"),
-    (re.compile(r"\bTrophy\b", re.I), "Armory"),
-    (re.compile(r"\bWar (Table|Map|Drum|Brazier|Chandelier|Planning)\b", re.I), "Armory"),
-    (re.compile(r"\bBarricade\b", re.I), "Armory"),
-    (re.compile(r"\bTraining Dummy\b", re.I), "Armory"),
-    (re.compile(r"\b(Flag|Standard)\b", re.I), "Armory"),
+    # Aesthetic — War Room (weapon racks, banners, trophy hall)
+    (re.compile(r"\bBanner\b", re.I), "War Room"),
+    (re.compile(r"\b(Weapon Rack|Spear Rack|Shield Wall)\b", re.I), "War Room"),
+    (re.compile(r"\bTrophy\b", re.I), "War Room"),
+    (re.compile(r"\bWar (Table|Map|Drum|Brazier|Chandelier|Planning)\b", re.I), "War Room"),
+    (re.compile(r"\bBarricade\b", re.I), "War Room"),
+    (re.compile(r"\bTraining Dummy\b", re.I), "War Room"),
+    (re.compile(r"\b(Flag|Standard)\b", re.I), "War Room"),
 
-    # Aesthetic — Sacred (altars, shrines, chapels, Light/Holy sanctum)
+    # Aesthetic — Sacred Temple (altars, shrines, chapels, Light/Holy sanctum)
     # Weight boosted via NAME_PATTERN_BOOSTS so these survive normalization
-    (re.compile(r"\b(Sacred|Holy|Divine|Sanctified)\b", re.I), "Sacred"),
-    (re.compile(r"(?<!Moon-)\bBlessed\b", re.I), "Sacred"),
-    (re.compile(r"\b(Altar|Shrine)\b", re.I), "Sacred"),
-    (re.compile(r"\b(Cathedral|Chapel|Abbey)\b", re.I), "Sacred"),
-    (re.compile(r"\b(Censer|Votive)\b", re.I), "Sacred"),
-    (re.compile(r"\bNaaru\b", re.I), "Sacred"),
-    (re.compile(r"\b(Light-Infused|Lightwell|Lightforged|Light-Touched)\b", re.I), "Sacred"),
-    (re.compile(r"\bSilver Hand\b", re.I), "Sacred"),
-    (re.compile(r"\bNetherlight\b", re.I), "Sacred"),
-    (re.compile(r"\bConclave\b", re.I), "Sacred"),
-    (re.compile(r"\bKarabor\b", re.I), "Sacred"),
-    (re.compile(r"\bLibram\b", re.I), "Sacred"),
-    (re.compile(r"\bAspirant\b", re.I), "Sacred"),
-    (re.compile(r"\bPrayer\b", re.I), "Sacred"),
-    (re.compile(r"\bStained Glass\b", re.I), "Sacred"),
-    (re.compile(r"\bSanctum of\b", re.I), "Sacred"),
-    (re.compile(r"\b(of|by) the Light\b", re.I), "Sacred"),
-    (re.compile(r"\bLight Blooms\b", re.I), "Sacred"),
-    (re.compile(r"\bRadiant\b", re.I), "Sacred"),
-    (re.compile(r"\bDraenei Faith\b", re.I), "Sacred"),
-    (re.compile(r"\bHigh Exarch\b", re.I), "Sacred"),
-    (re.compile(r"\bBlooming Light\b", re.I), "Sacred"),
+    (re.compile(r"\b(Sacred|Holy|Divine|Sanctified)\b", re.I), "Sacred Temple"),
+    (re.compile(r"(?<!Moon-)\bBlessed\b", re.I), "Sacred Temple"),
+    (re.compile(r"\b(Altar|Shrine)\b", re.I), "Sacred Temple"),
+    (re.compile(r"\b(Cathedral|Chapel|Abbey)\b", re.I), "Sacred Temple"),
+    (re.compile(r"\b(Censer|Votive)\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bNaaru\b", re.I), "Sacred Temple"),
+    (re.compile(r"\b(Light-Infused|Lightwell|Lightforged|Light-Touched)\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bSilver Hand\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bNetherlight\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bConclave\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bKarabor\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bLibram\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bAspirant\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bPrayer\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bStained Glass\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bSanctum of\b", re.I), "Sacred Temple"),
+    (re.compile(r"\b(of|by) the Light\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bLight Blooms\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bRadiant\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bDraenei Faith\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bHigh Exarch\b", re.I), "Sacred Temple"),
+    (re.compile(r"\bBlooming Light\b", re.I), "Sacred Temple"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -318,15 +326,15 @@ NAME_PATTERNS: list[tuple[re.Pattern, str]] = [
 # name ALSO contains keywords for A (genuinely multi-themed items are kept).
 
 AESTHETIC_CONFLICTS: dict[str, set[str]] = {
-    "Sacred":  {"Macabre", "Fel", "Void"},
-    "Macabre": {"Sacred"},
-    "Noble":   {"Rustic", "Pirate"},
-    "Rustic":  {"Noble"},
-    "Nature":  {"Fel", "Void", "Tinker"},
-    "Fae":     {"Fel", "Void"},
-    "Void":    {"Sacred"},
-    "Tinker":  {"Nature", "Fae"},
-    "Fel":     {"Sacred", "Nature", "Fae"},
+    "Sacred Temple":      {"Haunted Manor", "Fel Forge", "Void Rift"},
+    "Haunted Manor":      {"Sacred Temple"},
+    "Royal Court":        {"Cottage Hearth", "Seafarer's Haven"},
+    "Cottage Hearth":     {"Royal Court"},
+    "Wild Garden":        {"Fel Forge", "Void Rift", "Tinker's Workshop"},
+    "Enchanted Grove":    {"Fel Forge", "Void Rift"},
+    "Void Rift":          {"Sacred Temple"},
+    "Tinker's Workshop":  {"Wild Garden", "Enchanted Grove"},
+    "Fel Forge":          {"Sacred Temple", "Wild Garden", "Enchanted Grove"},
 }
 
 # Manual annotations file: overrides produced by review_themes.py.
@@ -425,7 +433,7 @@ def compute_themes() -> None:
         # like "Secret Void Shrine" or "Inspired by the Light" are too noisy)
         set_name = set_info.get("name", "")
         for pattern, theme in NAME_PATTERNS:
-            if theme == "Sacred":
+            if theme == "Sacred Temple":
                 continue
             if pattern.search(set_name):
                 if theme not in set_themes:
@@ -458,7 +466,7 @@ def compute_themes() -> None:
         for pattern, theme in NAME_PATTERNS:
             if pattern.search(name):
                 # Skip Sacred for excluded items (e.g. Felblood Altar, Libram of the Dead)
-                if theme == "Sacred" and any(ex.search(name) for ex in SACRED_EXCLUSIONS):
+                if theme == "Sacred Temple" and any(ex.search(name) for ex in SACRED_EXCLUSIONS):
                     continue
                 weight = NAME_PATTERN_BOOSTS.get(theme, NAME_PATTERN_WEIGHT)
                 scores[did][theme] += weight
@@ -496,60 +504,56 @@ def compute_themes() -> None:
         if did in item_names:
             if did not in normalized:
                 normalized[did] = {}
-            if "Sacred" not in normalized[did]:
-                normalized[did]["Sacred"] = MIN_SCORE_THRESHOLD
+            if "Sacred Temple" not in normalized[did]:
+                normalized[did]["Sacred Temple"] = MIN_SCORE_THRESHOLD
                 logger.info("  Curated Sacred: %d (%s)", did, item_names[did])
 
     # ---------------------------------------------------------------------------
-    # Post-normalization: cross-aesthetic conflict exclusions
+    # Visual classifications: replace algorithm aesthetics with visual predictions
     # ---------------------------------------------------------------------------
-    # Build aesthetic keyword lookup from existing NAME_PATTERNS
-    aesthetic_name_pats: dict[str, list[re.Pattern]] = defaultdict(list)
-    for pattern, theme in NAME_PATTERNS:
-        if theme in AESTHETIC_THEMES:
-            aesthetic_name_pats[theme].append(pattern)
+    # Visual analysis (from montage grid review) is more accurate for aesthetics
+    # than the algorithm (76.7% vs 54.7% accuracy in blind comparison).
+    # Culture themes remain algorithm-driven; aesthetics are visually-driven.
+    visual_count = 0
+    if VISUAL_PATH.exists():
+        with open(VISUAL_PATH, encoding="utf-8") as f:
+            visual_data = json.load(f)
+        visual_map: dict[int, dict] = {}
+        for r in visual_data.get("results", []):
+            visual_map[r["decorID"]] = r
 
-    # Capture before-counts for statistics
-    before_counts: dict[str, int] = defaultdict(int)
-    for itm_themes in normalized.values():
-        for theme in itm_themes:
-            if theme in AESTHETIC_THEMES:
-                before_counts[theme] += 1
+        # Strip all algorithmically-computed aesthetic themes
+        for did in list(normalized):
+            for theme in list(normalized[did]):
+                if THEME_GROUPS.get(theme) == "Aesthetic":
+                    del normalized[did][theme]
+            if not normalized[did]:
+                del normalized[did]
 
-    # Apply automated exclusions
-    exclusions_log: dict[str, list[tuple[int, str]]] = defaultdict(list)
-
-    for did, itm_themes in list(normalized.items()):
-        name = item_names.get(did, "")
-        if not name:
-            continue
-
-        # Find which aesthetic keywords appear in this item's name
-        name_aesthetics: set[str] = set()
-        for theme, pats in aesthetic_name_pats.items():
-            for pat in pats:
-                if pat.search(name):
-                    name_aesthetics.add(theme)
-                    break
-
-        # For each assigned aesthetic, check for conflicting name keywords
-        themes_to_remove: list[str] = []
-        for theme in itm_themes:
-            if theme not in AESTHETIC_CONFLICTS:
+        # Apply visual aesthetic classifications
+        for did, vr in visual_map.items():
+            if did not in item_names:
                 continue
-            conflicting = AESTHETIC_CONFLICTS[theme] & name_aesthetics
-            has_own_keywords = theme in name_aesthetics
-            if conflicting and not has_own_keywords:
-                themes_to_remove.append(theme)
+            aes_list = vr.get("aesthetics", [])
+            if not aes_list:
+                continue
+            conf = vr.get("confidence", "high")
+            score = 100 if conf == "high" else 75
+            if did not in normalized:
+                normalized[did] = {}
+            for theme in aes_list:
+                if theme in AESTHETIC_THEMES:
+                    normalized[did][theme] = score
+            visual_count += 1
 
-        for theme in themes_to_remove:
-            del itm_themes[theme]
-            exclusions_log[theme].append((did, name))
-
-        if not itm_themes:
-            del normalized[did]
+        logger.info("  Visual classifications applied: %d items "
+                     "(%d total in file)", visual_count, len(visual_map))
+    else:
+        logger.warning("  visual_classifications.json not found — "
+                        "using algorithm for aesthetics")
 
     # Apply manual annotations (from review_themes.py)
+    # These override BOTH visual classifications and algorithm results.
     annotations: dict = {}
     if ANNOTATIONS_PATH.exists():
         with open(ANNOTATIONS_PATH, encoding="utf-8") as f:
@@ -576,7 +580,48 @@ def compute_themes() -> None:
     if annotation_count:
         logger.info("  Manual annotations applied: %d items", annotation_count)
 
-    # Log exclusion statistics
+    # ---------------------------------------------------------------------------
+    # Post-visual: cross-aesthetic conflict exclusions
+    # ---------------------------------------------------------------------------
+    # Runs AFTER visual classifications + manual annotations so it catches
+    # name-based contradictions in the final aesthetic assignments.
+    aesthetic_name_pats: dict[str, list[re.Pattern]] = defaultdict(list)
+    for pattern, theme in NAME_PATTERNS:
+        if theme in AESTHETIC_THEMES:
+            aesthetic_name_pats[theme].append(pattern)
+
+    before_counts: dict[str, int] = defaultdict(int)
+    for itm_themes in normalized.values():
+        for theme in itm_themes:
+            if theme in AESTHETIC_THEMES:
+                before_counts[theme] += 1
+
+    exclusions_log: dict[str, list[tuple[int, str]]] = defaultdict(list)
+
+    for did, itm_themes in list(normalized.items()):
+        name = item_names.get(did, "")
+        if not name:
+            continue
+        name_aesthetics: set[str] = set()
+        for theme, pats in aesthetic_name_pats.items():
+            for pat in pats:
+                if pat.search(name):
+                    name_aesthetics.add(theme)
+                    break
+        themes_to_remove: list[str] = []
+        for theme in itm_themes:
+            if theme not in AESTHETIC_CONFLICTS:
+                continue
+            conflicting = AESTHETIC_CONFLICTS[theme] & name_aesthetics
+            has_own_keywords = theme in name_aesthetics
+            if conflicting and not has_own_keywords:
+                themes_to_remove.append(theme)
+        for theme in themes_to_remove:
+            del itm_themes[theme]
+            exclusions_log[theme].append((did, name))
+        if not itm_themes:
+            del normalized[did]
+
     total_excluded = sum(len(v) for v in exclusions_log.values())
     if total_excluded:
         logger.info("\n  Cross-aesthetic exclusions: %d removals", total_excluded)
@@ -584,7 +629,7 @@ def compute_themes() -> None:
             items = exclusions_log[theme]
             before = before_counts.get(theme, 0)
             after = before - len(items)
-            logger.info("    %-20s %4d → %4d (-%d)", theme, before, after, len(items))
+            logger.info("    %-20s %4d -> %4d (-%d)", theme, before, after, len(items))
             for did, name in items:
                 logger.info("      - [%d] %s", did, name)
     else:

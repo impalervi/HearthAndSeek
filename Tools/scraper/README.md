@@ -373,33 +373,33 @@ with `C_QuestLog.IsQuestFlaggedCompleted()`.
 
 ### Theme Data (Aesthetic & Culture Filters)
 
-The addon supports filtering decorations by theme — aesthetic styles (Arcane,
-Macabre, Noble, Tavern, Sacred, etc.) and cultural origins (Elven, Orcish,
-Human, Troll, etc.). Theme data is computed by `compute_item_themes.py` using
-a three-source scoring system:
-
-1. **Per-item tags** (weight 3.0): Culture/style/class/theme tags scraped from
-   housing.wowdb.com via `scrape_wowdb.py --items`
-2. **Community set voting** (weight = log(likes+1)): WoWDB community-curated
-   themed sets scraped via `scrape_wowdb.py --sets`
-3. **Item name patterns** (weight 1.0): 50+ regex fallback patterns matching
-   race/culture/style keywords in item names
-
-Scores are normalized per-item (0-100 scale), with a minimum threshold of 25.
-Sub-race themes with fewer than 10 items are merged into parent races (e.g.,
-Blood Elf → Elven, Dark Iron → Dwarven).
+The addon supports filtering decorations by theme — aesthetic styles and
+cultural origins (Elven, Orcish, Human, Troll, etc.).
 
 **Theme groups:**
 - **Culture** (24 themes): Elven, Human, Orcish, Troll, Dwarven, Gnomish,
   Tauren, Undead, Draenei, Goblin, Pandaren, Vulpera, Dracthyr, Earthen,
   Haranir, Vrykul, and sub-races
-- **Aesthetic** (15 themes): Arcane, Macabre, Noble, Rustic, Rugged, Nature,
-  Fae, Void, Fel, Tinker, Pirate, Lorekeeper, Tavern, Armory, Sacred
+- **Aesthetic** (15 themes): Arcane Sanctum, Cottage Hearth, Enchanted Grove,
+  Feast Hall, Fel Forge, Haunted Manor, Royal Court, Sacred Temple,
+  Scholar's Archive, Seafarer's Haven, Tinker's Workshop, Void Rift,
+  War Room, Primal Camp, Wild Garden
+
+**Culture themes** use a three-source algorithm in `compute_item_themes.py`:
+1. Per-item tags (weight 3.0) from housing.wowdb.com
+2. Community set voting (weight = log(likes+1)) from WoWDB
+3. Item name patterns (weight 1.0) — regex fallback
+
+**Aesthetic themes** use visual classification from item thumbnail analysis.
+See [VISUAL_CLASSIFICATION.md](VISUAL_CLASSIFICATION.md) for the full
+process, category definitions, and instructions for classifying new items.
+
+Override priority: manual annotations > visual classifications > algorithm.
 
 **Pipeline flow:**
 ```
 scrape_wowdb.py --all → wowdb_sets.json + wowdb_item_tags.json
-compute_item_themes.py → item_themes.json
+compute_item_themes.py → item_themes.json (culture from algorithm, aesthetics from visual)
 output_catalog_lua.py → reads item_themes.json, adds _themeIDs and _themeScores per item
 ```
 
@@ -476,7 +476,22 @@ Fix: add entries to `DROP_FIXUPS` or `DROP_VALUE_TO_ZONE` in
 **New expansion**: Add to `EXPANSION_ORDER` in `output_catalog_lua.py`
 and map its zones in `ZONE_TO_EXPANSION`.
 
-### Phase 5: Test In-Game
+### Phase 5: Classify New Items Visually
+
+New decorations need aesthetic theme assignments via visual classification.
+See [VISUAL_CLASSIFICATION.md](VISUAL_CLASSIFICATION.md) for the full
+process. Quick summary:
+
+```bash
+python download_thumbnails.py                    # Download new thumbnails
+python build_montages.py --unthemed --cols 4 --rows 4  # Build montage grids
+# Feed montages to AI classifier (see VISUAL_CLASSIFICATION.md Step 4)
+# Merge results into data/montages/visual_classifications.json
+python build_validation_page.py --unclear        # Review uncertain items
+python run_pipeline.py --generate-only --deploy  # Regenerate with new themes
+```
+
+### Phase 6: Test In-Game
 
 1. Deploy: `python run_pipeline.py --generate-only --deploy`
 2. `/reload` in WoW
@@ -507,6 +522,10 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `DROP_NPC_IDS` | `output_catalog_lua.py` | If new boss NPCs need explicit IDs |
 | `DUNGEON_ENTRANCES` | `output_catalog_lua.py` | If new dungeons added |
 | `HereBeDragons-2.0` | `Libs/` | If new zones need waypoint support |
+| `visual_classifications.json` | `data/montages/` | New items need visual aesthetic classification |
+| `manual_theme_annotations.json` | `data/` | Human overrides for ambiguous items |
+| `AESTHETIC_THEMES` | `compute_item_themes.py` | If new aesthetic categories added |
+| `themeColors` | `UI/CatalogFrame.lua` | Must match `AESTHETIC_THEMES` |
 
 ---
 
@@ -527,6 +546,9 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `output_catalog_lua.py` | `data/enriched_catalog.json` + optional enrichments | `../../Data/CatalogData.lua` |
 | `output_quest_chains_lua.py` | `data/quest_chains.json` + `data/quest_givers.json` | `../../Data/QuestChains.lua` |
 | `output_lua.py` | (shared utility) | Lua serialization helpers |
+| `download_thumbnails.py` | `data/wowdb_cache/` | `data/thumbnails/` (256px PNGs) |
+| `build_montages.py` | `data/thumbnails/` + `data/item_themes.json` | `data/montages/*.png` |
+| `build_validation_page.py` | `data/montages/visual_classifications.json` | `data/validation_review.html` |
 
 ### Data Files
 
@@ -544,6 +566,9 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `data/enriched_catalog_extra.json` | Drop rates, vendor costs, profession skills |
 | `data/wowhead_cache/` | Cached Wowhead API responses |
 | `data/wowdb_cache/` | Cached WoWDB HTML responses |
+| `data/montages/visual_classifications.json` | Visual aesthetic classifications (1,659 items) |
+| `data/manual_theme_annotations.json` | Human-reviewed aesthetic overrides (~50 items) |
+| `data/thumbnails/` | Cached WoWDB item thumbnails (gitignored, re-downloadable) |
 | `../../Data/CatalogData.lua` | Generated Lua data for the addon (~2.1MB) |
 | `../../Data/QuestChains.lua` | Generated quest chain data (~548KB) |
 
@@ -600,7 +625,7 @@ Intermediate JSON files under `Tools/scraper/data/` are gitignored.
 ## Requirements
 
 ```bash
-pip install -r requirements.txt   # requests, beautifulsoup4, lxml
+pip install -r requirements.txt   # requests, beautifulsoup4, lxml, Pillow
 ```
 
 | Script | Dependencies |
@@ -613,6 +638,9 @@ pip install -r requirements.txt   # requests, beautifulsoup4, lxml
 | `scrape_wowdb.py` | `requests`, `beautifulsoup4`, `lxml` |
 | `compute_item_themes.py` | Python stdlib only |
 | `enrich_wowhead_extra.py` | `requests` |
+| `download_thumbnails.py` | `Pillow` |
+| `build_montages.py` | `Pillow` |
+| `build_validation_page.py` | Python stdlib only |
 | `output_catalog_lua.py` | Python stdlib + `output_lua.py` |
 | `output_quest_chains_lua.py` | Python stdlib + `output_lua.py` |
 | `run_pipeline.py` | Python stdlib only (orchestrates the others) |
