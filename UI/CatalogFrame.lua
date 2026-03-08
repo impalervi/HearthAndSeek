@@ -1622,6 +1622,99 @@ function NS.UI.ResetAllFilters()
 end
 
 -------------------------------------------------------------------------------
+-- RestoreSidebarFromFilters: sync sidebar checkboxes to restored filter state.
+-- Called once during init when rememberFilters is active.
+-------------------------------------------------------------------------------
+local function RestoreSidebarFromFilters()
+    local fs = NS.UI.CatalogGrid_GetFilterState and NS.UI.CatalogGrid_GetFilterState()
+    if not fs then return end
+
+    for _, secDef in ipairs(FILTER_SECTIONS) do
+
+        if secDef.type == "boolean" then
+            -- Single toggle (Favorites)
+            for _, itemDef in ipairs(secDef.items or {}) do
+                local widget = sidebarWidgets[secDef.id][itemDef.key]
+                if widget then
+                    widget.check:SetChecked(fs[itemDef.key] == true)
+                end
+            end
+
+        elseif secDef.type == "boolean_pair" then
+            -- Inverted pair (Collection): checked = "hide" → invert filterState
+            for _, itemDef in ipairs(secDef.items or {}) do
+                local widget = sidebarWidgets[secDef.id][itemDef.key]
+                if widget then
+                    widget.check:SetChecked(not fs[itemDef.key])
+                end
+            end
+
+        elseif secDef.type == "multiselect" then
+            local wTable = secDef.widgetTable
+            local fsDim = fs[wTable]
+            if fsDim then
+                for key, widget in pairs(sidebarWidgets[wTable]) do
+                    if widget.check then
+                        widget.check:SetChecked(fsDim[key] == true)
+                    end
+                end
+            end
+            -- Sub-group children (e.g. Professions)
+            if secDef.subGroup then
+                local subWTable = secDef.subGroup.widgetTable
+                local fsSub = fs[subWTable]
+                if fsSub then
+                    for key, widget in pairs(sidebarWidgets[subWTable]) do
+                        if widget.check then
+                            widget.check:SetChecked(fsSub[key] == true)
+                        end
+                    end
+                end
+                -- Update parent check state
+                local skipKey = secDef.subGroup.parentKey
+                local parentWidget = sidebarWidgets[wTable][skipKey]
+                if parentWidget and parentWidget.childKeys then
+                    UpdateParentCheckState(parentWidget, parentWidget.childKeys, sidebarWidgets[subWTable])
+                end
+            end
+
+        elseif secDef.type == "hierarchical" then
+            local cwTable = secDef.childWidgetTable
+            local fsDim = fs[cwTable]
+            if fsDim then
+                for key, widget in pairs(sidebarWidgets[cwTable]) do
+                    if widget.check then
+                        widget.check:SetChecked(fsDim[key] == true)
+                    end
+                end
+            end
+            -- Update parent check states
+            local wTable = secDef.widgetTable
+            for _, gData in pairs(sidebarWidgets[wTable]) do
+                if gData.childKeys then
+                    UpdateParentCheckState(gData, gData.childKeys, sidebarWidgets[cwTable])
+                end
+            end
+
+        elseif secDef.type == "theme_group" then
+            local wTable = secDef.widgetTable
+            local fsDim = fs[wTable]
+            if fsDim then
+                local groupThemes = NS.CatalogData and NS.CatalogData.ThemeGroupThemes
+                    and NS.CatalogData.ThemeGroupThemes[secDef.groupID] or {}
+                for _, tid in ipairs(groupThemes) do
+                    local widget = sidebarWidgets[wTable][tid]
+                    if widget then
+                        widget.check:SetChecked(fsDim[tid] == true)
+                    end
+                end
+            end
+        end
+
+    end
+end
+
+-------------------------------------------------------------------------------
 -- UpdateSidebarCounts: refresh all sidebar labels with dynamic counts
 -- Called from CatalogGrid after every filter application.
 -- counts = { sources={}, zones={}, qualities={}, professions={},
@@ -1956,8 +2049,26 @@ function NS.UI.InitCatalog()
     whatsNewLabel:SetText("Show new feature tips")
     whatsNewLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- "Remember filter selections" checkbox
+    local rememberCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    rememberCheck:SetSize(22, 22)
+    rememberCheck:SetPoint("TOPLEFT", whatsNewCheck, "BOTTOMLEFT", 0, -4)
+    rememberCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.rememberFilters == false))
+    rememberCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.rememberFilters = self:GetChecked()
+            if not self:GetChecked() then
+                NS.db.savedFilters = nil
+            end
+        end
+    end)
+    local rememberLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    rememberLabel:SetPoint("LEFT", rememberCheck, "RIGHT", 2, 0)
+    rememberLabel:SetText("Remember filter selections")
+    rememberLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, whatsNewCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, rememberCheck, -10)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
@@ -2246,6 +2357,11 @@ function NS.UI.InitCatalog()
     end
     if NS.UI.InitCatalogDetail then
         NS.UI.InitCatalogDetail(detail)
+    end
+
+    -- Restore sidebar checks from saved filter state
+    if NS.db and NS.db.settings and NS.db.settings.rememberFilters and NS.db.savedFilters then
+        RestoreSidebarFromFilters()
     end
 
     -- Footer bar (active filter tags — always visible, below the main window)
@@ -2557,12 +2673,10 @@ end
 -------------------------------------------------------------------------------
 function NS.UI.OpenCatalogForZone(zoneName)
     if not catalogFrame then return end
-    -- Reset all filters first (visual + data)
-    NS.UI.ResetAllFilters()
-    -- Check the zone checkbox if it exists in the sidebar
+    -- Add the zone to existing filters (only if it exists in the sidebar)
     if zoneName and sidebarWidgets.zones[zoneName] then
         sidebarWidgets.zones[zoneName].check:SetChecked(true)
-        -- Find the expansion for this zone and update its check state
+        -- Update the expansion parent check state
         for _, gData in pairs(sidebarWidgets.expansions) do
             if gData.childKeys then
                 for _, cKey in ipairs(gData.childKeys) do
@@ -2573,20 +2687,27 @@ function NS.UI.OpenCatalogForZone(zoneName)
                 end
             end
         end
-    end
-    -- Set the zone filter in grid state
-    if zoneName and NS.UI.CatalogGrid_ToggleZone then
+        -- Show the catalog
+        if not catalogFrame:IsShown() then
+            catalogFrame:Show()
+        end
+        -- Refresh ownership before applying filters so data is fresh
+        if NS.UI.RefreshOwnershipCache then
+            NS.UI.RefreshOwnershipCache()
+        end
+        -- Set the zone filter (additive — calls ApplyFilters internally)
         NS.UI.CatalogGrid_ToggleZone(zoneName, true)
-    end
-    -- Show the catalog
-    if not catalogFrame:IsShown() then
-        catalogFrame:Show()
-    end
-    if NS.UI.RefreshOwnershipCache then
-        NS.UI.RefreshOwnershipCache()
-    end
-    if NS.UI.CatalogGrid_ApplyFilters then
-        NS.UI.CatalogGrid_ApplyFilters()
+    else
+        -- Zone not in catalog — just open normally
+        if not catalogFrame:IsShown() then
+            catalogFrame:Show()
+        end
+        if NS.UI.RefreshOwnershipCache then
+            NS.UI.RefreshOwnershipCache()
+        end
+        if NS.UI.CatalogGrid_ApplyFilters then
+            NS.UI.CatalogGrid_ApplyFilters()
+        end
     end
     if NS.UI.RefreshDetailPanel then
         NS.UI.RefreshDetailPanel()
