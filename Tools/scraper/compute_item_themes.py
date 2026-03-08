@@ -230,6 +230,9 @@ NAME_PATTERNS: list[tuple[re.Pattern, str]] = [
     # Aesthetic — Macabre (haunted house, dark sanctum, crypt)
     (re.compile(r"\b(Spooky|Haunted|Ghastly|Macabre|Cursed)\b", re.I), "Macabre"),
     (re.compile(r"\b(Coffin|Cobweb|Tombstone|Gravestone|Skull)\b", re.I), "Macabre"),
+    (re.compile(r"\b(Candelabra|Candlestick)\b", re.I), "Macabre"),
+    (re.compile(r"\b(Dead|Death)\b", re.I), "Macabre"),
+    (re.compile(r"\b(Crypt|Mausoleum|Catacomb)\b", re.I), "Macabre"),
 
     # Aesthetic — Noble (palace, ballroom, gilded halls)
     (re.compile(r"\b(Ornate|Gilded|Regal|Opulent)\b", re.I), "Noble"),
@@ -306,6 +309,30 @@ NAME_PATTERNS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bHigh Exarch\b", re.I), "Sacred"),
     (re.compile(r"\bBlooming Light\b", re.I), "Sacred"),
 ]
+
+# ---------------------------------------------------------------------------
+# Cross-aesthetic conflict exclusions
+# ---------------------------------------------------------------------------
+# If an item is assigned to aesthetic A, and its name contains keywords for
+# a conflicting aesthetic B, the item is removed from A — UNLESS the item's
+# name ALSO contains keywords for A (genuinely multi-themed items are kept).
+
+AESTHETIC_CONFLICTS: dict[str, set[str]] = {
+    "Sacred":  {"Macabre", "Fel", "Void"},
+    "Macabre": {"Sacred"},
+    "Noble":   {"Rustic", "Pirate"},
+    "Rustic":  {"Noble"},
+    "Nature":  {"Fel", "Void", "Tinker"},
+    "Fae":     {"Fel", "Void"},
+    "Void":    {"Sacred"},
+    "Tinker":  {"Nature", "Fae"},
+    "Fel":     {"Sacred", "Nature", "Fae"},
+}
+
+# Manual annotations file: overrides produced by review_themes.py.
+# When present, annotated items use the manually selected aesthetics
+# instead of algorithmically computed ones.
+ANNOTATIONS_PATH = DATA_DIR / "manual_theme_annotations.json"
 
 
 # ---------------------------------------------------------------------------
@@ -472,6 +499,96 @@ def compute_themes() -> None:
             if "Sacred" not in normalized[did]:
                 normalized[did]["Sacred"] = MIN_SCORE_THRESHOLD
                 logger.info("  Curated Sacred: %d (%s)", did, item_names[did])
+
+    # ---------------------------------------------------------------------------
+    # Post-normalization: cross-aesthetic conflict exclusions
+    # ---------------------------------------------------------------------------
+    # Build aesthetic keyword lookup from existing NAME_PATTERNS
+    aesthetic_name_pats: dict[str, list[re.Pattern]] = defaultdict(list)
+    for pattern, theme in NAME_PATTERNS:
+        if theme in AESTHETIC_THEMES:
+            aesthetic_name_pats[theme].append(pattern)
+
+    # Capture before-counts for statistics
+    before_counts: dict[str, int] = defaultdict(int)
+    for itm_themes in normalized.values():
+        for theme in itm_themes:
+            if theme in AESTHETIC_THEMES:
+                before_counts[theme] += 1
+
+    # Apply automated exclusions
+    exclusions_log: dict[str, list[tuple[int, str]]] = defaultdict(list)
+
+    for did, itm_themes in list(normalized.items()):
+        name = item_names.get(did, "")
+        if not name:
+            continue
+
+        # Find which aesthetic keywords appear in this item's name
+        name_aesthetics: set[str] = set()
+        for theme, pats in aesthetic_name_pats.items():
+            for pat in pats:
+                if pat.search(name):
+                    name_aesthetics.add(theme)
+                    break
+
+        # For each assigned aesthetic, check for conflicting name keywords
+        themes_to_remove: list[str] = []
+        for theme in itm_themes:
+            if theme not in AESTHETIC_CONFLICTS:
+                continue
+            conflicting = AESTHETIC_CONFLICTS[theme] & name_aesthetics
+            has_own_keywords = theme in name_aesthetics
+            if conflicting and not has_own_keywords:
+                themes_to_remove.append(theme)
+
+        for theme in themes_to_remove:
+            del itm_themes[theme]
+            exclusions_log[theme].append((did, name))
+
+        if not itm_themes:
+            del normalized[did]
+
+    # Apply manual annotations (from review_themes.py)
+    annotations: dict = {}
+    if ANNOTATIONS_PATH.exists():
+        with open(ANNOTATIONS_PATH, encoding="utf-8") as f:
+            annotations = json.load(f)
+    annotation_count = 0
+    for did_str, ann in annotations.items():
+        did = int(did_str)
+        if did not in item_names:
+            continue
+        selected = set(ann.get("aesthetics", []))
+        if did not in normalized:
+            normalized[did] = {}
+        # Replace aesthetic assignments with manual selections;
+        # preserve culture themes from the algorithm
+        for theme in list(normalized[did]):
+            if THEME_GROUPS.get(theme) == "Aesthetic" and theme not in selected:
+                del normalized[did][theme]
+        for theme in selected:
+            if theme in AESTHETIC_THEMES and theme not in normalized[did]:
+                normalized[did][theme] = MIN_SCORE_THRESHOLD
+        annotation_count += 1
+        if not normalized[did]:
+            del normalized[did]
+    if annotation_count:
+        logger.info("  Manual annotations applied: %d items", annotation_count)
+
+    # Log exclusion statistics
+    total_excluded = sum(len(v) for v in exclusions_log.values())
+    if total_excluded:
+        logger.info("\n  Cross-aesthetic exclusions: %d removals", total_excluded)
+        for theme in sorted(exclusions_log.keys()):
+            items = exclusions_log[theme]
+            before = before_counts.get(theme, 0)
+            after = before - len(items)
+            logger.info("    %-20s %4d → %4d (-%d)", theme, before, after, len(items))
+            for did, name in items:
+                logger.info("      - [%d] %s", did, name)
+    else:
+        logger.info("  Cross-aesthetic exclusions: 0 removals (all clean)")
 
     logger.info("  Items with themes: %d / %d (%.1f%%)",
                 len(normalized), len(item_names),
