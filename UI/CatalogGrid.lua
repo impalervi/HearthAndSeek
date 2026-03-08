@@ -172,6 +172,12 @@ local SEARCH_SYNONYMS = {
     demonic     = { "fel" },
     shadow      = { "void" },
     cosmic      = { "void" },
+    -- Mail / Postal
+    mailbox     = { "postbox", "postal", "postbag" },
+    postbox     = { "mailbox", "postal", "postbag" },
+    postal      = { "mailbox", "postbox", "postbag" },
+    postbag     = { "mailbox", "postbox", "postal" },
+    mail        = { "mailbox", "postbox", "postal", "postbag" },
 }
 
 --- For short queries (≤3 chars), require word-boundary match to avoid false
@@ -1244,6 +1250,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         if hasQuery then
             local found = false
             local vendorLower = item.vendorName and item.vendorName:lower()
+            local kwLower = item.keywords and item.keywords:lower()
             local zoneLower = item.zone and item.zone:lower()
             local profLower = item.professionName and item.professionName:lower()
             local srcTypeLower = item.sourceType and item.sourceType:lower()
@@ -1258,6 +1265,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
                 local isOriginal = (ti == 1) -- only the user's query searches all fields
                 if FieldContains(name, term)
                     or FieldContains(vendorLower, term)
+                    or FieldContains(kwLower, term)
                     or (isOriginal and FieldContains(zoneLower, term))
                     or (isOriginal and FieldContains(srcDetailLower, term))
                     or (isOriginal and FieldContains(profLower, term))

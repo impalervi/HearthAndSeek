@@ -30,6 +30,7 @@ FACTION_QUEST_OVERRIDES_JSON = SCRIPT_DIR / "data" / "faction_quest_overrides.js
 VENDOR_REQUIREMENTS_JSON = SCRIPT_DIR / "data" / "vendor_requirements.json"
 SILVERMOON_VENDORS_JSON = SCRIPT_DIR / "data" / "silvermoon_vendors.json"
 THEMES_JSON = SCRIPT_DIR / "data" / "item_themes.json"
+KEYWORDS_JSON = SCRIPT_DIR / "data" / "item_keywords.json"
 LUA_OUTPUT = SCRIPT_DIR.parent.parent / "Data" / "CatalogData.lua"
 
 logging.basicConfig(
@@ -1798,6 +1799,11 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         score_parts = [f"[{tid}] = {score}" for tid, score in sorted(theme_scores.items())]
         lines.append(f"        themeScores = {{{', '.join(score_parts)}}},")
 
+    # Curated search keywords (from item_keywords.json)
+    kw = item.get("_keywords")
+    if kw:
+        lines.append(f"        keywords = {lua_string(kw)},")
+
     lines.append("    },")
     return "\n".join(lines)
 
@@ -1954,6 +1960,30 @@ def main() -> None:
                 themes_merged += 1
     if themes_merged:
         logger.info("Merged theme data into %d items", themes_merged)
+
+    # Load and merge curated search keywords
+    kw_map: dict[str, str] = {}
+    if KEYWORDS_JSON.exists():
+        with open(KEYWORDS_JSON, "r", encoding="utf-8") as f:
+            kw_data = json.load(f)
+        for group in kw_data.get("groups", {}).values():
+            kw = group.get("keywords", "")
+            for did in group.get("decorIDs", []):
+                existing = kw_map.get(str(did), "")
+                merged = (existing + " " + kw).strip()
+                kw_map[str(did)] = " ".join(sorted(set(merged.split())))
+        for did, kw in kw_data.get("items", {}).items():
+            existing = kw_map.get(did, "")
+            merged = (existing + " " + kw).strip()
+            kw_map[did] = " ".join(sorted(set(merged.split())))
+        kw_count = 0
+        for item in catalog:
+            kw = kw_map.get(str(item.get("decorID", "")))
+            if kw:
+                item["_keywords"] = kw
+                kw_count += 1
+        if kw_count:
+            logger.info("Applied search keywords to %d items", kw_count)
 
     # Load faction quest overrides (cross-faction quest chains)
     faction_quest_overrides: dict[str, dict] = {}
