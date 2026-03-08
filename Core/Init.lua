@@ -27,11 +27,13 @@ local DEFAULTS = {
         showWhatsNew = true,       -- auto-show "What's New" callouts on update
         filterCollapsed = {},      -- { [sectionID] = true } — persisted collapse states
         filterOrder = nil,         -- nil = default; array of section IDs when customized
+        rememberFilters = true,    -- persist filter selections across sessions
     },
     whatsNew = {
         lastSeenVersion = nil,     -- tracks which version's callouts were shown
     },
     favorites = {},         -- { [decorID] = true } — account-wide favorite decor items
+    savedFilters = nil,     -- serialized filter state (when rememberFilters is on)
 }
 
 local CHAR_DEFAULTS = {
