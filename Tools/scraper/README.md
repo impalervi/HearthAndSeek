@@ -383,7 +383,7 @@ cultural origins (Elven, Orcish, Human, Troll, etc.).
 - **Aesthetic** (15 themes): Arcane Sanctum, Cottage Hearth, Enchanted Grove,
   Feast Hall, Fel Forge, Haunted Manor, Royal Court, Sacred Temple,
   Scholar's Archive, Seafarer's Haven, Tinker's Workshop, Void Rift,
-  War Room, Wild Frontier, Wild Garden
+  War Room, Primal Camp, Wild Garden
 
 **Culture themes** use a three-source algorithm in `compute_item_themes.py`:
 1. Per-item tags (weight 3.0) from housing.wowdb.com

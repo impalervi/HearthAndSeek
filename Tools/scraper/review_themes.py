@@ -32,7 +32,7 @@ AESTHETIC_THEMES = [
     "Arcane Sanctum", "Cottage Hearth", "Enchanted Grove", "Feast Hall",
     "Fel Forge", "Haunted Manor", "Royal Court", "Sacred Temple",
     "Scholar's Archive", "Seafarer's Haven", "Tinker's Workshop",
-    "Void Rift", "War Room", "Wild Frontier", "Wild Garden",
+    "Void Rift", "War Room", "Primal Camp", "Wild Garden",
 ]
 
 # Theme colors for visual distinction
@@ -43,7 +43,7 @@ THEME_COLORS = {
     "Royal Court": "#ffcc33", "Sacred Temple": "#ffff66",
     "Scholar's Archive": "#cc9966", "Seafarer's Haven": "#cc6633",
     "Tinker's Workshop": "#66aacc", "Void Rift": "#9933cc",
-    "War Room": "#b38040", "Wild Frontier": "#996633",
+    "War Room": "#b38040", "Primal Camp": "#996633",
     "Wild Garden": "#339933",
 }
 

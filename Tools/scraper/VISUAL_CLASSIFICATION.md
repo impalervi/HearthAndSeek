@@ -34,7 +34,7 @@ achieves 76.7% accuracy vs 54.7% for the algorithm.
 | Tinker's Workshop | Gears, cogs, pipes, rockets, riveted metal | Gnomish/goblin devices, engineering gadgets, anvils, toolboxes |
 | Void Rift | Deep purple-black void energy, tentacles, cosmic horror | Void crystals, shadow-touched furniture, Old God motifs |
 | War Room | Weapon racks, battle banners, planning tables | Military equipment, mounted trophies, faction heraldry |
-| Wild Frontier | Hide, bone, antler, tusks, rough timber | War camp items, frontier lodge, tribal totems, hunting trophies |
+| Primal Camp | Hide, bone, antler, tusks, rough timber | War camp items, frontier lodge, tribal totems, hunting trophies |
 | Wild Garden | Plants, trees, flowers, boulders, grass patches | Garden pots, stone ornaments, bird feeders, vines, landscaping |
 
 ### How Categories Were Originally Discovered
@@ -203,7 +203,7 @@ CATEGORIES:
 - Tinker's Workshop: Gears, cogs, pipes, rockets, engineering
 - Void Rift: Deep purple-black void energy, tentacles, cosmic horror
 - War Room: Weapon racks, battle banners, military equipment
-- Wild Frontier: Hide, bone, antler, rough timber, tribal, rugged
+- Primal Camp: Hide, bone, antler, rough timber, tribal, rugged
 - Wild Garden: Plants, flowers, trees, garden items, landscaping
 
 For each item, provide:
@@ -373,7 +373,7 @@ for cat, dids in sorted(by_cat.items()):
 | Royal Court | 4/5 | Mostly consistent |
 | Sacred Temple | 4/5 | Mostly consistent |
 | Tinker's Workshop | 4/5 | Mostly consistent |
-| Wild Frontier | 4/5 | Mostly consistent |
+| Primal Camp | 4/5 | Mostly consistent |
 | Wild Garden | 4/5 | Mostly consistent |
 | Haunted Manor | 3/5 | Acceptable (broad scope) |
 | War Room | 3/5 | Acceptable (catch-all risk) |

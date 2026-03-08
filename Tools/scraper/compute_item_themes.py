@@ -129,14 +129,14 @@ TAG_TO_THEME: dict[str, str] = {
     "fel": "Fel Forge",
     "simple": "Cottage Hearth",
     "casual": "Cottage Hearth",
-    "bold": "Wild Frontier",
+    "bold": "Primal Camp",
     "pirate": "Seafarer's Haven",
     # Dropped (too vague / catch-all): cozy, cute, whimsical, romantic
     # Dropped (seasonal, too few items): spring, fall, summer
 
     # Aesthetic — tag-theme CSS class tags (wowdb meta-aesthetics)
     "opulent": "Royal Court",
-    "rugged": "Wild Frontier",
+    "rugged": "Primal Camp",
     "folk": "Cottage Hearth",
 
     # Aesthetic — set tags (room types from community sets)
@@ -166,7 +166,7 @@ AESTHETIC_THEMES = {
     "Haunted Manor",        # Coffins, cobwebs, spiked iron, gothic decay
     "Royal Court",          # Palace, ballroom, formal dining, gilded halls
     "Cottage Hearth",       # Cottage, farmhouse, homespun, pastoral
-    "Wild Frontier",        # War camp, frontier lodge, tribal outpost
+    "Primal Camp",        # War camp, frontier lodge, tribal outpost
     "Wild Garden",          # Druidic grove, wilderness, landscaping
     "Enchanted Grove",      # Moonlit wood, fae-touched, Ardenweald magic
     "Void Rift",            # Shadow realm, K'areshi, cosmic horror

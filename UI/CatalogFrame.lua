@@ -72,21 +72,21 @@ local FILTER_SECTIONS = {
         toggle = "CatalogGrid_ToggleTheme",
         -- Per-theme colors keyed by theme name
         themeColors = {
-            ["Arcane Sanctum"]     = { 0.60, 0.40, 0.90 },  -- purple
-            ["Cottage Hearth"]     = { 0.80, 0.65, 0.45 },  -- warm straw
-            ["Enchanted Grove"]    = { 0.55, 0.85, 0.65 },  -- mint green
-            ["Feast Hall"]         = { 0.80, 0.60, 0.30 },  -- amber
-            ["Fel Forge"]          = { 0.55, 0.80, 0.25 },  -- fel green
-            ["Haunted Manor"]      = { 0.65, 0.45, 0.55 },  -- dusty rose
-            ["Royal Court"]        = { 0.85, 0.75, 0.35 },  -- gold
-            ["Sacred Temple"]      = { 0.90, 0.85, 0.50 },  -- holy light
-            ["Scholar's Archive"]  = { 0.75, 0.65, 0.45 },  -- parchment tan
-            ["Seafarer's Haven"]   = { 0.70, 0.55, 0.40 },  -- weathered wood
-            ["Tinker's Workshop"]  = { 0.60, 0.70, 0.75 },  -- steel blue
-            ["Void Rift"]          = { 0.50, 0.35, 0.70 },  -- deep violet
-            ["War Room"]           = { 0.70, 0.55, 0.35 },  -- bronze
-            ["Wild Frontier"]      = { 0.65, 0.55, 0.45 },  -- leather brown
-            ["Wild Garden"]        = { 0.40, 0.75, 0.40 },  -- forest green
+            ["Arcane Sanctum"]     = { 0.65, 0.40, 0.95 },  -- bright purple
+            ["Cottage Hearth"]     = { 0.85, 0.60, 0.30 },  -- warm orange
+            ["Enchanted Grove"]    = { 0.30, 0.80, 0.70 },  -- teal/cyan
+            ["Feast Hall"]         = { 0.85, 0.40, 0.30 },  -- warm red
+            ["Fel Forge"]          = { 0.45, 0.85, 0.20 },  -- toxic green
+            ["Haunted Manor"]      = { 0.55, 0.50, 0.65 },  -- muted violet
+            ["Royal Court"]        = { 0.90, 0.78, 0.25 },  -- gold
+            ["Sacred Temple"]      = { 0.95, 0.88, 0.50 },  -- holy light
+            ["Scholar's Archive"]  = { 0.78, 0.65, 0.45 },  -- parchment tan
+            ["Seafarer's Haven"]   = { 0.30, 0.60, 0.80 },  -- ocean blue
+            ["Tinker's Workshop"]  = { 0.65, 0.72, 0.78 },  -- steel grey
+            ["Void Rift"]          = { 0.45, 0.25, 0.70 },  -- deep indigo
+            ["War Room"]           = { 0.80, 0.35, 0.30 },  -- crimson
+            ["Primal Camp"]        = { 0.70, 0.50, 0.30 },  -- earth brown
+            ["Wild Garden"]        = { 0.35, 0.72, 0.35 },  -- forest green
         },
     },
     {

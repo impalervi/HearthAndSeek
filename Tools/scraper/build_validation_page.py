@@ -24,7 +24,7 @@ AESTHETICS = [
     "Arcane Sanctum", "Cottage Hearth", "Enchanted Grove", "Feast Hall",
     "Fel Forge", "Haunted Manor", "Royal Court", "Sacred Temple",
     "Scholar's Archive", "Seafarer's Haven", "Tinker's Workshop",
-    "Void Rift", "War Room", "Wild Frontier", "Wild Garden",
+    "Void Rift", "War Room", "Primal Camp", "Wild Garden",
 ]
 
 AESTHETIC_COLORS = {
@@ -34,7 +34,7 @@ AESTHETIC_COLORS = {
     "Royal Court": "#f1c40f", "Sacred Temple": "#f39c12",
     "Scholar's Archive": "#d4a574", "Seafarer's Haven": "#e67e22",
     "Tinker's Workshop": "#3498db", "Void Rift": "#8e44ad",
-    "War Room": "#7f8c8d", "Wild Frontier": "#795548",
+    "War Room": "#7f8c8d", "Primal Camp": "#795548",
     "Wild Garden": "#16a085",
 }
 
