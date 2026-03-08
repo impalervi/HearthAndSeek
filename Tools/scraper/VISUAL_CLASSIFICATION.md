@@ -406,7 +406,6 @@ If a future expansion introduces a distinctly new aesthetic (e.g., "Titan
 Forge" for Titan-themed items), add it to:
 1. `AESTHETIC_THEMES` in `compute_item_themes.py`
 2. `themeColors` in `UI/CatalogFrame.lua`
-3. `THEME_COLORS` in `UI/ThemeReviewer.lua`
-4. `AESTHETICS` and `AESTHETIC_COLORS` in `build_validation_page.py`
-5. The classification prompt (Step 4 above)
-6. This document's category table
+3. `AESTHETICS` and `AESTHETIC_COLORS` in `build_validation_page.py`
+4. The classification prompt (Step 4 above)
+5. This document's category table

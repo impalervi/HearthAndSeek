@@ -34,4 +34,3 @@ UI\CatalogFrame.lua
 UI\CatalogGrid.lua
 UI\CatalogDetail.lua
 UI\WhatsNew.lua
-UI\ThemeReviewer.lua
