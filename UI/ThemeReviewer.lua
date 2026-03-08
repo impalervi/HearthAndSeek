@@ -32,21 +32,21 @@ end
 table.sort(AESTHETIC_NAMES)
 
 local THEME_COLORS = {
-    Arcane     = { 0.60, 0.40, 1.00 },
-    Armory     = { 0.80, 0.40, 0.00 },
-    Fae        = { 0.40, 0.80, 0.60 },
-    Fel        = { 0.20, 0.80, 0.20 },
-    Lorekeeper = { 0.80, 0.60, 0.40 },
-    Macabre    = { 0.60, 0.40, 0.60 },
-    Nature     = { 0.20, 0.60, 0.20 },
-    Noble      = { 1.00, 0.80, 0.20 },
-    Pirate     = { 0.80, 0.40, 0.20 },
-    Rugged     = { 0.60, 0.40, 0.20 },
-    Rustic     = { 0.80, 0.60, 0.20 },
-    Sacred     = { 1.00, 1.00, 0.40 },
-    Tavern     = { 0.80, 0.40, 0.00 },
-    Tinker     = { 0.40, 0.67, 0.80 },
-    Void       = { 0.60, 0.20, 0.80 },
+    ["Arcane Sanctum"]     = { 0.60, 0.40, 1.00 },
+    ["Cottage Hearth"]     = { 0.80, 0.60, 0.20 },
+    ["Enchanted Grove"]    = { 0.40, 0.80, 0.60 },
+    ["Feast Hall"]         = { 0.80, 0.40, 0.00 },
+    ["Fel Forge"]          = { 0.20, 0.80, 0.20 },
+    ["Haunted Manor"]      = { 0.60, 0.40, 0.60 },
+    ["Royal Court"]        = { 1.00, 0.80, 0.20 },
+    ["Sacred Temple"]      = { 1.00, 1.00, 0.40 },
+    ["Scholar's Archive"]  = { 0.80, 0.60, 0.40 },
+    ["Seafarer's Haven"]   = { 0.80, 0.40, 0.20 },
+    ["Tinker's Workshop"]  = { 0.40, 0.67, 0.80 },
+    ["Void Rift"]          = { 0.60, 0.20, 0.80 },
+    ["War Room"]           = { 0.70, 0.55, 0.35 },
+    ["Wild Frontier"]      = { 0.60, 0.40, 0.20 },
+    ["Wild Garden"]        = { 0.20, 0.60, 0.20 },
 }
 
 local PANEL_WIDTH    = 460

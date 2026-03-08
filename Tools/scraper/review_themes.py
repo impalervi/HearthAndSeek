@@ -14,7 +14,7 @@ Uncertainty criteria (an item is flagged if >= 3 of these apply):
 Usage:
     python review_themes.py              # Review uncertain items
     python review_themes.py --all        # Review ALL themed items
-    python review_themes.py --theme Fae  # Review items in a specific aesthetic
+    python review_themes.py --theme "Enchanted Grove"  # Review items in a specific aesthetic
 """
 
 import json
@@ -29,18 +29,22 @@ CATALOG_PATH = DATA_DIR / "enriched_catalog.json"
 ANNOTATIONS_PATH = DATA_DIR / "manual_theme_annotations.json"
 
 AESTHETIC_THEMES = [
-    "Arcane", "Armory", "Fae", "Fel", "Lorekeeper", "Macabre",
-    "Nature", "Noble", "Pirate", "Rugged", "Rustic", "Sacred",
-    "Tavern", "Tinker", "Void",
+    "Arcane Sanctum", "Cottage Hearth", "Enchanted Grove", "Feast Hall",
+    "Fel Forge", "Haunted Manor", "Royal Court", "Sacred Temple",
+    "Scholar's Archive", "Seafarer's Haven", "Tinker's Workshop",
+    "Void Rift", "War Room", "Wild Frontier", "Wild Garden",
 ]
 
 # Theme colors for visual distinction
 THEME_COLORS = {
-    "Arcane": "#9966ff", "Armory": "#cc6600", "Fae": "#66cc99",
-    "Fel": "#33cc33", "Lorekeeper": "#cc9966", "Macabre": "#996699",
-    "Nature": "#339933", "Noble": "#ffcc33", "Pirate": "#cc6633",
-    "Rugged": "#996633", "Rustic": "#cc9933", "Sacred": "#ffff66",
-    "Tavern": "#cc6600", "Tinker": "#66aacc", "Void": "#9933cc",
+    "Arcane Sanctum": "#9966ff", "Cottage Hearth": "#cc9933",
+    "Enchanted Grove": "#66cc99", "Feast Hall": "#cc6600",
+    "Fel Forge": "#33cc33", "Haunted Manor": "#996699",
+    "Royal Court": "#ffcc33", "Sacred Temple": "#ffff66",
+    "Scholar's Archive": "#cc9966", "Seafarer's Haven": "#cc6633",
+    "Tinker's Workshop": "#66aacc", "Void Rift": "#9933cc",
+    "War Room": "#b38040", "Wild Frontier": "#996633",
+    "Wild Garden": "#339933",
 }
 
 
@@ -280,7 +284,7 @@ class ThemeReviewer:
         score_lines = []
         for theme, score in sorted(aesthetics.items(), key=lambda x: -x[1]):
             bar = "█" * (score // 10) + "░" * (10 - score // 10)
-            score_lines.append(f"  {theme:<14} {bar} {score:3d}")
+            score_lines.append(f"  {theme:<20} {bar} {score:3d}")
         self.scores_label.config(text="\n".join(score_lines) if score_lines else "  (none)")
 
         # Set checkboxes from annotation or current scores
