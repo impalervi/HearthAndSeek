@@ -1,0 +1,9 @@
+v1.3.1
+
+Improvements
+- Improved Aesthetic filter consistency — items reclassified for better visual accuracy across all categories
+- Renamed "Expansion" filter to "Zone" for clarity
+- Filter selections now persist across interface reloads
+
+Bug Fixes
+- Fixed vendor and treasure zone text wrapping and truncation in the detail panel
