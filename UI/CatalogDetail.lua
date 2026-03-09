@@ -2500,68 +2500,10 @@ function NS.UI.InitCatalogDetail(parent)
     vendorZoneHit:Hide()
     parent._vendorZoneHit = vendorZoneHit
 
-    -- Alternate vendor: "Purchase from <NPC>" (auto-width, no right anchor)
-    -- Shown for items available in both neighborhoods (factionVendors) or alt vendors.
-    parent._altVendorLine = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    parent._altVendorLine:SetJustifyH("LEFT")
-    parent._altVendorLine:SetWordWrap(false)
-    parent._altVendorLine:Hide()
-
-    -- Hit frame for alternate vendor NPC (CTRL+Left = Wowhead link)
-    local altVendorHit = CreateFrame("Frame", nil, middleChild)
-    altVendorHit:SetAllPoints(parent._altVendorLine)
-    altVendorHit:EnableMouse(true)
-    altVendorHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
-    altVendorHit:SetScript("OnEnter", function(self)
-        if not self._vendorName then return end
-        SetCursor("INSPECT_CURSOR")
-        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:AddLine(self._vendorName or "Vendor", 0.25, 0.69, 1)
-        GameTooltip:AddLine(" ")
-        if self._npcID then
-            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
-        end
-        GameTooltip:Show()
-    end)
-    altVendorHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
-    altVendorHit:SetScript("OnMouseUp", function(self, button)
-        if not IsControlKeyDown() then return end
-        if button == "LeftButton" and self._npcID then
-            ShowCopyableURL("https://www.wowhead.com/npc=" .. self._npcID)
-        end
-    end)
-    altVendorHit:Hide()
-    parent._altVendorHit = altVendorHit
-
-    -- Alternate vendor zone part: " in <Zone>" (inline or wrapped below)
-    parent._altVendorZonePart = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    parent._altVendorZonePart:SetJustifyH("LEFT")
-    parent._altVendorZonePart:SetWordWrap(false)
-    parent._altVendorZonePart:Hide()
-
-    -- Hit frame for alternate vendor zone (CTRL+Right Click = open zone map)
-    local altVendorZoneHit = CreateFrame("Frame", nil, middleChild)
-    altVendorZoneHit:SetAllPoints(parent._altVendorZonePart)
-    altVendorZoneHit:EnableMouse(true)
-    altVendorZoneHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
-    altVendorZoneHit:SetScript("OnEnter", function(self)
-        if not self._zoneName or self._zoneName == "Arcantina" then return end
-        SetCursor("INSPECT_CURSOR")
-        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:AddLine(self._zoneName, 1, 1, 1)
-        GameTooltip:AddLine(" ")
-        GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to view zone map")
-        GameTooltip:Show()
-    end)
-    altVendorZoneHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
-    altVendorZoneHit:SetScript("OnMouseUp", function(self, button)
-        if button ~= "RightButton" or not IsControlKeyDown() then return end
-        if not self._zoneName or self._zoneName == "Arcantina" then return end
-        local mapID = GetOpenableMapID(self._zoneName)
-        ForceOpenWorldMap(mapID)
-    end)
-    altVendorZoneHit:Hide()
-    parent._altVendorZoneHit = altVendorZoneHit
+    -- Additional vendor pool: dynamically created entries for multi-vendor items.
+    -- Each entry has: .line (FontString), .hit (Frame), .zonePart (FontString), .zoneHit (Frame)
+    parent._additionalVendorPool = {}
+    parent._additionalVendorCount = 0  -- how many are currently shown
 
     -- Vendor note: "(available after completing the quest)" etc.
     parent._vendorNote = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -2965,6 +2907,109 @@ local function PopulateDetailsFlyout(item)
     flyout:SetHeight(contentH)
 end
 
+--- Create (or reuse) an additional vendor pool entry at index `idx` (1-based).
+--- Each entry has: .line (FontString), .hit (Frame), .zonePart (FontString), .zoneHit (Frame)
+local function EnsureAdditionalVendorEntry(idx)
+    if detailPanel._additionalVendorPool[idx] then
+        return detailPanel._additionalVendorPool[idx]
+    end
+    local mc = detailPanel._middleChild
+
+    local line = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    line:SetJustifyH("LEFT")
+    line:SetWordWrap(false)
+    line:Hide()
+
+    local hit = CreateFrame("Frame", nil, mc)
+    hit:SetAllPoints(line)
+    hit:EnableMouse(true)
+    hit:SetFrameLevel(mc:GetFrameLevel() + 3)
+    hit:SetScript("OnEnter", function(self)
+        if not self._vendorName then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._vendorName or "Vendor", 0.25, 0.69, 1)
+        GameTooltip:AddLine(" ")
+        if self._npcID then
+            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
+        end
+        if self._vendorX and self._vendorZone and self._vendorZone ~= "Arcantina" then
+            GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to set waypoint & view map")
+        end
+        GameTooltip:Show()
+    end)
+    hit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    hit:SetScript("OnMouseUp", function(self, button)
+        if not IsControlKeyDown() then return end
+        if button == "LeftButton" and self._npcID then
+            ShowCopyableURL("https://www.wowhead.com/npc=" .. self._npcID)
+        elseif button == "RightButton" and self._vendorZone
+                and self._vendorZone ~= "Arcantina" then
+            local mapID, coordsTrusted = ResolveNavigableMap(self._vendorZone)
+            if mapID and coordsTrusted and self._vendorX and self._vendorY then
+                if NS.Navigation and NS.Navigation.SetWaypoint then
+                    NS.Navigation.SetWaypoint(mapID, self._vendorX, self._vendorY,
+                        (self._vendorName or "Vendor") .. " (" .. self._vendorZone .. ")")
+                    ForceOpenWorldMap(mapID)
+                    if NS.Utils and NS.Utils.PrintMessage then
+                        NS.Utils.PrintMessage("Waypoint set: " .. (self._vendorName or "Vendor")
+                            .. " in " .. self._vendorZone)
+                    end
+                end
+            else
+                ForceOpenWorldMap(mapID)
+            end
+        end
+    end)
+    hit:Hide()
+
+    local zonePart = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    zonePart:SetJustifyH("LEFT")
+    zonePart:SetWordWrap(false)
+    zonePart:Hide()
+
+    local zoneHit = CreateFrame("Frame", nil, mc)
+    zoneHit:SetAllPoints(zonePart)
+    zoneHit:EnableMouse(true)
+    zoneHit:SetFrameLevel(mc:GetFrameLevel() + 3)
+    zoneHit:SetScript("OnEnter", function(self)
+        if not self._zoneName or self._zoneName == "Arcantina" then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._zoneName, 1, 1, 1)
+        GameTooltip:AddLine(" ")
+        GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to view zone map")
+        GameTooltip:Show()
+    end)
+    zoneHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    zoneHit:SetScript("OnMouseUp", function(self, button)
+        if button ~= "RightButton" or not IsControlKeyDown() then return end
+        if not self._zoneName or self._zoneName == "Arcantina" then return end
+        local mapID = GetOpenableMapID(self._zoneName)
+        ForceOpenWorldMap(mapID)
+    end)
+    zoneHit:Hide()
+
+    local entry = { line = line, hit = hit, zonePart = zonePart, zoneHit = zoneHit, zoneWrapped = false }
+    detailPanel._additionalVendorPool[idx] = entry
+    return entry
+end
+
+--- Hide all additional vendor pool entries.
+local function HideAllAdditionalVendors()
+    for i = 1, detailPanel._additionalVendorCount do
+        local e = detailPanel._additionalVendorPool[i]
+        if e then
+            e.line:Hide()
+            e.hit:Hide()
+            e.zonePart:Hide()
+            e.zoneHit:Hide()
+            e.zoneWrapped = false
+        end
+    end
+    detailPanel._additionalVendorCount = 0
+end
+
 function NS.UI.CatalogDetail_ShowItem(item)
     if not detailPanel or not item then return end
     detailPanel._currentItem = item
@@ -3281,7 +3326,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     end
 
     local vendorZoneWrapped = false
-    local altVendorZoneWrapped = false
+
     if vendorName then
         -- "Purchase from <faction icon> <NPC>" (auto-width for separate hit region)
         local factionIcon = ""
@@ -3343,119 +3388,133 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorZoneHit:Hide()
         end
 
-        -- Alternate faction vendor (shown for items in both neighborhoods)
+        -- Additional vendors: faction alt vendor + additionalVendors (multi-zone)
+        HideAllAdditionalVendors()
         local altAnchor = vendorZoneWrapped
             and detailPanel._vendorZonePart or detailPanel._vendorLine
+        local avIdx = 0
+
+        -- Faction alt vendor (shown for items in both neighborhoods)
         if item.factionVendors then
             local playerFaction = GetPlayerFaction()
             local altFaction = (playerFaction == "Alliance") and "Horde" or "Alliance"
             local altFv = item.factionVendors[altFaction]
             if altFv and altFv.name and altFv.name ~= "" then
+                avIdx = avIdx + 1
+                local e = EnsureAdditionalVendorEntry(avIdx)
                 local altZone = altFv.zone or ""
                 local altIcon = (FACTION_ICONS[altFaction] or "") .. " "
                 local altNpcText = "|cff40b0ffPurchase from|r " .. altIcon .. altFv.name
-                detailPanel._altVendorLine:ClearAllPoints()
-                detailPanel._altVendorLine:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-                detailPanel._altVendorLine:SetText(altNpcText)
-                detailPanel._altVendorLine:Show()
+                e.line:ClearAllPoints()
+                e.line:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
+                e.line:SetText(altNpcText)
+                e.line:Show()
 
-                detailPanel._altVendorHit._vendorName = altFv.name
-                detailPanel._altVendorHit._npcID = altFv.npcID
-                detailPanel._altVendorHit:ClearAllPoints()
-                detailPanel._altVendorHit:SetAllPoints(detailPanel._altVendorLine)
-                detailPanel._altVendorHit:Show()
+                e.hit._vendorName = altFv.name
+                e.hit._npcID = altFv.npcID
+                e.hit:ClearAllPoints()
+                e.hit:SetAllPoints(e.line)
+                e.hit:Show()
 
-                -- Zone part: " in <Zone>" inline or wrapped below
+                e.zoneWrapped = false
                 if altZone ~= "" then
                     local zoneHex = FACTION_ZONE_COLORS[altZone] or "AAAAAA"
                     local altZoneDisplay = "|cff" .. zoneHex .. altZone .. "|r"
                     local altInlineText = " |cff888888in|r " .. altZoneDisplay
                     local altWrappedText = "|cff888888in|r " .. altZoneDisplay
-                    detailPanel._altVendorZonePart:SetText(altInlineText)
-                    detailPanel._altVendorZonePart:ClearAllPoints()
-                    local availableW = detailPanel._middleChild:GetWidth() - 4
-                    local altVendorW = detailPanel._altVendorLine:GetStringWidth() or 0
-                    local altZoneW = detailPanel._altVendorZonePart:GetStringWidth() or 0
-                    if (altVendorW + altZoneW) > availableW then
-                        detailPanel._altVendorZonePart:SetText(altWrappedText)
-                        detailPanel._altVendorZonePart:SetWordWrap(true)
-                        detailPanel._altVendorZonePart:SetPoint("TOPLEFT", detailPanel._altVendorLine, "BOTTOMLEFT", 0, -1)
-                        detailPanel._altVendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                        altVendorZoneWrapped = true
+                    e.zonePart:SetText(altInlineText)
+                    e.zonePart:ClearAllPoints()
+                    local availW = detailPanel._middleChild:GetWidth() - 4
+                    local altVW = e.line:GetStringWidth() or 0
+                    local altZW = e.zonePart:GetStringWidth() or 0
+                    if (altVW + altZW) > availW then
+                        e.zonePart:SetText(altWrappedText)
+                        e.zonePart:SetWordWrap(true)
+                        e.zonePart:SetPoint("TOPLEFT", e.line, "BOTTOMLEFT", 0, -1)
+                        e.zonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                        e.zoneWrapped = true
                     else
-                        detailPanel._altVendorZonePart:SetWordWrap(false)
-                        detailPanel._altVendorZonePart:SetPoint("LEFT", detailPanel._altVendorLine, "RIGHT", 0, 0)
+                        e.zonePart:SetWordWrap(false)
+                        e.zonePart:SetPoint("LEFT", e.line, "RIGHT", 0, 0)
                     end
-                    detailPanel._altVendorZonePart:Show()
-                    detailPanel._altVendorZoneHit._zoneName = altZone
-                    detailPanel._altVendorZoneHit:ClearAllPoints()
-                    detailPanel._altVendorZoneHit:SetAllPoints(detailPanel._altVendorZonePart)
-                    detailPanel._altVendorZoneHit:Show()
+                    e.zonePart:Show()
+                    e.zoneHit._zoneName = altZone
+                    e.zoneHit:ClearAllPoints()
+                    e.zoneHit:SetAllPoints(e.zonePart)
+                    e.zoneHit:Show()
                 else
-                    detailPanel._altVendorZonePart:Hide()
-                    detailPanel._altVendorZoneHit._zoneName = nil
-                    detailPanel._altVendorZoneHit:Hide()
+                    e.zonePart:Hide()
+                    e.zoneHit._zoneName = nil
+                    e.zoneHit:Hide()
                 end
-                altAnchor = altVendorZoneWrapped
-                    and detailPanel._altVendorZonePart or detailPanel._altVendorLine
-            else
-                detailPanel._altVendorLine:Hide()
-                detailPanel._altVendorHit:Hide()
-                detailPanel._altVendorZonePart:Hide()
-                detailPanel._altVendorZoneHit:Hide()
+                altAnchor = e.zoneWrapped and e.zonePart or e.line
             end
-        elseif item.altVendorName and item.altVendorName ~= "" then
-            -- Non-faction alt vendor (e.g. item sold by two vendors in same zone)
-            local altZone = item.altVendorZone or item.zone or ""
-            local altNpcText = "|cff40b0ffPurchase from|r " .. item.altVendorName
-            detailPanel._altVendorLine:ClearAllPoints()
-            detailPanel._altVendorLine:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-            detailPanel._altVendorLine:SetText(altNpcText)
-            detailPanel._altVendorLine:Show()
-
-            detailPanel._altVendorHit._vendorName = item.altVendorName
-            detailPanel._altVendorHit._npcID = item.altNpcID
-            detailPanel._altVendorHit:ClearAllPoints()
-            detailPanel._altVendorHit:SetAllPoints(detailPanel._altVendorLine)
-            detailPanel._altVendorHit:Show()
-
-            -- Zone part: " in <Zone>" inline or wrapped below
-            if altZone ~= "" then
-                local altInlineText = " |cff888888in|r " .. altZone
-                local altWrappedText = "|cff888888in|r " .. altZone
-                detailPanel._altVendorZonePart:SetText(altInlineText)
-                detailPanel._altVendorZonePart:ClearAllPoints()
-                local availableW = detailPanel._middleChild:GetWidth() - 4
-                local altVendorW = detailPanel._altVendorLine:GetStringWidth() or 0
-                local altZoneW = detailPanel._altVendorZonePart:GetStringWidth() or 0
-                if (altVendorW + altZoneW) > availableW then
-                    detailPanel._altVendorZonePart:SetText(altWrappedText)
-                    detailPanel._altVendorZonePart:SetWordWrap(true)
-                    detailPanel._altVendorZonePart:SetPoint("TOPLEFT", detailPanel._altVendorLine, "BOTTOMLEFT", 0, -1)
-                    detailPanel._altVendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                    altVendorZoneWrapped = true
-                else
-                    detailPanel._altVendorZonePart:SetWordWrap(false)
-                    detailPanel._altVendorZonePart:SetPoint("LEFT", detailPanel._altVendorLine, "RIGHT", 0, 0)
-                end
-                detailPanel._altVendorZonePart:Show()
-                detailPanel._altVendorZoneHit._zoneName = altZone
-                detailPanel._altVendorZoneHit:ClearAllPoints()
-                detailPanel._altVendorZoneHit:SetAllPoints(detailPanel._altVendorZonePart)
-                detailPanel._altVendorZoneHit:Show()
-            else
-                detailPanel._altVendorZonePart:Hide()
-                detailPanel._altVendorZoneHit._zoneName = nil
-                detailPanel._altVendorZoneHit:Hide()
-            end
-            altAnchor = altVendorZoneWrapped
-                and detailPanel._altVendorZonePart or detailPanel._altVendorLine
-        else
-            detailPanel._altVendorLine:Hide()
-            detailPanel._altVendorHit:Hide()
-            detailPanel._altVendorZonePart:Hide()
-            detailPanel._altVendorZoneHit:Hide()
         end
+
+        -- Additional vendors from multi-zone vendor discovery
+        if item.additionalVendors then
+            for _, av in ipairs(item.additionalVendors) do
+                if av.name and av.name ~= "" then
+                    avIdx = avIdx + 1
+                    local e = EnsureAdditionalVendorEntry(avIdx)
+                    local avZone = av.zone or ""
+                    local factionIcon = ""
+                    if av.faction then
+                        factionIcon = (FACTION_ICONS[av.faction] or "") .. " "
+                    end
+                    local avNpcText = "|cff40b0ffPurchase from|r " .. factionIcon .. av.name
+                    e.line:ClearAllPoints()
+                    e.line:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
+                    e.line:SetText(avNpcText)
+                    e.line:Show()
+
+                    e.hit._vendorName = av.name
+                    e.hit._npcID = av.npcID
+                    e.hit._vendorX = av.x
+                    e.hit._vendorY = av.y
+                    e.hit._vendorZone = av.zone
+                    e.hit:ClearAllPoints()
+                    e.hit:SetAllPoints(e.line)
+                    e.hit:Show()
+
+                    e.zoneWrapped = false
+                    if avZone ~= "" then
+                        local zoneHex = FACTION_ZONE_COLORS[avZone]
+                        local zoneDisplay = zoneHex
+                            and ("|cff" .. zoneHex .. avZone .. "|r")
+                            or avZone
+                        local avInline = " |cff888888in|r " .. zoneDisplay
+                        local avWrapped = "|cff888888in|r " .. zoneDisplay
+                        e.zonePart:SetText(avInline)
+                        e.zonePart:ClearAllPoints()
+                        local availW = detailPanel._middleChild:GetWidth() - 4
+                        local avVW = e.line:GetStringWidth() or 0
+                        local avZW = e.zonePart:GetStringWidth() or 0
+                        if (avVW + avZW) > availW then
+                            e.zonePart:SetText(avWrapped)
+                            e.zonePart:SetWordWrap(true)
+                            e.zonePart:SetPoint("TOPLEFT", e.line, "BOTTOMLEFT", 0, -1)
+                            e.zonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                            e.zoneWrapped = true
+                        else
+                            e.zonePart:SetWordWrap(false)
+                            e.zonePart:SetPoint("LEFT", e.line, "RIGHT", 0, 0)
+                        end
+                        e.zonePart:Show()
+                        e.zoneHit._zoneName = avZone
+                        e.zoneHit:ClearAllPoints()
+                        e.zoneHit:SetAllPoints(e.zonePart)
+                        e.zoneHit:Show()
+                    else
+                        e.zonePart:Hide()
+                        e.zoneHit._zoneName = nil
+                        e.zoneHit:Hide()
+                    end
+                    altAnchor = e.zoneWrapped and e.zonePart or e.line
+                end
+            end
+        end
+        detailPanel._additionalVendorCount = avIdx
 
         -- Note below vendor line (e.g. "available after completing the quest")
         if vendorNoteText then
@@ -3659,10 +3718,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorZoneHit:Hide()
             detailPanel._vendorNote:Hide()
         end
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
 
     elseif item.sourceType == "Drop" and item.zone and item.zone ~= ""
             and item.zone ~= "Midnight Delves" then
@@ -3692,10 +3748,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit:Show()
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit:Hide()
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
     else
         detailPanel._vendorLine:Hide()
@@ -3709,10 +3762,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit._zoneName = nil
         detailPanel._vendorZoneHit:Hide()
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
 
         -- Additional Treasure source: show treasure info for non-Treasure primary items
@@ -3775,10 +3825,14 @@ function NS.UI.CatalogDetail_ShowItem(item)
     if showVendorLine then
         if detailPanel._vendorNote:IsShown() then
             chainAnchor = detailPanel._vendorNote
-        elseif detailPanel._altVendorZonePart:IsShown() and altVendorZoneWrapped then
-            chainAnchor = detailPanel._altVendorZonePart
-        elseif detailPanel._altVendorLine:IsShown() then
-            chainAnchor = detailPanel._altVendorLine
+        elseif detailPanel._additionalVendorCount > 0 then
+            -- Walk down to last visible additional vendor entry
+            local lastE = detailPanel._additionalVendorPool[detailPanel._additionalVendorCount]
+            if lastE.zoneWrapped then
+                chainAnchor = lastE.zonePart
+            else
+                chainAnchor = lastE.line
+            end
         elseif vendorZoneWrapped then
             chainAnchor = detailPanel._vendorZonePart
         else
@@ -5045,11 +5099,14 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if detailPanel._vendorNote:IsShown() then
             sourceH = sourceH + 2 + (detailPanel._vendorNote:GetStringHeight() or 14)
         end
-        if detailPanel._altVendorLine:IsShown() then
-            sourceH = sourceH + 1 + (detailPanel._altVendorLine:GetStringHeight() or 14)
-        end
-        if detailPanel._altVendorZonePart:IsShown() and altVendorZoneWrapped then
-            sourceH = sourceH + 1 + (detailPanel._altVendorZonePart:GetStringHeight() or 14)
+        for i = 1, detailPanel._additionalVendorCount do
+            local e = detailPanel._additionalVendorPool[i]
+            if e and e.line:IsShown() then
+                sourceH = sourceH + 1 + (e.line:GetStringHeight() or 14)
+            end
+            if e and e.zoneWrapped and e.zonePart:IsShown() then
+                sourceH = sourceH + 1 + (e.zonePart:GetStringHeight() or 14)
+            end
         end
         if detailPanel._treasureLine:IsShown() then
             sourceH = sourceH + 6 + (detailPanel._treasureLine:GetStringHeight() or 14)

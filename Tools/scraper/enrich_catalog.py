@@ -2023,6 +2023,113 @@ def main() -> None:
         logger.info("  No quest reward:  %d", p6_stats["no_quest"])
 
     # -----------------------------------------------------------------------
+    # Phase 7: Multi-vendor discovery
+    # -----------------------------------------------------------------------
+    # Items sourced from Vendors may be sold by NPCs in multiple zones
+    # (e.g. Bolt Chair is sold in Mechagon, Stormwind, Orgrimmar, Dornogal).
+    # We scrape Wowhead sold-by data and attach _allVendors lists so the
+    # output stage can pick the best primary vendor and list the rest.
+    # Items that already have factionVendors are skipped (handled by Phase 5).
+    # -----------------------------------------------------------------------
+    multi_vendor_items = [
+        item for item in enriched
+        if item.get("itemID")
+        and any(s.get("type") == "Vendor" for s in (item.get("sources") or []))
+        and not item.get("factionVendors")
+    ]
+
+    if multi_vendor_items:
+        logger.info("")
+        logger.info("=" * 60)
+        logger.info("PHASE 7: Multi-vendor discovery (items sold in multiple zones)")
+        logger.info("=" * 60)
+        logger.info("Checking %d vendor-sourced items for multi-vendor data",
+                    len(multi_vendor_items))
+
+        p7_stats = {
+            "scraped": 0, "multi_vendor": 0, "single_vendor": 0,
+            "no_data": 0, "total_additional": 0,
+        }
+        p7_updated_items = []  # for statistics output
+
+        for item in multi_vendor_items:
+            item_id = item["itemID"]
+            vendors = fetch_item_sold_by(item_id)
+            p7_stats["scraped"] += 1
+
+            if not vendors:
+                p7_stats["no_data"] += 1
+                continue
+
+            if len(vendors) < 2:
+                p7_stats["single_vendor"] += 1
+                continue
+
+            # Build vendor list with zone + faction info.
+            # A single NPC can exist in multiple locations (e.g., Second Chair
+            # Pawdo in Orgrimmar, Stormwind City, and Dornogal). We create
+            # separate entries for each resolvable zone.
+            all_vendors = []
+            seen_zones = set()  # deduplicate same zone from different NPCs
+            for v in vendors:
+                npc_id = v.get("id")
+                npc_name = v.get("name", "")
+                locations = v.get("location") or []
+                react = v.get("react") or []
+
+                # Determine faction from react field
+                # [1, -1] = Alliance only, [-1, 1] = Horde only, else neutral
+                faction = None
+                if react == [1, -1]:
+                    faction = "Alliance"
+                elif react == [-1, 1]:
+                    faction = "Horde"
+
+                # Expand each location into a separate vendor entry
+                for wh_id in locations:
+                    zone_name = WH_ZONE_ID_TO_NAME.get(wh_id)
+                    if not zone_name:
+                        continue
+                    # Deduplicate: same NPC in same zone (different sub-zone IDs)
+                    dedup_key = (npc_id, zone_name)
+                    if dedup_key in seen_zones:
+                        continue
+                    seen_zones.add(dedup_key)
+
+                    all_vendors.append({
+                        "npcID": npc_id,
+                        "name": npc_name,
+                        "zone": zone_name,
+                        "whZoneID": wh_id,
+                        "faction": faction,
+                    })
+
+            if len(all_vendors) >= 2:
+                item["_allVendors"] = all_vendors
+                p7_stats["multi_vendor"] += 1
+                additional_count = len(all_vendors) - 1
+                p7_stats["total_additional"] += additional_count
+                p7_updated_items.append((item.get("name"), len(all_vendors)))
+                logger.debug("  %s (decorID=%s): %d vendors across zones",
+                             item.get("name"), item.get("decorID"),
+                             len(all_vendors))
+            else:
+                p7_stats["single_vendor"] += 1
+
+        logger.info("Multi-vendor discovery complete:")
+        logger.info("  Items scraped:          %d", p7_stats["scraped"])
+        logger.info("  With multiple vendors:  %d", p7_stats["multi_vendor"])
+        logger.info("  Single vendor only:     %d", p7_stats["single_vendor"])
+        logger.info("  No sold-by data:        %d", p7_stats["no_data"])
+        logger.info("  Total additional vendors: %d", p7_stats["total_additional"])
+
+        if p7_updated_items:
+            logger.info("")
+            logger.info("Items with multiple vendors:")
+            for name, count in sorted(p7_updated_items):
+                logger.info("  %-50s %d vendors", name, count)
+
+    # -----------------------------------------------------------------------
     # Write output
     # -----------------------------------------------------------------------
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

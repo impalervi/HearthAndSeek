@@ -1466,14 +1466,25 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     decor_id = item["decorID"]
     lines = [f"    [{decor_id}] = {{"]
 
-    # --- Split comma-separated vendor names (e.g. "Selfira Ambergrove, Sylvia Hartshorn") ---
-    alt_vendor_name = ""
-    alt_vc = None
+    # --- Collect additional vendors ---
+    # These come from multiple sources: comma-separated names, _silvermoonOrigVendor,
+    # and _allVendors (multi-zone vendor discovery from Phase 7).
+    additional_vendors: list[dict[str, Any]] = []
+
+    # Split comma-separated vendor names (e.g. "Selfira Ambergrove, Sylvia Hartshorn")
     if ", " in vendor_name and not vendor_name.startswith('"'):
         parts = [v.strip() for v in vendor_name.split(", ", 1)]
         vendor_name = parts[0]
-        alt_vendor_name = parts[1]
-        alt_vc = VENDOR_COORDS.get(alt_vendor_name)
+        alt_name = parts[1]
+        alt_vc = VENDOR_COORDS.get(alt_name)
+        av: dict[str, Any] = {"name": alt_name}
+        if alt_vc:
+            av["npcID"] = alt_vc["npcID"]
+            av["x"] = alt_vc["x"]
+            av["y"] = alt_vc["y"]
+            av["zone"] = alt_vc.get("zone") or ""
+            av["mapID"] = alt_vc["mapID"]
+        additional_vendors.append(av)
 
     # --- Apply VENDOR_COORDS overrides ---
     # Fix wrong NPC IDs, missing coordinates, and zone mismatches using
@@ -1561,6 +1572,114 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
             item_npc_y = treasure_fixup["npcY"]
             item_npc_id = None
             coords_mismatch = False
+
+    # --- Silvermoon original vendor → additional vendor ---
+    sm_orig = item.get("_silvermoonOrigVendor")
+    if sm_orig:
+        sm_av: dict[str, Any] = {"name": sm_orig}
+        sm_vc = VENDOR_COORDS.get(sm_orig)
+        if sm_vc:
+            sm_av["npcID"] = sm_vc["npcID"]
+            sm_av["x"] = sm_vc["x"]
+            sm_av["y"] = sm_vc["y"]
+            sm_av["zone"] = sm_vc.get("zone") or ""
+            sm_av["mapID"] = sm_vc["mapID"]
+        additional_vendors.append(sm_av)
+
+    # --- Multi-vendor discovery (Phase 7) ---
+    # Pick best primary by zone expansion, demote the rest to additional vendors.
+    # Must run BEFORE the fields list so that vendor_name, item_zone, etc. are
+    # updated for the primary vendor.
+    all_vendors = item.get("_allVendors")
+    if all_vendors and len(all_vendors) >= 2:
+        # Build enriched vendor entries with coords from VENDOR_COORDS.
+        # VENDOR_COORDS maps vendor NAME → one set of coords. For NPCs that
+        # exist in multiple zones (e.g. Second Chair Pawdo in Orgrimmar,
+        # Stormwind, Dornogal), only apply coords when the VENDOR_COORDS
+        # zone matches this specific vendor entry's zone.
+        enriched_vendors = []
+        seen_zones: set[str] = set()  # deduplicate after VENDOR_COORDS overrides
+        for mv in all_vendors:
+            mv_name = mv.get("name", "")
+            mv_zone = mv.get("zone", "")
+            mv_npc_id = mv.get("npcID")
+            mv_faction = mv.get("faction")
+
+            # Apply VENDOR_COORDS override (zone-aware).
+            # For NPCs in multiple zones, only apply coords when the curated
+            # zone matches this entry's zone. Exception: housing zones
+            # (Founder's Point / Razorwind Shores) are misleading Wowhead
+            # locations — always apply the override to get the real zone.
+            mv_vc = VENDOR_COORDS.get(mv_name)
+            mv_x = None
+            mv_y = None
+            mv_map_id = None
+            if mv_vc:
+                mv_npc_id = mv_vc["npcID"]
+                vc_zone = mv_vc.get("zone") or MAPID_TO_ZONE.get(mv_vc["mapID"]) or ""
+                vc_mapid = mv_vc["mapID"]
+                enriched_mapid = ZONE_TO_MAPID.get(mv_zone)
+                is_housing = mv_zone in HOUSING_ZONES
+                zone_matches = (vc_mapid == enriched_mapid) if enriched_mapid else True
+                if zone_matches or is_housing:
+                    mv_x = mv_vc["x"]
+                    mv_y = mv_vc["y"]
+                    mv_zone = vc_zone or mv_zone
+                    mv_map_id = vc_mapid
+            if not mv_map_id:
+                mv_map_id = ZONE_TO_MAPID.get(mv_zone)
+
+            # Deduplicate: same zone after overrides
+            if mv_zone in seen_zones:
+                continue
+            seen_zones.add(mv_zone)
+
+            # Compute expansion priority from the vendor's zone
+            mv_expansion = ZONE_TO_EXPANSION.get(mv_zone, "Unknown")
+            mv_exp_idx = EXPANSION_ORDER.index(mv_expansion) if mv_expansion in EXPANSION_ORDER else 0
+
+            enriched_vendors.append({
+                "name": mv_name,
+                "npcID": mv_npc_id,
+                "x": mv_x,
+                "y": mv_y,
+                "zone": mv_zone,
+                "mapID": mv_map_id,
+                "faction": mv_faction,
+                "exp_idx": mv_exp_idx,
+            })
+
+        if len(enriched_vendors) >= 2:
+            # Sort: highest expansion index first, then neutral before faction-specific
+            enriched_vendors.sort(key=lambda v: (v["exp_idx"], 1 if v["faction"] is None else 0), reverse=True)
+
+            # First = primary vendor (override current item fields)
+            primary = enriched_vendors[0]
+            vendor_name = primary["name"]
+            item_npc_id = primary["npcID"]
+            if primary["x"] is not None:
+                item_npc_x = primary["x"]
+                item_npc_y = primary["y"]
+                coords_mismatch = False
+            if primary["zone"]:
+                item_zone = primary["zone"]
+
+            # Rest = additional vendors (replace any comma-split / silvermoon ones)
+            additional_vendors = []
+            for ev in enriched_vendors[1:]:
+                av_entry: dict[str, Any] = {"name": ev["name"]}
+                if ev["npcID"]:
+                    av_entry["npcID"] = ev["npcID"]
+                if ev["x"] is not None:
+                    av_entry["x"] = ev["x"]
+                    av_entry["y"] = ev["y"]
+                if ev["zone"]:
+                    av_entry["zone"] = ev["zone"]
+                if ev["mapID"]:
+                    av_entry["mapID"] = ev["mapID"]
+                if ev["faction"]:
+                    av_entry["faction"] = ev["faction"]
+                additional_vendors.append(av_entry)
 
     fields = [
         ("decorID", lua_number(item.get("decorID"))),
@@ -1700,31 +1819,26 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         if tc_mapid:
             lines.append(f"        treasureMapID = {tc_mapid},")
 
-    # Optional: alternate vendor (from comma-separated vendor names)
-    if alt_vendor_name:
-        lines.append(f"        altVendorName = {lua_string(alt_vendor_name)},")
-        if alt_vc:
-            lines.append(f"        altNpcID = {lua_number(alt_vc['npcID'])},")
-            lines.append(f"        altNpcX = {lua_number(alt_vc['x'])},")
-            lines.append(f"        altNpcY = {lua_number(alt_vc['y'])},")
-            alt_zone = alt_vc.get("zone") or ""
-            if alt_zone:
-                lines.append(f"        altVendorZone = {lua_string(alt_zone)},")
-
-    # Optional: original vendor preserved from Silvermoon override (additive)
-    # When a Silvermoon vendor was set as primary, the original vendor is kept
-    # as an alternate so the UI can show "Also sold by <original vendor>"
-    sm_orig = item.get("_silvermoonOrigVendor")
-    if sm_orig and not alt_vendor_name:
-        lines.append(f"        altVendorName = {lua_string(sm_orig)},")
-        sm_vc = VENDOR_COORDS.get(sm_orig)
-        if sm_vc:
-            lines.append(f"        altNpcID = {lua_number(sm_vc['npcID'])},")
-            lines.append(f"        altNpcX = {lua_number(sm_vc['x'])},")
-            lines.append(f"        altNpcY = {lua_number(sm_vc['y'])},")
-            sm_alt_zone = sm_vc.get("zone") or ""
-            if sm_alt_zone:
-                lines.append(f"        altVendorZone = {lua_string(sm_alt_zone)},")
+    # Serialize additionalVendors sub-table
+    if additional_vendors:
+        lines.append("        additionalVendors = {")
+        for av in additional_vendors:
+            parts = [f'name = {lua_string(av.get("name", ""))}']
+            if av.get("npcID"):
+                parts.append(f'npcID = {lua_number(av["npcID"])}')
+            if av.get("x") is not None:
+                parts.append(f'x = {lua_number(av["x"])}')
+            if av.get("y") is not None:
+                parts.append(f'y = {lua_number(av["y"])}')
+            if av.get("zone"):
+                parts.append(f'zone = {lua_string(av["zone"])}')
+                av_map_id = av.get("mapID") or ZONE_TO_MAPID.get(av["zone"])
+                if av_map_id:
+                    parts.append(f'mapID = {av_map_id}')
+            if av.get("faction"):
+                parts.append(f'faction = {lua_string(av["faction"])}')
+            lines.append(f'            {{ {", ".join(parts)} }},')
+        lines.append("        },")
 
     # Optional: factionVendors sub-table
     faction_vendors = item.get("factionVendors")
