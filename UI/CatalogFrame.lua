@@ -138,7 +138,7 @@ local FILTER_SECTIONS = {
     },
     {
         id = "expansions",
-        title = "EXPANSION",
+        title = "ZONE",
         type = "hierarchical",
         groupOrder = "ExpansionOrder",
         groupColors = "ExpansionColors",
