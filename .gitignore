@@ -24,8 +24,14 @@ Project_Images/HearthAndSeek_full.png
 
 # Python data pipeline intermediates and caches
 Tools/scraper/data/*.json
+Tools/scraper/data/*.html
+!Tools/scraper/data/item_keywords.json
+!Tools/scraper/data/manual_theme_annotations.json
 Tools/scraper/data/wowhead_cache/
 Tools/scraper/data/wowdb_cache/
+Tools/scraper/data/thumbnails/
+Tools/scraper/data/montages/*
+!Tools/scraper/data/montages/visual_classifications.json
 Tools/scraper/data/routes/
 Tools/scraper/__pycache__/
 *.pyc

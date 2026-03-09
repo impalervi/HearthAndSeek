@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "description": "Curated search keywords for decor items. Groups apply keywords to multiple items. Per-item entries add to (not replace) group keywords.",
+    "updated": "2026-03-08"
+  },
+  "groups": {
+    "mailboxes": {
+      "keywords": "mailbox mail postbox postal",
+      "decorIDs": [9434, 15741, 11439, 11724, 11893, 14598]
+    }
+  },
+  "items": {}
+}

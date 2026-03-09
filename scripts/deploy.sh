@@ -51,7 +51,7 @@ if [ ! -d "$DEST" ]; then
 fi
 
 # Addon directories to sync
-DIRS=(Core Data Modules UI Libs Media Changelogs)
+DIRS=(Core Data Modules UI Libs Media)
 
 for dir in "${DIRS[@]}"; do
     if [ -d "$SRC/$dir" ]; then

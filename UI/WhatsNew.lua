@@ -43,6 +43,23 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "1.3.1",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Updated Aesthetic Filters|r\nImproved visual consistency across each category — items have been reclassified for better accuracy.",
+                anchorTo = "sidebar",
+                targetPoint = "RightEdgeCenter",
+                alignment = "Center",
+            },
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Filter Persistence|r\nYour filter selections are now saved across interface reloads. No more re-checking filters every session.",
+                anchorTo = "settingsBtn",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Right",
+            },
+        },
+    },
+    {
         version = "1.3.0",
         entries = {
             {

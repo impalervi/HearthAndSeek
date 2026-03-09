@@ -57,6 +57,28 @@ local filterState = {
     themes        = {},  -- { [themeID] = true, ... }
 }
 local filteredItems = {}
+
+--- Save current filter state to SavedVariables (excludes searchText).
+local function SaveFilterState()
+    if not (NS.db and NS.db.settings and NS.db.settings.rememberFilters) then return end
+    NS.db.savedFilters = {
+        sources       = CopyTable(filterState.sources),
+        zones         = CopyTable(filterState.zones),
+        qualities     = CopyTable(filterState.qualities),
+        professions   = CopyTable(filterState.professions),
+        subcategories = CopyTable(filterState.subcategories),
+        themes        = CopyTable(filterState.themes),
+        collected     = filterState.collected,
+        notCollected  = filterState.notCollected,
+        onlyFavorites = filterState.onlyFavorites,
+    }
+end
+
+--- Expose filter state for sidebar sync.
+function NS.UI.CatalogGrid_GetFilterState()
+    return filterState
+end
+
 local scrollOffset = 0   -- fractional row offset (e.g. 2.3 = row 2 + 30%)
 local totalRows = 0      -- total rows needed for all filtered items
 local visibleRows = 5    -- rows visible at once (set from CatSizing.GridRows)
@@ -172,6 +194,12 @@ local SEARCH_SYNONYMS = {
     demonic     = { "fel" },
     shadow      = { "void" },
     cosmic      = { "void" },
+    -- Mail / Postal
+    mailbox     = { "postbox", "postal", "postbag" },
+    postbox     = { "mailbox", "postal", "postbag" },
+    postal      = { "mailbox", "postbox", "postbag" },
+    postbag     = { "mailbox", "postbox", "postal" },
+    mail        = { "mailbox", "postbox", "postal", "postbag" },
 }
 
 --- For short queries (≤3 chars), require word-boundary match to avoid false
@@ -1244,6 +1272,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         if hasQuery then
             local found = false
             local vendorLower = item.vendorName and item.vendorName:lower()
+            local kwLower = item.keywords and item.keywords:lower()
             local zoneLower = item.zone and item.zone:lower()
             local profLower = item.professionName and item.professionName:lower()
             local srcTypeLower = item.sourceType and item.sourceType:lower()
@@ -1258,6 +1287,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
                 local isOriginal = (ti == 1) -- only the user's query searches all fields
                 if FieldContains(name, term)
                     or FieldContains(vendorLower, term)
+                    or FieldContains(kwLower, term)
                     or (isOriginal and FieldContains(zoneLower, term))
                     or (isOriginal and FieldContains(srcDetailLower, term))
                     or (isOriginal and FieldContains(profLower, term))
@@ -1507,6 +1537,9 @@ function NS.UI.CatalogGrid_ApplyFilters()
     if NS.UI.UpdateSidebarCounts then
         NS.UI.UpdateSidebarCounts(dynCounts)
     end
+
+    -- Persist filter state for next session
+    SaveFilterState()
 end
 
 -------------------------------------------------------------------------------
@@ -1687,6 +1720,21 @@ function NS.UI.InitCatalogGrid(parent)
     local mult = NS.db and NS.db.settings and NS.db.settings.iconSizeMultiplier
     if mult and mult ~= 1.0 then
         CatSizing.GridItemSize = math.floor(110 * mult)
+    end
+
+    -- Restore saved filter state (searchText intentionally excluded)
+    local saved = NS.db and NS.db.settings and NS.db.settings.rememberFilters
+        and NS.db.savedFilters
+    if saved then
+        if saved.sources       then filterState.sources       = CopyTable(saved.sources) end
+        if saved.zones         then filterState.zones         = CopyTable(saved.zones) end
+        if saved.qualities     then filterState.qualities     = CopyTable(saved.qualities) end
+        if saved.professions   then filterState.professions   = CopyTable(saved.professions) end
+        if saved.subcategories then filterState.subcategories = CopyTable(saved.subcategories) end
+        if saved.themes        then filterState.themes        = CopyTable(saved.themes) end
+        if saved.collected     ~= nil then filterState.collected     = saved.collected end
+        if saved.notCollected  ~= nil then filterState.notCollected  = saved.notCollected end
+        if saved.onlyFavorites ~= nil then filterState.onlyFavorites = saved.onlyFavorites end
     end
 
     -- Compute cols/rows dynamically from available space

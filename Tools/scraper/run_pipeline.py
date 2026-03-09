@@ -2,12 +2,16 @@
 run_pipeline.py - Master script to run the full HearthAndSeek data pipeline.
 
 Executes each stage in order:
-  1a. parse_catalog_dump.py     - Parse in-game catalog SavedVariables dump
-  1b. parse_boss_dump.py        - Parse in-game boss floor map dump
-  2.  enrich_catalog.py         - Enrich with Wowhead (quest IDs, NPC coords, factions)
-  3.  enrich_quest_chains.py    - Build quest prerequisite chains from Wowhead
-  4.  output_catalog_lua.py     - Generate Data/CatalogData.lua for the addon
-  5.  output_quest_chains_lua.py - Generate Data/QuestChains.lua for the addon
+  1a. parse_catalog_dump.py      - Parse in-game catalog SavedVariables dump
+  1b. parse_boss_dump.py         - Parse in-game boss floor map dump
+  2.  enrich_catalog.py          - Enrich with Wowhead (quest IDs, NPC coords, factions)
+  3.  enrich_quest_chains.py     - Build quest prerequisite chains from Wowhead
+  4.  enrich_quest_givers.py     - Extract quest-giver NPC coordinates from Wowhead
+  5.  scrape_wowdb.py            - Scrape WoWDB community sets and item tags
+  6.  compute_item_themes.py     - Compute aesthetic and culture theme scores
+  7.  enrich_wowhead_extra.py    - Enrich with drop rates, profession skills, vendor costs
+  8.  output_catalog_lua.py      - Generate Data/CatalogData.lua for the addon
+  9.  output_quest_chains_lua.py - Generate Data/QuestChains.lua for the addon
 
 Prerequisites:
   - Run /hs dump in WoW, then /reload to flush SavedVariables to disk
@@ -40,6 +44,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 DATA_DIR = SCRIPT_DIR / "data"
 CACHE_DIR = DATA_DIR / "wowhead_cache"
+WOWDB_CACHE_DIR = DATA_DIR / "wowdb_cache"
 
 def _load_dev_config() -> dict:
     """Load dev.config.json from repo root."""
@@ -74,6 +79,12 @@ STAGES: list[tuple[str, str, str, int]] = [
      "Build quest prerequisite chains from Wowhead", 1800),
     ("enrich_quest_givers", "enrich_quest_givers.py",
      "Extract quest-giver NPC coordinates from Wowhead", 3600),
+    ("scrape_wowdb", "scrape_wowdb.py",
+     "Scrape WoWDB community sets and item tags", 3600),
+    ("compute_item_themes", "compute_item_themes.py",
+     "Compute aesthetic and culture theme scores", 120),
+    ("enrich_wowhead_extra", "enrich_wowhead_extra.py",
+     "Enrich with drop rates, profession skills, vendor costs", 3600),
     ("output_catalog_lua", "output_catalog_lua.py",
      "Generate Data/CatalogData.lua", 60),
     ("output_quest_chains_lua", "output_quest_chains_lua.py",
@@ -82,8 +93,16 @@ STAGES: list[tuple[str, str, str, int]] = [
 
 STAGE_NAMES = [name for name, _, _, _ in STAGES]
 
-# Stages that require Wowhead enrichment (skippable with --skip-enrich)
-ENRICH_STAGES = {"enrich_catalog", "enrich_quest_chains", "enrich_quest_givers"}
+# Stages that perform data enrichment or scraping (skipped with --skip-enrich).
+# --force passes --force to stages that accept it, and --no-cache to scrape_wowdb.
+ENRICH_STAGES = {
+    "enrich_catalog", "enrich_quest_chains", "enrich_quest_givers",
+    "scrape_wowdb", "compute_item_themes", "enrich_wowhead_extra",
+}
+
+# Stages that accept --force. scrape_wowdb uses --no-cache instead;
+# compute_item_themes has no caching (always recomputes).
+FORCE_STAGES = {"enrich_catalog", "enrich_quest_chains", "enrich_quest_givers", "enrich_wowhead_extra"}
 
 # Stages that only generate Lua (for --generate-only)
 GENERATE_STAGES = {"output_catalog_lua", "output_quest_chains_lua"}
@@ -226,11 +245,11 @@ Examples:
     )
     parser.add_argument(
         "--force", action="store_true",
-        help="Pass --force to enrichment scripts (re-fetch all Wowhead data).",
+        help="Re-fetch all enrichment data (Wowhead + WoWDB caches bypassed).",
     )
     parser.add_argument(
         "--clear-cache", action="store_true",
-        help="Delete the Wowhead cache directory before running enrichment.",
+        help="Delete Wowhead and WoWDB cache directories before running enrichment.",
     )
     parser.add_argument(
         "--from", dest="from_stage", choices=STAGE_NAMES, default=None,
@@ -293,11 +312,13 @@ def main() -> None:
         return
 
     # Clear cache if requested
-    if args.clear_cache and CACHE_DIR.exists():
-        count = len(list(CACHE_DIR.glob("*.json")))
-        shutil.rmtree(CACHE_DIR)
-        CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        logger.info("Cleared Wowhead cache (%d files)", count)
+    if args.clear_cache:
+        for cache_dir, label in [(CACHE_DIR, "Wowhead"), (WOWDB_CACHE_DIR, "WoWDB")]:
+            if cache_dir.exists():
+                count = len(list(cache_dir.glob("*")))
+                shutil.rmtree(cache_dir)
+                cache_dir.mkdir(parents=True, exist_ok=True)
+                logger.info("Cleared %s cache (%d files)", label, count)
 
     # Validate inputs exist
     if "parse_catalog_dump" not in [n for n, _, _, _ in stages]:
@@ -317,8 +338,12 @@ def main() -> None:
 
     for stage_name, script_name, description, timeout in stages:
         extra_args = []
-        if args.force and stage_name in ENRICH_STAGES:
+        if args.force and stage_name in FORCE_STAGES:
             extra_args.append("--force")
+        if stage_name == "scrape_wowdb":
+            extra_args.append("--all")
+            if args.force:
+                extra_args.append("--no-cache")
 
         success, elapsed = run_stage(stage_name, script_name, description, timeout, extra_args)
         results.append((stage_name, success, elapsed))

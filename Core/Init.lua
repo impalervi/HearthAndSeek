@@ -27,11 +27,13 @@ local DEFAULTS = {
         showWhatsNew = true,       -- auto-show "What's New" callouts on update
         filterCollapsed = {},      -- { [sectionID] = true } — persisted collapse states
         filterOrder = nil,         -- nil = default; array of section IDs when customized
+        rememberFilters = true,    -- persist filter selections across sessions
     },
     whatsNew = {
         lastSeenVersion = nil,     -- tracks which version's callouts were shown
     },
     favorites = {},         -- { [decorID] = true } — account-wide favorite decor items
+    savedFilters = nil,     -- serialized filter state (when rememberFilters is on)
 }
 
 local CHAR_DEFAULTS = {
@@ -284,7 +286,7 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
                 NS.Utils.PrintMessage("Debug dump commands: catalog, bosses, categories")
             end
         else
-            NS.Utils.PrintMessage("Debug commands: faction <alliance|horde|default>, dump <catalog|bosses|categories>")
+            NS.Utils.PrintMessage("Debug commands: faction, dump")
         end
 
     elseif cmd == "help" then

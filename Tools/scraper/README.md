@@ -16,7 +16,7 @@ python run_pipeline.py --deploy
 # Common shortcuts:
 python run_pipeline.py --skip-enrich --deploy   # Use cached Wowhead data
 python run_pipeline.py --generate-only --deploy  # Only regenerate Lua files
-python run_pipeline.py --force --deploy           # Re-fetch ALL Wowhead data
+python run_pipeline.py --force --deploy           # Re-fetch ALL Wowhead + WoWDB data
 python run_pipeline.py --dry-run                  # See what would run
 ```
 
@@ -31,8 +31,11 @@ python parse_boss_dump.py --validate  # 1b. ...with cross-validation
 python enrich_catalog.py          # 2. Enrich with Wowhead data
 python enrich_quest_chains.py     # 3. Build quest prerequisite chains
 python enrich_quest_givers.py     # 4. Extract quest-giver NPC coordinates
-python output_catalog_lua.py      # 5. Generate Data/CatalogData.lua
-python output_quest_chains_lua.py # 6. Generate Data/QuestChains.lua
+python scrape_wowdb.py --all      # 5. Scrape WoWDB community sets and item tags
+python compute_item_themes.py     # 6. Compute aesthetic and culture theme scores
+python enrich_wowhead_extra.py    # 7. Enrich with drop rates, skills, vendor costs
+python output_catalog_lua.py      # 8. Generate Data/CatalogData.lua
+python output_quest_chains_lua.py # 9. Generate Data/QuestChains.lua
 ```
 
 ### Output Files
@@ -44,8 +47,12 @@ python output_quest_chains_lua.py # 6. Generate Data/QuestChains.lua
 | `data/enriched_catalog.json` | Enriched with IDs, coords, factions | ~1.5MB |
 | `data/quest_chains.json` | Quest chain prerequisite graph | 1,827 quests |
 | `data/quest_givers.json` | Quest-giver NPC coordinates | ~1,800 quests |
-| `../../Data/CatalogData.lua` | Addon Lua data | ~1.1MB |
-| `../../Data/QuestChains.lua` | Addon quest chain data | ~280KB |
+| `data/wowdb_sets.json` | WoWDB community set data | ~500 sets |
+| `data/wowdb_item_tags.json` | Per-item culture/style tags | ~1,667 items |
+| `data/item_themes.json` | Theme assignments & scores | ~1,200 items |
+| `data/enriched_catalog_extra.json` | Drop rates, vendor costs, profession skills | ~1,667 items |
+| `../../Data/CatalogData.lua` | Addon Lua data | ~2.1MB |
+| `../../Data/QuestChains.lua` | Addon quest chain data | ~548KB |
 
 ---
 
@@ -254,6 +261,45 @@ The addon uses this data to:
 3. Display a color-coded chain visualization (green=done, yellow=next, grey=locked)
 4. Navigate to the quest-giver NPC of the first incomplete quest in the chain
 
+### Step 4e: Scrape WoWDB Theme Data
+
+```bash
+python scrape_wowdb.py --all
+```
+
+Scrapes housing.wowdb.com for community-curated set data and per-item
+culture/style/class/theme tags. Uses a local cache in `data/wowdb_cache/` —
+cached pages are not re-fetched unless `--no-cache` is passed.
+
+Output: `data/wowdb_sets.json` (~500 community sets with likes data) and
+`data/wowdb_item_tags.json` (per-item tags for ~1,667 items).
+
+### Step 4f: Compute Theme Scores
+
+```bash
+python compute_item_themes.py
+```
+
+Computes aesthetic and culture theme assignments using a three-source scoring
+system (per-item tags, community set voting, item name regex patterns).
+Reads `data/enriched_catalog.json`, `data/wowdb_sets.json`, and
+`data/wowdb_item_tags.json`. WoWDB files are optional — the script continues
+with reduced scoring if they are missing.
+
+Output: `data/item_themes.json` (~1,200 themed items with scores).
+
+### Step 4g: Enrich with Extra Wowhead Data
+
+```bash
+python enrich_wowhead_extra.py
+```
+
+One-pass Wowhead scan per item for optional additional data: alternative
+sources, drop rates, profession skill requirements, and vendor buy costs.
+Results cached in `data/wowhead_cache/`.
+
+Output: `data/enriched_catalog_extra.json`.
+
 ### Step 5: Deploy
 
 Copy the addon folders to WoW:
@@ -325,6 +371,40 @@ Chain data comes from `NS.QuestChains` (loaded from `Data/QuestChains.lua`).
 The addon walks prereqs backwards to build an ordered list, then checks each
 with `C_QuestLog.IsQuestFlaggedCompleted()`.
 
+### Theme Data (Aesthetic & Culture Filters)
+
+The addon supports filtering decorations by theme — aesthetic styles and
+cultural origins (Elven, Orcish, Human, Troll, etc.).
+
+**Theme groups:**
+- **Culture** (24 themes): Elven, Human, Orcish, Troll, Dwarven, Gnomish,
+  Tauren, Undead, Draenei, Goblin, Pandaren, Vulpera, Dracthyr, Earthen,
+  Haranir, Vrykul, and sub-races
+- **Aesthetic** (15 themes): Arcane Sanctum, Cottage Hearth, Enchanted Grove,
+  Feast Hall, Fel Forge, Haunted Manor, Royal Court, Sacred Temple,
+  Scholar's Archive, Seafarer's Haven, Tinker's Workshop, Void Rift,
+  War Room, Primal Camp, Wild Garden
+
+**Culture themes** use a three-source algorithm in `compute_item_themes.py`:
+1. Per-item tags (weight 3.0) from housing.wowdb.com
+2. Community set voting (weight = log(likes+1)) from WoWDB
+3. Item name patterns (weight 1.0) — regex fallback
+
+**Aesthetic themes** use visual classification from item thumbnail analysis.
+See [VISUAL_CLASSIFICATION.md](VISUAL_CLASSIFICATION.md) for the full
+process, category definitions, and instructions for classifying new items.
+
+Override priority: manual annotations > visual classifications > algorithm.
+
+**Pipeline flow:**
+```
+scrape_wowdb.py --all → wowdb_sets.json + wowdb_item_tags.json
+compute_item_themes.py → item_themes.json (culture from algorithm, aesthetics from visual)
+output_catalog_lua.py → reads item_themes.json, adds _themeIDs and _themeScores per item
+```
+
+All three stages are integrated into `run_pipeline.py` and run automatically.
+
 ### Dynamic Filter Counts
 
 Sidebar filter counts are recomputed after every filter change. For each
@@ -358,7 +438,10 @@ python run_pipeline.py --deploy
 ```
 
 The enrichment scripts use caching — only NEW items trigger Wowhead lookups.
-Existing cache in `data/wowhead_cache/` is reused automatically.
+Existing cache in `data/wowhead_cache/` and `data/wowdb_cache/` is reused
+automatically. Theme data (WoWDB scraping + theme computation) and extra
+Wowhead enrichment (drop rates, vendor costs) are now included in the
+pipeline and run automatically.
 
 ### Phase 3: Validate Boss Data
 
@@ -393,7 +476,22 @@ Fix: add entries to `DROP_FIXUPS` or `DROP_VALUE_TO_ZONE` in
 **New expansion**: Add to `EXPANSION_ORDER` in `output_catalog_lua.py`
 and map its zones in `ZONE_TO_EXPANSION`.
 
-### Phase 5: Test In-Game
+### Phase 5: Classify New Items Visually
+
+New decorations need aesthetic theme assignments via visual classification.
+See [VISUAL_CLASSIFICATION.md](VISUAL_CLASSIFICATION.md) for the full
+process. Quick summary:
+
+```bash
+python download_thumbnails.py                    # Download new thumbnails
+python build_montages.py --unthemed --cols 4 --rows 4  # Build montage grids
+# Feed montages to AI classifier (see VISUAL_CLASSIFICATION.md Step 4)
+# Merge results into data/montages/visual_classifications.json
+python build_validation_page.py --unclear        # Review uncertain items
+python run_pipeline.py --generate-only --deploy  # Regenerate with new themes
+```
+
+### Phase 6: Test In-Game
 
 1. Deploy: `python run_pipeline.py --generate-only --deploy`
 2. `/reload` in WoW
@@ -424,6 +522,10 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `DROP_NPC_IDS` | `output_catalog_lua.py` | If new boss NPCs need explicit IDs |
 | `DUNGEON_ENTRANCES` | `output_catalog_lua.py` | If new dungeons added |
 | `HereBeDragons-2.0` | `Libs/` | If new zones need waypoint support |
+| `visual_classifications.json` | `data/montages/` | New items need visual aesthetic classification |
+| `manual_theme_annotations.json` | `data/` | Human overrides for ambiguous items |
+| `AESTHETIC_THEMES` | `compute_item_themes.py` | If new aesthetic categories added |
+| `themeColors` | `UI/CatalogFrame.lua` | Must match `AESTHETIC_THEMES` |
 
 ---
 
@@ -438,9 +540,15 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `enrich_catalog.py` | `data/catalog_dump.json` | `data/enriched_catalog.json`, `data/enrichment_lookups.json` |
 | `enrich_quest_chains.py` | `data/enriched_catalog.json` | `data/quest_chains.json` |
 | `enrich_quest_givers.py` | `data/quest_chains.json` | `data/quest_givers.json` |
-| `output_catalog_lua.py` | `data/enriched_catalog.json` | `../../Data/CatalogData.lua` |
+| `scrape_wowdb.py` | housing.wowdb.com | `data/wowdb_sets.json`, `data/wowdb_item_tags.json` |
+| `compute_item_themes.py` | `data/enriched_catalog.json` + WoWDB data | `data/item_themes.json` |
+| `enrich_wowhead_extra.py` | `data/enriched_catalog.json` | `data/enriched_catalog_extra.json` |
+| `output_catalog_lua.py` | `data/enriched_catalog.json` + optional enrichments | `../../Data/CatalogData.lua` |
 | `output_quest_chains_lua.py` | `data/quest_chains.json` + `data/quest_givers.json` | `../../Data/QuestChains.lua` |
-| `output_lua.py` | `data/routes/*.json` | `../../Data/Packs/*.lua` |
+| `output_lua.py` | (shared utility) | Lua serialization helpers |
+| `download_thumbnails.py` | `data/wowdb_cache/` | `data/thumbnails/` (256px PNGs) |
+| `build_montages.py` | `data/thumbnails/` + `data/item_themes.json` | `data/montages/*.png` |
+| `build_validation_page.py` | `data/montages/visual_classifications.json` | `data/validation_review.html` |
 
 ### Data Files
 
@@ -452,9 +560,17 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `data/enrichment_lookups.json` | Reusable lookup tables from enrichment |
 | `data/quest_chains.json` | Quest chain data (1,827 quests, 52 storylines) |
 | `data/quest_givers.json` | Quest-giver NPC data (coordinates per quest) |
+| `data/wowdb_sets.json` | WoWDB community set data (~500 sets) |
+| `data/wowdb_item_tags.json` | Per-item culture/style/class/theme tags |
+| `data/item_themes.json` | Computed theme assignments & scores (~1,200 items) |
+| `data/enriched_catalog_extra.json` | Drop rates, vendor costs, profession skills |
 | `data/wowhead_cache/` | Cached Wowhead API responses |
-| `../../Data/CatalogData.lua` | Generated Lua data for the addon (~1.1MB) |
-| `../../Data/QuestChains.lua` | Generated quest chain data (~280KB) |
+| `data/wowdb_cache/` | Cached WoWDB HTML responses |
+| `data/montages/visual_classifications.json` | Visual aesthetic classifications (1,659 items) |
+| `data/manual_theme_annotations.json` | Human-reviewed aesthetic overrides (~50 items) |
+| `data/thumbnails/` | Cached WoWDB item thumbnails (gitignored, re-downloadable) |
+| `../../Data/CatalogData.lua` | Generated Lua data for the addon (~2.1MB) |
+| `../../Data/QuestChains.lua` | Generated quest chain data (~548KB) |
 
 ### Key Constants
 
@@ -466,6 +582,10 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `DROP_FIXUPS` | `output_catalog_lua.py` | Manual corrections for incomplete Drop data |
 | `DROP_VALUE_TO_ZONE` | `output_catalog_lua.py` | Maps Drop source values to zone names |
 | `PROFESSION_NAMES` | `output_catalog_lua.py:42` | Known profession names for parsing |
+| `TAG_TO_THEME` | `compute_item_themes.py` | WoWDB tag → theme ID mappings (~56 entries) |
+| `CULTURE_THEMES` | `compute_item_themes.py` | 24 race/culture theme definitions |
+| `AESTHETIC_THEMES` | `compute_item_themes.py` | 15 aesthetic style theme definitions |
+| `NAME_PATTERNS` | `compute_item_themes.py` | 50+ regex fallback patterns for theme scoring |
 
 ---
 
@@ -489,6 +609,8 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | Wowhead Gatherer | `wowhead.com/gatherer/type/201/{decorID}` | Decoration metadata |
 | Wowhead Quest | `wowhead.com/quest={questID}` | Quest data, prerequisites, quest-giver NPC |
 | Wowhead NPC | `wowhead.com/npc={npcID}` | NPC coordinates, faction |
+| Wowhead Item | `wowhead.com/item={itemID}` | Drop rates, vendor costs, profession skills |
+| WoWDB Housing | `housing.wowdb.com` | Community sets, per-item theme tags |
 
 ---
 
@@ -503,7 +625,7 @@ Intermediate JSON files under `Tools/scraper/data/` are gitignored.
 ## Requirements
 
 ```bash
-pip install -r requirements.txt   # Only dependency: requests
+pip install -r requirements.txt   # requests, beautifulsoup4, lxml, Pillow
 ```
 
 | Script | Dependencies |
@@ -513,6 +635,12 @@ pip install -r requirements.txt   # Only dependency: requests
 | `enrich_catalog.py` | `requests` |
 | `enrich_quest_chains.py` | `requests` |
 | `enrich_quest_givers.py` | `requests` |
+| `scrape_wowdb.py` | `requests`, `beautifulsoup4`, `lxml` |
+| `compute_item_themes.py` | Python stdlib only |
+| `enrich_wowhead_extra.py` | `requests` |
+| `download_thumbnails.py` | `Pillow` |
+| `build_montages.py` | `Pillow` |
+| `build_validation_page.py` | Python stdlib only |
 | `output_catalog_lua.py` | Python stdlib + `output_lua.py` |
 | `output_quest_chains_lua.py` | Python stdlib + `output_lua.py` |
 | `run_pipeline.py` | Python stdlib only (orchestrates the others) |

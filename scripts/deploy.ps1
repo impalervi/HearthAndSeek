@@ -60,8 +60,7 @@ if ($includePaths.Count -eq 0) {
         'Modules',
         'UI',
         'Libs',
-        'Media',
-        'Changelogs'
+        'Media'
     )
 }
 
