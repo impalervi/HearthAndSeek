@@ -2393,9 +2393,14 @@ function NS.UI.InitCatalogDetail(parent)
     zoneHit:Hide()
     parent._zoneHit = zoneHit
 
-    -- Vendor NPC part: "Purchase from <NPC>" (auto-width, no right anchor)
+    -- Vendor prefix: "Purchase from " (non-interactive)
+    parent._vendorPrefix = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorPrefix:SetJustifyH("LEFT")
+    parent._vendorPrefix:SetWordWrap(false)
+    parent._vendorPrefix:Hide()
+
+    -- Vendor NPC name (interactive — vendorHit covers only this)
     parent._vendorLine = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    -- TOPLEFT set dynamically in ShowItem; no RIGHT anchor for inline zone
     parent._vendorLine:SetJustifyH("LEFT")
     parent._vendorLine:SetWordWrap(false)
     parent._vendorLine:Hide()
@@ -2470,7 +2475,13 @@ function NS.UI.InitCatalogDetail(parent)
     vendorHit:Hide()
     parent._vendorHit = vendorHit
 
-    -- Vendor zone part: " in <Zone>" (inline after _vendorLine)
+    -- Vendor zone "in " prefix (non-interactive)
+    parent._vendorZoneIn = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorZoneIn:SetJustifyH("LEFT")
+    parent._vendorZoneIn:SetWordWrap(false)
+    parent._vendorZoneIn:Hide()
+
+    -- Vendor zone name (interactive — vendorZoneHit covers only this)
     parent._vendorZonePart = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     parent._vendorZonePart:SetJustifyH("LEFT")
     parent._vendorZonePart:SetWordWrap(false)
@@ -2908,13 +2919,20 @@ local function PopulateDetailsFlyout(item)
 end
 
 --- Create (or reuse) an additional vendor pool entry at index `idx` (1-based).
---- Each entry has: .line (FontString), .hit (Frame), .zonePart (FontString), .zoneHit (Frame)
+--- Each entry has: .prefix, .line (NPC name), .hit, .zoneIn, .zonePart (zone name), .zoneHit
 local function EnsureAdditionalVendorEntry(idx)
     if detailPanel._additionalVendorPool[idx] then
         return detailPanel._additionalVendorPool[idx]
     end
     local mc = detailPanel._middleChild
 
+    -- Non-interactive prefix: "Purchase from "
+    local prefix = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    prefix:SetJustifyH("LEFT")
+    prefix:SetWordWrap(false)
+    prefix:Hide()
+
+    -- Interactive NPC name (hit frame covers this only)
     local line = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     line:SetJustifyH("LEFT")
     line:SetWordWrap(false)
@@ -2963,6 +2981,13 @@ local function EnsureAdditionalVendorEntry(idx)
     end)
     hit:Hide()
 
+    -- Non-interactive zone prefix: " in " or "in "
+    local zoneIn = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    zoneIn:SetJustifyH("LEFT")
+    zoneIn:SetWordWrap(false)
+    zoneIn:Hide()
+
+    -- Interactive zone name (zoneHit covers this only)
     local zonePart = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     zonePart:SetJustifyH("LEFT")
     zonePart:SetWordWrap(false)
@@ -2990,7 +3015,7 @@ local function EnsureAdditionalVendorEntry(idx)
     end)
     zoneHit:Hide()
 
-    local entry = { line = line, hit = hit, zonePart = zonePart, zoneHit = zoneHit, zoneWrapped = false }
+    local entry = { prefix = prefix, line = line, hit = hit, zoneIn = zoneIn, zonePart = zonePart, zoneHit = zoneHit, zoneWrapped = false }
     detailPanel._additionalVendorPool[idx] = entry
     return entry
 end
@@ -3000,9 +3025,17 @@ local function HideAllAdditionalVendors()
     for i = 1, detailPanel._additionalVendorCount do
         local e = detailPanel._additionalVendorPool[i]
         if e then
+            e.prefix:Hide()
             e.line:Hide()
+            e.hit._vendorName = nil
+            e.hit._npcID = nil
+            e.hit._vendorX = nil
+            e.hit._vendorY = nil
+            e.hit._vendorZone = nil
             e.hit:Hide()
+            e.zoneIn:Hide()
             e.zonePart:Hide()
+            e.zoneHit._zoneName = nil
             e.zoneHit:Hide()
             e.zoneWrapped = false
         end
@@ -3328,21 +3361,29 @@ function NS.UI.CatalogDetail_ShowItem(item)
     local vendorZoneWrapped = false
 
     if vendorName then
-        -- "Purchase from <faction icon> <NPC>" (auto-width for separate hit region)
         local factionIcon = ""
         if item.factionVendors then
             local pf = GetPlayerFaction()
             factionIcon = (FACTION_ICONS[pf] or "") .. " "
         end
-        local vendorNpcText = "|cff40b0ffPurchase from|r " .. factionIcon .. vendorName
+
+        -- Prefix: "Purchase from " (non-interactive)
+        detailPanel._vendorPrefix:SetText("|cff40b0ffPurchase from|r ")
+        detailPanel._vendorPrefix:SetWidth(detailPanel._vendorPrefix:GetStringWidth() or 80)
+        detailPanel._vendorPrefix:ClearAllPoints()
+        detailPanel._vendorPrefix:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
+        detailPanel._vendorPrefix:Show()
+
+        -- NPC name (interactive — vendorHit covers only this)
+        detailPanel._vendorLine:SetText(factionIcon .. vendorName)
+        detailPanel._vendorLine:SetWidth(detailPanel._vendorLine:GetStringWidth() or 60)
         detailPanel._vendorLine:ClearAllPoints()
-        detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
+        detailPanel._vendorLine:SetPoint("TOPLEFT", detailPanel._vendorPrefix, "TOPRIGHT", 0, 0)
         detailPanel._vendorLine:SetWordWrap(false)
-        detailPanel._vendorLine:SetText(vendorNpcText)
         detailPanel._vendorLine:Show()
         showVendorLine = true
 
-        -- NPC hit frame covers just the NPC text
+        -- NPC hit frame covers only the NPC name
         detailPanel._vendorHit._active = true
         detailPanel._vendorHit._vendorName = vendorName
         detailPanel._vendorHit._npcID = item.npcID
@@ -3351,38 +3392,57 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit._vendorY = item.npcY
         detailPanel._vendorHit._isRotatingVendor = item.isRotatingVendor
         detailPanel._vendorHit:ClearAllPoints()
-        detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
+        detailPanel._vendorHit:SetPoint("TOPLEFT", detailPanel._vendorLine, "TOPLEFT", 0, 0)
+        detailPanel._vendorHit:SetPoint("BOTTOMRIGHT", detailPanel._vendorLine, "BOTTOMRIGHT", 0, 0)
         detailPanel._vendorHit:Show()
 
-        -- Zone part: " in <Zone>" inline or wrapped below
+        -- Zone part: " in <Zone>" with separate hit on zone name only
         if item.zone and item.zone ~= "" then
             local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
             local zoneDisplay = primaryZoneHex
                 and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
                 or item.zone
-            local inlineText = " |cff888888in|r " .. zoneDisplay
-            local wrappedText = "|cff888888in|r " .. zoneDisplay
-            detailPanel._vendorZonePart:SetText(inlineText)
-            detailPanel._vendorZonePart:ClearAllPoints()
             local availableW = detailPanel._middleChild:GetWidth() - 4
-            local vendorW = detailPanel._vendorLine:GetStringWidth() or 0
+            local prefixW = detailPanel._vendorPrefix:GetStringWidth() or 0
+            local nameW = detailPanel._vendorLine:GetStringWidth() or 0
+
+            detailPanel._vendorZoneIn:SetText(" |cff888888in|r ")
+            detailPanel._vendorZonePart:SetText(zoneDisplay)
+            local inW = detailPanel._vendorZoneIn:GetStringWidth() or 0
             local zoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
-            if (vendorW + zoneW) > availableW then
-                detailPanel._vendorZonePart:SetText(wrappedText)
-                detailPanel._vendorZonePart:SetWordWrap(true)
-                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
+
+            if (prefixW + nameW + inW + zoneW) > availableW then
+                -- Wrap: "in Zone" on next line, aligned to prefix start
+                detailPanel._vendorZoneIn:SetText("|cff888888in|r ")
+                detailPanel._vendorZoneIn:SetWidth(detailPanel._vendorZoneIn:GetStringWidth() or 20)
+                detailPanel._vendorZoneIn:ClearAllPoints()
+                detailPanel._vendorZoneIn:SetPoint("TOPLEFT", detailPanel._vendorPrefix, "BOTTOMLEFT", 0, -1)
+                detailPanel._vendorZoneIn:Show()
+                detailPanel._vendorZonePart:SetWidth(0)
+                detailPanel._vendorZonePart:ClearAllPoints()
+                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorZoneIn, "TOPRIGHT", 0, 0)
                 detailPanel._vendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                detailPanel._vendorZonePart:SetWordWrap(true)
                 vendorZoneWrapped = true
             else
+                -- Inline: " in Zone" after NPC name
+                detailPanel._vendorZoneIn:SetWidth(inW)
+                detailPanel._vendorZoneIn:ClearAllPoints()
+                detailPanel._vendorZoneIn:SetPoint("TOPLEFT", detailPanel._vendorLine, "TOPRIGHT", 0, 0)
+                detailPanel._vendorZoneIn:Show()
+                detailPanel._vendorZonePart:SetWidth(zoneW)
+                detailPanel._vendorZonePart:ClearAllPoints()
+                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorZoneIn, "TOPRIGHT", 0, 0)
                 detailPanel._vendorZonePart:SetWordWrap(false)
-                detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
             end
             detailPanel._vendorZonePart:Show()
             detailPanel._vendorZoneHit._zoneName = item.zone
             detailPanel._vendorZoneHit:ClearAllPoints()
-            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
+            detailPanel._vendorZoneHit:SetPoint("TOPLEFT", detailPanel._vendorZonePart, "TOPLEFT", 0, 0)
+            detailPanel._vendorZoneHit:SetPoint("BOTTOMRIGHT", detailPanel._vendorZonePart, "BOTTOMRIGHT", 0, 0)
             detailPanel._vendorZoneHit:Show()
         else
+            detailPanel._vendorZoneIn:Hide()
             detailPanel._vendorZonePart:Hide()
             detailPanel._vendorZoneHit._zoneName = nil
             detailPanel._vendorZoneHit:Hide()
@@ -3391,7 +3451,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         -- Additional vendors: faction alt vendor + additionalVendors (multi-zone)
         HideAllAdditionalVendors()
         local altAnchor = vendorZoneWrapped
-            and detailPanel._vendorZonePart or detailPanel._vendorLine
+            and detailPanel._vendorZonePart or detailPanel._vendorPrefix
         local avIdx = 0
 
         -- Faction alt vendor (shown for items in both neighborhoods)
@@ -3404,50 +3464,83 @@ function NS.UI.CatalogDetail_ShowItem(item)
                 local e = EnsureAdditionalVendorEntry(avIdx)
                 local altZone = altFv.zone or ""
                 local altIcon = (FACTION_ICONS[altFaction] or "") .. " "
-                local altNpcText = "|cff40b0ffPurchase from|r " .. altIcon .. altFv.name
+
+                -- Prefix: "Purchase from " (non-interactive)
+                local altPrefixText = "|cff40b0ffPurchase from|r "
+                e.prefix:SetText(altPrefixText)
+                e.prefix:SetWidth(e.prefix:GetStringWidth() or 80)
+                e.prefix:ClearAllPoints()
+                e.prefix:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
+                e.prefix:Show()
+
+                -- NPC name (interactive — hit frame covers only this)
+                e.line:SetText(altIcon .. altFv.name)
+                e.line:SetWidth(e.line:GetStringWidth() or 60)
                 e.line:ClearAllPoints()
-                e.line:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-                e.line:SetText(altNpcText)
+                e.line:SetPoint("TOPLEFT", e.prefix, "TOPRIGHT", 0, 0)
                 e.line:Show()
 
                 e.hit._vendorName = altFv.name
                 e.hit._npcID = altFv.npcID
+                e.hit._vendorX = altFv.x
+                e.hit._vendorY = altFv.y
+                e.hit._vendorZone = altFv.zone
                 e.hit:ClearAllPoints()
-                e.hit:SetAllPoints(e.line)
+                e.hit:SetPoint("TOPLEFT", e.line, "TOPLEFT", 0, 0)
+                e.hit:SetPoint("BOTTOMRIGHT", e.line, "BOTTOMRIGHT", 0, 0)
                 e.hit:Show()
 
                 e.zoneWrapped = false
                 if altZone ~= "" then
                     local zoneHex = FACTION_ZONE_COLORS[altZone] or "AAAAAA"
                     local altZoneDisplay = "|cff" .. zoneHex .. altZone .. "|r"
-                    local altInlineText = " |cff888888in|r " .. altZoneDisplay
-                    local altWrappedText = "|cff888888in|r " .. altZoneDisplay
-                    e.zonePart:SetText(altInlineText)
-                    e.zonePart:ClearAllPoints()
                     local availW = detailPanel._middleChild:GetWidth() - 4
-                    local altVW = e.line:GetStringWidth() or 0
-                    local altZW = e.zonePart:GetStringWidth() or 0
-                    if (altVW + altZW) > availW then
-                        e.zonePart:SetText(altWrappedText)
-                        e.zonePart:SetWordWrap(true)
-                        e.zonePart:SetPoint("TOPLEFT", e.line, "BOTTOMLEFT", 0, -1)
+                    local prefixW = e.prefix:GetStringWidth() or 0
+                    local nameW = e.line:GetStringWidth() or 0
+
+                    -- Measure " in " and zone to check if it fits inline
+                    e.zoneIn:SetText(" |cff888888in|r ")
+                    e.zonePart:SetText(altZoneDisplay)
+                    local inW = e.zoneIn:GetStringWidth() or 0
+                    local zoneW = e.zonePart:GetStringWidth() or 0
+
+                    if (prefixW + nameW + inW + zoneW) > availW then
+                        -- Wrap: "in Zone" on next line, aligned to prefix start
+                        e.zoneIn:SetText("|cff888888in|r ")
+                        e.zoneIn:SetWidth(e.zoneIn:GetStringWidth() or 20)
+                        e.zoneIn:ClearAllPoints()
+                        e.zoneIn:SetPoint("TOPLEFT", e.prefix, "BOTTOMLEFT", 0, -1)
+                        e.zoneIn:Show()
+                        e.zonePart:SetWidth(0)
+                        e.zonePart:ClearAllPoints()
+                        e.zonePart:SetPoint("TOPLEFT", e.zoneIn, "TOPRIGHT", 0, 0)
                         e.zonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                        e.zonePart:SetWordWrap(true)
                         e.zoneWrapped = true
                     else
+                        -- Inline: " in Zone" after NPC name
+                        e.zoneIn:SetWidth(inW)
+                        e.zoneIn:ClearAllPoints()
+                        e.zoneIn:SetPoint("TOPLEFT", e.line, "TOPRIGHT", 0, 0)
+                        e.zoneIn:Show()
+                        e.zonePart:SetWidth(zoneW)
+                        e.zonePart:ClearAllPoints()
+                        e.zonePart:SetPoint("TOPLEFT", e.zoneIn, "TOPRIGHT", 0, 0)
                         e.zonePart:SetWordWrap(false)
-                        e.zonePart:SetPoint("LEFT", e.line, "RIGHT", 0, 0)
                     end
                     e.zonePart:Show()
                     e.zoneHit._zoneName = altZone
                     e.zoneHit:ClearAllPoints()
-                    e.zoneHit:SetAllPoints(e.zonePart)
+                    e.zoneHit:SetPoint("TOPLEFT", e.zonePart, "TOPLEFT", 0, 0)
+                    e.zoneHit:SetPoint("BOTTOMRIGHT", e.zonePart, "BOTTOMRIGHT", 0, 0)
                     e.zoneHit:Show()
                 else
+                    e.zoneIn:Hide()
                     e.zonePart:Hide()
                     e.zoneHit._zoneName = nil
                     e.zoneHit:Hide()
                 end
-                altAnchor = e.zoneWrapped and e.zonePart or e.line
+                altAnchor = e.zoneWrapped and e.zonePart or e.prefix
             end
         end
 
@@ -3462,10 +3555,20 @@ function NS.UI.CatalogDetail_ShowItem(item)
                     if av.faction then
                         factionIcon = (FACTION_ICONS[av.faction] or "") .. " "
                     end
-                    local avNpcText = "|cff40b0ffPurchase from|r " .. factionIcon .. av.name
+
+                    -- Prefix: "Purchase from " (non-interactive)
+                    local avPrefixText = "|cff40b0ffPurchase from|r "
+                    e.prefix:SetText(avPrefixText)
+                    e.prefix:SetWidth(e.prefix:GetStringWidth() or 80)
+                    e.prefix:ClearAllPoints()
+                    e.prefix:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
+                    e.prefix:Show()
+
+                    -- NPC name (interactive — hit frame covers only this)
+                    e.line:SetText(factionIcon .. av.name)
+                    e.line:SetWidth(e.line:GetStringWidth() or 60)
                     e.line:ClearAllPoints()
-                    e.line:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-                    e.line:SetText(avNpcText)
+                    e.line:SetPoint("TOPLEFT", e.prefix, "TOPRIGHT", 0, 0)
                     e.line:Show()
 
                     e.hit._vendorName = av.name
@@ -3474,7 +3577,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
                     e.hit._vendorY = av.y
                     e.hit._vendorZone = av.zone
                     e.hit:ClearAllPoints()
-                    e.hit:SetAllPoints(e.line)
+                    e.hit:SetPoint("TOPLEFT", e.line, "TOPLEFT", 0, 0)
+                    e.hit:SetPoint("BOTTOMRIGHT", e.line, "BOTTOMRIGHT", 0, 0)
                     e.hit:Show()
 
                     e.zoneWrapped = false
@@ -3483,34 +3587,53 @@ function NS.UI.CatalogDetail_ShowItem(item)
                         local zoneDisplay = zoneHex
                             and ("|cff" .. zoneHex .. avZone .. "|r")
                             or avZone
-                        local avInline = " |cff888888in|r " .. zoneDisplay
-                        local avWrapped = "|cff888888in|r " .. zoneDisplay
-                        e.zonePart:SetText(avInline)
-                        e.zonePart:ClearAllPoints()
                         local availW = detailPanel._middleChild:GetWidth() - 4
-                        local avVW = e.line:GetStringWidth() or 0
-                        local avZW = e.zonePart:GetStringWidth() or 0
-                        if (avVW + avZW) > availW then
-                            e.zonePart:SetText(avWrapped)
-                            e.zonePart:SetWordWrap(true)
-                            e.zonePart:SetPoint("TOPLEFT", e.line, "BOTTOMLEFT", 0, -1)
+                        local prefixW = e.prefix:GetStringWidth() or 0
+                        local nameW = e.line:GetStringWidth() or 0
+
+                        -- Measure " in " and zone to check if it fits inline
+                        e.zoneIn:SetText(" |cff888888in|r ")
+                        e.zonePart:SetText(zoneDisplay)
+                        local inW = e.zoneIn:GetStringWidth() or 0
+                        local zoneW = e.zonePart:GetStringWidth() or 0
+
+                        if (prefixW + nameW + inW + zoneW) > availW then
+                            -- Wrap: "in Zone" on next line, aligned to prefix start
+                            e.zoneIn:SetText("|cff888888in|r ")
+                            e.zoneIn:SetWidth(e.zoneIn:GetStringWidth() or 20)
+                            e.zoneIn:ClearAllPoints()
+                            e.zoneIn:SetPoint("TOPLEFT", e.prefix, "BOTTOMLEFT", 0, -1)
+                            e.zoneIn:Show()
+                            e.zonePart:SetWidth(0)
+                            e.zonePart:ClearAllPoints()
+                            e.zonePart:SetPoint("TOPLEFT", e.zoneIn, "TOPRIGHT", 0, 0)
                             e.zonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                            e.zonePart:SetWordWrap(true)
                             e.zoneWrapped = true
                         else
+                            -- Inline: " in Zone" after NPC name
+                            e.zoneIn:SetWidth(inW)
+                            e.zoneIn:ClearAllPoints()
+                            e.zoneIn:SetPoint("TOPLEFT", e.line, "TOPRIGHT", 0, 0)
+                            e.zoneIn:Show()
+                            e.zonePart:SetWidth(zoneW)
+                            e.zonePart:ClearAllPoints()
+                            e.zonePart:SetPoint("TOPLEFT", e.zoneIn, "TOPRIGHT", 0, 0)
                             e.zonePart:SetWordWrap(false)
-                            e.zonePart:SetPoint("LEFT", e.line, "RIGHT", 0, 0)
                         end
                         e.zonePart:Show()
                         e.zoneHit._zoneName = avZone
                         e.zoneHit:ClearAllPoints()
-                        e.zoneHit:SetAllPoints(e.zonePart)
+                        e.zoneHit:SetPoint("TOPLEFT", e.zonePart, "TOPLEFT", 0, 0)
+                        e.zoneHit:SetPoint("BOTTOMRIGHT", e.zonePart, "BOTTOMRIGHT", 0, 0)
                         e.zoneHit:Show()
                     else
+                        e.zoneIn:Hide()
                         e.zonePart:Hide()
                         e.zoneHit._zoneName = nil
                         e.zoneHit:Hide()
                     end
-                    altAnchor = e.zoneWrapped and e.zonePart or e.line
+                    altAnchor = e.zoneWrapped and e.zonePart or e.prefix
                 end
             end
         end
@@ -3653,11 +3776,20 @@ function NS.UI.CatalogDetail_ShowItem(item)
         local tvZone = item.treasureVendorZone or item.zone or ""
         if tvName then
             local treasureAnchor = lastTreasureSubElem
-            local tvNpcText = "|cff40b0ffPurchase from|r " .. tvName
+
+            -- Prefix: "Purchase from " (non-interactive)
+            detailPanel._vendorPrefix:SetText("|cff40b0ffPurchase from|r ")
+            detailPanel._vendorPrefix:SetWidth(detailPanel._vendorPrefix:GetStringWidth() or 80)
+            detailPanel._vendorPrefix:ClearAllPoints()
+            detailPanel._vendorPrefix:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
+            detailPanel._vendorPrefix:Show()
+
+            -- NPC name (interactive — vendorHit covers only this)
+            detailPanel._vendorLine:SetText(tvName)
+            detailPanel._vendorLine:SetWidth(detailPanel._vendorLine:GetStringWidth() or 60)
             detailPanel._vendorLine:ClearAllPoints()
-            detailPanel._vendorLine:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
+            detailPanel._vendorLine:SetPoint("TOPLEFT", detailPanel._vendorPrefix, "TOPRIGHT", 0, 0)
             detailPanel._vendorLine:SetWordWrap(false)
-            detailPanel._vendorLine:SetText(tvNpcText)
             detailPanel._vendorLine:Show()
             showVendorLine = true
 
@@ -3670,33 +3802,50 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorHit._isRotatingVendor = false
             detailPanel._vendorHit._isDropLocation = false
             detailPanel._vendorHit:ClearAllPoints()
-            detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
+            detailPanel._vendorHit:SetPoint("TOPLEFT", detailPanel._vendorLine, "TOPLEFT", 0, 0)
+            detailPanel._vendorHit:SetPoint("BOTTOMRIGHT", detailPanel._vendorLine, "BOTTOMRIGHT", 0, 0)
             detailPanel._vendorHit:Show()
 
             if tvZone ~= "" then
-                local inlineText = " |cff888888in|r " .. tvZone
-                local wrappedText = "|cff888888in|r " .. tvZone
-                detailPanel._vendorZonePart:SetText(inlineText)
-                detailPanel._vendorZonePart:ClearAllPoints()
                 local tvAvailW = detailPanel._middleChild:GetWidth() - 4
-                local tvVendorW = detailPanel._vendorLine:GetStringWidth() or 0
+                local tvPrefixW = detailPanel._vendorPrefix:GetStringWidth() or 0
+                local tvNameW = detailPanel._vendorLine:GetStringWidth() or 0
+
+                detailPanel._vendorZoneIn:SetText(" |cff888888in|r ")
+                detailPanel._vendorZonePart:SetText(tvZone)
+                local tvInW = detailPanel._vendorZoneIn:GetStringWidth() or 0
                 local tvZoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
-                if (tvVendorW + tvZoneW) > tvAvailW then
-                    detailPanel._vendorZonePart:SetText(wrappedText)
-                    detailPanel._vendorZonePart:SetWordWrap(true)
-                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
+
+                if (tvPrefixW + tvNameW + tvInW + tvZoneW) > tvAvailW then
+                    detailPanel._vendorZoneIn:SetText("|cff888888in|r ")
+                    detailPanel._vendorZoneIn:SetWidth(detailPanel._vendorZoneIn:GetStringWidth() or 20)
+                    detailPanel._vendorZoneIn:ClearAllPoints()
+                    detailPanel._vendorZoneIn:SetPoint("TOPLEFT", detailPanel._vendorPrefix, "BOTTOMLEFT", 0, -1)
+                    detailPanel._vendorZoneIn:Show()
+                    detailPanel._vendorZonePart:SetWidth(0)
+                    detailPanel._vendorZonePart:ClearAllPoints()
+                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorZoneIn, "TOPRIGHT", 0, 0)
                     detailPanel._vendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+                    detailPanel._vendorZonePart:SetWordWrap(true)
                     vendorZoneWrapped = true
                 else
+                    detailPanel._vendorZoneIn:SetWidth(tvInW)
+                    detailPanel._vendorZoneIn:ClearAllPoints()
+                    detailPanel._vendorZoneIn:SetPoint("TOPLEFT", detailPanel._vendorLine, "TOPRIGHT", 0, 0)
+                    detailPanel._vendorZoneIn:Show()
+                    detailPanel._vendorZonePart:SetWidth(tvZoneW)
+                    detailPanel._vendorZonePart:ClearAllPoints()
+                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorZoneIn, "TOPRIGHT", 0, 0)
                     detailPanel._vendorZonePart:SetWordWrap(false)
-                    detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
                 end
                 detailPanel._vendorZonePart:Show()
                 detailPanel._vendorZoneHit._zoneName = tvZone
                 detailPanel._vendorZoneHit:ClearAllPoints()
-                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
+                detailPanel._vendorZoneHit:SetPoint("TOPLEFT", detailPanel._vendorZonePart, "TOPLEFT", 0, 0)
+                detailPanel._vendorZoneHit:SetPoint("BOTTOMRIGHT", detailPanel._vendorZonePart, "BOTTOMRIGHT", 0, 0)
                 detailPanel._vendorZoneHit:Show()
             else
+                detailPanel._vendorZoneIn:Hide()
                 detailPanel._vendorZonePart:Hide()
                 detailPanel._vendorZoneHit._zoneName = nil
                 detailPanel._vendorZoneHit:Hide()
@@ -3706,14 +3855,16 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorNote:SetText("|cff888888(available after finding the treasure)|r")
             detailPanel._vendorNote:ClearAllPoints()
             local tvNoteAnchor = vendorZoneWrapped
-                and detailPanel._vendorZonePart or detailPanel._vendorLine
+                and detailPanel._vendorZonePart or detailPanel._vendorPrefix
             detailPanel._vendorNote:SetPoint("TOPLEFT", tvNoteAnchor, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:Show()
         else
+            detailPanel._vendorPrefix:Hide()
             detailPanel._vendorLine:Hide()
             detailPanel._vendorHit._active = false
             detailPanel._vendorHit:Hide()
+            detailPanel._vendorZoneIn:Hide()
             detailPanel._vendorZonePart:Hide()
             detailPanel._vendorZoneHit:Hide()
             detailPanel._vendorNote:Hide()
@@ -3724,10 +3875,12 @@ function NS.UI.CatalogDetail_ShowItem(item)
             and item.zone ~= "Midnight Delves" then
         -- Drop items: "Location" link navigates to dungeon entrance
         -- (Midnight Delves items skip this — "Drops from" already covers it)
+        detailPanel._vendorPrefix:Hide()
         detailPanel._vendorLine:SetText("|cff888888Location:|r " .. item.zone)
         detailPanel._vendorLine:ClearAllPoints()
         detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
         detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+        detailPanel._vendorLine:SetWidth(0)
         detailPanel._vendorLine:Show()
         showVendorLine = true
         detailPanel._vendorHit._isDropLocation = true
@@ -3746,11 +3899,13 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit:ClearAllPoints()
         detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
         detailPanel._vendorHit:Show()
+        detailPanel._vendorZoneIn:Hide()
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit:Hide()
         HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
     else
+        detailPanel._vendorPrefix:Hide()
         detailPanel._vendorLine:Hide()
         detailPanel._vendorHit._active = false
         detailPanel._vendorHit._isDropLocation = false
@@ -3759,6 +3914,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit._dropBossName = nil
         detailPanel._vendorHit._dropZoneName = nil
         detailPanel._vendorHit:Hide()
+        detailPanel._vendorZoneIn:Hide()
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit._zoneName = nil
         detailPanel._vendorZoneHit:Hide()
@@ -3831,10 +3987,12 @@ function NS.UI.CatalogDetail_ShowItem(item)
             if lastE.zoneWrapped then
                 chainAnchor = lastE.zonePart
             else
-                chainAnchor = lastE.line
+                chainAnchor = lastE.prefix
             end
         elseif vendorZoneWrapped then
             chainAnchor = detailPanel._vendorZonePart
+        elseif detailPanel._vendorPrefix:IsShown() then
+            chainAnchor = detailPanel._vendorPrefix
         else
             chainAnchor = detailPanel._vendorLine
         end
