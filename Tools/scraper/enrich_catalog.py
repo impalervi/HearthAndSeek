@@ -1974,8 +1974,14 @@ def main() -> None:
     # where the in-game catalog reports only vendor sources.
     # -----------------------------------------------------------------------
     QUEST_DISCOVERY_ZONES = {
-        "Voidstorm", "The Voidstorm", "Harandar",
+        # Quel'Thalas (revamped)
         "Eversong Woods", "Silvermoon City", "Isle of Quel'Danas",
+        "Ghostlands", "Zul'Aman",
+        # Midnight expansion zones
+        "Voidstorm", "The Voidstorm", "Harandar",
+        "Founder's Point", "Razorwind Shores", "K'aresh",
+        # Liberation of Undermine
+        "Undermine", "Liberation of Undermine",
     }
     quest_discovery_items = [
         item for item in enriched
@@ -2008,6 +2014,10 @@ def main() -> None:
                 if quest_id and quest_name:
                     item["questID"] = quest_id
                     item["quest"] = quest_name
+                    # Add Quest source so determine_source_type() picks it up
+                    sources = item.setdefault("sources", [])
+                    if not any(s.get("type") == "Quest" for s in sources):
+                        sources.insert(0, {"type": "Quest", "value": quest_name})
                     p6_stats["found"] += 1
                     logger.debug("  %s (decorID=%s, itemID=%d): quest='%s' (ID=%d)",
                                  item.get("name"), item.get("decorID"),
