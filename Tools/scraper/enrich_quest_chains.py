@@ -385,22 +385,30 @@ def fetch_quest_chain_data(quest_id: int, force: bool = False) -> Optional[dict]
     prereqs = []
     if chain_data["series"]:
         last_before_current = None
+        found_self = False
         for entry in chain_data["series"]:
             if entry["quest_id"] == quest_id or entry["is_current"]:
+                found_self = True
                 break
             if entry["quest_id"]:
                 last_before_current = entry["quest_id"]
-        if last_before_current:
+        # Only use series prereqs if the quest actually appears in its own
+        # series — some quests are missing from their series on Wowhead,
+        # and the loop would fall through to the last entry (wrong prereq).
+        if found_self and last_before_current:
             prereqs = [last_before_current]
 
     # If no series data, try to determine prereqs from the storyline:
     # The quest immediately before us in the storyline is likely a prereq.
     if not prereqs and chain_data["storyline"]:
+        found_self = False
         for i, entry in enumerate(chain_data["storyline"]):
             if entry["quest_id"] == quest_id or entry["is_current"]:
+                found_self = True
                 if i > 0 and chain_data["storyline"][i - 1].get("quest_id"):
                     prereqs.append(chain_data["storyline"][i - 1]["quest_id"])
                 break
+        # If the quest isn't in its own storyline either, prereqs stays empty.
 
     result = {
         "quest_id": quest_id,
@@ -479,16 +487,29 @@ def build_quest_chains(
         prereqs = []
         if series:
             last_before_current = None
+            found_self = False
             for entry in series:
                 if entry.get("quest_id") == quest_id or entry.get("is_current"):
+                    found_self = True
                     break
                 if entry.get("quest_id"):
                     last_before_current = entry["quest_id"]
-            if last_before_current:
+            # Only use series prereqs if the quest actually appears in its own
+            # series — avoids circular deps from fall-through.
+            if found_self and last_before_current:
                 prereqs = [last_before_current]
-        elif data.get("prereqs"):
-            # No series data — fall back to cached prereqs (storyline-derived).
-            prereqs = data["prereqs"]
+            elif not found_self:
+                logger.warning(
+                    "  quest %d not found in its own series (%d entries), "
+                    "skipping series-based prereqs",
+                    quest_id, len(series),
+                )
+        if not prereqs and not series and data.get("prereqs"):
+            # No series data at all — fall back to cached prereqs (storyline-derived).
+            # Don't use cached prereqs when series exists but quest wasn't found in
+            # it — cached prereqs are likely stale/broken from a previous buggy run.
+            # The storyline walk from other seed quests will fill in correct prereqs.
+            prereqs = [p for p in data["prereqs"] if p != quest_id]
 
         if prereqs:
             logger.info("  -> %s -- prereqs: %s", name, prereqs)
@@ -497,13 +518,63 @@ def build_quest_chains(
         else:
             logger.info("  -> %s -- standalone (no series/storyline)", name)
 
-        all_quests[quest_id] = {
+        # For seed quests with both series and storyline, store the series
+        # chain separately.  The UI can offer a toggle: short series chain
+        # vs. full storyline chain.
+        series_chain: list[int] | None = None
+        if is_seed and series and data.get("storyline"):
+            sc_ids = []
+            found_current = False
+            for entry in series:
+                eid = entry.get("quest_id")
+                if eid == quest_id or entry.get("is_current"):
+                    found_current = True
+                    break
+                if eid:
+                    sc_ids.append(eid)
+            # Only use if we actually found the current quest in the series;
+            # otherwise the series data is unreliable (quest may not appear
+            # in its own series due to Wowhead data quirks).
+            if found_current and sc_ids:
+                series_chain = sc_ids
+                # Ensure every series quest has an entry in all_quests with
+                # the correct name and prereqs from the series order.
+                # The series gives authoritative ordering — use it to set
+                # prereqs for quests that may not appear in their own series.
+                prev_series_qid = None
+                for entry in series:
+                    eid = entry.get("quest_id")
+                    if not eid or eid == quest_id or entry.get("is_current"):
+                        break
+                    if eid not in all_quests:
+                        all_quests[eid] = {
+                            "quest_id": eid,
+                            "name": entry.get("name") or f"Quest #{eid}",
+                            "prereqs": [prev_series_qid] if prev_series_qid else [],
+                            "storyline_name": data.get("storyline_name"),
+                            "is_decor_quest": eid in seed_quest_ids,
+                        }
+                    elif not all_quests[eid]["prereqs"] and prev_series_qid:
+                        # Fill in prereqs from series order if quest had empty
+                        # prereqs (e.g. quest wasn't found in its own series).
+                        all_quests[eid]["prereqs"] = [prev_series_qid]
+                    prev_series_qid = eid
+
+        # If we couldn't compute prereqs (e.g. quest not in its own series),
+        # preserve any prereqs that were already set by another quest's storyline.
+        if not prereqs and quest_id in all_quests and all_quests[quest_id].get("prereqs"):
+            prereqs = all_quests[quest_id]["prereqs"]
+
+        quest_entry: dict = {
             "quest_id": quest_id,
             "name": name,
             "prereqs": prereqs,
             "storyline_name": data.get("storyline_name"),
             "is_decor_quest": is_seed,
         }
+        if series_chain:
+            quest_entry["series_chain"] = series_chain
+        all_quests[quest_id] = quest_entry
 
         # Use storyline data from seed quests to build complete chains.
         # The storyline list from successfully-fetched seed quests gives us
@@ -610,6 +681,69 @@ def build_quest_chains(
                 resolved += 1
         if resolved:
             logger.info("Resolved %d placeholder names from enriched catalog", resolved)
+
+    # -----------------------------------------------------------------------
+    # Post-processing: detect and fix circular prerequisites (any length).
+    # Uses DFS to find all cycles, including 3+ hop chains like A→B→C→A.
+    # Breaks each cycle by removing the edge where a non-decor quest points
+    # back to a decor quest (likely a successor, not a true prereq).
+    # -----------------------------------------------------------------------
+    def _find_cycles() -> list[list[int]]:
+        """Find all cycles in the prereq graph via DFS."""
+        WHITE, GRAY, BLACK = 0, 1, 2
+        color: dict[int, int] = {qid: WHITE for qid in all_quests}
+        path: list[int] = []
+        cycles: list[list[int]] = []
+
+        def dfs(node: int) -> None:
+            color[node] = GRAY
+            path.append(node)
+            for pred in all_quests[node].get("prereqs", []):
+                if pred not in all_quests:
+                    continue
+                if color[pred] == GRAY:
+                    # Found cycle — extract from path
+                    idx = path.index(pred)
+                    cycles.append(list(path[idx:]))
+                elif color[pred] == WHITE:
+                    dfs(pred)
+            path.pop()
+            color[node] = BLACK
+
+        for qid in all_quests:
+            if color[qid] == WHITE:
+                dfs(qid)
+        return cycles
+
+    cycles = _find_cycles()
+    if cycles:
+        logger.info("Found %d circular prerequisite cycle(s), fixing...", len(cycles))
+        for cycle in cycles:
+            # Find the best edge to break. The cycle is [A, B, C] meaning
+            # A→B→C→A (each points to the next via prereqs, last wraps).
+            # Prefer breaking where a non-decor quest has a decor quest as
+            # prereq (likely a successor relationship, not a true prereq).
+            best_idx = 0
+            for i in range(len(cycle)):
+                qid = cycle[i]
+                pred = cycle[(i + 1) % len(cycle)]
+                if all_quests.get(pred, {}).get("is_decor_quest") and \
+                   not all_quests.get(qid, {}).get("is_decor_quest"):
+                    best_idx = i
+                    break
+
+            break_qid = cycle[best_idx]
+            remove_pred = cycle[(best_idx + 1) % len(cycle)]
+            old_prereqs = all_quests[break_qid].get("prereqs", [])
+            all_quests[break_qid]["prereqs"] = [
+                p for p in old_prereqs if p != remove_pred
+            ]
+
+            cycle_str = " → ".join(str(q) for q in cycle) + " → " + str(cycle[0])
+            logger.warning(
+                "Fixed cycle: %s (broke %d → %d)", cycle_str, break_qid, remove_pred
+            )
+        logger.info("Fixed %d circular prerequisite cycle(s)", len(cycles))
 
     return all_quests
 

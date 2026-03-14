@@ -522,10 +522,47 @@ local function BuildQuestChainList(questID, fallbackName)
     return {{ questID = questID, name = questName, isDecorQuest = false }}
 end
 
+--- Build a chain list from the seriesChain field (short alternative path).
+-- Returns nil if the decor quest has no seriesChain.
+local function BuildSeriesChainList(questID, fallbackName)
+    if not questID or not NS.QuestChains then return nil end
+    local decorEntry = NS.QuestChains[questID]
+    if not decorEntry or not decorEntry.seriesChain then return nil end
+    local chain = {}
+    for _, sid in ipairs(decorEntry.seriesChain) do
+        local se = NS.QuestChains[sid]
+        chain[#chain + 1] = {
+            questID = sid,
+            name = se and se.name or C_QuestLog.GetTitleForQuestID(sid) or ("Quest " .. sid),
+            isDecorQuest = se and se.isDecorQuest or false,
+        }
+    end
+    -- Append the decor quest itself as the final entry
+    chain[#chain + 1] = {
+        questID = questID,
+        name = decorEntry.name or fallbackName
+            or C_QuestLog.GetTitleForQuestID(questID) or ("Quest " .. questID),
+        isDecorQuest = true,
+    }
+    return chain
+end
+
 --- Find the first incomplete quest in a chain (for waypointing).
 -- Returns questID or nil.
 local function GetFirstIncompleteQuestID(questID)
     local chain = BuildQuestChainList(questID)
+    if not chain then return nil end
+    for _, entry in ipairs(chain) do
+        if not C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
+            return entry.questID
+        end
+    end
+    return nil  -- all complete
+end
+
+--- Same as above but uses the series chain.
+local function GetFirstIncompleteQuestIDSeries(questID, fallbackName)
+    local chain = BuildSeriesChainList(questID, fallbackName)
     if not chain then return nil end
     for _, entry in ipairs(chain) do
         if not C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
@@ -2714,6 +2751,25 @@ function NS.UI.InitCatalogDetail(parent)
     chainHeader:SetJustifyH("LEFT")
     chainContainer._header = chainHeader
 
+    -- Toggle link: "[Series]" / "[Full Chain]" — shown when both views exist
+    local chainToggle = CreateFrame("Button", nil, chainContainer)
+    chainToggle:SetPoint("TOPRIGHT", chainContainer, "TOPRIGHT", 0, 0)
+    chainToggle:SetHeight(14)
+    local chainToggleText = chainToggle:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    chainToggleText:SetAllPoints()
+    chainToggleText:SetJustifyH("RIGHT")
+    chainToggle._text = chainToggleText
+    chainToggle:SetScript("OnEnter", function(self)
+        SetCursor("INSPECT_CURSOR")
+        self._text:SetTextColor(0.4, 0.8, 1.0)
+    end)
+    chainToggle:SetScript("OnLeave", function(self)
+        ResetCursor()
+        self._text:SetTextColor(0.5, 0.7, 0.9)
+    end)
+    chainToggle:Hide()
+    chainContainer._toggle = chainToggle
+
     -- Scroll area for quest entries
     local scrollFrame = CreateFrame("ScrollFrame", nil, chainContainer)
     scrollFrame:SetPoint("TOPLEFT", chainHeader, "BOTTOMLEFT", 0, -2)
@@ -3157,6 +3213,10 @@ end
 
 function NS.UI.CatalogDetail_ShowItem(item)
     if not detailPanel or not item then return end
+    -- Reset chain view when switching to a different item
+    if detailPanel._currentItem ~= item then
+        detailPanel._activeChainView = nil
+    end
     detailPanel._currentItem = item
     NS.UI._currentDetailItem = item  -- for external refresh (e.g. faction debug)
 
@@ -3556,7 +3616,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if vendorNoteText then
             detailPanel._vendorNote:ClearAllPoints()
             detailPanel._vendorNote:SetPoint("TOP", altAnchor, "BOTTOM", 0, -2)
-            detailPanel._vendorNote:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 0, 0)
+            detailPanel._vendorNote:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 4, 0)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:SetWordWrap(true)
             detailPanel._vendorNote:SetText(vendorNoteText)
@@ -3883,8 +3943,27 @@ function NS.UI.CatalogDetail_ShowItem(item)
     chainContainer:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
 
     local chain = nil
+    local fullChain = nil  -- storyline chain (kept for toggle)
+    local seriesChain = nil  -- series chain (short alternative)
+    local hasSeriesToggle = false
     if item.questID and not item.skipQuestChain then
-        chain = BuildQuestChainList(item.questID, item.sourceDetail)
+        fullChain = BuildQuestChainList(item.questID, item.sourceDetail)
+        seriesChain = BuildSeriesChainList(item.questID, item.sourceDetail)
+        -- Determine if toggle is available: need both, and storyline > 25
+        if fullChain and seriesChain and #fullChain > 25 and #seriesChain < #fullChain then
+            hasSeriesToggle = true
+            -- Default to series view for long storylines, remember across refreshes
+            if detailPanel._activeChainView == nil then
+                detailPanel._activeChainView = "series"
+            end
+        else
+            detailPanel._activeChainView = nil
+        end
+        if hasSeriesToggle and detailPanel._activeChainView == "series" then
+            chain = seriesChain
+        else
+            chain = fullChain
+        end
     elseif item.sourceType == "Quest" and item.sourceDetail and not item.skipQuestChain then
         -- No questID but has quest name — create a name-only chain entry
         chain = {{ questID = nil, name = item.sourceDetail, isDecorQuest = false }}
@@ -3903,12 +3982,35 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Header: "Quest:" for single, "Quest Chain:" for multi-step
-        -- Always uses full chain length for truth
         local headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
         local completedColor = (completed == #chain) and "|cff1eff00" or "|cffffcc00"
         chainContainer._header:SetText(string.format(
             "|cffffd200%s|r %d/%d %scompleted|r",
             headerLabel, completed, #chain, completedColor))
+
+        -- Toggle link: show when both series and storyline views exist
+        local toggle = chainContainer._toggle
+        if hasSeriesToggle then
+            local isSeries = detailPanel._activeChainView == "series"
+            local label = isSeries and "[Full Chain]" or "[Series]"
+            toggle._text:SetText("|cff80b3e6" .. label .. "|r")
+            toggle._text:SetTextColor(0.5, 0.7, 0.9)
+            toggle:SetWidth(toggle._text:GetStringWidth() + 4)
+            toggle:SetScript("OnClick", function()
+                if detailPanel._activeChainView == "series" then
+                    detailPanel._activeChainView = "storyline"
+                else
+                    detailPanel._activeChainView = "series"
+                end
+                -- Re-render the detail panel with the new chain view
+                if NS.UI.RefreshDetailPanel then
+                    NS.UI.RefreshDetailPanel()
+                end
+            end)
+            toggle:Show()
+        else
+            toggle:Hide()
+        end
 
         -- Build display list (truncated for long chains)
         -- Each entry: {type="quest", chainIdx=N} or {type="skip", count=N}
@@ -4166,6 +4268,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     else
         -- No chain: hide chain + its separators
         chainContainer:Hide()
+        chainContainer._toggle:Hide()
         detailPanel._sepBeforeChain:Hide()
     end
 
@@ -4367,7 +4470,13 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- Only Quest-source items use chain status for navigation;
     -- other items (e.g. Vendor with quest reward) show the chain for info only
     local chainAffectsNav = hasChain and item.sourceType == "Quest"
-    local firstIncomplete = chainAffectsNav and GetFirstIncompleteQuestID(item.questID)
+    local firstIncomplete
+    if chainAffectsNav and detailPanel._activeChainView == "series" then
+        -- In series view, only navigate within the series chain.
+        firstIncomplete = GetFirstIncompleteQuestIDSeries(item.questID, item.sourceDetail)
+    elseif chainAffectsNav then
+        firstIncomplete = GetFirstIncompleteQuestID(item.questID)
+    end
     local chainComplete = chainAffectsNav and not firstIncomplete
 
     local isQuestVendor = item.sourceType == "Quest"

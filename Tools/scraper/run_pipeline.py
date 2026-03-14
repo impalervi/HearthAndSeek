@@ -77,6 +77,8 @@ STAGES: list[tuple[str, str, str, int]] = [
      "Enrich with Wowhead (quest IDs, NPC coords, factions)", 1800),
     ("enrich_quest_chains", "enrich_quest_chains.py",
      "Build quest prerequisite chains from Wowhead", 1800),
+    ("cleanup_quest_chains", "cleanup_quest_chains.py",
+     "Rebuild prereqs from verified Series data + manual fixes", 120),
     ("enrich_quest_givers", "enrich_quest_givers.py",
      "Extract quest-giver NPC coordinates from Wowhead", 3600),
     ("scrape_wowdb", "scrape_wowdb.py",
@@ -96,7 +98,8 @@ STAGE_NAMES = [name for name, _, _, _ in STAGES]
 # Stages that perform data enrichment or scraping (skipped with --skip-enrich).
 # --force passes --force to stages that accept it, and --no-cache to scrape_wowdb.
 ENRICH_STAGES = {
-    "enrich_catalog", "enrich_quest_chains", "enrich_quest_givers",
+    "enrich_catalog", "enrich_quest_chains", "cleanup_quest_chains",
+    "enrich_quest_givers",
     "scrape_wowdb", "compute_item_themes", "enrich_wowhead_extra",
 }
 

@@ -2242,6 +2242,87 @@ def main() -> None:
                 logger.info("  %-50s %d vendors", name, count)
 
     # -----------------------------------------------------------------------
+    # Phase 7b: Vendor discovery for quest-sourced items
+    # -----------------------------------------------------------------------
+    # Many quest-reward items can ALSO be purchased from vendors. Populate
+    # vendor data so the UI can show "Purchase from X (available after
+    # completing the quest)" for these items.
+    # -----------------------------------------------------------------------
+    quest_no_vendor = [
+        item for item in enriched
+        if item.get("itemID")
+        and any(s.get("type") == "Quest" for s in (item.get("sources") or []))
+        and not any(s.get("type") == "Vendor" for s in (item.get("sources") or []))
+    ]
+
+    if quest_no_vendor:
+        logger.info("")
+        logger.info("=" * 60)
+        logger.info("PHASE 7b: Vendor discovery for quest-sourced items")
+        logger.info("=" * 60)
+        logger.info("Checking %d quest items for vendor sold-by data",
+                    len(quest_no_vendor))
+
+        p7b_found = 0
+        p7b_multi = 0
+        for item in quest_no_vendor:
+            item_id = item["itemID"]
+            vendors = fetch_item_sold_by(item_id)
+
+            if not vendors:
+                continue
+
+            # Pick the first vendor with a resolvable zone
+            best_vendor = None
+            all_vendors_resolved = []
+            for v in vendors:
+                npc_id = v.get("id")
+                npc_name = v.get("name", "")
+                react = v.get("react") or []
+                faction = None
+                if react == [1, -1]:
+                    faction = "Alliance"
+                elif react == [-1, 1]:
+                    faction = "Horde"
+
+                locations = v.get("location") or []
+                for wh_id in locations:
+                    zone_name = WH_ZONE_ID_TO_NAME.get(wh_id)
+                    if zone_name:
+                        entry = {
+                            "npcID": npc_id,
+                            "name": npc_name,
+                            "zone": zone_name,
+                            "whZoneID": wh_id,
+                            "faction": faction,
+                        }
+                        all_vendors_resolved.append(entry)
+                        if not best_vendor:
+                            best_vendor = entry
+
+            if not best_vendor:
+                continue
+
+            # Add Vendor source to the item
+            item["sources"].append({"type": "Vendor", "value": best_vendor["name"]})
+            item["vendor"] = best_vendor["name"]
+            item["npcID"] = best_vendor["npcID"]
+            p7b_found += 1
+
+            # If multiple vendors, attach _allVendors for multi-vendor display
+            if len(all_vendors_resolved) >= 2:
+                item["_allVendors"] = all_vendors_resolved
+                p7b_multi += 1
+
+            logger.debug("  %s (decorID=%s): vendor=%s in %s",
+                         item.get("name"), item.get("decorID"),
+                         best_vendor["name"], best_vendor["zone"])
+
+        logger.info("Quest-item vendor discovery complete:")
+        logger.info("  Items with vendors found: %d / %d", p7b_found, len(quest_no_vendor))
+        logger.info("  Items with multi-vendor:  %d", p7b_multi)
+
+    # -----------------------------------------------------------------------
     # Write output
     # -----------------------------------------------------------------------
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

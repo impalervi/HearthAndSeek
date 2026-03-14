@@ -77,6 +77,11 @@ def serialize_quest_entry(
     if storyline:
         lines.append(f"{indent}    storyline = {lua_string(storyline)},")
 
+    # Series chain: short alternative prereq path (series vs full storyline)
+    series_chain = quest_data.get("series_chain")
+    if series_chain:
+        lines.append(f"{indent}    seriesChain = {lua_int_list(series_chain)},")
+
     # Quest-giver NPC data (from enrich_quest_givers.py)
     if giver_data and (giver_data.get("npcId") or giver_data.get("x") is not None):
         lines.append(f"{indent}    giverName = {lua_string(giver_data.get('npcName'))},")
