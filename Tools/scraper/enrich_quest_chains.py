@@ -473,6 +473,8 @@ def build_quest_chains(
 
         # Recompute immediate predecessor from raw series data (the cache
         # may store stale multi-prereq lists from an older algorithm).
+        # Series = actual required prerequisites; storyline = zone narrative
+        # order (not enforced). Only use series for seed (decor) quests.
         series = data.get("series", [])
         prereqs = []
         if series:
@@ -485,7 +487,7 @@ def build_quest_chains(
             if last_before_current:
                 prereqs = [last_before_current]
         elif data.get("prereqs"):
-            # No series data — fall back to cached prereqs (storyline-derived)
+            # No series data — fall back to cached prereqs (storyline-derived).
             prereqs = data["prereqs"]
 
         if prereqs:
