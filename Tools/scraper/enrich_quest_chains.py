@@ -525,17 +525,26 @@ def build_quest_chains(
                 if sl_name:
                     seen_names.add(sl_name)
                 if sl_qid not in all_quests:
+                    # Don't set storyline-derived prereqs for seed quests —
+                    # they'll get accurate prereqs from their own series data
+                    # when processed as seeds later.
+                    is_sl_seed = sl_qid in seed_quest_ids
                     all_quests[sl_qid] = {
                         "quest_id": sl_qid,
                         "name": sl_entry.get("name") or f"Quest #{sl_qid}",
-                        "prereqs": [prev_qid] if prev_qid else [],
+                        "prereqs": [] if is_sl_seed else ([prev_qid] if prev_qid else []),
                         "storyline_name": storyline_name,
-                        "is_decor_quest": sl_qid in seed_quest_ids,
+                        "is_decor_quest": is_sl_seed,
                     }
-                    visited.add(sl_qid)
+                    # Don't mark seed quests as visited — they need to be
+                    # processed from the main queue to get their series prereqs.
+                    if not is_sl_seed:
+                        visited.add(sl_qid)
                 elif not all_quests[sl_qid].get("prereqs") and prev_qid:
-                    # Fill in prereqs from storyline if we had no data
-                    all_quests[sl_qid]["prereqs"] = [prev_qid]
+                    # Fill in prereqs from storyline if we had no data.
+                    # But never overwrite seed quests — their series data is authoritative.
+                    if not all_quests[sl_qid].get("is_decor_quest"):
+                        all_quests[sl_qid]["prereqs"] = [prev_qid]
                 # Update name if we only had "Quest #NNNNN"
                 sl_name = sl_entry.get("name")
                 if sl_name and all_quests[sl_qid]["name"].startswith("Quest #"):
