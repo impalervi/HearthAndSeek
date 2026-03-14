@@ -411,11 +411,23 @@ def _rate_limited_get(url: str, expect_json: bool = False) -> Optional[Any]:
         resp = requests.get(url, headers=HEADERS, timeout=20)
         _last_request_time = time.time()
 
-        if resp.status_code == 429:
-            logger.warning("Rate limited (429). Waiting 30 seconds...")
-            time.sleep(30)
-            resp = requests.get(url, headers=HEADERS, timeout=20)
-            _last_request_time = time.time()
+        # Exponential backoff on rate limit (403/429)
+        if resp.status_code in (429, 403):
+            for attempt, delay in enumerate((30, 60, 120), 1):
+                logger.warning("Rate limited (%d). Retry %d/3 in %ds...",
+                               resp.status_code, attempt, delay)
+                time.sleep(delay)
+                resp = requests.get(url, headers=HEADERS, timeout=20)
+                _last_request_time = time.time()
+                if resp.status_code not in (429, 403):
+                    break
+
+        if resp.status_code in (429, 403):
+            # Still blocked after 3 retries — return sentinel so caller can
+            # distinguish "blocked" from "not found" and avoid caching.
+            logger.warning("Still blocked (%d) after 3 retries for %s",
+                           resp.status_code, url)
+            return "__BLOCKED__"
 
         if resp.status_code != 200:
             logger.warning("HTTP %d for %s", resp.status_code, url)
@@ -460,13 +472,16 @@ def _extract_json_arrays_from_html(html: str) -> list[list[dict]]:
     return arrays
 
 
-def _search_wowhead(query: str) -> list[list[dict]]:
+def _search_wowhead(query: str):
     """
     Run a search on Wowhead and return all embedded JSON data arrays.
     Uses the main search page: https://www.wowhead.com/search?q=QUERY
+    Returns list of arrays on success, "__BLOCKED__" on rate limit, [] on error.
     """
     url = f"https://www.wowhead.com/search?q={quote(query)}"
     html = _rate_limited_get(url, expect_json=False)
+    if html == "__BLOCKED__":
+        return "__BLOCKED__"
     if not html:
         return []
     return _extract_json_arrays_from_html(html)
@@ -562,6 +577,9 @@ def lookup_quest_by_name(quest_name: str) -> Optional[int]:
             return cached.get("id")
 
     arrays = _search_wowhead(quest_name)
+    if arrays == "__BLOCKED__":
+        logger.warning("Wowhead blocked lookup for quest '%s' — skipping (not cached)", quest_name)
+        return None
     if not arrays:
         cache_put("quest", quest_name, {"id": None})
         return None
@@ -1031,6 +1049,9 @@ def fetch_item_quest_rewards(item_id: int) -> list[dict]:
     url = f"https://www.wowhead.com/item={item_id}"
     html = _rate_limited_get(url, expect_json=False)
 
+    if html == "__BLOCKED__":
+        logger.warning("Wowhead blocked item %d quest rewards — skipping (not cached)", item_id)
+        return []
     if not html:
         cache_put("item_questreward", cache_key, [])
         return []
@@ -1060,6 +1081,9 @@ def fetch_item_sold_by(item_id: int) -> list[dict]:
     url = f"https://www.wowhead.com/item={item_id}/sold-by"
     html = _rate_limited_get(url, expect_json=False)
 
+    if html == "__BLOCKED__":
+        logger.warning("Wowhead blocked item %d sold-by — skipping (not cached)", item_id)
+        return []
     if not html:
         cache_put("item_soldby", cache_key, [])
         return []
@@ -2031,6 +2055,84 @@ def main() -> None:
         logger.info("  Items scraped:    %d", p6_stats["scraped"])
         logger.info("  Quests found:     %d", p6_stats["found"])
         logger.info("  No quest reward:  %d", p6_stats["no_quest"])
+
+    # -----------------------------------------------------------------------
+    # Phase 6b: Vendor unlock quest resolution
+    # -----------------------------------------------------------------------
+    # Items whose vendor requires completing a quest (vendorUnlockQuest in
+    # vendor_requirements.json) should be promoted to Quest + Vendor source
+    # type.  This phase loads the requirements file, resolves quest names to
+    # quest IDs via Wowhead, and adds a Quest source to the enriched data so
+    # output_catalog_lua.py classifies them correctly.
+    # -----------------------------------------------------------------------
+    vr_json = DATA_DIR / "vendor_requirements.json"
+    if vr_json.exists():
+        with open(vr_json, "r", encoding="utf-8") as f:
+            vr_data = json.load(f)
+        vr_reqs = vr_data.get("requirements", {})
+
+        # Build decorID → item index for fast lookup
+        decor_to_item = {item.get("decorID"): item for item in enriched if item.get("decorID")}
+
+        # Collect items that have an unlock quest name but no questID yet
+        p6b_candidates = []
+        for decor_id_str, req in vr_reqs.items():
+            quest_name = req.get("unlockQuest")
+            if not quest_name:
+                continue
+            try:
+                decor_id = int(decor_id_str)
+            except (ValueError, TypeError):
+                continue
+            item = decor_to_item.get(decor_id)
+            if item and not item.get("questID"):
+                p6b_candidates.append((item, quest_name))
+
+        # Quests that Wowhead search fails to find (name mismatch, indexing
+        # gaps, or ambiguous results where items aren't listed as rewards).
+        # Manually verified quest IDs from Wowhead quest pages.
+        VENDOR_QUEST_FALLBACK: dict[str, int] = {
+            "Tears of Elune":           40890,  # "The Tears of Elune"
+            "Weight of Duty":           82895,  # "The Weight of Duty"
+            "Bringer of the Light":     44004,  # exact match, search doesn't index
+            "A Binding Contract":        7604,  # exact match, search doesn't index
+            "To Kill a Queen":          82141,  # exact match, search doesn't index
+            "10,000 Years of Roasting": 67063,  # comma in name breaks search
+            "Return to Zuldazar":       51985,  # ambiguous (3 versions), Horde war campaign
+            "The Bargain is Struck":    47432,  # ambiguous (2 versions), Zuldazar quest
+        }
+
+        if p6b_candidates:
+            logger.info("")
+            logger.info("=" * 60)
+            logger.info("PHASE 6b: Vendor unlock quest resolution")
+            logger.info("=" * 60)
+            logger.info("Found %d items with vendor unlock quest but no questID",
+                        len(p6b_candidates))
+
+            p6b_stats = {"resolved": 0, "failed": 0}
+
+            for item, quest_name in p6b_candidates:
+                quest_id = VENDOR_QUEST_FALLBACK.get(quest_name) or lookup_quest_by_name(quest_name)
+                if quest_id:
+                    item["questID"] = quest_id
+                    item["quest"] = quest_name
+                    # Add Quest source so determine_source_type() picks it up
+                    sources = item.setdefault("sources", [])
+                    if not any(s.get("type") == "Quest" for s in sources):
+                        sources.insert(0, {"type": "Quest", "value": quest_name})
+                    p6b_stats["resolved"] += 1
+                    logger.debug("  %s (decorID=%s): quest='%s' (ID=%d)",
+                                 item.get("name"), item.get("decorID"),
+                                 quest_name, quest_id)
+                else:
+                    p6b_stats["failed"] += 1
+                    logger.warning("  %s (decorID=%s): could not resolve quest '%s'",
+                                   item.get("name"), item.get("decorID"), quest_name)
+
+            logger.info("Vendor unlock quest resolution complete:")
+            logger.info("  Resolved:   %d", p6b_stats["resolved"])
+            logger.info("  Unresolved: %d", p6b_stats["failed"])
 
     # -----------------------------------------------------------------------
     # Phase 7: Multi-vendor discovery

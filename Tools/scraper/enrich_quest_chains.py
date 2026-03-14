@@ -379,15 +379,19 @@ def fetch_quest_chain_data(quest_id: int, force: bool = False) -> Optional[dict]
     # Parse series and storyline
     chain_data = _parse_series_and_storyline(html, quest_id)
 
-    # Determine direct prerequisites from the series data:
-    # In the series list, all quests BEFORE the current quest are prerequisites.
+    # Determine direct prerequisite from the series data:
+    # The series is sequential, so only the immediate predecessor is the
+    # direct prereq (not all prior entries).
     prereqs = []
     if chain_data["series"]:
+        last_before_current = None
         for entry in chain_data["series"]:
             if entry["quest_id"] == quest_id or entry["is_current"]:
                 break
             if entry["quest_id"]:
-                prereqs.append(entry["quest_id"])
+                last_before_current = entry["quest_id"]
+        if last_before_current:
+            prereqs = [last_before_current]
 
     # If no series data, try to determine prereqs from the storyline:
     # The quest immediately before us in the storyline is likely a prereq.
@@ -466,7 +470,23 @@ def build_quest_chains(
             continue
 
         name = data.get("name") or f"Quest #{quest_id}"
-        prereqs = data.get("prereqs", [])
+
+        # Recompute immediate predecessor from raw series data (the cache
+        # may store stale multi-prereq lists from an older algorithm).
+        series = data.get("series", [])
+        prereqs = []
+        if series:
+            last_before_current = None
+            for entry in series:
+                if entry.get("quest_id") == quest_id or entry.get("is_current"):
+                    break
+                if entry.get("quest_id"):
+                    last_before_current = entry["quest_id"]
+            if last_before_current:
+                prereqs = [last_before_current]
+        elif data.get("prereqs"):
+            # No series data — fall back to cached prereqs (storyline-derived)
+            prereqs = data["prereqs"]
 
         if prereqs:
             logger.info("  -> %s -- prereqs: %s", name, prereqs)
@@ -487,14 +507,23 @@ def build_quest_chains(
         # The storyline list from successfully-fetched seed quests gives us
         # the full ordered quest chain with names, avoiding 403 issues on
         # recursive prereq fetches.
+        # NOTE: Storylines often contain race variants (same quest name,
+        # different IDs). We deduplicate by name to avoid bloated chains.
         if is_seed and data.get("storyline"):
             storyline = data["storyline"]
             storyline_name = data.get("storyline_name")
             prev_qid = None
+            seen_names: set[str] = set()
             for sl_entry in storyline:
                 sl_qid = sl_entry.get("quest_id")
+                sl_name = sl_entry.get("name")
                 if not sl_qid:
                     continue
+                # Skip race/class variants (same name, different quest ID)
+                if sl_name and sl_name in seen_names:
+                    continue
+                if sl_name:
+                    seen_names.add(sl_name)
                 if sl_qid not in all_quests:
                     all_quests[sl_qid] = {
                         "quest_id": sl_qid,

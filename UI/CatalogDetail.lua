@@ -3548,7 +3548,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
         -- Note below vendor line (e.g. "available after completing the quest")
         if vendorNoteText then
             detailPanel._vendorNote:ClearAllPoints()
-            detailPanel._vendorNote:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -2)
+            detailPanel._vendorNote:SetPoint("TOP", altAnchor, "BOTTOM", 0, -2)
+            detailPanel._vendorNote:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 0, 0)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:SetWordWrap(true)
             detailPanel._vendorNote:SetText(vendorNoteText)
@@ -3861,7 +3862,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
 
     -- Re-anchor pre-chain separator
     detailPanel._sepBeforeChain:ClearAllPoints()
-    detailPanel._sepBeforeChain:SetPoint("TOPLEFT", chainAnchor, "BOTTOMLEFT", 0, -6)
+    detailPanel._sepBeforeChain:SetPoint("TOP", chainAnchor, "BOTTOM", 0, -6)
+    detailPanel._sepBeforeChain:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 0, 0)
     detailPanel._sepBeforeChain:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -8, 0)
 
     ---------------------------------------------------------------------------
