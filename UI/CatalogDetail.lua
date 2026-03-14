@@ -2734,6 +2734,13 @@ function NS.UI.InitCatalogDetail(parent)
     scrollFrame:SetScript("OnMouseWheel", function(self, delta)
         local maxScroll = math.max(0, scrollChild:GetHeight() - scrollFrame:GetHeight())
         local current = self:GetVerticalScroll()
+        if maxScroll <= 0
+            or (delta > 0 and current <= 0)
+            or (delta < 0 and current >= maxScroll) then
+            -- Nothing to scroll or already at boundary — propagate to parent
+            middleScroll:GetScript("OnMouseWheel")(middleScroll, delta)
+            return
+        end
         local newScroll = math.max(0, math.min(maxScroll, current - delta * CHAIN_LINE_HEIGHT * 2))
         self:SetVerticalScroll(newScroll)
         if chainContainer._scrollThumb and maxScroll > 0 then
