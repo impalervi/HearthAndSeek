@@ -5,18 +5,21 @@ The enrich_quest_chains.py bulk-import can create falsely long chains by
 importing entire zone storylines as linear prereq chains. This script
 rebuilds quest_chains.json using verified data sources:
 
-1. Series data (preferred) — short, verified quest chains from Wowhead
-2. Storyline data (fallback) — when no Series exists, uses the storyline
-   order up to the quest's position
-3. Smart chain management — fetches missing Series data from Wowhead for
-   decor quests with long chains, truncates when no Series exists
-4. Manual fixes — for chains verified outside of Wowhead Series/Storyline
+1. Storyline data (primary) — full zone/sub-zone quest ordering; when a
+   quest appears in multiple storylines, "deepest position wins" (the
+   storyline where the quest is furthest from the start takes precedence)
+2. Series data (overlay) — short, verified quest chains from Wowhead,
+   overlaid on top of storyline data when >= MIN_SERIES_TO_OVERLAY entries
+3. Manual fixes (MANUAL_FIXES) — hand-verified chains that override all
+   other sources, applied last
 
 Smart fallback rules:
   - Short Series (< MIN_SERIES_TO_OVERLAY entries) are skipped when a
     Storyline is available (short Series only cover the tail)
   - Storyline data is processed first; Series data extends but never
     overrides Storyline-connected quests
+  - Multi-storyline support: when cache files contain multiple storylines,
+    the longest one is selected for chain building
 """
 
 import hashlib
@@ -456,9 +459,12 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
     """Load all quest chain cache files and build verified prereqs.
 
     Uses two data sources from each cached Wowhead page:
-    1. Series data (preferred) — short, verified quest chains
-    2. Storyline data (fallback) — when no Series exists, uses the storyline
-       order up to the quest's position
+    1. Storyline data — full zone/sub-zone quest ordering
+    2. Series data — short, verified quest chains (overlaid when >= 5 entries)
+
+    When a quest appears in multiple storylines (from different cache files),
+    the deepest position wins — this ensures the longest/fullest chain is
+    used rather than the first cache file to claim the quest.
 
     Returns:
         verified_prereqs: quest_id -> [prereq_id] or [] (from verified data)
@@ -466,13 +472,21 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
         series_names:     quest_id -> name (from Series/Storyline entries)
     """
     verified_prereqs: dict[int, list[int]] = {}
+    # Track the deepest position seen for each quest across all storylines.
+    # When a quest appears in multiple storylines, the one where it has the
+    # deepest position (most prereqs before it) wins.
+    quest_best_pos: dict[int, int] = {}
     cached_quest_ids: set[int] = set()
     series_names: dict[int, str] = {}
     cache_count = 0
     series_count = 0
     storyline_count = 0
 
-    for cache_file in CACHE_DIR.glob("quest_chain_*.json"):
+    # NOTE: glob order is OS-dependent and non-deterministic. For quests at
+    # the SAME deepest position across two cache files, the last-processed file
+    # wins. In practice this is harmless — equal-depth entries have equivalent
+    # prereqs (the previous quest in the same storyline at that position).
+    for cache_file in sorted(CACHE_DIR.glob("quest_chain_*.json")):
         parts = cache_file.stem.split("_")
         if len(parts) < 3:
             continue
@@ -491,16 +505,33 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
             continue
 
         series = data.get("series", [])
-        storyline = data.get("storyline", [])
 
-        # --- Always process Storyline first (if available) ---
-        # The Storyline contains the full zone quest order up to quest_id's
-        # position.  Build prereqs for ALL quests in the Storyline up to
-        # (and including) the cached quest.  This connects the full chain
-        # even when Series data only covers a short tail.
+        # --- Pick the best storyline from this cache file ---
+        # New format has "storylines" (list of all); old has "storyline".
+        # When multiple storylines exist, use the LONGEST one (zone-wide)
+        # to give the fullest chain.
+        all_storylines = data.get("storylines", [])
+        if not all_storylines and data.get("storyline"):
+            # Backward compat: old cache format with single storyline
+            all_storylines = [{
+                "name": data.get("storyline_name"),
+                "quests": data["storyline"],
+            }]
+
+        # Pick the longest storyline (most entries = broadest context)
+        storyline_entry = None
+        if all_storylines:
+            storyline_entry = max(all_storylines, key=lambda s: len(s.get("quests", [])))
+
+        storyline = storyline_entry["quests"] if storyline_entry else []
+
+        # --- Process Storyline ---
+        # Build prereqs from the storyline order up to quest_id's position.
+        # Use "deepest position wins" to resolve conflicts when quests
+        # appear in multiple cache files' storylines.
+        sl_chain: list[int] = []
         if storyline:
             storyline_count += 1
-            sl_chain: list[int] = []
             for entry in storyline:
                 sq = entry.get("quest_id")
                 if sq:
@@ -514,19 +545,24 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
 
             for i, sq in enumerate(sl_chain):
                 if i == 0:
-                    if sq not in verified_prereqs:
+                    # Only set as chain start if no deeper position exists
+                    if i >= quest_best_pos.get(sq, -1):
                         verified_prereqs[sq] = []
+                        quest_best_pos[sq] = i
                 else:
                     prev_id = sl_chain[i - 1]
-                    if sq not in verified_prereqs:
+                    # Deepest position wins — if this quest appeared at
+                    # position 3 in one storyline and position 20 in
+                    # another, position 20's prereq is used.
+                    if i > quest_best_pos.get(sq, -1):
                         verified_prereqs[sq] = [prev_id]
+                        quest_best_pos[sq] = i
 
         # --- Then overlay Series data (if available) ---
         # Short Series (< MIN_SERIES_TO_OVERLAY entries) only cover the tail
-        # of the chain.  When a Storyline is available, skip them entirely
-        # and rely on the Storyline for the full chain.
-        # Longer Series are overlaid but never override Storyline-connected
-        # quests (the Storyline provides fuller context).
+        # of the chain.  When a Storyline is available, skip them entirely.
+        # Longer Series are overlaid but never override quests that already
+        # have a deeper storyline position.
         sl_chain_set = set(sl_chain) if storyline else set()
         use_series = series and (len(series) >= MIN_SERIES_TO_OVERLAY
                                  or not storyline)
@@ -543,17 +579,15 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
 
             for i, sq in enumerate(chain_ids):
                 if i == 0:
-                    # Don't clear prereqs set by Storyline for Series start
                     if sq not in verified_prereqs:
                         verified_prereqs[sq] = []
                 else:
                     prev_id = chain_ids[i - 1]
-                    # If this quest was already connected by Storyline,
-                    # keep the Storyline prereqs (they provide the full
-                    # chain).  Only use Series for quests NOT in storyline.
+                    # Don't override if storyline gave a deeper position
                     if sq in sl_chain_set and sq in verified_prereqs:
                         continue
-                    verified_prereqs[sq] = [prev_id]
+                    if sq not in verified_prereqs:
+                        verified_prereqs[sq] = [prev_id]
 
             # The cached quest_id may or may not appear in the Series list
             if chain_ids and quest_id not in verified_prereqs:

@@ -227,45 +227,18 @@ def _parse_series_table(html: str, quest_id: int) -> list[dict]:
     return results
 
 
-def _parse_storyline_list(html: str, quest_id: int) -> tuple[Optional[str], list[dict]]:
-    """
-    Parse the Storyline section from Wowhead quest page HTML.
-
-    The Storyline is inside:
-        <div class="quick-facts-storyline-list">
-            <ol>
-                <li><a href="/quest=NNNN/slug">Name</a></li>
-                <li class="current"><span>Current Quest</span></li>
-            </ol>
-        </div>
-
-    preceded by a storyline name link like:
-        <a ... title="...">Storyline Name</a>
-
-    Returns (storyline_name, quest_list).
-    """
-    storyline_name = None
+def _parse_one_storyline(container_html: str, quest_id: int) -> list[dict]:
+    """Parse quest entries from a single storyline container's HTML."""
     results = []
-
-    # Find the storyline container
-    container_match = re.search(
-        r'<div\s+class="quick-facts-storyline-list"[^>]*>(.*?)</div>',
-        html, re.DOTALL | re.IGNORECASE,
-    )
-    if not container_match:
-        return storyline_name, results
-
-    container_html = container_match.group(1)
-
-    # Find the <ol> within
     ol_match = re.search(r'<ol[^>]*>(.*?)</ol>', container_html, re.DOTALL)
     if not ol_match:
-        return storyline_name, results
+        return results
 
     ol_html = ol_match.group(1)
-
-    # Parse <li> entries
-    for li_match in re.finditer(r'<li[^>]*?(?:class="([^"]*)")?[^>]*>(.*?)</li>', ol_html, re.DOTALL):
+    for li_match in re.finditer(
+        r'<li[^>]*?(?:class="([^"]*)")?[^>]*>(.*?)</li>',
+        ol_html, re.DOTALL,
+    ):
         li_class = li_match.group(1) or ""
         li_content = li_match.group(2)
         is_current = "current" in li_class
@@ -281,7 +254,6 @@ def _parse_storyline_list(html: str, quest_id: int) -> tuple[Optional[str], list
                 "is_current": is_current,
             })
         else:
-            # Current quest or plain text
             text = re.sub(r'<[^>]+>', '', li_content).strip()
             if text:
                 results.append({
@@ -289,22 +261,56 @@ def _parse_storyline_list(html: str, quest_id: int) -> tuple[Optional[str], list
                     "name": text,
                     "is_current": True,
                 })
+    return results
 
-    # Extract storyline name from the link before the container
-    # Pattern: <a ... href="/storyline/..." ...>Name</a>
-    # Look in the area before the container for the storyline link
-    container_start = html.find('class="quick-facts-storyline-list"')
-    if container_start > 0:
-        # Look back up to 500 chars for the storyline link
+
+def _parse_storyline_list(html: str, quest_id: int) -> tuple[Optional[str], list[dict]]:
+    """Parse the first Storyline section (backward-compat wrapper)."""
+    all_storylines = _parse_all_storylines(html, quest_id)
+    if all_storylines:
+        return all_storylines[0]["name"], all_storylines[0]["quests"]
+    return None, []
+
+
+def _parse_all_storylines(html: str, quest_id: int) -> list[dict]:
+    """
+    Parse ALL Storyline sections from a Wowhead quest page.
+
+    Some quests have multiple storylines (e.g. a focused sub-storyline
+    AND a broad zone storyline).  Each is inside its own
+    ``<div class="quick-facts-storyline-list">`` preceded by a
+    storyline name link.
+
+    Returns a list of::
+
+        [
+            {"name": "The Zanchuli Council", "quests": [{quest_id, name, is_current}, ...]},
+            {"name": "Unrest in Zuldazar",   "quests": [{...}, ...]},
+        ]
+    """
+    storylines: list[dict] = []
+
+    # Find ALL storyline containers
+    for container_match in re.finditer(
+        r'<div\s+class="quick-facts-storyline-list"[^>]*>(.*?)</div>',
+        html, re.DOTALL | re.IGNORECASE,
+    ):
+        quests = _parse_one_storyline(container_match.group(1), quest_id)
+        if not quests:
+            continue
+
+        # Extract storyline name from the link before this container
+        container_start = container_match.start()
         search_area = html[max(0, container_start - 500):container_start]
         name_match = re.search(
             r'<a[^>]*href="[^"]*?/storyline/[^"]*"[^>]*>([^<]+)</a>',
             search_area,
         )
-        if name_match:
-            storyline_name = name_match.group(1).strip()
+        sl_name = name_match.group(1).strip() if name_match else None
 
-    return storyline_name, results
+        storylines.append({"name": sl_name, "quests": quests})
+
+    return storylines
 
 
 def _parse_series_and_storyline(html: str, quest_id: int) -> dict:
@@ -312,22 +318,32 @@ def _parse_series_and_storyline(html: str, quest_id: int) -> dict:
     Parse the Series and Storyline sections from a Wowhead quest page.
 
     Series is in a <table class="series"> inside the Quick Facts infobox.
-    Storyline is in a <div class="quick-facts-storyline-list">.
+    Storylines are in ``<div class="quick-facts-storyline-list">`` elements
+    (there may be multiple — e.g. a focused sub-storyline AND a zone-wide one).
 
     Returns:
         {
-            "series": [{"quest_id": int, "name": str, "is_current": bool}, ...],
-            "storyline_name": str or None,
-            "storyline": [{"quest_id": int, "name": str, "is_current": bool}, ...],
+            "series": [...],
+            "storyline_name": str or None,   # first storyline name (compat)
+            "storyline": [...],              # first storyline quests (compat)
+            "storylines": [                  # ALL storylines
+                {"name": str, "quests": [...]},
+                ...
+            ],
         }
     """
     series = _parse_series_table(html, quest_id)
-    storyline_name, storyline = _parse_storyline_list(html, quest_id)
+    all_storylines = _parse_all_storylines(html, quest_id)
+
+    # Backward compat: first storyline → "storyline" / "storyline_name"
+    first_name = all_storylines[0]["name"] if all_storylines else None
+    first_quests = all_storylines[0]["quests"] if all_storylines else []
 
     return {
         "series": series,
-        "storyline_name": storyline_name,
-        "storyline": storyline,
+        "storyline_name": first_name,
+        "storyline": first_quests,
+        "storylines": all_storylines,
     }
 
 
@@ -350,8 +366,6 @@ def fetch_quest_chain_data(quest_id: int, force: bool = False) -> Optional[dict]
         }
     or None if the quest page couldn't be fetched.
     """
-    cache_key_str = f"quest_chain_{quest_id}"
-
     if not force:
         cached = cache_get("quest_chain", str(quest_id))
         if cached is not None:
@@ -416,6 +430,7 @@ def fetch_quest_chain_data(quest_id: int, force: bool = False) -> Optional[dict]
         "series": chain_data["series"],
         "storyline_name": chain_data["storyline_name"],
         "storyline": chain_data["storyline"],
+        "storylines": chain_data.get("storylines", []),
         "prereqs": prereqs,
     }
 
