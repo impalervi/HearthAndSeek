@@ -448,6 +448,42 @@ MANUAL_FIXES: dict[int, dict] = {
     # Wowhead comments confirm Zul'Aman campaign (quest 91062 "Broken
     # Bridges") must be completed before this quest becomes available.
     91087: {"prereqs": [91062]},                                       # Reports Returned (decor)
+
+    # === The Monster and the Machine: Into the Machine ===
+    # Quest 78761 appears in both "The Monster and the Machine" (pos 6)
+    # and "Catch Up: War Within: Wrapper 2" (pos 23). Deepest-position
+    # heuristic picks the catch-up wrapper. Series confirms 78760 → 78761.
+    78761: {"prereqs": [78760], "storyline_name": "The Monster and the Machine"},
+
+    # === Stormsong Valley Foothold: Forsaken Studded Table (decorID 862) ===
+    # "Return to Zuldazar" has 3 variants (one per foothold). Enrichment
+    # resolved all to 51985 (Drustvar); output_catalog_lua overrides 862→51986.
+    # Chain: 51526 → 51532 → 51643 → 51536 → 51587 → 51675 → 51691 → 51674 → 51696 → 51753 → 51986
+    51526: {"prereqs": [],      "name": "The Warlord's Call"},
+    51532: {"prereqs": [51526], "name": "Storming In"},
+    51643: {"prereqs": [51532], "name": "A Wall of Iron"},
+    51536: {"prereqs": [51643], "name": "On the Hunt"},
+    51587: {"prereqs": [51536], "name": "Onward!"},
+    51675: {"prereqs": [51587], "name": "Hunt Them Down"},
+    51691: {"prereqs": [51675], "name": "Almost Worth Saving"},
+    51674: {"prereqs": [51691], "name": "Douse the Flames"},
+    51696: {"prereqs": [51674], "name": "Reclaiming What's Ours"},
+    51753: {"prereqs": [51696], "name": "Champion: Rexxar"},
+    51986: {"prereqs": [51753], "name": "Return to Zuldazar"},
+
+    # === Tiragarde Sound Foothold: Tirisfal Wooden Chair (decorID 863) ===
+    # Chain: 51421 → 51435 → 51436 → 51437 → 51439 → 51440 → 51441 → 51442 → 51438 → 51975 → 51984
+    51421: {"prereqs": [],      "name": "Shiver Me Timbers"},
+    51435: {"prereqs": [51421], "name": "Swashbuckling in Style"},
+    51436: {"prereqs": [51435], "name": "Parleyin' Wit Pirates"},
+    51437: {"prereqs": [51436], "name": "Spike the Punch"},
+    51439: {"prereqs": [51437], "name": "Cannonball Collection"},
+    51440: {"prereqs": [51439], "name": "A Change in Direction"},
+    51441: {"prereqs": [51440], "name": "Thar She Blows!"},
+    51442: {"prereqs": [51441], "name": "I'm the Captain Now"},
+    51438: {"prereqs": [51442], "name": "Marking Our Territory"},
+    51975: {"prereqs": [51438], "name": "Champion: Shadow Hunter Ty'jin"},
+    51984: {"prereqs": [51975], "name": "Return to Zuldazar"},
 }
 
 
@@ -518,10 +554,20 @@ def load_series_chains() -> tuple[dict[int, list[int]], set[int], dict[int, str]
                 "quests": data["storyline"],
             }]
 
-        # Pick the longest storyline (most entries = broadest context)
+        # Filter out "Catch Up:" storylines — these are meta-wrapper quests
+        # that bundle multiple zone storylines for returning players to skip.
+        # They create artificially long chains that aren't real prereq chains.
+        real_storylines = [
+            s for s in all_storylines
+            if not (s.get("name") or "").startswith("Catch Up:")
+        ]
+
+        # Pick the longest real storyline (most entries = broadest context).
+        # Fall back to unfiltered list if ALL storylines are catch-up wrappers.
         storyline_entry = None
-        if all_storylines:
-            storyline_entry = max(all_storylines, key=lambda s: len(s.get("quests", [])))
+        candidates = real_storylines or all_storylines
+        if candidates:
+            storyline_entry = max(candidates, key=lambda s: len(s.get("quests", [])))
 
         storyline = storyline_entry["quests"] if storyline_entry else []
 
@@ -874,6 +920,8 @@ def main():
             quests[quest_id_str]["prereqs"] = fix["prereqs"]
             if "name" in fix:
                 quests[quest_id_str]["name"] = fix["name"]
+            if "storyline_name" in fix:
+                quests[quest_id_str]["storyline_name"] = fix["storyline_name"]
             if old != fix["prereqs"]:
                 manual_fixed += 1
         else:

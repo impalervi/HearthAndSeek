@@ -2151,6 +2151,30 @@ def main() -> None:
         logger.info("Applied vendor unlock requirements to %d items", vr_applied)
 
     # -----------------------------------------------------------------------
+    # Quest ID overrides — fix items where the enrichment pipeline resolved
+    # an ambiguous quest name to the wrong quest ID (e.g. same-name quests
+    # from different footholds/campaigns).
+    # Format: decorID -> correct questID
+    # -----------------------------------------------------------------------
+    QUEST_ID_OVERRIDES: dict[int, int] = {
+        # "Return to Zuldazar" has 3 variants (one per foothold campaign).
+        # Enrichment resolved all 3 to 51985 (Drustvar). Fix the other two:
+        862: 51986,  # Forsaken Studded Table → Stormsong Valley foothold
+        863: 51984,  # Tirisfal Wooden Chair  → Tiragarde Sound foothold
+    }
+    qid_fixed = 0
+    for decor_id, correct_qid in QUEST_ID_OVERRIDES.items():
+        item = next((i for i in catalog if i.get("decorID") == decor_id), None)
+        if item and item.get("questID") != correct_qid:
+            old_qid = item.get("questID")
+            item["questID"] = correct_qid
+            qid_fixed += 1
+            logger.info("  Quest ID override: decorID %d (%s) %s -> %s",
+                        decor_id, item.get("name", "?"), old_qid, correct_qid)
+    if qid_fixed:
+        logger.info("Applied quest ID overrides to %d items", qid_fixed)
+
+    # -----------------------------------------------------------------------
     # Load Silvermoon vendor overrides (additive — keeps original vendor as alt)
     # -----------------------------------------------------------------------
     silvermoon_overrides: dict[int, dict] = {}

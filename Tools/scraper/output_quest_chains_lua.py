@@ -60,7 +60,7 @@ def serialize_quest_entry(
     """Serialize a single quest chain entry to a Lua table literal."""
     name = quest_data.get("name") or f"Quest #{quest_id}"
     prereqs = quest_data.get("prereqs", [])
-    is_decor = quest_data.get("is_decor_quest", False)
+    is_decor = quest_data.get("is_decor_quest", False) or (decor_id is not None)
 
     lines = [f"{indent}[{quest_id}] = {{"]
     lines.append(f"{indent}    name = {lua_string(name)},")
@@ -147,6 +147,20 @@ def main() -> None:
             if qid and did:
                 quest_to_decor[qid] = did
         logger.info("Built questID -> decorID lookup: %d entries", len(quest_to_decor))
+
+        # Apply quest ID overrides (same as QUEST_ID_OVERRIDES in output_catalog_lua.py)
+        # These fix items where enrichment resolved an ambiguous quest name to the
+        # wrong quest ID (e.g. "Return to Zuldazar" has 3 foothold variants).
+        QUEST_ID_OVERRIDES: dict[int, int] = {
+            862: 51986,  # Forsaken Studded Table → Stormsong Valley foothold
+            863: 51984,  # Tirisfal Wooden Chair  → Tiragarde Sound foothold
+        }
+        for decor_id, correct_qid in QUEST_ID_OVERRIDES.items():
+            # Find the old questID for this decorID and remove it
+            old_qid = next((qid for qid, did in quest_to_decor.items() if did == decor_id), None)
+            if old_qid and old_qid != correct_qid:
+                del quest_to_decor[old_qid]
+            quest_to_decor[correct_qid] = decor_id
     else:
         logger.warning("Enriched catalog not found: %s (skipping decorID lookup)", ENRICHED_CATALOG_JSON)
 
@@ -224,11 +238,12 @@ def main() -> None:
         lines.append("")
 
     # Generate the list of decor quest IDs for quick lookup
-    decor_quest_ids = sorted(
+    # Include quests marked in quest_chains.json AND quests in the decorID lookup
+    decor_quest_ids = sorted(set(
         int(qid) for qid, qdata in quests.items()
-        if qdata.get("is_decor_quest")
+        if (qdata.get("is_decor_quest") or int(qid) in quest_to_decor)
         and qdata.get("name") not in SKIP_QUEST_NAMES
-    )
+    ))
     if decor_quest_ids:
         lines.append("-- Decor reward quest IDs (for quick membership test)")
         lines.append("NS.DecorQuestIDs = {")
