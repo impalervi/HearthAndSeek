@@ -148,19 +148,23 @@ def main() -> None:
                 quest_to_decor[qid] = did
         logger.info("Built questID -> decorID lookup: %d entries", len(quest_to_decor))
 
-        # Apply quest ID overrides (same as QUEST_ID_OVERRIDES in output_catalog_lua.py)
-        # These fix items where enrichment resolved an ambiguous quest name to the
-        # wrong quest ID (e.g. "Return to Zuldazar" has 3 foothold variants).
-        QUEST_ID_OVERRIDES: dict[int, int] = {
-            862: 51986,  # Forsaken Studded Table → Stormsong Valley foothold
-            863: 51984,  # Tirisfal Wooden Chair  → Tiragarde Sound foothold
+        # Remove vendor-unlock quest items from quest_to_decor — these items
+        # have Quest sources in the enriched catalog because Blizzard's API
+        # reports vendor-unlock prerequisites as quest sources.  They should
+        # NOT have quest chains.  (Same set as VENDOR_UNLOCK_QUEST_ITEMS in
+        # output_catalog_lua.py.)
+        VENDOR_UNLOCK_QUEST_ITEMS: set[int] = {
+            862, 863, 935, 936, 1080, 1170, 1192, 1193, 1235, 1310, 1353,
+            1408, 1412, 1443, 1883, 4403, 4481, 4485, 4486, 4816, 4818,
+            4844, 9065, 9142, 9249, 9250, 9251, 9441, 11907, 12201,
+            12202, 12205, 12208, 12209, 15605, 15895,
         }
-        for decor_id, correct_qid in QUEST_ID_OVERRIDES.items():
-            # Find the old questID for this decorID and remove it
-            old_qid = next((qid for qid, did in quest_to_decor.items() if did == decor_id), None)
-            if old_qid and old_qid != correct_qid:
-                del quest_to_decor[old_qid]
-            quest_to_decor[correct_qid] = decor_id
+        stale_qids = [qid for qid, did in quest_to_decor.items()
+                      if did in VENDOR_UNLOCK_QUEST_ITEMS]
+        for qid in stale_qids:
+            del quest_to_decor[qid]
+        if stale_qids:
+            logger.info("Removed %d vendor-unlock quest entries from quest_to_decor", len(stale_qids))
     else:
         logger.warning("Enriched catalog not found: %s (skipping decorID lookup)", ENRICHED_CATALOG_JSON)
 

@@ -2573,6 +2573,44 @@ function NS.UI.InitCatalogDetail(parent)
     parent._vendorNote:Hide()
 
     ---------------------------------------------------------------------------
+    -- Vendor unlock quest line: "Requires quest: <quest name>" with Ctrl+Click
+    ---------------------------------------------------------------------------
+    parent._vendorUnlockPrefix = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorUnlockPrefix:SetJustifyH("LEFT")
+    parent._vendorUnlockPrefix:SetWordWrap(false)
+    parent._vendorUnlockPrefix:Hide()
+
+    parent._vendorUnlockQuestName = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorUnlockQuestName:SetJustifyH("LEFT")
+    parent._vendorUnlockQuestName:SetWordWrap(true)
+    parent._vendorUnlockQuestName:Hide()
+
+    local unlockHit = CreateFrame("Frame", nil, middleChild)
+    unlockHit:EnableMouse(true)
+    unlockHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
+    unlockHit._active = false
+    unlockHit._questID = nil
+    unlockHit._questName = nil
+    unlockHit:SetScript("OnEnter", function(self)
+        if not self._active then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._questName or "Quest", 1, 0.82, 0)
+        GameTooltip:AddLine("Vendor unlock prerequisite", 0.53, 0.53, 0.53)
+        GameTooltip:AddLine(" ")
+        GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
+        GameTooltip:Show()
+    end)
+    unlockHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    unlockHit:SetScript("OnMouseUp", function(self, button)
+        if not self._active or not IsControlKeyDown() then return end
+        if button == "LeftButton" and self._questID then
+            ShowCopyableURL("https://www.wowhead.com/quest=" .. self._questID)
+        end
+    end)
+    parent._vendorUnlockQuestHit = unlockHit
+
+    ---------------------------------------------------------------------------
     -- Treasure source: "Found in: <treasure>" with interactive name + zone
     ---------------------------------------------------------------------------
     parent._treasureLine = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -3498,13 +3536,13 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if item.unlockQuestID then
             local completed = C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted
                 and C_QuestLog.IsQuestFlaggedCompleted(item.unlockQuestID)
-            if not completed then
-                if item.vendorUnlockQuest then
-                    vendorNoteText = "|cff888888(requires quest: " .. item.vendorUnlockQuest .. ")|r"
-                else
-                    vendorNoteText = "|cff888888(requires completing a quest first)|r"
-                end
+            if not completed and item.vendorUnlockQuest then
+                vendorNoteText = "_UNLOCK_QUEST_"  -- sentinel: use interactive line
+            elseif not completed then
+                vendorNoteText = "|cff888888(requires completing a quest first)|r"
             end
+        elseif item.vendorUnlockQuest and item.unlockQuestID then
+            vendorNoteText = "_UNLOCK_QUEST_"  -- sentinel: use interactive line
         elseif item.vendorUnlockQuest then
             vendorNoteText = "|cff888888(requires quest: " .. item.vendorUnlockQuest .. ")|r"
         end
@@ -3613,7 +3651,36 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._additionalVendorCount = avIdx
 
         -- Note below vendor line (e.g. "available after completing the quest")
-        if vendorNoteText then
+        -- Hide unlock quest elements first (re-shown below if needed)
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
+
+        if vendorNoteText == "_UNLOCK_QUEST_" then
+            -- Interactive vendor unlock quest line
+            detailPanel._vendorNote:Hide()
+
+            detailPanel._vendorUnlockPrefix:SetText("|cff888888Requires quest:|r ")
+            detailPanel._vendorUnlockPrefix:ClearAllPoints()
+            detailPanel._vendorUnlockPrefix:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -2)
+            detailPanel._vendorUnlockPrefix:Show()
+
+            local questName = item.vendorUnlockQuest or "Unknown Quest"
+            detailPanel._vendorUnlockQuestName:SetText("|cffffd200" .. questName .. "|r")
+            detailPanel._vendorUnlockQuestName:ClearAllPoints()
+            detailPanel._vendorUnlockQuestName:SetPoint("LEFT", detailPanel._vendorUnlockPrefix, "RIGHT", 0, 0)
+            detailPanel._vendorUnlockQuestName:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+            detailPanel._vendorUnlockQuestName:SetWordWrap(true)
+            detailPanel._vendorUnlockQuestName:Show()
+
+            detailPanel._vendorUnlockQuestHit._active = true
+            detailPanel._vendorUnlockQuestHit._questID = item.unlockQuestID
+            detailPanel._vendorUnlockQuestHit._questName = questName
+            detailPanel._vendorUnlockQuestHit:ClearAllPoints()
+            detailPanel._vendorUnlockQuestHit:SetAllPoints(detailPanel._vendorUnlockQuestName)
+            detailPanel._vendorUnlockQuestHit:Show()
+        elseif vendorNoteText then
             detailPanel._vendorNote:ClearAllPoints()
             detailPanel._vendorNote:SetPoint("TOP", altAnchor, "BOTTOM", 0, -2)
             detailPanel._vendorNote:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 4, 0)
@@ -3780,6 +3847,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
             detailPanel._vendorZonePart:Hide()
             detailPanel._vendorZoneHit:Hide()
             detailPanel._vendorNote:Hide()
+            detailPanel._vendorUnlockPrefix:Hide()
+            detailPanel._vendorUnlockQuestName:Hide()
+            detailPanel._vendorUnlockQuestHit._active = false
+            detailPanel._vendorUnlockQuestHit:Hide()
         end
         HideAllAdditionalVendors()
 
@@ -3816,6 +3887,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorZoneHit:Hide()
         HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
     else
         detailPanel._vendorPrefix:Hide()
         detailPanel._vendorLine:Hide()
@@ -3832,6 +3907,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorZoneHit:Hide()
         HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
 
         -- Additional Treasure source: show treasure info for non-Treasure primary items
         -- (e.g. Profession items with a treasure alternative)
@@ -3891,7 +3970,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- Determine anchor for chain area (below vendor note/alt vendor/zone/line, else last acquire)
     local chainAnchor = lastAcquireElem
     if showVendorLine then
-        if detailPanel._vendorNote:IsShown() then
+        if detailPanel._vendorUnlockQuestName:IsShown() then
+            chainAnchor = detailPanel._vendorUnlockQuestName
+        elseif detailPanel._vendorNote:IsShown() then
             chainAnchor = detailPanel._vendorNote
         elseif detailPanel._additionalVendorCount > 0 then
             -- Walk down to last visible additional vendor entry
@@ -5218,6 +5299,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
         if detailPanel._vendorNote:IsShown() then
             sourceH = sourceH + 2 + (detailPanel._vendorNote:GetStringHeight() or 14)
+        end
+        if detailPanel._vendorUnlockQuestName:IsShown() then
+            sourceH = sourceH + 2 + (detailPanel._vendorUnlockQuestName:GetStringHeight() or 14)
         end
         for i = 1, detailPanel._additionalVendorCount do
             local e = detailPanel._additionalVendorPool[i]

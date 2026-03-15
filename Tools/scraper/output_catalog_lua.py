@@ -1727,7 +1727,11 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         lines.append("        isShopItem = true,")
 
     # Optional: unlockQuestID (vendor requires completing a quest first)
-    unlock_quest = VENDOR_UNLOCK_QUESTS.get(decor_id)
+    # Sources: VENDOR_UNLOCK_QUESTS dict, demotion (_unlockQuestID), or questID
+    # when the item has a vendorUnlockQuest (quest = vendor unlock prerequisite).
+    unlock_quest = (VENDOR_UNLOCK_QUESTS.get(decor_id)
+                    or item.get("_unlockQuestID")
+                    or (item.get("questID") if item.get("vendorUnlockQuest") else None))
     if unlock_quest:
         lines.append(f"        unlockQuestID = {unlock_quest},")
 
@@ -2151,28 +2155,81 @@ def main() -> None:
         logger.info("Applied vendor unlock requirements to %d items", vr_applied)
 
     # -----------------------------------------------------------------------
-    # Quest ID overrides — fix items where the enrichment pipeline resolved
-    # an ambiguous quest name to the wrong quest ID (e.g. same-name quests
-    # from different footholds/campaigns).
-    # Format: decorID -> correct questID
+    # Vendor-unlock quest demotion — Blizzard's in-game API reports vendor-
+    # unlock prerequisite quests as "Quest:" sources, identical to actual quest
+    # rewards.  For these items the quest only unlocks the vendor; the item is
+    # purchased, not rewarded.  Strip the Quest source so Vendor (or Shop)
+    # becomes primary.  The quest name is preserved in vendorUnlockQuest.
     # -----------------------------------------------------------------------
-    QUEST_ID_OVERRIDES: dict[int, int] = {
-        # "Return to Zuldazar" has 3 variants (one per foothold campaign).
-        # Enrichment resolved all 3 to 51985 (Drustvar). Fix the other two:
-        862: 51986,  # Forsaken Studded Table → Stormsong Valley foothold
-        863: 51984,  # Tirisfal Wooden Chair  → Tiragarde Sound foothold
+    VENDOR_UNLOCK_QUEST_ITEMS: set[int] = {
+        # --- BfA Horde Footholds (Return to Zuldazar variants) ---
+        862,   # Forsaken Studded Table
+        863,   # Tirisfal Wooden Chair
+        935,   # Forsaken Long Table
+        936,   # Lordaeron Hanging Lantern
+        # --- Zuldazar vendors (Arcanist Peroleth / T'lama) ---
+        1170,  # Zandalari Rickshaw
+        1192,  # Zuldazar Stool
+        1193,  # Tired Troll's Bench
+        1310,  # Akunda the Tapestry
+        9250,  # Ancient Zandalari Ritual Scroll
+        9441,  # Weathered History of the Warchiefs
+        # --- WoD Garrison vendors (Sergeant Crowler / Grimjaw) ---
+        1353,  # Frostwolf Round Table
+        1408,  # Warsong Workbench
+        1443,  # Orcish Scribe's Drafting Table
+        4403,  # Stormwind Wooden Bench
+        4485,  # Stormwind Workbench
+        4486,  # Northshire Scribe's Desk
+        4816,  # Wooden Storage Crate
+        4844,  # Rough Wooden Chair
+        # --- Spires of Arak (Ruuan the Seer) ---
+        12201, # Writings of Reshad the Outcast
+        12202, # Scroll of the Adherent
+        12205, # High Arakkoan Library Shelf
+        12208, # "Rising Glory of Rukhmar" Statue
+        12209, # Uncorrupted Eye of Terokk
+        # --- Val'sharah (Myria Glenbrook) ---
+        1883,  # Kaldorei Stone Fencepost (quest unlocks vendor, not a reward)
+        # --- Spot-check findings ---
+        1080,  # Replica Sky's Hope (quest "Sky's Hope" unlocks vendor Maku)
+        1235,  # Whitewash River Basket (quest rewards Cache, not the item)
+        1412,  # Youngling's Courser Toys (quest "Pool of Visions" unlocks vendor)
+        # --- Miscellaneous ---
+        # NOTE: 2466 (Gnomish Sprocket Table) excluded — handled by faction_quest_overrides
+        4481,  # Elegant Dracthyr's Tea Set
+        4818,  # Architect's Drafting Table
+        9065,  # Lush Garden Fungal Basin (Shop item, quest is unrelated)
+        9142,  # Copper Tidesage's Sconce
+        9249,  # Hyjal Climbing Vine
+        9251,  # Pylon Fragment
+        11907, # Driftwood Junk Pile
+        15605, # Golden Pandaren Privacy Screen
+        15895, # Ren'dorei Spired Tent
     }
-    qid_fixed = 0
-    for decor_id, correct_qid in QUEST_ID_OVERRIDES.items():
-        item = next((i for i in catalog if i.get("decorID") == decor_id), None)
-        if item and item.get("questID") != correct_qid:
-            old_qid = item.get("questID")
-            item["questID"] = correct_qid
-            qid_fixed += 1
-            logger.info("  Quest ID override: decorID %d (%s) %s -> %s",
-                        decor_id, item.get("name", "?"), old_qid, correct_qid)
-    if qid_fixed:
-        logger.info("Applied quest ID overrides to %d items", qid_fixed)
+    demoted = 0
+    for item in catalog:
+        if item.get("decorID") not in VENDOR_UNLOCK_QUEST_ITEMS:
+            continue
+        quest_name = item.get("quest") or ""
+        quest_id = item.get("questID")
+        # Preserve the quest as a vendor unlock prerequisite
+        if quest_name and not item.get("vendorUnlockQuest"):
+            item["vendorUnlockQuest"] = quest_name
+        if quest_id and not item.get("_unlockQuestID"):
+            item["_unlockQuestID"] = quest_id
+        # Strip Quest sources so Vendor/Shop becomes primary
+        old_sources = item.get("sources") or []
+        new_sources = [s for s in old_sources if s.get("type") != "Quest"]
+        if len(new_sources) != len(old_sources):
+            item["sources"] = new_sources
+            item["quest"] = None
+            item["questID"] = None
+            demoted += 1
+            logger.debug("  Demoted quest source: decorID %d (%s) — quest was vendor unlock",
+                         item["decorID"], item.get("name", "?"))
+    if demoted:
+        logger.info("Demoted %d vendor-unlock quests from Quest to Vendor/Shop source", demoted)
 
     # -----------------------------------------------------------------------
     # Load Silvermoon vendor overrides (additive — keeps original vendor as alt)
