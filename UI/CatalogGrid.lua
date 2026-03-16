@@ -205,24 +205,25 @@ local SEARCH_SYNONYMS = {
 --- For short queries (≤3 chars), require word-boundary match to avoid false
 --- positives like "pet" matching "carpet". Iterates through all occurrences
 --- to find one that sits at word boundaries (non-alpha or string edge).
-local function WordBoundaryFind(haystack, needle)
+local function WordStartFind(haystack, needle)
     local pos = 1
     while true do
         local s, e = haystack:find(needle, pos, true)
         if not s then return nil end
+        -- Only require a leading word boundary (start-of-word match).
+        -- "ax" matches "Axe" and "Battle Axe" but not "relaxing".
         local before = (s == 1) or not haystack:sub(s - 1, s - 1):match("%a")
-        local after = (e == #haystack) or not haystack:sub(e + 1, e + 1):match("%a")
-        if before and after then return s end
+        if before then return s end
         pos = e + 1
     end
 end
 
---- Check if haystack contains needle. Uses word-boundary matching for short
+--- Check if haystack contains needle. Uses start-of-word matching for short
 --- needles (≤3 chars) and plain substring for longer ones.
 local function FieldContains(haystack, needle)
     if not haystack then return false end
     if #needle <= 3 then
-        return WordBoundaryFind(haystack, needle) ~= nil
+        return WordStartFind(haystack, needle) ~= nil
     end
     return haystack:find(needle, 1, true) ~= nil
 end
