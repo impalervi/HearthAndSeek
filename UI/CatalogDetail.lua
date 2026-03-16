@@ -3541,8 +3541,6 @@ function NS.UI.CatalogDetail_ShowItem(item)
             elseif not completed then
                 vendorNoteText = "|cff888888(requires completing a quest first)|r"
             end
-        elseif item.vendorUnlockQuest and item.unlockQuestID then
-            vendorNoteText = "_UNLOCK_QUEST_"  -- sentinel: use interactive line
         elseif item.vendorUnlockQuest then
             vendorNoteText = "|cff888888(requires quest: " .. item.vendorUnlockQuest .. ")|r"
         end
@@ -4027,6 +4025,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     local fullChain = nil  -- storyline chain (kept for toggle)
     local seriesChain = nil  -- series chain (short alternative)
     local hasSeriesToggle = false
+    local isUnlockChain = false  -- vendor-unlock quest chain (not a reward)
     if item.questID and not item.skipQuestChain then
         fullChain = BuildQuestChainList(item.questID, item.sourceDetail)
         seriesChain = BuildSeriesChainList(item.questID, item.sourceDetail)
@@ -4034,6 +4033,24 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if fullChain and seriesChain and #fullChain > 25 and #seriesChain < #fullChain then
             hasSeriesToggle = true
             -- Default to series view for long storylines, remember across refreshes
+            if detailPanel._activeChainView == nil then
+                detailPanel._activeChainView = "series"
+            end
+        else
+            detailPanel._activeChainView = nil
+        end
+        if hasSeriesToggle and detailPanel._activeChainView == "series" then
+            chain = seriesChain
+        else
+            chain = fullChain
+        end
+    elseif item.unlockQuestID and not item.skipQuestChain then
+        -- Vendor-unlock quest: show the chain but don't treat as a reward quest
+        isUnlockChain = true
+        fullChain = BuildQuestChainList(item.unlockQuestID, item.vendorUnlockQuest)
+        seriesChain = BuildSeriesChainList(item.unlockQuestID, item.vendorUnlockQuest)
+        if fullChain and seriesChain and #fullChain > 25 and #seriesChain < #fullChain then
+            hasSeriesToggle = true
             if detailPanel._activeChainView == nil then
                 detailPanel._activeChainView = "series"
             end
@@ -4063,7 +4080,13 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Header: "Quest:" for single, "Quest Chain:" for multi-step
-        local headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
+        -- Vendor-unlock chains use "Unlock Quest:" / "Unlock Quest Chain:"
+        local headerLabel
+        if isUnlockChain then
+            headerLabel = (#chain > 1) and "Unlock Quest Chain:" or "Unlock Quest:"
+        else
+            headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
+        end
         local completedColor = (completed == #chain) and "|cff1eff00" or "|cffffcc00"
         chainContainer._header:SetText(string.format(
             "|cffffd200%s|r %d/%d %scompleted|r",

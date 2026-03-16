@@ -2155,79 +2155,45 @@ def main() -> None:
         logger.info("Applied vendor unlock requirements to %d items", vr_applied)
 
     # -----------------------------------------------------------------------
-    # Vendor-unlock quest demotion — Blizzard's in-game API reports vendor-
-    # unlock prerequisite quests as "Quest:" sources, identical to actual quest
-    # rewards.  For these items the quest only unlocks the vendor; the item is
-    # purchased, not rewarded.  Strip the Quest source so Vendor (or Shop)
-    # becomes primary.  The quest name is preserved in vendorUnlockQuest.
+    # Vendor-unlock quest demotion — Items where the Wowhead tooltip says
+    # "Complete the quest X" but the item has NO "Reward From" section on
+    # Wowhead.  The quest merely unlocks the vendor — the item is NOT a
+    # quest reward.  Phase 6 of enrich_catalog.py checks Wowhead's "Reward
+    # From" section and correctly identifies legitimate quest rewards across
+    # all zones.  Only items below lack "Reward From" entirely.
+    #
+    # These items are treated as pure Vendor: strip Quest source, clear ALL
+    # quest-related metadata (vendorUnlockQuest, unlockQuestID, etc.).
     # -----------------------------------------------------------------------
+    # NOTE: 2466 (Gnomish Sprocket Table) excluded — handled by faction_quest_overrides
     VENDOR_UNLOCK_QUEST_ITEMS: set[int] = {
-        # --- BfA Horde Footholds (Return to Zuldazar variants) ---
-        862,   # Forsaken Studded Table
-        863,   # Tirisfal Wooden Chair
-        935,   # Forsaken Long Table
-        936,   # Lordaeron Hanging Lantern
-        # --- Zuldazar vendors (Arcanist Peroleth / T'lama) ---
-        1170,  # Zandalari Rickshaw
-        1192,  # Zuldazar Stool
-        1193,  # Tired Troll's Bench
-        1310,  # Akunda the Tapestry
-        9250,  # Ancient Zandalari Ritual Scroll
-        9441,  # Weathered History of the Warchiefs
-        # --- WoD Garrison vendors (Sergeant Crowler / Grimjaw) ---
-        1353,  # Frostwolf Round Table
-        1408,  # Warsong Workbench
-        1443,  # Orcish Scribe's Drafting Table
-        4403,  # Stormwind Wooden Bench
-        4485,  # Stormwind Workbench
-        4486,  # Northshire Scribe's Desk
-        4816,  # Wooden Storage Crate
-        4844,  # Rough Wooden Chair
-        # --- Spires of Arak (Ruuan the Seer) ---
-        12201, # Writings of Reshad the Outcast
-        12202, # Scroll of the Adherent
-        12205, # High Arakkoan Library Shelf
-        12208, # "Rising Glory of Rukhmar" Statue
-        12209, # Uncorrupted Eye of Terokk
-        # --- Val'sharah (Myria Glenbrook) ---
-        1883,  # Kaldorei Stone Fencepost (quest unlocks vendor, not a reward)
-        # --- Spot-check findings ---
-        1080,  # Replica Sky's Hope (quest "Sky's Hope" unlocks vendor Maku)
-        1235,  # Whitewash River Basket (quest rewards Cache, not the item)
-        1412,  # Youngling's Courser Toys (quest "Pool of Visions" unlocks vendor)
-        # --- Miscellaneous ---
-        # NOTE: 2466 (Gnomish Sprocket Table) excluded — handled by faction_quest_overrides
-        4481,  # Elegant Dracthyr's Tea Set
-        4818,  # Architect's Drafting Table
-        9065,  # Lush Garden Fungal Basin (Shop item, quest is unrelated)
-        9142,  # Copper Tidesage's Sconce
-        9249,  # Hyjal Climbing Vine
-        9251,  # Pylon Fragment
-        11907, # Driftwood Junk Pile
-        15605, # Golden Pandaren Privacy Screen
-        15895, # Ren'dorei Spired Tent
+        # Items where Wowhead tooltip says "Complete the quest X" but
+        # the item has NO "Reward From" section — the quest unlocks the
+        # vendor, not rewards the item.  Blizzard's raw C_HousingCatalog
+        # API also reports quest=null for these.
+        1277,   # Rusty Patchwork Tub (vendor: Blair Bass, Undermine)
+        1883,   # Kaldorei Stone Fencepost (vendor: Myria Glenbrook, Val'sharah)
+        9054,   # Admiral's Low-Hanging Chandelier (vendor: Pearl Barlow, Tiragarde Sound)
+        9186,   # Dornogal Hanging Lantern (vendor: Garnett, Dornogal)
+        11905,  # Driftwood Barrel (vendor: Ransa Greyfeather, Highmountain)
     }
     demoted = 0
     for item in catalog:
         if item.get("decorID") not in VENDOR_UNLOCK_QUEST_ITEMS:
             continue
-        quest_name = item.get("quest") or ""
-        quest_id = item.get("questID")
-        # Preserve the quest as a vendor unlock prerequisite
-        if quest_name and not item.get("vendorUnlockQuest"):
-            item["vendorUnlockQuest"] = quest_name
-        if quest_id and not item.get("_unlockQuestID"):
-            item["_unlockQuestID"] = quest_id
         # Strip Quest sources so Vendor/Shop becomes primary
         old_sources = item.get("sources") or []
         new_sources = [s for s in old_sources if s.get("type") != "Quest"]
         if len(new_sources) != len(old_sources):
             item["sources"] = new_sources
-            item["quest"] = None
-            item["questID"] = None
             demoted += 1
             logger.debug("  Demoted quest source: decorID %d (%s) — quest was vendor unlock",
                          item["decorID"], item.get("name", "?"))
+        # Clear ALL quest-related metadata — these are pure Vendor items
+        item["quest"] = None
+        item["questID"] = None
+        item["vendorUnlockQuest"] = None
+        item["_unlockQuestID"] = None
     if demoted:
         logger.info("Demoted %d vendor-unlock quests from Quest to Vendor/Shop source", demoted)
 

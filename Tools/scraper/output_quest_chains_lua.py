@@ -60,7 +60,10 @@ def serialize_quest_entry(
     """Serialize a single quest chain entry to a Lua table literal."""
     name = quest_data.get("name") or f"Quest #{quest_id}"
     prereqs = quest_data.get("prereqs", [])
-    is_decor = quest_data.get("is_decor_quest", False) or (decor_id is not None)
+    # Use quest_to_decor lookup as the authoritative source for decor status.
+    # quest_data["is_decor_quest"] from quest_chains.json may be stale for
+    # vendor-unlock items that were demoted from Quest to Vendor source.
+    is_decor = decor_id is not None
 
     lines = [f"{indent}[{quest_id}] = {{"]
     lines.append(f"{indent}    name = {lua_string(name)},")
@@ -149,22 +152,36 @@ def main() -> None:
         logger.info("Built questID -> decorID lookup: %d entries", len(quest_to_decor))
 
         # Remove vendor-unlock quest items from quest_to_decor — these items
-        # have Quest sources in the enriched catalog because Blizzard's API
-        # reports vendor-unlock prerequisites as quest sources.  They should
-        # NOT have quest chains.  (Same set as VENDOR_UNLOCK_QUEST_ITEMS in
+        # have "Complete the quest X" in their Wowhead tooltip but NO
+        # "Reward From" section.  The quest unlocks the vendor, not rewards
+        # the item.  (Same set as VENDOR_UNLOCK_QUEST_ITEMS in
         # output_catalog_lua.py.)
+        # NOTE: 2466 (Gnomish Sprocket Table) excluded — handled by faction_quest_overrides
         VENDOR_UNLOCK_QUEST_ITEMS: set[int] = {
-            862, 863, 935, 936, 1080, 1170, 1192, 1193, 1235, 1310, 1353,
-            1408, 1412, 1443, 1883, 4403, 4481, 4485, 4486, 4816, 4818,
-            4844, 9065, 9142, 9249, 9250, 9251, 9441, 11907, 12201,
-            12202, 12205, 12208, 12209, 15605, 15895,
+            1277, 1883, 9054, 9186, 11905,
         }
-        stale_qids = [qid for qid, did in quest_to_decor.items()
-                      if did in VENDOR_UNLOCK_QUEST_ITEMS]
-        for qid in stale_qids:
-            del quest_to_decor[qid]
-        if stale_qids:
-            logger.info("Removed %d vendor-unlock quest entries from quest_to_decor", len(stale_qids))
+        # Build reverse lookup: questID -> all decorIDs that use it
+        qid_to_all_decors: dict[int, list[int]] = {}
+        for item in catalog:
+            qid = item.get("questID")
+            did = item.get("decorID")
+            if qid and did:
+                qid_to_all_decors.setdefault(qid, []).append(did)
+        # Remove or replace entries where the mapped decorID is a vendor-unlock
+        removed = 0
+        for qid, did in list(quest_to_decor.items()):
+            if did not in VENDOR_UNLOCK_QUEST_ITEMS:
+                continue
+            # Check if another non-demoted item shares this questID
+            alternatives = [d for d in qid_to_all_decors.get(qid, [])
+                            if d not in VENDOR_UNLOCK_QUEST_ITEMS]
+            if alternatives:
+                quest_to_decor[qid] = alternatives[0]
+            else:
+                del quest_to_decor[qid]
+                removed += 1
+        if removed:
+            logger.info("Removed %d vendor-unlock quest entries from quest_to_decor", removed)
     else:
         logger.warning("Enriched catalog not found: %s (skipping decorID lookup)", ENRICHED_CATALOG_JSON)
 
@@ -241,13 +258,14 @@ def main() -> None:
         lines.append("}")
         lines.append("")
 
-    # Generate the list of decor quest IDs for quick lookup
-    # Include quests marked in quest_chains.json AND quests in the decorID lookup
-    decor_quest_ids = sorted(set(
-        int(qid) for qid, qdata in quests.items()
-        if (qdata.get("is_decor_quest") or int(qid) in quest_to_decor)
-        and qdata.get("name") not in SKIP_QUEST_NAMES
-    ))
+    # Generate the list of decor quest IDs for quick lookup.
+    # Only use quest_to_decor as authoritative source (not is_decor_quest from
+    # quest_chains.json, which may be stale for vendor-unlock demoted items).
+    decor_quest_ids = sorted(
+        qid for qid in quest_to_decor
+        if str(qid) in quests
+        and quests[str(qid)].get("name") not in SKIP_QUEST_NAMES
+    )
     if decor_quest_ids:
         lines.append("-- Decor reward quest IDs (for quick membership test)")
         lines.append("NS.DecorQuestIDs = {")

@@ -1994,24 +1994,16 @@ def main() -> None:
     # Phase 6: Discover quest rewards from Wowhead item pages
     # -----------------------------------------------------------------------
     # Items with vendor data but no quest data may still have quest rewards
-    # discoverable via Wowhead. This is common for Midnight expansion items
-    # where the in-game catalog reports only vendor sources.
+    # discoverable via Wowhead's "Reward From" section.  Previously this was
+    # restricted to specific zones, but legitimate quest rewards exist across
+    # all expansions.  We now check ALL items with an itemID and no questID.
+    # Phase 6b (vendor unlock quest resolution) runs after this and only
+    # touches items that Phase 6 did NOT assign a questID to.
     # -----------------------------------------------------------------------
-    QUEST_DISCOVERY_ZONES = {
-        # Quel'Thalas (revamped)
-        "Eversong Woods", "Silvermoon City", "Isle of Quel'Danas",
-        "Ghostlands", "Zul'Aman",
-        # Midnight expansion zones
-        "Voidstorm", "The Voidstorm", "Harandar",
-        "Founder's Point", "Razorwind Shores", "K'aresh",
-        # Liberation of Undermine
-        "Undermine", "Liberation of Undermine",
-    }
     quest_discovery_items = [
         item for item in enriched
         if not item.get("questID")
         and item.get("itemID")
-        and (item.get("zone") or "") in QUEST_DISCOVERY_ZONES
     ]
 
     if quest_discovery_items:
@@ -2019,7 +2011,7 @@ def main() -> None:
         logger.info("=" * 60)
         logger.info("PHASE 6: Quest reward discovery from Wowhead item pages")
         logger.info("=" * 60)
-        logger.info("Found %d items in Midnight zones with no quest data",
+        logger.info("Found %d items with no quest data",
                     len(quest_discovery_items))
 
         p6_stats = {"scraped": 0, "found": 0, "no_quest": 0}
