@@ -411,11 +411,23 @@ def _rate_limited_get(url: str, expect_json: bool = False) -> Optional[Any]:
         resp = requests.get(url, headers=HEADERS, timeout=20)
         _last_request_time = time.time()
 
-        if resp.status_code == 429:
-            logger.warning("Rate limited (429). Waiting 30 seconds...")
-            time.sleep(30)
-            resp = requests.get(url, headers=HEADERS, timeout=20)
-            _last_request_time = time.time()
+        # Exponential backoff on rate limit (403/429)
+        if resp.status_code in (429, 403):
+            for attempt, delay in enumerate((30, 60, 120), 1):
+                logger.warning("Rate limited (%d). Retry %d/3 in %ds...",
+                               resp.status_code, attempt, delay)
+                time.sleep(delay)
+                resp = requests.get(url, headers=HEADERS, timeout=20)
+                _last_request_time = time.time()
+                if resp.status_code not in (429, 403):
+                    break
+
+        if resp.status_code in (429, 403):
+            # Still blocked after 3 retries — return sentinel so caller can
+            # distinguish "blocked" from "not found" and avoid caching.
+            logger.warning("Still blocked (%d) after 3 retries for %s",
+                           resp.status_code, url)
+            return "__BLOCKED__"
 
         if resp.status_code != 200:
             logger.warning("HTTP %d for %s", resp.status_code, url)
@@ -460,13 +472,16 @@ def _extract_json_arrays_from_html(html: str) -> list[list[dict]]:
     return arrays
 
 
-def _search_wowhead(query: str) -> list[list[dict]]:
+def _search_wowhead(query: str):
     """
     Run a search on Wowhead and return all embedded JSON data arrays.
     Uses the main search page: https://www.wowhead.com/search?q=QUERY
+    Returns list of arrays on success, "__BLOCKED__" on rate limit, [] on error.
     """
     url = f"https://www.wowhead.com/search?q={quote(query)}"
     html = _rate_limited_get(url, expect_json=False)
+    if html == "__BLOCKED__":
+        return "__BLOCKED__"
     if not html:
         return []
     return _extract_json_arrays_from_html(html)
@@ -562,6 +577,9 @@ def lookup_quest_by_name(quest_name: str) -> Optional[int]:
             return cached.get("id")
 
     arrays = _search_wowhead(quest_name)
+    if arrays == "__BLOCKED__":
+        logger.warning("Wowhead blocked lookup for quest '%s' — skipping (not cached)", quest_name)
+        return None
     if not arrays:
         cache_put("quest", quest_name, {"id": None})
         return None
@@ -1031,6 +1049,9 @@ def fetch_item_quest_rewards(item_id: int) -> list[dict]:
     url = f"https://www.wowhead.com/item={item_id}"
     html = _rate_limited_get(url, expect_json=False)
 
+    if html == "__BLOCKED__":
+        logger.warning("Wowhead blocked item %d quest rewards — skipping (not cached)", item_id)
+        return []
     if not html:
         cache_put("item_questreward", cache_key, [])
         return []
@@ -1060,6 +1081,9 @@ def fetch_item_sold_by(item_id: int) -> list[dict]:
     url = f"https://www.wowhead.com/item={item_id}/sold-by"
     html = _rate_limited_get(url, expect_json=False)
 
+    if html == "__BLOCKED__":
+        logger.warning("Wowhead blocked item %d sold-by — skipping (not cached)", item_id)
+        return []
     if not html:
         cache_put("item_soldby", cache_key, [])
         return []
@@ -1970,18 +1994,16 @@ def main() -> None:
     # Phase 6: Discover quest rewards from Wowhead item pages
     # -----------------------------------------------------------------------
     # Items with vendor data but no quest data may still have quest rewards
-    # discoverable via Wowhead. This is common for Midnight expansion items
-    # where the in-game catalog reports only vendor sources.
+    # discoverable via Wowhead's "Reward From" section.  Previously this was
+    # restricted to specific zones, but legitimate quest rewards exist across
+    # all expansions.  We now check ALL items with an itemID and no questID.
+    # Phase 6b (vendor unlock quest resolution) runs after this and only
+    # touches items that Phase 6 did NOT assign a questID to.
     # -----------------------------------------------------------------------
-    QUEST_DISCOVERY_ZONES = {
-        "Voidstorm", "The Voidstorm", "Harandar",
-        "Eversong Woods", "Silvermoon City", "Isle of Quel'Danas",
-    }
     quest_discovery_items = [
         item for item in enriched
         if not item.get("questID")
         and item.get("itemID")
-        and (item.get("zone") or "") in QUEST_DISCOVERY_ZONES
     ]
 
     if quest_discovery_items:
@@ -1989,7 +2011,7 @@ def main() -> None:
         logger.info("=" * 60)
         logger.info("PHASE 6: Quest reward discovery from Wowhead item pages")
         logger.info("=" * 60)
-        logger.info("Found %d items in Midnight zones with no quest data",
+        logger.info("Found %d items with no quest data",
                     len(quest_discovery_items))
 
         p6_stats = {"scraped": 0, "found": 0, "no_quest": 0}
@@ -2008,6 +2030,10 @@ def main() -> None:
                 if quest_id and quest_name:
                     item["questID"] = quest_id
                     item["quest"] = quest_name
+                    # Add Quest source so determine_source_type() picks it up
+                    sources = item.setdefault("sources", [])
+                    if not any(s.get("type") == "Quest" for s in sources):
+                        sources.insert(0, {"type": "Quest", "value": quest_name})
                     p6_stats["found"] += 1
                     logger.debug("  %s (decorID=%s, itemID=%d): quest='%s' (ID=%d)",
                                  item.get("name"), item.get("decorID"),
@@ -2021,6 +2047,272 @@ def main() -> None:
         logger.info("  Items scraped:    %d", p6_stats["scraped"])
         logger.info("  Quests found:     %d", p6_stats["found"])
         logger.info("  No quest reward:  %d", p6_stats["no_quest"])
+
+    # -----------------------------------------------------------------------
+    # Phase 6b: Vendor unlock quest resolution
+    # -----------------------------------------------------------------------
+    # Items whose vendor requires completing a quest (vendorUnlockQuest in
+    # vendor_requirements.json) should be promoted to Quest + Vendor source
+    # type.  This phase loads the requirements file, resolves quest names to
+    # quest IDs via Wowhead, and adds a Quest source to the enriched data so
+    # output_catalog_lua.py classifies them correctly.
+    # -----------------------------------------------------------------------
+    vr_json = DATA_DIR / "vendor_requirements.json"
+    if vr_json.exists():
+        with open(vr_json, "r", encoding="utf-8") as f:
+            vr_data = json.load(f)
+        vr_reqs = vr_data.get("requirements", {})
+
+        # Build decorID → item index for fast lookup
+        decor_to_item = {item.get("decorID"): item for item in enriched if item.get("decorID")}
+
+        # Collect items that have an unlock quest name but no questID yet
+        p6b_candidates = []
+        for decor_id_str, req in vr_reqs.items():
+            quest_name = req.get("unlockQuest")
+            if not quest_name:
+                continue
+            try:
+                decor_id = int(decor_id_str)
+            except (ValueError, TypeError):
+                continue
+            item = decor_to_item.get(decor_id)
+            if item and not item.get("questID"):
+                p6b_candidates.append((item, quest_name))
+
+        # Quests that Wowhead search fails to find (name mismatch, indexing
+        # gaps, or ambiguous results where items aren't listed as rewards).
+        # Manually verified quest IDs from Wowhead quest pages.
+        VENDOR_QUEST_FALLBACK: dict[str, int] = {
+            "Tears of Elune":           40890,  # "The Tears of Elune"
+            "Weight of Duty":           82895,  # "The Weight of Duty"
+            "Bringer of the Light":     44004,  # exact match, search doesn't index
+            "A Binding Contract":        7604,  # exact match, search doesn't index
+            "To Kill a Queen":          82141,  # exact match, search doesn't index
+            "10,000 Years of Roasting": 67063,  # comma in name breaks search
+            "Return to Zuldazar":       51985,  # ambiguous (3 versions), Horde war campaign
+            "The Bargain is Struck":    47432,  # ambiguous (2 versions), Zuldazar quest
+        }
+
+        if p6b_candidates:
+            logger.info("")
+            logger.info("=" * 60)
+            logger.info("PHASE 6b: Vendor unlock quest resolution")
+            logger.info("=" * 60)
+            logger.info("Found %d items with vendor unlock quest but no questID",
+                        len(p6b_candidates))
+
+            p6b_stats = {"resolved": 0, "failed": 0}
+
+            for item, quest_name in p6b_candidates:
+                quest_id = VENDOR_QUEST_FALLBACK.get(quest_name) or lookup_quest_by_name(quest_name)
+                if quest_id:
+                    item["questID"] = quest_id
+                    item["quest"] = quest_name
+                    # Add Quest source so determine_source_type() picks it up
+                    sources = item.setdefault("sources", [])
+                    if not any(s.get("type") == "Quest" for s in sources):
+                        sources.insert(0, {"type": "Quest", "value": quest_name})
+                    p6b_stats["resolved"] += 1
+                    logger.debug("  %s (decorID=%s): quest='%s' (ID=%d)",
+                                 item.get("name"), item.get("decorID"),
+                                 quest_name, quest_id)
+                else:
+                    p6b_stats["failed"] += 1
+                    logger.warning("  %s (decorID=%s): could not resolve quest '%s'",
+                                   item.get("name"), item.get("decorID"), quest_name)
+
+            logger.info("Vendor unlock quest resolution complete:")
+            logger.info("  Resolved:   %d", p6b_stats["resolved"])
+            logger.info("  Unresolved: %d", p6b_stats["failed"])
+
+    # -----------------------------------------------------------------------
+    # Phase 7: Multi-vendor discovery
+    # -----------------------------------------------------------------------
+    # Items sourced from Vendors may be sold by NPCs in multiple zones
+    # (e.g. Bolt Chair is sold in Mechagon, Stormwind, Orgrimmar, Dornogal).
+    # We scrape Wowhead sold-by data and attach _allVendors lists so the
+    # output stage can pick the best primary vendor and list the rest.
+    # Items that already have factionVendors are skipped (handled by Phase 5).
+    # -----------------------------------------------------------------------
+    multi_vendor_items = [
+        item for item in enriched
+        if item.get("itemID")
+        and any(s.get("type") == "Vendor" for s in (item.get("sources") or []))
+        and not item.get("factionVendors")
+    ]
+
+    if multi_vendor_items:
+        logger.info("")
+        logger.info("=" * 60)
+        logger.info("PHASE 7: Multi-vendor discovery (items sold in multiple zones)")
+        logger.info("=" * 60)
+        logger.info("Checking %d vendor-sourced items for multi-vendor data",
+                    len(multi_vendor_items))
+
+        p7_stats = {
+            "scraped": 0, "multi_vendor": 0, "single_vendor": 0,
+            "no_data": 0, "total_additional": 0,
+        }
+        p7_updated_items = []  # for statistics output
+
+        for item in multi_vendor_items:
+            item_id = item["itemID"]
+            vendors = fetch_item_sold_by(item_id)
+            p7_stats["scraped"] += 1
+
+            if not vendors:
+                p7_stats["no_data"] += 1
+                continue
+
+            if len(vendors) < 2:
+                p7_stats["single_vendor"] += 1
+                continue
+
+            # Build vendor list with zone + faction info.
+            # A single NPC can exist in multiple locations (e.g., Second Chair
+            # Pawdo in Orgrimmar, Stormwind City, and Dornogal). We create
+            # separate entries for each resolvable zone.
+            all_vendors = []
+            seen_zones = set()  # deduplicate same zone from different NPCs
+            for v in vendors:
+                npc_id = v.get("id")
+                npc_name = v.get("name", "")
+                locations = v.get("location") or []
+                react = v.get("react") or []
+
+                # Determine faction from react field
+                # [1, -1] = Alliance only, [-1, 1] = Horde only, else neutral
+                faction = None
+                if react == [1, -1]:
+                    faction = "Alliance"
+                elif react == [-1, 1]:
+                    faction = "Horde"
+
+                # Expand each location into a separate vendor entry
+                for wh_id in locations:
+                    zone_name = WH_ZONE_ID_TO_NAME.get(wh_id)
+                    if not zone_name:
+                        continue
+                    # Deduplicate: same NPC in same zone (different sub-zone IDs)
+                    dedup_key = (npc_id, zone_name)
+                    if dedup_key in seen_zones:
+                        continue
+                    seen_zones.add(dedup_key)
+
+                    all_vendors.append({
+                        "npcID": npc_id,
+                        "name": npc_name,
+                        "zone": zone_name,
+                        "whZoneID": wh_id,
+                        "faction": faction,
+                    })
+
+            if len(all_vendors) >= 2:
+                item["_allVendors"] = all_vendors
+                p7_stats["multi_vendor"] += 1
+                additional_count = len(all_vendors) - 1
+                p7_stats["total_additional"] += additional_count
+                p7_updated_items.append((item.get("name"), len(all_vendors)))
+                logger.debug("  %s (decorID=%s): %d vendors across zones",
+                             item.get("name"), item.get("decorID"),
+                             len(all_vendors))
+            else:
+                p7_stats["single_vendor"] += 1
+
+        logger.info("Multi-vendor discovery complete:")
+        logger.info("  Items scraped:          %d", p7_stats["scraped"])
+        logger.info("  With multiple vendors:  %d", p7_stats["multi_vendor"])
+        logger.info("  Single vendor only:     %d", p7_stats["single_vendor"])
+        logger.info("  No sold-by data:        %d", p7_stats["no_data"])
+        logger.info("  Total additional vendors: %d", p7_stats["total_additional"])
+
+        if p7_updated_items:
+            logger.info("")
+            logger.info("Items with multiple vendors:")
+            for name, count in sorted(p7_updated_items):
+                logger.info("  %-50s %d vendors", name, count)
+
+    # -----------------------------------------------------------------------
+    # Phase 7b: Vendor discovery for quest-sourced items
+    # -----------------------------------------------------------------------
+    # Many quest-reward items can ALSO be purchased from vendors. Populate
+    # vendor data so the UI can show "Purchase from X (available after
+    # completing the quest)" for these items.
+    # -----------------------------------------------------------------------
+    quest_no_vendor = [
+        item for item in enriched
+        if item.get("itemID")
+        and any(s.get("type") == "Quest" for s in (item.get("sources") or []))
+        and not any(s.get("type") == "Vendor" for s in (item.get("sources") or []))
+    ]
+
+    if quest_no_vendor:
+        logger.info("")
+        logger.info("=" * 60)
+        logger.info("PHASE 7b: Vendor discovery for quest-sourced items")
+        logger.info("=" * 60)
+        logger.info("Checking %d quest items for vendor sold-by data",
+                    len(quest_no_vendor))
+
+        p7b_found = 0
+        p7b_multi = 0
+        for item in quest_no_vendor:
+            item_id = item["itemID"]
+            vendors = fetch_item_sold_by(item_id)
+
+            if not vendors:
+                continue
+
+            # Pick the first vendor with a resolvable zone
+            best_vendor = None
+            all_vendors_resolved = []
+            for v in vendors:
+                npc_id = v.get("id")
+                npc_name = v.get("name", "")
+                react = v.get("react") or []
+                faction = None
+                if react == [1, -1]:
+                    faction = "Alliance"
+                elif react == [-1, 1]:
+                    faction = "Horde"
+
+                locations = v.get("location") or []
+                for wh_id in locations:
+                    zone_name = WH_ZONE_ID_TO_NAME.get(wh_id)
+                    if zone_name:
+                        entry = {
+                            "npcID": npc_id,
+                            "name": npc_name,
+                            "zone": zone_name,
+                            "whZoneID": wh_id,
+                            "faction": faction,
+                        }
+                        all_vendors_resolved.append(entry)
+                        if not best_vendor:
+                            best_vendor = entry
+
+            if not best_vendor:
+                continue
+
+            # Add Vendor source to the item
+            item["sources"].append({"type": "Vendor", "value": best_vendor["name"]})
+            item["vendor"] = best_vendor["name"]
+            item["npcID"] = best_vendor["npcID"]
+            p7b_found += 1
+
+            # If multiple vendors, attach _allVendors for multi-vendor display
+            if len(all_vendors_resolved) >= 2:
+                item["_allVendors"] = all_vendors_resolved
+                p7b_multi += 1
+
+            logger.debug("  %s (decorID=%s): vendor=%s in %s",
+                         item.get("name"), item.get("decorID"),
+                         best_vendor["name"], best_vendor["zone"])
+
+        logger.info("Quest-item vendor discovery complete:")
+        logger.info("  Items with vendors found: %d / %d", p7b_found, len(quest_no_vendor))
+        logger.info("  Items with multi-vendor:  %d", p7b_multi)
 
     # -----------------------------------------------------------------------
     # Write output

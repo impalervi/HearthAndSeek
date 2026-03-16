@@ -30,6 +30,7 @@ python parse_boss_dump.py         # 1b. Parse boss floor map dump
 python parse_boss_dump.py --validate  # 1b. ...with cross-validation
 python enrich_catalog.py          # 2. Enrich with Wowhead data
 python enrich_quest_chains.py     # 3. Build quest prerequisite chains
+python cleanup_quest_chains.py   # 3b. Clean up chains (deepest-position-wins)
 python enrich_quest_givers.py     # 4. Extract quest-giver NPC coordinates
 python scrape_wowdb.py --all      # 5. Scrape WoWDB community sets and item tags
 python compute_item_themes.py     # 6. Compute aesthetic and culture theme scores
@@ -218,6 +219,61 @@ Extracts quest prerequisite chains for all quest-source decorations:
 
 Output: `data/quest_chains.json` with metadata (1,827 quests, 52 storylines,
 chains up to 138 quests deep).
+
+#### Multi-Storyline Scraping
+
+Some Wowhead quest pages contain multiple storyline sections (e.g., a quest
+that appears in both a sub-zone storyline and a zone-wide storyline). The
+scraper captures ALL storylines via `_parse_all_storylines()` using
+`re.finditer()` and stores them in the `"storylines"` field of the cache.
+Older cache files have only a single `"storyline"` field — the cleanup script
+handles both formats via backward compatibility.
+
+### Step 4b½: Clean Up Quest Chains
+
+```bash
+python cleanup_quest_chains.py
+```
+
+Rebuilds quest prerequisite chains using verified Wowhead Series and Storyline
+data. This step runs automatically as part of `run_pipeline.py`.
+
+**Why this step exists:** The initial `enrich_quest_chains.py` import can
+create falsely long chains by importing entire zone storylines as linear
+prereq chains. This script rebuilds prereqs from verified sources.
+
+**Data sources (in priority order):**
+1. **Storyline data** — full zone/sub-zone quest ordering from Wowhead
+2. **Series data** — short, verified quest chains (overlaid on storyline)
+3. **Manual fixes** (`MANUAL_FIXES` dict) — hand-verified chains that
+   override all other sources
+
+**Key algorithm: "Deepest position wins"**
+
+When a quest appears in multiple storylines (from different cache files), the
+storyline where it has the deepest position index wins. This ensures the
+longest/fullest chain is used. For example, if quest X appears at position 3
+in one storyline and position 20 in another, position 20's prereq chain is
+used.
+
+**Series overlay rules:**
+- Short Series (< 5 entries) are skipped when a Storyline exists (they only
+  cover the tail of the chain)
+- Series data never overrides quests that already have a deeper Storyline
+  position
+
+**When to add MANUAL_FIXES:**
+
+Add entries to the `MANUAL_FIXES` dict in `cleanup_quest_chains.py` when:
+- The Wowhead Series/Storyline data is incorrect or incomplete
+- Two quests with the same name create ambiguity (e.g., Alliance/Horde
+  variants of the same quest)
+- A chain's true starting point differs from what Wowhead shows
+- Prerequisite connections span across different Wowhead storylines
+
+Format: `quest_id: {"prereqs": [prev_id], "name": "Quest Name"}`. Set
+`"prereqs": []` for chain start quests. The `"name"` field is optional
+(only needed for quests not already in quest_chains.json).
 
 ### Step 4c: Enrich Quest Givers
 
@@ -539,6 +595,7 @@ This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
 | `parse_boss_dump.py` | WTF SavedVariables | `data/boss_dump.json` |
 | `enrich_catalog.py` | `data/catalog_dump.json` | `data/enriched_catalog.json`, `data/enrichment_lookups.json` |
 | `enrich_quest_chains.py` | `data/enriched_catalog.json` | `data/quest_chains.json` |
+| `cleanup_quest_chains.py` | `data/quest_chains.json` + `data/wowhead_cache/` | `data/quest_chains.json` (cleaned) |
 | `enrich_quest_givers.py` | `data/quest_chains.json` | `data/quest_givers.json` |
 | `scrape_wowdb.py` | housing.wowdb.com | `data/wowdb_sets.json`, `data/wowdb_item_tags.json` |
 | `compute_item_themes.py` | `data/enriched_catalog.json` + WoWDB data | `data/item_themes.json` |

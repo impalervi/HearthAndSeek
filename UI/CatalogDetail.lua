@@ -522,10 +522,47 @@ local function BuildQuestChainList(questID, fallbackName)
     return {{ questID = questID, name = questName, isDecorQuest = false }}
 end
 
+--- Build a chain list from the seriesChain field (short alternative path).
+-- Returns nil if the decor quest has no seriesChain.
+local function BuildSeriesChainList(questID, fallbackName)
+    if not questID or not NS.QuestChains then return nil end
+    local decorEntry = NS.QuestChains[questID]
+    if not decorEntry or not decorEntry.seriesChain then return nil end
+    local chain = {}
+    for _, sid in ipairs(decorEntry.seriesChain) do
+        local se = NS.QuestChains[sid]
+        chain[#chain + 1] = {
+            questID = sid,
+            name = se and se.name or C_QuestLog.GetTitleForQuestID(sid) or ("Quest " .. sid),
+            isDecorQuest = se and se.isDecorQuest or false,
+        }
+    end
+    -- Append the decor quest itself as the final entry
+    chain[#chain + 1] = {
+        questID = questID,
+        name = decorEntry.name or fallbackName
+            or C_QuestLog.GetTitleForQuestID(questID) or ("Quest " .. questID),
+        isDecorQuest = true,
+    }
+    return chain
+end
+
 --- Find the first incomplete quest in a chain (for waypointing).
 -- Returns questID or nil.
 local function GetFirstIncompleteQuestID(questID)
     local chain = BuildQuestChainList(questID)
+    if not chain then return nil end
+    for _, entry in ipairs(chain) do
+        if not C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
+            return entry.questID
+        end
+    end
+    return nil  -- all complete
+end
+
+--- Same as above but uses the series chain.
+local function GetFirstIncompleteQuestIDSeries(questID, fallbackName)
+    local chain = BuildSeriesChainList(questID, fallbackName)
     if not chain then return nil end
     for _, entry in ipairs(chain) do
         if not C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
@@ -2393,9 +2430,14 @@ function NS.UI.InitCatalogDetail(parent)
     zoneHit:Hide()
     parent._zoneHit = zoneHit
 
-    -- Vendor NPC part: "Purchase from <NPC>" (auto-width, no right anchor)
+    -- Vendor prefix: "Purchase from " (non-interactive)
+    parent._vendorPrefix = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorPrefix:SetJustifyH("LEFT")
+    parent._vendorPrefix:SetWordWrap(false)
+    parent._vendorPrefix:Hide()
+
+    -- Vendor NPC name (interactive — vendorHit covers only this)
     parent._vendorLine = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    -- TOPLEFT set dynamically in ShowItem; no RIGHT anchor for inline zone
     parent._vendorLine:SetJustifyH("LEFT")
     parent._vendorLine:SetWordWrap(false)
     parent._vendorLine:Hide()
@@ -2470,7 +2512,13 @@ function NS.UI.InitCatalogDetail(parent)
     vendorHit:Hide()
     parent._vendorHit = vendorHit
 
-    -- Vendor zone part: " in <Zone>" (inline after _vendorLine)
+    -- Vendor zone "in " prefix (non-interactive)
+    parent._vendorZoneIn = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorZoneIn:SetJustifyH("LEFT")
+    parent._vendorZoneIn:SetWordWrap(false)
+    parent._vendorZoneIn:Hide()
+
+    -- Vendor zone name (interactive — vendorZoneHit covers only this)
     parent._vendorZonePart = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     parent._vendorZonePart:SetJustifyH("LEFT")
     parent._vendorZonePart:SetWordWrap(false)
@@ -2500,68 +2548,22 @@ function NS.UI.InitCatalogDetail(parent)
     vendorZoneHit:Hide()
     parent._vendorZoneHit = vendorZoneHit
 
-    -- Alternate vendor: "Purchase from <NPC>" (auto-width, no right anchor)
-    -- Shown for items available in both neighborhoods (factionVendors) or alt vendors.
-    parent._altVendorLine = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    parent._altVendorLine:SetJustifyH("LEFT")
-    parent._altVendorLine:SetWordWrap(false)
-    parent._altVendorLine:Hide()
+    -- Additional vendor pool: dynamically created entries for multi-vendor items.
+    -- Each entry has: .line (FontString), .hit (Frame), .zonePart (FontString), .zoneHit (Frame)
+    parent._additionalVendorPool = {}
+    parent._additionalVendorCount = 0  -- how many are currently shown
 
-    -- Hit frame for alternate vendor NPC (CTRL+Left = Wowhead link)
-    local altVendorHit = CreateFrame("Frame", nil, middleChild)
-    altVendorHit:SetAllPoints(parent._altVendorLine)
-    altVendorHit:EnableMouse(true)
-    altVendorHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
-    altVendorHit:SetScript("OnEnter", function(self)
-        if not self._vendorName then return end
-        SetCursor("INSPECT_CURSOR")
-        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:AddLine(self._vendorName or "Vendor", 0.25, 0.69, 1)
-        GameTooltip:AddLine(" ")
-        if self._npcID then
-            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
-        end
-        GameTooltip:Show()
-    end)
-    altVendorHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
-    altVendorHit:SetScript("OnMouseUp", function(self, button)
-        if not IsControlKeyDown() then return end
-        if button == "LeftButton" and self._npcID then
-            ShowCopyableURL("https://www.wowhead.com/npc=" .. self._npcID)
-        end
-    end)
-    altVendorHit:Hide()
-    parent._altVendorHit = altVendorHit
-
-    -- Alternate vendor zone part: " in <Zone>" (inline or wrapped below)
-    parent._altVendorZonePart = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    parent._altVendorZonePart:SetJustifyH("LEFT")
-    parent._altVendorZonePart:SetWordWrap(false)
-    parent._altVendorZonePart:Hide()
-
-    -- Hit frame for alternate vendor zone (CTRL+Right Click = open zone map)
-    local altVendorZoneHit = CreateFrame("Frame", nil, middleChild)
-    altVendorZoneHit:SetAllPoints(parent._altVendorZonePart)
-    altVendorZoneHit:EnableMouse(true)
-    altVendorZoneHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
-    altVendorZoneHit:SetScript("OnEnter", function(self)
-        if not self._zoneName or self._zoneName == "Arcantina" then return end
-        SetCursor("INSPECT_CURSOR")
-        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:AddLine(self._zoneName, 1, 1, 1)
-        GameTooltip:AddLine(" ")
-        GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to view zone map")
-        GameTooltip:Show()
-    end)
-    altVendorZoneHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
-    altVendorZoneHit:SetScript("OnMouseUp", function(self, button)
-        if button ~= "RightButton" or not IsControlKeyDown() then return end
-        if not self._zoneName or self._zoneName == "Arcantina" then return end
-        local mapID = GetOpenableMapID(self._zoneName)
-        ForceOpenWorldMap(mapID)
-    end)
-    altVendorZoneHit:Hide()
-    parent._altVendorZoneHit = altVendorZoneHit
+    -- Primary vendor entry wrapper: same interface as pool entries so
+    -- ShowPurchaseFromLine() works with both static and pooled entries.
+    parent._primaryVendorEntry = {
+        prefix = parent._vendorPrefix,
+        line = parent._vendorLine,
+        hit = parent._vendorHit,
+        zoneIn = parent._vendorZoneIn,
+        zonePart = parent._vendorZonePart,
+        zoneHit = parent._vendorZoneHit,
+        zoneWrapped = false,
+    }
 
     -- Vendor note: "(available after completing the quest)" etc.
     parent._vendorNote = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -2569,6 +2571,44 @@ function NS.UI.InitCatalogDetail(parent)
     parent._vendorNote:SetWordWrap(true)
     parent._vendorNote:SetSpacing(2)
     parent._vendorNote:Hide()
+
+    ---------------------------------------------------------------------------
+    -- Vendor unlock quest line: "Requires quest: <quest name>" with Ctrl+Click
+    ---------------------------------------------------------------------------
+    parent._vendorUnlockPrefix = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorUnlockPrefix:SetJustifyH("LEFT")
+    parent._vendorUnlockPrefix:SetWordWrap(false)
+    parent._vendorUnlockPrefix:Hide()
+
+    parent._vendorUnlockQuestName = middleChild:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    parent._vendorUnlockQuestName:SetJustifyH("LEFT")
+    parent._vendorUnlockQuestName:SetWordWrap(true)
+    parent._vendorUnlockQuestName:Hide()
+
+    local unlockHit = CreateFrame("Frame", nil, middleChild)
+    unlockHit:EnableMouse(true)
+    unlockHit:SetFrameLevel(middleChild:GetFrameLevel() + 3)
+    unlockHit._active = false
+    unlockHit._questID = nil
+    unlockHit._questName = nil
+    unlockHit:SetScript("OnEnter", function(self)
+        if not self._active then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._questName or "Quest", 1, 0.82, 0)
+        GameTooltip:AddLine("Vendor unlock prerequisite", 0.53, 0.53, 0.53)
+        GameTooltip:AddLine(" ")
+        GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
+        GameTooltip:Show()
+    end)
+    unlockHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    unlockHit:SetScript("OnMouseUp", function(self, button)
+        if not self._active or not IsControlKeyDown() then return end
+        if button == "LeftButton" and self._questID then
+            ShowCopyableURL("https://www.wowhead.com/quest=" .. self._questID)
+        end
+    end)
+    parent._vendorUnlockQuestHit = unlockHit
 
     ---------------------------------------------------------------------------
     -- Treasure source: "Found in: <treasure>" with interactive name + zone
@@ -2749,6 +2789,25 @@ function NS.UI.InitCatalogDetail(parent)
     chainHeader:SetJustifyH("LEFT")
     chainContainer._header = chainHeader
 
+    -- Toggle link: "[Series]" / "[Full Chain]" — shown when both views exist
+    local chainToggle = CreateFrame("Button", nil, chainContainer)
+    chainToggle:SetPoint("TOPRIGHT", chainContainer, "TOPRIGHT", 0, 0)
+    chainToggle:SetHeight(14)
+    local chainToggleText = chainToggle:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    chainToggleText:SetAllPoints()
+    chainToggleText:SetJustifyH("RIGHT")
+    chainToggle._text = chainToggleText
+    chainToggle:SetScript("OnEnter", function(self)
+        SetCursor("INSPECT_CURSOR")
+        self._text:SetTextColor(0.4, 0.8, 1.0)
+    end)
+    chainToggle:SetScript("OnLeave", function(self)
+        ResetCursor()
+        self._text:SetTextColor(0.5, 0.7, 0.9)
+    end)
+    chainToggle:Hide()
+    chainContainer._toggle = chainToggle
+
     -- Scroll area for quest entries
     local scrollFrame = CreateFrame("ScrollFrame", nil, chainContainer)
     scrollFrame:SetPoint("TOPLEFT", chainHeader, "BOTTOMLEFT", 0, -2)
@@ -2769,6 +2828,13 @@ function NS.UI.InitCatalogDetail(parent)
     scrollFrame:SetScript("OnMouseWheel", function(self, delta)
         local maxScroll = math.max(0, scrollChild:GetHeight() - scrollFrame:GetHeight())
         local current = self:GetVerticalScroll()
+        if maxScroll <= 0
+            or (delta > 0 and current <= 0)
+            or (delta < 0 and current >= maxScroll) then
+            -- Nothing to scroll or already at boundary — propagate to parent
+            middleScroll:GetScript("OnMouseWheel")(middleScroll, delta)
+            return
+        end
         local newScroll = math.max(0, math.min(maxScroll, current - delta * CHAIN_LINE_HEIGHT * 2))
         self:SetVerticalScroll(newScroll)
         if chainContainer._scrollThumb and maxScroll > 0 then
@@ -2965,8 +3031,230 @@ local function PopulateDetailsFlyout(item)
     flyout:SetHeight(contentH)
 end
 
+--- Show a "Purchase from <NPC> in <Zone>" line using the given entry table.
+--- Works identically for primary vendor (_primaryVendorEntry) and pool entries.
+--- @param entry table  Entry with .prefix, .line, .hit, .zoneIn, .zonePart, .zoneHit
+--- @param anchor Frame  Anchor frame (prefix anchors to its BOTTOMLEFT)
+--- @param yOffset number  Vertical offset from anchor (e.g. -6 first line, -1 additional)
+--- @param npcText string  Formatted NPC display text (may include faction icon)
+--- @param vendorName string  Raw vendor name (stored on hit frame for tooltips)
+--- @param npcID number|nil  NPC ID for Wowhead link
+--- @param x number|nil  Vendor X coordinate
+--- @param y number|nil  Vendor Y coordinate
+--- @param zone string|nil  Raw zone name
+--- @param zoneDisplay string|nil  Formatted zone text for display (nil = hide zone)
+--- @return boolean zoneWrapped, Frame bottomAnchor
+local function ShowPurchaseFromLine(entry, anchor, yOffset, npcText, vendorName, npcID, x, y, zone, zoneDisplay)
+    -- Prefix: "Purchase from "
+    entry.prefix:SetText("|cff40b0ffPurchase from|r ")
+    entry.prefix:SetWidth(entry.prefix:GetStringWidth() or 80)
+    entry.prefix:ClearAllPoints()
+    entry.prefix:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", 0, yOffset)
+    entry.prefix:Show()
+
+    -- NPC name
+    entry.line:SetText(npcText)
+    entry.line:SetWidth(entry.line:GetStringWidth() or 60)
+    entry.line:ClearAllPoints()
+    entry.line:SetPoint("TOPLEFT", entry.prefix, "TOPRIGHT", 0, 0)
+    entry.line:SetWordWrap(false)
+    entry.line:Show()
+
+    -- Hit frame: data + anchoring
+    entry.hit._vendorName = vendorName
+    entry.hit._npcID = npcID
+    entry.hit._vendorX = x
+    entry.hit._vendorY = y
+    entry.hit._vendorZone = zone
+    entry.hit:ClearAllPoints()
+    entry.hit:SetPoint("TOPLEFT", entry.line, "TOPLEFT", 0, 0)
+    entry.hit:SetPoint("BOTTOMRIGHT", entry.line, "BOTTOMRIGHT", 0, 0)
+    entry.hit:Show()
+
+    -- Zone: " in <Zone>" with wrap support
+    local zoneWrapped = false
+    if zoneDisplay and zone and zone ~= "" then
+        local availW = detailPanel._middleChild:GetWidth() - 4
+        local prefixW = entry.prefix:GetStringWidth() or 0
+        local nameW = entry.line:GetStringWidth() or 0
+
+        entry.zoneIn:SetText(" |cff888888in|r ")
+        entry.zonePart:SetText(zoneDisplay)
+        local inW = entry.zoneIn:GetStringWidth() or 0
+        local zoneW = entry.zonePart:GetStringWidth() or 0
+
+        if (prefixW + nameW + inW + zoneW) > availW then
+            -- Wrap: "in Zone" on next line, aligned to prefix start
+            entry.zoneIn:SetText("|cff888888in|r ")
+            entry.zoneIn:SetWidth(entry.zoneIn:GetStringWidth() or 20)
+            entry.zoneIn:ClearAllPoints()
+            entry.zoneIn:SetPoint("TOPLEFT", entry.prefix, "BOTTOMLEFT", 0, -1)
+            entry.zoneIn:Show()
+            entry.zonePart:SetWidth(0)
+            entry.zonePart:ClearAllPoints()
+            entry.zonePart:SetPoint("TOPLEFT", entry.zoneIn, "TOPRIGHT", 0, 0)
+            entry.zonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+            entry.zonePart:SetWordWrap(true)
+            zoneWrapped = true
+        else
+            -- Inline: " in Zone" after NPC name
+            entry.zoneIn:SetWidth(inW)
+            entry.zoneIn:ClearAllPoints()
+            entry.zoneIn:SetPoint("TOPLEFT", entry.line, "TOPRIGHT", 0, 0)
+            entry.zoneIn:Show()
+            entry.zonePart:SetWidth(zoneW)
+            entry.zonePart:ClearAllPoints()
+            entry.zonePart:SetPoint("TOPLEFT", entry.zoneIn, "TOPRIGHT", 0, 0)
+            entry.zonePart:SetWordWrap(false)
+        end
+        entry.zonePart:Show()
+        entry.zoneHit._zoneName = zone
+        entry.zoneHit:ClearAllPoints()
+        entry.zoneHit:SetPoint("TOPLEFT", entry.zonePart, "TOPLEFT", 0, 0)
+        entry.zoneHit:SetPoint("BOTTOMRIGHT", entry.zonePart, "BOTTOMRIGHT", 0, 0)
+        entry.zoneHit:Show()
+    else
+        entry.zoneIn:Hide()
+        entry.zonePart:Hide()
+        entry.zoneHit._zoneName = nil
+        entry.zoneHit:Hide()
+    end
+
+    entry.zoneWrapped = zoneWrapped
+    return zoneWrapped, zoneWrapped and entry.zonePart or entry.prefix
+end
+
+--- Create (or reuse) an additional vendor pool entry at index `idx` (1-based).
+--- Each entry has: .prefix, .line (NPC name), .hit, .zoneIn, .zonePart (zone name), .zoneHit
+local function EnsureAdditionalVendorEntry(idx)
+    if detailPanel._additionalVendorPool[idx] then
+        return detailPanel._additionalVendorPool[idx]
+    end
+    local mc = detailPanel._middleChild
+
+    -- Non-interactive prefix: "Purchase from "
+    local prefix = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    prefix:SetJustifyH("LEFT")
+    prefix:SetWordWrap(false)
+    prefix:Hide()
+
+    -- Interactive NPC name (hit frame covers this only)
+    local line = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    line:SetJustifyH("LEFT")
+    line:SetWordWrap(false)
+    line:Hide()
+
+    local hit = CreateFrame("Frame", nil, mc)
+    hit:SetAllPoints(line)
+    hit:EnableMouse(true)
+    hit:SetFrameLevel(mc:GetFrameLevel() + 3)
+    hit:SetScript("OnEnter", function(self)
+        if not self._vendorName then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._vendorName or "Vendor", 0.25, 0.69, 1)
+        GameTooltip:AddLine(" ")
+        if self._npcID then
+            GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link")
+        end
+        if self._vendorX and self._vendorZone and self._vendorZone ~= "Arcantina" then
+            GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to set waypoint & view map")
+        end
+        GameTooltip:Show()
+    end)
+    hit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    hit:SetScript("OnMouseUp", function(self, button)
+        if not IsControlKeyDown() then return end
+        if button == "LeftButton" and self._npcID then
+            ShowCopyableURL("https://www.wowhead.com/npc=" .. self._npcID)
+        elseif button == "RightButton" and self._vendorZone
+                and self._vendorZone ~= "Arcantina" then
+            local mapID, coordsTrusted = ResolveNavigableMap(self._vendorZone)
+            if mapID and coordsTrusted and self._vendorX and self._vendorY then
+                if NS.Navigation and NS.Navigation.SetWaypoint then
+                    NS.Navigation.SetWaypoint(mapID, self._vendorX, self._vendorY,
+                        (self._vendorName or "Vendor") .. " (" .. self._vendorZone .. ")")
+                    ForceOpenWorldMap(mapID)
+                    if NS.Utils and NS.Utils.PrintMessage then
+                        NS.Utils.PrintMessage("Waypoint set: " .. (self._vendorName or "Vendor")
+                            .. " in " .. self._vendorZone)
+                    end
+                end
+            else
+                ForceOpenWorldMap(mapID)
+            end
+        end
+    end)
+    hit:Hide()
+
+    -- Non-interactive zone prefix: " in " or "in "
+    local zoneIn = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    zoneIn:SetJustifyH("LEFT")
+    zoneIn:SetWordWrap(false)
+    zoneIn:Hide()
+
+    -- Interactive zone name (zoneHit covers this only)
+    local zonePart = mc:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    zonePart:SetJustifyH("LEFT")
+    zonePart:SetWordWrap(false)
+    zonePart:Hide()
+
+    local zoneHit = CreateFrame("Frame", nil, mc)
+    zoneHit:SetAllPoints(zonePart)
+    zoneHit:EnableMouse(true)
+    zoneHit:SetFrameLevel(mc:GetFrameLevel() + 3)
+    zoneHit:SetScript("OnEnter", function(self)
+        if not self._zoneName or self._zoneName == "Arcantina" then return end
+        SetCursor("INSPECT_CURSOR")
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(self._zoneName, 1, 1, 1)
+        GameTooltip:AddLine(" ")
+        GameTooltip:AddLine("|cff55aaeeCTRL+Right Click|r to view zone map")
+        GameTooltip:Show()
+    end)
+    zoneHit:SetScript("OnLeave", function() ResetCursor(); GameTooltip:Hide() end)
+    zoneHit:SetScript("OnMouseUp", function(self, button)
+        if button ~= "RightButton" or not IsControlKeyDown() then return end
+        if not self._zoneName or self._zoneName == "Arcantina" then return end
+        local mapID = GetOpenableMapID(self._zoneName)
+        ForceOpenWorldMap(mapID)
+    end)
+    zoneHit:Hide()
+
+    local entry = { prefix = prefix, line = line, hit = hit, zoneIn = zoneIn, zonePart = zonePart, zoneHit = zoneHit, zoneWrapped = false }
+    detailPanel._additionalVendorPool[idx] = entry
+    return entry
+end
+
+--- Hide all additional vendor pool entries.
+local function HideAllAdditionalVendors()
+    for i = 1, detailPanel._additionalVendorCount do
+        local e = detailPanel._additionalVendorPool[i]
+        if e then
+            e.prefix:Hide()
+            e.line:Hide()
+            e.hit._vendorName = nil
+            e.hit._npcID = nil
+            e.hit._vendorX = nil
+            e.hit._vendorY = nil
+            e.hit._vendorZone = nil
+            e.hit:Hide()
+            e.zoneIn:Hide()
+            e.zonePart:Hide()
+            e.zoneHit._zoneName = nil
+            e.zoneHit:Hide()
+            e.zoneWrapped = false
+        end
+    end
+    detailPanel._additionalVendorCount = 0
+end
+
 function NS.UI.CatalogDetail_ShowItem(item)
     if not detailPanel or not item then return end
+    -- Reset chain view when switching to a different item
+    if detailPanel._currentItem ~= item then
+        detailPanel._activeChainView = nil
+    end
     detailPanel._currentItem = item
     NS.UI._currentDetailItem = item  -- for external refresh (e.g. faction debug)
 
@@ -3248,12 +3536,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if item.unlockQuestID then
             local completed = C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted
                 and C_QuestLog.IsQuestFlaggedCompleted(item.unlockQuestID)
-            if not completed then
-                if item.vendorUnlockQuest then
-                    vendorNoteText = "|cff888888(requires quest: " .. item.vendorUnlockQuest .. ")|r"
-                else
-                    vendorNoteText = "|cff888888(requires completing a quest first)|r"
-                end
+            if not completed and item.vendorUnlockQuest then
+                vendorNoteText = "_UNLOCK_QUEST_"  -- sentinel: use interactive line
+            elseif not completed then
+                vendorNoteText = "|cff888888(requires completing a quest first)|r"
             end
         elseif item.vendorUnlockQuest then
             vendorNoteText = "|cff888888(requires quest: " .. item.vendorUnlockQuest .. ")|r"
@@ -3281,186 +3567,121 @@ function NS.UI.CatalogDetail_ShowItem(item)
     end
 
     local vendorZoneWrapped = false
-    local altVendorZoneWrapped = false
+
     if vendorName then
-        -- "Purchase from <faction icon> <NPC>" (auto-width for separate hit region)
         local factionIcon = ""
         if item.factionVendors then
             local pf = GetPlayerFaction()
             factionIcon = (FACTION_ICONS[pf] or "") .. " "
         end
-        local vendorNpcText = "|cff40b0ffPurchase from|r " .. factionIcon .. vendorName
-        detailPanel._vendorLine:ClearAllPoints()
-        detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
-        detailPanel._vendorLine:SetWordWrap(false)
-        detailPanel._vendorLine:SetText(vendorNpcText)
-        detailPanel._vendorLine:Show()
+
+        local primaryZoneHex = item.zone and FACTION_ZONE_COLORS[item.zone]
+        local zoneDisplay = (item.zone and item.zone ~= "")
+            and (primaryZoneHex and ("|cff" .. primaryZoneHex .. item.zone .. "|r") or item.zone)
+            or nil
+        vendorZoneWrapped = ShowPurchaseFromLine(
+            detailPanel._primaryVendorEntry,
+            lastAcquireElem, -6,
+            factionIcon .. vendorName,
+            vendorName, item.npcID, item.npcX, item.npcY, item.zone,
+            zoneDisplay
+        )
+        detailPanel._vendorHit._active = true
+        detailPanel._vendorHit._isRotatingVendor = item.isRotatingVendor
         showVendorLine = true
 
-        -- NPC hit frame covers just the NPC text
-        detailPanel._vendorHit._active = true
-        detailPanel._vendorHit._vendorName = vendorName
-        detailPanel._vendorHit._npcID = item.npcID
-        detailPanel._vendorHit._vendorZone = item.zone
-        detailPanel._vendorHit._vendorX = item.npcX
-        detailPanel._vendorHit._vendorY = item.npcY
-        detailPanel._vendorHit._isRotatingVendor = item.isRotatingVendor
-        detailPanel._vendorHit:ClearAllPoints()
-        detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
-        detailPanel._vendorHit:Show()
-
-        -- Zone part: " in <Zone>" inline or wrapped below
-        if item.zone and item.zone ~= "" then
-            local primaryZoneHex = FACTION_ZONE_COLORS[item.zone]
-            local zoneDisplay = primaryZoneHex
-                and ("|cff" .. primaryZoneHex .. item.zone .. "|r")
-                or item.zone
-            local inlineText = " |cff888888in|r " .. zoneDisplay
-            local wrappedText = "|cff888888in|r " .. zoneDisplay
-            detailPanel._vendorZonePart:SetText(inlineText)
-            detailPanel._vendorZonePart:ClearAllPoints()
-            local availableW = detailPanel._middleChild:GetWidth() - 4
-            local vendorW = detailPanel._vendorLine:GetStringWidth() or 0
-            local zoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
-            if (vendorW + zoneW) > availableW then
-                detailPanel._vendorZonePart:SetText(wrappedText)
-                detailPanel._vendorZonePart:SetWordWrap(true)
-                detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
-                detailPanel._vendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                vendorZoneWrapped = true
-            else
-                detailPanel._vendorZonePart:SetWordWrap(false)
-                detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
-            end
-            detailPanel._vendorZonePart:Show()
-            detailPanel._vendorZoneHit._zoneName = item.zone
-            detailPanel._vendorZoneHit:ClearAllPoints()
-            detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
-            detailPanel._vendorZoneHit:Show()
-        else
-            detailPanel._vendorZonePart:Hide()
-            detailPanel._vendorZoneHit._zoneName = nil
-            detailPanel._vendorZoneHit:Hide()
-        end
-
-        -- Alternate faction vendor (shown for items in both neighborhoods)
+        -- Additional vendors: faction alt vendor + additionalVendors (multi-zone)
+        HideAllAdditionalVendors()
         local altAnchor = vendorZoneWrapped
-            and detailPanel._vendorZonePart or detailPanel._vendorLine
+            and detailPanel._vendorZonePart or detailPanel._vendorPrefix
+        local avIdx = 0
+
+        -- Faction alt vendor (shown for items in both neighborhoods)
         if item.factionVendors then
             local playerFaction = GetPlayerFaction()
             local altFaction = (playerFaction == "Alliance") and "Horde" or "Alliance"
             local altFv = item.factionVendors[altFaction]
             if altFv and altFv.name and altFv.name ~= "" then
+                avIdx = avIdx + 1
+                local e = EnsureAdditionalVendorEntry(avIdx)
                 local altZone = altFv.zone or ""
                 local altIcon = (FACTION_ICONS[altFaction] or "") .. " "
-                local altNpcText = "|cff40b0ffPurchase from|r " .. altIcon .. altFv.name
-                detailPanel._altVendorLine:ClearAllPoints()
-                detailPanel._altVendorLine:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-                detailPanel._altVendorLine:SetText(altNpcText)
-                detailPanel._altVendorLine:Show()
 
-                detailPanel._altVendorHit._vendorName = altFv.name
-                detailPanel._altVendorHit._npcID = altFv.npcID
-                detailPanel._altVendorHit:ClearAllPoints()
-                detailPanel._altVendorHit:SetAllPoints(detailPanel._altVendorLine)
-                detailPanel._altVendorHit:Show()
-
-                -- Zone part: " in <Zone>" inline or wrapped below
-                if altZone ~= "" then
-                    local zoneHex = FACTION_ZONE_COLORS[altZone] or "AAAAAA"
-                    local altZoneDisplay = "|cff" .. zoneHex .. altZone .. "|r"
-                    local altInlineText = " |cff888888in|r " .. altZoneDisplay
-                    local altWrappedText = "|cff888888in|r " .. altZoneDisplay
-                    detailPanel._altVendorZonePart:SetText(altInlineText)
-                    detailPanel._altVendorZonePart:ClearAllPoints()
-                    local availableW = detailPanel._middleChild:GetWidth() - 4
-                    local altVendorW = detailPanel._altVendorLine:GetStringWidth() or 0
-                    local altZoneW = detailPanel._altVendorZonePart:GetStringWidth() or 0
-                    if (altVendorW + altZoneW) > availableW then
-                        detailPanel._altVendorZonePart:SetText(altWrappedText)
-                        detailPanel._altVendorZonePart:SetWordWrap(true)
-                        detailPanel._altVendorZonePart:SetPoint("TOPLEFT", detailPanel._altVendorLine, "BOTTOMLEFT", 0, -1)
-                        detailPanel._altVendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                        altVendorZoneWrapped = true
-                    else
-                        detailPanel._altVendorZonePart:SetWordWrap(false)
-                        detailPanel._altVendorZonePart:SetPoint("LEFT", detailPanel._altVendorLine, "RIGHT", 0, 0)
-                    end
-                    detailPanel._altVendorZonePart:Show()
-                    detailPanel._altVendorZoneHit._zoneName = altZone
-                    detailPanel._altVendorZoneHit:ClearAllPoints()
-                    detailPanel._altVendorZoneHit:SetAllPoints(detailPanel._altVendorZonePart)
-                    detailPanel._altVendorZoneHit:Show()
-                else
-                    detailPanel._altVendorZonePart:Hide()
-                    detailPanel._altVendorZoneHit._zoneName = nil
-                    detailPanel._altVendorZoneHit:Hide()
-                end
-                altAnchor = altVendorZoneWrapped
-                    and detailPanel._altVendorZonePart or detailPanel._altVendorLine
-            else
-                detailPanel._altVendorLine:Hide()
-                detailPanel._altVendorHit:Hide()
-                detailPanel._altVendorZonePart:Hide()
-                detailPanel._altVendorZoneHit:Hide()
+                local zoneHex = FACTION_ZONE_COLORS[altZone] or "AAAAAA"
+                local altZoneDisplay = altZone ~= ""
+                    and ("|cff" .. zoneHex .. altZone .. "|r") or nil
+                local _, bottomAnchor = ShowPurchaseFromLine(
+                    e, altAnchor, -1,
+                    altIcon .. altFv.name,
+                    altFv.name, altFv.npcID, altFv.x, altFv.y, altFv.zone,
+                    altZoneDisplay
+                )
+                altAnchor = bottomAnchor
             end
-        elseif item.altVendorName and item.altVendorName ~= "" then
-            -- Non-faction alt vendor (e.g. item sold by two vendors in same zone)
-            local altZone = item.altVendorZone or item.zone or ""
-            local altNpcText = "|cff40b0ffPurchase from|r " .. item.altVendorName
-            detailPanel._altVendorLine:ClearAllPoints()
-            detailPanel._altVendorLine:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -1)
-            detailPanel._altVendorLine:SetText(altNpcText)
-            detailPanel._altVendorLine:Show()
-
-            detailPanel._altVendorHit._vendorName = item.altVendorName
-            detailPanel._altVendorHit._npcID = item.altNpcID
-            detailPanel._altVendorHit:ClearAllPoints()
-            detailPanel._altVendorHit:SetAllPoints(detailPanel._altVendorLine)
-            detailPanel._altVendorHit:Show()
-
-            -- Zone part: " in <Zone>" inline or wrapped below
-            if altZone ~= "" then
-                local altInlineText = " |cff888888in|r " .. altZone
-                local altWrappedText = "|cff888888in|r " .. altZone
-                detailPanel._altVendorZonePart:SetText(altInlineText)
-                detailPanel._altVendorZonePart:ClearAllPoints()
-                local availableW = detailPanel._middleChild:GetWidth() - 4
-                local altVendorW = detailPanel._altVendorLine:GetStringWidth() or 0
-                local altZoneW = detailPanel._altVendorZonePart:GetStringWidth() or 0
-                if (altVendorW + altZoneW) > availableW then
-                    detailPanel._altVendorZonePart:SetText(altWrappedText)
-                    detailPanel._altVendorZonePart:SetWordWrap(true)
-                    detailPanel._altVendorZonePart:SetPoint("TOPLEFT", detailPanel._altVendorLine, "BOTTOMLEFT", 0, -1)
-                    detailPanel._altVendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                    altVendorZoneWrapped = true
-                else
-                    detailPanel._altVendorZonePart:SetWordWrap(false)
-                    detailPanel._altVendorZonePart:SetPoint("LEFT", detailPanel._altVendorLine, "RIGHT", 0, 0)
-                end
-                detailPanel._altVendorZonePart:Show()
-                detailPanel._altVendorZoneHit._zoneName = altZone
-                detailPanel._altVendorZoneHit:ClearAllPoints()
-                detailPanel._altVendorZoneHit:SetAllPoints(detailPanel._altVendorZonePart)
-                detailPanel._altVendorZoneHit:Show()
-            else
-                detailPanel._altVendorZonePart:Hide()
-                detailPanel._altVendorZoneHit._zoneName = nil
-                detailPanel._altVendorZoneHit:Hide()
-            end
-            altAnchor = altVendorZoneWrapped
-                and detailPanel._altVendorZonePart or detailPanel._altVendorLine
-        else
-            detailPanel._altVendorLine:Hide()
-            detailPanel._altVendorHit:Hide()
-            detailPanel._altVendorZonePart:Hide()
-            detailPanel._altVendorZoneHit:Hide()
         end
 
+        -- Additional vendors from multi-zone vendor discovery
+        if item.additionalVendors then
+            for _, av in ipairs(item.additionalVendors) do
+                if av.name and av.name ~= "" then
+                    avIdx = avIdx + 1
+                    local e = EnsureAdditionalVendorEntry(avIdx)
+                    local avZone = av.zone or ""
+                    local factionIcon = ""
+                    if av.faction then
+                        factionIcon = (FACTION_ICONS[av.faction] or "") .. " "
+                    end
+
+                    local avZoneHex = FACTION_ZONE_COLORS[avZone]
+                    local avZoneDisplay = avZone ~= ""
+                        and (avZoneHex and ("|cff" .. avZoneHex .. avZone .. "|r") or avZone)
+                        or nil
+                    local _, bottomAnchor = ShowPurchaseFromLine(
+                        e, altAnchor, -1,
+                        factionIcon .. av.name,
+                        av.name, av.npcID, av.x, av.y, av.zone,
+                        avZoneDisplay
+                    )
+                    altAnchor = bottomAnchor
+                end
+            end
+        end
+        detailPanel._additionalVendorCount = avIdx
+
         -- Note below vendor line (e.g. "available after completing the quest")
-        if vendorNoteText then
+        -- Hide unlock quest elements first (re-shown below if needed)
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
+
+        if vendorNoteText == "_UNLOCK_QUEST_" then
+            -- Interactive vendor unlock quest line
+            detailPanel._vendorNote:Hide()
+
+            detailPanel._vendorUnlockPrefix:SetText("|cff888888Requires quest:|r ")
+            detailPanel._vendorUnlockPrefix:ClearAllPoints()
+            detailPanel._vendorUnlockPrefix:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -2)
+            detailPanel._vendorUnlockPrefix:Show()
+
+            local questName = item.vendorUnlockQuest or "Unknown Quest"
+            detailPanel._vendorUnlockQuestName:SetText("|cffffd200" .. questName .. "|r")
+            detailPanel._vendorUnlockQuestName:ClearAllPoints()
+            detailPanel._vendorUnlockQuestName:SetPoint("LEFT", detailPanel._vendorUnlockPrefix, "RIGHT", 0, 0)
+            detailPanel._vendorUnlockQuestName:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+            detailPanel._vendorUnlockQuestName:SetWordWrap(true)
+            detailPanel._vendorUnlockQuestName:Show()
+
+            detailPanel._vendorUnlockQuestHit._active = true
+            detailPanel._vendorUnlockQuestHit._questID = item.unlockQuestID
+            detailPanel._vendorUnlockQuestHit._questName = questName
+            detailPanel._vendorUnlockQuestHit:ClearAllPoints()
+            detailPanel._vendorUnlockQuestHit:SetAllPoints(detailPanel._vendorUnlockQuestName)
+            detailPanel._vendorUnlockQuestHit:Show()
+        elseif vendorNoteText then
             detailPanel._vendorNote:ClearAllPoints()
-            detailPanel._vendorNote:SetPoint("TOPLEFT", altAnchor, "BOTTOMLEFT", 0, -2)
+            detailPanel._vendorNote:SetPoint("TOP", altAnchor, "BOTTOM", 0, -2)
+            detailPanel._vendorNote:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 4, 0)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:SetWordWrap(true)
             detailPanel._vendorNote:SetText(vendorNoteText)
@@ -3594,84 +3815,53 @@ function NS.UI.CatalogDetail_ShowItem(item)
         local tvZone = item.treasureVendorZone or item.zone or ""
         if tvName then
             local treasureAnchor = lastTreasureSubElem
-            local tvNpcText = "|cff40b0ffPurchase from|r " .. tvName
-            detailPanel._vendorLine:ClearAllPoints()
-            detailPanel._vendorLine:SetPoint("TOPLEFT", treasureAnchor, "BOTTOMLEFT", 0, -6)
-            detailPanel._vendorLine:SetWordWrap(false)
-            detailPanel._vendorLine:SetText(tvNpcText)
-            detailPanel._vendorLine:Show()
-            showVendorLine = true
 
+            vendorZoneWrapped = ShowPurchaseFromLine(
+                detailPanel._primaryVendorEntry,
+                treasureAnchor, -6,
+                tvName,
+                tvName, tvNpcID, tvX, tvY, tvZone,
+                tvZone ~= "" and tvZone or nil
+            )
             detailPanel._vendorHit._active = true
-            detailPanel._vendorHit._vendorName = tvName
-            detailPanel._vendorHit._npcID = tvNpcID
-            detailPanel._vendorHit._vendorZone = tvZone
-            detailPanel._vendorHit._vendorX = tvX
-            detailPanel._vendorHit._vendorY = tvY
             detailPanel._vendorHit._isRotatingVendor = false
             detailPanel._vendorHit._isDropLocation = false
-            detailPanel._vendorHit:ClearAllPoints()
-            detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
-            detailPanel._vendorHit:Show()
-
-            if tvZone ~= "" then
-                local inlineText = " |cff888888in|r " .. tvZone
-                local wrappedText = "|cff888888in|r " .. tvZone
-                detailPanel._vendorZonePart:SetText(inlineText)
-                detailPanel._vendorZonePart:ClearAllPoints()
-                local tvAvailW = detailPanel._middleChild:GetWidth() - 4
-                local tvVendorW = detailPanel._vendorLine:GetStringWidth() or 0
-                local tvZoneW = detailPanel._vendorZonePart:GetStringWidth() or 0
-                if (tvVendorW + tvZoneW) > tvAvailW then
-                    detailPanel._vendorZonePart:SetText(wrappedText)
-                    detailPanel._vendorZonePart:SetWordWrap(true)
-                    detailPanel._vendorZonePart:SetPoint("TOPLEFT", detailPanel._vendorLine, "BOTTOMLEFT", 0, -1)
-                    detailPanel._vendorZonePart:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
-                    vendorZoneWrapped = true
-                else
-                    detailPanel._vendorZonePart:SetWordWrap(false)
-                    detailPanel._vendorZonePart:SetPoint("LEFT", detailPanel._vendorLine, "RIGHT", 0, 0)
-                end
-                detailPanel._vendorZonePart:Show()
-                detailPanel._vendorZoneHit._zoneName = tvZone
-                detailPanel._vendorZoneHit:ClearAllPoints()
-                detailPanel._vendorZoneHit:SetAllPoints(detailPanel._vendorZonePart)
-                detailPanel._vendorZoneHit:Show()
-            else
-                detailPanel._vendorZonePart:Hide()
-                detailPanel._vendorZoneHit._zoneName = nil
-                detailPanel._vendorZoneHit:Hide()
-            end
+            showVendorLine = true
 
             -- Note: available after finding the treasure
             detailPanel._vendorNote:SetText("|cff888888(available after finding the treasure)|r")
             detailPanel._vendorNote:ClearAllPoints()
             local tvNoteAnchor = vendorZoneWrapped
-                and detailPanel._vendorZonePart or detailPanel._vendorLine
+                and detailPanel._vendorZonePart or detailPanel._vendorPrefix
             detailPanel._vendorNote:SetPoint("TOPLEFT", tvNoteAnchor, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:Show()
         else
+            detailPanel._vendorPrefix:Hide()
             detailPanel._vendorLine:Hide()
             detailPanel._vendorHit._active = false
             detailPanel._vendorHit:Hide()
+            detailPanel._vendorZoneIn:Hide()
             detailPanel._vendorZonePart:Hide()
             detailPanel._vendorZoneHit:Hide()
             detailPanel._vendorNote:Hide()
+            detailPanel._vendorUnlockPrefix:Hide()
+            detailPanel._vendorUnlockQuestName:Hide()
+            detailPanel._vendorUnlockQuestHit._active = false
+            detailPanel._vendorUnlockQuestHit:Hide()
         end
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
 
     elseif item.sourceType == "Drop" and item.zone and item.zone ~= ""
             and item.zone ~= "Midnight Delves" then
         -- Drop items: "Location" link navigates to dungeon entrance
         -- (Midnight Delves items skip this — "Drops from" already covers it)
+        detailPanel._vendorPrefix:Hide()
         detailPanel._vendorLine:SetText("|cff888888Location:|r " .. item.zone)
         detailPanel._vendorLine:ClearAllPoints()
         detailPanel._vendorLine:SetPoint("TOPLEFT", lastAcquireElem, "BOTTOMLEFT", 0, -6)
         detailPanel._vendorLine:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
+        detailPanel._vendorLine:SetWidth(0)
         detailPanel._vendorLine:Show()
         showVendorLine = true
         detailPanel._vendorHit._isDropLocation = true
@@ -3690,14 +3880,17 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit:ClearAllPoints()
         detailPanel._vendorHit:SetAllPoints(detailPanel._vendorLine)
         detailPanel._vendorHit:Show()
+        detailPanel._vendorZoneIn:Hide()
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit:Hide()
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
     else
+        detailPanel._vendorPrefix:Hide()
         detailPanel._vendorLine:Hide()
         detailPanel._vendorHit._active = false
         detailPanel._vendorHit._isDropLocation = false
@@ -3706,14 +3899,16 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._vendorHit._dropBossName = nil
         detailPanel._vendorHit._dropZoneName = nil
         detailPanel._vendorHit:Hide()
+        detailPanel._vendorZoneIn:Hide()
         detailPanel._vendorZonePart:Hide()
         detailPanel._vendorZoneHit._zoneName = nil
         detailPanel._vendorZoneHit:Hide()
-        detailPanel._altVendorLine:Hide()
-        detailPanel._altVendorHit:Hide()
-        detailPanel._altVendorZonePart:Hide()
-        detailPanel._altVendorZoneHit:Hide()
+        HideAllAdditionalVendors()
         detailPanel._vendorNote:Hide()
+        detailPanel._vendorUnlockPrefix:Hide()
+        detailPanel._vendorUnlockQuestName:Hide()
+        detailPanel._vendorUnlockQuestHit._active = false
+        detailPanel._vendorUnlockQuestHit:Hide()
 
         -- Additional Treasure source: show treasure info for non-Treasure primary items
         -- (e.g. Profession items with a treasure alternative)
@@ -3773,14 +3968,22 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- Determine anchor for chain area (below vendor note/alt vendor/zone/line, else last acquire)
     local chainAnchor = lastAcquireElem
     if showVendorLine then
-        if detailPanel._vendorNote:IsShown() then
+        if detailPanel._vendorUnlockQuestName:IsShown() then
+            chainAnchor = detailPanel._vendorUnlockQuestName
+        elseif detailPanel._vendorNote:IsShown() then
             chainAnchor = detailPanel._vendorNote
-        elseif detailPanel._altVendorZonePart:IsShown() and altVendorZoneWrapped then
-            chainAnchor = detailPanel._altVendorZonePart
-        elseif detailPanel._altVendorLine:IsShown() then
-            chainAnchor = detailPanel._altVendorLine
+        elseif detailPanel._additionalVendorCount > 0 then
+            -- Walk down to last visible additional vendor entry
+            local lastE = detailPanel._additionalVendorPool[detailPanel._additionalVendorCount]
+            if lastE.zoneWrapped then
+                chainAnchor = lastE.zonePart
+            else
+                chainAnchor = lastE.prefix
+            end
         elseif vendorZoneWrapped then
             chainAnchor = detailPanel._vendorZonePart
+        elseif detailPanel._vendorPrefix:IsShown() then
+            chainAnchor = detailPanel._vendorPrefix
         else
             chainAnchor = detailPanel._vendorLine
         end
@@ -3805,7 +4008,8 @@ function NS.UI.CatalogDetail_ShowItem(item)
 
     -- Re-anchor pre-chain separator
     detailPanel._sepBeforeChain:ClearAllPoints()
-    detailPanel._sepBeforeChain:SetPoint("TOPLEFT", chainAnchor, "BOTTOMLEFT", 0, -6)
+    detailPanel._sepBeforeChain:SetPoint("TOP", chainAnchor, "BOTTOM", 0, -6)
+    detailPanel._sepBeforeChain:SetPoint("LEFT", detailPanel._middleChild, "LEFT", 0, 0)
     detailPanel._sepBeforeChain:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -8, 0)
 
     ---------------------------------------------------------------------------
@@ -3818,11 +4022,62 @@ function NS.UI.CatalogDetail_ShowItem(item)
     chainContainer:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
 
     local chain = nil
+    local fullChain = nil  -- storyline chain (kept for toggle)
+    local seriesChain = nil  -- series chain (short alternative)
+    local hasSeriesToggle = false
+    local isUnlockChain = false  -- vendor-unlock quest chain (not a reward)
     if item.questID and not item.skipQuestChain then
-        chain = BuildQuestChainList(item.questID, item.sourceDetail)
+        fullChain = BuildQuestChainList(item.questID, item.sourceDetail)
+        seriesChain = BuildSeriesChainList(item.questID, item.sourceDetail)
+        -- Determine if toggle is available: need both, and storyline > 25
+        if fullChain and seriesChain and #fullChain > 25 and #seriesChain < #fullChain then
+            hasSeriesToggle = true
+            -- Default to series view for long storylines, remember across refreshes
+            if detailPanel._activeChainView == nil then
+                detailPanel._activeChainView = "series"
+            end
+        else
+            detailPanel._activeChainView = nil
+        end
+        if hasSeriesToggle and detailPanel._activeChainView == "series" then
+            chain = seriesChain
+        else
+            chain = fullChain
+        end
+    elseif item.unlockQuestID and not item.skipQuestChain then
+        -- Vendor-unlock quest: show the chain but don't treat as a reward quest
+        isUnlockChain = true
+        fullChain = BuildQuestChainList(item.unlockQuestID, item.vendorUnlockQuest)
+        seriesChain = BuildSeriesChainList(item.unlockQuestID, item.vendorUnlockQuest)
+        if fullChain and seriesChain and #fullChain > 25 and #seriesChain < #fullChain then
+            hasSeriesToggle = true
+            if detailPanel._activeChainView == nil then
+                detailPanel._activeChainView = "series"
+            end
+        else
+            detailPanel._activeChainView = nil
+        end
+        if hasSeriesToggle and detailPanel._activeChainView == "series" then
+            chain = seriesChain
+        else
+            chain = fullChain
+        end
     elseif item.sourceType == "Quest" and item.sourceDetail and not item.skipQuestChain then
         -- No questID but has quest name — create a name-only chain entry
         chain = {{ questID = nil, name = item.sourceDetail, isDecorQuest = false }}
+    end
+
+    -- When the decor reward quest is completed, strip incomplete quests from
+    -- the chain display — they weren't true prerequisites.
+    if chain and item.questID and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
+        local filtered = {}
+        for _, entry in ipairs(chain) do
+            if not entry.questID
+                or C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
+                filtered[#filtered + 1] = entry
+            end
+        end
+        chain = filtered
     end
 
     if chain and #chain >= 1 then
@@ -3838,12 +4093,41 @@ function NS.UI.CatalogDetail_ShowItem(item)
         end
 
         -- Header: "Quest:" for single, "Quest Chain:" for multi-step
-        -- Always uses full chain length for truth
-        local headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
+        -- Vendor-unlock chains use "Unlock Quest:" / "Unlock Quest Chain:"
+        local headerLabel
+        if isUnlockChain then
+            headerLabel = (#chain > 1) and "Unlock Quest Chain:" or "Unlock Quest:"
+        else
+            headerLabel = (#chain > 1) and "Quest Chain:" or "Quest:"
+        end
         local completedColor = (completed == #chain) and "|cff1eff00" or "|cffffcc00"
         chainContainer._header:SetText(string.format(
             "|cffffd200%s|r %d/%d %scompleted|r",
             headerLabel, completed, #chain, completedColor))
+
+        -- Toggle link: show when both series and storyline views exist
+        local toggle = chainContainer._toggle
+        if hasSeriesToggle then
+            local isSeries = detailPanel._activeChainView == "series"
+            local label = isSeries and "[Full Chain]" or "[Series]"
+            toggle._text:SetText("|cff80b3e6" .. label .. "|r")
+            toggle._text:SetTextColor(0.5, 0.7, 0.9)
+            toggle:SetWidth(toggle._text:GetStringWidth() + 4)
+            toggle:SetScript("OnClick", function()
+                if detailPanel._activeChainView == "series" then
+                    detailPanel._activeChainView = "storyline"
+                else
+                    detailPanel._activeChainView = "series"
+                end
+                -- Re-render the detail panel with the new chain view
+                if NS.UI.RefreshDetailPanel then
+                    NS.UI.RefreshDetailPanel()
+                end
+            end)
+            toggle:Show()
+        else
+            toggle:Hide()
+        end
 
         -- Build display list (truncated for long chains)
         -- Each entry: {type="quest", chainIdx=N} or {type="skip", count=N}
@@ -4101,6 +4385,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     else
         -- No chain: hide chain + its separators
         chainContainer:Hide()
+        chainContainer._toggle:Hide()
         detailPanel._sepBeforeChain:Hide()
     end
 
@@ -4302,8 +4587,22 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- Only Quest-source items use chain status for navigation;
     -- other items (e.g. Vendor with quest reward) show the chain for info only
     local chainAffectsNav = hasChain and item.sourceType == "Quest"
-    local firstIncomplete = chainAffectsNav and GetFirstIncompleteQuestID(item.questID)
+    local firstIncomplete
+    if chainAffectsNav and detailPanel._activeChainView == "series" then
+        -- In series view, only navigate within the series chain.
+        firstIncomplete = GetFirstIncompleteQuestIDSeries(item.questID, item.sourceDetail)
+    elseif chainAffectsNav then
+        firstIncomplete = GetFirstIncompleteQuestID(item.questID)
+    end
     local chainComplete = chainAffectsNav and not firstIncomplete
+
+    -- If the final quest (the one that rewards the decor) is already completed,
+    -- treat the chain as complete even if earlier quests are incomplete.
+    -- Those earlier quests were not true prerequisites.
+    if chainAffectsNav and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
+        chainComplete = true
+        firstIncomplete = nil
+    end
 
     local isQuestVendor = item.sourceType == "Quest"
         and item.vendorName and item.vendorName ~= ""
@@ -5045,11 +5344,17 @@ function NS.UI.CatalogDetail_ShowItem(item)
         if detailPanel._vendorNote:IsShown() then
             sourceH = sourceH + 2 + (detailPanel._vendorNote:GetStringHeight() or 14)
         end
-        if detailPanel._altVendorLine:IsShown() then
-            sourceH = sourceH + 1 + (detailPanel._altVendorLine:GetStringHeight() or 14)
+        if detailPanel._vendorUnlockQuestName:IsShown() then
+            sourceH = sourceH + 2 + (detailPanel._vendorUnlockQuestName:GetStringHeight() or 14)
         end
-        if detailPanel._altVendorZonePart:IsShown() and altVendorZoneWrapped then
-            sourceH = sourceH + 1 + (detailPanel._altVendorZonePart:GetStringHeight() or 14)
+        for i = 1, detailPanel._additionalVendorCount do
+            local e = detailPanel._additionalVendorPool[i]
+            if e and e.line:IsShown() then
+                sourceH = sourceH + 1 + (e.line:GetStringHeight() or 14)
+            end
+            if e and e.zoneWrapped and e.zonePart:IsShown() then
+                sourceH = sourceH + 1 + (e.zonePart:GetStringHeight() or 14)
+            end
         end
         if detailPanel._treasureLine:IsShown() then
             sourceH = sourceH + 6 + (detailPanel._treasureLine:GetStringHeight() or 14)
