@@ -4067,6 +4067,19 @@ function NS.UI.CatalogDetail_ShowItem(item)
         chain = {{ questID = nil, name = item.sourceDetail, isDecorQuest = false }}
     end
 
+    -- When the decor reward quest is completed, strip incomplete quests from
+    -- the chain display — they weren't true prerequisites.
+    if chain and item.questID and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
+        local filtered = {}
+        for _, entry in ipairs(chain) do
+            if not entry.questID
+                or C_QuestLog.IsQuestFlaggedCompleted(entry.questID) then
+                filtered[#filtered + 1] = entry
+            end
+        end
+        chain = filtered
+    end
+
     if chain and #chain >= 1 then
         -- Count completed quests
         local completed = 0
@@ -4582,6 +4595,18 @@ function NS.UI.CatalogDetail_ShowItem(item)
         firstIncomplete = GetFirstIncompleteQuestID(item.questID)
     end
     local chainComplete = chainAffectsNav and not firstIncomplete
+
+    -- If the final quest (the one that rewards the decor) is already completed,
+    -- treat the chain as complete even if earlier quests are incomplete.
+    -- Those earlier quests were not true prerequisites.
+    local decorQuestDone = false
+    if item.questID and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
+        decorQuestDone = true
+        if chainAffectsNav then
+            chainComplete = true
+            firstIncomplete = nil
+        end
+    end
 
     local isQuestVendor = item.sourceType == "Quest"
         and item.vendorName and item.vendorName ~= ""
