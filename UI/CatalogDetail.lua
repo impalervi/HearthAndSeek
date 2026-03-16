@@ -4137,48 +4137,57 @@ function NS.UI.CatalogDetail_ShowItem(item)
         local tailCount = detailPanel._chainTailCount
 
         if #chain > truncThreshold then
-            -- Head segment: last completed + next N incomplete quests
-            local headIndices = {}
+            -- Build three segments: start (quest 1), progress (around current),
+            -- and tail (last entries including decor reward).
+            -- Segments that overlap are merged.
+
+            -- Progress segment: last completed + next N incomplete
+            local progressStart, progressEnd
             if not firstIncompleteIdx then
-                -- All completed: show chain start
-                headIndices[1] = 1
+                -- All completed: progressStart/progressEnd remain nil
             elseif firstIncompleteIdx == 1 then
-                -- None completed: show first N incomplete
-                for hi = 1, math.min(headCount, #chain) do
-                    headIndices[#headIndices + 1] = hi
-                end
+                -- None completed: progress is first N quests
+                progressStart = 1
+                progressEnd = math.min(headCount, #chain)
             else
-                -- Show last completed + next N incomplete
-                headIndices[1] = firstIncompleteIdx - 1
-                for hi = 0, headCount - 1 do
-                    local ci = firstIncompleteIdx + hi
-                    if ci <= #chain then
-                        headIndices[#headIndices + 1] = ci
-                    end
-                end
+                progressStart = firstIncompleteIdx - 1  -- last completed
+                progressEnd = math.min(firstIncompleteIdx + headCount - 1, #chain)
             end
 
             -- Tail segment: last tailCount entries
             local tailStart = #chain - tailCount + 1
-            local lastHeadIdx = headIndices[#headIndices]
 
-            if lastHeadIdx >= tailStart then
-                -- Head overlaps tail: show everything from first head to end
-                for ci = headIndices[1], #chain do
+            -- Merge overlapping segments and build display list
+            -- Always show quest 1 first (chain start)
+            displayList[#displayList + 1] = { type = "quest", chainIdx = 1 }
+
+            -- Determine the next segment to show after quest 1
+            local nextStart = (progressStart and tailStart)
+                and math.min(progressStart, tailStart)
+                or progressStart or tailStart
+            if nextStart <= 1 then nextStart = 2 end
+
+            -- Skip between quest 1 and next visible segment
+            if nextStart > 2 then
+                displayList[#displayList + 1] = { type = "skip", count = nextStart - 2 }
+            end
+
+            -- Show from nextStart through tail end, inserting skip if needed
+            if progressEnd and progressEnd < tailStart - 1 then
+                -- Progress and tail are separate: show progress, skip, tail
+                for ci = nextStart, progressEnd do
                     displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
                 end
-            else
-                -- Head entries
-                for _, ci in ipairs(headIndices) do
-                    displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
-                end
-                -- Skip line (omit if head is directly adjacent to tail)
-                local skipCount = tailStart - lastHeadIdx - 1
+                local skipCount = tailStart - progressEnd - 1
                 if skipCount > 0 then
                     displayList[#displayList + 1] = { type = "skip", count = skipCount }
                 end
-                -- Tail entries
                 for ci = tailStart, #chain do
+                    displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
+                end
+            else
+                -- Merged or only tail: show continuously to end
+                for ci = nextStart, #chain do
                     displayList[#displayList + 1] = { type = "quest", chainIdx = ci }
                 end
             end
