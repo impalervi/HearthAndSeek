@@ -1902,20 +1902,27 @@ function NS.UI.InitCatalog()
     closeBtn:SetPoint("TOPRIGHT", catalogFrame, "TOPRIGHT", -2, -2)
     closeBtn:SetScript("OnClick", function() catalogFrame:Hide() end)
 
-    -- Settings button (cogwheel, next to close button)
+    -- Settings button (gear icon with red highlight matching close button)
     local settingsBtn = CreateFrame("Button", nil, titleBar)
-    settingsBtn:SetSize(20, 20)
-    settingsBtn:SetPoint("RIGHT", closeBtn, "LEFT", -8, 0)
+    settingsBtn:SetSize(32, 32)
+    settingsBtn:SetPoint("RIGHT", closeBtn, "LEFT", 4, 0)
+    -- Gear icon
     local settingsIcon = settingsBtn:CreateTexture(nil, "ARTWORK")
-    settingsIcon:SetAllPoints()
-    settingsIcon:SetAtlas("OptionsIcon-Brown")
-    settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+    settingsIcon:SetSize(18, 18)
+    settingsIcon:SetPoint("CENTER", 0, 0)
+    settingsIcon:SetAtlas("QuestLog-Icon-Setting")
+    settingsIcon:SetVertexColor(1, 0.9, 0.45, 1)
+    -- Red highlight on hover (same texture as close button)
+    local settingsHL = settingsBtn:CreateTexture(nil, "HIGHLIGHT")
+    settingsHL:SetAllPoints()
+    settingsHL:SetTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+    settingsHL:SetBlendMode("ADD")
     settingsBtn:SetScript("OnEnter", function()
-        settingsIcon:SetVertexColor(1, 0.82, 0, 1)
+        settingsIcon:SetVertexColor(1, 0.85, 0.2, 1)
     end)
     settingsBtn:SetScript("OnLeave", function()
         if not catalogFrame._settingsPanel:IsShown() then
-            settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+            settingsIcon:SetVertexColor(1, 0.9, 0.45, 1)
         end
     end)
     catalogFrame._settingsBtn = settingsBtn
@@ -2118,17 +2125,17 @@ function NS.UI.InitCatalog()
     settingsBtn:SetScript("OnClick", function()
         if settingsPanel:IsShown() then
             settingsPanel:Hide()
-            settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+            settingsIcon:SetVertexColor(1, 0.9, 0.45, 1)
         else
             settingsPanel:Show()
-            settingsIcon:SetVertexColor(1, 0.82, 0, 1)
+            settingsIcon:SetVertexColor(1, 0.85, 0.2, 1)
         end
     end)
 
     -- Hide settings panel when main frame hides
     catalogFrame:HookScript("OnHide", function()
         settingsPanel:Hide()
-        settingsIcon:SetVertexColor(0.75, 0.75, 0.75, 0.8)
+        settingsIcon:SetVertexColor(1, 0.9, 0.45, 1)
         -- Dismiss any active What's New callouts
         if NS.UI.DismissWhatsNew then
             NS.UI.DismissWhatsNew()
