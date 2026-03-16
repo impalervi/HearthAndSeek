@@ -419,7 +419,7 @@ local function CreateSidebarSection(scrollChild, sectionID, title, anchorFrame, 
         end
         -- Persist collapse state
         if NS.db and NS.db.settings then
-            NS.db.settings.filterCollapsed[sectionID] = (not section._expanded) or nil
+            NS.db.settings.filterCollapsed[sectionID] = not section._expanded
         end
         RecalcSidebarHeight(scrollChild)
     end
