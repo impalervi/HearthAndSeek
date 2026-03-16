@@ -4599,13 +4599,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- If the final quest (the one that rewards the decor) is already completed,
     -- treat the chain as complete even if earlier quests are incomplete.
     -- Those earlier quests were not true prerequisites.
-    local decorQuestDone = false
-    if item.questID and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
-        decorQuestDone = true
-        if chainAffectsNav then
-            chainComplete = true
-            firstIncomplete = nil
-        end
+    if chainAffectsNav and C_QuestLog.IsQuestFlaggedCompleted(item.questID) then
+        chainComplete = true
+        firstIncomplete = nil
     end
 
     local isQuestVendor = item.sourceType == "Quest"
