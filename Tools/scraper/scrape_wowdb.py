@@ -573,6 +573,15 @@ def main():
     if args.items or args.all:
         scrape_items()
 
+    # Stamp cache metadata (non-fatal if it fails)
+    try:
+        from pipeline_metadata import stamp_after_scrape
+        wdb_files = len([f for f in CACHE_DIR.iterdir() if f.suffix == ".html"])
+        stamp_after_scrape(CACHE_DIR, source="wowdb (housing.wowdb.com)", total_files=wdb_files)
+        logger.info("Cache metadata updated (%d files in wowdb_cache)", wdb_files)
+    except Exception as exc:
+        logger.warning("Failed to update cache metadata: %s", exc)
+
     logger.info("Done!")
 
 

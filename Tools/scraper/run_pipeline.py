@@ -314,6 +314,14 @@ def main() -> None:
             logger.info("  [DRY RUN] Deploy to %s", WOW_ADDON_DIR)
         return
 
+    # Remind about backups when cache-destructive operations are requested
+    if args.clear_cache or args.force:
+        logger.warning("")
+        logger.warning("*** REMINDER: Have you backed up the cache? ***")
+        logger.warning("Run: bash scripts/backup_cache.sh")
+        logger.warning("This creates a timestamped archive you can restore from.")
+        logger.warning("")
+
     # Clear cache if requested
     if args.clear_cache:
         for cache_dir, label in [(CACHE_DIR, "Wowhead"), (WOWDB_CACHE_DIR, "WoWDB")]:

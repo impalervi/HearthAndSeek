@@ -559,8 +559,11 @@ python run_pipeline.py --generate-only --deploy  # Regenerate with new themes
 
 ### Nuclear Option (Stale Cache)
 
+> **Always back up caches first:** `bash scripts/backup_cache.sh`
+
 If you suspect cached Wowhead data is wrong or outdated:
 ```bash
+bash scripts/backup_cache.sh                   # Create timestamped backup first!
 python run_pipeline.py --clear-cache --deploy  # Delete cache, re-fetch everything
 ```
 This re-fetches ALL Wowhead pages (rate-limited, may take 30-60 minutes).
