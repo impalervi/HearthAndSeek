@@ -25,6 +25,7 @@ Data\QuestChains.lua
 
 # Modules
 Modules\Navigation.lua
+Modules\VendorOverlay.lua
 Modules\CatalogDumper.lua
 
 # UI (XML templates must load before Lua files that reference them)

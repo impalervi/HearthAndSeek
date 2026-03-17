@@ -1932,7 +1932,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(350)
+    settingsPanel:SetHeight(425)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -1983,7 +1983,7 @@ function NS.UI.InitCatalog()
     local DEFAULT_ICON_SIZE = 110
     local iconSlider = CreateFrame("Slider", nil, settingsPanel, "OptionsSliderTemplate")
     iconSlider:SetSize(180, 16)
-    iconSlider:SetPoint("TOPLEFT", sliderLabel, "BOTTOMLEFT", 2, -10)
+    iconSlider:SetPoint("TOPLEFT", sliderLabel, "BOTTOMLEFT", 8, -10)
     iconSlider:SetMinMaxValues(0.5, 1.5)
     iconSlider:SetValueStep(0.05)
     iconSlider:SetObeyStepOnDrag(true)
@@ -2074,8 +2074,52 @@ function NS.UI.InitCatalog()
     rememberLabel:SetText("Remember filter selections")
     rememberLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- === VENDOR OVERLAYS section ===
+    local vendorSep = CreateSettingsSep(settingsPanel, rememberCheck, -10)
+
+    local vendorHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    vendorHeader:SetPoint("TOPLEFT", vendorSep, "BOTTOMLEFT", 0, -8)
+    vendorHeader:SetText("VENDOR OVERLAYS")
+    vendorHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    -- "Show collected checkmark" checkbox
+    local vendorOwnedCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    vendorOwnedCheck:SetSize(22, 22)
+    vendorOwnedCheck:SetPoint("TOPLEFT", vendorHeader, "BOTTOMLEFT", -2, -6)
+    vendorOwnedCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showVendorOwned == false))
+    vendorOwnedCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.showVendorOwned = self:GetChecked()
+        end
+        if NS.VendorOverlay and NS.VendorOverlay.Refresh then
+            NS.VendorOverlay.Refresh()
+        end
+    end)
+    local vendorOwnedLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    vendorOwnedLabel:SetPoint("LEFT", vendorOwnedCheck, "RIGHT", 2, 0)
+    vendorOwnedLabel:SetText("|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t  Collected")
+    vendorOwnedLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
+    -- "Show uncollected exclamation" checkbox
+    local vendorBonusCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    vendorBonusCheck:SetSize(22, 22)
+    vendorBonusCheck:SetPoint("TOPLEFT", vendorOwnedCheck, "BOTTOMLEFT", 0, -4)
+    vendorBonusCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showVendorBonus == false))
+    vendorBonusCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.showVendorBonus = self:GetChecked()
+        end
+        if NS.VendorOverlay and NS.VendorOverlay.Refresh then
+            NS.VendorOverlay.Refresh()
+        end
+    end)
+    local vendorBonusLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    vendorBonusLabel:SetPoint("LEFT", vendorBonusCheck, "RIGHT", 2, 0)
+    vendorBonusLabel:SetText("|TInterface\\GossipFrame\\DailyQuestIcon:14|t  Not collected")
+    vendorBonusLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, rememberCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, vendorBonusCheck, -10)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
@@ -2085,7 +2129,7 @@ function NS.UI.InitCatalog()
     -- Restore Default Icon Size button
     local resetIconBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
     resetIconBtn:SetSize(180, 22)
-    resetIconBtn:SetPoint("TOPLEFT", restoreHeader, "BOTTOMLEFT", 2, -8)
+    resetIconBtn:SetPoint("TOPLEFT", restoreHeader, "BOTTOMLEFT", 8, -8)
     resetIconBtn:SetText("Icon Size")
     resetIconBtn:SetScript("OnClick", function()
         iconSlider:SetValue(1.0)

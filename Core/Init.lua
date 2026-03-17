@@ -28,6 +28,8 @@ local DEFAULTS = {
         filterCollapsed = {},      -- { [sectionID] = true } — persisted collapse states
         filterOrder = nil,         -- nil = default; array of section IDs when customized
         rememberFilters = true,    -- persist filter selections across sessions
+        showVendorOwned = true,    -- green checkmark on owned decor at vendors
+        showVendorBonus = true,    -- blue exclamation on uncollected decor at vendors
     },
     whatsNew = {
         lastSeenVersion = nil,     -- tracks which version's callouts were shown
