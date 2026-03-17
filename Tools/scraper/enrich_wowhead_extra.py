@@ -524,6 +524,14 @@ def main() -> None:
     logger.info("")
     logger.info("Output: %s", OUTPUT_FILE)
 
+    # Stamp cache metadata (non-fatal if it fails)
+    try:
+        from pipeline_metadata import stamp_after_scrape
+        wh_files = len([f for f in CACHE_DIR.iterdir() if f.suffix == ".json" and f.name != "_metadata.json"])
+        stamp_after_scrape(CACHE_DIR, source="wowhead", total_files=wh_files)
+    except Exception as exc:
+        logger.warning("Failed to update cache metadata: %s", exc)
+
 
 if __name__ == "__main__":
     main()

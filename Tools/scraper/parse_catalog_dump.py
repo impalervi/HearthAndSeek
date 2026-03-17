@@ -514,6 +514,21 @@ def main():
         json.dump(output_entries, f, indent=2, ensure_ascii=False)
     print(f"Wrote {len(output_entries)} entries to {output_file}")
 
+    # Stamp data directory metadata with dump info (non-fatal if it fails)
+    try:
+        from pipeline_metadata import update_metadata, get_game_version
+        from datetime import datetime, timezone
+        game = get_game_version()
+        update_metadata(output_file.parent, {
+            "gameVersion": game,
+            "catalogDumpDate": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "catalogDumpItems": len(output_entries),
+            "catalogDumpSource": "in-game /hs dump catalog",
+        })
+        print(f"Data metadata updated (game version: {game['expansion']} {game['interface']})")
+    except Exception as exc:
+        print(f"Warning: Failed to update data metadata: {exc}")
+
     # 5. Print summary stats
     print()
     print("=" * 50)

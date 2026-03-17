@@ -27,8 +27,11 @@ Tools/scraper/data/*.json
 Tools/scraper/data/*.html
 !Tools/scraper/data/item_keywords.json
 !Tools/scraper/data/manual_theme_annotations.json
+!Tools/scraper/data/overrides.json
+!Tools/scraper/data/faction_quest_overrides.json
 Tools/scraper/data/wowhead_cache/
 Tools/scraper/data/wowdb_cache/
+Tools/scraper/data/backups/
 Tools/scraper/data/thumbnails/
 Tools/scraper/data/montages/*
 !Tools/scraper/data/montages/visual_classifications.json

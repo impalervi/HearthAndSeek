@@ -1,0 +1,21 @@
+{
+  "_README": "Manual overrides for items the pipeline gets wrong. Keyed by decorID (string). Fields here overwrite the enriched item dict. Use _note for documentation. Field names must match what output_catalog_lua.py reads: sources (array), achievement, vendor, quest, zone, npcX, npcY, npcID, faction, etc.",
+
+  "7690": {
+    "_note": "Altar of the Corrupted Flames — in-game dump tagged as Vendor but this actually requires the Broken Isles World Quests V achievement",
+    "sources": [
+      {"type": "Achievement", "value": "Broken Isles World Quests V"},
+      {"type": "Vendor", "value": "Arcanist Peroleth"}
+    ],
+    "achievement": "Broken Isles World Quests V"
+  },
+
+  "839":  { "_note": "Inert Blight Canister — vendor in Dazar'alor, not broad Zuldazar", "zone": "Dazar'alor" },
+  "932":  { "_note": "Forsaken War Planning Table — vendor in Dazar'alor", "zone": "Dazar'alor" },
+  "937":  { "_note": "Large Forsaken War Tent — vendor in Dazar'alor", "zone": "Dazar'alor" },
+  "938":  { "_note": "Small Forsaken War Tent — vendor in Dazar'alor", "zone": "Dazar'alor" },
+  "939":  { "_note": "Blightfire Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
+  "940":  { "_note": "Blightfire Hanging Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
+  "943":  { "_note": "Undercity Spiked Chest — vendor (Captain Zen'taga) in Dazar'alor", "zone": "Dazar'alor" },
+  "949":  { "_note": "Large Forsaken Spiked Brazier — vendor (Provisioner Mukra) in Dazar'alor", "zone": "Dazar'alor" }
+}

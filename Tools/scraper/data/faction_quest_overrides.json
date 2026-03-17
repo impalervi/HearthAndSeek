@@ -1,0 +1,74 @@
+{
+  "1481": {
+    "decorID": 1481,
+    "name": "Surwich Peddler's Wagon",
+    "Horde": {
+      "questID": 25720,
+      "questName": "The Downfall of Marl Wormthorn"
+    },
+    "Alliance": {
+      "questID": 26187,
+      "questName": "The Downfall of Marl Wormthorn"
+    }
+  },
+  "2244": {
+    "decorID": 2244,
+    "name": "Dilapidated Wildhammer Well",
+    "Horde": {
+      "questID": 27955,
+      "questName": "Eye Spy"
+    },
+    "Alliance": {
+      "questID": 28244,
+      "questName": "Eye Spy"
+    }
+  },
+  "2466": {
+    "decorID": 2466,
+    "name": "Gnomish Sprocket Table",
+    "Horde": {
+      "questID": 55651,
+      "questName": "To Mechagon!"
+    },
+    "Alliance": {
+      "questID": 54992,
+      "questName": "The Start of Something Bigger"
+    }
+  },
+  "8187": {
+    "decorID": 8187,
+    "name": "Square Draenic Table",
+    "Horde": {
+      "questID": 35197,
+      "questName": "Forging Ahead"
+    },
+    "Alliance": {
+      "questID": 35196,
+      "questName": "Forging Ahead"
+    }
+  },
+  "8772": {
+    "decorID": 8772,
+    "name": "Draenic Forge",
+    "Horde": {
+      "questID": 33731,
+      "questName": "The Battle for Shattrath"
+    },
+    "Alliance": {
+      "questID": 34099,
+      "questName": "The Battle for Shattrath"
+    }
+  },
+  "11131": {
+    "decorID": 11131,
+    "name": "Shadowforge Lamppost",
+    "Horde": {
+      "questID": 28425,
+      "questName": "Return to Ariok"
+    },
+    "Alliance": {
+      "questID": 28183,
+      "questName": "Return to Keeshan"
+    }
+  }
+}
