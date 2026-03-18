@@ -1,0 +1,15 @@
+v1.4.0
+
+New Features
+- Vendor decor icons — green checkmark on collected items, blue exclamation on uncollected items at merchant frames
+- Each icon can be toggled independently in Settings under "Vendor Overlays"
+- Items sold by multiple vendors now show all locations with the most recent expansion vendor as primary
+
+Improvements
+- Quest chain display improvements — full storyline support, prerequisite tracking, interactive unlock quest links
+
+Bug Fixes
+- Fixed short searches (3 or fewer characters) not returning results
+- Fixed filter collapse states not persisting across sessions
+- Fixed quest chain truncation cutting off the first quest in a chain
+- Fixed vendor-unlock quests incorrectly categorized as Quest source instead of Vendor
