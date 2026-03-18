@@ -1905,7 +1905,7 @@ function NS.UI.InitCatalog()
     -- Settings button (gear icon with red highlight matching close button)
     local settingsBtn = CreateFrame("Button", nil, titleBar)
     settingsBtn:SetSize(32, 32)
-    settingsBtn:SetPoint("RIGHT", closeBtn, "LEFT", 4, 0)
+    settingsBtn:SetPoint("RIGHT", closeBtn, "LEFT", -2, 0)
     -- Gear icon
     local settingsIcon = settingsBtn:CreateTexture(nil, "ARTWORK")
     settingsIcon:SetSize(18, 18)

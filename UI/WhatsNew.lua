@@ -43,6 +43,17 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "1.4.0",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Vendor Decor Icons|r\nDecor items at vendors now show a green checkmark if already collected, or a blue exclamation if uncollected. Toggle each icon independently in Settings.",
+                anchorTo = "settingsBtn",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Right",
+            },
+        },
+    },
+    {
         version = "1.3.1",
         entries = {
             {
