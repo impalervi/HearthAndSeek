@@ -1154,10 +1154,13 @@ RefreshGridButtons = function()
     local rowInt = math.floor(scrollOffset)
     local frac = scrollOffset - rowInt
     local pixelShift = frac * (size + gap)  -- how far to shift buttons up
-    local startIdx = rowInt * cols + 1
+    -- Start data one row earlier when scrolled, so the partial top row persists
+    local dataRowStart = math.max(0, rowInt - 1)
+    local startIdx = dataRowStart * cols + 1
+    local topRowOffset = rowInt - dataRowStart  -- 1 when scrolled past row 0, else 0
     local gridWidth = cols * size + (cols - 1) * gap
 
-    for i = 1, (visibleRows + 2) * cols do  -- +2 rows: clipped hint + smooth scroll buffer
+    for i = 1, (visibleRows + 3) * cols do  -- +3 rows: peek row above + clipped hint + buffer
         local btn = gridButtons[i]
         if not btn then break end
 
@@ -1167,7 +1170,7 @@ RefreshGridButtons = function()
         btn:ClearAllPoints()
         btn:SetPoint("CENTER", gridParent, "TOP",
             -gridWidth / 2 + col * (size + gap) + size / 2,
-            -(40 + row * (size + gap) + size / 2) + pixelShift)
+            -(25 + (row - topRowOffset) * (size + gap) + size / 2) + pixelShift)
 
         local decorID = filteredItems[startIdx + i - 1]
 
@@ -1300,8 +1303,7 @@ local function UpdateCountText()
         end
     end
 
-    local countText = string.format("Showing %d items  |cff888888(%d collected)|r", totalCount, ownedCount)
-    gridParent._countText:SetText(countText)
+    gridParent._countText:SetText(string.format("Showing %d items", totalCount))
 end
 
 -------------------------------------------------------------------------------
@@ -1359,6 +1361,8 @@ function NS.UI.CatalogGrid_ApplyFilters()
         themes      = {},
         collection  = { collected = 0, notCollected = 0 },
         favorites   = 0,
+        progressCollected = 0,
+        progressTotal     = 0,
     }
 
     -- Single-pass: filter items and compute dynamic counts simultaneously
@@ -1510,6 +1514,10 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- Item passes ALL filters -> add to filtered list
         if pSrc and pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
+            dynCounts.progressTotal = dynCounts.progressTotal + 1
+            if isCollected then
+                dynCounts.progressCollected = dynCounts.progressCollected + 1
+            end
         end
 
         -----------------------------------------------------------------------
@@ -1636,8 +1644,8 @@ function NS.UI.CatalogGrid_ApplyFilters()
     UpdateCountText()
 
     -- Broadcast dynamic counts to sidebar
-    if NS.UI.UpdateSidebarCounts then
-        NS.UI.UpdateSidebarCounts(dynCounts)
+    if NS.UI.UpdateFilterCounts then
+        NS.UI.UpdateFilterCounts(dynCounts)
     end
 
     -- Persist filter state for next session
@@ -1843,7 +1851,7 @@ function NS.UI.InitCatalogGrid(parent)
     local size = CatSizing.GridItemSize
     local gap  = CatSizing.GridItemSpacing
     local availW = parent:GetWidth() - GRID_H_MARGIN * 2
-    local availH = parent:GetHeight() - 50
+    local availH = parent:GetHeight() - 55
     local dynamicCols = math.max(1, math.floor((availW + gap) / (size + gap)))
     local dynamicRows = math.max(1, math.floor((availH + gap) / (size + gap)))
     CatSizing.GridColumns = dynamicCols
@@ -1854,7 +1862,7 @@ function NS.UI.InitCatalogGrid(parent)
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local numButtons = (visibleRows + 2) * cols  -- +2 rows: clipped hint + smooth scroll buffer
+    local numButtons = (visibleRows + 3) * cols  -- +3 rows: peek above + clipped hint + buffer
 
     -- Calculate total grid dimensions to center it
     local gridWidth  = cols * size + (cols - 1) * gap
@@ -1867,7 +1875,7 @@ function NS.UI.InitCatalogGrid(parent)
         local row = math.floor((i - 1) / cols)
         btn:SetPoint("CENTER", parent, "TOP",
             -gridWidth / 2 + col * (size + gap) + size / 2,
-            -(40 + row * (size + gap) + size / 2))
+            -(25 + row * (size + gap) + size / 2))
         gridButtons[i] = btn
     end
 
@@ -1883,11 +1891,11 @@ function NS.UI.InitCatalogGrid(parent)
 
     -- Scroll bar (simple Slider with Blizzard thumb art)
     local panelH = parent:GetHeight()
-    local gridHeight = panelH > 50 and (panelH - 50) or (visibleRows * size + (visibleRows - 1) * gap)
+    local gridHeight = panelH > 55 and (panelH - 55) or (visibleRows * size + (visibleRows - 1) * gap)
     local scrollBar = CreateFrame("Slider", nil, parent)
     scrollBar:SetSize(6, gridHeight)
     scrollBar:SetPoint("TOPLEFT", parent, "TOP",
-        gridWidth / 2 + 6, -40)
+        gridWidth / 2 + 6, -25)
     scrollBar:SetOrientation("VERTICAL")
     scrollBar:SetMinMaxValues(0, 0)
     scrollBar:SetValue(0)
@@ -1945,7 +1953,7 @@ function NS.UI.CatalogGrid_Reflow()
     visibleRows = newRows
     CatSizing.ItemsPerPage = newCols * newRows
 
-    local numButtons = (newRows + 2) * newCols  -- +2 rows: clipped hint + smooth scroll buffer
+    local numButtons = (newRows + 3) * newCols  -- +3 rows: peek above + clipped hint + buffer
     local gridWidth = newCols * size + (newCols - 1) * gap
 
     -- Grow button pool if needed
@@ -1966,7 +1974,7 @@ function NS.UI.CatalogGrid_Reflow()
             btn:SetSize(size, size)
             btn:SetPoint("CENTER", gridParent, "TOP",
                 -gridWidth / 2 + col * (size + gap) + size / 2,
-                -(40 + row * (size + gap) + size / 2))
+                -(25 + row * (size + gap) + size / 2))
         else
             btn:Hide()
         end

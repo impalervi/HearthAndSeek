@@ -165,8 +165,8 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
         if subCmd == "favorites" then
             wipe(NS.favorites)
             NS.Utils.PrintMessage("All favorites cleared.")
-            if NS.UI.UpdateSidebarCounts then
-                NS.UI.UpdateSidebarCounts()
+            if NS.UI.CatalogGrid_ApplyFilters then
+                NS.UI.CatalogGrid_ApplyFilters()
             end
         else
             NS.Utils.PrintMessage("Clear commands: favorites")
