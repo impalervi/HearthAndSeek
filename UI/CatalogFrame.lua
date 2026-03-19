@@ -2079,7 +2079,7 @@ function NS.UI.InitCatalog()
 
     local vendorHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorHeader:SetPoint("TOPLEFT", vendorSep, "BOTTOMLEFT", 0, -8)
-    vendorHeader:SetText("VENDOR OVERLAYS")
+    vendorHeader:SetText("VENDOR & CRAFTING ORDER OVERLAYS")
     vendorHeader:SetTextColor(1, 0.82, 0, 0.8)
 
     -- "Show collected checkmark" checkbox
@@ -2093,6 +2093,9 @@ function NS.UI.InitCatalog()
         end
         if NS.VendorOverlay and NS.VendorOverlay.Refresh then
             NS.VendorOverlay.Refresh()
+        end
+        if NS.CraftingOrderOverlay and NS.CraftingOrderOverlay.Refresh then
+            NS.CraftingOrderOverlay.Refresh()
         end
     end)
     local vendorOwnedLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -2112,6 +2115,9 @@ function NS.UI.InitCatalog()
         if NS.VendorOverlay and NS.VendorOverlay.Refresh then
             NS.VendorOverlay.Refresh()
         end
+        if NS.CraftingOrderOverlay and NS.CraftingOrderOverlay.Refresh then
+            NS.CraftingOrderOverlay.Refresh()
+        end
     end)
     local vendorBonusLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorBonusLabel:SetPoint("LEFT", vendorBonusCheck, "RIGHT", 2, 0)
@@ -2129,6 +2135,9 @@ function NS.UI.InitCatalog()
         end
         if NS.VendorOverlay and NS.VendorOverlay.Refresh then
             NS.VendorOverlay.Refresh()
+        end
+        if NS.CraftingOrderOverlay and NS.CraftingOrderOverlay.Refresh then
+            NS.CraftingOrderOverlay.Refresh()
         end
     end)
     local vendorUncollLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
