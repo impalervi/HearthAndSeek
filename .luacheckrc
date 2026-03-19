@@ -80,6 +80,9 @@ read_globals = {
     -- HelpTip system
     "HelpTip",
 
+    -- Tooltip system
+    "TooltipDataProcessor",
+
     -- WoW constants
     "CAMERA_MODIFICATION_TYPE_DISCARD",
     "CAMERA_TRANSITION_TYPE_IMMEDIATE",

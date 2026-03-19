@@ -27,6 +27,7 @@ Data\QuestChains.lua
 Modules\Navigation.lua
 Modules\VendorOverlay.lua
 Modules\CraftingOrderOverlay.lua
+Modules\TooltipModelPreview.lua
 Modules\CatalogDumper.lua
 
 # UI (XML templates must load before Lua files that reference them)
