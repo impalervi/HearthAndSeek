@@ -149,6 +149,34 @@ Dimensions: 256 pixels wide by 64 pixels tall. The pill should fill roughly 220x
 
 ---
 
+## Asset 11a: Settings Cogwheel Button — Normal State
+
+Create a settings button for a World of Warcraft addon UI in its **normal/idle state**. The button consists of a cogwheel (gear) icon on a dark red square background plate.
+
+**Background plate:** A square plate with slightly rounded corners. Dark red surface (#3a1818 to #4a2020) with a thin gray metallic border (#606060 to #707070) around the outside edge. The plate fills roughly 220x220 of the canvas, centered.
+
+**Cogwheel icon:** Centered on the red plate, a classic **8-tooth** cogwheel/gear shape. The gear is a single flat toothed ring of polished bronze/gold metal — warm gold surface (#b8973a to #d4a840) with lighter gold highlights (#e8c850) on the tooth tips and outer rim. The center hole shows the red background plate beneath. The gear teeth are evenly spaced, broad, and rounded — a clean, readable silhouette. The gear fills roughly 160x160 pixels within the plate. The metal surface has a slightly weathered, hand-forged look with subtle surface variation. **Do NOT add inner rings, inner dents, recessed channels, spokes, hub details, or any structural embellishment around the center hole. The gear is just a flat toothed ring with a clean round hole — nothing else.**
+
+No text, no extra elements, no shadows outside the button, no particles, no glow effects. ONLY the single button (plate + gear) on the green background.
+
+Dimensions: 256 pixels wide by 256 pixels tall. PNG format. **CRITICAL BACKGROUND REQUIREMENT: The ENTIRE background must be a single flat solid color: bright green, hex #00FF00, RGB(0,255,0). Every single pixel that is not part of the button must be this exact green. DO NOT use transparency. DO NOT use a checkerboard pattern. DO NOT use a checkered pattern. DO NOT use any pattern whatsoever. DO NOT use gray and white squares. The background is ONE solid uniform color: green #00FF00. This is for chroma-key removal in post-processing — any pattern or variation in the background will break the pipeline.** Style: hand-painted Blizzard Entertainment World of Warcraft UI, dark fantasy metallic.
+
+---
+
+## Asset 11b: Settings Cogwheel Button — Hover State
+
+Create a settings button for a World of Warcraft addon UI in its **hover/highlighted state**. The button consists of a cogwheel (gear) icon on a red square background plate.
+
+**Background plate:** A square plate with slightly rounded corners — **identical shape, size, proportions, and corner rounding as the normal state (Asset 11a)**. Brighter red surface (#5a2020 to #6a2828) with a thin gray metallic border (#808080 to #909090) around the outside edge, slightly brighter than the normal state border. The plate fills roughly 220x220 of the canvas, centered.
+
+**Cogwheel icon:** Centered on the red plate, a classic **8-tooth** cogwheel/gear shape. The gear is a single flat toothed ring of polished gold metal — bright warm gold surface (#d4a840 to #e8c050) with bright gold highlights (#f0d860 to #ffe070) on the tooth tips and outer rim. The gear sits ON TOP of the solid red plate — the red plate is fully solid and continuous behind the gear, with the red surface visible through the gear's center opening. **There is NO hole or cutout through the button — the red plate is opaque and unbroken.** The gear teeth are evenly spaced, broad, and rounded. The gear fills roughly 160x160 pixels within the plate. A subtle golden luminous glow along the gear edges. The metal surface has the same slightly weathered, hand-forged look. **CRITICAL: Do NOT add inner rings, inner dents, recessed channels, spokes, hub details, or any structural embellishment around the center. The gear is just a flat toothed ring sitting on a solid red plate. Do NOT punch a hole through the red plate. The ONLY differences from the normal state are: brighter red plate, brighter gold color, subtle glow. No structural changes whatsoever.**
+
+No text, no extra elements, no shadows outside the button, no particles. ONLY the single button (plate + gear) on the green background.
+
+Dimensions: 256 pixels wide by 256 pixels tall. PNG format. **CRITICAL BACKGROUND REQUIREMENT: The ENTIRE background must be a single flat solid color: bright green, hex #00FF00, RGB(0,255,0). Every single pixel that is not part of the button must be this exact green. DO NOT use transparency. DO NOT use a checkerboard pattern. DO NOT use a checkered pattern. DO NOT use any pattern whatsoever. DO NOT use gray and white squares. The background is ONE solid uniform color: green #00FF00. This is for chroma-key removal in post-processing — any pattern or variation in the background will break the pipeline.** Style: hand-painted Blizzard Entertainment World of Warcraft UI, dark fantasy metallic.
+
+---
+
 # Processing Notes
 
 The pipeline will:

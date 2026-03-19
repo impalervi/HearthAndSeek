@@ -2068,8 +2068,8 @@ function NS.UI.InitCatalog()
 
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
-    settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(400)
+    settingsPanel:SetWidth(240)
+    settingsPanel:SetHeight(455)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
