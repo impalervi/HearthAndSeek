@@ -1932,7 +1932,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(425)
+    settingsPanel:SetHeight(455)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2100,7 +2100,7 @@ function NS.UI.InitCatalog()
     vendorOwnedLabel:SetText("|TInterface\\RaidFrame\\ReadyCheck-Ready:14|t  Collected")
     vendorOwnedLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
-    -- "Show uncollected exclamation" checkbox
+    -- "Show uncollected with bonus (blue exclamation)" checkbox
     local vendorBonusCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
     vendorBonusCheck:SetSize(22, 22)
     vendorBonusCheck:SetPoint("TOPLEFT", vendorOwnedCheck, "BOTTOMLEFT", 0, -4)
@@ -2115,11 +2115,29 @@ function NS.UI.InitCatalog()
     end)
     local vendorBonusLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorBonusLabel:SetPoint("LEFT", vendorBonusCheck, "RIGHT", 2, 0)
-    vendorBonusLabel:SetText("|TInterface\\GossipFrame\\DailyQuestIcon:14|t  Not collected")
+    vendorBonusLabel:SetText("|TInterface\\GossipFrame\\DailyQuestIcon:14|t  Not collected (bonus)")
     vendorBonusLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- "Show uncollected without bonus (yellow exclamation)" checkbox
+    local vendorUncollCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    vendorUncollCheck:SetSize(22, 22)
+    vendorUncollCheck:SetPoint("TOPLEFT", vendorBonusCheck, "BOTTOMLEFT", 0, -4)
+    vendorUncollCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showVendorUncollected == false))
+    vendorUncollCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.showVendorUncollected = self:GetChecked()
+        end
+        if NS.VendorOverlay and NS.VendorOverlay.Refresh then
+            NS.VendorOverlay.Refresh()
+        end
+    end)
+    local vendorUncollLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    vendorUncollLabel:SetPoint("LEFT", vendorUncollCheck, "RIGHT", 2, 0)
+    vendorUncollLabel:SetText("|TInterface\\GossipFrame\\AvailableQuestIcon:14|t  Not collected (no bonus)")
+    vendorUncollLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, vendorBonusCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)

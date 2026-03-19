@@ -29,7 +29,8 @@ local DEFAULTS = {
         filterOrder = nil,         -- nil = default; array of section IDs when customized
         rememberFilters = true,    -- persist filter selections across sessions
         showVendorOwned = true,    -- green checkmark on owned decor at vendors
-        showVendorBonus = true,    -- blue exclamation on uncollected decor at vendors
+        showVendorBonus = true,    -- blue exclamation on uncollected decor with bonus
+        showVendorUncollected = true, -- yellow exclamation on uncollected decor without bonus
     },
     whatsNew = {
         lastSeenVersion = nil,     -- tracks which version's callouts were shown

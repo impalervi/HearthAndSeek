@@ -1,8 +1,9 @@
 -------------------------------------------------------------------------------
 -- HearthAndSeek: VendorOverlay.lua
 -- Shows ownership icons on decor items in the merchant (vendor) frame:
---   Green checkmark  = already collected
---   Blue exclamation = not yet collected (first-acquisition bonus available)
+--   Green checkmark      = already collected
+--   Yellow exclamation   = not yet collected (no bonus)
+--   Blue exclamation     = not yet collected (first-acquisition bonus available)
 -------------------------------------------------------------------------------
 local _, NS = ...
 
@@ -17,14 +18,15 @@ end
 local ICON_SIZE = 15
 local ICON_OFFSET = 2                -- pixels past icon edge (badge look)
 
-local CHECK_TEXTURE  = "Interface\\RaidFrame\\ReadyCheck-Ready"
-local EXCLAIM_TEXTURE = "Interface\\GossipFrame\\DailyQuestIcon"
+local CHECK_TEXTURE        = "Interface\\RaidFrame\\ReadyCheck-Ready"
+local EXCLAIM_BONUS_TEXTURE = "Interface\\GossipFrame\\DailyQuestIcon"      -- blue
+local EXCLAIM_NO_BONUS_TEXTURE = "Interface\\GossipFrame\\AvailableQuestIcon"  -- yellow
 
 -------------------------------------------------------------------------------
 -- Caches
 -------------------------------------------------------------------------------
-local overlayPool = {}   -- [itemButton] = { check = Texture, exclaim = Texture }
-local decorCache  = {}   -- [itemID]     = { owned = bool, bonus = bool } | false
+local overlayPool = {}   -- [itemButton] = { check, exclaimBonus, exclaimNoBonus }
+local decorCache  = {}   -- [itemID]     = { owned, bonus, uncollected } | false
 
 -------------------------------------------------------------------------------
 -- Lazy-create overlay textures on a merchant item button
@@ -49,14 +51,22 @@ local function GetOverlay(itemButton)
     check:Hide()
 
     -- Blue exclamation (not yet collected, bonus available)
-    local exclaim = itemButton:CreateTexture(nil, "OVERLAY", nil, 7)
-    exclaim:SetTexture(EXCLAIM_TEXTURE)
-    exclaim:SetSize(ICON_SIZE, ICON_SIZE)
-    exclaim:SetPoint("BOTTOMRIGHT", anchor, "BOTTOMRIGHT",
+    local exclaimBonus = itemButton:CreateTexture(nil, "OVERLAY", nil, 7)
+    exclaimBonus:SetTexture(EXCLAIM_BONUS_TEXTURE)
+    exclaimBonus:SetSize(ICON_SIZE, ICON_SIZE)
+    exclaimBonus:SetPoint("BOTTOMRIGHT", anchor, "BOTTOMRIGHT",
                      ICON_OFFSET, -ICON_OFFSET)
-    exclaim:Hide()
+    exclaimBonus:Hide()
 
-    local entry = { check = check, exclaim = exclaim }
+    -- Yellow exclamation (not yet collected, no bonus)
+    local exclaimNoBonus = itemButton:CreateTexture(nil, "OVERLAY", nil, 7)
+    exclaimNoBonus:SetTexture(EXCLAIM_NO_BONUS_TEXTURE)
+    exclaimNoBonus:SetSize(ICON_SIZE, ICON_SIZE)
+    exclaimNoBonus:SetPoint("BOTTOMRIGHT", anchor, "BOTTOMRIGHT",
+                     ICON_OFFSET, -ICON_OFFSET)
+    exclaimNoBonus:Hide()
+
+    local entry = { check = check, exclaimBonus = exclaimBonus, exclaimNoBonus = exclaimNoBonus }
     overlayPool[itemButton] = entry
     return entry
 end
@@ -84,6 +94,7 @@ local function QueryDecorInfo(itemID)
     decorCache[itemID] = {
         owned = owned,
         bonus = (not owned) and hasBonus,
+        uncollected = (not owned) and (not hasBonus),
     }
     return decorCache[itemID]
 end
@@ -94,7 +105,8 @@ end
 local function HideAllOverlays()
     for _, overlay in pairs(overlayPool) do
         overlay.check:Hide()
-        overlay.exclaim:Hide()
+        overlay.exclaimBonus:Hide()
+        overlay.exclaimNoBonus:Hide()
     end
 end
 
@@ -103,11 +115,12 @@ end
 -------------------------------------------------------------------------------
 local function UpdateVendorOverlays()
     local settings = NS.db and NS.db.settings
-    local showOwned = not (settings and settings.showVendorOwned == false)
-    local showBonus = not (settings and settings.showVendorBonus == false)
+    local showOwned      = not (settings and settings.showVendorOwned == false)
+    local showBonus      = not (settings and settings.showVendorBonus == false)
+    local showUncollected = not (settings and settings.showVendorUncollected == false)
 
-    -- Both disabled — hide everything and bail
-    if not showOwned and not showBonus then
+    -- All disabled — hide everything and bail
+    if not showOwned and not showBonus and not showUncollected then
         HideAllOverlays()
         return
     end
@@ -128,7 +141,8 @@ local function UpdateVendorOverlays()
 
         local overlay = GetOverlay(itemButton)
         overlay.check:Hide()
-        overlay.exclaim:Hide()
+        overlay.exclaimBonus:Hide()
+        overlay.exclaimNoBonus:Hide()
 
         if index <= numItems then
             local itemID = GetMerchantItemID(index)
@@ -138,7 +152,9 @@ local function UpdateVendorOverlays()
                     if info.owned and showOwned then
                         overlay.check:Show()
                     elseif info.bonus and showBonus then
-                        overlay.exclaim:Show()
+                        overlay.exclaimBonus:Show()
+                    elseif info.uncollected and showUncollected then
+                        overlay.exclaimNoBonus:Show()
                     end
                 end
             end
