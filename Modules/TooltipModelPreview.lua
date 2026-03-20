@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- HearthAndSeek: TooltipModelPreview.lua
--- Shows a slowly rotating 3D model preview beneath the tooltip when
+-- Shows a slowly rotating 3D model preview beside the tooltip when
 -- hovering over any decoration item found in the catalog.
 -------------------------------------------------------------------------------
 local _, NS = ...
@@ -99,15 +99,14 @@ local function ShowPreview(item, tooltip)
     currentItemID = item.itemID
     f:SetSize(PREVIEW_SIZE, PREVIEW_SIZE)
 
-    -- Position below the tooltip; if not enough screen space below,
-    -- anchor to the side instead
+    -- Prefer right side of tooltip; fall back to left if at screen edge
     f:ClearAllPoints()
-    local tipBottom = tooltip:GetBottom() or 0
-    if tipBottom - PREVIEW_SIZE - 4 < 0 then
-        -- Not enough room below — anchor above the tooltip
-        f:SetPoint("BOTTOMLEFT", tooltip, "TOPLEFT", 0, 2)
+    local tipRight = tooltip:GetRight() or 0
+    local screenWidth = UIParent:GetWidth()
+    if tipRight + PREVIEW_SIZE + 4 > screenWidth then
+        f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
     else
-        f:SetPoint("TOPLEFT", tooltip, "BOTTOMLEFT", 0, -2)
+        f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
     end
 
     -- Load the model (match CatalogDetail pcall pattern)
@@ -160,11 +159,16 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
             EnsureItemLookup()
 
             local itemID = data and data.id
-            if not itemID then return end
+            if not itemID then
+                HidePreview()
+                return
+            end
 
             local item = itemIDToDecor[itemID]
             if item then
                 ShowPreview(item, tooltip)
+            else
+                HidePreview()
             end
         end)
 end
