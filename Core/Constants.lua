@@ -8,7 +8,7 @@ local addonName, NS = ...
 -- Dev Mode: set to true to enable /hseek dump and /hseek debug commands.
 -- MUST be false for releases. Only enable during data pipeline work.
 -------------------------------------------------------------------------------
-NS.DEV_MODE = true
+NS.DEV_MODE = false
 
 -------------------------------------------------------------------------------
 -- Addon metadata

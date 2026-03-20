@@ -42,9 +42,12 @@ read_globals = {
     "AchievementFrame",
     "GameFontHighlightSmall",
     "GameTooltip",
+    "MerchantFrame",
+    "ProfessionsCustomerOrdersFrame",
     "UIParent",
 
     -- Global functions
+    "_G",
     "ChatEdit_GetActiveWindow",
     "ChatEdit_InsertLink",
     "CopyTable",
@@ -54,8 +57,11 @@ read_globals = {
     "GetCursorPosition",
     "GetItemIcon",
     "GetItemInfo",
+    "GetMerchantItemID",
+    "GetMerchantNumItems",
     "GetRealmName",
     "GetTime",
+    "hooksecurefunc",
     "InCombatLockdown",
     "IsAltKeyDown",
     "IsControlKeyDown",
@@ -83,10 +89,17 @@ read_globals = {
     -- Tooltip system
     "TooltipDataProcessor",
 
+    -- Blizzard mixins
+    "ProfessionsCustomerTableCellItemNameMixin",
+
+    -- Blizzard frame update functions
+    "MerchantFrame_Update",
+
     -- WoW constants
     "CAMERA_MODIFICATION_TYPE_DISCARD",
     "CAMERA_TRANSITION_TYPE_IMMEDIATE",
     "HOUSING_DECOR_PLACEMENT_COST_FORMAT",
+    "MERCHANT_ITEMS_PER_PAGE",
 
     -- Libraries
     "LibStub",
