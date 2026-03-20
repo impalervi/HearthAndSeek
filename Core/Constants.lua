@@ -8,13 +8,13 @@ local addonName, NS = ...
 -- Dev Mode: set to true to enable /hseek dump and /hseek debug commands.
 -- MUST be false for releases. Only enable during data pipeline work.
 -------------------------------------------------------------------------------
-NS.DEV_MODE = false
+NS.DEV_MODE = true
 
 -------------------------------------------------------------------------------
 -- Addon metadata
 -------------------------------------------------------------------------------
 NS.ADDON_NAME    = "HearthAndSeek"
-NS.ADDON_VERSION = "1.4.0"
+NS.ADDON_VERSION = "1.4.1"
 NS.ADDON_PREFIX  = "|cff00ccff[Hearth & Seek]|r "
 
 -------------------------------------------------------------------------------

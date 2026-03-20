@@ -43,6 +43,23 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "1.4.1",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Improved Overlays|r\nVendor and Crafting Order windows now show refined decor ownership icons — quickly see what you own, what's uncollected, and whether a first-acquisition bonus is available.",
+                anchorTo = "settingsBtn",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Right",
+            },
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Tooltip 3D Preview|r\nHovering any decor item now shows a rotating 3D model beside the tooltip. Works at vendors, in your bags, and in crafting orders. Toggle it in Settings.",
+                anchorTo = "settingsBtn",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Right",
+            },
+        },
+    },
+    {
         version = "1.4.0",
         entries = {
             {
