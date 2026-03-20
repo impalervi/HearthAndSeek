@@ -1932,7 +1932,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(455)
+    settingsPanel:SetHeight(520)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2079,7 +2079,7 @@ function NS.UI.InitCatalog()
 
     local vendorHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorHeader:SetPoint("TOPLEFT", vendorSep, "BOTTOMLEFT", 0, -8)
-    vendorHeader:SetText("VENDOR & CRAFTING ORDER OVERLAYS")
+    vendorHeader:SetText("VENDOR & CRAFTING OVERLAYS")
     vendorHeader:SetTextColor(1, 0.82, 0, 0.8)
 
     -- "Show collected checkmark" checkbox
@@ -2145,8 +2145,33 @@ function NS.UI.InitCatalog()
     vendorUncollLabel:SetText("|TInterface\\GossipFrame\\AvailableQuestIcon:14|t  Not collected (no bonus)")
     vendorUncollLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- === TOOLTIP section ===
+    local tooltipSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10)
+
+    local tooltipHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    tooltipHeader:SetPoint("TOPLEFT", tooltipSep, "BOTTOMLEFT", 0, -8)
+    tooltipHeader:SetText("TOOLTIP")
+    tooltipHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    local tooltipModelCheck = CreateFrame("CheckButton", nil, settingsPanel, "UICheckButtonTemplate")
+    tooltipModelCheck:SetSize(22, 22)
+    tooltipModelCheck:SetPoint("TOPLEFT", tooltipHeader, "BOTTOMLEFT", -2, -6)
+    tooltipModelCheck:SetChecked(not (NS.db and NS.db.settings and NS.db.settings.showTooltipModel == false))
+    tooltipModelCheck:SetScript("OnClick", function(self)
+        if NS.db and NS.db.settings then
+            NS.db.settings.showTooltipModel = self:GetChecked()
+        end
+        if NS.TooltipModelPreview and NS.TooltipModelPreview.Refresh then
+            NS.TooltipModelPreview.Refresh()
+        end
+    end)
+    local tooltipModelLabel = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    tooltipModelLabel:SetPoint("LEFT", tooltipModelCheck, "RIGHT", 2, 0)
+    tooltipModelLabel:SetText("Show 3D model on tooltip")
+    tooltipModelLabel:SetTextColor(0.9, 0.9, 0.9, 1)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, tooltipModelCheck, -10)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
