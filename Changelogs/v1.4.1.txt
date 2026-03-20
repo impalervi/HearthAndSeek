@@ -3,14 +3,6 @@ v1.4.1
 New Features
 - Tooltip 3D preview — hovering any decor item (vendors, bags, crafting orders) shows a rotating 3D model beside the tooltip
 - Crafting order overlay — decor ownership icons now appear on crafting order items, matching the vendor overlay
-- New "Show 3D model on tooltip" toggle in Settings under the Tooltip section
 
 Improvements
 - Vendor overlay upgraded to three tiers: owned, uncollected with first-acquisition bonus, uncollected without bonus
-- Settings header renamed from "Vendor & Crafting Order Overlays" to "Vendor & Crafting Overlays"
-
-Bug Fixes
-- Fixed tooltip preview failing after combat or loading screens due to stale ModelScene actors
-- Fixed taint errors ("secret number") when tooltip preview anchored to secure GameTooltip frame
-- Fixed tooltip preview positioning on non-default UI scale configurations
-- Fixed detail panel and big viewer 3D models occasionally failing after instance transitions

@@ -1932,7 +1932,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(220)
-    settingsPanel:SetHeight(520)
+    settingsPanel:SetHeight(550)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2214,6 +2214,20 @@ function NS.UI.InitCatalog()
             if NS.UI.CatalogGrid_ResetFilters then
                 NS.UI.CatalogGrid_ResetFilters()
             end
+        end
+    end)
+
+    -- Clear Favorites button
+    local clearFavBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    clearFavBtn:SetSize(180, 22)
+    clearFavBtn:SetPoint("TOPLEFT", resetFiltersBtn, "BOTTOMLEFT", 0, -4)
+    clearFavBtn:SetText("Clear All Favorites")
+    clearFavBtn:SetScript("OnClick", function()
+        if NS.favorites then
+            wipe(NS.favorites)
+        end
+        if NS.UI.CatalogGrid_ApplyFilters then
+            NS.UI.CatalogGrid_ApplyFilters()
         end
     end)
 
