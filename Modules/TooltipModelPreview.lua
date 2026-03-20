@@ -15,6 +15,12 @@ local PREVIEW_SIZE = 200
 local ROTATION_SPEED = 0.5  -- radians per second
 local DEFAULT_SCENE_ID = 859
 
+-- Debug: set to true to print diagnostic info to chat
+local DEBUG = false
+local function dbg(...)
+    if DEBUG then print("|cff00ccff[H&S Preview]|r", ...) end
+end
+
 -------------------------------------------------------------------------------
 -- Reverse lookup: itemID → catalog item (built lazily)
 -------------------------------------------------------------------------------
@@ -24,12 +30,18 @@ local function EnsureItemLookup()
     if itemIDToDecor then return end
     itemIDToDecor = {}
     local items = NS.CatalogData and NS.CatalogData.Items
-    if not items then return end
+    if not items then
+        dbg("WARNING: CatalogData.Items is nil!")
+        return
+    end
+    local count = 0
     for _, item in pairs(items) do
         if item.itemID and item.itemID > 0 and item.asset and item.asset > 0 then
             itemIDToDecor[item.itemID] = item
+            count = count + 1
         end
     end
+    dbg("Built itemID lookup:", count, "entries")
 end
 
 -------------------------------------------------------------------------------
@@ -79,6 +91,7 @@ local function GetPreviewFrame()
         end
     end)
     previewFrame = f
+    dbg("Preview frame created")
     return f
 end
 
@@ -86,9 +99,13 @@ end
 -- Show / hide
 -------------------------------------------------------------------------------
 local currentItemID = nil  -- tracks which item is currently previewed
+local pendingGen = 0       -- generation counter for deferred timer validation
 
 local function ShowPreview(item, tooltip)
-    if not item or not item.asset or item.asset <= 0 then return end
+    if not item or not item.asset or item.asset <= 0 then
+        dbg("ShowPreview: no item or no asset")
+        return
+    end
 
     -- Already showing this item — don't reset the scene (avoids stutter)
     if currentItemID == item.itemID and previewFrame and previewFrame:IsShown() then
@@ -99,19 +116,32 @@ local function ShowPreview(item, tooltip)
     currentItemID = item.itemID
     f:SetSize(PREVIEW_SIZE, PREVIEW_SIZE)
 
-    -- Prefer right side of tooltip; fall back to left if at screen edge
+    -- Position using absolute UIParent coordinates instead of anchoring to
+    -- the tooltip.  Anchoring to GameTooltip propagates taint through the
+    -- layout engine — child frames inherit "secret number" geometry, which
+    -- breaks OrbitCameraMixin:GetWidth() inside TransitionToModelSceneID.
     f:ClearAllPoints()
-    local tipRight = tooltip:GetRight() or 0
-    local screenWidth = UIParent:GetWidth()
-    if tipRight + PREVIEW_SIZE + 4 > screenWidth then
-        f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
+    local ratio    = tooltip:GetEffectiveScale() / UIParent:GetEffectiveScale()
+    local tipRight = (tooltip:GetRight() or 0) * ratio
+    local tipLeft  = (tooltip:GetLeft()  or 0) * ratio
+    local tipTop   = (tooltip:GetTop()   or 0) * ratio
+    local screenW  = UIParent:GetWidth()
+
+    if tipRight + PREVIEW_SIZE + 4 > screenW then
+        -- Left side of tooltip
+        f:SetPoint("TOPRIGHT", UIParent, "BOTTOMLEFT", tipLeft - 2, tipTop)
     else
-        f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
+        -- Right side of tooltip (default)
+        f:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", tipRight + 2, tipTop)
     end
 
-    -- Load the model (match CatalogDetail pcall pattern)
+    -- Clear stale scene state before transitioning; after loading screens the
+    -- engine can invalidate C-side actors while the Lua-side tagToActor table
+    -- still holds references to them, causing silent failures.
+    f._modelScene:ClearScene()
+
     local sceneID = item.uiModelSceneID or DEFAULT_SCENE_ID
-    local ok = pcall(function()
+    local ok, err = pcall(function()
         f._modelScene:TransitionToModelSceneID(
             sceneID,
             CAMERA_TRANSITION_TYPE_IMMEDIATE,
@@ -120,14 +150,21 @@ local function ShowPreview(item, tooltip)
         )
     end)
 
-    if ok then
-        local actor = f._modelScene:GetActorByTag("decor")
-        if actor then
-            actor:SetPreferModelCollisionBounds(true)
-            actor:SetModelByFileID(item.asset)
-        end
-        f:Show()
+    if not ok then
+        dbg("TransitionToModelSceneID FAILED:", tostring(err))
+        return
     end
+
+    local actor = f._modelScene:GetActorByTag("decor")
+    if not actor then
+        dbg("GetActorByTag('decor') returned nil for sceneID:", sceneID)
+        return
+    end
+
+    actor:SetPreferModelCollisionBounds(true)
+    actor:SetModelByFileID(item.asset)
+    f:Show()
+    dbg("Showing model for", item.name or "?", "asset:", item.asset, "scene:", sceneID)
 end
 
 local function HidePreview()
@@ -160,17 +197,37 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
 
             local itemID = data and data.id
             if not itemID then
+                pendingGen = pendingGen + 1
                 HidePreview()
                 return
             end
 
             local item = itemIDToDecor[itemID]
             if item then
-                ShowPreview(item, tooltip)
+                -- Bump generation so any older pending timer is invalidated
+                pendingGen = pendingGen + 1
+                local myGen = pendingGen
+                currentItemID = item.itemID
+
+                -- Defer to next frame to escape the secure callback context;
+                -- TransitionToModelSceneID and Show() can fail silently from
+                -- taint when called inside securecallfunction
+                C_Timer.After(0, function()
+                    -- Generation mismatch means a newer hover superseded us
+                    if myGen ~= pendingGen then return end
+                    if GameTooltip:IsShown() then
+                        ShowPreview(item, GameTooltip)
+                    end
+                end)
             else
+                -- Non-decor item: cancel any pending decor preview timer
+                pendingGen = pendingGen + 1
                 HidePreview()
             end
         end)
+    dbg("TooltipDataProcessor hook registered")
+else
+    dbg("WARNING: TooltipDataProcessor not available!")
 end
 
 -------------------------------------------------------------------------------

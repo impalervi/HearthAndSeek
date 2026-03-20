@@ -897,6 +897,7 @@ function NS.UI.ShowBigModelViewer(item)
     local f = bigViewerFrame
     f._title:SetText(item.name or "")
     local sceneID = item.uiModelSceneID or 859
+    f._modelScene:ClearScene()
     local ok = pcall(function()
         f._modelScene:TransitionToModelSceneID(
             sceneID,
@@ -3292,6 +3293,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     if detailPanel._watermark then detailPanel._watermark:Hide() end
     if item.asset and item.asset > 0 then
         local sceneID = item.uiModelSceneID or 859
+        detailPanel._modelScene:ClearScene()
         local ok = pcall(function()
             detailPanel._modelScene:TransitionToModelSceneID(
                 sceneID,
