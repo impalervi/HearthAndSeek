@@ -478,6 +478,19 @@ follow these steps to update all HearthAndSeek data.
 
 ### Phase 1: In-Game Data Collection
 
+#### Option A: Incremental scan (recommended for weekly updates)
+
+1. **Enable dev mode**: Set `NS.DEV_MODE = true` in `Core/Constants.lua`
+2. **Deploy** to WoW and `/reload`
+3. **Incremental dump**: `/hs dump new` — skips all decorIDs already in
+   `CatalogData.Items`, only scans unknown IDs
+4. Wait for "Incremental dump complete: N new items found" → `/reload`
+5. **Parse with merge**: `python parse_catalog_dump.py --merge` — adds new
+   items into existing `catalog_dump.json` without replacing it
+6. **Disable dev mode**: Set `NS.DEV_MODE = false` in `Core/Constants.lua`
+
+#### Option B: Full scan (first time, or after major patches)
+
 1. **Enable dev mode**: Set `NS.DEV_MODE = true` in `Core/Constants.lua`
 2. **Check scan range**: Verify `MAX_DECOR_ID` in `Modules/CatalogDumper.lua`
    is high enough — new patches may add IDs beyond 20000, bump if needed
@@ -488,9 +501,17 @@ follow these steps to update all HearthAndSeek data.
 
 ### Phase 2: Run the Pipeline
 
+**After an incremental scan (Option A):**
 ```bash
 cd Tools/scraper
-python run_pipeline.py --deploy
+python parse_catalog_dump.py --merge          # Merge new items into existing catalog
+python run_pipeline.py --from enrich_catalog --deploy  # Enrich only new items + regenerate
+```
+
+**After a full scan (Option B):**
+```bash
+cd Tools/scraper
+python run_pipeline.py --deploy               # Full pipeline from scratch
 ```
 
 The enrichment scripts use caching — only NEW items trigger Wowhead lookups.
@@ -498,6 +519,35 @@ Existing cache in `data/wowhead_cache/` and `data/wowdb_cache/` is reused
 automatically. Theme data (WoWDB scraping + theme computation) and extra
 Wowhead enrichment (drop rates, vendor costs) are now included in the
 pipeline and run automatically.
+
+### Quick Reference: Weekly Incremental Update
+
+End-to-end steps for picking up new decor items added by a weekly patch:
+
+```
+┌─ IN-GAME ──────────────────────────────────────────────────────┐
+│ 1. Enable DEV_MODE: set NS.DEV_MODE = true in Constants.lua   │
+│ 2. Deploy to WoW:  bash scripts/deploy.sh                     │
+│ 3. /reload                                                     │
+│ 4. /hs dump new                                                │
+│ 5. Wait for "Incremental dump complete: N new items found"     │
+│ 6. /reload  (flushes SavedVariables to disk)                   │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ PIPELINE (terminal) ─────────────────────────────────────────┐
+│ 7. cd Tools/scraper                                            │
+│ 8. python parse_catalog_dump.py --merge                        │
+│ 9. python run_pipeline.py --from enrich_catalog --deploy       │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ FINALIZE ────────────────────────────────────────────────────┐
+│ 10. Disable DEV_MODE: set NS.DEV_MODE = false in Constants.lua│
+│ 11. Deploy again:  bash scripts/deploy.sh                      │
+│ 12. /reload in WoW to verify new items appear in the catalog   │
+└────────────────────────────────────────────────────────────────┘
+```
+
+If `/hs dump new` reports 0 new items, no pipeline run is needed.
 
 ### Phase 3: Validate Boss Data
 

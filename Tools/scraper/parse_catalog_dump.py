@@ -418,6 +418,11 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help=f"Output JSON path (default: {OUTPUT_FILE}).",
     )
+    parser.add_argument(
+        "--merge", action="store_true",
+        help="Merge new items into existing catalog_dump.json instead of replacing it. "
+             "Use after /hs dump new to add incremental items.",
+    )
     return parser.parse_args()
 
 
@@ -443,9 +448,14 @@ def main():
 
     catalog_dump = db.get("catalogDump")
     if not catalog_dump:
-        print("ERROR: HearthAndSeekDB.catalogDump is empty or missing.")
-        print("Run /hseek dump in-game, then /reload to persist the data.")
-        sys.exit(1)
+        if args.merge:
+            print("No new items in catalogDump (incremental dump found 0 new items).")
+            print("Nothing to merge — catalog_dump.json is already up to date.")
+            sys.exit(0)
+        else:
+            print("ERROR: HearthAndSeekDB.catalogDump is empty or missing.")
+            print("Run /hs dump catalog in-game, then /reload to persist the data.")
+            sys.exit(1)
 
     # catalogDump may be a list (array-keyed) or a dict with integer keys
     if isinstance(catalog_dump, dict):
@@ -508,6 +518,23 @@ def main():
     # Sort by decorID for deterministic output
     output_entries.sort(key=lambda e: e.get("decorID") or 0)
 
+    # 3b. Merge with existing catalog if --merge
+    if args.merge:
+        if output_file.exists():
+            with open(output_file, encoding="utf-8") as fh:
+                existing = json.load(fh)
+            existing_by_id = {e["decorID"]: e for e in existing if e.get("decorID")}
+            new_count = 0
+            for entry in output_entries:
+                did = entry.get("decorID")
+                if did and did not in existing_by_id:
+                    existing_by_id[did] = entry
+                    new_count += 1
+            output_entries = sorted(existing_by_id.values(), key=lambda e: e.get("decorID") or 0)
+            print(f"Merged {new_count} new items into {len(existing)} existing ({len(output_entries)} total)")
+        else:
+            print(f"No existing {output_file.name} found, writing fresh file.")
+
     # 4. Write output JSON
     output_file.parent.mkdir(parents=True, exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as f:
@@ -523,7 +550,7 @@ def main():
             "gameVersion": game,
             "catalogDumpDate": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "catalogDumpItems": len(output_entries),
-            "catalogDumpSource": "in-game /hs dump catalog",
+            "catalogDumpSource": "in-game /hs dump new --merge" if args.merge else "in-game /hs dump catalog",
         })
         print(f"Data metadata updated (game version: {game['expansion']} {game['interface']})")
     except Exception as exc:

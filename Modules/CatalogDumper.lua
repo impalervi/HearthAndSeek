@@ -21,6 +21,45 @@ local BOSS_TICK_INTERVAL   = 0.02   -- Seconds between instance batches (boss du
 local BOSS_PROGRESS_EVERY  = 10     -- Report progress every N instances (boss dump)
 
 -------------------------------------------------------------------------------
+-- Helper: build set of known decorIDs from baked CatalogData.
+-------------------------------------------------------------------------------
+local function GetKnownDecorIDs()
+    local known = {}
+    local items = NS.CatalogData and NS.CatalogData.Items
+    if items then
+        for id in pairs(items) do
+            known[id] = true
+        end
+    end
+    return known
+end
+
+-------------------------------------------------------------------------------
+-- Helper: extract catalog entry fields into a dump table row.
+-------------------------------------------------------------------------------
+local function PackCatalogEntry(decorID, info)
+    return {
+        decorID             = decorID,
+        name                = info.name,
+        itemID              = info.itemID,
+        sourceText          = info.sourceText,
+        quality             = info.quality,
+        quantity            = info.quantity,
+        numPlaced           = info.numPlaced,
+        isAllowedIndoors    = info.isAllowedIndoors,
+        isAllowedOutdoors   = info.isAllowedOutdoors,
+        placementCost       = info.placementCost,
+        iconTexture         = info.iconTexture,
+        asset               = info.asset,
+        uiModelSceneID      = info.uiModelSceneID,
+        firstAcquisitionBonus = info.firstAcquisitionBonus,
+        categoryIDs         = info.categoryIDs,
+        subcategoryIDs      = info.subcategoryIDs,
+        size                = info.size,
+    }
+end
+
+-------------------------------------------------------------------------------
 -- DumpCatalog: Kicks off an async scan of all decorIDs 1..MAX_DECOR_ID.
 -- Results are stored in HearthAndSeekDB.catalogDump.
 -------------------------------------------------------------------------------
@@ -50,25 +89,7 @@ function Dumper.DumpCatalog()
             local info = C_HousingCatalog.GetCatalogEntryInfoByRecordID(1, decorID, true)
             if info and info.name and info.name ~= "" then
                 foundCount = foundCount + 1
-                results[foundCount] = {
-                    decorID             = decorID,
-                    name                = info.name,
-                    itemID              = info.itemID,
-                    sourceText          = info.sourceText,
-                    quality             = info.quality,
-                    quantity            = info.quantity,
-                    numPlaced           = info.numPlaced,
-                    isAllowedIndoors    = info.isAllowedIndoors,
-                    isAllowedOutdoors   = info.isAllowedOutdoors,
-                    placementCost       = info.placementCost,
-                    iconTexture         = info.iconTexture,
-                    asset               = info.asset,
-                    uiModelSceneID      = info.uiModelSceneID,
-                    firstAcquisitionBonus = info.firstAcquisitionBonus,
-                    categoryIDs         = info.categoryIDs,
-                    subcategoryIDs      = info.subcategoryIDs,
-                    size                = info.size,
-                }
+                results[foundCount] = PackCatalogEntry(decorID, info)
             end
         end
 
@@ -91,6 +112,79 @@ function Dumper.DumpCatalog()
             NS.Utils.PrintMessage(
                 string.format("Catalog dump complete: %d decorations found. /reload to save.",
                     foundCount)
+            )
+        end
+    end)
+end
+
+-------------------------------------------------------------------------------
+-- DumpNewItems: Incremental scan — only decorIDs NOT in CatalogData.Items.
+-- Much faster than a full dump when only a few items were added.
+-- Results are stored in HearthAndSeekDB.catalogDump (replaces previous dump).
+-------------------------------------------------------------------------------
+function Dumper.DumpNewItems()
+    if Dumper._running then
+        NS.Utils.PrintMessage("Catalog dump already in progress.")
+        return
+    end
+
+    local knownIDs = GetKnownDecorIDs()
+    local knownCount = 0
+    for _ in pairs(knownIDs) do knownCount = knownCount + 1 end
+
+    if knownCount == 0 then
+        NS.Utils.PrintMessage("No existing catalog data found. Run a full dump instead: /hs dump catalog")
+        return
+    end
+
+    Dumper._running = true
+
+    HearthAndSeekDB.catalogDump = {}
+    local results = HearthAndSeekDB.catalogDump
+
+    local currentID   = 1
+    local foundCount  = 0
+    local skippedCount = 0
+    local lastReport  = 0
+
+    NS.Utils.PrintMessage(string.format(
+        "Starting incremental dump (skipping %d known items, scanning 1..%d)...",
+        knownCount, MAX_DECOR_ID))
+
+    local ticker
+    ticker = C_Timer.NewTicker(TICK_INTERVAL, function()
+        local batchEnd = math.min(currentID + BATCH_SIZE - 1, MAX_DECOR_ID)
+
+        for decorID = currentID, batchEnd do
+            if knownIDs[decorID] then
+                skippedCount = skippedCount + 1
+            else
+                local info = C_HousingCatalog.GetCatalogEntryInfoByRecordID(1, decorID, true)
+                if info and info.name and info.name ~= "" then
+                    foundCount = foundCount + 1
+                    results[foundCount] = PackCatalogEntry(decorID, info)
+                end
+            end
+        end
+
+        -- Progress reporting
+        local progressThreshold = math.floor(batchEnd / PROGRESS_EVERY) * PROGRESS_EVERY
+        if progressThreshold > lastReport and batchEnd < MAX_DECOR_ID then
+            lastReport = progressThreshold
+            NS.Utils.PrintMessage(
+                string.format("Scan progress: %d/%d (%d new found, %d skipped)",
+                    progressThreshold, MAX_DECOR_ID, foundCount, skippedCount)
+            )
+        end
+
+        currentID = batchEnd + 1
+
+        if currentID > MAX_DECOR_ID then
+            ticker:Cancel()
+            Dumper._running = false
+            NS.Utils.PrintMessage(
+                string.format("Incremental dump complete: %d new items found (%d known skipped). /reload to save.",
+                    foundCount, skippedCount)
             )
         end
     end)

@@ -116,23 +116,30 @@ local function ShowPreview(item, tooltip)
     currentItemID = item.itemID
     f:SetSize(PREVIEW_SIZE, PREVIEW_SIZE)
 
-    -- Position using absolute UIParent coordinates instead of anchoring to
-    -- the tooltip.  Anchoring to GameTooltip propagates taint through the
-    -- layout engine — child frames inherit "secret number" geometry, which
-    -- breaks OrbitCameraMixin:GetWidth() inside TransitionToModelSceneID.
+    -- Position beside the tooltip. During combat, tooltip geometry is
+    -- tainted ("secret number" values), so fall back to cursor position.
     f:ClearAllPoints()
-    local ratio    = tooltip:GetEffectiveScale() / UIParent:GetEffectiveScale()
-    local tipRight = (tooltip:GetRight() or 0) * ratio
-    local tipLeft  = (tooltip:GetLeft()  or 0) * ratio
-    local tipTop   = (tooltip:GetTop()   or 0) * ratio
-    local screenW  = UIParent:GetWidth()
 
-    if tipRight + PREVIEW_SIZE + 4 > screenW then
-        -- Left side of tooltip
-        f:SetPoint("TOPRIGHT", UIParent, "BOTTOMLEFT", tipLeft - 2, tipTop)
+    if InCombatLockdown() then
+        -- Combat: position above cursor (tooltip sits top-left of cursor)
+        local uiScale = UIParent:GetEffectiveScale()
+        local screenW = UIParent:GetWidth()
+        local cx, cy = GetCursorPosition()
+        local cursorX = cx / uiScale
+        local cursorY = cy / uiScale
+        local left = cursorX - PREVIEW_SIZE / 2
+        if left < 0 then left = 0 end
+        if left + PREVIEW_SIZE > screenW then left = screenW - PREVIEW_SIZE end
+        f:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", left, cursorY + 25)
     else
-        -- Right side of tooltip (default)
-        f:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", tipRight + 2, tipTop)
+        -- Normal: anchor directly to tooltip
+        local tipRight = tooltip:GetRight() or 0
+        local screenW = UIParent:GetRight() or UIParent:GetWidth()
+        if tipRight + PREVIEW_SIZE + 4 > screenW then
+            f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
+        else
+            f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
+        end
     end
 
     -- Clear stale scene state before transitioning; after loading screens the

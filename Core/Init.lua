@@ -186,6 +186,12 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
             else
                 NS.Utils.PrintMessage("CatalogDumper module not loaded.")
             end
+        elseif subCmd == "new" then
+            if NS.CatalogDumper.DumpNewItems then
+                NS.CatalogDumper.DumpNewItems()
+            else
+                NS.Utils.PrintMessage("CatalogDumper module not loaded.")
+            end
         elseif subCmd == "bosses" then
             if NS.CatalogDumper.DumpBossFloorMaps then
                 NS.CatalogDumper.DumpBossFloorMaps()
@@ -234,7 +240,7 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
                 resolved, unresolved))
             NS.Utils.PrintMessage("Run /reload to persist, then use parse scripts to extract.")
         else
-            NS.Utils.PrintMessage("Dump commands: catalog, bosses, categories, zones")
+            NS.Utils.PrintMessage("Dump commands: catalog, new, bosses, categories, zones")
         end
 
     elseif cmd == "debug" then
@@ -298,7 +304,8 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
         NS.Utils.PrintMessage("  /hs - Toggle catalog browser")
         NS.Utils.PrintMessage("  /hs clear favorites - Clear all favorited items")
         if NS.DEV_MODE then
-            NS.Utils.PrintMessage("  /hs dump catalog - Dump catalog to SavedVariables")
+            NS.Utils.PrintMessage("  /hs dump catalog - Dump full catalog to SavedVariables")
+            NS.Utils.PrintMessage("  /hs dump new - Dump only NEW items not in catalog data")
             NS.Utils.PrintMessage("  /hs dump bosses - Dump boss floor maps")
             NS.Utils.PrintMessage("  /hs dump categories - Dump catalog categories and subcategories")
             NS.Utils.PrintMessage("  /hs dump zones - Dump zone mapID mappings")
