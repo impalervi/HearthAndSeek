@@ -24,6 +24,12 @@ local function GetOverlayMetrics()
     }
 end
 
+-- Compute ModelScene inset scaled to current icon size
+local function GetModelInset()
+    local iconSize = CatSizing and CatSizing.GridItemSize or BASE_ICON_SIZE
+    return math.floor(8 * iconSize / BASE_ICON_SIZE + 0.5)
+end
+
 -- Update overlays on all existing grid buttons after icon size change
 local function UpdateOverlayMetrics()
     local m = GetOverlayMetrics()
@@ -37,6 +43,12 @@ local function UpdateOverlayMetrics()
             btn.FavoriteStar:SetSize(m.starSize, m.starSize)
             btn.FavoriteStar:ClearAllPoints()
             btn.FavoriteStar:SetPoint("TOPLEFT", m.starOffset, -m.starOffset)
+        end
+        if btn._modelScene then
+            local inset = GetModelInset()
+            btn._modelScene:ClearAllPoints()
+            btn._modelScene:SetPoint("TOPLEFT", inset, -inset)
+            btn._modelScene:SetPoint("BOTTOMRIGHT", -inset, inset)
         end
     end
 end
@@ -303,14 +315,26 @@ local function BuildOwnershipCache()
     end
 end
 
---- Lazy icon lookup: query the housing catalog API at render time for items
---- whose static data has no iconTexture. Only caches hits so misses are retried
---- (the API may not have textures ready on the first call).
-local function GetDecorIcon(decorID, itemID)
+local DEFAULT_GRID_SCENE_ID = 859
+
+--- Try the housing catalog API for the high-quality icon (same source as
+--- Housing Dashboard). Caches hits; caches misses per-frame to avoid
+--- repeated API calls during smooth scrolling.
+local iconMissFrame = 0   -- frame counter for miss cache invalidation
+local iconMissSet = {}    -- decorIDs that missed this frame
+
+local function GetCatalogIcon(decorID)
     if iconCache[decorID] then
         return iconCache[decorID]
     end
-    -- Try housing catalog API first
+    -- Per-frame negative cache: don't re-query the same decorID within one frame
+    local frame = GetTime()
+    if frame ~= iconMissFrame then
+        iconMissFrame = frame
+        iconMissSet = {}
+    end
+    if iconMissSet[decorID] then return nil end
+
     if C_HousingCatalog and C_HousingCatalog.GetCatalogEntryInfoByRecordID then
         local entryType = Enum.HousingCatalogEntryType
             and Enum.HousingCatalogEntryType.Decor or 1
@@ -322,15 +346,87 @@ local function GetDecorIcon(decorID, itemID)
             return info.iconTexture
         end
     end
-    -- Fallback: standard item icon from itemID
+    iconMissSet[decorID] = true
+    return nil
+end
+
+--- Flat icon fallback: baked iconTexture or GetItemIcon.
+local function GetFlatIconFallback(decorID, itemID, bakedIcon)
+    if bakedIcon and bakedIcon ~= 0 then return bakedIcon end
     if itemID and GetItemIcon then
         local tex = GetItemIcon(itemID)
-        if tex then
-            iconCache[decorID] = tex
-            return tex
-        end
+        if tex then return tex end
     end
     return nil
+end
+
+-------------------------------------------------------------------------------
+-- 3D model icon: lazy-created ModelScene overlay for grid buttons.
+-- Used when a flat icon is unavailable (nil/0 iconTexture).
+-------------------------------------------------------------------------------
+local function GetOrCreateModelIcon(btn)
+    if btn._modelScene then return btn._modelScene end
+
+    local inset = GetModelInset()
+    local scene = CreateFrame("ModelScene", nil, btn,
+        "PanningModelSceneMixinTemplate")
+    scene:SetPoint("TOPLEFT", inset, -inset)
+    scene:SetPoint("BOTTOMRIGHT", -inset, inset)
+    scene:SetFrameLevel(btn:GetFrameLevel() + 1)
+    scene:EnableMouse(false)
+    scene:EnableMouseWheel(false)
+    scene:Hide()
+    btn._modelScene = scene
+    return scene
+end
+
+local function ShowModelIcon(btn, item)
+    local asset = item.asset
+    if not asset or asset <= 0 then return false end
+
+    -- Skip redundant model setup if already showing this item
+    if btn._modelDecorID == item.decorID and btn._modelScene
+        and btn._modelScene:IsShown() then
+        return true
+    end
+
+    local scene = GetOrCreateModelIcon(btn)
+    scene:ClearScene()
+
+    local sceneID = item.uiModelSceneID or DEFAULT_GRID_SCENE_ID
+    local ok = pcall(function()
+        scene:TransitionToModelSceneID(
+            sceneID,
+            CAMERA_TRANSITION_TYPE_IMMEDIATE,
+            CAMERA_MODIFICATION_TYPE_DISCARD,
+            true)
+    end)
+    if not ok then
+        btn._modelDecorID = nil
+        return false
+    end
+
+    local actor = scene:GetActorByTag("decor")
+    if not actor then
+        btn._modelDecorID = nil
+        return false
+    end
+
+    actor:SetPreferModelCollisionBounds(true)
+    actor:SetModelByFileID(asset)
+
+    btn._modelDecorID = item.decorID
+    btn.Icon:Hide()
+    scene:Show()
+    return true
+end
+
+local function HideModelIcon(btn)
+    if btn._modelScene then
+        btn._modelScene:Hide()
+    end
+    btn._modelDecorID = nil
+    btn.Icon:Show()
 end
 
 function NS.UI.RefreshOwnershipCache()
@@ -1094,15 +1190,19 @@ RefreshGridButtons = function()
                     btn.SlotBg:SetVertexColor(1, 1, 1, 1)
                 end
 
-                -- Icon texture (lazy runtime lookup for items missing static icons)
-                local icon = item.iconTexture
-                if not icon or icon == 0 then
-                    icon = GetDecorIcon(decorID, item.itemID)
-                end
+                -- Icon: housing catalog API → 3D model → flat fallback
+                local icon = GetCatalogIcon(decorID)
                 if icon then
+                    HideModelIcon(btn)
                     btn.Icon:SetTexture(icon)
+                elseif ShowModelIcon(btn, item) then
+                    -- 3D model is now visible, Icon hidden by ShowModelIcon
                 else
-                    btn.Icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
+                    HideModelIcon(btn)
+                    local flat = GetFlatIconFallback(decorID, item.itemID,
+                        item.iconTexture)
+                    btn.Icon:SetTexture(flat
+                        or "Interface\\Icons\\INV_Misc_QuestionMark")
                 end
 
                 -- Owned checkmark (from ownership cache)
@@ -1117,6 +1217,7 @@ RefreshGridButtons = function()
                 btn.Icon:SetDesaturated(false)
                 btn.Icon:SetAlpha(1.0)
             else
+                HideModelIcon(btn)
                 btn.Icon:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
                 btn.Collected:Hide()
                 btn.FavoriteStar:Hide()
