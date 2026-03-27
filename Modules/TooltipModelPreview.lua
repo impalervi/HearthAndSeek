@@ -116,30 +116,27 @@ local function ShowPreview(item, tooltip)
     currentItemID = item.itemID
     f:SetSize(PREVIEW_SIZE, PREVIEW_SIZE)
 
-    -- Position beside the tooltip. During combat, tooltip geometry is
-    -- tainted ("secret number" values), so fall back to cursor position.
+    -- Position beside the tooltip. Always anchor directly to the tooltip
+    -- so the preview follows it naturally. The screen-bounds check (right
+    -- vs left side) reads tooltip geometry which can be tainted after
+    -- combat ("secret number" values that persist beyond InCombatLockdown).
+    -- pcall the check so taint silently falls back to the right-side
+    -- default; SetClampedToScreen(true) prevents overflow.
     f:ClearAllPoints()
 
-    if InCombatLockdown() then
-        -- Combat: position above cursor (tooltip sits top-left of cursor)
-        local uiScale = UIParent:GetEffectiveScale()
-        local screenW = UIParent:GetWidth()
-        local cx, cy = GetCursorPosition()
-        local cursorX = cx / uiScale
-        local cursorY = cy / uiScale
-        local left = cursorX - PREVIEW_SIZE / 2
-        if left < 0 then left = 0 end
-        if left + PREVIEW_SIZE > screenW then left = screenW - PREVIEW_SIZE end
-        f:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", left, cursorY + 25)
-    else
-        -- Normal: anchor directly to tooltip
+    local anchorLeft = false
+    pcall(function()
         local tipRight = tooltip:GetRight() or 0
         local screenW = UIParent:GetRight() or UIParent:GetWidth()
         if tipRight + PREVIEW_SIZE + 4 > screenW then
-            f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
-        else
-            f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
+            anchorLeft = true
         end
+    end)
+
+    if anchorLeft then
+        f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
+    else
+        f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
     end
 
     -- Clear stale scene state before transitioning; after loading screens the
