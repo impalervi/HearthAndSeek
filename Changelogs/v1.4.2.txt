@@ -1,6 +1,6 @@
 v1.4.2
 
-New
+New Features
 - Added 10 new decor items to the catalog
 
 Bug Fixes
