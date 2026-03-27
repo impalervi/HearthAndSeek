@@ -33,6 +33,7 @@ python enrich_quest_chains.py     # 3. Build quest prerequisite chains
 python cleanup_quest_chains.py   # 3b. Clean up chains (deepest-position-wins)
 python enrich_quest_givers.py     # 4. Extract quest-giver NPC coordinates
 python scrape_wowdb.py --all      # 5. Scrape WoWDB community sets and item tags
+python categorize_new_items.py    # 5b. List/annotate unthemed items (interactive)
 python compute_item_themes.py     # 6. Compute aesthetic and culture theme scores
 python enrich_wowhead_extra.py    # 7. Enrich with drop rates, skills, vendor costs
 python output_catalog_lua.py      # 8. Generate Data/CatalogData.lua
@@ -540,14 +541,57 @@ End-to-end steps for picking up new decor items added by a weekly patch:
 │ 9. python run_pipeline.py --from enrich_catalog --deploy       │
 └────────────────────────────────────────────────────────────────┘
 
+┌─ THEMES (optional) ──────────────────────────────────────────┐
+│ 10. python categorize_new_items.py          # check unthemed  │
+│ 11. python categorize_new_items.py --annotate  # assign themes│
+│ 12. python compute_item_themes.py           # recompute       │
+│ 13. python output_catalog_lua.py            # regenerate Lua  │
+└────────────────────────────────────────────────────────────────┘
+
 ┌─ FINALIZE ────────────────────────────────────────────────────┐
-│ 10. Disable DEV_MODE: set NS.DEV_MODE = false in Constants.lua│
-│ 11. Deploy again:  bash scripts/deploy.sh                      │
-│ 12. /reload in WoW to verify new items appear in the catalog   │
+│ 14. Disable DEV_MODE: set NS.DEV_MODE = false in Constants.lua│
+│ 15. Deploy:  bash scripts/deploy.sh                            │
+│ 16. /reload in WoW to verify new items appear in the catalog   │
 └────────────────────────────────────────────────────────────────┘
 ```
 
 If `/hs dump new` reports 0 new items, no pipeline run is needed.
+
+### Phase 2b: Categorize New Items into Themes
+
+New items are automatically assigned **culture themes** (Elven, Orcish, etc.)
+via name patterns and WoWDB tags, and **aesthetic themes** (Arcane Sanctum,
+Haunted Manor, etc.) via the visual classification data.
+
+After running the pipeline, check for unthemed items:
+
+```bash
+cd Tools/scraper
+python categorize_new_items.py           # List items with no theme
+python categorize_new_items.py --annotate  # Assign themes interactively
+```
+
+The interactive annotator prompts you for each unthemed item. Enter theme IDs
+separated by commas (e.g., `5,21` for Elven + Enchanted Grove), `s` to skip,
+or `?` for the full theme list.
+
+After annotating, regenerate:
+```bash
+python compute_item_themes.py     # Recompute with new annotations
+python output_catalog_lua.py      # Regenerate CatalogData.lua
+bash scripts/deploy.sh            # Deploy to WoW
+```
+
+**Theme assignment priority** (highest wins):
+1. **Manual annotations** (`data/manual_theme_annotations.json`) — from
+   `categorize_new_items.py --annotate` or in-game `/hs review`
+2. **Visual classifications** (`data/montages/visual_classifications.json`) —
+   AI-classified aesthetic themes from item thumbnails
+3. **Algorithm** — WoWDB tags (weight 3.0) + community set voting
+   (weight log(likes+1)) + name pattern regex (weight 1.0)
+
+Items that are genuinely generic (cobblestones, stuffed toys, paper sacks)
+may not fit any theme — skipping them is fine.
 
 ### Phase 3: Validate Boss Data
 
