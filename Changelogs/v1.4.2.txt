@@ -1,0 +1,7 @@
+v1.4.2
+
+New
+- Added 10 new decor items to the catalog
+
+Bug Fixes
+- Fixed tooltip 3D preview causing taint errors during and after combat
