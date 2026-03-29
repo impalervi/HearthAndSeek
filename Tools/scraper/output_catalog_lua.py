@@ -31,6 +31,7 @@ VENDOR_REQUIREMENTS_JSON = SCRIPT_DIR / "data" / "vendor_requirements.json"
 SILVERMOON_VENDORS_JSON = SCRIPT_DIR / "data" / "silvermoon_vendors.json"
 THEMES_JSON = SCRIPT_DIR / "data" / "item_themes.json"
 KEYWORDS_JSON = SCRIPT_DIR / "data" / "item_keywords.json"
+VERSIONS_JSON = SCRIPT_DIR / "data" / "item_versions.json"
 LUA_OUTPUT = SCRIPT_DIR.parent.parent / "Data" / "CatalogData.lua"
 
 logging.basicConfig(
@@ -1770,10 +1771,13 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     if prof_skill:
         lines.append(f"        professionSkill = {lua_string(prof_skill)},")
 
-    # Optional: patchAdded (from Wowhead scan)
-    patch_added = item.get("_patchAdded")
+    # Optional: patchAdded / dateAdded (from item_versions.json, falls back to Wowhead _patchAdded)
+    patch_added = item.get("_versionPatch") or item.get("_patchAdded")
     if patch_added:
         lines.append(f"        patchAdded = {lua_string(patch_added)},")
+    date_added = item.get("_versionDate")
+    if date_added:
+        lines.append(f"        dateAdded = {lua_string(date_added)},")
 
     # Optional: additionalSources (from Wowhead scan)
     add_sources = item.get("_additionalSources")
@@ -2102,6 +2106,24 @@ def main() -> None:
                 kw_count += 1
         if kw_count:
             logger.info("Applied search keywords to %d items", kw_count)
+
+    # Load item version data (patch + date each item was added to the database)
+    item_versions: dict[str, dict] = {}
+    if VERSIONS_JSON.exists():
+        with open(VERSIONS_JSON, "r", encoding="utf-8") as f:
+            item_versions = json.load(f)
+        logger.info("Loaded version data for %d items from %s",
+                     len(item_versions), VERSIONS_JSON)
+    versions_applied = 0
+    for item in catalog:
+        did_str = str(item.get("decorID", ""))
+        ver = item_versions.get(did_str)
+        if ver:
+            item["_versionPatch"] = ver.get("patch", "")
+            item["_versionDate"] = ver.get("date", "")
+            versions_applied += 1
+    if versions_applied:
+        logger.info("Applied version data to %d items", versions_applied)
 
     # Load faction quest overrides (cross-faction quest chains)
     faction_quest_overrides: dict[str, dict] = {}
