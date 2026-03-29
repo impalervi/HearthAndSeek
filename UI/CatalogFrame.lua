@@ -2676,7 +2676,7 @@ function NS.UI.InitCatalog()
     creditsInfo:SetText("|cff888888v" .. NS.ADDON_VERSION
         .. "|r |cff888888|||r "
         .. "|cff888888Author:|r |cff888888ImpalerV|r "
-        .. "|cff888888(|r|cff40c8c8Vaelthos|r |cff888888@ Proudmoore)|r")
+        .. "|cff888888(|r|cff40c8c8Vaelthos|r |cff888888@ Illidan)|r")
     creditsInfo:SetAlpha(0.45)
 
     local creditsName = footer:CreateFontString(nil, "ARTWORK")

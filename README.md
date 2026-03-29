@@ -90,6 +90,6 @@ HearthAndSeek/
 
 ## Credits
 
-Created by **ImpalerV** (Vaelthos @ Proudmoore)
+Created by **ImpalerV** (Vaelthos @ Illidan)
 
 Special thanks to **Nemilosu** @ Kazzak (EU) for helping test the addon.
