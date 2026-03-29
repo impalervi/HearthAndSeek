@@ -29,6 +29,7 @@ local SCENE_SIZE = PREVIEW_SIZE - SCENE_INSET * 2  -- 188
 -- Reverse lookup: itemID → catalog item (built lazily)
 -------------------------------------------------------------------------------
 local itemIDToDecor = nil
+local currentItem = nil  -- full catalog item for the currently hovered decor
 
 local function EnsureItemLookup()
     if itemIDToDecor then return end
@@ -115,6 +116,7 @@ local function ShowPreview(item, tooltip)
 
     local f = GetPreviewFrame()
     currentItemID = item.itemID
+    currentItem = item
 
     -- Position beside the tooltip. The screen-bounds check reads tooltip
     -- geometry via pcall in case values are tainted from a previous session.
@@ -162,6 +164,7 @@ end
 
 local function HidePreview()
     currentItemID = nil
+    currentItem = nil
     if previewFrame and previewFrame:IsShown() then
         previewFrame:Hide()
     end
@@ -197,6 +200,9 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
 
             local item = itemIDToDecor[itemID]
             if item then
+                -- Add hint line to the tooltip
+                tooltip:AddLine("|cff55aaeeALT+Left Click|r for full screen preview", 0.5, 0.5, 0.5)
+
                 -- Bump generation so any older pending timer is invalidated
                 pendingGen = pendingGen + 1
                 local myGen = pendingGen
@@ -217,6 +223,20 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
             end
         end)
 end
+
+-------------------------------------------------------------------------------
+-- Alt+Left Click: open big viewer for the currently hovered decor item
+-------------------------------------------------------------------------------
+local clickListener = CreateFrame("Frame")
+clickListener:RegisterEvent("GLOBAL_MOUSE_DOWN")
+clickListener:SetScript("OnEvent", function(_, _, button)
+    if button ~= "LeftButton" or not IsAltKeyDown() then return end
+    if not currentItem then return end
+    if not GameTooltip:IsShown() then return end
+    if NS.UI and NS.UI.ShowBigModelViewer then
+        NS.UI.ShowBigModelViewer(currentItem)
+    end
+end)
 
 -------------------------------------------------------------------------------
 -- Public API
