@@ -31,6 +31,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -73,6 +75,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -118,6 +122,8 @@ NS.CatalogData.Items = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 28},
@@ -150,6 +156,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -190,6 +198,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -229,6 +239,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -268,6 +280,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -309,6 +323,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -345,6 +361,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -386,6 +404,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -422,6 +442,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -461,6 +483,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -502,6 +526,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -540,6 +566,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -578,6 +606,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -616,6 +646,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -654,6 +686,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -692,6 +726,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -730,6 +766,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -768,6 +806,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -806,6 +846,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -844,6 +886,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -882,6 +926,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -920,6 +966,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -958,6 +1006,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -996,6 +1046,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -1034,6 +1086,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -1072,6 +1126,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -1108,6 +1164,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -1148,6 +1206,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1187,6 +1247,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -1229,6 +1291,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1270,6 +1334,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1308,6 +1374,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -1346,6 +1414,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -1384,6 +1454,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1420,6 +1492,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1462,6 +1536,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1504,6 +1580,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1548,6 +1626,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1586,6 +1666,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1622,6 +1704,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1661,6 +1745,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -1701,6 +1787,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -1742,6 +1830,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -1780,6 +1870,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1816,6 +1908,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1852,6 +1946,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -1886,6 +1982,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.08,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 21, 33},
@@ -1917,6 +2015,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         treasureHintLine = {
             { text = "Complete scenario " },
             { text = "Withered Army Training", url = "https://www.wowhead.com/quest=43943" },
@@ -1958,6 +2058,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 7},
         themeIDs = {5, 6, 11, 21, 33},
@@ -1993,6 +2095,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {5, 11, 21, 33},
@@ -2028,6 +2132,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 6, 11, 21, 33},
@@ -2062,6 +2168,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 6, 11, 28, 33},
@@ -2096,6 +2204,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Materialist Ophinell", npcID = 249196, x = 49.8, y = 81.2, zone = "Twilight Highlands", mapID = 241 },
         },
@@ -2133,6 +2243,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {2, 5, 26},
@@ -2167,6 +2279,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {1, 5, 19, 26},
@@ -2201,6 +2315,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {1, 5, 19, 26},
@@ -2235,6 +2351,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 5, 26, 28},
@@ -2269,6 +2387,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -2307,6 +2427,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -2345,6 +2467,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -2383,6 +2507,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -2421,6 +2547,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Klasa", npcID = 256750, x = 58.2, y = 61.6, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lonomia", npcID = 240465, x = 68.2, y = 75.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -2457,6 +2585,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -2496,6 +2626,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Hungry Human's Platter" },
         },
@@ -2533,6 +2665,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {19, 28},
@@ -2564,6 +2698,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {10, 17, 20, 22},
@@ -2599,6 +2735,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {5, 11, 19, 26},
@@ -2630,6 +2768,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boralus-Style Lobster Platter" },
         },
@@ -2668,6 +2808,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1813, iconPath = "Interface\\ICONS\\Spell_AnimaBastion_Orb.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 24, 28},
@@ -2699,6 +2841,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dornic Mine and Cheese Platter" },
         },
@@ -2736,6 +2880,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -2770,6 +2916,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -2804,6 +2952,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -2838,6 +2988,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {6, 17, 27, 28},
@@ -2869,6 +3021,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Theater Troupe" },
         },
@@ -2903,6 +3057,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kaheti Predator's Assortment" },
         },
@@ -2940,6 +3096,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -2978,6 +3136,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 28},
@@ -3012,6 +3172,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -3049,6 +3211,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -3087,6 +3251,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -3125,6 +3291,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -3163,6 +3331,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -3203,6 +3373,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "My Hole in the Wall" },
         },
@@ -3242,6 +3414,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Right Where We Want Him" },
         },
@@ -3279,6 +3453,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {8, 30},
@@ -3310,6 +3486,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Well-Lit Incontinental Couch" },
         },
@@ -3348,6 +3526,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 24},
@@ -3383,6 +3563,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 24},
@@ -3417,6 +3599,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 11},
         themeIDs = {17, 24, 30},
@@ -3449,6 +3633,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.05,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {17, 24, 32},
@@ -3480,6 +3666,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Brill Coffin" },
             { sourceType = "Profession", sourceDetail = "Brill Coffin Lid" },
@@ -3515,6 +3703,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Cauldron" },
         },
@@ -3553,6 +3743,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {6, 17, 22},
@@ -3589,6 +3781,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Lord Candren", npcID = 50307, zone = "Stormwind City", mapID = 84, faction = "Alliance" },
         },
@@ -3627,6 +3821,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {6, 17, 20, 24},
@@ -3662,6 +3858,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {6, 17, 20, 24},
@@ -3698,6 +3896,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24},
@@ -3734,6 +3934,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {17, 24},
@@ -3770,6 +3972,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {17, 24},
@@ -3804,6 +4008,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {17, 24},
@@ -3835,6 +4041,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Brill Coffin Lid" },
         },
@@ -3874,6 +4082,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Lordaeron" },
         },
@@ -3913,6 +4123,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Lordaeron" },
         },
@@ -3947,6 +4159,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Missive: Assault on Shattrath Harbor" },
         },
@@ -3982,6 +4196,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.04,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {3, 19, 26},
@@ -4016,6 +4232,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {27, 26},
         themeIDs = {3, 11, 26, 33},
@@ -4053,6 +4271,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {3, 5, 11, 19, 26},
@@ -4084,6 +4304,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Karabor Bed" },
         },
@@ -4123,6 +4345,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Non-Prophet Organization" },
         },
@@ -4157,6 +4381,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {2, 26},
@@ -4191,6 +4417,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24, 32},
@@ -4226,6 +4454,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 24, 32},
@@ -4262,6 +4492,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {17, 24},
@@ -4298,6 +4530,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24},
@@ -4334,6 +4568,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {17, 24},
@@ -4369,6 +4605,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 24, 32},
@@ -4403,6 +4641,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 24, 32},
@@ -4437,6 +4677,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {17, 23, 24},
@@ -4471,6 +4713,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {17, 23, 24},
@@ -4505,6 +4749,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {17, 24},
@@ -4539,6 +4785,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {5, 17, 23, 24},
@@ -4573,6 +4821,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 1710, iconPath = "Interface\\ICONS\\INV_Misc_AzsharaCoin.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 24},
@@ -4608,6 +4858,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {6, 17, 24},
@@ -4642,6 +4894,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {17, 24},
@@ -4676,6 +4930,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {17, 23, 24},
@@ -4712,6 +4968,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A New Life for Undeath" },
         },
@@ -4747,6 +5005,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.07,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {17, 24},
@@ -4781,6 +5041,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {17, 24},
@@ -4813,6 +5075,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -4856,6 +5120,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -4900,6 +5166,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -4936,6 +5204,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -4978,6 +5248,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5022,6 +5294,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5060,6 +5334,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5101,6 +5377,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5137,6 +5415,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5181,6 +5461,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -5220,6 +5502,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4, 3},
         subcategoryIDs = {11, 19},
         themeIDs = {5, 9, 19, 27},
@@ -5254,6 +5538,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -5294,6 +5580,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Dark Iron Dwarves" },
         },
@@ -5328,6 +5616,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Loch Modan Bearskin Rug" },
         },
@@ -5365,6 +5655,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {4, 25, 30},
@@ -5400,6 +5692,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 7777, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {8, 30},
@@ -5432,6 +5726,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5471,6 +5767,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5509,6 +5807,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29},
         themeIDs = {5, 21, 33},
@@ -5540,6 +5840,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Leather-Bound Haranir Wall Shelf" },
         },
@@ -5579,6 +5881,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Into the Lightbloom" },
         },
@@ -5616,6 +5920,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Rescue from the Shadows" },
         },
@@ -5651,6 +5957,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5695,6 +6003,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5730,6 +6040,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sturdy Haranir Chair" },
         },
@@ -5769,6 +6081,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Heart of Tranquillien" },
         },
@@ -5808,6 +6122,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Heart of Tranquillien" },
         },
@@ -5842,6 +6158,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Small Mask of Bwonsamdi, Loa of Graves" },
         },
@@ -5877,6 +6195,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5919,6 +6239,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -5963,6 +6285,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -5998,6 +6322,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Red Dazar'alor Rug" },
         },
@@ -6032,6 +6358,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Square Pandaren Table" },
         },
@@ -6071,6 +6399,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {16, 20, 22, 25},
@@ -6105,6 +6435,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {14, 20, 22},
@@ -6139,6 +6471,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Triple-Locked Safebox" },
         },
@@ -6181,6 +6515,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 16, 27, 28},
@@ -6215,6 +6551,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {1, 5, 17, 26},
@@ -6249,6 +6587,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {16, 20, 25},
@@ -6285,6 +6625,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Halting the Empire's Fall" },
         },
@@ -6322,6 +6664,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 6, 16, 20, 22},
@@ -6356,6 +6700,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {1, 5, 17, 19, 26},
@@ -6391,6 +6737,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 24, 27},
@@ -6426,6 +6774,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 27},
@@ -6457,6 +6807,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Wooden Table" },
         },
@@ -6495,6 +6847,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 5},
         themeIDs = {16, 26, 27},
@@ -6529,6 +6883,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {16, 20, 25},
@@ -6564,6 +6920,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4, 8},
         subcategoryIDs = {16, 34},
         themeIDs = {16, 20, 22, 25},
@@ -6600,6 +6958,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {16, 20, 22, 25},
@@ -6636,6 +6996,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {16, 20, 22, 25},
@@ -6667,6 +7029,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Stone Wall" },
         },
@@ -6704,6 +7068,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Incomplete Book of Sonnets" },
         },
@@ -6747,6 +7113,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 27},
@@ -6781,6 +7149,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {16, 25, 32},
@@ -6815,6 +7185,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {1, 5, 26},
@@ -6849,6 +7221,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {16, 25},
@@ -6880,6 +7254,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zandalari Skullfire Lamp" },
         },
@@ -6917,6 +7293,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {14, 20, 22},
@@ -6953,6 +7331,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Of Dark Deeds and Dark Days" },
         },
@@ -6991,6 +7371,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
         themeIDs = {4, 25},
@@ -7022,6 +7404,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Zandalari Table" },
         },
@@ -7059,6 +7443,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {16, 25},
@@ -7090,6 +7476,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Dresser" },
         },
@@ -7127,6 +7515,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Materialist Ophinell", npcID = 249196, x = 49.8, y = 81.2, zone = "Twilight Highlands", mapID = 241 },
         },
@@ -7165,6 +7555,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 29, 33},
@@ -7197,6 +7589,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.05,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {15, 25, 33},
@@ -7234,6 +7628,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 15, 20, 33},
@@ -7268,6 +7664,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 3319, iconPath = "Interface\\ICONS\\INV12_Twilight_ Blade_Cultist_Insignia.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Materialist Ophinell", npcID = 249196, x = 49.8, y = 81.2, zone = "Twilight Highlands", mapID = 241 },
         },
@@ -7302,6 +7700,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zandalari Ritual Drum" },
         },
@@ -7336,6 +7736,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tauren Leather Fence" },
         },
@@ -7370,6 +7772,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tauren Fencepost" },
         },
@@ -7407,6 +7811,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -7445,6 +7851,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -7483,6 +7891,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -7518,6 +7928,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Rootbound Vat" },
         },
@@ -7558,6 +7970,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {15, 25, 33},
@@ -7593,6 +8007,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8, 2},
         subcategoryIDs = {34, 9},
         themeIDs = {15, 20, 33},
@@ -7627,6 +8043,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {8, 30},
@@ -7661,6 +8079,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 700, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {8, 30},
@@ -7695,6 +8115,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {8, 30},
@@ -7726,6 +8148,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Rusting Bolted Bench" },
         },
@@ -7760,6 +8184,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {8, 30},
@@ -7794,6 +8220,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {8, 30},
@@ -7828,6 +8256,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {8, 30},
@@ -7862,6 +8292,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {8, 30},
@@ -7898,6 +8330,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Unsolicited Feedback" },
         },
@@ -7937,6 +8371,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Cashing the Check" },
         },
@@ -7974,6 +8410,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {8, 28, 30},
@@ -8008,6 +8446,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {8, 30},
@@ -8039,6 +8479,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shredderwheel Storage Chest" },
         },
@@ -8077,6 +8519,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {8, 30},
@@ -8108,6 +8552,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         treasureContainers = {
             "Half-Empty Bag",
             "Dented Crate",
@@ -8144,6 +8590,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zhevra-Stripe Rug" },
         },
@@ -8183,6 +8631,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Ad-Hoc Wedding Planner" },
         },
@@ -8217,6 +8667,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Undermine Bean Bag Chair" },
         },
@@ -8256,6 +8708,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Just a Hunch" },
         },
@@ -8290,6 +8744,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {8, 17, 25, 30},
@@ -8322,6 +8778,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -8365,6 +8823,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Walk With The Earth Mother" },
         },
@@ -8399,6 +8859,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Elder Rise Rug" },
         },
@@ -8439,6 +8901,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {15, 25, 33},
@@ -8476,6 +8940,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {15, 20, 33},
@@ -8511,6 +8977,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {15, 20, 33},
@@ -8546,6 +9014,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 20, 33},
@@ -8583,6 +9053,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {15, 20, 29, 33},
@@ -8618,6 +9090,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 20, 33},
@@ -8653,6 +9127,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 27, 33},
@@ -8689,6 +9165,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {15, 20, 33},
@@ -8720,6 +9198,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tauren Storage Chest" },
         },
@@ -8760,6 +9240,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {5, 15, 17, 20, 22, 33},
@@ -8796,6 +9278,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 26, 27},
@@ -8827,6 +9311,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zanchuli Tapestry" },
         },
@@ -8861,6 +9347,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zuldazar Fencepost" },
         },
@@ -8895,6 +9383,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zuldazar Fence" },
             { sourceType = "Profession", sourceDetail = "Zuldazar Fencepost" },
@@ -8930,6 +9420,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tauren Soup Pot" },
         },
@@ -8969,6 +9461,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Mountain-Lord's Support" },
         },
@@ -9003,6 +9497,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 3},
         subcategoryIDs = {13, 22},
         themeIDs = {13, 22, 25},
@@ -9040,6 +9536,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Last Steps" },
         },
@@ -9074,6 +9572,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Blackrock Bunkbed" },
         },
@@ -9108,6 +9608,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {13, 25},
@@ -9140,6 +9642,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
         dropRate = 0.15,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {13, 25},
@@ -9172,6 +9676,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
         dropRate = 0.28,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {13, 25, 32},
@@ -9203,6 +9709,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Blackrock Weapon Rack" },
         },
@@ -9237,6 +9745,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {13, 25, 32},
@@ -9268,6 +9778,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Harandar Signpost" },
         },
@@ -9303,6 +9815,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -9347,6 +9861,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -9382,6 +9898,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Fencepost" },
         },
@@ -9416,6 +9934,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {13, 25},
@@ -9451,6 +9971,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {13, 25},
@@ -9485,6 +10007,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {13, 5},
         themeIDs = {13, 22, 25},
@@ -9519,6 +10043,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
         themeIDs = {13, 17, 22, 25, 32},
@@ -9551,6 +10077,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -9592,6 +10120,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Fence" },
             { sourceType = "Profession", sourceDetail = "Orcish Fencepost" },
@@ -9627,6 +10157,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Frostwall Architect's Table" },
         },
@@ -9664,6 +10196,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {13, 25, 28, 32},
@@ -9701,6 +10235,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {13, 25},
@@ -9732,6 +10268,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Banded Barrel" },
         },
@@ -9766,6 +10304,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wine Barrel" },
         },
@@ -9800,6 +10340,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wooden Shipping Crate" },
         },
@@ -9840,6 +10382,8 @@ NS.CatalogData.Items = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Pool of Visions" },
         },
@@ -9877,6 +10421,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {13, 25},
@@ -9911,6 +10457,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {13, 25},
@@ -9942,6 +10490,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Sleeping Cot" },
         },
@@ -9979,6 +10529,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 6},
         themeIDs = {5, 13, 17, 25},
@@ -10014,6 +10566,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {16, 22, 26},
@@ -10049,6 +10603,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {16, 26},
@@ -10083,6 +10639,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -10119,6 +10677,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -10158,6 +10718,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -10200,6 +10762,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -10242,6 +10806,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -10286,6 +10852,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -10325,6 +10893,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
         themeIDs = {5, 11, 12, 19, 26},
@@ -10361,6 +10931,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Fractured" },
         },
@@ -10399,6 +10971,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {6, 13, 25, 28},
@@ -10433,6 +11007,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {5, 11, 19, 26},
@@ -10465,6 +11041,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.11,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {6, 24, 26},
@@ -10500,6 +11078,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {1, 5, 19, 26},
@@ -10534,6 +11114,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -10572,6 +11154,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -10610,6 +11194,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -10648,6 +11234,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -10686,6 +11274,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -10724,6 +11314,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -10762,6 +11354,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -10798,6 +11392,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {1, 5, 19, 26, 27},
@@ -10832,6 +11428,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {5, 11, 19, 26},
@@ -10866,6 +11464,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {5, 11, 19, 26},
@@ -10900,6 +11500,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {1, 5, 11, 26},
@@ -10935,6 +11537,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionQuestChains = {
             Alliance = { questID = 26187 },
             Horde = { questID = 25720 },
@@ -10973,6 +11577,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11009,6 +11615,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11053,6 +11661,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -11089,6 +11699,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11135,6 +11747,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The First to Know" },
         },
@@ -11169,6 +11783,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 24, 32},
@@ -11205,6 +11821,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Moon Reaver" },
             { sourceType = "Quest", sourceDetail = "Dreamy Inspiration" },
@@ -11240,6 +11858,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Dreamy Inspiration" },
         },
@@ -11281,6 +11901,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 11, 22, 33},
@@ -11316,6 +11938,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {5, 11, 21, 33},
@@ -11352,6 +11976,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {16, 22, 26},
@@ -11386,6 +12012,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11424,6 +12052,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -11460,6 +12090,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11504,6 +12136,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11542,6 +12176,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -11581,6 +12217,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {15, 20, 33},
@@ -11616,6 +12254,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
         themeIDs = {6, 20, 29},
@@ -11648,6 +12288,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -11692,6 +12334,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11733,6 +12377,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Frostwall Elevated Brazier" },
         },
@@ -11772,6 +12418,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Halting Harm in Har'mara" },
         },
@@ -11807,6 +12455,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11849,6 +12499,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11891,6 +12543,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11930,6 +12584,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -11971,6 +12627,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
         themeIDs = {5, 20, 33},
@@ -12005,6 +12663,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 11, 19, 21, 33},
@@ -12039,6 +12699,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -12075,6 +12737,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12117,6 +12781,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12155,6 +12821,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shaded Suramar Window" },
         },
@@ -12194,6 +12862,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 225, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Visitor in Shal'Aran" },
         },
@@ -12228,6 +12898,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Octagonal Ochre Window" },
         },
@@ -12263,6 +12935,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         dropRate = 0.85,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {8},
         themeIDs = {4, 6, 17, 20, 22},
@@ -12297,6 +12971,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {8},
         themeIDs = {4, 6, 26},
@@ -12332,6 +13008,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12371,6 +13049,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12413,6 +13093,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12457,6 +13139,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12493,6 +13177,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12537,6 +13223,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -12573,6 +13261,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -12614,6 +13304,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Frostwall Forge" },
         },
@@ -12648,6 +13340,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ancestral Signal Brazier" },
         },
@@ -12682,6 +13376,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Problem Solver" },
         },
@@ -12719,6 +13415,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Lord Candren", npcID = 50307, zone = "Stormwind City", mapID = 84, faction = "Alliance" },
         },
@@ -12757,6 +13455,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29, 25},
         themeIDs = {6, 17, 24, 26, 33},
@@ -12791,6 +13491,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Lord Candren", npcID = 50307, zone = "Stormwind City", mapID = 84, faction = "Alliance" },
         },
@@ -12830,6 +13532,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {5, 6, 17, 20, 24},
@@ -12866,6 +13570,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Source of the Corruption" },
         },
@@ -12904,6 +13610,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {6, 17, 24, 25},
@@ -12935,6 +13643,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Surwich Expedition Tent" },
         },
@@ -12974,6 +13684,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Ready to Go" },
         },
@@ -13011,6 +13723,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Wooden Table" },
         },
@@ -13045,6 +13759,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Wall Shelf" },
         },
@@ -13079,6 +13795,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Rocking Chair" },
         },
@@ -13118,6 +13836,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Cry For The Moon" },
         },
@@ -13155,6 +13875,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {11, 21, 33},
@@ -13187,6 +13909,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.09,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {5, 11, 19, 21, 27, 33},
@@ -13219,6 +13943,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -13263,6 +13989,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Second Chair Pawdo", npcID = 252312, zone = "Orgrimmar", mapID = 85 },
             { name = "Second Chair Pawdo", npcID = 252312, zone = "Stormwind City", mapID = 84 },
@@ -13301,6 +14029,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -13339,6 +14069,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -13377,6 +14109,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -13415,6 +14149,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -13453,6 +14189,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -13491,6 +14229,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -13527,6 +14267,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -13566,6 +14308,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -13608,6 +14352,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         dropRate = 0.05,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 4, 3, 2},
         subcategoryIDs = {16, 7, 10, 11},
         themeIDs = {6, 10, 27, 29},
@@ -13643,6 +14389,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 950, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {5, 11, 21, 33},
@@ -13679,6 +14427,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Nightmare Lord" },
         },
@@ -13716,6 +14466,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {5, 11, 33},
@@ -13752,6 +14504,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {5, 11, 21, 33},
@@ -13788,6 +14542,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 11, 26, 33},
@@ -13824,6 +14580,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 21, 33},
@@ -13859,6 +14617,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 21, 26, 33},
@@ -13893,6 +14653,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 6, 11, 33},
@@ -13929,6 +14691,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {5, 11, 19, 21, 33},
@@ -13961,6 +14725,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
         dropRate = 0.66,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 3},
         subcategoryIDs = {29, 15},
         themeIDs = {10, 17, 24, 33},
@@ -13993,6 +14759,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {18, 24, 31},
@@ -14027,6 +14795,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 19, 26, 27},
@@ -14063,6 +14833,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {8},
         themeIDs = {6, 10, 20, 29},
@@ -14097,6 +14869,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {1, 5, 19, 26},
@@ -14133,6 +14907,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Lightbloom Looming" },
         },
@@ -14170,6 +14946,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {1, 5, 11, 26},
@@ -14204,6 +14982,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {1, 11},
         themeIDs = {1, 5, 11, 26},
@@ -14236,6 +15016,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14280,6 +15062,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -14318,6 +15102,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Margrave's Stitched Leather Rug" },
         },
@@ -14356,6 +15142,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Schmancy Goblin String Lights" },
         },
@@ -14393,6 +15181,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 11, 21, 33},
@@ -14427,6 +15217,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {11, 21, 33},
@@ -14461,6 +15253,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {5, 11, 21, 33},
@@ -14493,6 +15287,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14532,6 +15328,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14571,6 +15369,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14610,6 +15410,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14651,6 +15453,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -14687,6 +15491,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14726,6 +15532,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14767,6 +15575,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -14801,6 +15611,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -14837,6 +15649,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.07,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {5, 11, 19, 21, 33},
@@ -14868,6 +15682,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shadowforge Sconce" },
         },
@@ -14905,6 +15721,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 4},
         subcategoryIDs = {16, 29},
         themeIDs = {5, 11, 21, 33},
@@ -14937,6 +15755,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -14979,6 +15799,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15023,6 +15845,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -15061,6 +15885,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15099,6 +15925,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {5, 6, 10, 11, 17, 20, 22, 29},
@@ -15133,6 +15961,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15169,6 +15999,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15213,6 +16045,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -15249,6 +16083,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15291,6 +16127,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15330,6 +16168,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15369,6 +16209,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15410,6 +16252,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -15448,6 +16292,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, x = 52, y = 38.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -15484,6 +16330,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15526,6 +16374,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15570,6 +16420,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15608,6 +16460,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15644,6 +16498,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15686,6 +16542,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15728,6 +16586,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15772,6 +16632,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15810,6 +16672,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -15846,6 +16710,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15888,6 +16754,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15930,6 +16798,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -15972,6 +16842,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -16016,6 +16888,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -16054,6 +16928,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -16092,6 +16968,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {9, 21, 33},
@@ -16128,6 +17006,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Descent into the Rift" },
         },
@@ -16165,6 +17045,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {5, 9, 20, 33},
@@ -16201,6 +17083,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Welcome to the Brotherhood" },
         },
@@ -16235,6 +17119,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dark Iron Table Saw" },
         },
@@ -16272,6 +17158,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {4, 6, 25, 28},
@@ -16306,6 +17194,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {4, 6, 25, 28},
@@ -16337,6 +17227,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Blackrock Lamppost" },
         },
@@ -16372,6 +17264,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {1, 5, 26, 27},
@@ -16408,6 +17302,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Echoes and Memories" },
         },
@@ -16445,6 +17341,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Reliquary's Lost Paint Supplies" },
         },
@@ -16483,6 +17381,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kharanos Bookcase" },
         },
@@ -16518,6 +17418,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         dropRate = 0.04,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {4, 25},
@@ -16554,6 +17456,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Axis of Awful" },
         },
@@ -16588,6 +17492,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wooden Ironforge Table" },
         },
@@ -16622,6 +17528,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {4, 25},
@@ -16656,6 +17564,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {4, 20, 25},
@@ -16690,6 +17600,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {4, 25, 26},
@@ -16725,6 +17637,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Eye Spy" },
         },
@@ -16768,6 +17682,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Wild, Wild, Wildhammer Wedding" },
         },
@@ -16803,6 +17719,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.4,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {4, 6, 25},
@@ -16837,6 +17755,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -16875,6 +17795,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {1, 5},
         themeScores = {[1] = 39, [5] = 39},
     },
@@ -16904,6 +17826,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ambient Aethercharged Crystal" },
         },
@@ -16939,6 +17863,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "M.C.: Hammered",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {7, 30},
@@ -16973,6 +17899,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 15},
         themeIDs = {7, 30},
@@ -17004,6 +17932,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {7, 30},
@@ -17035,6 +17965,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {7, 30},
@@ -17070,6 +18002,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10, 9},
         themeIDs = {7, 30},
@@ -17104,6 +18038,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {7, 30},
@@ -17135,6 +18071,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {7, 30},
@@ -17166,6 +18104,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gnomish Tesla Mega-Coil" },
         },
@@ -17200,6 +18140,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Spare A Chair" },
             { sourceType = "Profession", sourceDetail = "Gnomish Tesla Mega-Coil" },
@@ -17239,6 +18181,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ironforge Chandelier" },
         },
@@ -17273,6 +18217,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Steel Ironforge Emblem" },
         },
@@ -17310,6 +18256,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {4, 25},
@@ -17344,6 +18292,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {4, 25},
@@ -17378,6 +18328,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {7, 30},
@@ -17412,6 +18364,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {7, 30},
@@ -17446,6 +18400,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {7, 30},
@@ -17477,6 +18433,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Mechagon Miniature Artificial Sun" },
         },
@@ -17514,6 +18472,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {7, 30},
@@ -17546,6 +18506,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
@@ -17588,6 +18550,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {7, 30},
@@ -17620,6 +18584,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -17664,6 +18630,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, x = 52, y = 38.4, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -17699,6 +18667,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {7, 30},
@@ -17730,6 +18700,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {7, 30},
@@ -17761,6 +18733,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {7, 30},
@@ -17793,6 +18767,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Junkyard Apprentice",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {7, 30},
@@ -17824,6 +18800,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {7, 30},
@@ -17855,6 +18833,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {7, 30},
@@ -17886,6 +18866,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Stolen Royal Vendorbot", npcID = 150716, x = 73.8, y = 37.1, zone = "Mechagon", mapID = 1462 },
             { name = "Second Chair Pawdo", npcID = 252312, zone = "Orgrimmar", mapID = 85 },
@@ -17922,6 +18904,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {7, 30},
@@ -17954,6 +18938,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
         vendorUnlockAchievement = "Junkyard Scavenger",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {7, 30},
@@ -17985,6 +18971,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Deactivated Atomic Recalibrator" },
         },
@@ -18022,6 +19010,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {7, 30},
@@ -18053,6 +19043,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 2},
         subcategoryIDs = {9, 6},
         themeIDs = {7, 30, 32},
@@ -18087,6 +19079,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18125,6 +19119,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18163,6 +19159,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18201,6 +19199,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18239,6 +19239,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18277,6 +19279,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18315,6 +19319,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18351,6 +19357,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -18395,6 +19403,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18433,6 +19443,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -18468,6 +19480,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dwarven District Banner" },
         },
@@ -18505,6 +19519,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -18541,6 +19557,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -18585,6 +19603,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -18623,6 +19643,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {1, 5, 22, 26},
@@ -18654,6 +19676,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Self-Pouring Thalassian Sunwine" },
         },
@@ -18688,6 +19712,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gnomish Steam-Powered Bed" },
         },
@@ -18726,6 +19752,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionQuestChains = {
             Alliance = { questID = 54992 },
             Horde = { questID = 55651 },
@@ -18766,6 +19794,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Welcome to the Resistance" },
         },
@@ -18800,6 +19830,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Caramel Mint Noodle Dish" },
         },
@@ -18839,6 +19871,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Warm Away These Shivers" },
         },
@@ -18873,6 +19907,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {4, 5, 6, 22, 33},
@@ -18904,6 +19940,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dornic Sliced Mineloaf" },
         },
@@ -18938,6 +19976,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Earthen Hospitality Cheese-Like Brick" },
         },
@@ -18975,6 +20015,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -19013,6 +20055,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -19049,6 +20093,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19090,6 +20136,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2803, iconPath = "Interface\\ICONS\\INV_Misc_ElvenCoins.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18, 19},
         themeIDs = {1, 5, 19, 26},
@@ -19124,6 +20172,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -19162,6 +20212,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -19197,6 +20249,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
         dropRate = 0.08,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {14, 26, 28},
@@ -19231,6 +20285,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -19268,6 +20324,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -19306,6 +20364,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {5, 12, 17, 19, 26},
@@ -19342,6 +20402,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {19, 26},
@@ -19373,6 +20435,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {15, 20},
@@ -19407,6 +20471,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Solelo", npcID = 256071, x = 49.1, y = 80.2, zone = "Stormwind City", mapID = 84 },
         },
@@ -19446,6 +20512,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Last Hope" },
         },
@@ -19485,6 +20553,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 26, 28},
@@ -19517,6 +20587,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.12,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 19, 26, 28},
@@ -19552,6 +20624,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 3056, iconPath = "Interface\\ICONS\\INV_10_Tailoring_SilkRare_Color3.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 28, 31},
@@ -19587,6 +20661,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {4, 28},
@@ -19619,6 +20695,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19661,6 +20739,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19705,6 +20785,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, x = 62.4, y = 80, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -19741,6 +20823,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19785,6 +20869,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -19821,6 +20907,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19863,6 +20951,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -19907,6 +20997,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -19945,6 +21037,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 3},
         subcategoryIDs = {13, 29, 11},
         themeIDs = {9, 33},
@@ -19979,6 +21073,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20014,6 +21110,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Mushan Dumpling Stack" },
         },
@@ -20049,6 +21147,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -20090,6 +21190,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Drake Kebab Platter" },
         },
@@ -20129,6 +21231,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "10,000 Years of Roasting" },
         },
@@ -20163,6 +21267,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Blossomfruit Platter" },
         },
@@ -20197,6 +21303,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Bruffalon Rib Platter" },
         },
@@ -20236,6 +21344,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Light Finds a Way" },
         },
@@ -20271,6 +21381,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20309,6 +21421,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -20344,6 +21458,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Signal Brazier" },
         },
@@ -20381,6 +21497,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {6, 14, 26, 28},
@@ -20415,6 +21533,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 14, 26, 28},
@@ -20450,6 +21570,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100000, currencyID = 1803, iconPath = "Interface\\ICONS\\INV_INSCRIPTION_80_VANTUSRUNE_NYALOTHA.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {19, 30},
@@ -20485,6 +21607,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100000, currencyID = 1803, iconPath = "Interface\\ICONS\\INV_INSCRIPTION_80_VANTUSRUNE_NYALOTHA.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11, 15},
         themeIDs = {24, 31},
@@ -20516,6 +21640,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Lorewalker's Bookcase" },
         },
@@ -20553,6 +21679,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 13},
         themeIDs = {14, 22, 26},
@@ -20588,6 +21716,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 2},
         subcategoryIDs = {3, 9, 51},
         themeIDs = {17, 25, 32},
@@ -20619,6 +21749,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Stone Post" },
         },
@@ -20658,6 +21790,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4, 2},
         subcategoryIDs = {10, 16},
         themeIDs = {14, 26},
@@ -20692,6 +21826,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {14, 26},
@@ -20723,6 +21859,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Hanging Paper Lanterns" },
         },
@@ -20760,6 +21898,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4, 3},
         subcategoryIDs = {11, 18, 16},
         themeIDs = {14, 26},
@@ -20791,6 +21931,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Halfhill Cookpot" },
         },
@@ -20828,6 +21970,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10, 9},
         themeIDs = {14, 26, 33},
@@ -20859,6 +22003,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Lucky Traveler's Bench" },
         },
@@ -20893,6 +22039,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Jade Temple Dragon Fountain" },
         },
@@ -20930,6 +22078,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {15, 6, 13},
         themeIDs = {14, 22},
@@ -20961,6 +22111,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Meander Rug" },
         },
@@ -20999,6 +22151,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21037,6 +22191,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21073,6 +22229,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21108,6 +22266,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21143,6 +22303,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21178,6 +22340,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21213,6 +22377,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Joruh", npcID = 254606, x = 38.9, y = 72.1, zone = "Orgrimmar", mapID = 85 },
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
@@ -21251,6 +22417,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -21282,6 +22450,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Fireplace" },
         },
@@ -21320,6 +22490,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21358,6 +22530,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21393,6 +22567,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21428,6 +22604,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21463,6 +22641,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {32},
@@ -21498,6 +22678,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21536,6 +22718,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21571,6 +22755,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Entering Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21606,6 +22792,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Champion in Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21641,6 +22829,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Master in Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21675,6 +22865,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wise Pandaren's Bed" },
         },
@@ -21710,6 +22902,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Progressing in Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21745,6 +22939,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Proficient in Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21780,6 +22976,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         vendorUnlockAchievement = "Expert in Battle",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -21817,6 +23015,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {31, 32},
@@ -21853,6 +23053,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Sign of the Dusk Lily" },
         },
@@ -21891,6 +23093,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {5, 11, 19, 26},
@@ -21926,6 +23130,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 12, 19, 26, 28},
@@ -21961,6 +23167,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {5, 11, 12, 19, 26},
@@ -21996,6 +23204,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 19, 22, 26},
@@ -22030,6 +23240,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {14, 26},
@@ -22061,6 +23273,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Serenity Peak Tent" },
         },
@@ -22100,6 +23314,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Path of the Last Emperor" },
         },
@@ -22138,6 +23354,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 30, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Second Chair Pawdo", npcID = 252312, zone = "Orgrimmar", mapID = 85 },
             { name = "First Arcanist Thalyssra", npcID = 115736, x = 36.6, y = 46, zone = "Suramar", mapID = 680 },
@@ -22174,6 +23392,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Fencepost" },
         },
@@ -22212,6 +23432,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {5, 12, 19, 26},
@@ -22248,6 +23470,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {5, 12, 19, 26},
@@ -22282,6 +23506,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 6, 11, 12, 19, 26},
@@ -22314,6 +23540,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.02,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 11, 19, 26},
@@ -22350,6 +23578,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 11, 19, 26},
@@ -22381,6 +23611,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Last Light" },
             { sourceType = "Profession", sourceDetail = "Covered Square Suramar Table" },
@@ -22420,6 +23652,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Covered Square Suramar Table" },
         },
@@ -22459,6 +23693,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Master's Legacy" },
         },
@@ -22493,6 +23729,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Nightborne Jeweler's Table" },
         },
@@ -22530,6 +23768,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 6, 12, 19, 26},
@@ -22561,6 +23801,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Circular Shal'dorei Rug" },
         },
@@ -22599,6 +23841,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 12, 19, 26},
@@ -22630,6 +23874,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Fence" },
             { sourceType = "Profession", sourceDetail = "Suramar Fencepost" },
@@ -22665,6 +23911,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Containment Cell" },
         },
@@ -22703,6 +23951,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {5, 12, 19, 26},
@@ -22734,6 +23984,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Storage Crate" },
         },
@@ -22773,6 +24025,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shaded Suramar Window" },
             { sourceType = "Quest", sourceDetail = "Visitor in Shal'Aran" },
@@ -22808,6 +24062,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shal'dorei Open-Air Tent" },
         },
@@ -22845,6 +24101,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
         themeIDs = {2, 24, 25},
@@ -22879,6 +24137,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {2, 26},
@@ -22914,6 +24174,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {2, 26},
@@ -22949,6 +24211,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {2, 26},
@@ -22980,6 +24244,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Banded Barrel" },
         },
@@ -23014,6 +24280,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Storage Crate" },
             { sourceType = "Profession", sourceDetail = "Long Valdrakken Storage Crate" },
@@ -23049,6 +24317,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Long Valdrakken Storage Crate" },
         },
@@ -23083,6 +24353,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Fence" },
             { sourceType = "Profession", sourceDetail = "Valdrakken Fencepost" },
@@ -23118,6 +24390,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Fencepost" },
         },
@@ -23152,6 +24426,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Verdant Valdrakken Vase" },
         },
@@ -23189,6 +24465,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {2, 26, 33},
@@ -23220,6 +24498,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Thaldraszus Telescope" },
         },
@@ -23254,6 +24534,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draconic Nesting Bed" },
         },
@@ -23288,6 +24570,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Draconic Decor" },
         },
@@ -23329,6 +24613,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 7000, currencyID = 2657, iconPath = "Interface\\ICONS\\INV_7_0Raid_Trinket_05A.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 26, 28},
@@ -23360,6 +24646,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Literature of the Blue Dragonflight" },
         },
@@ -23394,6 +24682,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Literature of the Green Dragonflight" },
         },
@@ -23428,6 +24718,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Literature of the Red Dragonflight" },
         },
@@ -23462,6 +24754,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draconic Circular Rug" },
         },
@@ -23500,6 +24794,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 7500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {2, 26, 29},
@@ -23535,6 +24831,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10000, currencyID = 1767, iconPath = "Interface\\ICONS\\INV_Stygia.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {24, 31},
@@ -23567,6 +24865,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -23609,6 +24909,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Classic",
         dropRate = 0.19,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {10, 20},
@@ -23643,6 +24945,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {10, 20},
@@ -23680,6 +24984,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {5, 10, 20},
@@ -23717,6 +25023,8 @@ NS.CatalogData.Items = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Anglin' In Our Garrison" },
         },
@@ -23756,6 +25064,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Welcome to Stormwind" },
         },
@@ -23793,6 +25103,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -23830,6 +25142,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -23867,6 +25181,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -23906,6 +25222,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Honor of the Goddess" },
         },
@@ -23943,6 +25261,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -23981,6 +25301,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24019,6 +25341,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24057,6 +25381,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24095,6 +25421,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -24133,6 +25461,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {10, 20, 22},
@@ -24169,6 +25499,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "You Have Our Thanks" },
         },
@@ -24206,6 +25538,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {10, 20, 26},
@@ -24240,6 +25574,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 8, 2},
         subcategoryIDs = {25, 29, 34, 10},
         themeIDs = {5, 10, 20, 33},
@@ -24276,6 +25612,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Ending the Invasion!" },
         },
@@ -24315,6 +25653,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Doing Your Duty" },
         },
@@ -24352,6 +25692,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24390,6 +25732,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24428,6 +25772,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24466,6 +25812,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24504,6 +25852,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24542,6 +25892,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24580,6 +25932,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24618,6 +25972,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24656,6 +26012,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24694,6 +26052,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24732,6 +26092,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -24770,6 +26132,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24808,6 +26172,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24846,6 +26212,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -24884,6 +26252,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -24922,6 +26292,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -24960,6 +26332,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -24998,6 +26372,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25036,6 +26412,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25074,6 +26452,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25112,6 +26492,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25150,6 +26532,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25188,6 +26572,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25226,6 +26612,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25264,6 +26652,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -25302,6 +26692,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, x = 62.2, y = 80.2, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, x = 53.6, y = 57.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -25342,6 +26734,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Archives Return" },
         },
@@ -25379,6 +26773,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {2, 26},
@@ -25415,6 +26811,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Helping Claw" },
         },
@@ -25449,6 +26847,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Gilded Throne" },
         },
@@ -25488,6 +26888,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {2, 5, 22, 26},
@@ -25523,6 +26925,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 2118, iconPath = "Interface\\ICONS\\INV_Misc_Powder_Thorium.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {2, 26, 29},
@@ -25554,6 +26958,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Market Tent" },
         },
@@ -25591,6 +26997,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Argan Hammerfist", npcID = 255218, x = 52.2, y = 37.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Lefton Farrer", npcID = 255299, x = 53.4, y = 58.4, zone = "Razorwind Shores", mapID = 2351 },
@@ -25632,6 +27040,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {5, 10, 20},
@@ -25669,6 +27079,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {6, 10, 17, 20, 28},
@@ -25705,6 +27117,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Perenolde Tiara" },
         },
@@ -25742,6 +27156,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Lost and Lonely" },
         },
@@ -25779,6 +27195,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {10, 20},
@@ -25813,6 +27231,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {8, 30},
@@ -25847,6 +27267,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {11, 21, 33},
@@ -25879,6 +27301,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -25923,6 +27347,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {10, 20},
@@ -25957,6 +27383,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {10, 20},
@@ -25992,6 +27420,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 3000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Fiona", npcID = 45417, zone = "Tiragarde Sound", mapID = 895 },
         },
@@ -26031,6 +27461,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "\"I TAKE Candle!\"" },
         },
@@ -26070,6 +27502,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Report to Goldshire" },
         },
@@ -26108,6 +27542,8 @@ NS.CatalogData.Items = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {10, 20},
@@ -26144,6 +27580,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 8},
         subcategoryIDs = {34, 5},
         themeIDs = {6, 10, 20, 28},
@@ -26180,6 +27618,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Dawning of a New Day" },
         },
@@ -26217,6 +27657,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -26255,6 +27697,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -26294,6 +27738,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {6, 10, 25, 32},
@@ -26329,6 +27775,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {6, 10, 25, 32},
@@ -26361,6 +27809,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {24, 31},
@@ -26396,6 +27846,8 @@ NS.CatalogData.Items = {
             { amount = 100, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {10, 17, 20},
@@ -26430,6 +27882,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, x = 53.4, y = 40.8, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -26465,6 +27919,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Golden Cloud Serpent Treasure Chest" },
         },
@@ -26506,6 +27962,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {14, 32},
@@ -26540,6 +27998,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {11, 10},
         themeIDs = {14, 27},
@@ -26576,6 +28036,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Kobold Candles" },
         },
@@ -26613,6 +28075,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {10, 20},
@@ -26647,6 +28111,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 3, 8},
         subcategoryIDs = {34, 11, 51},
         themeIDs = {17, 27},
@@ -26681,6 +28147,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {14, 28, 32},
@@ -26715,6 +28183,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 23, 24, 32},
@@ -26749,6 +28219,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
         themeIDs = {14, 27},
@@ -26783,6 +28255,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 6, 17, 24, 28},
@@ -26817,6 +28291,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {14, 9},
         themeIDs = {17, 23, 24},
@@ -26851,6 +28327,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {18, 31},
@@ -26882,6 +28360,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Resplendent Highborne Statue" },
         },
@@ -26920,6 +28400,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {15, 25, 33},
@@ -26954,6 +28436,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
         themeIDs = {17, 19, 23, 30},
@@ -26985,6 +28469,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Smoke Sconce" },
         },
@@ -27022,6 +28508,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
         themeIDs = {23, 24},
@@ -27056,6 +28544,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 11},
         themeIDs = {26, 27, 32},
@@ -27090,6 +28580,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {12, 6},
         themeIDs = {23, 32},
@@ -27124,6 +28616,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {25, 32},
@@ -27158,6 +28652,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {26, 32},
@@ -27192,6 +28688,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {23, 32},
@@ -27226,6 +28724,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {34, 11},
         themeIDs = {23, 24},
@@ -27260,6 +28760,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {26, 32},
@@ -27294,6 +28796,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {32},
@@ -27328,6 +28832,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 8},
         subcategoryIDs = {34, 5},
         themeIDs = {23, 28, 32},
@@ -27362,6 +28868,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 26, 27},
@@ -27396,6 +28904,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {2, 26},
@@ -27430,6 +28940,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 26, 32},
@@ -27465,6 +28977,8 @@ NS.CatalogData.Items = {
             { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Augmenting a Dragon" },
         },
@@ -27502,6 +29016,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, x = 61.6, y = 79, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, x = 54, y = 59, zone = "Razorwind Shores", mapID = 2351 },
@@ -27540,6 +29056,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 11},
         themeIDs = {25, 32},
@@ -27574,6 +29092,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -27612,6 +29132,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {9, 15},
         themeIDs = {1, 5, 26, 27},
@@ -27646,6 +29168,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {23, 24, 28},
@@ -27680,6 +29204,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1},
         subcategoryIDs = {6, 29},
         themeIDs = {22, 33},
@@ -27714,6 +29240,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {2, 17, 24, 32},
@@ -27748,6 +29276,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -27784,6 +29314,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -27822,6 +29354,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 32, 33},
@@ -27856,6 +29390,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {5, 11, 21, 28, 33},
@@ -27890,6 +29426,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24, 28, 32},
@@ -27924,6 +29462,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 24, 28},
@@ -27958,6 +29498,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24},
@@ -27992,6 +29534,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {13, 17, 24, 32},
@@ -28026,6 +29570,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 24},
@@ -28060,6 +29606,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Leave Our Mark" },
         },
@@ -28097,6 +29645,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27, 33},
@@ -28131,6 +29681,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
         themeIDs = {11, 25, 32},
@@ -28165,6 +29717,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -28199,6 +29753,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
         themeIDs = {17, 32, 33},
@@ -28233,6 +29789,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {19, 27},
@@ -28267,6 +29825,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {19, 28, 32},
@@ -28301,6 +29861,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {19},
@@ -28335,6 +29897,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {11, 21, 33},
@@ -28369,6 +29933,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 3},
         subcategoryIDs = {11, 29},
         themeIDs = {5, 21, 33},
@@ -28403,6 +29969,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 27},
@@ -28437,6 +30005,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {27, 32},
@@ -28471,6 +30041,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {6, 26, 27},
@@ -28505,6 +30077,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27, 28},
@@ -28539,6 +30113,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {1, 5, 17, 26, 27},
@@ -28573,6 +30149,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27, 32},
@@ -28607,6 +30185,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {27, 32},
@@ -28641,6 +30221,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {19, 32},
@@ -28675,6 +30257,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {27},
@@ -28709,6 +30293,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {26, 27},
         themeScores = {[26] = 100, [27] = 100},
     },
@@ -28741,6 +30327,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {1, 5, 26, 27},
@@ -28775,6 +30363,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 3},
         subcategoryIDs = {11, 51},
         themeIDs = {19, 27},
@@ -28811,6 +30401,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 6000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {6, 24, 28},
@@ -28847,6 +30439,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 12000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {24, 25, 26},
@@ -28883,6 +30477,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {23, 30},
@@ -28919,6 +30515,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {17, 23, 24},
@@ -28955,6 +30553,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
         themeIDs = {17, 23},
@@ -28991,6 +30591,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 23, 24},
@@ -29027,6 +30629,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {23},
@@ -29063,6 +30667,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {23, 24},
@@ -29097,6 +30703,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29137,6 +30745,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 6000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 23, 24},
@@ -29173,6 +30783,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {17, 23, 24},
@@ -29209,6 +30821,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27},
@@ -29243,6 +30857,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29281,6 +30897,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29319,6 +30937,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29357,6 +30977,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29395,6 +31017,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29433,6 +31057,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29471,6 +31097,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29509,6 +31137,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29547,6 +31177,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29585,6 +31217,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29623,6 +31257,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hordranin", npcID = 250820, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hordranin", npcID = 250820, zone = "Razorwind Shores", mapID = 2351 },
@@ -29661,6 +31297,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2803, iconPath = "Interface\\ICONS\\INV_Misc_ElvenCoins.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
         themeIDs = {1, 5, 26},
@@ -29695,6 +31333,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
         themeIDs = {1, 5, 26},
@@ -29729,6 +31369,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 24, 28},
@@ -29763,6 +31405,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 24},
@@ -29797,6 +31441,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {17, 24, 32},
@@ -29831,6 +31477,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {17, 24, 28, 32},
@@ -29865,6 +31513,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 24},
@@ -29899,6 +31549,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {24, 28},
@@ -29933,6 +31585,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {27},
@@ -29967,6 +31621,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27},
@@ -30001,6 +31657,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27, 28},
@@ -30035,6 +31693,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {18, 27, 28},
@@ -30066,6 +31726,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -30095,6 +31757,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
         themeIDs = {2, 21},
@@ -30126,6 +31790,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
         themeIDs = {2, 21},
@@ -30157,6 +31823,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
         themeIDs = {2, 21},
@@ -30188,6 +31856,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 4},
         subcategoryIDs = {22, 18, 21},
         themeIDs = {11, 21, 33},
@@ -30219,6 +31889,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1},
         subcategoryIDs = {6, 29},
         themeIDs = {11, 20, 33},
@@ -30255,6 +31927,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "On New Wings" },
         },
@@ -30292,6 +31966,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -30330,6 +32006,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {27, 33},
@@ -30364,6 +32042,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {6, 27, 28, 33},
@@ -30398,6 +32078,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 27},
@@ -30432,6 +32114,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {13, 32, 33},
@@ -30464,6 +32148,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -30508,6 +32194,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {11, 21, 33},
@@ -30542,6 +32230,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {4, 28},
@@ -30576,6 +32266,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 19, 33},
@@ -30612,6 +32304,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Returning" },
         },
@@ -30646,6 +32340,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Missive: Assault on Socrethar's Rise" },
         },
@@ -30686,6 +32382,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Traitor's True Name" },
         },
@@ -30720,6 +32418,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {3, 5, 26},
@@ -30754,6 +32454,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -30792,6 +32494,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -30830,6 +32534,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -30868,6 +32574,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -30906,6 +32614,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {3, 26},
@@ -30943,6 +32653,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Trial of Champions" },
         },
@@ -30982,6 +32694,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionQuestChains = {
             Alliance = { questID = 35196 },
             Horde = { questID = 35197 },
@@ -31020,6 +32734,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {3, 5, 11, 26, 33},
@@ -31056,6 +32772,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {3, 26},
@@ -31090,6 +32808,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {11, 6},
         themeIDs = {3, 26, 32},
@@ -31121,6 +32841,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Stargazer's Telescope" },
         },
@@ -31158,6 +32880,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19, 21},
         themeIDs = {3, 17, 18, 19, 26},
@@ -31192,6 +32916,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {3, 5, 26, 27},
@@ -31226,6 +32952,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {3, 11, 26, 27},
@@ -31260,6 +32988,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Sylvia Hartshorn", npcID = 106901, x = 54.8, y = 73.4, zone = "Val'sharah", mapID = 641 },
         },
@@ -31294,6 +33024,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenic Basin" },
         },
@@ -31328,6 +33060,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {3, 33},
@@ -31362,6 +33096,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -31397,6 +33133,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Argussian Circular Rug" },
         },
@@ -31431,6 +33169,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {3, 5, 26, 33},
@@ -31468,6 +33208,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Traitor's True Name" },
         },
@@ -31507,6 +33249,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Prophet's Final Message" },
         },
@@ -31541,6 +33285,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenethyst Sconce" },
         },
@@ -31578,6 +33324,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16, 21},
         themeIDs = {3, 19, 26},
@@ -31612,6 +33360,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {27, 28},
         themeScores = {[27] = 100, [28] = 100},
     },
@@ -31644,6 +33394,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -31682,6 +33434,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -31718,6 +33472,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -31761,6 +33517,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Battle for Shattrath" },
         },
@@ -31803,6 +33561,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Socrethar's Demise" },
         },
@@ -31843,6 +33603,8 @@ NS.CatalogData.Items = {
             { amount = 2000, currencyID = 823, iconPath = "Interface\\ICONS\\INV_Apexis_Draenor.BLP" },
             { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Defense of Karabor" },
         },
@@ -31877,6 +33639,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenethyst String Lights" },
         },
@@ -31916,6 +33680,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
         themeIDs = {11, 21, 33},
@@ -31952,6 +33718,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 18000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {23, 24},
@@ -31986,6 +33754,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {1, 5, 22, 26},
@@ -32020,6 +33790,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {1, 5, 22, 26},
@@ -32054,6 +33826,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         treasureVendorNpcID = 259864,
         treasureVendorX = 43.2,
         treasureVendorY = 47.4,
@@ -32092,6 +33866,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {1},
@@ -32123,6 +33899,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
         themeIDs = {24, 33},
@@ -32155,6 +33933,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -32199,6 +33979,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -32237,6 +34019,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -32275,6 +34059,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -32313,6 +34099,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
         themeIDs = {33},
@@ -32345,6 +34133,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -32389,6 +34179,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -32427,6 +34219,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {4, 25, 26},
@@ -32458,6 +34252,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boralus Barrel" },
         },
@@ -32495,6 +34291,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 17, 28, 29},
@@ -32529,6 +34327,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -32567,6 +34367,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -32605,6 +34407,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Brother Dovetail", npcID = 249684, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Brother Dovetail", npcID = 249684, zone = "Razorwind Shores", mapID = 2351 },
@@ -32645,6 +34449,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1, 8},
         subcategoryIDs = {34, 7, 29},
     },
@@ -32679,6 +34485,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {10, 26, 29},
@@ -32713,6 +34521,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {10, 11, 20, 29},
@@ -32747,6 +34557,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {6, 10, 11, 20, 29},
@@ -32778,6 +34590,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Proudmoore Shipping Crate" },
         },
@@ -32815,6 +34629,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {10, 20, 29},
@@ -32849,6 +34665,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {10, 20, 29},
@@ -32885,6 +34703,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {10, 26, 29},
@@ -32919,6 +34739,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {10, 20, 29},
@@ -32953,6 +34775,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 550, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 10, 28, 29},
@@ -32989,6 +34813,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Carry On" },
         },
@@ -33026,6 +34852,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {6, 10, 29},
@@ -33057,6 +34885,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Brennadam Grinder" },
         },
@@ -33094,6 +34924,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {5, 10, 20, 29},
@@ -33125,6 +34957,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stormsong Stove" },
         },
@@ -33164,6 +34998,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "War Marches On" },
         },
@@ -33198,6 +35034,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boralus Bookshelf" },
         },
@@ -33235,6 +35073,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 10, 28, 29},
@@ -33271,6 +35111,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 550, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Allegiance of Kul Tiras" },
         },
@@ -33308,6 +35150,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {10, 17, 20, 29},
@@ -33342,6 +35186,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {10, 26, 29},
@@ -33378,6 +35224,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 375, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {10, 20, 29},
@@ -33412,6 +35260,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -33447,6 +35297,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Battle for Azeroth",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {33},
@@ -33481,6 +35333,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {5, 6, 10, 20, 29},
@@ -33516,6 +35370,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 650, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {10, 29},
@@ -33551,6 +35407,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {10, 26, 29},
@@ -33587,6 +35445,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {10, 29},
@@ -33621,6 +35481,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -33659,6 +35521,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -33695,6 +35559,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {26, 27},
@@ -33727,6 +35593,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {18, 26, 31},
@@ -33759,6 +35627,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {18, 26, 31},
@@ -33791,6 +35661,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 27},
@@ -33827,6 +35699,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 23, 24},
@@ -33863,6 +35737,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "My Brother's Keeper" },
         },
@@ -33897,6 +35773,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dornogal Framed Rug" },
         },
@@ -33936,6 +35814,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Bad Business" },
         },
@@ -33974,6 +35854,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {4, 25},
@@ -34005,6 +35887,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boulder Springs Hot Tub" },
         },
@@ -34044,6 +35928,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Into the Machine" },
         },
@@ -34083,6 +35969,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 400, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Heart of a Hero" },
         },
@@ -34117,6 +36005,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dornogal Bookcase" },
         },
@@ -34155,6 +36045,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {4, 25},
@@ -34191,6 +36083,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Weight of Duty" },
         },
@@ -34230,6 +36124,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Hope, An Anomaly" },
         },
@@ -34264,6 +36160,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Freywold Table" },
         },
@@ -34302,6 +36200,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {4, 25},
@@ -34336,6 +36236,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {4, 25},
@@ -34367,6 +36269,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dornogal Hanging Sconce" },
         },
@@ -34406,6 +36310,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {4, 25},
@@ -34440,6 +36346,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 600, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {4, 25},
@@ -34475,6 +36383,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 900, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {4, 25},
@@ -34506,6 +36416,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Algari Fence" },
             { sourceType = "Profession", sourceDetail = "Algari Fencepost" },
@@ -34541,6 +36453,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Algari Fencepost" },
         },
@@ -34580,6 +36494,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1100, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "To Wake a Giant" },
         },
@@ -34614,6 +36530,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Forgeground Market Bins" },
         },
@@ -34651,6 +36569,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Stone Guard Nargol", npcID = 50488, x = 50.3, y = 58.6, zone = "Orgrimmar", mapID = 85, faction = "Horde" },
             { name = "Captain Lancy Revshon", npcID = 49877, x = 67.9, y = 73.2, zone = "Stormwind City", mapID = 84, faction = "Alliance" },
@@ -34686,6 +36606,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Meadery Storage Chest" },
         },
@@ -34724,6 +36646,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Joruh", npcID = 254606, x = 38.9, y = 72.1, zone = "Orgrimmar", mapID = 85 },
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
@@ -34759,6 +36683,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Replica Awakening Machine Stasis Pod" },
         },
@@ -34798,6 +36724,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 850, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Cinderbrew Reserve" },
         },
@@ -34832,6 +36760,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "The War Within",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Furniture Favor" },
         },
@@ -34873,6 +36803,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {26},
         themeIDs = {5, 6, 17, 24, 33},
@@ -34909,6 +36841,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {26},
         themeIDs = {33},
@@ -34945,6 +36879,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 28},
@@ -34981,6 +36917,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {19, 30},
@@ -35017,6 +36955,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 11, 21, 26},
@@ -35051,6 +36991,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {10, 29},
@@ -35085,6 +37027,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -35121,6 +37065,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -35163,6 +37109,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Mists of Pandaria",
         dropRate = 0.13,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {13, 25, 32},
@@ -35194,6 +37142,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tirisfal Hollow Campfire" },
         },
@@ -35233,6 +37183,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {17, 23, 24},
@@ -35264,6 +37216,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Replica Rumbling Wastes Drill Pod" },
         },
@@ -35298,6 +37252,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gundargaz Candelabra" },
         },
@@ -35335,6 +37291,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Thalassian Competitor's Leather Chestpiece" },
         },
@@ -35376,6 +37334,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35414,6 +37374,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35452,6 +37414,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35490,6 +37454,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35525,6 +37491,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Classic",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Escape" },
         },
@@ -35564,6 +37532,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Favor to Axe" },
         },
@@ -35601,6 +37571,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {6, 13, 25},
@@ -35637,6 +37609,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {6, 28},
@@ -35668,6 +37642,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {5, 4},
         subcategoryIDs = {22, 17},
         themeIDs = {11},
@@ -35699,6 +37675,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {5, 21, 33},
@@ -35731,6 +37709,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -35772,6 +37752,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -35808,6 +37790,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -35846,6 +37830,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -35886,6 +37872,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 8000, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Leave Our Mark" },
         },
@@ -35923,6 +37911,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35961,6 +37951,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -35999,6 +37991,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -36038,6 +38032,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -36073,6 +38069,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 26, 28},
@@ -36108,6 +38106,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -36143,6 +38143,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -36177,6 +38179,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 6, 26, 28},
@@ -36212,6 +38216,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 33},
@@ -36247,6 +38253,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 11, 26, 33},
@@ -36281,6 +38289,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 33},
@@ -36315,6 +38325,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -36349,6 +38361,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 24, 26},
@@ -36383,6 +38397,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 33},
@@ -36417,6 +38433,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 26},
@@ -36452,6 +38470,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 6, 26, 28},
@@ -36487,6 +38507,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 33},
@@ -36522,6 +38544,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -36557,6 +38581,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 26},
@@ -36592,6 +38618,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 11, 26, 27},
@@ -36627,6 +38655,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 24, 26},
@@ -36662,6 +38692,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 26, 33},
@@ -36696,6 +38728,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {25},
@@ -36730,6 +38764,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26, 28},
@@ -36764,6 +38800,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 11, 26, 27},
@@ -36798,6 +38836,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Hesta Forlath", npcID = 252916, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Hesta Forlath", npcID = 252916, zone = "Razorwind Shores", mapID = 2351 },
@@ -36836,6 +38876,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -36876,6 +38918,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Can We Heal This?" },
         },
@@ -36911,6 +38955,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -36949,6 +38995,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -36987,6 +39035,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37025,6 +39075,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37063,6 +39115,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37099,6 +39153,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37135,6 +39191,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37171,6 +39229,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37209,6 +39269,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37245,6 +39307,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37283,6 +39347,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37321,6 +39387,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37359,6 +39427,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37397,6 +39467,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37435,6 +39507,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37473,6 +39547,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37508,6 +39584,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {11, 21, 33},
@@ -37542,6 +39620,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -37580,6 +39660,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Pascal-K1N6", npcID = 150359, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Pascal-K1N6", npcID = 150359, zone = "Razorwind Shores", mapID = 2351 },
@@ -37618,6 +39700,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
     },
     [10778] = {
         decorID = 10778,
@@ -37650,6 +39734,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 1},
         subcategoryIDs = {7, 29},
     },
@@ -37682,6 +39768,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -37720,6 +39808,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {8, 30},
@@ -37754,6 +39844,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 475, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {8, 30},
@@ -37788,6 +39880,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -37826,6 +39920,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -37864,6 +39960,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 650, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {8, 30},
@@ -37900,6 +39998,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "De Legend of de Hash'ey" },
         },
@@ -37935,6 +40035,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -37977,6 +40079,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
         dropRate = 0.86,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {7, 30},
@@ -38008,6 +40112,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {11},
@@ -38042,6 +40148,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {8, 17, 24, 30},
@@ -38076,6 +40184,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -38114,6 +40224,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 8000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {17, 32},
         themeScores = {[17] = 100, [32] = 100},
     },
@@ -38146,6 +40258,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {1, 5, 26},
@@ -38180,6 +40294,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {1, 5, 26},
@@ -38214,6 +40330,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -38252,6 +40370,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Unatos", npcID = 193015, x = 58.3, y = 35.8, zone = "Valdrakken", mapID = 2112 },
             { name = "Second Chair Pawdo", npcID = 252312, zone = "Orgrimmar", mapID = 85 },
@@ -38291,6 +40411,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {2, 22},
         themeScores = {[2] = 100, [22] = 100},
     },
@@ -38320,6 +40442,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draconic Scribe's Basin" },
         },
@@ -38354,6 +40478,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Five Flights' Grimoire" },
         },
@@ -38391,6 +40517,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {8, 30},
@@ -38425,6 +40553,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {8, 22},
@@ -38459,6 +40589,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {4, 20, 25},
@@ -38494,6 +40626,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionQuestChains = {
             Alliance = { questID = 28183 },
             Horde = { questID = 28425 },
@@ -38532,6 +40666,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {4, 26},
@@ -38564,6 +40700,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         dropRate = 0.52,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {2, 17, 22, 25},
@@ -38595,6 +40733,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sunsmoke Censer" },
         },
@@ -38632,6 +40772,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -38671,6 +40813,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 350, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {4, 24, 25},
@@ -38702,6 +40846,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wingrest Signal Brazier" },
         },
@@ -38737,6 +40883,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
         dropRate = 0.63,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {2, 26},
@@ -38773,6 +40921,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Enforced Relaxation" },
         },
@@ -38807,6 +40957,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Hanging Cauldron" },
         },
@@ -38846,6 +40998,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Binding Contract" },
         },
@@ -38881,6 +41035,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {19, 28},
@@ -38915,6 +41071,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 23, 25},
@@ -38951,6 +41109,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 3000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {17, 23, 24},
@@ -38987,6 +41147,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {23, 24},
@@ -39021,6 +41183,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {14, 28},
@@ -39052,6 +41216,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Arcan'dor Cutting Fountain" },
         },
@@ -39086,6 +41252,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Nightspire Fountain" },
         },
@@ -39121,6 +41289,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Legion",
         dropRate = 0.12,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {11, 12, 21, 26, 33},
@@ -39152,6 +41322,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {1, 5, 26, 32},
@@ -39184,6 +41356,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {19, 28},
@@ -39219,6 +41393,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 450, currencyID = 1792, iconPath = "Interface\\ICONS\\Achievement_LegionPVPTier4.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Riica", npcID = 254603, x = 77.9, y = 65.9, zone = "Stormwind City", mapID = 84 },
         },
@@ -39258,6 +41434,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Shredders of Irontree" },
         },
@@ -39297,6 +41475,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Morbent's Bane" },
         },
@@ -39334,6 +41514,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {6, 17, 23, 24, 28},
@@ -39370,6 +41552,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {15, 20, 33},
@@ -39404,6 +41588,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {16, 25, 26},
@@ -39438,6 +41624,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Chel the Chip", npcID = 241928, zone = "Harandar", mapID = 2413 },
             { name = "Chel the Chip", npcID = 241928, zone = "Voidstorm", mapID = 2405 },
@@ -39477,6 +41665,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 22, 25},
@@ -39511,6 +41701,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {16, 22, 25},
         themeScores = {[16] = 100, [22] = 100, [25] = 100},
     },
@@ -39543,6 +41735,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {20, 22, 25},
@@ -39577,6 +41771,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 16, 27, 32},
@@ -39613,6 +41809,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Reports Returned" },
         },
@@ -39650,6 +41848,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 27},
@@ -39684,6 +41884,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {22, 24},
@@ -39715,6 +41917,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Bronze Banner of the Exiled" },
         },
@@ -39749,6 +41953,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Smith's Anvil" },
         },
@@ -39783,6 +41989,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Holo-Dais" },
         },
@@ -39817,6 +42025,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Holo-Path" },
         },
@@ -39851,6 +42061,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Crystal Forge" },
         },
@@ -39883,6 +42095,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Runic Anvil" },
         },
@@ -39915,6 +42129,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stoppered Black Potion" },
         },
@@ -39949,6 +42165,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Pitchfork" },
         },
@@ -39983,6 +42201,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Alchemist's Retort" },
         },
@@ -40015,6 +42235,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Orcish Felblood Cauldron" },
         },
@@ -40047,6 +42269,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Starry Scrying Pool" },
         },
@@ -40081,6 +42305,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Boralus Bottle Lamp" },
         },
@@ -40113,6 +42339,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Zandalari Bottle Shipment" },
         },
@@ -40147,6 +42375,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aspirant's Meditation Pool" },
         },
@@ -40181,6 +42411,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Bejeweled Venthyr Chalice" },
         },
@@ -40215,6 +42447,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Veil-Secured Animacone" },
         },
@@ -40247,6 +42481,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sintallow Candles" },
         },
@@ -40281,6 +42517,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dragon's Elixir Bottle" },
         },
@@ -40313,6 +42551,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tapestry of the Five Flights" },
         },
@@ -40347,6 +42587,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aldor Stellar Console" },
         },
@@ -40379,6 +42621,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Mark of the Mages' Eye" },
         },
@@ -40413,6 +42657,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Twilight Fire Canister" },
         },
@@ -40447,6 +42693,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Table Lamp" },
         },
@@ -40481,6 +42729,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Intense Mogu Brazier" },
         },
@@ -40515,6 +42765,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Venthyr Anima Bottle" },
         },
@@ -40550,6 +42802,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Len\" Splinthoof", npcID = 255228, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Shon'ja", npcID = 255297, zone = "Razorwind Shores", mapID = 2351 },
@@ -40585,6 +42839,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Apothecary's Worktable" },
         },
@@ -40619,6 +42875,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stampwhistle's Postal Portal" },
         },
@@ -40652,6 +42910,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Nerubian Alchemist's Retort" },
         },
@@ -40690,6 +42950,8 @@ NS.CatalogData.Items = {
             { amount = 300, currencyID = 824, iconPath = "interface\\ICONS\\INV_Garrison_Resource.blp" },
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {18, 19, 27},
@@ -40725,6 +42987,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {24, 28},
@@ -40761,6 +43025,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 2003, iconPath = "Interface\\ICONS\\INV_Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Multi-Front Battle" },
         },
@@ -40795,6 +43061,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15, 12},
         themeIDs = {24, 31},
@@ -40830,6 +43098,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {18, 28, 31},
         themeScores = {[18] = 27, [28] = 100, [31] = 100},
     },
@@ -40863,6 +43133,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {28},
@@ -40897,6 +43169,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -40930,6 +43204,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 19, 26},
@@ -40964,6 +43240,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -41000,6 +43278,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -41038,6 +43318,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -41076,6 +43358,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -41112,6 +43396,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 11, 12, 19, 26},
@@ -41146,6 +43432,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {16, 25, 32},
@@ -41180,6 +43468,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {1, 5, 26, 28, 32},
@@ -41217,6 +43507,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {15, 20, 33},
@@ -41251,6 +43543,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {16, 25, 32},
@@ -41282,6 +43576,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Highmountain Tanner's Frame" },
         },
@@ -41322,6 +43618,8 @@ NS.CatalogData.Items = {
             { amount = 1000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 700, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {15, 32, 33},
@@ -41353,6 +43651,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "\"Unity of Thorns\" Tapestry" },
         },
@@ -41390,6 +43690,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {19, 33},
@@ -41421,6 +43723,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pyrewood Glass Bottle" },
         },
@@ -41458,6 +43762,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 200, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {6, 20, 29},
@@ -41489,6 +43795,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Smoke Lamp" },
             { sourceType = "Profession", sourceDetail = "Standing Smoke Lamp" },
@@ -41524,6 +43832,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Standing Smoke Lamp" },
         },
@@ -41563,6 +43873,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Pyrewood's Fall" },
         },
@@ -41597,6 +43909,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Flowers for Amalthea" },
         },
@@ -41634,6 +43948,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {1, 5, 19, 26},
         themeScores = {[1] = 43, [5] = 100, [19] = 100, [26] = 100},
     },
@@ -41663,6 +43979,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Silvermoon Spire Fountain" },
         },
@@ -41700,6 +44018,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 4},
         subcategoryIDs = {7, 21},
         themeIDs = {1, 5, 26},
@@ -41734,6 +44054,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {1, 5, 26},
@@ -41768,6 +44090,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 1155, iconPath = "Interface\\ICONS\\INV_Misc_ancient_mana.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 11, 12, 19, 26},
@@ -41799,6 +44123,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Small Gilnean Windmill" },
         },
@@ -41834,6 +44160,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -41876,6 +44204,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -41918,6 +44248,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         skipQuestChain = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Decor Treasure Hunt" },
         },
@@ -41959,6 +44291,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Snowfall Tribe Scare-Totem" },
         },
@@ -41993,6 +44327,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Green Potion" },
         },
@@ -42027,6 +44363,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Postbox" },
         },
@@ -42062,6 +44400,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Map" },
         },
@@ -42101,6 +44441,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 20, 33},
@@ -42138,6 +44480,8 @@ NS.CatalogData.Items = {
             { amount = 500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 300, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {15, 20, 33},
@@ -42175,6 +44519,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Empty Nest" },
         },
@@ -42209,6 +44555,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {15, 25, 32},
@@ -42240,6 +44588,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Camp Narache Rug" },
         },
@@ -42274,6 +44624,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Scaled Twilight Mosaic" },
         },
@@ -42308,6 +44660,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {7, 30},
@@ -42339,6 +44693,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {1, 5, 22, 26},
@@ -42373,6 +44729,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {14, 28},
@@ -42407,6 +44765,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"High Tides\" Ren", npcID = 255222, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Gronthul", npcID = 255278, zone = "Razorwind Shores", mapID = 2351 },
@@ -42442,6 +44802,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Outland Mag'har Banner" },
         },
@@ -42476,6 +44838,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Arakkoa Decoy Scarecrow" },
         },
@@ -42510,6 +44874,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Talon King's Totem" },
         },
@@ -42544,6 +44910,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Holo-Projector Pedestal" },
         },
@@ -42578,6 +44946,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tempest Keep Cryo-Pod" },
         },
@@ -42612,6 +44982,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Weaver's Loom" },
         },
@@ -42646,6 +45018,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Transmitter" },
         },
@@ -42680,6 +45054,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Crystal Signpost" },
         },
@@ -42714,6 +45090,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Draenei Round Table" },
         },
@@ -42748,6 +45126,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aldor Bookcase" },
         },
@@ -42782,6 +45162,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shattrath Sconce" },
         },
@@ -42816,6 +45198,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shattrath Lamppost" },
         },
@@ -42850,6 +45234,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Grand Drape of the Exiles" },
         },
@@ -42884,6 +45270,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Silver Dalaran Bench" },
         },
@@ -42918,6 +45306,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Post" },
         },
@@ -42950,6 +45340,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wolvar Postbag" },
         },
@@ -42985,6 +45377,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Dalaran Banner" },
         },
@@ -43019,6 +45413,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Scholar's Bookcase" },
         },
@@ -43053,6 +45449,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kirin Tor Sun Chandelier" },
         },
@@ -43087,6 +45485,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kirin Tor Crate" },
         },
@@ -43121,6 +45521,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Street Sign" },
         },
@@ -43156,6 +45558,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kirin Tor Glass Table" },
         },
@@ -43190,6 +45594,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "San'layn Blood Orb" },
         },
@@ -43224,6 +45630,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Icecrown Plague Canister" },
         },
@@ -43258,6 +45666,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Alchemist's Kit" },
         },
@@ -43292,6 +45702,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Halaa Bench" },
         },
@@ -43326,6 +45738,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Reconstructed Mogu Lightning Drill" },
         },
@@ -43363,6 +45777,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 20, 29},
@@ -43399,6 +45815,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Surrender... Not!" },
         },
@@ -43438,6 +45856,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 20, 29},
@@ -43474,6 +45894,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {29, 33},
@@ -43509,6 +45931,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {21, 33},
@@ -43540,6 +45964,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Display Shelves" },
         },
@@ -43574,6 +46000,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Failed Failure Detection Pylon" },
         },
@@ -43606,6 +46034,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Auto-Hammer" },
         },
@@ -43638,6 +46068,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Suramar Jeweler's Assortment" },
         },
@@ -43672,6 +46104,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aspiring Soul's Chair" },
         },
@@ -43706,6 +46140,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ardenweald Lamppost" },
         },
@@ -43740,6 +46176,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Maldraxxian Crate" },
         },
@@ -43774,6 +46212,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tome of Maldraxxian Rituals" },
         },
@@ -43808,6 +46248,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kyrian Anima Barrel" },
         },
@@ -43842,6 +46284,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Hollow Night Fae Shrine" },
         },
@@ -43876,6 +46320,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Broker's Hex Table" },
         },
@@ -43910,6 +46356,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ardenweald Hanging Baskets" },
         },
@@ -43944,6 +46392,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Large Revendreth Storage Crate" },
         },
@@ -43978,6 +46428,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Margrave's Stitched Leather Rug" },
         },
@@ -44012,6 +46464,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Cartel Ta Bookcase" },
         },
@@ -44046,6 +46500,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Cartel Xy Capture Crate" },
         },
@@ -44080,6 +46536,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Titanic Tyrhold Fountain" },
         },
@@ -44119,6 +46577,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Wickless Candle" },
         },
@@ -44158,6 +46618,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "New Candle, New Hope" },
         },
@@ -44197,6 +46659,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17, 20, 25},
@@ -44233,6 +46697,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Janky Candles" },
         },
@@ -44267,6 +46733,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {5, 20, 24},
@@ -44298,6 +46766,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Thunder Bluff Totem" },
         },
@@ -44335,6 +46805,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 16, 27, 32},
@@ -44366,6 +46838,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
         themeIDs = {5, 21, 33},
@@ -44397,6 +46871,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kirin Tor Skyline Banner" },
         },
@@ -44436,6 +46912,8 @@ NS.CatalogData.Items = {
             { amount = 50, currencyID = 1508, iconPath = "Interface\\ICONS\\Oshugun_CrystalFragments.BLP" },
             { amount = 12000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {10},
         themeIDs = {17, 23, 24},
@@ -44471,6 +46949,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 125, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 6, 17, 20},
@@ -44502,6 +46982,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Pandaren Fishing Net" },
         },
@@ -44536,6 +47018,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Beloved Elekk Plushie" },
         },
@@ -44573,6 +47057,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -44607,6 +47093,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {19, 31},
@@ -44641,6 +47129,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {6, 16, 27, 33},
@@ -44672,6 +47162,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Beloved Raptor Plushie" },
         },
@@ -44706,6 +47198,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sandfury Diplomat's Banner" },
         },
@@ -44740,6 +47234,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tidesage's Totem" },
         },
@@ -44774,6 +47270,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Drust Enchanter's Rod" },
         },
@@ -44806,6 +47304,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kyrian Aspirant's Rolled Cushion" },
         },
@@ -44840,6 +47340,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {5, 21, 33},
@@ -44871,6 +47373,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {8},
         themeIDs = {5, 6, 11, 21, 26, 33},
@@ -44902,6 +47406,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {21, 26, 33},
@@ -44936,6 +47442,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -44974,6 +47482,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -45012,6 +47522,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45046,6 +47558,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45080,6 +47594,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45114,6 +47630,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45148,6 +47666,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Xiao Dan", npcID = 255203, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"High Tides\" Ren", npcID = 255325, x = 39.8, y = 72.8, zone = "Razorwind Shores", mapID = 2351 },
@@ -45187,6 +47707,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 27},
@@ -45223,6 +47745,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 28},
@@ -45259,6 +47783,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 27, 28},
@@ -45293,6 +47819,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 19, 28},
@@ -45324,6 +47852,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Warlords of Draenor",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {20, 22, 26},
@@ -45360,6 +47890,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 28},
@@ -45394,6 +47926,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 17, 19, 28},
@@ -45428,6 +47962,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 28},
@@ -45464,6 +48000,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 2},
         subcategoryIDs = {15, 9},
         themeIDs = {17, 26, 27},
@@ -45500,6 +48038,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {19, 27},
@@ -45534,6 +48074,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 175, currencyID = 1560, iconPath = "Interface\\ICONS\\INV__Faction_WarResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {8},
         themeIDs = {6, 10, 20, 29},
@@ -45568,6 +48110,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45602,6 +48146,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45636,6 +48182,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45670,6 +48218,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45704,6 +48254,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {30, 31},
@@ -45735,6 +48287,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 11, 21, 33},
@@ -45766,6 +48320,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -45795,6 +48351,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -45824,6 +48382,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -45854,6 +48414,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {24, 25},
@@ -45886,6 +48448,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 15},
         themeIDs = {23, 24},
@@ -45917,6 +48481,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 28},
@@ -45948,6 +48514,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 28},
@@ -45979,6 +48547,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46010,6 +48580,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46041,6 +48613,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46072,6 +48646,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46103,6 +48679,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46134,6 +48712,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {24},
@@ -46165,6 +48745,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46196,6 +48778,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46227,6 +48811,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46258,6 +48844,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46289,6 +48877,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46320,6 +48910,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {26, 27},
@@ -46354,6 +48946,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 4000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {25, 32},
@@ -46385,6 +48979,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -46414,6 +49010,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
     },
@@ -46443,6 +49041,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
     },
@@ -46475,6 +49075,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 27, 33},
@@ -46507,6 +49109,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 10,
         expansion = "Dragonflight",
         dropRate = 0.66,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {2, 26, 28},
@@ -46541,6 +49145,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 27, 32},
@@ -46575,6 +49181,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 27, 33},
@@ -46609,6 +49217,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {16, 27},
@@ -46643,6 +49253,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Multi-Front Battle" },
         },
@@ -46682,6 +49294,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {31},
@@ -46718,6 +49332,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "To Kill a Queen" },
         },
@@ -46755,6 +49371,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2000, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {17, 24, 28},
@@ -46792,6 +49410,8 @@ NS.CatalogData.Items = {
             { amount = 200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Can't Hold a Candle To You" },
         },
@@ -46826,6 +49446,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Maldraxxian Runic Tablet" },
         },
@@ -46865,6 +49487,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 300, currencyID = 2815, iconPath = "Interface\\ICONS\\SPELL_AZERITE_ESSENCE14.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Showdown in the Attic" },
         },
@@ -46902,6 +49526,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46940,6 +49566,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -46976,6 +49604,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {32},
@@ -47008,6 +49638,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {20, 22},
@@ -47042,6 +49674,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {9},
         themeIDs = {17, 24, 25},
@@ -47077,6 +49711,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Gabbi", npcID = 261262, x = 48.5, y = 81.2, zone = "Orgrimmar", mapID = 85 },
             { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
@@ -47112,6 +49748,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Draenei Crystal Chandelier" },
         },
@@ -47146,6 +49784,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Face the Tide" },
         },
@@ -47180,6 +49820,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Lush Telogrus Carpet" },
         },
@@ -47214,6 +49856,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Riftstone" },
             { sourceType = "Quest", sourceDetail = "A Shady Place" },
@@ -47249,6 +49893,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Entropic Illuminant" },
         },
@@ -47283,6 +49929,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Haranir Preserving Agents" },
         },
@@ -47317,6 +49965,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Embossed Sin'dorei Fur Rug" },
         },
@@ -47351,6 +50001,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ensorcelled Broom" },
         },
@@ -47385,6 +50037,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Silvermoon Anvil" },
         },
@@ -47419,6 +50073,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Masterwork Crafting Hammer" },
         },
@@ -47457,6 +50113,8 @@ NS.CatalogData.Items = {
             { amount = 30, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "The Last Architect", npcID = 248854, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "The Last Architect", npcID = 248854, zone = "Razorwind Shores", mapID = 2351 },
@@ -47492,6 +50150,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shining Sin'dorei Hourglass" },
         },
@@ -47526,6 +50186,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Font of Gleaming Water" },
         },
@@ -47560,6 +50222,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ornamental Silvermoon Hanger" },
         },
@@ -47594,6 +50258,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Silvermoon Hanger" },
         },
@@ -47628,6 +50294,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Animated Sin'dorei Pick" },
         },
@@ -47662,6 +50330,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Animated Sin'dorei Hammer" },
         },
@@ -47696,6 +50366,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Anvil" },
         },
@@ -47730,6 +50402,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Tenebrous Ren'dorei Armillary" },
         },
@@ -47767,6 +50441,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 18, 28, 31},
@@ -47801,6 +50477,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {18, 31},
@@ -47832,6 +50510,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Floating Void-Touched Tome" },
         },
@@ -47866,6 +50546,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Stargazer" },
         },
@@ -47903,6 +50585,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {31},
@@ -47934,6 +50618,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Stellar Stash" },
         },
@@ -47968,6 +50654,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Postal Repository" },
         },
@@ -48003,6 +50691,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Brilliant Phoenix Harp" },
         },
@@ -48037,6 +50727,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Spellbound Tome of Thalassian Magics" },
         },
@@ -48071,6 +50763,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Bejeweled Sin'dorei Lyre" },
         },
@@ -48108,6 +50802,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Strange, Different World" },
         },
@@ -48145,6 +50841,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {18, 26, 31},
@@ -48176,6 +50874,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Simple Haranir Table" },
         },
@@ -48210,6 +50910,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Rootflame Campfire" },
         },
@@ -48244,6 +50946,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Luxurious Silvermoon Lounge Cushion" },
         },
@@ -48278,6 +50982,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Plush Silvermoon Bed" },
         },
@@ -48312,6 +51018,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Chic Silvermoon Pillow" },
         },
@@ -48346,6 +51054,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Homely Sin'dorei Shelf" },
         },
@@ -48380,6 +51090,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Homely Wall Shelves" },
         },
@@ -48414,6 +51126,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilded Eversong Book" },
         },
@@ -48448,6 +51162,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Opened Sin'dorei Scroll" },
         },
@@ -48482,6 +51198,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Silvermoon Curtains" },
             { sourceType = "Quest", sourceDetail = "Clothes Make the Man" },
@@ -48517,6 +51235,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stitched Haranir Rug" },
         },
@@ -48551,6 +51271,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Wild Hanging Scroll" },
         },
@@ -48585,6 +51307,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Warp Orb" },
         },
@@ -48622,6 +51346,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Nexus-Point Xenas: Eclipse" },
         },
@@ -48657,6 +51383,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {18, 26, 31},
@@ -48688,6 +51416,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {1},
         themeIDs = {18, 31},
@@ -48722,6 +51452,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {19, 31},
@@ -48758,6 +51490,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {18, 19, 27},
@@ -48789,6 +51523,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Voidstrider Saddlebag" },
         },
@@ -48823,6 +51559,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sturdy Ren'dorei Cask" },
         },
@@ -48857,6 +51595,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Replica Haranir Mural" },
         },
@@ -48896,6 +51636,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Traveling Flowers" },
         },
@@ -48930,6 +51672,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Sin'dorei Phoenix Quill" },
         },
@@ -48964,6 +51708,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Lively Songwriter's Quill" },
             { sourceType = "Treasure", sourceDetail = "Forgotten Ink and Quill" },
@@ -49003,6 +51749,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Crafting Framework" },
         },
@@ -49037,6 +51785,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Void Projector" },
         },
@@ -49074,6 +51824,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 2},
         subcategoryIDs = {10, 25},
         themeIDs = {14, 25, 27},
@@ -49105,6 +51857,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Kyrian Floating Lamp" },
         },
@@ -49142,6 +51896,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49180,6 +51936,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49218,6 +51976,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49256,6 +52016,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49291,6 +52053,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Small Telogrus Lamp" },
         },
@@ -49325,6 +52089,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Restful Bronze Bench" },
         },
@@ -49362,6 +52128,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49402,6 +52170,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {9, 25, 33},
@@ -49436,6 +52206,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49471,6 +52243,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {25, 32},
@@ -49505,6 +52279,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {9, 32, 33},
@@ -49541,6 +52317,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "From This Point Forward" },
         },
@@ -49578,6 +52356,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 100, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Faarden the Builder", npcID = 255213, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Len\" Splinthoof", npcID = 255326, x = 39.8, y = 70.2, zone = "Razorwind Shores", mapID = 2351 },
@@ -49616,6 +52396,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {13, 25, 32},
@@ -49647,6 +52429,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Darkmaster's Mystical Brazier" },
         },
@@ -49681,6 +52465,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Magnificent Towering Bookcase" },
         },
@@ -49715,6 +52501,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18},
         themeIDs = {9, 21, 33},
@@ -49751,6 +52539,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {9, 27, 33},
@@ -49785,6 +52575,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {2},
         themeIDs = {5, 9, 20, 33},
@@ -49819,6 +52611,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {6, 9, 21, 33},
@@ -49854,6 +52648,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
         themeIDs = {9, 27, 33},
@@ -49885,6 +52681,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {9, 33},
@@ -49919,6 +52717,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49957,6 +52757,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -49995,6 +52797,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -50033,6 +52837,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -50071,6 +52877,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -50109,6 +52917,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Aeeshna", npcID = 252605, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Aeeshna", npcID = 252605, zone = "Razorwind Shores", mapID = 2351 },
@@ -50144,6 +52954,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Ren'dorei Lightpost" },
         },
@@ -50179,6 +52991,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2},
@@ -50211,6 +53025,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 6, 17},
@@ -50245,6 +53061,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {17},
         themeIDs = {9, 21, 33},
@@ -50279,6 +53097,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {9, 21, 33},
@@ -50315,6 +53135,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {9, 21, 33},
@@ -50349,6 +53171,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {6, 15},
         themeIDs = {1, 5, 26, 32},
@@ -50383,6 +53207,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {1, 5, 26},
@@ -50417,6 +53243,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {1, 5, 26},
@@ -50451,6 +53279,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Gift of the Phoenix" },
         },
@@ -50492,6 +53322,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {1, 5, 26},
@@ -50526,6 +53358,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 26},
@@ -50560,6 +53394,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -50594,6 +53430,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29},
         themeIDs = {1, 5, 11, 19, 26, 33},
@@ -50628,6 +53466,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 3379, iconPath = "Interface\\ICONS\\INV_Elemental_Primal_Mana.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12},
         themeIDs = {1, 5, 26},
@@ -50662,6 +53502,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {1, 5, 26},
@@ -50696,6 +53538,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {1, 5, 26},
@@ -50727,6 +53571,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 19, 26, 28},
@@ -50763,6 +53609,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 26},
@@ -50797,6 +53645,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 19, 26},
@@ -50828,6 +53678,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 19, 26, 28},
@@ -50862,6 +53714,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {1, 5, 19, 26, 28},
@@ -50893,6 +53747,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {1, 5, 24, 26},
@@ -50924,6 +53780,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {14, 34},
     },
@@ -50956,6 +53814,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Work Disruption" },
         },
@@ -50990,6 +53850,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51019,6 +53881,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51048,6 +53912,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51077,6 +53943,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {25},
         themeIDs = {21, 33},
@@ -51108,6 +53976,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {25},
         themeIDs = {11, 21, 33},
@@ -51139,6 +54009,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17},
@@ -51170,6 +54042,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51199,6 +54073,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51228,6 +54104,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51257,6 +54135,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51286,6 +54166,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51318,6 +54200,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Gabbi", npcID = 261262, x = 48.5, y = 81.2, zone = "Orgrimmar", mapID = 85 },
             { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
@@ -51354,6 +54238,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Gabbi", npcID = 261262, x = 48.5, y = 81.2, zone = "Orgrimmar", mapID = 85 },
             { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
@@ -51387,6 +54273,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {2},
@@ -51421,6 +54309,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Gabbi", npcID = 261262, x = 48.5, y = 81.2, zone = "Orgrimmar", mapID = 85 },
             { name = "Tuuran", npcID = 261231, x = 48.7, y = 69, zone = "Stormwind City", mapID = 84 },
@@ -51454,6 +54344,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51483,6 +54375,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -51517,6 +54411,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         themeIDs = {9, 19, 33},
         themeScores = {[9] = 100, [19] = 100, [33] = 100},
     },
@@ -51549,6 +54445,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {16, 20},
@@ -51583,6 +54481,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {16, 20},
@@ -51618,6 +54518,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {19, 22},
@@ -51652,6 +54554,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "First, The Shells" },
         },
@@ -51689,6 +54593,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 21, 33},
@@ -51723,6 +54629,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {17, 25, 29},
@@ -51757,6 +54665,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 24, 27, 31},
@@ -51791,6 +54701,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -51825,6 +54737,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -51859,6 +54773,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Shim'dak", npcID = 253037, zone = "Zul'Aman", mapID = 2437 },
             { name = "Quelis", npcID = 257914, x = 56.5, y = 70, zone = "Silvermoon City", mapID = 2393 },
@@ -51897,6 +54813,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 19, 26},
@@ -51931,6 +54849,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26, 30},
@@ -51965,6 +54885,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26, 29},
@@ -51999,6 +54921,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 33},
@@ -52033,6 +54957,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Jegako the Traveler", npcID = 258882, zone = "Zul'Aman", mapID = 2437 },
         },
@@ -52070,6 +54996,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -52104,6 +55032,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -52138,6 +55068,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {24, 25},
@@ -52172,6 +55104,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {24, 27, 33},
@@ -52207,6 +55141,8 @@ NS.CatalogData.Items = {
             { amount = 750, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {5, 6, 11, 33},
@@ -52241,6 +55177,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 25, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Balen Starfinder", npcID = 255216, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Jehzar Starfall", npcID = 255298, zone = "Razorwind Shores", mapID = 2351 },
@@ -52277,6 +55215,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {5, 11, 26, 33},
@@ -52311,6 +55251,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -52345,6 +55287,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -52379,6 +55323,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 11},
         themeIDs = {1, 26},
@@ -52413,6 +55359,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {16, 25},
@@ -52449,6 +55397,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Root Dash Delivery" },
         },
@@ -52483,6 +55433,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {2, 26, 27},
@@ -52517,6 +55469,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1500, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {23, 28},
@@ -52551,6 +55505,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 9, 11, 21, 33},
@@ -52582,6 +55538,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Plush Haranir Leather Pillow" },
         },
@@ -52619,6 +55577,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
         themeIDs = {6, 9, 21, 33},
@@ -52650,6 +55610,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29},
         themeIDs = {21, 33},
@@ -52686,6 +55648,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Fairbreeze Favors" },
         },
@@ -52723,6 +55687,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1600, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Chel the Chip", npcID = 241928, zone = "Harandar", mapID = 2413 },
             { name = "Chel the Chip", npcID = 241928, zone = "Voidstorm", mapID = 2405 },
@@ -52762,6 +55728,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {31, 32},
@@ -52796,6 +55764,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Chel the Chip", npcID = 241928, zone = "Harandar", mapID = 2413 },
             { name = "Chel the Chip", npcID = 241928, zone = "Voidstorm", mapID = 2405 },
@@ -52837,6 +55807,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Gnarldin Bashing" },
         },
@@ -52876,6 +55848,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Amani Stand Strong" },
         },
@@ -52910,6 +55884,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {5, 21, 33},
@@ -52945,6 +55921,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {12, 15},
         themeIDs = {9, 21, 32},
@@ -52981,6 +55959,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11, 12},
         themeIDs = {9, 32, 33},
@@ -53015,6 +55995,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {1, 5, 26},
@@ -53049,6 +56031,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21, 19},
         themeIDs = {1, 5, 26, 27},
@@ -53083,6 +56067,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {28},
         themeIDs = {5, 21, 33},
@@ -53117,6 +56103,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29},
         themeIDs = {5, 21, 33},
@@ -53151,6 +56139,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 8},
         subcategoryIDs = {34, 29},
         themeIDs = {21, 33},
@@ -53185,6 +56175,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6},
         subcategoryIDs = {29},
         themeIDs = {21, 33},
@@ -53216,6 +56208,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {13},
@@ -53247,6 +56241,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {15},
         themeIDs = {1},
@@ -53278,6 +56274,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {14, 34},
         themeIDs = {11},
@@ -53313,6 +56311,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {13, 6},
     },
@@ -53346,6 +56346,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {19, 22},
@@ -53381,6 +56383,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 250, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {13},
         themeIDs = {19, 22},
@@ -53413,6 +56417,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 3},
         subcategoryIDs = {11, 29},
         themeIDs = {6, 26},
@@ -53445,6 +56451,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3, 8},
         subcategoryIDs = {15, 34},
         themeIDs = {26},
@@ -53477,6 +56485,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -53506,6 +56516,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {5},
         themeIDs = {16, 22, 25},
@@ -53537,6 +56549,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {18, 19},
         themeIDs = {16, 25},
@@ -53568,6 +56582,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {16, 25, 27},
@@ -53602,6 +56618,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {16, 25, 27},
@@ -53638,6 +56656,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Amani Clarion Call" },
         },
@@ -53675,6 +56695,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {16, 25, 27},
@@ -53706,6 +56728,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21},
         themeIDs = {31},
@@ -53740,6 +56764,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {31, 32},
@@ -53771,6 +56797,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {30, 31},
@@ -53805,6 +56833,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {19, 31},
@@ -53839,6 +56869,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Third, Blow It Up" },
         },
@@ -53876,6 +56908,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {31},
@@ -53907,6 +56941,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {31},
@@ -53938,6 +56974,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {19, 31},
@@ -53972,6 +57010,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {18, 19, 31},
@@ -54006,6 +57046,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {19},
         themeIDs = {19, 31},
@@ -54042,6 +57084,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1000, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Leader Hozen" },
         },
@@ -54079,6 +57123,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 25, 27},
@@ -54113,6 +57159,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {18, 31, 32},
@@ -54149,6 +57197,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1, 3},
         subcategoryIDs = {7, 15},
         themeIDs = {14, 26},
@@ -54181,6 +57231,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {7, 30},
@@ -54213,6 +57265,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Midnight",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {14},
     },
@@ -54243,6 +57297,8 @@ NS.CatalogData.Items = {
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
         isShopItem = true,
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {6, 3},
         subcategoryIDs = {26, 11},
         themeIDs = {26, 33},
@@ -54277,6 +57333,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {15, 25},
@@ -54314,6 +57372,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
         },
@@ -54353,6 +57413,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
         },
@@ -54392,6 +57454,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Den of Nalorakk: A Taste of Vengeance" },
         },
@@ -54426,6 +57490,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Treasure", sourceDetail = "Malignant Chest" },
         },
@@ -54460,6 +57526,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {21, 19},
         themeIDs = {17, 18, 31},
@@ -54491,6 +57559,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {31},
@@ -54522,6 +57592,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {24, 31},
@@ -54556,6 +57628,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {31},
@@ -54587,6 +57661,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {31},
@@ -54618,6 +57694,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {19, 31},
@@ -54649,6 +57727,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {2, 19, 31},
@@ -54683,6 +57763,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "A Matter of Strife and Death" },
         },
@@ -54720,6 +57802,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {6},
         themeIDs = {18, 31},
@@ -54754,6 +57838,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 3200, currencyID = 3377, iconPath = "Interface\\ICONS\\INV_10_Gathering_BioluminescentSpores_Large.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Chel the Chip", npcID = 241928, zone = "Harandar", mapID = 2413 },
             { name = "Chel the Chip", npcID = 241928, zone = "Voidstorm", mapID = 2405 },
@@ -54793,6 +57879,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {18, 31, 32},
@@ -54827,6 +57915,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2500, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "First, The Shells" },
         },
@@ -54864,6 +57954,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Harvest" },
         },
@@ -54903,6 +57995,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {18, 31},
@@ -54934,6 +58028,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Sewer Gate" },
         },
@@ -54968,6 +58064,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Rolled Scarab Rug" },
         },
@@ -55002,6 +58100,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Aspirant's Ringed Banner" },
         },
@@ -55036,6 +58136,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Valdrakken Wall Shelf" },
         },
@@ -55070,6 +58172,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55099,6 +58203,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55128,6 +58234,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55157,6 +58265,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55186,6 +58296,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55215,6 +58327,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55244,6 +58358,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55273,6 +58389,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55302,6 +58420,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55331,6 +58451,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55360,6 +58482,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55389,6 +58513,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 0,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -55418,6 +58544,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Glazed Sin'dorei Vial" },
         },
@@ -55452,6 +58580,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Shadow Council Torch" },
         },
@@ -55486,6 +58616,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Resizable All-Purpose Gear" },
         },
@@ -55520,6 +58652,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Home Defense Gadget" },
         },
@@ -55554,6 +58688,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Stranglekelp Sack" },
         },
@@ -55586,6 +58722,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Dalaran Sun Sconce" },
         },
@@ -55620,6 +58758,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Joybuzz's Joyful Wall of Trains" },
         },
@@ -55654,6 +58794,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Gilnean Spare Saddle" },
         },
@@ -55688,6 +58830,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Heart of the Forest Banner" },
         },
@@ -55727,6 +58871,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Embers to a Flame" },
         },
@@ -55761,6 +58907,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {16, 17, 24, 27},
@@ -55792,6 +58940,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Arakkoan Alchemist's Concoction" },
         },
@@ -55826,6 +58976,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Arakkoan Alchemist's Bottle" },
         },
@@ -55863,6 +59015,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -55901,6 +59055,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -55939,6 +59095,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -55977,6 +59135,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56015,6 +59175,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56053,6 +59215,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56091,6 +59255,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 20, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56129,6 +59295,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 2, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56167,6 +59335,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 15, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56205,6 +59375,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 10, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56243,6 +59415,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56281,6 +59455,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 5, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56319,6 +59495,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56351,6 +59529,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56383,6 +59563,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56415,6 +59597,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56447,6 +59631,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56479,6 +59665,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56511,6 +59699,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56543,6 +59733,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56575,6 +59767,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17},
@@ -56609,6 +59803,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17},
@@ -56643,6 +59839,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56675,6 +59873,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17},
@@ -56709,6 +59909,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3363, iconPath = "Interface\\ICONS\\INV_Misc_Ticket_Tarot_TwistingNether_01.blp" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Harlowe Marl", npcID = 202468, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Harlowe Marl", npcID = 202468, zone = "Razorwind Shores", mapID = 2351 },
@@ -56747,6 +59949,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56779,6 +59983,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {31},
@@ -56813,6 +60019,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17, 23},
@@ -56847,6 +60055,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56879,6 +60089,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56911,6 +60123,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -56943,6 +60157,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {17},
@@ -56977,6 +60193,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -57009,6 +60227,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -57041,6 +60261,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 500, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
     },
@@ -57074,6 +60296,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 19, 26},
@@ -57109,6 +60333,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 30},
@@ -57144,6 +60370,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 31},
@@ -57179,6 +60407,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57214,6 +60444,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 25, 26},
@@ -57249,6 +60481,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 33},
@@ -57284,6 +60518,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 27},
@@ -57319,6 +60555,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26},
@@ -57354,6 +60592,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57389,6 +60629,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57424,6 +60666,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 24, 26},
@@ -57459,6 +60703,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 33},
@@ -57494,6 +60740,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 31},
@@ -57529,6 +60777,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 19, 26},
@@ -57564,6 +60814,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 30},
@@ -57599,6 +60851,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 31},
@@ -57634,6 +60888,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57669,6 +60925,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 25, 26},
@@ -57704,6 +60962,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 33},
@@ -57739,6 +60999,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 27},
@@ -57774,6 +61036,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26},
@@ -57809,6 +61073,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57844,6 +61110,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -57879,6 +61147,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 24, 26},
@@ -57914,6 +61184,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 33},
@@ -57949,6 +61221,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 31},
@@ -57980,6 +61254,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Haranir Canopy Bed" },
         },
@@ -58017,6 +61293,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {2},
         subcategoryIDs = {4},
         themeIDs = {33},
@@ -58051,6 +61329,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {1, 5, 26},
@@ -58085,6 +61365,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {1},
         subcategoryIDs = {7},
         themeIDs = {1, 5, 26},
@@ -58120,6 +61402,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 31},
@@ -58155,6 +61439,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1200, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 26, 32},
@@ -58190,6 +61476,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 31},
@@ -58225,6 +61513,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 800, currencyID = 3392, iconPath = "Interface\\ICONS\\INV_10_ElementalCombinedFoozles_Blood.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 32},
@@ -58256,6 +61546,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 32},
@@ -58287,6 +61579,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {21, 26, 32},
@@ -58318,6 +61612,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 32},
@@ -58352,6 +61648,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -58390,6 +61688,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -58428,6 +61728,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -58466,6 +61768,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -58504,6 +61808,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "\"Yen\" Malone", npcID = 255230, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "Botanist Boh'an", npcID = 255301, zone = "Razorwind Shores", mapID = 2351 },
@@ -58542,6 +61848,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -58580,6 +61888,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -58618,6 +61928,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -58656,6 +61968,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -58694,6 +62008,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 150, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         factionVendors = {
             Alliance = { name = "Trevor Grenner", npcID = 255221, zone = "Founder's Point", mapID = 2352 },
             Horde = { name = "\"Yen\" Malone", npcID = 255319, x = 39, y = 73, zone = "Razorwind Shores", mapID = 2351 },
@@ -58732,6 +62048,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -58769,6 +62087,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -58808,6 +62128,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 1, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "The Foundation of Aln" },
         },
@@ -58845,6 +62167,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 50, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -58880,6 +62204,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 75, currencyID = 0, iconPath = "INTERFACE\\MONEYFRAME\\UI-GOLDICON.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalVendors = {
             { name = "Botanist Boh'an", npcID = 255301, x = 53.7, y = 57.7, zone = "Razorwind Shores", mapID = 2351 },
         },
@@ -58914,6 +62240,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 32},
@@ -58945,6 +62273,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {21, 26, 32},
@@ -58976,6 +62306,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 32},
@@ -59007,6 +62339,8 @@ NS.CatalogData.Items = {
         placementCost = 5,
         firstAcquisitionBonus = 10,
         expansion = "Wrath of the Lich King",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {24, 31},
@@ -59038,7 +62372,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Battle for Azeroth",
-        patchAdded = "12.0.0",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {4},
         subcategoryIDs = {16},
         themeIDs = {5, 6, 17, 27},
@@ -59070,6 +62405,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {8},
         subcategoryIDs = {34},
         themeIDs = {16, 25, 32},
@@ -59104,6 +62441,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "All Become Prey" },
         },
@@ -59141,6 +62480,8 @@ NS.CatalogData.Items = {
         vendorCosts = {
             { amount = 750, currencyID = 3316, iconPath = "Interface\\ICONS\\INV_112_RaidTrinkets_VoidPrism.BLP" },
         },
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Quest", sourceDetail = "Just In Case..." },
         },
@@ -59175,6 +62516,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {21, 26, 32},
@@ -59206,6 +62549,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {1, 5, 26, 27, 32},
@@ -59237,6 +62582,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Endless Codex of Blooming Light" },
         },
@@ -59271,6 +62618,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Endless Codex of Nature's Grace" },
         },
@@ -59305,6 +62654,8 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Unknown",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         additionalSources = {
             { sourceType = "Profession", sourceDetail = "Endless Codex of the Voidtouched" },
         },
@@ -59339,6 +62690,8 @@ NS.CatalogData.Items = {
         placementCost = 1,
         firstAcquisitionBonus = 10,
         expansion = "Midnight",
+        patchAdded = "12.0.1",
+        dateAdded = "2026-03-28",
         categoryIDs = {3},
         subcategoryIDs = {11},
         themeIDs = {26, 32},
