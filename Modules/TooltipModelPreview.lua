@@ -2,6 +2,14 @@
 -- HearthAndSeek: TooltipModelPreview.lua
 -- Shows a slowly rotating 3D model preview beside the tooltip when
 -- hovering over any decoration item found in the catalog.
+--
+-- Taint workaround: OrbitCameraMixin (called by TransitionToModelSceneID)
+-- reads GetWidth()/GetHeight() on the ModelScene. For addon-created frames,
+-- WoW's layout engine taints these values as "secret numbers" (for the
+-- session) after combat, causing the camera setup to error. We override
+-- GetWidth and GetHeight on the ModelScene instance to return clean Lua
+-- numbers, which the Lua-side OrbitCameraMixin picks up instead of the
+-- tainted C values.
 -------------------------------------------------------------------------------
 local _, NS = ...
 
@@ -14,34 +22,25 @@ if not C_HousingCatalog then return end
 local PREVIEW_SIZE = 200
 local ROTATION_SPEED = 0.5  -- radians per second
 local DEFAULT_SCENE_ID = 859
-
--- Debug: set to true to print diagnostic info to chat
-local DEBUG = false
-local function dbg(...)
-    if DEBUG then print("|cff00ccff[H&S Preview]|r", ...) end
-end
+local SCENE_INSET = 6
+local SCENE_SIZE = PREVIEW_SIZE - SCENE_INSET * 2  -- 188
 
 -------------------------------------------------------------------------------
 -- Reverse lookup: itemID → catalog item (built lazily)
 -------------------------------------------------------------------------------
 local itemIDToDecor = nil
+local currentItem = nil  -- full catalog item for the currently hovered decor
 
 local function EnsureItemLookup()
     if itemIDToDecor then return end
     itemIDToDecor = {}
     local items = NS.CatalogData and NS.CatalogData.Items
-    if not items then
-        dbg("WARNING: CatalogData.Items is nil!")
-        return
-    end
-    local count = 0
+    if not items then return end
     for _, item in pairs(items) do
         if item.itemID and item.itemID > 0 and item.asset and item.asset > 0 then
             itemIDToDecor[item.itemID] = item
-            count = count + 1
         end
     end
-    dbg("Built itemID lookup:", count, "entries")
 end
 
 -------------------------------------------------------------------------------
@@ -72,10 +71,18 @@ local function GetPreviewFrame()
     -- ModelScene inside the wrapper (no mouse interaction — display only)
     local scene = CreateFrame("ModelScene", nil, f,
         "PanningModelSceneMixinTemplate")
-    scene:SetPoint("TOPLEFT", 6, -6)
-    scene:SetPoint("BOTTOMRIGHT", -6, 6)
+    scene:SetPoint("TOPLEFT", SCENE_INSET, -SCENE_INSET)
+    scene:SetPoint("BOTTOMRIGHT", -SCENE_INSET, SCENE_INSET)
     scene:EnableMouse(false)
     scene:EnableMouseWheel(false)
+
+    -- TAINT WORKAROUND: Override GetWidth/GetHeight on the ModelScene instance
+    -- with plain Lua functions that return clean numbers. OrbitCameraMixin
+    -- calls self:GetWidth() through Lua — our instance-level override shadows
+    -- the C-side widget method, so the mixin never sees the tainted "secret
+    -- number" value that WoW's layout engine produces after combat.
+    scene.GetWidth  = function() return SCENE_SIZE end
+    scene.GetHeight = function() return SCENE_SIZE end
 
     f._modelScene = scene
 
@@ -83,7 +90,6 @@ local function GetPreviewFrame()
     -- its own OnUpdate from PanningModelSceneMixinTemplate that must not
     -- be replaced)
     f:SetScript("OnUpdate", function(self, elapsed)
-        if not self:IsVisible() then return end
         local actor = self._modelScene:GetActorByTag("decor")
         if actor then
             local yaw = actor:GetYaw() or 0
@@ -91,7 +97,6 @@ local function GetPreviewFrame()
         end
     end)
     previewFrame = f
-    dbg("Preview frame created")
     return f
 end
 
@@ -102,10 +107,7 @@ local currentItemID = nil  -- tracks which item is currently previewed
 local pendingGen = 0       -- generation counter for deferred timer validation
 
 local function ShowPreview(item, tooltip)
-    if not item or not item.asset or item.asset <= 0 then
-        dbg("ShowPreview: no item or no asset")
-        return
-    end
+    if not item or not item.asset or item.asset <= 0 then return end
 
     -- Already showing this item — don't reset the scene (avoids stutter)
     if currentItemID == item.itemID and previewFrame and previewFrame:IsShown() then
@@ -114,14 +116,10 @@ local function ShowPreview(item, tooltip)
 
     local f = GetPreviewFrame()
     currentItemID = item.itemID
-    f:SetSize(PREVIEW_SIZE, PREVIEW_SIZE)
+    currentItem = item
 
-    -- Position beside the tooltip. Always anchor directly to the tooltip
-    -- so the preview follows it naturally. The screen-bounds check (right
-    -- vs left side) reads tooltip geometry which can be tainted after
-    -- combat ("secret number" values that persist beyond InCombatLockdown).
-    -- pcall the check so taint silently falls back to the right-side
-    -- default; SetClampedToScreen(true) prevents overflow.
+    -- Position beside the tooltip. The screen-bounds check reads tooltip
+    -- geometry via pcall in case values are tainted from a previous session.
     f:ClearAllPoints()
 
     local anchorLeft = false
@@ -145,7 +143,7 @@ local function ShowPreview(item, tooltip)
     f._modelScene:ClearScene()
 
     local sceneID = item.uiModelSceneID or DEFAULT_SCENE_ID
-    local ok, err = pcall(function()
+    local ok = pcall(function()
         f._modelScene:TransitionToModelSceneID(
             sceneID,
             CAMERA_TRANSITION_TYPE_IMMEDIATE,
@@ -154,25 +152,19 @@ local function ShowPreview(item, tooltip)
         )
     end)
 
-    if not ok then
-        dbg("TransitionToModelSceneID FAILED:", tostring(err))
-        return
-    end
+    if not ok then return end
 
     local actor = f._modelScene:GetActorByTag("decor")
-    if not actor then
-        dbg("GetActorByTag('decor') returned nil for sceneID:", sceneID)
-        return
-    end
+    if not actor then return end
 
     actor:SetPreferModelCollisionBounds(true)
     actor:SetModelByFileID(item.asset)
     f:Show()
-    dbg("Showing model for", item.name or "?", "asset:", item.asset, "scene:", sceneID)
 end
 
 local function HidePreview()
     currentItemID = nil
+    currentItem = nil
     if previewFrame and previewFrame:IsShown() then
         previewFrame:Hide()
     end
@@ -208,6 +200,9 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
 
             local item = itemIDToDecor[itemID]
             if item then
+                -- Add hint line to the tooltip
+                tooltip:AddLine("|cff55aaeeALT+Left Click|r for full screen preview", 0.5, 0.5, 0.5)
+
                 -- Bump generation so any older pending timer is invalidated
                 pendingGen = pendingGen + 1
                 local myGen = pendingGen
@@ -217,22 +212,31 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
                 -- TransitionToModelSceneID and Show() can fail silently from
                 -- taint when called inside securecallfunction
                 C_Timer.After(0, function()
-                    -- Generation mismatch means a newer hover superseded us
                     if myGen ~= pendingGen then return end
                     if GameTooltip:IsShown() then
                         ShowPreview(item, GameTooltip)
                     end
                 end)
             else
-                -- Non-decor item: cancel any pending decor preview timer
                 pendingGen = pendingGen + 1
                 HidePreview()
             end
         end)
-    dbg("TooltipDataProcessor hook registered")
-else
-    dbg("WARNING: TooltipDataProcessor not available!")
 end
+
+-------------------------------------------------------------------------------
+-- Alt+Left Click: open big viewer for the currently hovered decor item
+-------------------------------------------------------------------------------
+local clickListener = CreateFrame("Frame")
+clickListener:RegisterEvent("GLOBAL_MOUSE_DOWN")
+clickListener:SetScript("OnEvent", function(_, _, button)
+    if button ~= "LeftButton" or not IsAltKeyDown() then return end
+    if not currentItem then return end
+    if not GameTooltip:IsShown() then return end
+    if NS.UI and NS.UI.ShowBigModelViewer then
+        NS.UI.ShowBigModelViewer(currentItem)
+    end
+end)
 
 -------------------------------------------------------------------------------
 -- Public API

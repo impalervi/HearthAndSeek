@@ -426,6 +426,41 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _stamp_new_versions(new_decor_ids: list[int], data_dir: Path) -> None:
+    """Add new decorIDs to item_versions.json with today's date and current patch."""
+    from datetime import date
+
+    versions_path = data_dir / "item_versions.json"
+    if versions_path.exists():
+        with open(versions_path, encoding="utf-8") as f:
+            versions = json.load(f)
+    else:
+        versions = {}
+
+    today = date.today().isoformat()
+
+    # Prompt for current WoW patch version
+    print()
+    print(f"  {len(new_decor_ids)} new item(s) need a WoW patch version stamp.")
+    patch = input("  Enter current WoW patch version (e.g. 12.0.1): ").strip()
+    if not patch:
+        print("  WARNING: No patch version entered — skipping version stamping.")
+        return
+
+    stamped = 0
+    for did in new_decor_ids:
+        key = str(did)
+        if key not in versions:
+            versions[key] = {"patch": patch, "date": today}
+            stamped += 1
+
+    # Write sorted by numeric decorID
+    sorted_versions = dict(sorted(versions.items(), key=lambda x: int(x[0])))
+    with open(versions_path, "w", encoding="utf-8") as f:
+        json.dump(sorted_versions, f, indent=2, ensure_ascii=False)
+    print(f"  Stamped {stamped} new items in {versions_path.name} (patch {patch}, date {today})")
+
+
 def main():
     args = parse_args()
 
@@ -525,13 +560,19 @@ def main():
                 existing = json.load(fh)
             existing_by_id = {e["decorID"]: e for e in existing if e.get("decorID")}
             new_count = 0
+            new_decor_ids = []
             for entry in output_entries:
                 did = entry.get("decorID")
                 if did and did not in existing_by_id:
                     existing_by_id[did] = entry
                     new_count += 1
+                    new_decor_ids.append(did)
             output_entries = sorted(existing_by_id.values(), key=lambda e: e.get("decorID") or 0)
             print(f"Merged {new_count} new items into {len(existing)} existing ({len(output_entries)} total)")
+
+            # Auto-stamp new items into item_versions.json
+            if new_decor_ids:
+                _stamp_new_versions(new_decor_ids, output_file.parent)
         else:
             print(f"No existing {output_file.name} found, writing fresh file.")
 

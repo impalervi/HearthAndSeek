@@ -1,0 +1,7 @@
+v1.4.3
+
+New Features
+- Alt+Left Click on any decor item to open a full screen 3D preview
+
+Bug Fixes
+- Fixed tooltip 3D preview not recovering after combat in some cases
