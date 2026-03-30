@@ -1682,9 +1682,19 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
                     av_entry["faction"] = ev["faction"]
                 additional_vendors.append(av_entry)
 
-    fields = [
+    # Required fields: always emitted (runtime code assumes these exist)
+    required_fields = [
         ("decorID", lua_number(item.get("decorID"))),
         ("name", lua_string(item.get("name"))),
+        ("sourceType", lua_string(source_type)),
+    ]
+
+    for field_name, field_value in required_fields:
+        lines.append(f"        {field_name} = {field_value},")
+
+    # Optional fields: omitted when nil or empty string to reduce memory.
+    # Runtime Lua code checks these for nil before use.
+    optional_fields = [
         ("itemID", lua_number(item.get("itemID"))),
         ("quality", lua_number(item.get("quality"))),
         ("iconTexture", lua_number(item.get("iconTexture"))),
@@ -1692,7 +1702,6 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         ("uiModelSceneID", lua_number(item.get("uiModelSceneID"))),
         ("zone", lua_string(item_zone)),
         ("mapID", lua_number(ZONE_TO_MAPID.get(item_zone))),
-        ("sourceType", lua_string(source_type)),
         ("sourceDetail", lua_string(source_detail)),
         ("achievementName", lua_string(achievement_name)),
         ("vendorName", lua_string(vendor_name)),
@@ -1712,8 +1721,9 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         ("expansion", lua_string(expansion)),
     ]
 
-    for field_name, field_value in fields:
-        lines.append(f"        {field_name} = {field_value},")
+    for field_name, field_value in optional_fields:
+        if field_value not in ("nil", '""'):
+            lines.append(f"        {field_name} = {field_value},")
 
     # Optional: skipQuestChain flag
     if item.get("skipQuestChain"):
