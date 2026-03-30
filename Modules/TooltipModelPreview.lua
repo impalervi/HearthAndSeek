@@ -68,6 +68,15 @@ local function GetPreviewFrame()
     f:EnableMouse(false)
     f:Hide()
 
+    -- TAINT WORKAROUND: Override GetWidth/GetHeight on the wrapper frame
+    -- with plain Lua functions that return clean numbers. After combat,
+    -- WoW's layout engine taints addon frame geometry as "secret numbers".
+    -- BackdropTemplate's SetupTextureCoordinates calls self:GetWidth() on
+    -- Show(), which crashes if tainted. Our instance-level override shadows
+    -- the C-side widget method with untainted values.
+    f.GetWidth  = function() return PREVIEW_SIZE end
+    f.GetHeight = function() return PREVIEW_SIZE end
+
     -- ModelScene inside the wrapper (no mouse interaction — display only)
     local scene = CreateFrame("ModelScene", nil, f,
         "PanningModelSceneMixinTemplate")
@@ -76,11 +85,8 @@ local function GetPreviewFrame()
     scene:EnableMouse(false)
     scene:EnableMouseWheel(false)
 
-    -- TAINT WORKAROUND: Override GetWidth/GetHeight on the ModelScene instance
-    -- with plain Lua functions that return clean numbers. OrbitCameraMixin
-    -- calls self:GetWidth() through Lua — our instance-level override shadows
-    -- the C-side widget method, so the mixin never sees the tainted "secret
-    -- number" value that WoW's layout engine produces after combat.
+    -- Same taint workaround for the ModelScene (OrbitCameraMixin calls
+    -- self:GetWidth/GetHeight through Lua).
     scene.GetWidth  = function() return SCENE_SIZE end
     scene.GetHeight = function() return SCENE_SIZE end
 
