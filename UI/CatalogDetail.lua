@@ -890,6 +890,28 @@ function NS.UI.ShowBigModelViewer(item)
 
         f._modelScene = bigScene
 
+        -- Hide background ModelScenes to prevent 3D bleed-through
+        f:HookScript("OnShow", function()
+            if detailPanel and detailPanel._modelScene then
+                detailPanel._modelScene:Hide()
+            end
+            NS.UI.CatalogGrid_SetModelScenesShown(false)
+            -- Also dismiss tooltip preview
+            if NS.TooltipModelPreview and NS.TooltipModelPreview.Hide then
+                NS.TooltipModelPreview.Hide()
+            end
+        end)
+        f:HookScript("OnHide", function()
+            -- Restore detail panel ModelScene only if an item with a model is selected
+            if detailPanel and detailPanel._modelScene then
+                local cur = detailPanel._currentItem
+                if cur and cur.asset and cur.asset > 0 then
+                    detailPanel._modelScene:Show()
+                end
+            end
+            NS.UI.CatalogGrid_SetModelScenesShown(true)
+        end)
+
         bigViewerFrame = f
     end
 
