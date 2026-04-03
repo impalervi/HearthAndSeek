@@ -171,18 +171,48 @@ local FILTER_SECTIONS = {
 -- Dropdown panel helpers
 -------------------------------------------------------------------------------
 
---- Generic: update a parent checkbox based on whether all children are checked.
+--- Ensure a checkbox has an indeterminate (partial) glow indicator.
+--- Uses a soft gold glow behind the checkbox on first call; reuses it thereafter.
+local function GetOrCreateIndeterminate(checkBtn)
+    if checkBtn._indeterminate then return checkBtn._indeterminate end
+    local glow = checkBtn:CreateTexture(nil, "OVERLAY", nil, 2)
+    glow:SetTexture("Interface\\Buttons\\CheckButtonGlow")
+    glow:SetSize(28, 28)
+    glow:SetPoint("CENTER", checkBtn, "CENTER", 0, 0)
+    glow:SetVertexColor(1.0, 0.82, 0.0, 0.7)
+    glow:SetBlendMode("ADD")
+    glow:Hide()
+    checkBtn._indeterminate = glow
+    return glow
+end
+
+--- Generic: update a parent checkbox to reflect child state.
+--- Three states: all checked (checked), none checked (unchecked), partial (gold glow).
 local function UpdateParentCheckState(parentWidget, childKeys, childWidgetTable)
     if not parentWidget then return end
+    local anyChecked = false
     local allChecked = true
     for _, cKey in ipairs(childKeys) do
         local cWidget = childWidgetTable[cKey]
-        if cWidget and not cWidget.check:GetChecked() then
-            allChecked = false
-            break
+        if cWidget then
+            if cWidget.check:GetChecked() then
+                anyChecked = true
+            else
+                allChecked = false
+            end
         end
     end
-    parentWidget.check:SetChecked(allChecked)
+    if allChecked then
+        parentWidget.check:SetChecked(true)
+        if parentWidget.check._indeterminate then parentWidget.check._indeterminate:Hide() end
+    elseif anyChecked then
+        -- Partial: uncheck so the checkmark hides, show indeterminate glow
+        parentWidget.check:SetChecked(false)
+        GetOrCreateIndeterminate(parentWidget.check):Show()
+    else
+        parentWidget.check:SetChecked(false)
+        if parentWidget.check._indeterminate then parentWidget.check._indeterminate:Hide() end
+    end
 end
 
 -------------------------------------------------------------------------------
@@ -410,6 +440,8 @@ local function CreateFilterGroup(contentFrame, groupName, anchorFrame, color, ch
     -- Mass toggle callback
     groupCheck:SetScript("OnClick", function(self)
         local checked = self:GetChecked()
+        -- Clear indeterminate indicator on direct click
+        if self._indeterminate then self._indeterminate:Hide() end
         -- Update child checkboxes FIRST so RefreshFooterBar sees correct state
         local gData = groupWidgetTbl[groupName]
         if gData and gData.childKeys then
@@ -719,6 +751,8 @@ function SectionBuilders.multiselect(content, sectionDef, panel)
             -- Mass-toggle: checking header checks all sub-items
             profCheck:SetScript("OnClick", function(self)
                 local checked = self:GetChecked()
+                -- Clear indeterminate indicator on direct click
+                if self._indeterminate then self._indeterminate:Hide() end
                 for _, cName in ipairs(childNames) do
                     local cWidget = filterWidgets[subWTable][cName]
                     if cWidget then cWidget.check:SetChecked(checked) end
@@ -2069,7 +2103,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(240)
-    settingsPanel:SetHeight(455)
+    settingsPanel:SetHeight(520)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
