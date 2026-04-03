@@ -755,7 +755,6 @@ VENDOR_COORDS: dict[str, dict] = {
     # === Midnight — Harandar ===
     "Mowaia":                  {"npcID": 258507, "x": 52.3, "y": 54.2, "mapID": 2413, "zone": "Harandar"},
     "Maku":                    {"npcID": 255114, "x": 62.67, "y": 34.48, "mapID": 2576, "zone": "Harandar"},
-    "Makur":                   {"npcID": 255114, "x": 62.67, "y": 34.48, "mapID": 2576, "zone": "Harandar"},  # typo alias (decorID 15501)
     "Naynar":                  {"npcID": 240407, "x": 51.1, "y": 50.9, "mapID": 2413, "zone": "Harandar"},
     "Mothkeeper Wew'tam":      {"npcID": 251259, "x": 49.4, "y": 54.6, "mapID": 2413, "zone": "Harandar"},
     "Hawli":                   {"npcID": 258540, "x": 59.4, "y": 33.3, "mapID": 2576, "zone": "Harandar"},
@@ -1196,7 +1195,7 @@ DROP_NPC_IDS: dict[str, int] = {
     "Imperator Averzian": 230162,
     "Vorasius": 230156,
     "Rak'tul": 230053,
-    "General Amias Bellamyr": 230160,
+    "General Amias Bellamy": 230160,
 }
 
 # ---------------------------------------------------------------------------

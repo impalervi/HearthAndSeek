@@ -52,6 +52,21 @@ class TestParseString:
         p = LuaParser(r'"\0"')
         assert p.parse_string() == "\x00"
 
+    def test_escaped_carriage_return_discarded(self):
+        """\\r should be silently discarded (not appended as literal 'r')."""
+        p = LuaParser(r'"Leaf None Behind\r"')
+        assert p.parse_string() == "Leaf None Behind"
+
+    def test_control_char_escapes_discarded(self):
+        """\\a, \\b, \\f, \\v should be silently discarded."""
+        p = LuaParser(r'"hello\aworld\b\f\v"')
+        assert p.parse_string() == "helloworld"
+
+    def test_crlf_keeps_only_newline(self):
+        """\\r\\n should produce just \\n (CR discarded, LF kept)."""
+        p = LuaParser(r'"line1\r\nline2"')
+        assert p.parse_string() == "line1\nline2"
+
     def test_string_with_wow_escape_sequences(self):
         p = LuaParser('"|cFFFFD200Quest: |rDecor Hunt"')
         assert p.parse_string() == "|cFFFFD200Quest: |rDecor Hunt"
