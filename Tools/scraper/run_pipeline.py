@@ -351,10 +351,26 @@ def main() -> None:
         extra_args = []
         if args.force and stage_name in FORCE_STAGES:
             extra_args.append("--force")
+        # SAFETY: Always use --merge when catalog_dump.json already exists to
+        # prevent overwriting the full catalog with only new items from SavedVariables.
+        if stage_name == "parse_catalog_dump" and (DATA_DIR / "catalog_dump.json").exists():
+            existing_count = 0
+            try:
+                import json as _json
+                with open(DATA_DIR / "catalog_dump.json", encoding="utf-8") as fh:
+                    existing_count = len(_json.load(fh))
+            except Exception:
+                pass
+            if existing_count > 0:
+                logger.info("  catalog_dump.json exists with %d items — using --merge to preserve data", existing_count)
+                extra_args.append("--merge")
         if stage_name == "scrape_wowdb":
             extra_args.append("--all")
             if args.force:
                 extra_args.append("--no-cache")
+            else:
+                # Incremental: only scrape items not already in wowdb_item_tags.json
+                extra_args.append("--new-only")
 
         success, elapsed = run_stage(stage_name, script_name, description, timeout, extra_args)
         results.append((stage_name, success, elapsed))
