@@ -9,6 +9,7 @@ NS.UI = NS.UI or {}
 local CatSizing = nil
 local gridButtons = {}
 local gridParent = nil
+local gridModelScenesSuppressed = false
 local GRID_H_MARGIN = 24  -- fixed left/right margin inside the center panel
 local BASE_ICON_SIZE = 110
 
@@ -417,7 +418,9 @@ local function ShowModelIcon(btn, item)
 
     btn._modelDecorID = item.decorID
     btn.Icon:Hide()
-    scene:Show()
+    if not gridModelScenesSuppressed then
+        scene:Show()
+    end
     return true
 end
 
@@ -1992,4 +1995,17 @@ function NS.UI.CatalogGrid_Reflow()
     UpdateOverlayMetrics()
     RefreshGridButtons()
     UpdateScrollIndicator()
+end
+
+-------------------------------------------------------------------------------
+-- Hide/show grid ModelScene overlays (used when big viewer opens/closes
+-- to prevent 3D bleed-through).
+-------------------------------------------------------------------------------
+function NS.UI.CatalogGrid_SetModelScenesShown(shown)
+    gridModelScenesSuppressed = not shown
+    for _, btn in ipairs(gridButtons) do
+        if btn._modelScene and btn._modelDecorID then
+            btn._modelScene:SetShown(shown)
+        end
+    end
 end

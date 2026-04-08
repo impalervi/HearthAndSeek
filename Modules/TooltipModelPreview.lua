@@ -248,4 +248,5 @@ NS.TooltipModelPreview = {
             HidePreview()
         end
     end,
+    Hide = HidePreview,
 }
