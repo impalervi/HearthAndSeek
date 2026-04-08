@@ -1,0 +1,18 @@
+v1.5.0
+
+New Items
+- Added 2 new decor items: Farstriders' Pride Statue, Farstriders' Glory Statue (1679 total)
+- Recovered 10 previously missing items from catalog
+
+Bug Fixes
+- Fixed 3D preview overlapping tooltip when near screen edges
+- Fixed 3D preview bleed-through when big model viewer is open
+- Fixed tooltip preview taint crash after combat
+- Fixed \r escape handling corrupting item names (e.g. "Leaf None Behindr")
+- Fixed "Harandarr" zone typo
+
+Pipeline Improvements
+- Added incremental WoWDB scraping (--new-only) for faster updates
+- Added --merge safety guard to prevent accidental catalog overwrites
+- Added aesthetic theme classification script for new items
+- Added automatic database backup hook before file edits
