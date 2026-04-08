@@ -127,6 +127,11 @@
       "Sacred Temple"
     ]
   },
+  "2299": {
+    "aesthetics": [
+      "Arcane Sanctum"
+    ]
+  },
   "2517": {
     "aesthetics": [
       "Arcane Sanctum",
@@ -136,6 +141,12 @@
   "2523": {
     "aesthetics": [
       "Cottage Hearth"
+    ]
+  },
+  "2605": {
+    "aesthetics": [
+      "Cottage Hearth",
+      "Wild Garden"
     ]
   },
   "3903": {
@@ -159,10 +170,46 @@
       "Sacred Temple"
     ]
   },
+  "7825": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
   "8810": {
     "aesthetics": [
       "Enchanted Grove",
       "Wild Garden"
+    ]
+  },
+  "8877": {
+    "aesthetics": [
+      "Feast Hall"
+    ]
+  },
+  "8993": {
+    "aesthetics": [
+      "Enchanted Grove"
+    ]
+  },
+  "9443": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "10327": {
+    "aesthetics": [
+      "Enchanted Grove"
+    ]
+  },
+  "10542": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "10778": {
+    "aesthetics": [
+      "Enchanted Grove"
     ]
   },
   "10952": {
@@ -196,6 +243,31 @@
       "Feast Hall"
     ]
   },
+  "12244": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ]
+  },
+  "12245": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ]
+  },
+  "12246": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ]
+  },
+  "12264": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ]
+  },
+  "12265": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ]
+  },
   "14359": {
     "aesthetics": [
       "Void Rift"
@@ -217,6 +289,24 @@
     "aesthetics": [
       "War Room",
       "Enchanted Grove"
+    ]
+  },
+  "15547": {
+    "aesthetics": [
+      "Primal Camp",
+      "War Room"
+    ]
+  },
+  "15548": {
+    "aesthetics": [
+      "Royal Court",
+      "Arcane Sanctum"
+    ]
+  },
+  "15549": {
+    "aesthetics": [
+      "Enchanted Grove",
+      "Sacred Temple"
     ]
   },
   "15551": {
@@ -282,6 +372,11 @@
       "Feast Hall"
     ]
   },
+  "16691": {
+    "aesthetics": [
+      "Royal Court"
+    ]
+  },
   "16962": {
     "aesthetics": [
       "Wild Garden"
@@ -289,5 +384,15 @@
   },
   "16967": {
     "aesthetics": []
+  },
+  "17294": {
+    "aesthetics": [
+      "Royal Court"
+    ]
+  },
+  "18800": {
+    "aesthetics": [
+      "Void Rift"
+    ]
   }
 }

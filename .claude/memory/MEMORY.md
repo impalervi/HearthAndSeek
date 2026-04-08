@@ -85,6 +85,9 @@ bash d:/Programming/WoWAddons/HearthAndSeek/scripts/deploy.sh
 ## Release
 - [Release zips go in dist/, never /tmp](feedback_release_zip_location.md)
 
+## Data Safety
+- [CRITICAL: Never overwrite catalog database, always --merge, always backup](feedback_data_safety.md)
+
 ## Git / Commit Rules
 - **Author**: All commits must be authored by `impalervi <impalervv@gmail.com>`
 - **NO Claude attribution**: Never include `Co-Authored-By: Claude` or any Claude mention in commits
