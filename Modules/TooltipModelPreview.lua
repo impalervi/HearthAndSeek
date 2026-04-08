@@ -64,7 +64,7 @@ local function GetPreviewFrame()
     })
     f:SetBackdropColor(0.05, 0.05, 0.08, 0.92)
     f:SetBackdropBorderColor(0.6, 0.6, 0.6, 0.8)
-    f:SetClampedToScreen(true)
+    f:SetClampedToScreen(false)
     f:EnableMouse(false)
     f:Hide()
 
@@ -126,18 +126,32 @@ local function ShowPreview(item, tooltip)
 
     -- Position beside the tooltip. The screen-bounds check reads tooltip
     -- geometry via pcall in case values are tainted from a previous session.
+    -- We disable SetClampedToScreen to prevent WoW from pushing the preview
+    -- on top of the tooltip, and instead manually pick left or right side.
     f:ClearAllPoints()
 
-    local anchorLeft = false
-    pcall(function()
+    local anchor = "right"  -- default: show to the right of the tooltip
+    local ok2 = pcall(function()
         local tipRight = tooltip:GetRight() or 0
-        local screenW = UIParent:GetRight() or UIParent:GetWidth()
-        if tipRight + PREVIEW_SIZE + 4 > screenW then
-            anchorLeft = true
+        local tipLeft  = tooltip:GetLeft() or 0
+        local screenW  = UIParent:GetRight() or UIParent:GetWidth()
+        local screenL  = UIParent:GetLeft() or 0
+
+        local fitsRight = (tipRight + PREVIEW_SIZE + 4) <= screenW
+        local fitsLeft  = (tipLeft - PREVIEW_SIZE - 4) >= screenL
+
+        if fitsRight then
+            anchor = "right"
+        elseif fitsLeft then
+            anchor = "left"
+        else
+            anchor = "hide"  -- no room on either side
         end
     end)
 
-    if anchorLeft then
+    if not ok2 or anchor == "hide" then return end
+
+    if anchor == "left" then
         f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
     else
         f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
@@ -239,6 +253,7 @@ clickListener:SetScript("OnEvent", function(_, _, button)
     if button ~= "LeftButton" or not IsAltKeyDown() then return end
     if not currentItem then return end
     if not GameTooltip:IsShown() then return end
+    if not (previewFrame and previewFrame:IsShown()) then return end
     if NS.UI and NS.UI.ShowBigModelViewer then
         NS.UI.ShowBigModelViewer(currentItem)
     end
