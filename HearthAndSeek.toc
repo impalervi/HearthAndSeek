@@ -2,7 +2,7 @@
 ## Title: |cffffd200Hearth & Seek|r |cffaaaaaaDecor Catalog|r
 ## Notes: Discover and navigate to every Player Housing decoration source — vendors, quests, treasures, and more
 ## Author: ImpalerV
-## Version: 1.4.3
+## Version: 1.4.4
 ## SavedVariables: HearthAndSeekDB
 ## IconTexture: Interface\AddOns\HearthAndSeek\Media\Icons\HearthAndSeek
 ## X-Category: Housing
