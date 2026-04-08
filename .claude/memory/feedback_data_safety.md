@@ -14,3 +14,6 @@ Rules:
 5. **ALWAYS** verify item counts after any operation that touches the catalog.
 
 A safeguard was added to `run_pipeline.py` (line ~353) that automatically passes `--merge` when `catalog_dump.json` already exists, but this should not be relied upon as the sole protection.
+
+6. **EVERY TIME** any database/catalog field or attribute is updated (even a single field fix), create a backup BEFORE and AFTER the change.
+7. A PreToolUse hook (`.claude/settings.json`) automatically creates backups when editing `Tools/scraper/data/*.json` files. This covers direct edits but NOT pipeline script runs — always manually backup before/after running pipeline scripts.
