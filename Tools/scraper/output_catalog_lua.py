@@ -755,7 +755,6 @@ VENDOR_COORDS: dict[str, dict] = {
     # === Midnight — Harandar ===
     "Mowaia":                  {"npcID": 258507, "x": 52.3, "y": 54.2, "mapID": 2413, "zone": "Harandar"},
     "Maku":                    {"npcID": 255114, "x": 62.67, "y": 34.48, "mapID": 2576, "zone": "Harandar"},
-    "Makur":                   {"npcID": 255114, "x": 62.67, "y": 34.48, "mapID": 2576, "zone": "Harandar"},  # typo alias (decorID 15501)
     "Naynar":                  {"npcID": 240407, "x": 51.1, "y": 50.9, "mapID": 2413, "zone": "Harandar"},
     "Mothkeeper Wew'tam":      {"npcID": 251259, "x": 49.4, "y": 54.6, "mapID": 2413, "zone": "Harandar"},
     "Hawli":                   {"npcID": 258540, "x": 59.4, "y": 33.3, "mapID": 2576, "zone": "Harandar"},
@@ -1196,7 +1195,7 @@ DROP_NPC_IDS: dict[str, int] = {
     "Imperator Averzian": 230162,
     "Vorasius": 230156,
     "Rak'tul": 230053,
-    "General Amias Bellamyr": 230160,
+    "General Amias Bellamy": 230160,
 }
 
 # ---------------------------------------------------------------------------
@@ -1682,9 +1681,19 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
                     av_entry["faction"] = ev["faction"]
                 additional_vendors.append(av_entry)
 
-    fields = [
+    # Required fields: always emitted (runtime code assumes these exist)
+    required_fields = [
         ("decorID", lua_number(item.get("decorID"))),
         ("name", lua_string(item.get("name"))),
+        ("sourceType", lua_string(source_type)),
+    ]
+
+    for field_name, field_value in required_fields:
+        lines.append(f"        {field_name} = {field_value},")
+
+    # Optional fields: omitted when nil or empty string to reduce memory.
+    # Runtime Lua code checks these for nil before use.
+    optional_fields = [
         ("itemID", lua_number(item.get("itemID"))),
         ("quality", lua_number(item.get("quality"))),
         ("iconTexture", lua_number(item.get("iconTexture"))),
@@ -1692,7 +1701,6 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         ("uiModelSceneID", lua_number(item.get("uiModelSceneID"))),
         ("zone", lua_string(item_zone)),
         ("mapID", lua_number(ZONE_TO_MAPID.get(item_zone))),
-        ("sourceType", lua_string(source_type)),
         ("sourceDetail", lua_string(source_detail)),
         ("achievementName", lua_string(achievement_name)),
         ("vendorName", lua_string(vendor_name)),
@@ -1712,8 +1720,9 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
         ("expansion", lua_string(expansion)),
     ]
 
-    for field_name, field_value in fields:
-        lines.append(f"        {field_name} = {field_value},")
+    for field_name, field_value in optional_fields:
+        if field_value not in ("nil", '""'):
+            lines.append(f"        {field_name} = {field_value},")
 
     # Optional: skipQuestChain flag
     if item.get("skipQuestChain"):

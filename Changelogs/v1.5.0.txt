@@ -1,0 +1,10 @@
+v1.5.0
+
+New Items
+- Added 2 new decor items: Farstriders' Pride Statue, Farstriders' Glory Statue (1679 total)
+
+Bug Fixes
+- Fixed 3D preview overlapping tooltip when near screen edges
+- Fixed 3D preview bleed-through when big model viewer is open
+- Fixed tooltip preview taint crash after combat
+- Fixed \r escape handling corrupting item names (e.g. "Leaf None Behindr")

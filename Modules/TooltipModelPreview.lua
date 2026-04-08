@@ -64,9 +64,18 @@ local function GetPreviewFrame()
     })
     f:SetBackdropColor(0.05, 0.05, 0.08, 0.92)
     f:SetBackdropBorderColor(0.6, 0.6, 0.6, 0.8)
-    f:SetClampedToScreen(true)
+    f:SetClampedToScreen(false)
     f:EnableMouse(false)
     f:Hide()
+
+    -- TAINT WORKAROUND: Override GetWidth/GetHeight on the wrapper frame
+    -- with plain Lua functions that return clean numbers. After combat,
+    -- WoW's layout engine taints addon frame geometry as "secret numbers".
+    -- BackdropTemplate's SetupTextureCoordinates calls self:GetWidth() on
+    -- Show(), which crashes if tainted. Our instance-level override shadows
+    -- the C-side widget method with untainted values.
+    f.GetWidth  = function() return PREVIEW_SIZE end
+    f.GetHeight = function() return PREVIEW_SIZE end
 
     -- ModelScene inside the wrapper (no mouse interaction — display only)
     local scene = CreateFrame("ModelScene", nil, f,
@@ -76,11 +85,8 @@ local function GetPreviewFrame()
     scene:EnableMouse(false)
     scene:EnableMouseWheel(false)
 
-    -- TAINT WORKAROUND: Override GetWidth/GetHeight on the ModelScene instance
-    -- with plain Lua functions that return clean numbers. OrbitCameraMixin
-    -- calls self:GetWidth() through Lua — our instance-level override shadows
-    -- the C-side widget method, so the mixin never sees the tainted "secret
-    -- number" value that WoW's layout engine produces after combat.
+    -- Same taint workaround for the ModelScene (OrbitCameraMixin calls
+    -- self:GetWidth/GetHeight through Lua).
     scene.GetWidth  = function() return SCENE_SIZE end
     scene.GetHeight = function() return SCENE_SIZE end
 
@@ -120,18 +126,32 @@ local function ShowPreview(item, tooltip)
 
     -- Position beside the tooltip. The screen-bounds check reads tooltip
     -- geometry via pcall in case values are tainted from a previous session.
+    -- We disable SetClampedToScreen to prevent WoW from pushing the preview
+    -- on top of the tooltip, and instead manually pick left or right side.
     f:ClearAllPoints()
 
-    local anchorLeft = false
-    pcall(function()
+    local anchor = "right"  -- default: show to the right of the tooltip
+    local ok2 = pcall(function()
         local tipRight = tooltip:GetRight() or 0
-        local screenW = UIParent:GetRight() or UIParent:GetWidth()
-        if tipRight + PREVIEW_SIZE + 4 > screenW then
-            anchorLeft = true
+        local tipLeft  = tooltip:GetLeft() or 0
+        local screenW  = UIParent:GetRight() or UIParent:GetWidth()
+        local screenL  = UIParent:GetLeft() or 0
+
+        local fitsRight = (tipRight + PREVIEW_SIZE + 4) <= screenW
+        local fitsLeft  = (tipLeft - PREVIEW_SIZE - 4) >= screenL
+
+        if fitsRight then
+            anchor = "right"
+        elseif fitsLeft then
+            anchor = "left"
+        else
+            anchor = "hide"  -- no room on either side
         end
     end)
 
-    if anchorLeft then
+    if not ok2 or anchor == "hide" then return end
+
+    if anchor == "left" then
         f:SetPoint("TOPRIGHT", tooltip, "TOPLEFT", -2, 0)
     else
         f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
@@ -233,6 +253,7 @@ clickListener:SetScript("OnEvent", function(_, _, button)
     if button ~= "LeftButton" or not IsAltKeyDown() then return end
     if not currentItem then return end
     if not GameTooltip:IsShown() then return end
+    if not (previewFrame and previewFrame:IsShown()) then return end
     if NS.UI and NS.UI.ShowBigModelViewer then
         NS.UI.ShowBigModelViewer(currentItem)
     end
@@ -248,4 +269,5 @@ NS.TooltipModelPreview = {
             HidePreview()
         end
     end,
+    Hide = HidePreview,
 }

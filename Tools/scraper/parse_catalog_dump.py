@@ -160,6 +160,8 @@ class LuaParser:
                     parts.append('"')
                 elif esc == "'":
                     parts.append("'")
+                elif esc in "rabfv":
+                    pass  # discard control chars (\r \a \b \f \v) — not useful in item data
                 elif esc.isdigit():
                     # \ddd decimal escape
                     digits = esc
@@ -289,6 +291,10 @@ def strip_wow_formatting(text: str) -> str:
     """
     if not text:
         return ""
+    # Strip carriage returns (\r) that may come from WoW's text encoding
+    # or CRLF line endings in SavedVariables. Without this, \r gets left
+    # as a trailing 'r' after |r color-reset stripping (e.g., "Behindr").
+    text = text.replace("\r", "")
     # Replace |n with real newline first
     text = text.replace("|n", "\n")
     # Strip texture tags:  |Tpath|t

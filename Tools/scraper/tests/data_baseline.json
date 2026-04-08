@@ -1,19 +1,19 @@
 {
   "version": "1.1",
-  "generatedAt": "2026-03-17T09:32:44.355650+00:00",
+  "generatedAt": "2026-04-08T03:26:04.145879+00:00",
   "gameVersion": {
     "interface": "120001",
     "expansion": "Midnight"
   },
   "aggregates": {
-    "totalItems": 1667,
+    "totalItems": 1679,
     "bySourceType": {
       "Achievement": 147,
       "Drop": 58,
-      "Other": 81,
+      "Other": 89,
       "Prey": 30,
       "Profession": 310,
-      "Quest": 323,
+      "Quest": 327,
       "Shop": 22,
       "Treasure": 8,
       "Vendor": 688
@@ -24,13 +24,13 @@
       "Classic": 82,
       "Dragonflight": 40,
       "Legion": 167,
-      "Midnight": 262,
+      "Midnight": 267,
       "Mists of Pandaria": 28,
       "Neighborhoods": 370,
       "Shadowlands": 2,
       "The Burning Crusade": 2,
       "The War Within": 78,
-      "Unknown": 466,
+      "Unknown": 473,
       "Warlords of Draenor": 44,
       "Wrath of the Lich King": 13
     }
@@ -3901,6 +3901,17 @@
       "expansion": "Neighborhoods",
       "faction": "neutral"
     },
+    "2299": {
+      "sourceType": "Quest",
+      "zone": "Eversong Woods",
+      "questID": 88942,
+      "vendorName": "Sathren Azuredawn",
+      "npcID": 259864,
+      "hasCoords": true,
+      "chainLength": 1,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
     "2301": {
       "sourceType": "Profession",
       "professionName": "Engineering"
@@ -7454,6 +7465,17 @@
       "expansion": "Midnight",
       "faction": "neutral"
     },
+    "8877": {
+      "sourceType": "Quest",
+      "zone": "Eversong Woods",
+      "questID": 88941,
+      "vendorName": "Sathren Azuredawn",
+      "npcID": 259864,
+      "hasCoords": true,
+      "chainLength": 1,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
     "8889": {
       "sourceType": "Drop"
     },
@@ -10334,6 +10356,15 @@
     "12223": {
       "sourceType": "Other"
     },
+    "12244": {
+      "sourceType": "Other"
+    },
+    "12245": {
+      "sourceType": "Other"
+    },
+    "12246": {
+      "sourceType": "Other"
+    },
     "12247": {
       "sourceType": "Shop"
     },
@@ -10390,6 +10421,12 @@
       "hasCoords": true,
       "expansion": "Classic",
       "faction": "alliance"
+    },
+    "12264": {
+      "sourceType": "Other"
+    },
+    "12265": {
+      "sourceType": "Other"
     },
     "12300": {
       "sourceType": "Other"
@@ -11678,9 +11715,10 @@
     },
     "15501": {
       "sourceType": "Achievement",
-      "zone": "Harandarr",
+      "zone": "Harandar",
       "vendorName": "Makur",
-      "achievementName": "Leaf None Behindr"
+      "expansion": "Midnight",
+      "achievementName": "Leaf None Behind"
     },
     "15502": {
       "sourceType": "Vendor",
@@ -11708,6 +11746,15 @@
       "hasCoords": true,
       "expansion": "Midnight",
       "faction": "neutral"
+    },
+    "15547": {
+      "sourceType": "Other"
+    },
+    "15548": {
+      "sourceType": "Other"
+    },
+    "15549": {
+      "sourceType": "Other"
     },
     "15550": {
       "sourceType": "Vendor",
@@ -12259,6 +12306,15 @@
       "expansion": "Neighborhoods",
       "faction": "neutral"
     },
+    "16691": {
+      "sourceType": "Quest",
+      "zone": "Eversong Woods",
+      "vendorName": "Sathren Azuredawn",
+      "npcID": 259864,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
     "16811": {
       "sourceType": "Vendor",
       "zone": "Silvermoon City",
@@ -12462,6 +12518,15 @@
       "zone": "Silvermoon City",
       "vendorName": "Dennia Silvertongue",
       "npcID": 256828,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "17294": {
+      "sourceType": "Quest",
+      "zone": "Eversong Woods",
+      "vendorName": "Sathren Azuredawn",
+      "npcID": 259864,
       "hasCoords": true,
       "expansion": "Midnight",
       "faction": "neutral"
@@ -13467,6 +13532,7 @@
     "2245": "Overgrown Wildhammer Fountain",
     "2246": "Dark Iron Chandelier",
     "2254": "Elegant Tied Curtain",
+    "2299": "Grand Aethercharged Crystal",
     "2301": "Ambient Aethercharged Crystal",
     "2322": "Gnomish T.O.O.L.B.O.X.",
     "2323": "Automated Gnomeregan Guardian",
@@ -13893,6 +13959,7 @@
     "8872": "Eversong Feast Platter",
     "8874": "Eversong Dessert Platter",
     "8875": "Goldenmist Grapes",
+    "8877": "Sumptuous Berry Pie",
     "8889": "Fungarian Banner",
     "8907": "Hide-Covered Wall Shelf",
     "8910": "Tusked Chandelier",
@@ -14282,6 +14349,9 @@
     "12218": "Reinforced Corner Ethereal Pipe Segment",
     "12220": "Exposed Angled Ethereal Pipe Segment",
     "12223": "Lush Garden Fungal Fountain",
+    "12244": "Paw Pal Water Dish",
+    "12245": "Paw Pal Bed and Blanket",
+    "12246": "Paw Pal Bed",
     "12247": "Hatred's Wolfpelt Rug",
     "12248": "Prime Evil's Chest",
     "12249": "Sanctuary's Chess Match",
@@ -14299,6 +14369,8 @@
     "12261": "Sanctuary Chess Light Knight",
     "12262": "Sanctuary Chess Light King",
     "12263": "Brawler's Guild Punching Bag",
+    "12264": "Paw Pal Dog House Frame",
+    "12265": "Paw Pal Dog House Elwynn Roof",
     "12300": "Brown Paper Sack",
     "14204": "Visage of Akil'zon, Loa of Victory",
     "14330": "Valdrakken Bookcase",
@@ -14496,6 +14568,9 @@
     "15502": "Rutaani Birdfeeder",
     "15503": "Rutaani Birdbath",
     "15504": "Rutaani Bird Perch",
+    "15547": "Paw Pal Dog House Durotar Roof",
+    "15548": "Paw Pal Dog House Eversong Roof",
+    "15549": "Paw Pal Dog House Shadowglen Roof",
     "15550": "Sturdy Portable Ice Chest",
     "15551": "Tall Corked Bottle of Liquid Mystery",
     "15552": "Short Corked Bottle of Liquid Mystery",
@@ -14585,6 +14660,7 @@
     "16236": "Loamm Wheelpot",
     "16237": "Kilnmaster's Bucket",
     "16315": "Hearty Niffen Grub",
+    "16691": "Farstriders' Pride Statue",
     "16811": "Cuddly Tomato Grrgle",
     "16812": "Cuddly Lemon Grrgle",
     "16813": "Cuddly Cotton Candy Grrgle",
@@ -14608,6 +14684,7 @@
     "16971": "Cuddly Cobalt Grrgle",
     "16972": "Cuddly Teal Grrgle",
     "16973": "Cuddly Ochre Grrgle",
+    "17294": "Farstriders' Glory Statue",
     "17439": "Preyseeker's Magister Effigy",
     "17440": "Preyseeker's Tinker Effigy",
     "17441": "Preyseeker's Ethereal Effigy",

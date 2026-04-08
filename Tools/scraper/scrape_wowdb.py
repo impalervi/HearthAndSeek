@@ -487,8 +487,12 @@ def scrape_sets() -> None:
     logger.info("  Total item refs: %d, unique decorIDs: %d", total_refs, len(unique_ids))
 
 
-def scrape_items() -> None:
-    """Scrape per-item culture/style tags for catalog items."""
+def scrape_items(new_only: bool = False) -> None:
+    """Scrape per-item culture/style tags for catalog items.
+
+    If new_only=True, only scrape items not already present in the existing
+    wowdb_item_tags.json output file. This is much faster for incremental updates.
+    """
     logger.info("=== Scraping Item Tags ===")
 
     if not CATALOG_PATH.exists():
@@ -498,7 +502,23 @@ def scrape_items() -> None:
     with open(CATALOG_PATH, encoding="utf-8") as f:
         catalog = json.load(f)
 
-    decor_ids = sorted(set(item["decorID"] for item in catalog if "decorID" in item))
+    all_decor_ids = sorted(set(item["decorID"] for item in catalog if "decorID" in item))
+
+    # In --new-only mode, skip items already present in the output file
+    existing_items: dict[str, dict] = {}
+    if new_only and ITEMS_OUTPUT.exists():
+        with open(ITEMS_OUTPUT, encoding="utf-8") as f:
+            existing_data = json.load(f)
+        existing_items = existing_data.get("items", {})
+        decor_ids = [did for did in all_decor_ids if str(did) not in existing_items]
+        logger.info("  %d total decorIDs, %d already scraped, %d new to scrape",
+                     len(all_decor_ids), len(existing_items), len(decor_ids))
+        if not decor_ids:
+            logger.info("  No new items to scrape — skipping.")
+            return
+    else:
+        decor_ids = all_decor_ids
+
     logger.info("  Scanning %d decorIDs from catalog", len(decor_ids))
 
     items_data: dict[str, dict] = {}
@@ -521,20 +541,39 @@ def scrape_items() -> None:
 
         progress_report(idx + 1, len(decor_ids), "items", last_pct)
 
-    # Save
-    output = {
-        "metadata": {
-            "scraped": time.strftime("%Y-%m-%d"),
-            "total_items": len(decor_ids),
-            "items_with_tags": items_with_tags,
-            "items_without_tags": len(decor_ids) - items_with_tags,
-        },
-        "items": items_data,
-    }
+    # Save — merge into existing data when in --new-only mode
+    if new_only and existing_items:
+        merged_items = dict(existing_items)
+        merged_items.update(items_data)
+        total_with_tags = sum(
+            1 for v in merged_items.values()
+            if v.get("culture") or v.get("style") or v.get("class") or v.get("theme")
+        )
+        output = {
+            "metadata": {
+                "scraped": time.strftime("%Y-%m-%d"),
+                "total_items": len(merged_items),
+                "items_with_tags": total_with_tags,
+                "items_without_tags": len(merged_items) - total_with_tags,
+            },
+            "items": merged_items,
+        }
+        logger.info("Merged %d new items into %d existing (%d total)",
+                     len(items_data), len(existing_items), len(merged_items))
+    else:
+        output = {
+            "metadata": {
+                "scraped": time.strftime("%Y-%m-%d"),
+                "total_items": len(decor_ids),
+                "items_with_tags": items_with_tags,
+                "items_without_tags": len(decor_ids) - items_with_tags,
+            },
+            "items": items_data,
+        }
     ITEMS_OUTPUT.write_text(json.dumps(output, indent=2), encoding="utf-8")
-    logger.info("Saved %d items to %s", len(items_data), ITEMS_OUTPUT)
-    logger.info("  With tags: %d, without: %d", items_with_tags,
-                len(decor_ids) - items_with_tags)
+    logger.info("Saved %d items to %s", len(output["items"]), ITEMS_OUTPUT)
+    logger.info("  With tags: %d, without: %d", output["metadata"]["items_with_tags"],
+                output["metadata"]["items_without_tags"])
 
 
 def main():
@@ -549,6 +588,8 @@ def main():
                         help="Scrape both sets and items")
     parser.add_argument("--no-cache", action="store_true",
                         help="Ignore cached responses")
+    parser.add_argument("--new-only", action="store_true",
+                        help="Only scrape items not already in wowdb_item_tags.json (incremental)")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Verbose logging")
     args = parser.parse_args()
@@ -571,7 +612,7 @@ def main():
         scrape_sets()
 
     if args.items or args.all:
-        scrape_items()
+        scrape_items(new_only=args.new_only)
 
     # Stamp cache metadata (non-fatal if it fails)
     try:
