@@ -262,8 +262,11 @@ clickListener:RegisterEvent("GLOBAL_MOUSE_DOWN")
 clickListener:SetScript("OnEvent", function(_, _, button)
     if button ~= "LeftButton" or not IsAltKeyDown() then return end
     if not currentItem then return end
-    if not GameTooltip:IsShown() then return end
-    if not (previewFrame and previewFrame:IsShown()) then return end
+    -- Allow ALT+click when either the tooltip is showing or the preview is
+    -- showing — loot/roll frame tooltips may hide before the deferred preview
+    -- fires, but the item is still valid for the big viewer.
+    if not GameTooltip:IsShown()
+       and not (previewFrame and previewFrame:IsShown()) then return end
     if NS.UI and NS.UI.ShowBigModelViewer then
         NS.UI.ShowBigModelViewer(currentItem)
     end
