@@ -783,7 +783,9 @@ end
 local bigViewerFrame = nil
 
 function NS.UI.ShowBigModelViewer(item)
-    if not item or not item.asset or item.asset <= 0 then return end
+    if not item then return end
+
+    local hasModel = item.asset and item.asset > 0
 
     -- Lazy-create the viewer frame
     if not bigViewerFrame then
@@ -806,6 +808,20 @@ function NS.UI.ShowBigModelViewer(item)
         f:SetScript("OnDragStop", f.StopMovingOrSizing)
         f:SetClampedToScreen(true)
         f:Hide()
+
+        -- Fallback icon for items without 3D model
+        local fallbackIcon = f:CreateTexture(nil, "ARTWORK")
+        fallbackIcon:SetSize(256, 256)
+        fallbackIcon:SetPoint("CENTER", f, "CENTER", 0, 20)
+        fallbackIcon:Hide()
+        f._fallbackIcon = fallbackIcon
+
+        local fallbackText = f:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        fallbackText:SetPoint("TOP", fallbackIcon, "BOTTOM", 0, -16)
+        fallbackText:SetText("No 3D model available for this item")
+        fallbackText:SetTextColor(0.5, 0.5, 0.5, 1)
+        fallbackText:Hide()
+        f._fallbackText = fallbackText
 
         -- Register for Escape to close
         tinsert(UISpecialFrames, "HearthAndSeekBigViewer")
@@ -915,15 +931,34 @@ function NS.UI.ShowBigModelViewer(item)
         bigViewerFrame = f
     end
 
-    -- Set up the model
+    -- Set up the model (or fallback icon if no model available)
     local f = bigViewerFrame
     f._title:SetText(item.name or "")
-    f._modelScene:ClearScene()
-    local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
-        and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
-    if actor then
-        actor:SetPreferModelCollisionBounds(true)
-        actor:SetModelByFileID(item.asset)
+
+    if hasModel then
+        f._modelScene:ClearScene()
+        local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+            and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
+        if actor then
+            actor:SetPreferModelCollisionBounds(true)
+            actor:SetModelByFileID(item.asset)
+        end
+        f._modelScene:Show()
+        f._fallbackIcon:Hide()
+        f._fallbackText:Hide()
+    else
+        f._modelScene:Hide()
+        local iconID = item.iconTexture
+        if not iconID and item.itemID and GetItemIcon then
+            iconID = GetItemIcon(item.itemID)
+        end
+        if iconID then
+            f._fallbackIcon:SetTexture(iconID)
+            f._fallbackIcon:Show()
+        else
+            f._fallbackIcon:Hide()
+        end
+        f._fallbackText:Show()
     end
     f:Show()
 end
