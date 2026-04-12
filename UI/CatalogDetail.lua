@@ -971,13 +971,24 @@ function NS.UI.InitCatalogDetail(parent)
     local CatSizing = NS.CatalogSizing
 
     -- Model container with Blizzard catalog atlas background
-    local modelBg = CreateFrame("Frame", nil, parent)
+    -- Uses Button so it can receive ALT+click even when modelScene is hidden
+    local modelBg = CreateFrame("Button", nil, parent)
     modelBg:SetHeight(CatSizing.ModelViewerHeight)
     modelBg:SetPoint("TOPLEFT", parent, "TOPLEFT", 4, -4)
     modelBg:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -4, -4)
+    modelBg:RegisterForClicks("AnyUp")
     local bgTex = modelBg:CreateTexture(nil, "BACKGROUND")
     bgTex:SetAllPoints()
     bgTex:SetAtlas("catalog-list-preview-bg")
+
+    -- ALT+click on the model background (catches clicks when modelScene is hidden)
+    modelBg:SetScript("OnClick", function(self, button)
+        if button == "LeftButton" and IsAltKeyDown() then
+            if parent._currentItem then
+                NS.UI.ShowBigModelViewer(parent._currentItem)
+            end
+        end
+    end)
 
     -- ModelScene with built-in drag-rotate, scroll-zoom, right-drag-pan
     local modelScene = CreateFrame("ModelScene", nil, modelBg,
