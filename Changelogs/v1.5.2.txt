@@ -1,0 +1,8 @@
+v1.5.2
+
+Bug Fixes
+- Fixed 3D tooltip preview not appearing for many crafted decor items
+- Fixed 3D preview flickering and animation resetting in the Auction House
+
+General Improvements
+- Improved 3D model loading reliability across all preview surfaces (tooltip, detail panel, big viewer)
