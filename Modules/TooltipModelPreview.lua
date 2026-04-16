@@ -21,7 +21,6 @@ if not C_HousingCatalog then return end
 -------------------------------------------------------------------------------
 local PREVIEW_SIZE = 200
 local ROTATION_SPEED = 0.5  -- radians per second
-local DEFAULT_SCENE_ID = 859
 local SCENE_INSET = 6
 local SCENE_SIZE = PREVIEW_SIZE - SCENE_INSET * 2  -- 188
 
@@ -111,9 +110,19 @@ end
 -------------------------------------------------------------------------------
 local currentItemID = nil  -- tracks which item is currently previewed
 local pendingGen = 0       -- generation counter for deferred timer validation
+local hideTimer = nil      -- debounce timer for HidePreview
+
+local function CancelPendingHide()
+    if hideTimer then
+        hideTimer:Cancel()
+        hideTimer = nil
+    end
+end
 
 local function ShowPreview(item, tooltip)
     if not item or not item.asset or item.asset <= 0 then return end
+
+    CancelPendingHide()
 
     -- Already showing this item — don't reset the scene (avoids stutter)
     if currentItemID == item.itemID and previewFrame and previewFrame:IsShown() then
@@ -157,24 +166,10 @@ local function ShowPreview(item, tooltip)
         f:SetPoint("TOPLEFT", tooltip, "TOPRIGHT", 2, 0)
     end
 
-    -- Clear stale scene state before transitioning; after loading screens the
-    -- engine can invalidate C-side actors while the Lua-side tagToActor table
-    -- still holds references to them, causing silent failures.
     f._modelScene:ClearScene()
 
-    local sceneID = item.uiModelSceneID or DEFAULT_SCENE_ID
-    local ok = pcall(function()
-        f._modelScene:TransitionToModelSceneID(
-            sceneID,
-            CAMERA_TRANSITION_TYPE_IMMEDIATE,
-            CAMERA_MODIFICATION_TYPE_DISCARD,
-            true
-        )
-    end)
-
-    if not ok then return end
-
-    local actor = f._modelScene:GetActorByTag("decor")
+    local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+        and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
     if not actor then return end
 
     actor:SetPreferModelCollisionBounds(true)
@@ -182,12 +177,23 @@ local function ShowPreview(item, tooltip)
     f:Show()
 end
 
+-- Debounced hide: tooltip refresh cycles (e.g. Auction House price updates)
+-- can fire OnHide then immediately re-show the same tooltip. Without the
+-- debounce, HidePreview would clear state and the next ShowPreview would do
+-- a full scene re-setup, resetting the rotation animation. The 0.15s delay
+-- lets CancelPendingHide() in ShowPreview absorb transient hide/show pairs.
+local HIDE_DEBOUNCE = 0.15
+
 local function HidePreview()
-    currentItemID = nil
-    currentItem = nil
-    if previewFrame and previewFrame:IsShown() then
-        previewFrame:Hide()
-    end
+    CancelPendingHide()
+    hideTimer = C_Timer.NewTimer(HIDE_DEBOUNCE, function()
+        hideTimer = nil
+        currentItemID = nil
+        currentItem = nil
+        if previewFrame and previewFrame:IsShown() then
+            previewFrame:Hide()
+        end
+    end)
 end
 
 -------------------------------------------------------------------------------
@@ -213,24 +219,28 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
 
             local itemID = data and data.id
             if not itemID then
-                pendingGen = pendingGen + 1
-                HidePreview()
+                -- Partial tooltip update (e.g. Auction House price refresh):
+                -- keep the current preview. GameTooltip:OnHide will clean up
+                -- when the tooltip actually closes.
                 return
             end
 
             local item = itemIDToDecor[itemID]
             if item then
-                -- Add hint line to the tooltip
                 tooltip:AddLine("|cff55aaeeALT+Left Click|r for full screen preview", 0.5, 0.5, 0.5)
 
-                -- Bump generation so any older pending timer is invalidated
+                -- Keep currentItem in sync immediately so ALT+click works
+                -- even before the deferred preview has had a chance to show.
+                currentItem = item
+
                 pendingGen = pendingGen + 1
                 local myGen = pendingGen
-                currentItemID = item.itemID
 
                 -- Defer to next frame to escape the secure callback context;
                 -- TransitionToModelSceneID and Show() can fail silently from
-                -- taint when called inside securecallfunction
+                -- taint when called inside securecallfunction. currentItemID
+                -- is set inside ShowPreview so the early-return check
+                -- accurately reflects what's on-screen.
                 C_Timer.After(0, function()
                     if myGen ~= pendingGen then return end
                     if GameTooltip:IsShown() then

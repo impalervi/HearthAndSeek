@@ -14,7 +14,7 @@ NS.DEV_MODE = false
 -- Addon metadata
 -------------------------------------------------------------------------------
 NS.ADDON_NAME    = "HearthAndSeek"
-NS.ADDON_VERSION = "1.5.1"
+NS.ADDON_VERSION = "1.5.2"
 NS.ADDON_PREFIX  = "|cff00ccff[Hearth & Seek]|r "
 
 -------------------------------------------------------------------------------
