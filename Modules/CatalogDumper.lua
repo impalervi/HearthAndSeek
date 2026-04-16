@@ -13,12 +13,24 @@ local Dumper = NS.CatalogDumper
 -------------------------------------------------------------------------------
 -- Configuration
 -------------------------------------------------------------------------------
-local MAX_DECOR_ID         = 20000  -- Upper bound of decorID range to scan
+local MAX_DECOR_ID         = 40000  -- Upper bound of decorID range to scan
 local BATCH_SIZE           = 200    -- IDs to process per tick (catalog dump)
 local TICK_INTERVAL        = 0.01   -- Seconds between batches (catalog dump)
 local PROGRESS_EVERY       = 1000   -- Print progress every N IDs (catalog dump)
 local BOSS_TICK_INTERVAL   = 0.02   -- Seconds between instance batches (boss dump)
 local BOSS_PROGRESS_EVERY  = 10     -- Report progress every N instances (boss dump)
+
+-------------------------------------------------------------------------------
+-- Helper: safely fetch catalog entry for a decorID (entryType must be 1).
+-- Wrapped in pcall because the API can throw on some invalid/edge IDs.
+-------------------------------------------------------------------------------
+local function TryGetCatalogEntry(decorID)
+    local ok, info = pcall(C_HousingCatalog.GetCatalogEntryInfoByRecordID, 1, decorID, true)
+    if ok and info and info.name and info.name ~= "" then
+        return info
+    end
+    return nil
+end
 
 -------------------------------------------------------------------------------
 -- Helper: build set of known decorIDs from baked CatalogData.
@@ -86,8 +98,8 @@ function Dumper.DumpCatalog()
         local batchEnd = math.min(currentID + BATCH_SIZE - 1, MAX_DECOR_ID)
 
         for decorID = currentID, batchEnd do
-            local info = C_HousingCatalog.GetCatalogEntryInfoByRecordID(1, decorID, true)
-            if info and info.name and info.name ~= "" then
+            local info = TryGetCatalogEntry(decorID)
+            if info then
                 foundCount = foundCount + 1
                 results[foundCount] = PackCatalogEntry(decorID, info)
             end
@@ -159,8 +171,8 @@ function Dumper.DumpNewItems()
             if knownIDs[decorID] then
                 skippedCount = skippedCount + 1
             else
-                local info = C_HousingCatalog.GetCatalogEntryInfoByRecordID(1, decorID, true)
-                if info and info.name and info.name ~= "" then
+                local info = TryGetCatalogEntry(decorID)
+                if info then
                     foundCount = foundCount + 1
                     results[foundCount] = PackCatalogEntry(decorID, info)
                 end
