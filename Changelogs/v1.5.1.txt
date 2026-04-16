@@ -1,0 +1,4 @@
+v1.5.1
+
+New Items
+- Added Devouring Ritual Spire — drops from Crown of the Cosmos in The Voidspire (1680 total)
