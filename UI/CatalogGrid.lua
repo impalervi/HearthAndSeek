@@ -316,8 +316,6 @@ local function BuildOwnershipCache()
     end
 end
 
-local DEFAULT_GRID_SCENE_ID = 859
-
 --- Try the housing catalog API for the high-quality icon (same source as
 --- Housing Dashboard). Caches hits; caches misses per-frame to avoid
 --- repeated API calls during smooth scrolling.
@@ -394,20 +392,8 @@ local function ShowModelIcon(btn, item)
     local scene = GetOrCreateModelIcon(btn)
     scene:ClearScene()
 
-    local sceneID = item.uiModelSceneID or DEFAULT_GRID_SCENE_ID
-    local ok = pcall(function()
-        scene:TransitionToModelSceneID(
-            sceneID,
-            CAMERA_TRANSITION_TYPE_IMMEDIATE,
-            CAMERA_MODIFICATION_TYPE_DISCARD,
-            true)
-    end)
-    if not ok then
-        btn._modelDecorID = nil
-        return false
-    end
-
-    local actor = scene:GetActorByTag("decor")
+    local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+        and NS.ModelSceneUtils.LoadDecorScene(scene, item.uiModelSceneID)
     if not actor then
         btn._modelDecorID = nil
         return false

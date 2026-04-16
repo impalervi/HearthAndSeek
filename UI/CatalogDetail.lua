@@ -918,21 +918,12 @@ function NS.UI.ShowBigModelViewer(item)
     -- Set up the model
     local f = bigViewerFrame
     f._title:SetText(item.name or "")
-    local sceneID = item.uiModelSceneID or 859
     f._modelScene:ClearScene()
-    local ok = pcall(function()
-        f._modelScene:TransitionToModelSceneID(
-            sceneID,
-            CAMERA_TRANSITION_TYPE_IMMEDIATE,
-            CAMERA_MODIFICATION_TYPE_DISCARD,
-            true)
-    end)
-    if ok then
-        local actor = f._modelScene:GetActorByTag("decor")
-        if actor then
-            actor:SetPreferModelCollisionBounds(true)
-            actor:SetModelByFileID(item.asset)
-        end
+    local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+        and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
+    if actor then
+        actor:SetPreferModelCollisionBounds(true)
+        actor:SetModelByFileID(item.asset)
     end
     f:Show()
 end
@@ -3314,21 +3305,12 @@ function NS.UI.CatalogDetail_ShowItem(item)
     -- 3D model (ModelScene)
     if detailPanel._watermark then detailPanel._watermark:Hide() end
     if item.asset and item.asset > 0 then
-        local sceneID = item.uiModelSceneID or 859
         detailPanel._modelScene:ClearScene()
-        local ok = pcall(function()
-            detailPanel._modelScene:TransitionToModelSceneID(
-                sceneID,
-                CAMERA_TRANSITION_TYPE_IMMEDIATE,
-                CAMERA_MODIFICATION_TYPE_DISCARD,
-                true)
-        end)
-        if ok then
-            local actor = detailPanel._modelScene:GetActorByTag("decor")
-            if actor then
-                actor:SetPreferModelCollisionBounds(true)
-                actor:SetModelByFileID(item.asset)
-            end
+        local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+            and NS.ModelSceneUtils.LoadDecorScene(detailPanel._modelScene, item.uiModelSceneID)
+        if actor then
+            actor:SetPreferModelCollisionBounds(true)
+            actor:SetModelByFileID(item.asset)
             detailPanel._modelScene:Show()
         end
         detailPanel._noModelText:Hide()
