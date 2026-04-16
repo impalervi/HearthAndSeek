@@ -10,6 +10,23 @@ Validate the addon structure, create a release zip, and deploy to the WoW addons
 
 ## Steps
 
+### 0. Write the changelog
+
+Before packaging, create a new changelog at `Changelogs/v{VERSION}.txt` summarizing the user-visible changes since the previous version.
+
+Keep it simple and short. Only include sections that have content:
+- **New Features** (or **New Items** if it's a decor addition)
+- **Bug Fixes**
+- **General Improvements**
+
+Rules:
+- Write for end users, NOT developers.
+- Do NOT include internal tooling, pipeline, or refactor details (e.g. "raised dumper cap to 40000" — users don't care).
+- One bullet per change, one line each. Avoid over-specific internals.
+- Follow the style of prior changelogs in `Changelogs/` (see `v1.5.0.txt` for format).
+
+If the user hasn't approved the content, show them the draft and wait for confirmation before proceeding.
+
 ### 1. Validate included files
 
 Check that ALL files needed for the addon to work are accounted for in both the publish script (`scripts/publish.ps1`) and the deploy script (`scripts/deploy.sh`).
