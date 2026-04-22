@@ -14,7 +14,15 @@ This skill walks through the full new-item discovery and cataloging workflow. Fo
 
 ### Phase 1: Prepare for In-Game Dump
 
-1. Ensure you are on a feature branch (not main or a release branch). If not, create one.
+1. Start from `main`. Determine the next minor version by bumping the patch
+   component of the current `## Version:` line in `HearthAndSeek.toc` (e.g.
+   `1.5.2` → `1.5.3`). Then:
+   - Create a release branch off `main`: `release/v<next>` (e.g.
+     `release/v1.5.3`).
+   - Off that release branch, create a feature branch named
+     `feature/update-item-database-<YYYY-MM-DD>` using today's date.
+   - Do NOT bump the version in the TOC or `Core/Constants.lua` yet; that
+     happens later, only if new items are actually found and merged.
 2. Enable DEV_MODE in `Core/Constants.lua`:
    ```lua
    NS.DEV_MODE = true
@@ -24,7 +32,7 @@ This skill walks through the full new-item discovery and cataloging workflow. Fo
    - Target: `D:/Games/World of Warcraft/_retail_/Interface/AddOns/HearthAndSeek/`
 4. Tell the user to do the following in-game:
    - `/reload` to pick up the deploy
-   - `/hs dump new` to scan for new items (scans decorIDs 1-20000, skips known items)
+   - `/hs dump new` to scan for new items (scans decorIDs 1-40000, skips known items)
    - Wait for "Incremental dump complete: X new items found" message
    - `/reload` again to flush SavedVariables to disk
 5. Wait for user confirmation before proceeding.
