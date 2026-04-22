@@ -311,6 +311,26 @@ def strip_wow_formatting(text: str) -> str:
     return text.strip()
 
 
+def is_placeholder_name(name: str) -> bool:
+    """True if the given item name is a Blizzard internal placeholder.
+
+    Recognises the `[DNT]` ("Do Not Translate") and `[AUTOGEN]` markers
+    that sometimes appear on live-client catalog entries but represent
+    developer-only assets (e.g. `[DNT] [AUTOGEN] 12PH_Shop_LunarNewYear_*`).
+    Such items should be filtered out of the catalog before enrichment.
+    """
+    if not name:
+        return False
+    # Leading marker OR marker appearing later in the name (surrounded by
+    # spaces). Covers both `[DNT] foo` and `foo [DNT] bar` patterns.
+    return (
+        name.startswith("[DNT]")
+        or name.startswith("[AUTOGEN]")
+        or " [DNT] " in name
+        or " [AUTOGEN] " in name
+    )
+
+
 def parse_source_text(source_text):
     """
     Parse the sourceText field from C_HousingCatalog.
@@ -508,12 +528,24 @@ def main():
 
     # 3. Process each entry
     output_entries = []
+    filtered_entries = []   # [(decorID, name, reason), ...] for the report
     source_type_counter = Counter()
     quest_count = 0
     vendor_count = 0
 
     for entry in entries:
         if not isinstance(entry, dict):
+            continue
+
+        # Filter out Blizzard internal placeholder assets. Items whose names
+        # contain "[DNT]" ("Do Not Translate") or "[AUTOGEN]" are developer
+        # placeholders that occasionally leak into the live client and
+        # should never reach end users.
+        entry_name = entry.get("name") or ""
+        if is_placeholder_name(entry_name):
+            filtered_entries.append(
+                (entry.get("decorID"), entry_name, "Blizzard internal [DNT]/[AUTOGEN] placeholder")
+            )
             continue
 
         # Parse sourceText
@@ -615,6 +647,24 @@ def main():
     print("Breakdown by source type:")
     for source_type, count in source_type_counter.most_common():
         print(f"  {source_type:20s}  {count}")
+
+    # Persist the filter report so downstream steps / the skill's final
+    # report can include the filtered items and their justification.
+    report_path = output_file.parent / "filtered_items.json"
+    try:
+        with open(report_path, "w", encoding="utf-8") as fh:
+            json.dump([
+                {"decorID": did, "name": name, "reason": reason}
+                for (did, name, reason) in filtered_entries
+            ], fh, indent=2, ensure_ascii=False)
+    except Exception as exc:
+        print(f"Warning: failed to write {report_path}: {exc}")
+
+    if filtered_entries:
+        print()
+        print(f"Filtered {len(filtered_entries)} item(s) (see {report_path.name}):")
+        for did, name, reason in filtered_entries:
+            print(f"  [{did}] {name}  --  {reason}")
 
 
 if __name__ == "__main__":
