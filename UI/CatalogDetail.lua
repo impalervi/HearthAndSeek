@@ -3319,26 +3319,18 @@ function NS.UI.CatalogDetail_ShowItem(item)
         detailPanel._noModelText:Show()
     end
 
-    -- Source line (show secondary source for dual-source items)
-    local srcColor = NS.SourceColors and NS.SourceColors[item.sourceType]
-                  or (NS.SourceColors and NS.SourceColors.Other)
-                  or { 0.6, 0.6, 0.6, 1 }
-    local srcText = item.sourceType or "Unknown"
-    -- Indicate dual-source
-    if item.sourceType == "Quest" and item.vendorName and item.vendorName ~= "" then
-        srcText = srcText .. " |cff40b0ff+ Vendor|r"
-    elseif item.sourceType == "Achievement" and item.vendorName and item.vendorName ~= "" then
-        srcText = srcText .. " |cff40b0ff+ Vendor|r"
-    elseif item.sourceType == "Vendor" and item.vendorUnlockAchievement
-        and item.vendorUnlockAchievement ~= "" then
-        srcText = srcText .. " |cffe6cc80+ Achievement|r"
-    end
-    -- Indicate additional Treasure source (for non-Treasure primary items)
-    if item.sourceType ~= "Treasure" and item.treasureX and item.treasureY then
-        srcText = srcText .. " |cff60e060+ Treasure|r"
-    end
-    detailPanel._sourceLine:SetText(srcText)
-    detailPanel._sourceLine:SetTextColor(srcColor[1], srcColor[2], srcColor[3], 1)
+    -- Source line — deterministic multi-source rendering via
+    -- NS.Utils.GetItemSources (see Core/Utils.lua). Replaces the old
+    -- ad-hoc if/elseif chain that ordered "Vendor + Achievement" on
+    -- some items and "Achievement + Vendor" on others, using
+    -- inconsistent colors. Now: canonical SOURCE_PRIORITY order for
+    -- every item, each label in its own SourceColors palette entry.
+    local sources = NS.Utils.GetItemSources(item)
+    detailPanel._sourceLine:SetText(NS.Utils.FormatSourcesText(sources))
+    -- Clear the old SetTextColor (the text now embeds colors per-label
+    -- via escape codes, so we reset the fontstring color to white and
+    -- let the inline |cff... sequences do the work).
+    detailPanel._sourceLine:SetTextColor(1, 1, 1, 1)
 
     -- Acquisition instructions
     local acquireText = GetAcquisitionText(item)
