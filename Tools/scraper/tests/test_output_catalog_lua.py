@@ -468,7 +468,17 @@ class TestComputeRecentlyAddedIds:
 class TestSourcePriorityAlignment:
     def test_python_matches_lua(self):
         """Parse Core/Utils.lua for NS.SourcePriority and assert it
-        matches the Python SOURCE_PRIORITY list exactly (order + set)."""
+        matches the Python SOURCE_PRIORITY list exactly (order + set).
+
+        Regex notes: this matches the first `{...}` table literal after
+        `NS.SourcePriority = `. Items are extracted as double-quoted
+        strings, so the check is robust to whitespace, line breaks, and
+        trailing commas — but WOULD be fooled by a string literal
+        containing a `}` or a Lua long-bracket comment (`--[[ ... ]]`)
+        embedded inside the table. Neither pattern is used here; if the
+        file ever grows such constructs, swap this for an actual Lua
+        parse via slpp or similar.
+        """
         import re
         from pathlib import Path
         from output_catalog_lua import SOURCE_PRIORITY

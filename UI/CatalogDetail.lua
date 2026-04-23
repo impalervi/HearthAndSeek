@@ -600,6 +600,37 @@ local function GetAcquisitionText(item)
                     .. "|cffffcc00" .. item.vendorUnlockAchievement .. "|r"
             end
         end
+        -- Vendor-primary items that are ALSO quest rewards (e.g. "Decor
+        -- Treasure Hunt" turn-ins): surface the quest name as an
+        -- acquisition line. Source badge already shows "Quest + Vendor"
+        -- via GetItemSources; without this line the user could see the
+        -- badge but have no idea which quest to complete. Driven off
+        -- additionalSources[*].sourceType == "Quest" so it works for
+        -- any Vendor+Quest combination, not just Decor Treasure Hunt.
+        if type(item.additionalSources) == "table" then
+            local questName
+            for _, alt in ipairs(item.additionalSources) do
+                if alt.sourceType == "Quest" and alt.sourceDetail
+                        and alt.sourceDetail ~= "" then
+                    questName = alt.sourceDetail
+                    break
+                end
+            end
+            if not questName and item.questID and item.sourceDetail
+                    and item.sourceDetail ~= "" then
+                -- Fallback for items that carry the quest name in sourceDetail
+                -- alongside sourceType=Vendor (seen on older data shapes).
+                questName = item.sourceDetail
+            end
+            if questName then
+                local text = "|cffffd200Complete quest:|r |cffff8800"
+                    .. questName .. "|r"
+                if item.questID then
+                    text = text .. " |cff888888(ID: " .. item.questID .. ")|r"
+                end
+                return text
+            end
+        end
         -- Regular vendor: handled by _vendorLine + _vendorZonePart
         return nil
 
@@ -3135,7 +3166,15 @@ local function ShowPurchaseFromLine(entry, anchor, yOffset, npcText, vendorName,
     end
 
     entry.zoneWrapped = zoneWrapped
-    return zoneWrapped, zoneWrapped and entry.zonePart or entry.prefix
+    -- Bottom anchor for the NEXT Purchase-from line. When the zone
+    -- wrapped to a second row we must return `zoneIn` (which is anchored
+    -- to prefix.BOTTOMLEFT, i.e. the left edge of the wrapped row),
+    -- NOT `zonePart` — zonePart is anchored to zoneIn.TOPRIGHT, so
+    -- using it as the next line's anchor would indent subsequent lines
+    -- by the width of " in ". Bug seen on Tusked Candleholder where
+    -- line 1's zone wrap caused line 2's "Purchase from Gronthul" to
+    -- start mid-line instead of flush-left.
+    return zoneWrapped, zoneWrapped and entry.zoneIn or entry.prefix
 end
 
 --- Create (or reuse) an additional vendor pool entry at index `idx` (1-based).
@@ -3590,9 +3629,25 @@ function NS.UI.CatalogDetail_ShowItem(item)
 
         -- Additional vendors: faction alt vendor + additionalVendors (multi-zone)
         HideAllAdditionalVendors()
+        -- When the primary vendor's zone wrapped to a second row, anchor
+        -- to _vendorZoneIn (left edge of that row) rather than
+        -- _vendorZonePart (mid-row) so additional "Purchase from" lines
+        -- sit flush-left. See ShowPurchaseFromLine for the same fix on
+        -- pool entries.
         local altAnchor = vendorZoneWrapped
-            and detailPanel._vendorZonePart or detailPanel._vendorPrefix
+            and detailPanel._vendorZoneIn or detailPanel._vendorPrefix
         local avIdx = 0
+
+        -- Track NPCs we've already rendered so the multi-zone
+        -- additionalVendors pass below can skip duplicates. Some items
+        -- (e.g. Tusked Candleholder, decorID 2454) list the same NPC in
+        -- both factionVendors.Horde and additionalVendors with slightly
+        -- different coord precision — without this, the NPC rendered
+        -- twice with mismatched indentation.
+        local renderedVendorNpcIDs = {}
+        if item.vendorName and item.npcID then
+            renderedVendorNpcIDs[item.npcID] = true
+        end
 
         -- Faction alt vendor (shown for items in both neighborhoods)
         if item.factionVendors then
@@ -3615,13 +3670,17 @@ function NS.UI.CatalogDetail_ShowItem(item)
                     altZoneDisplay
                 )
                 altAnchor = bottomAnchor
+                if altFv.npcID then
+                    renderedVendorNpcIDs[altFv.npcID] = true
+                end
             end
         end
 
         -- Additional vendors from multi-zone vendor discovery
         if item.additionalVendors then
             for _, av in ipairs(item.additionalVendors) do
-                if av.name and av.name ~= "" then
+                if av.name and av.name ~= ""
+                        and not (av.npcID and renderedVendorNpcIDs[av.npcID]) then
                     avIdx = avIdx + 1
                     local e = EnsureAdditionalVendorEntry(avIdx)
                     local avZone = av.zone or ""
@@ -3641,6 +3700,9 @@ function NS.UI.CatalogDetail_ShowItem(item)
                         avZoneDisplay
                     )
                     altAnchor = bottomAnchor
+                    if av.npcID then
+                        renderedVendorNpcIDs[av.npcID] = true
+                    end
                 end
             end
         end
@@ -3829,8 +3891,10 @@ function NS.UI.CatalogDetail_ShowItem(item)
             -- Note: available after finding the treasure
             detailPanel._vendorNote:SetText("|cff888888(available after finding the treasure)|r")
             detailPanel._vendorNote:ClearAllPoints()
+            -- Same left-edge fix as above: anchor to _vendorZoneIn (flush
+            -- left) rather than _vendorZonePart (mid-row) when wrapped.
             local tvNoteAnchor = vendorZoneWrapped
-                and detailPanel._vendorZonePart or detailPanel._vendorPrefix
+                and detailPanel._vendorZoneIn or detailPanel._vendorPrefix
             detailPanel._vendorNote:SetPoint("TOPLEFT", tvNoteAnchor, "BOTTOMLEFT", 0, -2)
             detailPanel._vendorNote:SetPoint("RIGHT", detailPanel._middleChild, "RIGHT", -4, 0)
             detailPanel._vendorNote:Show()

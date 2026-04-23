@@ -154,6 +154,22 @@ function NS.Utils.GetItemSources(item)
             or { type = "Treasure", isPrimary = false }
     end
 
+    -- Structured additionalSources array (populated by the generator from
+    -- Wowhead enrichment + source-merging). Each entry is
+    -- ``{ sourceType = "...", sourceDetail = "..." }``. These are the
+    -- secondary-source signals that don't map to a single scalar field —
+    -- e.g. Vendor-primary items that are also rewards from a Quest
+    -- (Decor Treasure Hunt), or multi-vendor items. Add any source type
+    -- not already present so the badge reflects everything.
+    if type(item.additionalSources) == "table" then
+        for _, alt in ipairs(item.additionalSources) do
+            local alt_t = alt and alt.sourceType
+            if alt_t and alt_t ~= "" and not present[alt_t] then
+                present[alt_t] = { type = alt_t, isPrimary = false }
+            end
+        end
+    end
+
     -- Order by canonical priority
     local ordered = {}
     for _, t in ipairs(NS.SourcePriority) do

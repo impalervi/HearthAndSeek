@@ -935,15 +935,20 @@ local function OpenModelViewer(item)
         math.floor(qc[1] * 255), math.floor(qc[2] * 255), math.floor(qc[3] * 255))
     viewer._titleText:SetText("|cff" .. colorHex .. (item.name or "3D Preview") .. "|r")
 
-    -- Source info
-    local srcColor = NS.SourceColors and NS.SourceColors[item.sourceType]
-        or { 0.6, 0.6, 0.6, 1 }
-    local srcText = item.sourceType or "Unknown"
+    -- Source info — deterministic multi-source rendering via
+    -- NS.Utils.GetItemSources / FormatSourcesText so the big 3D viewer
+    -- matches the detail panel exactly (e.g. "Achievement + Vendor"
+    -- ordering + per-label palette colors). sourceDetail is appended
+    -- in muted gray to keep the primary call-out readable.
+    local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
+    local srcText = srcLabel
     if item.sourceDetail and item.sourceDetail ~= "" then
-        srcText = srcText .. ": " .. item.sourceDetail
+        srcText = srcText .. " |cff888888:|r " .. item.sourceDetail
     end
     viewer._infoSource:SetText(srcText)
-    viewer._infoSource:SetTextColor(srcColor[1], srcColor[2], srcColor[3], 1)
+    -- Inline |cff...|r escapes carry per-label color; reset the
+    -- fontstring baseline to white so nothing tints them.
+    viewer._infoSource:SetTextColor(1, 1, 1, 1)
 
     -- Zone
     if item.zone and item.zone ~= "" then
@@ -1135,11 +1140,15 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
             local qc = NS.QualityColors[item.quality] or NS.QualityColors[1]
             GameTooltip:AddLine(item.name, qc[1], qc[2], qc[3])
             if item.sourceType then
+                -- Match the detail panel / big viewer wording: render all
+                -- source types the item has, in canonical order, with
+                -- palette colors via GameTooltip escape codes.
+                local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
                 local detail = item.sourceDetail or ""
                 if detail ~= "" then
-                    GameTooltip:AddLine(item.sourceType .. ": " .. detail, 0.7, 0.7, 0.7)
+                    GameTooltip:AddLine(srcLabel .. " |cff888888:|r " .. detail, 1, 1, 1)
                 else
-                    GameTooltip:AddLine(item.sourceType, 0.7, 0.7, 0.7)
+                    GameTooltip:AddLine(srcLabel, 1, 1, 1)
                 end
             end
         end
