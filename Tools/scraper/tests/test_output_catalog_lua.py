@@ -454,3 +454,62 @@ class TestComputeRecentlyAddedIds:
 
     def test_empty_input_returns_empty(self):
         assert compute_recently_added_ids({}) == []
+
+
+# ======================================================================
+# SOURCE_PRIORITY alignment — the Lua addon has NS.SourcePriority in
+# Core/Utils.lua that drives multi-source rendering order. Both lists
+# must stay identical so the Python-side primary pick and the Lua-side
+# render ordering agree. Any divergence here would cause a multi-source
+# item like "Eversong Lantern" Painting to get Achievement primary in
+# the baked data but render Vendor-first (or vice versa) in the UI.
+# ======================================================================
+
+class TestSourcePriorityAlignment:
+    def test_python_matches_lua(self):
+        """Parse Core/Utils.lua for NS.SourcePriority and assert it
+        matches the Python SOURCE_PRIORITY list exactly (order + set).
+
+        Regex notes: this matches the first `{...}` table literal after
+        `NS.SourcePriority = `. Items are extracted as double-quoted
+        strings, so the check is robust to whitespace, line breaks, and
+        trailing commas — but WOULD be fooled by a string literal
+        containing a `}` or a Lua long-bracket comment (`--[[ ... ]]`)
+        embedded inside the table. Neither pattern is used here; if the
+        file ever grows such constructs, swap this for an actual Lua
+        parse via slpp or similar.
+        """
+        import re
+        from pathlib import Path
+        from output_catalog_lua import SOURCE_PRIORITY
+
+        utils_lua = (Path(__file__).resolve().parent.parent.parent.parent
+                     / "Core" / "Utils.lua")
+        content = utils_lua.read_text(encoding="utf-8")
+        m = re.search(r"NS\.SourcePriority\s*=\s*\{(.+?)\}", content, re.DOTALL)
+        assert m, f"NS.SourcePriority not found in {utils_lua}"
+        lua_items = re.findall(r'"([^"]+)"', m.group(1))
+        assert lua_items == SOURCE_PRIORITY, (
+            f"Python SOURCE_PRIORITY and Lua NS.SourcePriority diverged:\n"
+            f"  Python: {SOURCE_PRIORITY}\n"
+            f"  Lua:    {lua_items}\n"
+            f"Update both or the UI render order will disagree with the "
+            f"baked primary-source pick."
+        )
+
+    def test_priority_includes_all_source_types(self):
+        """Every source type the generator may emit as a primary
+        sourceType must appear in SOURCE_PRIORITY — otherwise a
+        multi-source item with that primary would sort unpredictably."""
+        from output_catalog_lua import SOURCE_PRIORITY
+        # Derived from NS.SourceColors keys in Core/Constants.lua and
+        # the source-type dispatch in get_primary_source_type.
+        EXPECTED = {
+            "Quest", "Achievement", "Prey", "Profession",
+            "Drop", "Treasure", "Vendor", "Shop", "Other",
+        }
+        assert set(SOURCE_PRIORITY) == EXPECTED, (
+            f"SOURCE_PRIORITY missing/extra types: "
+            f"missing={EXPECTED - set(SOURCE_PRIORITY)}, "
+            f"extra={set(SOURCE_PRIORITY) - EXPECTED}"
+        )

@@ -49,7 +49,11 @@ logger = logging.getLogger("output_catalog_lua")
 # Source type / detail derivation
 # ---------------------------------------------------------------------------
 
-SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor", "Shop"]
+# Gating-first priority: sources earlier in this list are considered the
+# "primary" when an item has multiple. Mirrored in Lua as
+# NS.SourcePriority in Core/Utils.lua — any change here must be applied
+# there too (test_source_priority_alignment enforces this).
+SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor", "Shop", "Other"]
 
 # Known base profession names for parsing sourceDetail strings like
 # "Midnight Tailoring (50)" → "Tailoring"
