@@ -1,5 +1,6 @@
 {
-  "_README": "Manual overrides for items the pipeline gets wrong. Keyed by decorID (string). Fields here overwrite the enriched item dict. Use _note for documentation. Field names must match what output_catalog_lua.py reads: sources (array), achievement, vendor, quest, zone, npcX, npcY, npcID, faction, etc.",
+  "_README": "Manual overrides for items the pipeline gets wrong. Keyed by decorID (string). Fields here overwrite the enriched item dict. Field names must match what output_catalog_lua.py reads: sources (array), achievement, vendor, quest, zone, npcX, npcY, npcID, faction, etc. See docs/WOWHEAD_EXTRACTION.md for the workflow.",
+  "_SCHEMA": "Each entry SHOULD include: _note (one-line description); _reason (one of: in_game_verified, zone_fixup, achievement_fix, wowhead_wrong); _verified_date (YYYY-MM-DD). Fields starting with _ are ignored by the merge.",
 
   "7690": {
     "_note": "Altar of the Corrupted Flames — in-game dump tagged as Vendor but this actually requires the Broken Isles World Quests V achievement",
@@ -17,5 +18,29 @@
   "939":  { "_note": "Blightfire Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
   "940":  { "_note": "Blightfire Hanging Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
   "943":  { "_note": "Undercity Spiked Chest — vendor (Captain Zen'taga) in Dazar'alor", "zone": "Dazar'alor" },
-  "949":  { "_note": "Large Forsaken Spiked Brazier — vendor (Provisioner Mukra) in Dazar'alor", "zone": "Dazar'alor" }
+  "949":  { "_note": "Large Forsaken Spiked Brazier — vendor (Provisioner Mukra) in Dazar'alor", "zone": "Dazar'alor" },
+
+  "21602": {
+    "_note": "Sin'dorei Garden Swing — sold by Disguised Decor Duel Vendor in Silvermoon City. Wowhead's visible UI does not render this vendor for the item (orphan JSON only), so the auto-promotion filter correctly rejects it; manual override re-attributes based on in-game confirmation.",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-22",
+    "sources": [{"type": "Vendor", "value": "Disguised Decor Duel Vendor"}],
+    "vendor": "Disguised Decor Duel Vendor",
+    "npcID": 264056,
+    "npcX": 31.6,
+    "npcY": 76.8,
+    "zone": "Silvermoon City"
+  },
+
+  "22006": {
+    "_note": "Small Lumber Pile — sold by Disguised Decor Duel Vendor in Silvermoon City. Same orphan-JSON situation as Sin'dorei Garden Swing.",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-22",
+    "sources": [{"type": "Vendor", "value": "Disguised Decor Duel Vendor"}],
+    "vendor": "Disguised Decor Duel Vendor",
+    "npcID": 264056,
+    "npcX": 31.6,
+    "npcY": 76.8,
+    "zone": "Silvermoon City"
+  }
 }

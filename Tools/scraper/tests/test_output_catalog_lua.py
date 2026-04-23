@@ -9,6 +9,7 @@ from output_catalog_lua import (
     get_achievement_name,
     get_vendor_name,
     extract_costs,
+    compute_recently_added_ids,
 )
 
 
@@ -320,3 +321,195 @@ class TestExtractCosts:
         raw = "99999|Hcurrency:1|h|Ticon:0|t|h"
         costs = extract_costs(raw)
         assert costs[0]["amount"] == 99999
+
+
+# ======================================================================
+# compute_recently_added_ids — batch-accumulation logic for the
+# "Recently Added" filter in the Collections sidebar section
+# ======================================================================
+
+class TestComputeRecentlyAddedIds:
+    def test_single_batch_meets_minimum(self):
+        """When the newest batch alone has >=5 items, only that batch is
+        returned — older batches stay hidden."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "2": {"date": "2026-04-21"},
+            "3": {"date": "2026-04-21"},
+            "4": {"date": "2026-04-21"},
+            "5": {"date": "2026-04-21"},
+            "6": {"date": "2026-04-21"},
+            # Older batch — should be excluded
+            "10": {"date": "2026-03-10"},
+            "11": {"date": "2026-03-10"},
+        }
+        result = compute_recently_added_ids(versions)
+        assert result == [1, 2, 3, 4, 5, 6]
+
+    def test_small_batch_pulls_in_previous(self):
+        """When the newest batch has <5 items, include prior batches
+        atomically until we reach 5 or max_batches."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "2": {"date": "2026-04-21"},
+            "3": {"date": "2026-04-21"},
+            # Previous batch — needed to reach 5
+            "10": {"date": "2026-03-10"},
+            "11": {"date": "2026-03-10"},
+            "12": {"date": "2026-03-10"},
+            "13": {"date": "2026-03-10"},
+            # Even-older batch — should be excluded (we already hit 5 after batch 2)
+            "20": {"date": "2026-02-01"},
+        }
+        result = compute_recently_added_ids(versions)
+        # batch 2026-04-21 (3 items) + whole prior batch 2026-03-10 (4 items) = 7
+        assert result == [1, 2, 3, 10, 11, 12, 13]
+
+    def test_whole_batch_atomicity(self):
+        """When adding a batch would push the count past the minimum,
+        the whole batch is still included (never truncated)."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            # Previous batch has many items; we stop after adding it whole.
+            "10": {"date": "2026-03-10"},
+            "11": {"date": "2026-03-10"},
+            "12": {"date": "2026-03-10"},
+            "13": {"date": "2026-03-10"},
+            "14": {"date": "2026-03-10"},
+            "15": {"date": "2026-03-10"},
+            "16": {"date": "2026-03-10"},
+            # Third-newest should NOT be included — we already hit 5 after 2 batches.
+            "20": {"date": "2026-02-01"},
+        }
+        result = compute_recently_added_ids(versions)
+        assert 1 in result
+        assert 16 in result  # entire prior batch included
+        assert 20 not in result  # earlier batch excluded
+        assert len(result) == 8
+
+    def test_max_batches_cap(self):
+        """Never include more than ``max_batches`` batches, even if the
+        minimum hasn't been reached."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "2": {"date": "2026-04-20"},
+            "3": {"date": "2026-04-19"},
+            "4": {"date": "2026-04-18"},
+            "5": {"date": "2026-04-17"},
+        }
+        result = compute_recently_added_ids(versions, min_items=10, max_batches=3)
+        # Only 3 newest dates → 3 items total (still short of min_items=10)
+        assert result == [1, 2, 3]
+
+    def test_fewer_items_than_minimum_returns_all(self):
+        """If the catalog has fewer than min_items spread across all
+        available batches, return what we have rather than error."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "2": {"date": "2026-04-21"},
+        }
+        result = compute_recently_added_ids(versions)
+        assert result == [1, 2]
+
+    def test_ignores_entries_without_date(self):
+        """Items missing the ``date`` field (older seed data, etc.) are
+        skipped — they can't be placed into a batch."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "2": {"patch": "12.0.5"},         # no date
+            "3": {"date": "2026-04-21"},
+            "4": {},                          # empty
+            "5": None,                        # not a dict
+        }
+        result = compute_recently_added_ids(versions)
+        assert 2 not in result
+        assert 4 not in result
+        assert 5 not in result
+        assert 1 in result and 3 in result
+
+    def test_result_is_sorted(self):
+        """Output is sorted ascending by decorID so the generated Lua is
+        deterministic across runs."""
+        versions = {str(did): {"date": "2026-04-21"} for did in [999, 1, 500, 100, 2]}
+        result = compute_recently_added_ids(versions)
+        assert result == sorted(result)
+
+    def test_non_integer_decor_ids_skipped(self):
+        """Malformed keys (non-integer strings) are ignored rather than
+        raising."""
+        versions = {
+            "1": {"date": "2026-04-21"},
+            "foo": {"date": "2026-04-21"},
+            "2": {"date": "2026-04-21"},
+        }
+        result = compute_recently_added_ids(versions)
+        assert result == [1, 2]
+
+    def test_default_thresholds(self):
+        """Document the defaults: min_items=5, max_batches=3."""
+        import inspect
+        sig = inspect.signature(compute_recently_added_ids)
+        assert sig.parameters["min_items"].default == 5
+        assert sig.parameters["max_batches"].default == 3
+
+    def test_empty_input_returns_empty(self):
+        assert compute_recently_added_ids({}) == []
+
+
+# ======================================================================
+# SOURCE_PRIORITY alignment — the Lua addon has NS.SourcePriority in
+# Core/Utils.lua that drives multi-source rendering order. Both lists
+# must stay identical so the Python-side primary pick and the Lua-side
+# render ordering agree. Any divergence here would cause a multi-source
+# item like "Eversong Lantern" Painting to get Achievement primary in
+# the baked data but render Vendor-first (or vice versa) in the UI.
+# ======================================================================
+
+class TestSourcePriorityAlignment:
+    def test_python_matches_lua(self):
+        """Parse Core/Utils.lua for NS.SourcePriority and assert it
+        matches the Python SOURCE_PRIORITY list exactly (order + set).
+
+        Regex notes: this matches the first `{...}` table literal after
+        `NS.SourcePriority = `. Items are extracted as double-quoted
+        strings, so the check is robust to whitespace, line breaks, and
+        trailing commas — but WOULD be fooled by a string literal
+        containing a `}` or a Lua long-bracket comment (`--[[ ... ]]`)
+        embedded inside the table. Neither pattern is used here; if the
+        file ever grows such constructs, swap this for an actual Lua
+        parse via slpp or similar.
+        """
+        import re
+        from pathlib import Path
+        from output_catalog_lua import SOURCE_PRIORITY
+
+        utils_lua = (Path(__file__).resolve().parent.parent.parent.parent
+                     / "Core" / "Utils.lua")
+        content = utils_lua.read_text(encoding="utf-8")
+        m = re.search(r"NS\.SourcePriority\s*=\s*\{(.+?)\}", content, re.DOTALL)
+        assert m, f"NS.SourcePriority not found in {utils_lua}"
+        lua_items = re.findall(r'"([^"]+)"', m.group(1))
+        assert lua_items == SOURCE_PRIORITY, (
+            f"Python SOURCE_PRIORITY and Lua NS.SourcePriority diverged:\n"
+            f"  Python: {SOURCE_PRIORITY}\n"
+            f"  Lua:    {lua_items}\n"
+            f"Update both or the UI render order will disagree with the "
+            f"baked primary-source pick."
+        )
+
+    def test_priority_includes_all_source_types(self):
+        """Every source type the generator may emit as a primary
+        sourceType must appear in SOURCE_PRIORITY — otherwise a
+        multi-source item with that primary would sort unpredictably."""
+        from output_catalog_lua import SOURCE_PRIORITY
+        # Derived from NS.SourceColors keys in Core/Constants.lua and
+        # the source-type dispatch in get_primary_source_type.
+        EXPECTED = {
+            "Quest", "Achievement", "Prey", "Profession",
+            "Drop", "Treasure", "Vendor", "Shop", "Other",
+        }
+        assert set(SOURCE_PRIORITY) == EXPECTED, (
+            f"SOURCE_PRIORITY missing/extra types: "
+            f"missing={EXPECTED - set(SOURCE_PRIORITY)}, "
+            f"extra={set(SOURCE_PRIORITY) - EXPECTED}"
+        )

@@ -64,17 +64,54 @@ local filterState = {
     -- Collection state: all true by default (show everything)
     collected       = true,
     notCollected    = true,
-    -- Favorites filter
-    onlyFavorites   = false,
     subcategories = {},  -- { [subcatID] = true, ... }
     themes        = {},  -- { [themeID] = true, ... }
+
+    -- Collections section toggles — table-driven (see COLLECTION_FILTERS
+    -- below). Each entry sets `filterState[<key>] = false` here and the
+    -- filter loop reads that state through the registry. To add a third
+    -- toggle you add one entry to the registry + one default here.
+    onlyFavorites = false,
+    recentlyAdded = false,
+}
+
+-- COLLECTION_FILTERS — registry for toggles in the "Collections" sidebar
+-- section (currently "Only Favorites" + "Recently Added"). Each entry
+-- drives:
+--   - the filterState boolean (keyed by `key`)
+--   - save/reset/restore (enumerated by iterating the registry)
+--   - dynamic-count accumulator (`dynCounts[countKey]`)
+--   - per-item membership check (`matches(id, ctx)`)
+--   - the SectionBuilders toggle dispatcher (key matches itemDef.key)
+--
+-- Adding a third toggle requires ONLY: one entry here, one filterState
+-- default above, and one itemDef in UI/CatalogFrame.lua's FILTER_SECTIONS.
+-- Save/reset/restore and all dyn-count formulas consume the registry
+-- and pick up new entries automatically. No per-formula plumbing work.
+local COLLECTION_FILTERS = {
+    {
+        key      = "onlyFavorites",
+        countKey = "favorites",
+        -- ctx carries per-ApplyFilters caches so matches() doesn't have
+        -- to re-resolve NS.favorites / NS.CatalogData on every item.
+        matches  = function(id, ctx)
+            return ctx.favoritesDB[id] and true or false
+        end,
+    },
+    {
+        key      = "recentlyAdded",
+        countKey = "recentlyAdded",
+        matches  = function(id, ctx)
+            return ctx.recentlyAddedSet[id] == true
+        end,
+    },
 }
 local filteredItems = {}
 
 --- Save current filter state to SavedVariables (excludes searchText).
 local function SaveFilterState()
     if not (NS.db and NS.db.settings and NS.db.settings.rememberFilters) then return end
-    NS.db.savedFilters = {
+    local saved = {
         sources       = CopyTable(filterState.sources),
         zones         = CopyTable(filterState.zones),
         qualities     = CopyTable(filterState.qualities),
@@ -83,8 +120,12 @@ local function SaveFilterState()
         themes        = CopyTable(filterState.themes),
         collected     = filterState.collected,
         notCollected  = filterState.notCollected,
-        onlyFavorites = filterState.onlyFavorites,
     }
+    -- Registry-driven: persist every Collections-section toggle automatically.
+    for _, cf in ipairs(COLLECTION_FILTERS) do
+        saved[cf.key] = filterState[cf.key]
+    end
+    NS.db.savedFilters = saved
 end
 
 --- Expose filter state for sidebar sync.
@@ -894,15 +935,20 @@ local function OpenModelViewer(item)
         math.floor(qc[1] * 255), math.floor(qc[2] * 255), math.floor(qc[3] * 255))
     viewer._titleText:SetText("|cff" .. colorHex .. (item.name or "3D Preview") .. "|r")
 
-    -- Source info
-    local srcColor = NS.SourceColors and NS.SourceColors[item.sourceType]
-        or { 0.6, 0.6, 0.6, 1 }
-    local srcText = item.sourceType or "Unknown"
+    -- Source info — deterministic multi-source rendering via
+    -- NS.Utils.GetItemSources / FormatSourcesText so the big 3D viewer
+    -- matches the detail panel exactly (e.g. "Achievement + Vendor"
+    -- ordering + per-label palette colors). sourceDetail is appended
+    -- in muted gray to keep the primary call-out readable.
+    local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
+    local srcText = srcLabel
     if item.sourceDetail and item.sourceDetail ~= "" then
-        srcText = srcText .. ": " .. item.sourceDetail
+        srcText = srcText .. " |cff888888:|r " .. item.sourceDetail
     end
     viewer._infoSource:SetText(srcText)
-    viewer._infoSource:SetTextColor(srcColor[1], srcColor[2], srcColor[3], 1)
+    -- Inline |cff...|r escapes carry per-label color; reset the
+    -- fontstring baseline to white so nothing tints them.
+    viewer._infoSource:SetTextColor(1, 1, 1, 1)
 
     -- Zone
     if item.zone and item.zone ~= "" then
@@ -1094,11 +1140,15 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
             local qc = NS.QualityColors[item.quality] or NS.QualityColors[1]
             GameTooltip:AddLine(item.name, qc[1], qc[2], qc[3])
             if item.sourceType then
+                -- Match the detail panel / big viewer wording: render all
+                -- source types the item has, in canonical order, with
+                -- palette colors via GameTooltip escape codes.
+                local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
                 local detail = item.sourceDetail or ""
                 if detail ~= "" then
-                    GameTooltip:AddLine(item.sourceType .. ": " .. detail, 0.7, 0.7, 0.7)
+                    GameTooltip:AddLine(srcLabel .. " |cff888888:|r " .. detail, 1, 1, 1)
                 else
-                    GameTooltip:AddLine(item.sourceType, 0.7, 0.7, 0.7)
+                    GameTooltip:AddLine(srcLabel, 1, 1, 1)
                 end
             end
         end
@@ -1326,9 +1376,17 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local collNone = not filterState.collected and not filterState.notCollected
     local hasCollFilter = not collAll and not collNone
 
-    -- Favorites filter
-    local favoritesDB = NS.favorites or (NS.db and NS.db.favorites) or {}
-    local hasFavFilter = filterState.onlyFavorites
+    -- Collections-section filters — table-driven (see COLLECTION_FILTERS).
+    -- We cache external references (favoritesDB, RecentlyAdded set) once
+    -- into `collectionCtx` so per-item matchers don't re-resolve globals.
+    local collectionCtx = {
+        favoritesDB      = NS.favorites or (NS.db and NS.db.favorites) or {},
+        recentlyAddedSet = NS.CatalogData and NS.CatalogData.RecentlyAdded or {},
+    }
+    local activeCollectionFilters = {}
+    for _, cf in ipairs(COLLECTION_FILTERS) do
+        activeCollectionFilters[cf.key] = filterState[cf.key] == true
+    end
 
     -- Theme filter
     local hasThemeFilter = next(filterState.themes) ~= nil
@@ -1347,8 +1405,11 @@ function NS.UI.CatalogGrid_ApplyFilters()
         subcategories = {},
         themes      = {},
         collection  = { collected = 0, notCollected = 0 },
-        favorites   = 0,
     }
+    -- Registry-driven: initialise an accumulator for each collection toggle.
+    for _, cf in ipairs(COLLECTION_FILTERS) do
+        dynCounts[cf.countKey] = 0
+    end
 
     -- Single-pass: filter items and compute dynamic counts simultaneously
     filteredItems = {}
@@ -1480,9 +1541,19 @@ function NS.UI.CatalogGrid_ApplyFilters()
             if isNotColl and filterState.notCollected then pColl = true end
         end
 
-        -- Favorites check
-        local isFav = favoritesDB[id] and true or false
-        local pFav = not hasFavFilter or isFav
+        -- Collections-section filters — registry-driven.
+        -- `collMatch[key]` = does this item match the filter's predicate
+        -- (independent of whether the filter is currently active)?
+        -- `pCollection` = AND of (active → match) across all entries.
+        local collMatch = {}
+        local pCollection = true
+        for _, cf in ipairs(COLLECTION_FILTERS) do
+            local m = cf.matches(id, collectionCtx)
+            collMatch[cf.key] = m
+            if activeCollectionFilters[cf.key] and not m then
+                pCollection = false
+            end
+        end
 
         -- Theme check
         local pTheme = true
@@ -1497,7 +1568,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Item passes ALL filters -> add to filtered list
-        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
+        if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
         end
 
@@ -1507,7 +1578,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
 
         -- Source counts (exclude source filter, include secondary sources).
         -- Items count in all applicable source buckets simultaneously.
-        if pZone and pQual and pProf and pColl and pFav and pCat and pTheme then
+        if pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
             local st = item.sourceType or "Other"
             dynCounts.sources[st] = (dynCounts.sources[st] or 0) + 1
             -- Secondary sources
@@ -1525,7 +1596,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Zone counts (exclude zone filter)
-        if pSrc and pQual and pProf and pColl and pFav and pCat and pTheme then
+        if pSrc and pQual and pProf and pColl and pCollection and pCat and pTheme then
             local z = item.zone or ""
             if z ~= "" then
                 dynCounts.zones[z] = (dynCounts.zones[z] or 0) + 1
@@ -1533,7 +1604,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Quality counts (exclude quality filter)
-        if pSrc and pZone and pProf and pColl and pFav and pCat and pTheme then
+        if pSrc and pZone and pProf and pColl and pCollection and pCat and pTheme then
             local q = item.quality
             if q then
                 dynCounts.qualities[q] = (dynCounts.qualities[q] or 0) + 1
@@ -1541,7 +1612,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Profession counts (exclude profession filter)
-        if pSrc and pZone and pQual and pColl and pFav and pCat and pTheme then
+        if pSrc and pZone and pQual and pColl and pCollection and pCat and pTheme then
             if item.professionName and item.professionName ~= "" then
                 local pn = item.professionName
                 dynCounts.professions[pn] = (dynCounts.professions[pn] or 0) + 1
@@ -1549,7 +1620,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Collection counts (exclude collection filter)
-        if pSrc and pZone and pQual and pProf and pFav and pCat and pTheme then
+        if pSrc and pZone and pQual and pProf and pCollection and pCat and pTheme then
             if isCollected then
                 dynCounts.collection.collected = dynCounts.collection.collected + 1
             end
@@ -1558,13 +1629,33 @@ function NS.UI.CatalogGrid_ApplyFilters()
             end
         end
 
-        -- Favorites count (exclude favorites filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme and isFav then
-            dynCounts.favorites = dynCounts.favorites + 1
+        -- Per-toggle counts for each Collections-section filter (registry-
+        -- driven). For a given toggle, count items that (a) match that
+        -- toggle's predicate unconditionally, and (b) pass every OTHER
+        -- active collection filter. This is what lets the sidebar show
+        -- "favorites count" that respects an active "Recently Added"
+        -- without double-counting itself.
+        if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme then
+            for _, cf in ipairs(COLLECTION_FILTERS) do
+                if collMatch[cf.key] then
+                    local pOtherColl = true
+                    for _, other in ipairs(COLLECTION_FILTERS) do
+                        if other.key ~= cf.key
+                                and activeCollectionFilters[other.key]
+                                and not collMatch[other.key] then
+                            pOtherColl = false
+                            break
+                        end
+                    end
+                    if pOtherColl then
+                        dynCounts[cf.countKey] = (dynCounts[cf.countKey] or 0) + 1
+                    end
+                end
+            end
         end
 
         -- Subcategory counts (exclude category filter)
-        if pSrc and pZone and pQual and pProf and pColl and pFav and pTheme then
+        if pSrc and pZone and pQual and pProf and pColl and pCollection and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
                 for _, sid in ipairs(subcats) do
@@ -1574,7 +1665,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Theme counts (exclude theme filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and pFav and pCat then
+        if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat then
             local tids = item.themeIDs
             if tids then
                 for _, tid in ipairs(tids) do
@@ -1721,11 +1812,23 @@ function NS.UI.CatalogGrid_ToggleCollection(stateKey, checked)
     NS.UI.CatalogGrid_ApplyFilters()
 end
 
-function NS.UI.CatalogGrid_ToggleFavorites(checked)
-    filterState.onlyFavorites = checked
-    scrollOffset = 0
-    scrollTarget = 0
-    NS.UI.CatalogGrid_ApplyFilters()
+-- Dispatcher for the "Collections" section which has multiple toggles
+-- (Only Favorites, Recently Added, ...). Called with the item key +
+-- checked state by the boolean SectionBuilder when #items > 1.
+--
+-- Registry-driven: any key from COLLECTION_FILTERS is accepted. Adding
+-- a new toggle means adding an entry to that registry plus a
+-- filterState default — no change needed here.
+function NS.UI.CatalogGrid_ToggleCollections(key, checked)
+    for _, cf in ipairs(COLLECTION_FILTERS) do
+        if cf.key == key then
+            filterState[key] = checked
+            scrollOffset = 0
+            scrollTarget = 0
+            NS.UI.CatalogGrid_ApplyFilters()
+            return
+        end
+    end
 end
 
 function NS.UI.CatalogGrid_ToggleFavorite(decorID)
@@ -1793,7 +1896,10 @@ function NS.UI.CatalogGrid_ResetFilters()
     filterState.searchText = ""
     filterState.collected = true
     filterState.notCollected = true
-    filterState.onlyFavorites = false
+    -- Registry-driven: clear every Collections-section toggle.
+    for _, cf in ipairs(COLLECTION_FILTERS) do
+        filterState[cf.key] = false
+    end
     scrollOffset = 0
     scrollTarget = 0
     NS.UI.CatalogGrid_ApplyFilters()
@@ -1825,7 +1931,11 @@ function NS.UI.InitCatalogGrid(parent)
         if saved.themes        then filterState.themes        = CopyTable(saved.themes) end
         if saved.collected     ~= nil then filterState.collected     = saved.collected end
         if saved.notCollected  ~= nil then filterState.notCollected  = saved.notCollected end
-        if saved.onlyFavorites ~= nil then filterState.onlyFavorites = saved.onlyFavorites end
+        -- Registry-driven: restore every Collections-section toggle. Keys
+        -- missing from saved state are left at their filterState default.
+        for _, cf in ipairs(COLLECTION_FILTERS) do
+            if saved[cf.key] ~= nil then filterState[cf.key] = saved[cf.key] end
+        end
     end
 
     -- Compute cols/rows dynamically from available space

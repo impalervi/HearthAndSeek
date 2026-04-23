@@ -2,7 +2,13 @@
 
 import pytest
 
-from parse_catalog_dump import LuaParser, parse_lua_saved_vars, strip_wow_formatting, parse_source_text
+from parse_catalog_dump import (
+    LuaParser,
+    parse_lua_saved_vars,
+    strip_wow_formatting,
+    parse_source_text,
+    is_placeholder_name,
+)
 
 
 # ======================================================================
@@ -440,3 +446,43 @@ class TestParseSourceText:
         raw = "|cFFFFD200Vendor: |rFirst Vendor|n|cFFFFD200Vendor: |rSecond Vendor"
         result = parse_source_text(raw)
         assert result["vendor"] == "First Vendor"
+
+
+# ======================================================================
+# is_placeholder_name — [DNT] / [AUTOGEN] filter
+# ======================================================================
+
+class TestIsPlaceholderName:
+    def test_leading_dnt(self):
+        assert is_placeholder_name("[DNT] Something") is True
+
+    def test_leading_autogen(self):
+        assert is_placeholder_name("[AUTOGEN] Something") is True
+
+    def test_combined_leading_dnt_autogen(self):
+        """Real example from the live client."""
+        assert is_placeholder_name("[DNT] [AUTOGEN] 12PH_Shop_LunarNewYear_Basket01.M2") is True
+
+    def test_dnt_in_middle_with_spaces(self):
+        assert is_placeholder_name("Something [DNT] foo") is True
+
+    def test_autogen_in_middle_with_spaces(self):
+        assert is_placeholder_name("Something [AUTOGEN] foo") is True
+
+    def test_normal_item_name_is_not_placeholder(self):
+        assert is_placeholder_name("Grand Aethercharged Crystal") is False
+
+    def test_name_with_bracket_is_not_placeholder(self):
+        """A normal item that happens to contain brackets must not trip the filter."""
+        assert is_placeholder_name("Blood Elven [Gilded] Candelabra") is False
+
+    def test_empty_string(self):
+        assert is_placeholder_name("") is False
+
+    def test_none_is_false(self):
+        assert is_placeholder_name(None) is False
+
+    def test_dnt_without_surrounding_spaces(self):
+        """Marker embedded in a word (no space-separation) should NOT match —
+        we only want the bracketed marker, not a substring."""
+        assert is_placeholder_name("foo[DNT]bar") is False
