@@ -43,6 +43,17 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "1.5.3",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Recently Added Filter|r\nA new \"Recently Added\" toggle under Collections shows decor from the latest catalog scan, so you can jump straight to what's new.",
+                anchorTo = "sidebar",
+                targetPoint = "RightEdgeTop",
+                alignment = "Center",
+            },
+        },
+    },
+    {
         version = "1.4.1",
         entries = {
             {
