@@ -12,6 +12,21 @@ Guided workflow for discovering newly added decor items in WoW and updating the 
 
 This skill walks through the full new-item discovery and cataloging workflow. Follow each phase in order, pausing for user action where noted.
 
+### Hard rule: wait for user to test before merging
+
+Any feature branch you work on — once committed — MUST be deployed to
+the game folder and tested by the user in-game before it is merged into
+any `release/*` branch, merged to `main`, tagged, or pushed. Tests
+passing is NOT confirmation. "Deployed" is NOT confirmation. Only the
+user saying it works (or equivalent: "merge it", "looks good",
+"ship it") counts.
+
+If you're about to switch branches to merge and the user hasn't
+confirmed in-game, stop and ask ("Ready to merge?"). On this repo the
+user is the only one who can run WoW; visual/behavioral regressions
+only surface there. See `feedback_merge_after_testing.md` in the
+global memory for the incident log.
+
 ### Hard rule: NEVER touch the caches
 
 `Tools/scraper/data/wowhead_cache/` and `Tools/scraper/data/wowdb_cache/`
