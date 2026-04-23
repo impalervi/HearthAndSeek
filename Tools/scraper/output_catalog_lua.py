@@ -865,6 +865,64 @@ def resolve_vendor_override(vendor_name: str, item_zone: str | None) -> dict | N
     return VENDOR_COORDS.get(vendor_name)
 
 
+def compute_recently_added_ids(
+    item_versions: dict,
+    min_items: int = 5,
+    max_batches: int = 3,
+) -> list[int]:
+    """Return the list of decorIDs for the "Recently Added" filter.
+
+    The filter groups items into batches by their ``dateAdded`` value in
+    ``item_versions.json`` (each scan day is one batch). Starting from
+    the newest batch, we accumulate whole batches until the total count
+    reaches ``min_items`` (default 5), or until we've included
+    ``max_batches`` (default 3) — whichever comes first.
+
+    Contract:
+      - Batches are atomic: when a batch's inclusion would push the
+        count past ``min_items``, the whole batch is still included.
+      - If the newest batch already meets ``min_items``, only that batch
+        is returned (older batches stay hidden).
+      - If there are fewer than ``min_items`` total across the last
+        ``max_batches``, we return what we have.
+      - Items without a ``date`` field in ``item_versions`` are ignored.
+
+    :param item_versions: parsed contents of ``data/item_versions.json``
+      — a dict keyed by decorID string, each value ``{"patch": ...,
+      "date": "YYYY-MM-DD"}``.
+    :param min_items: minimum target count; don't stop before this many.
+    :param max_batches: don't include more than this many distinct dates.
+    :return: sorted list of decorIDs (int) that belong in the filter.
+    """
+    # Group decorIDs by date
+    by_date: dict[str, list[int]] = {}
+    for did_str, info in item_versions.items():
+        if not isinstance(info, dict):
+            continue
+        date = info.get("date")
+        if not date:
+            continue
+        try:
+            did = int(did_str)
+        except (ValueError, TypeError):
+            continue
+        by_date.setdefault(date, []).append(did)
+
+    # Sort dates descending (newest first), walk until we hit min_items
+    # or max_batches (whichever first)
+    selected: list[int] = []
+    batches_used = 0
+    for date in sorted(by_date.keys(), reverse=True):
+        if batches_used >= max_batches:
+            break
+        if len(selected) >= min_items:
+            break
+        selected.extend(by_date[date])
+        batches_used += 1
+    selected.sort()
+    return selected
+
+
 def promote_wowhead_npc_fallback(
     item: dict,
     extra: dict,
@@ -3053,6 +3111,26 @@ def main() -> None:
         logger.info("  Themes: %d groups, %d themes, %d items themed",
                      len(theme_groups), len(theme_names),
                      theme_meta.get("items_themed", 0))
+
+    # RecentlyAdded — set of decorIDs from the most recent scan batch(es).
+    # Emitted as a dict-as-set ({[id]=true}) so the addon's filter loop
+    # can do O(1) lookups during apply.
+    recently_added = compute_recently_added_ids(item_versions)
+    lines.append("NS.CatalogData.RecentlyAdded = {")
+    for did in recently_added:
+        lines.append(f"    [{did}] = true,")
+    lines.append("}")
+    lines.append("")
+    # Count distinct dates in the selected set for the summary line
+    _selected_dates = {
+        item_versions[str(did)].get("date")
+        for did in recently_added
+        if str(did) in item_versions and isinstance(item_versions[str(did)], dict)
+    }
+    logger.info(
+        "  RecentlyAdded: %d items across %d date batch(es) from item_versions.json",
+        len(recently_added), len(_selected_dates),
+    )
 
     lua_content = "\n".join(lines)
 
