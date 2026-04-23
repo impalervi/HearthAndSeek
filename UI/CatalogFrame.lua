@@ -44,17 +44,19 @@ local filterWidgets = {
 local FILTER_SECTIONS = {
     {
         id = "favorites",
-        title = "FAVORITES",
+        title = "COLLECTIONS",
         type = "boolean",
         items = {
-            { key = "onlyFavorites", label = "Only Favorites", color = {0.25, 0.78, 0.78},
-              countKey = "favorites" },
+            { key = "onlyFavorites",     label = "Only Favorites",  color = {0.25, 0.78, 0.78},
+              countKey = "favorites",      countColor = "888888" },
+            { key = "recentlyAdded", label = "Recently Added",  color = {0.95, 0.75, 0.25},
+              countKey = "recentlyAdded",  countColor = "888888" },
         },
-        toggle = "CatalogGrid_ToggleFavorites",
+        toggle = "CatalogGrid_ToggleCollections",
     },
     {
         id = "collection",
-        title = "COLLECTION",
+        title = "MY COLLECTION",
         type = "boolean_pair",
         items = {
             { key = "collected",    label = "Hide Collected",     color = {0.12, 1.00, 0.00} },
@@ -513,11 +515,25 @@ function SectionBuilders.boolean(content, sectionDef)
 
     local yOff = 0
     for _, itemDef in ipairs(items) do
-        local displayLabel = itemDef.label .. "  |cff40c8c8(0)|r"
+        -- Per-item count color (defaults to teal to preserve the original
+        -- Favorites styling; pass "888888" for a neutral-gray count like
+        -- the boolean_pair sections).
+        local countColor = itemDef.countColor or "40c8c8"
+        local displayLabel = itemDef.label .. "  |cff" .. countColor .. "(0)|r"
+        local itemKey = itemDef.key
         local chk, newY = CreateFilterCheckbox(content, displayLabel, yOff, itemDef.color,
             function(checked)
                 local fn = NS.UI[sectionDef.toggle]
-                if fn then fn(checked) end
+                if not fn then return end
+                -- Sections with multiple toggles (e.g. Collections = Favorites
+                -- + Recently Added) need the item key so the callback can
+                -- route to the right filter. Single-toggle sections ignore
+                -- the first arg and just read `checked`.
+                if #items > 1 then
+                    fn(itemKey, checked)
+                else
+                    fn(checked)
+                end
             end)
         chk:SetChecked(false)
         filterWidgets[sectionDef.id][itemDef.key] = {
@@ -525,6 +541,7 @@ function SectionBuilders.boolean(content, sectionDef)
             label      = chk._label,
             namePrefix = itemDef.label,
             countKey   = itemDef.countKey,
+            countColor = countColor,
         }
         yOff = newY
     end
@@ -1096,7 +1113,7 @@ end
 -- Filter bar button mapping: which FILTER_SECTIONS go in which dropdown
 -------------------------------------------------------------------------------
 local FILTER_BAR_BUTTONS = {
-    { key = "favorites",  label = "Favorites",  sectionIDs = { "favorites" },  width = 160, isDirect = true },
+    { key = "favorites",  label = "Collections", sectionIDs = { "favorites" }, width = 200 },
     { key = "sources",    label = "Source",      sectionIDs = { "sources" },    width = 200 },
     { key = "categories", label = "Category",    sectionIDs = { "categories" }, width = 280 },
     { key = "expansions", label = "Zone",        sectionIDs = { "expansions" }, width = 260 },
@@ -1865,7 +1882,8 @@ function NS.UI.UpdateFilterCounts(counts)
     for _, secDef in ipairs(FILTER_SECTIONS) do
 
         if secDef.type == "boolean" then
-            -- Single value count (e.g. favorites)
+            -- Single value count (e.g. favorites). Count color is
+            -- stored on the widget (defaults to teal).
             for _, itemDef in ipairs(secDef.items or {}) do
                 local widget = filterWidgets[secDef.id][itemDef.key]
                 if widget then
@@ -1873,7 +1891,8 @@ function NS.UI.UpdateFilterCounts(counts)
                     if itemDef.countKey then
                         c = counts[itemDef.countKey] or 0
                     end
-                    widget.label:SetText(widget.namePrefix .. "  |cff40c8c8(" .. c .. ")|r")
+                    local color = widget.countColor or "40c8c8"
+                    widget.label:SetText(widget.namePrefix .. "  |cff" .. color .. "(" .. c .. ")|r")
                 end
             end
 

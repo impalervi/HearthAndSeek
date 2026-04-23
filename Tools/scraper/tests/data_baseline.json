@@ -1,22 +1,22 @@
 {
   "version": "1.1",
-  "generatedAt": "2026-04-08T03:26:04.145879+00:00",
+  "generatedAt": "2026-04-22T12:02:30.759471+00:00",
   "gameVersion": {
     "interface": "120001",
     "expansion": "Midnight"
   },
   "aggregates": {
-    "totalItems": 1679,
+    "totalItems": 1735,
     "bySourceType": {
       "Achievement": 147,
-      "Drop": 58,
-      "Other": 89,
+      "Drop": 59,
+      "Other": 127,
       "Prey": 30,
       "Profession": 310,
-      "Quest": 327,
-      "Shop": 22,
+      "Quest": 331,
+      "Shop": 25,
       "Treasure": 8,
-      "Vendor": 688
+      "Vendor": 698
     },
     "byExpansion": {
       "Battle for Azeroth": 100,
@@ -24,13 +24,13 @@
       "Classic": 82,
       "Dragonflight": 40,
       "Legion": 167,
-      "Midnight": 267,
+      "Midnight": 282,
       "Mists of Pandaria": 28,
       "Neighborhoods": 370,
       "Shadowlands": 2,
       "The Burning Crusade": 2,
       "The War Within": 78,
-      "Unknown": 473,
+      "Unknown": 514,
       "Warlords of Draenor": 44,
       "Wrath of the Lich King": 13
     }
@@ -367,7 +367,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -406,7 +406,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -463,7 +463,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -472,7 +472,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -481,7 +481,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -1259,8 +1259,10 @@
     "1080": {
       "sourceType": "Quest",
       "zone": "Harandar",
+      "questID": 88999,
       "vendorName": "Maku",
       "npcID": 255114,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -2368,7 +2370,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -2432,7 +2434,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -2441,7 +2443,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -2450,7 +2452,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -2639,7 +2641,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -2648,7 +2650,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3311,7 +3313,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3320,7 +3322,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3492,7 +3494,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3510,7 +3512,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3529,7 +3531,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3722,7 +3724,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -3731,7 +3733,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4152,7 +4154,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4161,7 +4163,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4170,7 +4172,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4179,7 +4181,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4188,7 +4190,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4197,7 +4199,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4206,7 +4208,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4225,7 +4227,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4234,7 +4236,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4519,7 +4521,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255278,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4538,7 +4540,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -4567,7 +4569,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5544,7 +5546,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5553,7 +5555,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5562,7 +5564,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5571,7 +5573,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5580,7 +5582,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5589,7 +5591,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5598,7 +5600,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5607,7 +5609,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5616,7 +5618,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5625,7 +5627,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5643,7 +5645,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5652,7 +5654,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5661,7 +5663,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -5769,7 +5771,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255301,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -6332,7 +6334,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255297,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -6350,7 +6352,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "Balen Starfinder",
-      "npcID": 255216,
+      "npcID": 255298,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -6396,7 +6398,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -6405,7 +6407,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7040,7 +7042,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7296,7 +7298,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7359,7 +7361,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7368,7 +7370,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7377,7 +7379,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7493,7 +7495,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7502,7 +7504,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7511,7 +7513,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7539,7 +7541,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "Balen Starfinder",
-      "npcID": 255216,
+      "npcID": 255298,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -7846,7 +7848,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8157,10 +8159,12 @@
       "faction": "neutral"
     },
     "9253": {
-      "sourceType": "Vendor",
+      "sourceType": "Quest",
       "zone": "Arcantina",
+      "questID": 92326,
       "vendorName": "Morta Gage",
       "npcID": 252873,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -8168,7 +8172,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "Balen Starfinder",
-      "npcID": 255216,
+      "npcID": 255298,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8187,6 +8191,9 @@
       "sourceType": "Drop",
       "zone": "Siege of Orgrimmar",
       "expansion": "Mists of Pandaria"
+    },
+    "9265": {
+      "sourceType": "Shop"
     },
     "9266": {
       "sourceType": "Profession",
@@ -8211,11 +8218,47 @@
       "sourceType": "Profession",
       "professionName": "Jewelcrafting"
     },
+    "9270": {
+      "sourceType": "Other"
+    },
+    "9271": {
+      "sourceType": "Other"
+    },
+    "9272": {
+      "sourceType": "Other"
+    },
+    "9273": {
+      "sourceType": "Shop"
+    },
+    "9274": {
+      "sourceType": "Other"
+    },
+    "9275": {
+      "sourceType": "Other"
+    },
+    "9276": {
+      "sourceType": "Other"
+    },
+    "9277": {
+      "sourceType": "Other"
+    },
+    "9278": {
+      "sourceType": "Other"
+    },
+    "9279": {
+      "sourceType": "Other"
+    },
+    "9280": {
+      "sourceType": "Shop"
+    },
+    "9281": {
+      "sourceType": "Other"
+    },
     "9419": {
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8224,7 +8267,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8233,7 +8276,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8242,7 +8285,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8251,7 +8294,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8350,7 +8393,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8359,7 +8402,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8368,7 +8411,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8545,10 +8588,12 @@
       "faction": "neutral"
     },
     "9624": {
-      "sourceType": "Vendor",
+      "sourceType": "Quest",
       "zone": "Arcantina",
+      "questID": 92326,
       "vendorName": "Morta Gage",
       "npcID": 252873,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -8574,7 +8619,7 @@
       "sourceType": "Vendor",
       "zone": "Founder's Point",
       "vendorName": "Hesta Forlath",
-      "npcID": 252916,
+      "npcID": 252917,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8583,7 +8628,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8749,7 +8794,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8787,7 +8832,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8883,7 +8928,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -8918,7 +8963,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9007,7 +9052,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9357,7 +9402,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Len\" Splinthoof",
-      "npcID": 255228,
+      "npcID": 255326,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9432,7 +9477,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9451,7 +9496,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9460,7 +9505,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9469,7 +9514,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9478,7 +9523,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -9758,7 +9803,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"High Tides\" Ren",
-      "npcID": 255222,
+      "npcID": 255325,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -10099,6 +10144,42 @@
       "npcID": 235252,
       "hasCoords": true,
       "expansion": "The War Within",
+      "faction": "neutral"
+    },
+    "12140": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "12141": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "12142": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "12143": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
       "faction": "neutral"
     },
     "12154": {
@@ -10544,7 +10625,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -10553,7 +10634,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -11047,8 +11128,10 @@
     "14827": {
       "sourceType": "Quest",
       "zone": "Harandar",
+      "questID": 88998,
       "vendorName": "Maku",
       "npcID": 255114,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -11412,6 +11495,9 @@
       "expansion": "Midnight",
       "faction": "neutral"
     },
+    "15293": {
+      "sourceType": "Other"
+    },
     "15399": {
       "sourceType": "Vendor",
       "zone": "Silvermoon City",
@@ -11525,7 +11611,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "Balen Starfinder",
-      "npcID": 255216,
+      "npcID": 255298,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -11638,6 +11724,24 @@
     "15484": {
       "sourceType": "Vendor",
       "vendorName": "World Vendors"
+    },
+    "15486": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "15487": {
+      "sourceType": "Vendor",
+      "zone": "Zul'Aman",
+      "vendorName": "Depthdiver Tu'nakit",
+      "npcID": 260180,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
     },
     "15488": {
       "sourceType": "Vendor",
@@ -11937,11 +12041,13 @@
       "sourceType": "Shop"
     },
     "15741": {
-      "sourceType": "Vendor",
+      "sourceType": "Quest",
       "zone": "Highmountain",
+      "questID": 39487,
       "vendorName": "Torv Dubstomp",
       "npcID": 108017,
       "hasCoords": true,
+      "chainLength": 1,
       "expansion": "Legion",
       "faction": "neutral"
     },
@@ -12067,11 +12173,13 @@
       "faction": "neutral"
     },
     "15894": {
-      "sourceType": "Vendor",
+      "sourceType": "Quest",
       "zone": "Voidstorm",
+      "questID": 86512,
       "vendorName": "Void Researcher Aemely",
       "npcID": 259922,
       "hasCoords": true,
+      "chainLength": 5,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -12136,6 +12244,9 @@
       "sourceType": "Other"
     },
     "16038": {
+      "sourceType": "Other"
+    },
+    "16039": {
       "sourceType": "Other"
     },
     "16082": {
@@ -12309,9 +12420,11 @@
     "16691": {
       "sourceType": "Quest",
       "zone": "Eversong Woods",
+      "questID": 90867,
       "vendorName": "Sathren Azuredawn",
       "npcID": 259864,
       "hasCoords": true,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -12522,12 +12635,29 @@
       "expansion": "Midnight",
       "faction": "neutral"
     },
+    "16974": {
+      "sourceType": "Other"
+    },
+    "16975": {
+      "sourceType": "Other"
+    },
+    "16976": {
+      "sourceType": "Other"
+    },
+    "16977": {
+      "sourceType": "Other"
+    },
+    "16978": {
+      "sourceType": "Other"
+    },
     "17294": {
       "sourceType": "Quest",
       "zone": "Eversong Woods",
+      "questID": 90867,
       "vendorName": "Sathren Azuredawn",
       "npcID": 259864,
       "hasCoords": true,
+      "chainLength": 1,
       "expansion": "Midnight",
       "faction": "neutral"
     },
@@ -12877,11 +13007,38 @@
       "zone": "The Voidspire",
       "expansion": "Midnight"
     },
+    "17747": {
+      "sourceType": "Other"
+    },
+    "17748": {
+      "sourceType": "Other"
+    },
+    "17749": {
+      "sourceType": "Other"
+    },
+    "17792": {
+      "sourceType": "Other"
+    },
+    "17793": {
+      "sourceType": "Other"
+    },
+    "17794": {
+      "sourceType": "Other"
+    },
+    "17795": {
+      "sourceType": "Other"
+    },
+    "17796": {
+      "sourceType": "Other"
+    },
+    "17797": {
+      "sourceType": "Other"
+    },
     "17863": {
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -12890,7 +13047,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -12899,7 +13056,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -12908,7 +13065,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -12917,7 +13074,7 @@
       "sourceType": "Vendor",
       "zone": "Razorwind Shores",
       "vendorName": "\"Yen\" Malone",
-      "npcID": 255230,
+      "npcID": 255319,
       "hasCoords": true,
       "expansion": "Neighborhoods",
       "faction": "neutral"
@@ -13032,6 +13189,9 @@
       "expansion": "Midnight",
       "faction": "neutral"
     },
+    "18794": {
+      "sourceType": "Other"
+    },
     "18800": {
       "sourceType": "Quest",
       "zone": "Voidstorm",
@@ -13069,6 +13229,114 @@
       "sourceType": "Drop",
       "zone": "The Voidspire",
       "expansion": "Midnight"
+    },
+    "19763": {
+      "sourceType": "Other"
+    },
+    "19848": {
+      "sourceType": "Other"
+    },
+    "20632": {
+      "sourceType": "Drop",
+      "zone": "The Voidspire",
+      "expansion": "Midnight"
+    },
+    "21079": {
+      "sourceType": "Other"
+    },
+    "21080": {
+      "sourceType": "Other"
+    },
+    "21101": {
+      "sourceType": "Other"
+    },
+    "21106": {
+      "sourceType": "Other"
+    },
+    "21598": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "21602": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Disguised Decor Duel Vendor",
+      "npcID": 264056,
+      "hasCoords": true,
+      "expansion": "Midnight"
+    },
+    "22006": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Disguised Decor Duel Vendor",
+      "npcID": 264056,
+      "hasCoords": true,
+      "expansion": "Midnight"
+    },
+    "22007": {
+      "sourceType": "Other"
+    },
+    "22008": {
+      "sourceType": "Other"
+    },
+    "22009": {
+      "sourceType": "Other"
+    },
+    "22010": {
+      "sourceType": "Other"
+    },
+    "22011": {
+      "sourceType": "Other"
+    },
+    "22143": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "22181": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "22182": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "22183": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
+    },
+    "22388": {
+      "sourceType": "Vendor",
+      "zone": "Silvermoon City",
+      "vendorName": "Rae'ana",
+      "npcID": 255495,
+      "hasCoords": true,
+      "expansion": "Midnight",
+      "faction": "neutral"
     }
   },
   "names": {
@@ -14046,10 +14314,23 @@
     "9254": "Elegant Elven Canopy Bed",
     "9255": "Gemmed Elven Chest",
     "9263": "Horde Warlord's Throne",
+    "9265": "Lunar Celebrant's Aquarium",
     "9266": "Tirisfal Hollow Campfire",
     "9267": "Blightfire Candle",
     "9268": "Replica Rumbling Wastes Drill Pod",
     "9269": "Gundargaz Candelabra",
+    "9270": "Lunar Celebrant's Cradle",
+    "9271": "Lunar Celebrant's Wide Pillow Roll",
+    "9272": "Lunar Celebrant's Pillow Roll",
+    "9273": "Lunar Celebrant's Privacy Screen",
+    "9274": "Lunar Celebrant's Ornate Vanity",
+    "9275": "Lunar Celebrant's Compact",
+    "9276": "Lunar Celebrant's Bamboo Canister",
+    "9277": "Lunar Celebrant's Tea Tray",
+    "9278": "Lunar Celebrant's Teacup",
+    "9279": "Lunar Celebrant's Teapot",
+    "9280": "Lunar Celebrant's Tea Set",
+    "9281": "Lunar Celebrant's Vase with Maple Branch",
     "9419": "Thalassian Chest",
     "9420": "Astalor's Hookah",
     "9421": "590 Quel'Lithien Red Display Bottle",
@@ -14316,6 +14597,10 @@
     "11946": "Beloved Elekk Plushie",
     "11948": "K'areshi Warp Platform",
     "11952": "K'areshi Protectorate Portal",
+    "12140": "Simple Bone-Tied Charm",
+    "12141": "Windmark Tribal Charm",
+    "12142": "Amani Dreamer's Charm",
+    "12143": "Barebone Rope Charm",
     "12154": "Burning Amani Pinecone",
     "12161": "Beloved Raptor Plushie",
     "12162": "Sandfury Diplomat's Banner",
@@ -14524,6 +14809,7 @@
     "15160": "Rope-Bound Amani Basket",
     "15229": "Corked Bottle of Liquid Mystery",
     "15260": "Sturdy Void Elf Trunk",
+    "15293": "Small Sturdy Wooden Trellis",
     "15399": "Fungal Chest",
     "15400": "Delver's Bountiful Coffer",
     "15401": "Twilight Tabernacle",
@@ -14555,6 +14841,8 @@
     "15481": "Eerie Iridescent Riftshroom",
     "15483": "Sin'dorei Storage Jar",
     "15484": "Woodblock Stool",
+    "15486": "Depthdiver's Cooking Spit",
+    "15487": "Zul'Aman Forest Hammock",
     "15488": "Galactic Void-Scarred Barricade",
     "15489": "Three-Tier Zul'Aman Shelf",
     "15490": "Amani Trophy Frame",
@@ -14635,6 +14923,7 @@
     "16036": "Cuddly Sapphire Grrgle",
     "16037": "Cuddly Clover Grrgle",
     "16038": "Cuddly Peach Grrgle",
+    "16039": "Lush Garden Window",
     "16082": "Glazed Sin'dorei Vial",
     "16083": "Shadow Council Torch",
     "16084": "Resizable All-Purpose Gear",
@@ -14684,6 +14973,11 @@
     "16971": "Cuddly Cobalt Grrgle",
     "16972": "Cuddly Teal Grrgle",
     "16973": "Cuddly Ochre Grrgle",
+    "16974": "Spring Blossom Stepping Stone",
+    "16975": "Spring Blossom Privacy Screen",
+    "16976": "Spring Blossom Stepping Stone Duo",
+    "16977": "Spring Blossom Stepping Stone Trio",
+    "16978": "Spring Blossom Stepping Stone Collection",
     "17294": "Farstriders' Glory Statue",
     "17439": "Preyseeker's Magister Effigy",
     "17440": "Preyseeker's Tinker Effigy",
@@ -14722,6 +15016,15 @@
     "17628": "March on Quel'Danas Vanquisher's Aureate Trophy",
     "17629": "Dreamrift Vanquisher's Aureate Trophy",
     "17630": "Voidspire Vanquisher's Aureate Trophy",
+    "17747": "Spring Blossom Tea Set",
+    "17748": "Spring Blossom Table",
+    "17749": "Lush Garden Fungal Table",
+    "17792": "Lush Garden Hedge",
+    "17793": "Lush Garden Fungal Planter",
+    "17794": "Lush Garden Fungal Picnic",
+    "17795": "Spring Blossom Lantern",
+    "17796": "Spring Blossom Tranquility Garden",
+    "17797": "Spring Blossom Pond",
     "17863": "Saltfang Shoals Large Garden Cluster",
     "17864": "Razorwind Cactus Large Garden Cluster",
     "17865": "Razorwind Blooms Large Garden Cluster",
@@ -14744,12 +15047,33 @@
     "18484": "Crucible Votive Rack",
     "18485": "Amani Training Dummy",
     "18617": "Ornate Cosmic Table",
+    "18794": "Lush Garden Stable",
     "18800": "Open Void Elf Bedroll",
     "19197": "Dreamrift Vanquisher's Argent Trophy",
     "19198": "March on Quel'Danas Vanquisher's Argent Trophy",
     "19229": "Endless Codex of Blooming Light",
     "19231": "Endless Codex of Nature's Grace",
     "19234": "Endless Codex of the Voidtouched",
-    "19252": "Voidspire Vanquisher's Argent Trophy"
+    "19252": "Voidspire Vanquisher's Argent Trophy",
+    "19763": "Sin'dorei Tiffin-Style Lamp",
+    "19848": "Lush Garden Rug",
+    "20632": "Devouring Ritual Spire",
+    "21079": "Sin'dorei Covered Cookpot",
+    "21080": "Sin'dorei Open Cookpot",
+    "21101": "Sin'dorei Cookpot Lid",
+    "21106": "Sin'dorei Display Case",
+    "21598": "Dark Obelisk",
+    "21602": "Sin'dorei Garden Swing",
+    "22006": "Small Lumber Pile",
+    "22007": "Empty Wooden Toolbox",
+    "22008": "Suramar Arcfruit Bowl",
+    "22009": "Small Decorative Dornogal Opal",
+    "22010": "Decorative Dornogal Opal",
+    "22011": "Large Decorative Dornogal Opal",
+    "22143": "Void Elf Scribe's Desk",
+    "22181": "Void Elf Floating Desk",
+    "22182": "Runic Parchment",
+    "22183": "Void Flame Candle",
+    "22388": "Void Inkwell"
   }
 }

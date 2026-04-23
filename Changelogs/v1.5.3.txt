@@ -1,0 +1,11 @@
+v1.5.3
+
+New Items
+- Added 55 new decor items from patch 12.0.5 (1735 total), including Lunar Celebrant, Spring Blossom, Lush Garden, Sin'dorei, and Void Elf sets
+
+New Features
+- Added "Recently Added" filter under Collections to quickly find newly-scanned items
+
+Bug Fixes
+- Fixed inconsistent source ordering for multi-source items (Achievement + Vendor now always shows in the same order)
+- Fixed duplicate vendor entries appearing on items sold by the same NPC under multiple factions

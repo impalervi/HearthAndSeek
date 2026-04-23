@@ -8,6 +8,15 @@ user_invocable: true
 
 Validate the addon structure, create a release zip, and deploy to the WoW addons folder for in-game testing.
 
+### Hard rule: do not merge/tag/push until the user confirms in-game
+
+Publishing deploys to the game folder — after that, the user has to
+`/reload` and visually verify the new version works. Do NOT merge the
+release branch into `main`, tag the release, or push anything until
+the user explicitly confirms the in-game test passed. "Deployed" is
+not confirmation. See `feedback_merge_after_testing.md` in the global
+memory for the incident that motivated this rule.
+
 ## Steps
 
 ### 0. Write the changelog

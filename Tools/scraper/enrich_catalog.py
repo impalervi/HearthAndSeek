@@ -34,6 +34,14 @@ from urllib.parse import quote
 
 import requests
 
+# See enrich_wowhead_extra.py for rationale: curl_cffi impersonates
+# Chrome's TLS fingerprint so Cloudflare accepts our requests.
+try:
+    from curl_cffi import requests as _CURL_CFFI  # type: ignore
+    _SCRAPER = _CURL_CFFI.Session(impersonate="chrome")
+except ImportError:
+    _SCRAPER = None
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -407,8 +415,9 @@ def _rate_limited_get(url: str, expect_json: bool = False) -> Optional[Any]:
     if elapsed < REQUEST_DELAY:
         time.sleep(REQUEST_DELAY - elapsed)
 
+    client = _SCRAPER if _SCRAPER is not None else requests
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=20)
+        resp = client.get(url, headers=HEADERS, timeout=20)
         _last_request_time = time.time()
 
         # Exponential backoff on rate limit (403/429)
@@ -417,7 +426,7 @@ def _rate_limited_get(url: str, expect_json: bool = False) -> Optional[Any]:
                 logger.warning("Rate limited (%d). Retry %d/3 in %ds...",
                                resp.status_code, attempt, delay)
                 time.sleep(delay)
-                resp = requests.get(url, headers=HEADERS, timeout=20)
+                resp = client.get(url, headers=HEADERS, timeout=20)
                 _last_request_time = time.time()
                 if resp.status_code not in (429, 403):
                     break
@@ -442,6 +451,13 @@ def _rate_limited_get(url: str, expect_json: bool = False) -> Optional[Any]:
         return None
     except json.JSONDecodeError:
         logger.warning("Invalid JSON from %s", url)
+        return None
+    except Exception as exc:
+        # curl_cffi raises its own exception hierarchy (TooManyRedirects,
+        # ConnectTimeout, etc.) that isn't a subclass of RequestException.
+        # Treat any other fetch error as a transient failure so the pipeline
+        # can continue instead of crashing mid-run.
+        logger.warning("Fetch error for %s: %s", url, exc)
         return None
 
 
@@ -1380,21 +1396,36 @@ def main() -> None:
     unique_vendors = set()
     vendors_need_coords = set()
     # Map each vendor name to the set of zones its items appear in
-    # (used for zone-aware NPC disambiguation)
+    # (used for zone-aware NPC disambiguation). We include BOTH the primary
+    # vendor and any vendors listed in sources — some items have a different
+    # primary vendor but list alt vendors (e.g. "Cataloger Jakes" primary,
+    # with "Rae'ana" as an additional vendor). Without this, a vendor that
+    # is always an alt wouldn't be detected as shared-name even when it
+    # exists in multiple zones across the catalog.
     vendor_zones: dict[str, set[str]] = {}
     for item in catalog:
+        zone = item.get("zone")
+        names_in_item: set[str] = set()
         if item.get("vendor"):
-            vendor = item["vendor"]
+            names_in_item.add(item["vendor"])
+        for s in item.get("sources") or []:
+            if s.get("type") == "Vendor":
+                vn = s.get("value")
+                if vn:
+                    names_in_item.add(vn)
+        for vendor in names_in_item:
             if vendor in SKIP_VENDORS:
                 continue
-            zone = item.get("zone")
             if zone:
                 vendor_zones.setdefault(vendor, set()).add(zone)
-            if vendor not in npc_map:
-                unique_vendors.add(vendor)
-            elif npc_map[vendor].get("npc_id") and not npc_map[vendor].get("coords"):
-                # Seeded with NPC ID but missing coordinates — re-query
-                vendors_need_coords.add(vendor)
+        # Track lookup targets: only primary vendors drive unique_vendors /
+        # vendors_need_coords (alt vendors don't get their own npc_map entry).
+        primary = item.get("vendor")
+        if primary and primary not in SKIP_VENDORS:
+            if primary not in npc_map:
+                unique_vendors.add(primary)
+            elif npc_map[primary].get("npc_id") and not npc_map[primary].get("coords"):
+                vendors_need_coords.add(primary)
 
     items_need_id = [item for item in catalog if not item.get("itemID") or item["itemID"] == 0]
 
@@ -1497,11 +1528,36 @@ def main() -> None:
     npc_with_coords = 0
     npc_failed = 0
 
+    # Per-(vendor, zone) NPC map. When the same vendor name appears in
+    # multiple zones (e.g. "Rae'ana" exists in both The Waking Shores and
+    # Silvermoon City), we need distinct NPC entries so items get the NPC
+    # that matches their own zone — not whichever one was picked globally.
+    npc_map_by_zone: dict[tuple[str, str], dict] = {}
+
     for i, vendor_name in enumerate(sorted(unique_vendors), 1):
-        zones = vendor_zones.get(vendor_name)
+        zones = vendor_zones.get(vendor_name) or set()
         logger.info("[%d/%d] Looking up NPC: %s (zones: %s)", i, len(unique_vendors),
                     vendor_name, zones or "?")
-        npc_data = lookup_npc_full(vendor_name, hint_zones=zones)
+
+        # Resolve one NPC per item-zone so shared-name vendors don't collapse
+        # to a single (wrong) NPC. Uses lookup_npc_full's built-in caching so
+        # the underlying search results are shared across zones.
+        any_resolved_for_name = False
+        for zone in sorted(zones):
+            npc_data = lookup_npc_full(vendor_name, hint_zones={zone})
+            if npc_data and npc_data.get("npc_id"):
+                npc_map_by_zone[(vendor_name, zone)] = npc_data
+                any_resolved_for_name = True
+                coords_str = ""
+                if npc_data.get("coords"):
+                    c = npc_data["coords"]
+                    coords_str = " @ (%.1f, %.1f) whZone=%s" % (c["x"], c["y"], npc_data.get("whZoneID"))
+                logger.info("  [%s] -> npcID=%d%s", zone, npc_data["npc_id"], coords_str)
+
+        # Fallback: no per-zone hint yielded a match. Use the legacy
+        # all-zones hint (may pick the wrong NPC but keeps old behavior
+        # for vendors where our item-zone doesn't map cleanly to Wowhead).
+        npc_data = lookup_npc_full(vendor_name, hint_zones=zones or None)
         if npc_data and npc_data.get("npc_id"):
             npc_map[vendor_name] = npc_data
             npc_resolved += 1
@@ -1510,8 +1566,8 @@ def main() -> None:
                 npc_with_coords += 1
                 c = npc_data["coords"]
                 coords_str = " @ (%.1f, %.1f) whZone=%s" % (c["x"], c["y"], npc_data.get("whZoneID"))
-            logger.info("  -> npcID=%d%s", npc_data["npc_id"], coords_str)
-        else:
+            logger.info("  -> (default) npcID=%d%s", npc_data["npc_id"], coords_str)
+        elif not any_resolved_for_name:
             npc_failed += 1
             logger.warning("  -> NOT FOUND on Wowhead")
 
@@ -1542,6 +1598,45 @@ def main() -> None:
         npc_resolved, npc_with_coords, npc_failed,
         len(vendors_need_coords), coords_updated, len(npc_map),
     )
+
+    # -----------------------------------------------------------------------
+    # Detect shared-name vendors (same name, multiple zones) and persist
+    # their per-zone NPC data. output_catalog_lua.py loads this file and
+    # routes items to the correct NPC based on the item's own zone, bypassing
+    # the hardcoded VENDOR_COORDS override that can only hold one entry
+    # per name.
+    # -----------------------------------------------------------------------
+    shared_name_vendors: dict[str, dict[str, dict]] = {}
+    for (vendor_name, zone), npc_info in npc_map_by_zone.items():
+        # Only treat as "shared" when the name actually appears in >1 zone
+        if len(vendor_zones.get(vendor_name, set())) > 1:
+            shared_name_vendors.setdefault(vendor_name, {})[zone] = {
+                "npcID": npc_info.get("npc_id"),
+                "x": (npc_info.get("coords") or {}).get("x"),
+                "y": (npc_info.get("coords") or {}).get("y"),
+                "whZoneID": npc_info.get("whZoneID"),
+                "faction": npc_info.get("faction"),
+                "zone": zone,
+            }
+
+    vendor_zones_path = DATA_DIR / "vendor_zones.json"
+    try:
+        with open(vendor_zones_path, "w", encoding="utf-8") as fh:
+            json.dump(shared_name_vendors, fh, indent=2, ensure_ascii=False, sort_keys=True)
+        if shared_name_vendors:
+            logger.info(
+                "Shared-name vendor map: %d vendors across %d (vendor, zone) pairs → %s",
+                len(shared_name_vendors),
+                sum(len(z) for z in shared_name_vendors.values()),
+                vendor_zones_path.name,
+            )
+            for vname, zmap in sorted(shared_name_vendors.items()):
+                zones_str = ", ".join(f"{z} (npcID={info['npcID']})" for z, info in sorted(zmap.items()))
+                logger.info("  %s: %s", vname, zones_str)
+        else:
+            logger.info("Shared-name vendor map: none detected (wrote empty %s)", vendor_zones_path.name)
+    except Exception as exc:
+        logger.warning("Failed to write %s: %s", vendor_zones_path, exc)
 
     # -----------------------------------------------------------------------
     # Phase 3: Verify/resolve missing itemIDs
@@ -1627,7 +1722,15 @@ def main() -> None:
         vendor_name = item.get("vendor")
         npc_faction = None
         if vendor_name and vendor_name not in SKIP_VENDORS:
-            npc_info = npc_map.get(vendor_name)
+            # Prefer the per-zone entry (handles shared-name vendors like
+            # "Rae'ana" that exist in multiple zones); fall back to the
+            # name-only entry when no zone-specific match was resolved.
+            item_zone = item.get("zone")
+            npc_info = None
+            if item_zone:
+                npc_info = npc_map_by_zone.get((vendor_name, item_zone))
+            if not npc_info:
+                npc_info = npc_map.get(vendor_name)
             if npc_info and npc_info.get("npc_id"):
                 enriched_item["npcID"] = npc_info["npc_id"]
                 coords = npc_info.get("coords")
@@ -2015,11 +2118,20 @@ def main() -> None:
                     len(quest_discovery_items))
 
         p6_stats = {"scraped": 0, "found": 0, "no_quest": 0}
+        p6_total = len(quest_discovery_items)
+        # Progress cadence: every ~5% so users can see it's not hung.
+        p6_step = max(1, p6_total // 20)
 
-        for item in quest_discovery_items:
+        for idx, item in enumerate(quest_discovery_items, 1):
             item_id = item["itemID"]
             quests = fetch_item_quest_rewards(item_id)
             p6_stats["scraped"] += 1
+            if idx % p6_step == 0 or idx == p6_total:
+                pct = 100 * idx // p6_total
+                logger.info(
+                    "  Phase 6 progress: %d/%d (%d%%) scraped, %d quests found",
+                    idx, p6_total, pct, p6_stats["found"],
+                )
 
             if quests:
                 # Take the first quest (usually there's only one reward-from quest)

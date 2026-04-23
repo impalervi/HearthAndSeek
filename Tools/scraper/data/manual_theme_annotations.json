@@ -191,6 +191,11 @@
       "Enchanted Grove"
     ]
   },
+  "9274": {
+    "aesthetics": [
+      "Royal Court"
+    ]
+  },
   "9443": {
     "aesthetics": [
       "Wild Garden"
@@ -234,6 +239,27 @@
   "11928": {
     "aesthetics": [
       "Void Rift"
+    ]
+  },
+  "12140": {
+    "aesthetics": [
+      "Primal Camp"
+    ]
+  },
+  "12141": {
+    "aesthetics": [
+      "Primal Camp"
+    ]
+  },
+  "12142": {
+    "aesthetics": [
+      "Primal Camp",
+      "Sacred Temple"
+    ]
+  },
+  "12143": {
+    "aesthetics": [
+      "Seafarer's Haven"
     ]
   },
   "12204": {
@@ -283,6 +309,18 @@
     "aesthetics": [
       "Arcane Sanctum",
       "Feast Hall"
+    ]
+  },
+  "15486": {
+    "aesthetics": [
+      "Primal Camp",
+      "Sacred Temple"
+    ]
+  },
+  "15487": {
+    "aesthetics": [
+      "Primal Camp",
+      "Sacred Temple"
     ]
   },
   "15494": {
@@ -348,6 +386,11 @@
       "Feast Hall"
     ]
   },
+  "16039": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
   "16227": {
     "aesthetics": [
       "Cottage Hearth",
@@ -385,9 +428,84 @@
   "16967": {
     "aesthetics": []
   },
+  "16974": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "16975": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "16976": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "16977": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "16978": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
   "17294": {
     "aesthetics": [
       "Royal Court"
+    ]
+  },
+  "17747": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17748": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17749": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17792": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17793": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17794": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17795": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17796": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "17797": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "18794": {
+    "aesthetics": [
+      "Wild Garden"
     ]
   },
   "18800": {
@@ -395,9 +513,233 @@
       "Void Rift"
     ]
   },
+  "19763": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "19848": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
   "20632": {
     "aesthetics": [
       "Void Rift"
+    ]
+  },
+  "21079": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "21080": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "21101": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "21106": {
+    "aesthetics": [
+      "Royal Court",
+      "Enchanted Grove"
+    ]
+  },
+  "21598": {
+    "aesthetics": [
+      "Haunted Manor"
+    ]
+  },
+  "21602": {
+    "aesthetics": [
+      "Wild Garden"
+    ]
+  },
+  "22143": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Void Rift"
+    ]
+  },
+  "22181": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Void Rift"
+    ]
+  },
+  "22182": {
+    "aesthetics": [
+      "Arcane Sanctum",
+      "Scholar's Archive"
+    ]
+  },
+  "22183": {
+    "aesthetics": [
+      "Void Rift"
+    ]
+  },
+  "22388": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Void Rift"
+    ]
+  },
+  "9265": {
+    "aesthetics": [
+      "Wild Garden"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9270": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9271": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9272": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9273": {
+    "aesthetics": [
+      "Cottage Hearth"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9275": {
+    "aesthetics": [
+      "Cottage Hearth",
+      "Royal Court"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9276": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9277": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9278": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9279": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9280": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "9281": {
+    "aesthetics": [
+      "Wild Garden"
+    ],
+    "cultures": [
+      "Pandaren"
+    ]
+  },
+  "15293": {
+    "aesthetics": [
+      "Cottage Hearth",
+      "Wild Garden"
+    ]
+  },
+  "22006": {
+    "aesthetics": [
+      "Cottage Hearth",
+      "Primal Camp"
+    ]
+  },
+  "22007": {
+    "aesthetics": [
+      "Tinker's Workshop",
+      "Cottage Hearth"
+    ]
+  },
+  "22008": {
+    "aesthetics": [
+      "Feast Hall"
+    ],
+    "cultures": [
+      "Nightborne"
+    ]
+  },
+  "22009": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Royal Court"
+    ],
+    "cultures": [
+      "Dwarven"
+    ]
+  },
+  "22010": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Royal Court"
+    ],
+    "cultures": [
+      "Dwarven"
+    ]
+  },
+  "22011": {
+    "aesthetics": [
+      "Scholar's Archive",
+      "Royal Court"
+    ],
+    "cultures": [
+      "Dwarven"
     ]
   }
 }
