@@ -175,6 +175,27 @@ This is now handled automatically:
   manual entry in `VENDOR_COORDS_BY_ZONE` (inside `output_catalog_lua.py`)
   — manual entries win over auto-loaded ones.
 
+#### "Recently Added" filter (automatic)
+
+The addon's **Collections → Recently Added** filter surfaces items added
+by recent pipeline runs. This is computed automatically — no manual step
+is needed during a scan.
+
+- `output_catalog_lua.py` calls `compute_recently_added_ids()` against
+  `data/item_versions.json` at generation time, groups items by
+  `dateAdded`, walks dates newest-first, and accumulates whole date
+  batches until it reaches `min_items=5` or `max_batches=3`.
+- The resulting decorID set is emitted as
+  `NS.CatalogData.RecentlyAdded = { [id] = true, ... }` in
+  `Data/CatalogData.lua`; `UI/CatalogGrid.lua` reads it when the
+  "Recently Added" checkbox is toggled.
+- Contract: if the current scan adds only a handful of items, the
+  filter also includes the previous 1–2 batches so users never see
+  fewer than ~5 entries (or the cap kicks in at 3 batches total).
+
+No action required during a scan — it updates automatically as
+`item_versions.json` grows.
+
 ### Phase 5: Theme Assignment (if needed)
 
 #### 5a: Culture Themes
