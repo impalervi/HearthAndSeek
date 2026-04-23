@@ -313,13 +313,29 @@ local bossEncounterCache = nil
 -------------------------------------------------------------------------------
 local iconCache = {}  -- decorID → runtime iconTexture (lazy backfill for missing static icons)
 
+-- Prime the Housing Catalog backend so that GetCatalogEntryInfoByRecordID
+-- returns real quantity data without requiring the user to open the native
+-- Housing Dashboard first. Instantiating a catalog searcher and running a
+-- search triggers Blizzard's side to populate the client-side cache; we
+-- never read from the searcher itself. Silent on clients that don't expose
+-- the searcher API (older patches).
+local function PrimeHousingCatalog()
+    if not C_HousingCatalog or not C_HousingCatalog.CreateCatalogSearcher then return end
+    local ok, searcher = pcall(C_HousingCatalog.CreateCatalogSearcher)
+    if not ok or not searcher then return end
+    if searcher.RunSearch then pcall(searcher.RunSearch, searcher) end
+    if searcher.Release then pcall(searcher.Release, searcher) end
+end
+
 local function BuildOwnershipCache()
     if ownershipCacheBuilt then return end
     if not C_HousingCatalog or not C_HousingCatalog.GetCatalogEntryInfoByRecordID then return end
     if not NS.CatalogData or not NS.CatalogData.NameIndex then return end
+    PrimeHousingCatalog()
     local entryType = Enum.HousingCatalogEntryType and Enum.HousingCatalogEntryType.Decor or 1
 
     local missingCount = 0
+    local collectedCount = 0
 
     for _, entry in ipairs(NS.CatalogData.NameIndex) do
         local id = entry[1]
@@ -332,6 +348,7 @@ local function BuildOwnershipCache()
             ownershipCache[id] = {
                 collected  = hasItem,
             }
+            if hasItem then collectedCount = collectedCount + 1 end
         else
             missingCount = missingCount + 1
         end
@@ -339,9 +356,17 @@ local function BuildOwnershipCache()
 
     ownershipCacheBuilt = true
 
-    -- If many items returned nil, the Housing Catalog API may not be ready yet.
-    -- Schedule a retry to re-query after the data loads.
-    if missingCount > 0 and ownershipRetryCount < OWNERSHIP_MAX_RETRIES then
+    -- Retry when the Housing Catalog API isn't primed yet. Two cases:
+    --   (a) some lookups returned nil (API outright failed)
+    --   (b) every lookup returned info but collectedCount is zero — the
+    --       API stays silent with all-zero quantities until the native
+    --       Housing Dashboard has been opened once this session
+    -- In (b) a genuinely empty player looks the same as an un-primed one,
+    -- so cap retries at OWNERSHIP_MAX_RETRIES. HOUSING_STORAGE_UPDATED
+    -- (registered on refreshFrame) still rebuilds whenever the Dashboard
+    -- is eventually opened.
+    local notReady = missingCount > 0 or collectedCount == 0
+    if notReady and ownershipRetryCount < OWNERSHIP_MAX_RETRIES then
         ownershipRetryCount = ownershipRetryCount + 1
         C_Timer.After(OWNERSHIP_RETRY_DELAY, function()
             ownershipCacheBuilt = false
@@ -488,6 +513,7 @@ local function ScheduleCollectionRefresh()
         refreshPending = false
         ownershipCacheBuilt = false
         ownershipCache = {}
+        ownershipRetryCount = 0
         BuildOwnershipCache()
         if NS.UI.CatalogGrid_ApplyFilters then
             NS.UI.CatalogGrid_ApplyFilters()
