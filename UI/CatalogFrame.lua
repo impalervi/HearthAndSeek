@@ -240,7 +240,7 @@ local function CloseActiveDropdown()
             -- Only reset appearance if no active filters on this button
             if not ownerBtn._isActive then
                 ownerBtn._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonNormal")
-                ownerBtn._label:SetTextColor(0.75, 0.75, 0.75, 1)
+                ownerBtn._label:SetTextColor(1, 0.82, 0, 1)
             end
         end
         activeDropdown = nil
@@ -269,7 +269,6 @@ local function OpenDropdown(panel, ownerBtn)
     if ownerBtn then
         ownerBtn._isDropdownOpen = true
         ownerBtn._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonActive")
-        ownerBtn._label:SetTextColor(1, 0.82, 0, 1)
     end
     if clickCatcher then
         clickCatcher:Show()
@@ -1118,8 +1117,9 @@ local FILTER_BAR_BUTTONS = {
     { key = "categories", label = "Category",    sectionIDs = { "categories" }, width = 280 },
     { key = "expansions", label = "Zone",        sectionIDs = { "expansions" }, width = 260 },
     { key = "qualities",  label = "Rarity",      sectionIDs = { "qualities" },  width = 200 },
-    { key = "themes",     label = "Theme",       sectionIDs = { "themes_aesthetic", "themes_culture" }, width = 240 },
-    { key = "collection", label = "Collection",  sectionIDs = { "collection" }, width = 200 },
+    { key = "themes_aesthetic", label = "Aesthetic", sectionIDs = { "themes_aesthetic" }, width = 200 },
+    { key = "themes_culture",   label = "Culture",   sectionIDs = { "themes_culture" },   width = 200 },
+    { key = "collection", label = "My Decor",      sectionIDs = { "collection" }, width = 200 },
 }
 
 --- Lookup: sectionDef.id -> FILTER_SECTIONS entry
@@ -1221,21 +1221,23 @@ local function InitFilterBar(parentFrame)
         local btnLabel = btn:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         btnLabel:SetPoint("CENTER", btn, "CENTER", 0, 0)
         btnLabel:SetText(btnDef.label)
-        btnLabel:SetTextColor(0.75, 0.75, 0.75, 1)
+        btnLabel:SetTextColor(1, 0.82, 0, 1)
         btn._label = btnLabel
 
-        -- Hover highlight
+        -- Hover brightens the label only; the background is already "active"
+        -- when filters are applied or the dropdown is open, so we only flip
+        -- that when the idle button is hovered.
         btn:SetScript("OnEnter", function(self)
             if not self._isDropdownOpen and not self._isActive then
                 self._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonActive")
-                self._label:SetTextColor(1, 0.82, 0, 1)
             end
+            self._label:SetTextColor(1, 0.95, 0.4, 1)
         end)
         btn:SetScript("OnLeave", function(self)
             if not self._isDropdownOpen and not self._isActive then
                 self._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonNormal")
-                self._label:SetTextColor(0.75, 0.75, 0.75, 1)
             end
+            self._label:SetTextColor(1, 0.82, 0, 1)
         end)
 
         btn._isDropdownOpen = false
@@ -1404,10 +1406,8 @@ local function UpdateFilterBarButtonStates()
         btn._isActive = hasActive
         if hasActive or btn._isDropdownOpen then
             btn._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonActive")
-            btn._label:SetTextColor(1, 0.82, 0, 1)
         else
             btn._bg:SetTexture("Interface\\AddOns\\HearthAndSeek\\Media\\Textures\\FilterButtonNormal")
-            btn._label:SetTextColor(0.75, 0.75, 0.75, 1)
         end
     end
 end
