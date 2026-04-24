@@ -59,8 +59,8 @@ local FILTER_SECTIONS = {
         title = "MY COLLECTION",
         type = "boolean_pair",
         items = {
-            { key = "collected",    label = "Hide Collected",     color = {0.12, 1.00, 0.00} },
-            { key = "notCollected", label = "Hide Not Collected", color = {1.00, 0.27, 0.27} },
+            { key = "collected",    label = "Hide Collected",      color = {1.00, 0.27, 0.27} },
+            { key = "notCollected", label = "Show Only Collected", color = {0.12, 1.00, 0.00} },
         },
         toggle = "CatalogGrid_ToggleCollection",
     },
