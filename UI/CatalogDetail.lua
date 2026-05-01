@@ -1196,6 +1196,16 @@ function NS.UI.InitCatalogDetail(parent)
         local item = parent._currentItem
         if not item then return end
 
+        -- Shop items: open the in-game Battle.net store. The store UI lives
+        -- in Blizzard_StoreUI which is load-on-demand.
+        if parent._waypointBtn._isShopBtn then
+            if C_AddOns and C_AddOns.LoadAddOn then
+                pcall(C_AddOns.LoadAddOn, "Blizzard_StoreUI")
+            end
+            if ToggleStoreUI then ToggleStoreUI() end
+            return
+        end
+
         -- Dungeon entrance navigation (Drop items with entrance data)
         local entranceData = parent._waypointBtn._entranceData
         if entranceData then
@@ -4613,6 +4623,7 @@ function NS.UI.CatalogDetail_ShowItem(item)
     detailPanel._waypointBtn._entranceData = nil
     detailPanel._waypointBtn._hubData = nil
     detailPanel._waypointBtn._treasureCoords = nil
+    detailPanel._waypointBtn._isShopBtn = nil
     detailPanel._altNavBtn._navData = nil
     detailPanel._altNavBtn:Hide()
     detailPanel._openMapBtn._dungeonMapID = nil
@@ -4765,7 +4776,15 @@ function NS.UI.CatalogDetail_ShowItem(item)
         and item.vendorName and item.vendorName ~= ""
         and item.treasureVendorX and item.treasureVendorY
 
-    if isOppositeFaction then
+    if item.sourceType == "Shop" then
+        -- Battle.net Store items have no in-world location; the button opens
+        -- the in-game shop instead.
+        detailPanel._waypointBtn:Enable()
+        detailPanel._waypointBtn:SetText("Open Shop")
+        detailPanel._waypointBtn._isShopBtn = true
+        detailPanel._waypointStatus:Hide()
+
+    elseif isOppositeFaction then
         -- Item is in a faction-specific neighborhood the player cannot access
         local pf = GetPlayerFaction() or "your faction"
         detailPanel._waypointBtn:Disable()
