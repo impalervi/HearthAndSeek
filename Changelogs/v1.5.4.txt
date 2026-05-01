@@ -1,0 +1,8 @@
+v1.5.4
+
+New Features
+- Added "Open Shop" button to Battle.net Store decor items that opens the in-game store directly
+
+Bug Fixes
+- Fixed 33 Cozy Treehouse Retreat Bundle items (Spring Blossom, Lush Garden, Colorful Egg sets) showing as Source Unknown instead of Shop
+- Fixed "Spring Blossom Tree Pond" being mislabeled as "Spring Blossom Pond"
