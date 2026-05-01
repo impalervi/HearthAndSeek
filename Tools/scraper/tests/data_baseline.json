@@ -1,8 +1,8 @@
 {
   "version": "1.1",
-  "generatedAt": "2026-04-22T12:02:30.759471+00:00",
+  "generatedAt": "2026-05-01T10:09:21.923861+00:00",
   "gameVersion": {
-    "interface": "120001",
+    "interface": "120005",
     "expansion": "Midnight"
   },
   "aggregates": {
@@ -10,11 +10,11 @@
     "bySourceType": {
       "Achievement": 147,
       "Drop": 59,
-      "Other": 127,
+      "Other": 95,
       "Prey": 30,
       "Profession": 310,
-      "Quest": 331,
-      "Shop": 25,
+      "Quest": 330,
+      "Shop": 58,
       "Treasure": 8,
       "Vendor": 698
     },
@@ -7010,22 +7010,22 @@
       "faction": "neutral"
     },
     "7825": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7826": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7827": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7828": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7829": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7830": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "7835": {
       "sourceType": "Quest",
@@ -7797,7 +7797,7 @@
       "faction": "neutral"
     },
     "9065": {
-      "sourceType": "Quest",
+      "sourceType": "Shop",
       "zone": "Zuldazar",
       "questID": 51313,
       "chainLength": 2,
@@ -8337,10 +8337,10 @@
       "faction": "neutral"
     },
     "9443": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "9444": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "9471": {
       "sourceType": "Quest",
@@ -8788,7 +8788,7 @@
       "faction": "neutral"
     },
     "10356": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "10367": {
       "sourceType": "Vendor",
@@ -10212,13 +10212,13 @@
       "professionName": "Tailoring"
     },
     "12171": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "12172": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "12173": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "12189": {
       "sourceType": "Vendor",
@@ -10435,7 +10435,7 @@
       "faction": "neutral"
     },
     "12223": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "12244": {
       "sourceType": "Other"
@@ -11395,10 +11395,10 @@
       "sourceType": "Other"
     },
     "15140": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "15141": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "15142": {
       "sourceType": "Other"
@@ -12247,7 +12247,7 @@
       "sourceType": "Other"
     },
     "16039": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "16082": {
       "sourceType": "Profession",
@@ -12636,19 +12636,19 @@
       "faction": "neutral"
     },
     "16974": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "16975": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "16976": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "16977": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "16978": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17294": {
       "sourceType": "Quest",
@@ -13008,31 +13008,31 @@
       "expansion": "Midnight"
     },
     "17747": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17748": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17749": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17792": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17793": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17794": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17795": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17796": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17797": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "17863": {
       "sourceType": "Vendor",
@@ -13190,7 +13190,7 @@
       "faction": "neutral"
     },
     "18794": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "18800": {
       "sourceType": "Quest",
@@ -13234,7 +13234,7 @@
       "sourceType": "Other"
     },
     "19848": {
-      "sourceType": "Other"
+      "sourceType": "Shop"
     },
     "20632": {
       "sourceType": "Drop",
@@ -14791,7 +14791,7 @@
     "15073": "Cuddly Saffron Grrgle",
     "15074": "Cuddly Sage Grrgle",
     "15140": "Spring Blossom Tree",
-    "15141": "Spring Blossom Pond",
+    "15141": "Spring Blossom Tree Pond",
     "15142": "Cuddly Lavender Grrgle",
     "15143": "Cuddly Pink Grrgle",
     "15144": "Cuddly Gold-Colored Grrgle",
