@@ -616,6 +616,30 @@ def extract_vendor_costs(html: str) -> list[dict]:
     return []
 
 
+def extract_item_name(html: str) -> Optional[str]:
+    """
+    Extract the canonical item display name from a Wowhead item page.
+
+    The C_HousingCatalog API occasionally returns a stale or placeholder
+    decor-entry name (e.g. decorID 15141 reports "Spring Blossom Pond"
+    while the underlying itemID 263291 — the same string the in-game
+    catalog and tooltips render — is "Spring Blossom Tree Pond"). The
+    item-page <title> mirrors the item-database name, so we use it as
+    the authoritative source when it differs from the dump name.
+
+    Wowhead's <title> format is "{name} - Items - Wowhead". On a generic
+    error page or interstitial the tag may be missing or differently
+    structured, so we tolerate a None return.
+    """
+    m = re.search(r"<title>\s*([^<]+?)\s*-\s*Items\s*-\s*Wowhead\s*</title>",
+                  html, re.IGNORECASE)
+    if m:
+        name = m.group(1).strip()
+        if name:
+            return name
+    return None
+
+
 def extract_patch_added(html: str) -> Optional[str]:
     """
     Extract the patch version when the item was added.
@@ -780,6 +804,7 @@ def process_item(item_id: int, force: bool = False) -> Optional[dict]:
 
     result = {
         "itemID": item_id,
+        "itemName": extract_item_name(html),
         "additionalSources": additional_sources,
         "dropRate": extract_drop_rate(html),
         "professionSkill": extract_profession_skill(html),

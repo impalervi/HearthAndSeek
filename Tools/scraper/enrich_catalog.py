@@ -1824,6 +1824,10 @@ def main() -> None:
                 if key.startswith("_"):
                     continue  # skip comment fields like "_note"
                 enriched_item[key] = value
+            # Marker consumed in output_catalog_lua to avoid auto-correcting
+            # the name from Wowhead when a manual override has set it.
+            if "name" in override:
+                enriched_item["_nameOverridden"] = True
             stats["overrides_applied"] = stats.get("overrides_applied", 0) + 1
             logger.debug("  Applied override for decorID=%s: %s", decor_id, list(override.keys()))
 

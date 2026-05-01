@@ -1,46 +1,479 @@
 {
   "_README": "Manual overrides for items the pipeline gets wrong. Keyed by decorID (string). Fields here overwrite the enriched item dict. Field names must match what output_catalog_lua.py reads: sources (array), achievement, vendor, quest, zone, npcX, npcY, npcID, faction, etc. See docs/WOWHEAD_EXTRACTION.md for the workflow.",
   "_SCHEMA": "Each entry SHOULD include: _note (one-line description); _reason (one of: in_game_verified, zone_fixup, achievement_fix, wowhead_wrong); _verified_date (YYYY-MM-DD). Fields starting with _ are ignored by the merge.",
-
   "7690": {
     "_note": "Altar of the Corrupted Flames — in-game dump tagged as Vendor but this actually requires the Broken Isles World Quests V achievement",
     "sources": [
-      {"type": "Achievement", "value": "Broken Isles World Quests V"},
-      {"type": "Vendor", "value": "Arcanist Peroleth"}
+      {
+        "type": "Achievement",
+        "value": "Broken Isles World Quests V"
+      },
+      {
+        "type": "Vendor",
+        "value": "Arcanist Peroleth"
+      }
     ],
     "achievement": "Broken Isles World Quests V"
   },
-
-  "839":  { "_note": "Inert Blight Canister — vendor in Dazar'alor, not broad Zuldazar", "zone": "Dazar'alor" },
-  "932":  { "_note": "Forsaken War Planning Table — vendor in Dazar'alor", "zone": "Dazar'alor" },
-  "937":  { "_note": "Large Forsaken War Tent — vendor in Dazar'alor", "zone": "Dazar'alor" },
-  "938":  { "_note": "Small Forsaken War Tent — vendor in Dazar'alor", "zone": "Dazar'alor" },
-  "939":  { "_note": "Blightfire Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
-  "940":  { "_note": "Blightfire Hanging Lantern — vendor in Dazar'alor", "zone": "Dazar'alor" },
-  "943":  { "_note": "Undercity Spiked Chest — vendor (Captain Zen'taga) in Dazar'alor", "zone": "Dazar'alor" },
-  "949":  { "_note": "Large Forsaken Spiked Brazier — vendor (Provisioner Mukra) in Dazar'alor", "zone": "Dazar'alor" },
-
+  "839": {
+    "_note": "Inert Blight Canister — vendor in Dazar'alor, not broad Zuldazar",
+    "zone": "Dazar'alor"
+  },
+  "932": {
+    "_note": "Forsaken War Planning Table — vendor in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "937": {
+    "_note": "Large Forsaken War Tent — vendor in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "938": {
+    "_note": "Small Forsaken War Tent — vendor in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "939": {
+    "_note": "Blightfire Lantern — vendor in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "940": {
+    "_note": "Blightfire Hanging Lantern — vendor in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "943": {
+    "_note": "Undercity Spiked Chest — vendor (Captain Zen'taga) in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
+  "949": {
+    "_note": "Large Forsaken Spiked Brazier — vendor (Provisioner Mukra) in Dazar'alor",
+    "zone": "Dazar'alor"
+  },
   "21602": {
     "_note": "Sin'dorei Garden Swing — sold by Disguised Decor Duel Vendor in Silvermoon City. Wowhead's visible UI does not render this vendor for the item (orphan JSON only), so the auto-promotion filter correctly rejects it; manual override re-attributes based on in-game confirmation.",
     "_reason": "in_game_verified",
     "_verified_date": "2026-04-22",
-    "sources": [{"type": "Vendor", "value": "Disguised Decor Duel Vendor"}],
+    "sources": [
+      {
+        "type": "Vendor",
+        "value": "Disguised Decor Duel Vendor"
+      }
+    ],
     "vendor": "Disguised Decor Duel Vendor",
     "npcID": 264056,
     "npcX": 31.6,
     "npcY": 76.8,
     "zone": "Silvermoon City"
   },
-
   "22006": {
     "_note": "Small Lumber Pile — sold by Disguised Decor Duel Vendor in Silvermoon City. Same orphan-JSON situation as Sin'dorei Garden Swing.",
     "_reason": "in_game_verified",
     "_verified_date": "2026-04-22",
-    "sources": [{"type": "Vendor", "value": "Disguised Decor Duel Vendor"}],
+    "sources": [
+      {
+        "type": "Vendor",
+        "value": "Disguised Decor Duel Vendor"
+      }
+    ],
     "vendor": "Disguised Decor Duel Vendor",
     "npcID": 264056,
     "npcX": 31.6,
     "npcY": 76.8,
     "zone": "Silvermoon City"
+  },
+  "7825": {
+    "_note": "Lush Garden Trellis (Lush Garden Fungal Trellis) — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "7826": {
+    "_note": "Colorful Shroomic Egg — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "7827": {
+    "_note": "Colorful Dotted Egg — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "7828": {
+    "_note": "Colorful Striped Egg — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "7829": {
+    "_note": "Spring Blossom Ceiling Light — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "7830": {
+    "_note": "Spring Blossom Shelf (Spring Blossom Ceiling Shelf) — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "9065": {
+    "_note": "Lush Garden Fungal Basin — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "9443": {
+    "_note": "Lush Garden Butterfly Sconce — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "9444": {
+    "_note": "Spring Blossom Wreath (Spring Blossom Hanging Wreath) — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "10356": {
+    "_note": "Spring Blossom Hanging Chair — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "12171": {
+    "_note": "Lush Garden Fungal Chair — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "12172": {
+    "_note": "Spring Blossom Window — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "12173": {
+    "_note": "Spring Blossom Gazebo — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "12223": {
+    "_note": "Lush Garden Fungal Fountain — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "15140": {
+    "_note": "Spring Blossom Tree — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "15141": {
+    "_note": "Spring Blossom Tree Pond — sold via Battle.net Store; client API ships this item with the placeholder name 'Spring Blossom Pond'",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "name": "Spring Blossom Tree Pond",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16039": {
+    "_note": "Lush Garden Window — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16974": {
+    "_note": "Spring Blossom Stepping Stone — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16975": {
+    "_note": "Spring Blossom Privacy Screen — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16976": {
+    "_note": "Spring Blossom Stepping Stone Duo — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16977": {
+    "_note": "Spring Blossom Stepping Stone Trio — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "16978": {
+    "_note": "Spring Blossom Stepping Stone Collection — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17747": {
+    "_note": "Spring Blossom Tea Set — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17748": {
+    "_note": "Spring Blossom Table — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17749": {
+    "_note": "Lush Garden Fungal Table — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17792": {
+    "_note": "Lush Garden Hedge — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17793": {
+    "_note": "Lush Garden Fungal Planter — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17794": {
+    "_note": "Lush Garden Fungal Picnic — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17795": {
+    "_note": "Spring Blossom Lantern — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17796": {
+    "_note": "Spring Blossom Tranquility Garden — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "17797": {
+    "_note": "Spring Blossom Pond — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "18794": {
+    "_note": "Lush Garden Stable — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
+  },
+  "19848": {
+    "_note": "Lush Garden Rug — Cozy Treehouse Retreat Bundle, Battle.net Store",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-04-30",
+    "sources": [
+      {
+        "type": "Shop",
+        "value": "Battle.net Store"
+      }
+    ],
+    "sourceTextRaw": "Shop|r"
   }
 }

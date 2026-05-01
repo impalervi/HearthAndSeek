@@ -2258,6 +2258,7 @@ def main() -> None:
 
     # Merge extra data into catalog items
     extra_merged = 0
+    name_corrections = 0
     for item in catalog:
         item_id = item.get("itemID")
         if not item_id or item_id not in extra_data:
@@ -2265,6 +2266,24 @@ def main() -> None:
         extra = extra_data[item_id]
         if extra.get("error"):
             continue
+
+        # Canonical item name from Wowhead. The C_HousingCatalog dump
+        # occasionally returns a stale decor-entry name while the
+        # underlying item — what tooltips and the in-game catalog UI
+        # render — has the correct one (decorID 15141 → "Spring Blossom
+        # Pond" vs the actual "Spring Blossom Tree Pond"). When Wowhead's
+        # name differs, prefer it. A manual override on `name` in
+        # overrides.json still wins because it's already been merged
+        # into the item dict by enrich_catalog before this step.
+        wh_name = extra.get("itemName")
+        if wh_name and item.get("name") and wh_name != item["name"]:
+            if not item.get("_nameOverridden"):  # marker set by overrides.json merge
+                logger.info(
+                    "Name mismatch for decorID=%s itemID=%d: dump=%r → wowhead=%r",
+                    item.get("decorID"), item_id, item["name"], wh_name,
+                )
+                item["name"] = wh_name
+                name_corrections += 1
 
         # Additional sources (filter out NPC type — those are vendors/drops already handled)
         add_src = extra.get("additionalSources", [])
@@ -2309,6 +2328,9 @@ def main() -> None:
 
     if extra_merged:
         logger.info("Merged Wowhead extra data into %d items", extra_merged)
+    if name_corrections:
+        logger.info("Corrected %d item name(s) from Wowhead (dump-name was stale)",
+                    name_corrections)
 
     # Merge theme data into catalog items
     theme_items = theme_data.get("items", {})
