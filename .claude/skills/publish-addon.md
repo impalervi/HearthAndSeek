@@ -36,7 +36,34 @@ Rules:
 
 If the user hasn't approved the content, show them the draft and wait for confirmation before proceeding.
 
-### 1. Validate included files
+### 1a. Verify TOC `## Interface:` matches the live game patch
+
+**This is a hard requirement, not a nice-to-have.** When the TOC's
+`## Interface:` is older than the current game build, WoW marks the
+addon "Out of Date" and many users — especially CurseForge installs —
+report the addon as missing/corrupted/won't load. We shipped 1.5.3
+with `Interface: 120001` while live was 12.0.5; at least one user lost
+the addon entirely, and we had to chase it down in 1.5.4.
+
+Before every release:
+
+1. Read `## Interface:` from `HearthAndSeek.toc`.
+2. Determine the live game's TOC number. Sources, in order of preference:
+   - Ask the user for the current live patch (e.g. "12.0.5").
+   - Convert: `M.m.p` → `M{mm:02d}{pp:02d}` (12.0.5 → `120005`,
+     12.0.7 → `120007`, 11.1.0 → `110100`).
+   - Cross-check `Tools/scraper/data/catalog_dump.json` metadata
+     (`gameVersion` / "Midnight 120005" etc.) — set by the in-game dump.
+3. If the TOC value is older, **bump it AND commit before packaging.**
+   Same commit as the `## Version:` and `Core/Constants.lua`
+   `NS.ADDON_VERSION` bump is fine.
+4. Mention the bump explicitly in the version-bump commit message so
+   it's traceable in `git log`.
+
+A mismatch is a release-blocker. Do not proceed to packaging until the
+TOC Interface is correct.
+
+### 1b. Validate included files
 
 Check that ALL files needed for the addon to work are accounted for in both the publish script (`scripts/publish.ps1`) and the deploy script (`scripts/deploy.sh`).
 
