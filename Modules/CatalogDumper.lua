@@ -13,7 +13,7 @@ local Dumper = NS.CatalogDumper
 -------------------------------------------------------------------------------
 -- Configuration
 -------------------------------------------------------------------------------
-local MAX_DECOR_ID         = 40000  -- Upper bound of decorID range to scan
+local MAX_DECOR_ID         = 60000  -- Upper bound of decorID range to scan
 local BATCH_SIZE           = 200    -- IDs to process per tick (catalog dump)
 local TICK_INTERVAL        = 0.01   -- Seconds between batches (catalog dump)
 local PROGRESS_EVERY       = 1000   -- Print progress every N IDs (catalog dump)

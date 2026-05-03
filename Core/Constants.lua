@@ -22,9 +22,11 @@ NS.ADDON_PREFIX  = "|cff00ccff[Hearth & Seek]|r "
 -------------------------------------------------------------------------------
 NS.CatalogSizing = {
     FrameWidth          = 1100,
-    FrameHeight         = 750,
-    SidebarWidth        = 200,
+    FrameHeight         = 788,
+    FilterBarHeight     = 32,
     DetailPanelWidth    = 330,
+    DropdownMaxHeight   = 400,
+    ProgressBarHeight   = 10,
     GridItemSize        = 110,
     GridItemSpacing     = 10,
     GridColumns         = 4,

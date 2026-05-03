@@ -18,6 +18,11 @@ from typing import Any
 
 from output_lua import lua_string, lua_number, lua_value
 
+# Wowhead internal zone IDs → our zone names. Populated in enrich_catalog
+# and reused here so the NPC-fallback promotion (Wowhead sourcemore lookup
+# for items with empty in-game sourceText) can fill in zone + mapID.
+from enrich_catalog import WH_ZONE_ID_TO_NAME
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -44,7 +49,11 @@ logger = logging.getLogger("output_catalog_lua")
 # Source type / detail derivation
 # ---------------------------------------------------------------------------
 
-SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor", "Shop"]
+# Gating-first priority: sources earlier in this list are considered the
+# "primary" when an item has multiple. Mirrored in Lua as
+# NS.SourcePriority in Core/Utils.lua — any change here must be applied
+# there too (test_source_priority_alignment enforces this).
+SOURCE_PRIORITY = ["Quest", "Achievement", "Prey", "Profession", "Drop", "Treasure", "Vendor", "Shop", "Other"]
 
 # Known base profession names for parsing sourceDetail strings like
 # "Midnight Tailoring (50)" → "Tailoring"
@@ -566,6 +575,12 @@ TRUSTED_ZONE_IDS: dict[int, bool] = {
 # Applied in serialize_item() to fix NPC IDs, coordinates, and zones.
 # Coords are slightly offset (~+0.1) from the reference source.
 # Keys are vendor names (matching vendorName field in catalog items).
+#
+# Some vendor names are shared between different NPCs in different zones
+# (e.g. "Rae'ana" exists in both The Waking Shores and Silvermoon City).
+# VENDOR_COORDS_BY_ZONE provides zone-specific entries for these; the
+# resolver in resolve_vendor_override() checks it first, falling back to
+# the name-only VENDOR_COORDS entry.
 # ---------------------------------------------------------------------------
 VENDOR_COORDS: dict[str, dict] = {
     # === Classic — Eastern Kingdoms ===
@@ -794,6 +809,211 @@ VENDOR_COORDS: dict[str, dict] = {
     "Quackenbush":             {"npcID": 68363,  "x": 51.1, "y": 30.2, "mapID": 499,  "zone": "Stormwind City"},
 }
 
+# Zone-specific vendor overrides for shared NPC names. The resolver
+# (resolve_vendor_override) checks this dict first keyed by
+# (vendor_name, item_zone) before falling back to VENDOR_COORDS.
+#
+# This dict is auto-populated at module load from
+# Tools/scraper/data/vendor_zones.json, which enrich_catalog.py writes every
+# time it runs. Any time a vendor name is detected in multiple zones, its
+# per-zone NPC data is added here automatically — no manual maintenance
+# required. Curated manual entries below take precedence over auto-loaded
+# ones (so you can still override a bad auto-pick if needed).
+VENDOR_COORDS_BY_ZONE: dict[tuple[str, str], dict] = {}
+
+
+def _autoload_vendor_zones() -> None:
+    """Populate VENDOR_COORDS_BY_ZONE from the auto-generated vendor_zones.json.
+    Produced by enrich_catalog.py whenever a vendor name appears in multiple
+    zones. Existing entries in VENDOR_COORDS_BY_ZONE (manual overrides) win."""
+    try:
+        vz_path = Path(__file__).resolve().parent / "data" / "vendor_zones.json"
+        if not vz_path.exists():
+            return
+        with open(vz_path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        loaded = 0
+        for vendor_name, zone_map in data.items():
+            for zone, info in zone_map.items():
+                key = (vendor_name, zone)
+                if key in VENDOR_COORDS_BY_ZONE:
+                    continue  # manual override wins
+                npc_id = info.get("npcID")
+                if not npc_id:
+                    continue
+                map_id = ZONE_TO_MAPID.get(zone)
+                if map_id is None:
+                    continue  # can't resolve zone name → mapID; skip auto entry
+                VENDOR_COORDS_BY_ZONE[key] = {
+                    "npcID": npc_id,
+                    "x": info.get("x") or 0.0,
+                    "y": info.get("y") or 0.0,
+                    "mapID": map_id,
+                    "zone": zone,
+                }
+                loaded += 1
+        if loaded:
+            logger.info("Auto-loaded %d shared-name vendor entries from %s",
+                        loaded, vz_path.name)
+    except Exception as exc:
+        logger.warning("Failed to auto-load vendor_zones.json: %s", exc)
+
+
+def resolve_vendor_override(vendor_name: str, item_zone: str | None) -> dict | None:
+    """Return the curated override for a vendor, preferring a zone-specific
+    entry when the item's zone matches. Falls back to the name-only entry."""
+    if item_zone:
+        zoned = VENDOR_COORDS_BY_ZONE.get((vendor_name, item_zone))
+        if zoned:
+            return zoned
+    return VENDOR_COORDS.get(vendor_name)
+
+
+def compute_recently_added_ids(
+    item_versions: dict,
+    min_items: int = 5,
+    max_batches: int = 3,
+) -> list[int]:
+    """Return the list of decorIDs for the "Recently Added" filter.
+
+    The filter groups items into batches by their ``dateAdded`` value in
+    ``item_versions.json`` (each scan day is one batch). Starting from
+    the newest batch, we accumulate whole batches until the total count
+    reaches ``min_items`` (default 5), or until we've included
+    ``max_batches`` (default 3) — whichever comes first.
+
+    Contract:
+      - Batches are atomic: when a batch's inclusion would push the
+        count past ``min_items``, the whole batch is still included.
+      - If the newest batch already meets ``min_items``, only that batch
+        is returned (older batches stay hidden).
+      - If there are fewer than ``min_items`` total across the last
+        ``max_batches``, we return what we have.
+      - Items without a ``date`` field in ``item_versions`` are ignored.
+
+    :param item_versions: parsed contents of ``data/item_versions.json``
+      — a dict keyed by decorID string, each value ``{"patch": ...,
+      "date": "YYYY-MM-DD"}``.
+    :param min_items: minimum target count; don't stop before this many.
+    :param max_batches: don't include more than this many distinct dates.
+    :return: sorted list of decorIDs (int) that belong in the filter.
+    """
+    # Group decorIDs by date
+    by_date: dict[str, list[int]] = {}
+    for did_str, info in item_versions.items():
+        if not isinstance(info, dict):
+            continue
+        date = info.get("date")
+        if not date:
+            continue
+        try:
+            did = int(did_str)
+        except (ValueError, TypeError):
+            continue
+        by_date.setdefault(date, []).append(did)
+
+    # Sort dates descending (newest first), walk until we hit min_items
+    # or max_batches (whichever first)
+    selected: list[int] = []
+    batches_used = 0
+    for date in sorted(by_date.keys(), reverse=True):
+        if batches_used >= max_batches:
+            break
+        if len(selected) >= min_items:
+            break
+        selected.extend(by_date[date])
+        batches_used += 1
+    selected.sort()
+    return selected
+
+
+def promote_wowhead_npc_fallback(
+    item: dict,
+    extra: dict,
+    wh_zone_to_name: dict,
+    zone_to_mapid: dict,
+    logger_=None,
+) -> bool:
+    """Promote a Wowhead sourcemore/decor-sources NPC to the item's primary
+    vendor when the item has no source data of its own.
+
+    This is the fallback path for items whose in-game scan returned empty
+    ``sourceText``. Without this, such items serialize as ``sourceType =
+    "Other"`` with no vendor name and no navigation target.
+
+    Guard rules:
+      - Fires only when the item has **no** in-game source: no vendor,
+        quest, achievement, profession, and an empty ``sources`` list.
+        Existing in-game data is never overwritten.
+      - Uses the first NPC entry in ``additionalSources``. Each entry may
+        carry coords + whZoneID + zone-name + mapID (the modern decor-
+        shape extractor fills those in directly; the legacy sourcemore
+        extractor leaves some blank).
+      - Zone/mapID plumbing prefers direct-from-decor fields, falling
+        back to ``whZoneID → zone-name`` translation via
+        ``wh_zone_to_name``, then ``zone → mapID`` via ``zone_to_mapid``.
+
+    Returns True if the item was promoted, False otherwise. Intended for
+    use by the ``main()`` merge loop but exposed at module scope so tests
+    can exercise the real code path instead of a reimplementation.
+    """
+    if (item.get("vendor") or item.get("quest") or item.get("achievement")
+            or item.get("profession") or (item.get("sources") or [])):
+        return False
+
+    add_src = extra.get("additionalSources", []) if isinstance(extra, dict) else []
+    npc_sources = [
+        s for s in add_src
+        if s.get("sourceType") == "NPC" and s.get("sourceDetail")
+    ]
+    if not npc_sources:
+        return False
+
+    primary = npc_sources[0]
+    item["vendor"] = primary["sourceDetail"]
+    if primary.get("sourceID"):
+        item["npcID"] = primary.get("sourceID")
+
+    coords = primary.get("coords") or {}
+    wh_zone = primary.get("whZoneID")
+    zone_name_direct = primary.get("zone")
+    map_id_direct = primary.get("mapID")
+
+    if coords.get("x") is not None:
+        item["npcX"] = coords["x"]
+    if coords.get("y") is not None:
+        item["npcY"] = coords["y"]
+
+    zone_name = zone_name_direct or (
+        wh_zone_to_name.get(wh_zone) if wh_zone is not None else None
+    )
+    if zone_name and not item.get("zone"):
+        item["zone"] = zone_name
+    map_id = map_id_direct or (
+        zone_to_mapid.get(zone_name) if zone_name else None
+    )
+    if map_id and not item.get("mapID"):
+        item["mapID"] = map_id
+
+    srcs = item.setdefault("sources", [])
+    if not any(s.get("type") == "Vendor" for s in srcs):
+        srcs.insert(0, {"type": "Vendor", "value": primary["sourceDetail"]})
+
+    if logger_ is not None:
+        coord_blurb = ""
+        if item.get("npcX") is not None and item.get("zone"):
+            coord_blurb = f" @ ({item['npcX']:.1f},{item['npcY']:.1f}) in '{item['zone']}'"
+        elif item.get("npcX") is not None:
+            coord_blurb = f" @ ({item['npcX']:.1f},{item['npcY']:.1f})"
+        logger_.info(
+            "  decorID=%s '%s': promoted Wowhead NPC '%s' (id=%s) to primary vendor%s",
+            item.get("decorID"), item.get("name"),
+            primary["sourceDetail"], primary.get("sourceID"),
+            coord_blurb,
+        )
+    return True
+
+
 # Reverse lookup: mapID → zone name (for updating item zones when vendor mapID differs)
 # Prefer shorter / canonical zone names, skip aliases
 MAPID_TO_ZONE: dict[int, str] = {}
@@ -801,6 +1021,11 @@ for _zname, _zmapid in ZONE_TO_MAPID.items():
     # Prefer shorter / canonical zone names, skip aliases
     if _zmapid not in MAPID_TO_ZONE or len(_zname) < len(MAPID_TO_ZONE[_zmapid]):
         MAPID_TO_ZONE[_zmapid] = _zname
+
+# Auto-load zone-specific vendor overrides produced by enrich_catalog.py.
+# Must run after VENDOR_COORDS_BY_ZONE, VENDOR_COORDS, and ZONE_TO_MAPID
+# are all defined. Safe at module import time — reads a JSON file if present.
+_autoload_vendor_zones()
 
 # ---------------------------------------------------------------------------
 # Category / subcategory name mappings (verified via /hs debug dump categories)
@@ -1488,9 +1713,11 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
 
     # --- Apply VENDOR_COORDS overrides ---
     # Fix wrong NPC IDs, missing coordinates, and zone mismatches using
-    # curated vendor reference data.
-    vc = VENDOR_COORDS.get(vendor_name)
+    # curated vendor reference data. Zone-aware so shared-name vendors
+    # like "Rae'ana" (Waking Shores + Silvermoon City) route to the NPC
+    # whose zone matches the item.
     item_zone = item.get("zone") or ""
+    vc = resolve_vendor_override(vendor_name, item_zone)
     item_npc_id = item.get("npcID")
     item_npc_x = item.get("npcX")
     item_npc_y = item.get("npcY")
@@ -2031,6 +2258,7 @@ def main() -> None:
 
     # Merge extra data into catalog items
     extra_merged = 0
+    name_corrections = 0
     for item in catalog:
         item_id = item.get("itemID")
         if not item_id or item_id not in extra_data:
@@ -2038,6 +2266,24 @@ def main() -> None:
         extra = extra_data[item_id]
         if extra.get("error"):
             continue
+
+        # Canonical item name from Wowhead. The C_HousingCatalog dump
+        # occasionally returns a stale decor-entry name while the
+        # underlying item — what tooltips and the in-game catalog UI
+        # render — has the correct one (decorID 15141 → "Spring Blossom
+        # Pond" vs the actual "Spring Blossom Tree Pond"). When Wowhead's
+        # name differs, prefer it. A manual override on `name` in
+        # overrides.json still wins because it's already been merged
+        # into the item dict by enrich_catalog before this step.
+        wh_name = extra.get("itemName")
+        if wh_name and item.get("name") and wh_name != item["name"]:
+            if not item.get("_nameOverridden"):  # marker set by overrides.json merge
+                logger.info(
+                    "Name mismatch for decorID=%s itemID=%d: dump=%r → wowhead=%r",
+                    item.get("decorID"), item_id, item["name"], wh_name,
+                )
+                item["name"] = wh_name
+                name_corrections += 1
 
         # Additional sources (filter out NPC type — those are vendors/drops already handled)
         add_src = extra.get("additionalSources", [])
@@ -2047,6 +2293,14 @@ def main() -> None:
             filtered_src = [s for s in filtered_src if s.get("sourceType") != "Treasure"]
         if filtered_src:
             item["_additionalSources"] = filtered_src
+
+        if promote_wowhead_npc_fallback(
+            item, extra,
+            wh_zone_to_name=WH_ZONE_ID_TO_NAME,
+            zone_to_mapid=ZONE_TO_MAPID,
+            logger_=logger,
+        ):
+            pass  # logging happens inside the helper
 
         # Drop rate
         drop_rate = extra.get("dropRate")
@@ -2074,6 +2328,9 @@ def main() -> None:
 
     if extra_merged:
         logger.info("Merged Wowhead extra data into %d items", extra_merged)
+    if name_corrections:
+        logger.info("Corrected %d item name(s) from Wowhead (dump-name was stale)",
+                    name_corrections)
 
     # Merge theme data into catalog items
     theme_items = theme_data.get("items", {})
@@ -2880,6 +3137,26 @@ def main() -> None:
         logger.info("  Themes: %d groups, %d themes, %d items themed",
                      len(theme_groups), len(theme_names),
                      theme_meta.get("items_themed", 0))
+
+    # RecentlyAdded — set of decorIDs from the most recent scan batch(es).
+    # Emitted as a dict-as-set ({[id]=true}) so the addon's filter loop
+    # can do O(1) lookups during apply.
+    recently_added = compute_recently_added_ids(item_versions)
+    lines.append("NS.CatalogData.RecentlyAdded = {")
+    for did in recently_added:
+        lines.append(f"    [{did}] = true,")
+    lines.append("}")
+    lines.append("")
+    # Count distinct dates in the selected set for the summary line
+    _selected_dates = {
+        item_versions[str(did)].get("date")
+        for did in recently_added
+        if str(did) in item_versions and isinstance(item_versions[str(did)], dict)
+    }
+    logger.info(
+        "  RecentlyAdded: %d items across %d date batch(es) from item_versions.json",
+        len(recently_added), len(_selected_dates),
+    )
 
     lua_content = "\n".join(lines)
 

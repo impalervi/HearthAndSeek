@@ -74,7 +74,7 @@ STAGES: list[tuple[str, str, str, int]] = [
     ("parse_boss_dump", "parse_boss_dump.py",
      "Parse boss floor map dump from SavedVariables", 60),
     ("enrich_catalog", "enrich_catalog.py",
-     "Enrich with Wowhead (quest IDs, NPC coords, factions)", 1800),
+     "Enrich with Wowhead (quest IDs, NPC coords, factions)", 3600),
     ("enrich_quest_chains", "enrich_quest_chains.py",
      "Build quest prerequisite chains from Wowhead", 1800),
     ("cleanup_quest_chains", "cleanup_quest_chains.py",
