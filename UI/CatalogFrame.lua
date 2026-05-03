@@ -1252,20 +1252,9 @@ local function InitFilterBar(parentFrame)
             scrollChild._secContents = {}
             scrollChild._headerOverhead = 0
             local contentYOff = 0
-            for secIdx, secID in ipairs(btnDef.sectionIDs) do
+            for _, secID in ipairs(btnDef.sectionIDs) do
                 local secDef = FindSectionDef(secID)
                 if secDef then
-                    -- For multi-section dropdowns (Theme), add a sub-header
-                    if #btnDef.sectionIDs > 1 then
-                        local subHeader = scrollChild:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-                        subHeader:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 6, contentYOff - 2)
-                        subHeader:SetText(secDef.title)
-                        subHeader:SetTextColor(0.50, 0.50, 0.50, 1)
-                        contentYOff = contentYOff - 18
-                        scrollChild._headerOverhead = scrollChild._headerOverhead + 18
-                    end
-
-                    -- Create a container for this section's content
                     local secContent = CreateFrame("Frame", nil, scrollChild)
                     secContent:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 0, contentYOff)
                     secContent:SetPoint("RIGHT", scrollChild, "RIGHT", 0, 0)
@@ -1278,12 +1267,6 @@ local function InitFilterBar(parentFrame)
 
                     scrollChild._secContents[#scrollChild._secContents + 1] = secContent
                     contentYOff = contentYOff - secContent:GetHeight()
-
-                    -- Gap between sections in multi-section dropdowns
-                    if secIdx < #btnDef.sectionIDs then
-                        contentYOff = contentYOff - 6
-                        scrollChild._headerOverhead = scrollChild._headerOverhead + 6
-                    end
                 end
             end
 
