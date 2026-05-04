@@ -475,5 +475,50 @@
       }
     ],
     "sourceTextRaw": "Shop|r"
+  },
+  "7815": {
+    "_note": "Uncrowned Apothecary's Cabinet - Hall of Shadows (Rogue Class Hall) item, sold by Kelsey Steelspark; tag with Legion Class Hall category for consistency with other Hall of Shadows items",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-05-02",
+    "sources": [
+      {
+        "type": "Category",
+        "value": "Legion Class Hall"
+      },
+      {
+        "type": "Vendor",
+        "value": "Kelsey Steelspark"
+      }
+    ]
+  },
+  "7816": {
+    "_note": "Uncrowned Apothecary's Supplies - Hall of Shadows (Rogue Class Hall) item, sold by Kelsey Steelspark; tag with Legion Class Hall category for consistency with other Hall of Shadows items",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-05-02",
+    "sources": [
+      {
+        "type": "Category",
+        "value": "Legion Class Hall"
+      },
+      {
+        "type": "Vendor",
+        "value": "Kelsey Steelspark"
+      }
+    ]
+  },
+  "7817": {
+    "_note": "Uncrowned Banner - Hall of Shadows (Rogue Class Hall) item, sold by Kelsey Steelspark; tag with Legion Class Hall category for consistency with other Hall of Shadows items",
+    "_reason": "in_game_verified",
+    "_verified_date": "2026-05-02",
+    "sources": [
+      {
+        "type": "Category",
+        "value": "Legion Class Hall"
+      },
+      {
+        "type": "Vendor",
+        "value": "Kelsey Steelspark"
+      }
+    ]
   }
 }
