@@ -1540,6 +1540,21 @@ function NS.UI.InitCatalogDetail(parent)
     end)
     parent._waypointBtn:Disable()
 
+    -- Tooltip-on-hover for vendor-specific hints (e.g. roaming-vendor patrol
+    -- notes). Hooked rather than Set so the UIPanelButton's built-in highlight
+    -- behavior is preserved. Pulls fresh state from parent._currentItem on
+    -- each hover so it adapts as the user clicks through items.
+    parent._waypointBtn:HookScript("OnEnter", function(self)
+        local item = parent._currentItem
+        local note = item and item.vendorPatrolNote
+        if not note or note == "" then return end
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Navigation Tips", 1, 0.82, 0)
+        GameTooltip:AddLine(note, 1, 1, 1, true)
+        GameTooltip:Show()
+    end)
+    parent._waypointBtn:HookScript("OnLeave", function() GameTooltip:Hide() end)
+
     -- Open Map button (above waypoint button — only shown for Drop items with entrance data)
     parent._openMapBtn = CreateFrame("Button", nil, bottomSection, "UIPanelButtonTemplate")
     parent._openMapBtn:SetSize(CatSizing.DetailPanelWidth - 16, 28)

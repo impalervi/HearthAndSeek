@@ -1807,6 +1807,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorPatrolNote = "The vendor NPC walks along the main road",
         vendorCosts = {
             { amount = 300, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },
@@ -10284,6 +10285,7 @@ NS.CatalogData.Items = {
         placementCost = 3,
         firstAcquisitionBonus = 10,
         expansion = "Legion",
+        vendorPatrolNote = "The vendor NPC walks along the main road",
         vendorCosts = {
             { amount = 400, currencyID = 1220, iconPath = "Interface\\ICONS\\INV_OrderHall_OrderResources.BLP" },
         },

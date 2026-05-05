@@ -1175,6 +1175,16 @@ TREASURE_FIXUPS: dict[int, dict] = {
         ],
     },
 }
+# NPCs that walk a long patrol path so the recorded coordinate is only
+# a sample — the player may arrive at the waypoint and not see them.
+# The note shows up under the Navigate button so users know to wait or
+# walk along the route. Add an entry per vendor; all of their items
+# inherit the note automatically.
+ROAMING_PATROL_VENDORS: dict[str, str] = {
+    "Hilseth Travelstride": "The vendor NPC walks along the main road",
+}
+
+
 # Roaming vendors exist in BOTH zones with different NPC IDs:
 ROAMING_VENDORS: dict[str, dict] = {
     '"High Tides" Ren': {"fp_npcID": 255222, "rs_npcID": 255325},
@@ -1993,6 +2003,13 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     covenant_id = COVENANT_VENDORS.get(vendor_name)
     if covenant_id:
         lines.append(f"        covenantID = {covenant_id},")
+
+    # Optional: vendorPatrolNote — for vendors that walk a path so the
+    # recorded coords aren't always where they currently stand. Surfaced
+    # in the detail panel under the Navigate button.
+    patrol_note = ROAMING_PATROL_VENDORS.get(vendor_name) if vendor_name else None
+    if patrol_note:
+        lines.append(f"        vendorPatrolNote = {lua_string(patrol_note)},")
 
     # Optional: vendorCosts sub-table (parsed from sourceTextRaw)
     vendor_costs = item.get("_vendorCosts")
