@@ -2080,18 +2080,28 @@ function NS.UI.UpdateFilterCounts(counts)
         elseif secDef.type == "hierarchical" then
             local wTable = secDef.widgetTable
             local cwTable = secDef.childWidgetTable
-            -- Determine which counts dimension to use for children
             local childCountsDim = counts[cwTable]  -- e.g. counts.zones, counts.subcategories
 
-            -- Update child labels
+            -- Update child labels.
             for cKey, widget in pairs(filterWidgets[cwTable]) do
                 local c = childCountsDim and childCountsDim[cKey] or 0
                 widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
             end
 
-            -- Update group labels (sum of child counts)
+            -- Update group labels: always sum visible children. The dyn
+            -- counter applies group-level self-exclusion (categories) or
+            -- the standard self-exclusion (zones), so summing the children
+            -- always equals what the user sees in the expanded list — no
+            -- "parent says 4 but children sum to 7" surprise. Items with
+            -- multiple subcats in the same group inflate the sum slightly,
+            -- but that matches the over-counting already visible in the
+            -- children themselves, so the totals stay internally consistent.
+            -- `seen[gData]` skips the dual-keyed (numeric + display-name)
+            -- aliases that filterWidgets stores for the same widget.
+            local seen = {}
             for _, gData in pairs(filterWidgets[wTable]) do
-                if gData.childKeys then
+                if gData.childKeys and not seen[gData] then
+                    seen[gData] = true
                     local total = 0
                     for _, cKey in ipairs(gData.childKeys) do
                         total = total + (childCountsDim and childCountsDim[cKey] or 0)

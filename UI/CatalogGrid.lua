@@ -134,6 +134,31 @@ local function COLLECTION_FILTERS()
 end
 local filteredItems = {}
 
+-- Reverse map subcatID → categoryID, built lazily from
+-- CatalogData.CategorySubcategories on first ApplyFilters. Drives the
+-- "OR within group, AND across groups" subcategory filter and the
+-- group-level self-exclusion in the dyn-count formula.
+local SubcatToCategory = {}
+local function BuildSubcatToCategory()
+    if next(SubcatToCategory) then return end
+    local map = NS.CatalogData and NS.CatalogData.CategorySubcategories
+    if not map then return end
+    for catID, subcatList in pairs(map) do
+        for _, sid in ipairs(subcatList) do
+            SubcatToCategory[sid] = catID
+        end
+    end
+end
+
+-- Resolve a subcat to its group key. Orphans (subcat IDs not present
+-- in CategorySubcategories — e.g. data drift) are treated as their
+-- own singleton group via a negative sentinel, so they still flow
+-- through the AND-across-groups filter without being silently dropped.
+-- Real catIDs are positive integers, so negatives can't collide.
+local function CatOfSubcat(sid)
+    return SubcatToCategory[sid] or (-sid)
+end
+
 --- Save current filter state to SavedVariables (excludes searchText).
 local function SaveFilterState()
     if not (NS.db and NS.db.settings and NS.db.settings.rememberFilters) then return end
@@ -1430,6 +1455,7 @@ end
 function NS.UI.CatalogGrid_ApplyFilters()
     CatSizing = CatSizing or NS.CatalogSizing
     if not NS.CatalogData or not NS.CatalogData.Items then return end
+    BuildSubcatToCategory()
 
     -- Ensure ownership cache is built
     BuildOwnershipCache()
@@ -1447,6 +1473,16 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local hasQualFilter = next(filterState.qualities) ~= nil
     local hasProfFilter = next(filterState.professions) ~= nil
     local hasSubcatFilter = next(filterState.subcategories) ~= nil
+
+    -- Precompute per-category active-subcat counts (used by the category
+    -- group-level self-exclusion in the dyn-count loop). Keyed by catID.
+    local activeSubcatsByCategory = {}
+    local totalActiveSubcats = 0
+    for sid, _ in pairs(filterState.subcategories) do
+        local catID = CatOfSubcat(sid)
+        activeSubcatsByCategory[catID] = (activeSubcatsByCategory[catID] or 0) + 1
+        totalActiveSubcats = totalActiveSubcats + 1
+    end
 
     -- Collection filter: active only when partially checked
     local collAll  = filterState.collected and filterState.notCollected
@@ -1600,15 +1636,34 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local pProf = not hasProfFilter or (item.professionName and item.professionName ~= ""
                                             and filterState.professions[item.professionName] ~= nil)
 
+        -- Category filter: OR within a group, AND across groups.
+        -- Selecting "all of Structural" then adding "Misc Furnishings"
+        -- means: item must have any Structural subcat AND any Furnishings
+        -- subcat — i.e. items in BOTH categories. Within a single group,
+        -- subcats still OR together (selecting Walls + Floors keeps both
+        -- visible).
         local pCat = true
         if hasSubcatFilter then
-            pCat = false
             local subcats = item.subcategoryIDs
-            if subcats then
+            if not subcats then
+                pCat = false
+            else
+                local matchedGroups = nil
                 for _, sid in ipairs(subcats) do
                     if filterState.subcategories[sid] then
-                        pCat = true
-                        break
+                        local catID = CatOfSubcat(sid)
+                        if not matchedGroups then matchedGroups = {} end
+                        matchedGroups[catID] = true
+                    end
+                end
+                if not matchedGroups then
+                    pCat = false
+                else
+                    for catID, _ in pairs(activeSubcatsByCategory) do
+                        if not matchedGroups[catID] then
+                            pCat = false
+                            break
+                        end
                     end
                 end
             end
@@ -1743,12 +1798,43 @@ function NS.UI.CatalogGrid_ApplyFilters()
             end
         end
 
-        -- Subcategory counts (exclude category filter)
+        -- Category + subcategory counts (group-level self-exclusion).
+        --
+        -- Each row's count answers: "if I were to enable this option, how
+        -- many items would survive the rest of my filters?" — but we
+        -- self-exclude at the GROUP level, not the individual subcat. So
+        -- when Structural is fully selected, the count next to "Walls" is
+        -- the full Walls catalog count (because removing the whole
+        -- Structural group leaves no category constraint), while "Beds"
+        -- (Furnishings) intersects with Structural → ~0. This keeps
+        -- siblings discoverable inside the active group while making
+        -- mutually-exclusive groups visibly drop out.
         if pSrc and pZone and pQual and pProf and pColl and pCollection and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
+                -- Pass 1: tally item's active subcats per group.
+                local groupActive = {}    -- catID → count of item's active subcats in this group
+                local itemActiveTotal = 0
                 for _, sid in ipairs(subcats) do
-                    dynCounts.subcategories[sid] = (dynCounts.subcategories[sid] or 0) + 1
+                    if filterState.subcategories[sid] then
+                        local catID = CatOfSubcat(sid)
+                        groupActive[catID] = (groupActive[catID] or 0) + 1
+                        itemActiveTotal = itemActiveTotal + 1
+                    end
+                end
+
+                -- Pass 2: per-subcat counts. Self-exclude THIS group (i.e.
+                -- count this item toward sid's bucket iff the item would
+                -- still pass pCat with the entire group's filter peeled
+                -- away). Group totals are computed at display time as the
+                -- sum of these children, so the two always agree visually.
+                for _, sid in ipairs(subcats) do
+                    local catID = CatOfSubcat(sid)
+                    local activeOutside = itemActiveTotal - (groupActive[catID] or 0)
+                    local filterOutside = totalActiveSubcats - (activeSubcatsByCategory[catID] or 0)
+                    if activeOutside > 0 or filterOutside == 0 then
+                        dynCounts.subcategories[sid] = (dynCounts.subcategories[sid] or 0) + 1
+                    end
                 end
             end
         end
