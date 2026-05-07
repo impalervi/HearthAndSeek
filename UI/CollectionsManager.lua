@@ -89,8 +89,12 @@ local function showCatalogContent(show)
     local f = show and "Show" or "Hide"
     if cf._grid        then cf._grid[f](cf._grid)               end
     if cf._countText   then cf._countText[f](cf._countText)     end
-    if cf._filterBar   then cf._filterBar[f](cf._filterBar)     end
     if cf._progressBar then cf._progressBar[f](cf._progressBar) end
+    -- Filter bar: keep the stone-textured background visible at all
+    -- times for visual continuity; only the buttons go away.
+    if NS.UI.SetFilterBarButtonsShown then
+        NS.UI.SetFilterBarButtonsShown(show)
+    end
     -- detailFiller's visibility is the inverse of the catalog's: shown
     -- when the catalog chrome is hidden (manager view), hidden otherwise.
     if detailFiller then

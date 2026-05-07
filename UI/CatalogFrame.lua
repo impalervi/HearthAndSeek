@@ -1474,6 +1474,18 @@ local function InitFilterBar(parentFrame)
     parentFrame:HookScript("OnHide", function()
         CloseActiveDropdown()
     end)
+
+    -- Toggle just the filter-bar buttons (and dismiss any open dropdown)
+    -- without touching the bar's stone-texture background or separator.
+    -- Used by the Collections Manager view, which wants the bar's chrome
+    -- to remain visible for visual continuity but doesn't expose any
+    -- filter functionality of its own.
+    function NS.UI.SetFilterBarButtonsShown(shown)
+        for _, b in ipairs(filterBarButtons) do
+            if shown then b:Show() else b:Hide() end
+        end
+        if not shown then CloseActiveDropdown() end
+    end
 end
 
 --- Update filter bar button appearances based on active filters.
