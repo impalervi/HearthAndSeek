@@ -16,6 +16,10 @@ local _, NS = ...
 NS.UI = NS.UI or {}
 
 local managerFrame = nil  -- top-level frame, parented to catalogFrame
+local detailFiller = nil  -- texture covering the strip below the detail panel
+                          -- while the manager is open (progress bar is hidden,
+                          -- which would otherwise expose the catalog frame's
+                          -- lighter backdrop in that strip)
 local rowPool      = {}   -- recycled row frames
 local emptyText    = nil
 local capText      = nil
@@ -74,14 +78,24 @@ end
 
 -- The detail panel and grid|detail separator stay visible while the
 -- manager is open, so clicking an item in a collection's sub-grid
--- shows its info on the right just like in the catalog. Only the
--- main grid + count text are hidden.
+-- shows its info on the right just like in the catalog. The main
+-- grid + count text + top filter bar + bottom progress bar are
+-- hidden — the filter bar and progress bar don't apply to the
+-- manager view, and showing them would clutter what is otherwise
+-- a focused list of named collections.
 local function showCatalogContent(show)
     local cf = findCatalogFrame()
     if not cf then return end
     local f = show and "Show" or "Hide"
-    if cf._grid      then cf._grid[f](cf._grid)         end
-    if cf._countText then cf._countText[f](cf._countText) end
+    if cf._grid        then cf._grid[f](cf._grid)               end
+    if cf._countText   then cf._countText[f](cf._countText)     end
+    if cf._filterBar   then cf._filterBar[f](cf._filterBar)     end
+    if cf._progressBar then cf._progressBar[f](cf._progressBar) end
+    -- detailFiller's visibility is the inverse of the catalog's: shown
+    -- when the catalog chrome is hidden (manager view), hidden otherwise.
+    if detailFiller then
+        if show then detailFiller:Hide() else detailFiller:Show() end
+    end
 end
 
 local function failureMessage(reason)
@@ -717,18 +731,36 @@ local function build()
 
     managerFrame = CreateFrame("Frame", nil, cf, "BackdropTemplate")
     managerFrame:SetPoint("TOPLEFT", cf, "TOPLEFT", 1, -(43 + CatSizing.FilterBarHeight))
-    -- Anchor right edge to the detail panel's left edge so the detail
-    -- panel stays visible alongside the manager (mirrors how the grid
-    -- is anchored).
+    -- Right edge anchors to the detail panel's left edge (so the detail
+    -- panel stays visible). Bottom edge anchors to the catalog frame
+    -- itself rather than to the detail panel — when the manager is open
+    -- the progress bar is hidden, so the manager is free to fill the
+    -- bottom strip that would otherwise reveal a different shade.
     if cf._detail then
-        managerFrame:SetPoint("BOTTOMRIGHT", cf._detail, "BOTTOMLEFT", -1, 18)
+        managerFrame:SetPoint("RIGHT",  cf._detail, "LEFT",   -1, 0)
     else
-        managerFrame:SetPoint("BOTTOMRIGHT", cf, "BOTTOMRIGHT", -1,
-                              CatSizing.ProgressBarHeight + 1)
+        managerFrame:SetPoint("RIGHT",  cf,         "RIGHT",  -1, 0)
     end
+    managerFrame:SetPoint("BOTTOM", cf, "BOTTOM", 0, 1)
     managerFrame:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8X8" })
     managerFrame:SetBackdropColor(0.05, 0.05, 0.07, 1)
     managerFrame:Hide()
+
+    -- Strip under the detail panel: while the manager is open the progress
+    -- bar is hidden, which exposes the catalog frame's lighter backdrop
+    -- in the small horizontal band below the detail panel. Cover it with
+    -- the same dark tone the manager + detail panel use so the bottom
+    -- edge of the view reads as one continuous surface.
+    if cf._detail then
+        -- ARTWORK (not BACKGROUND) so we draw on top of the catalog frame's
+        -- own backdrop, which also lives at the BACKGROUND layer and would
+        -- otherwise occlude this filler depending on creation order.
+        detailFiller = cf:CreateTexture(nil, "ARTWORK")
+        detailFiller:SetColorTexture(0.05, 0.05, 0.07, 1)
+        detailFiller:SetPoint("TOPLEFT",     cf._detail, "BOTTOMLEFT",  0, 0)
+        detailFiller:SetPoint("BOTTOMRIGHT", cf,         "BOTTOMRIGHT", -1, 1)
+        detailFiller:Hide()
+    end
 
     -- Header row: title + Done button
     local header = CreateFrame("Frame", nil, managerFrame)

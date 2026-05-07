@@ -2718,6 +2718,8 @@ function NS.UI.InitCatalog()
     catalogFrame._detail     = detail
     catalogFrame._gridDetailSep = sepRight
     catalogFrame._countText  = countText
+    catalogFrame._filterBar  = filterBar
+    catalogFrame._progressBar = progressBar
 
     -- Initialize sub-components
     if NS.UI.InitCatalogGrid then
