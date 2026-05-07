@@ -370,6 +370,12 @@ local function CreateFilterCheckbox(parent, labelText, yOffset, color, onClick)
     local check = CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
     check:SetSize(22, 22)
     check:SetPoint("TOPLEFT", parent, "TOPLEFT", 6, yOffset)
+    -- Extend the click region rightward so clicking the label (which
+    -- is a sibling FontString, not part of the button) also toggles
+    -- the checkbox. Negative `right` inset grows the hit rect; rows
+    -- are stacked vertically with no horizontal neighbors, so this
+    -- doesn't steal clicks from anything.
+    check:SetHitRectInsets(0, -260, 0, 0)
 
     local label = parent:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     label:SetPoint("LEFT", check, "RIGHT", 2, 0)
@@ -1131,6 +1137,91 @@ local function FindSectionDef(sectionID)
 end
 
 -------------------------------------------------------------------------------
+-- Build/rebuild the user-collection checkboxes inside the favorites
+-- section's secContent frame. Called once during InitFilterBar setup
+-- and again whenever NS.Collections changes (create/rename/delete).
+-- Old widgets are hidden in place, not destroyed — Lua/WoW frames can't
+-- be released cleanly, so reuse-by-recreation is acceptable for the
+-- 20-collection cap.
+-------------------------------------------------------------------------------
+local function rebuildFavoritesUserCollections(secContent)
+    secContent._userCollWidgets = secContent._userCollWidgets or {}
+    -- Hide previously-built widgets and unregister them from filterWidgets.
+    for _, w in ipairs(secContent._userCollWidgets) do
+        w.check:Hide()
+        if w.label then w.label:Hide() end
+        if w.key and filterWidgets.favorites then
+            filterWidgets.favorites[w.key] = nil
+        end
+    end
+    secContent._userCollWidgets = {}
+
+    -- Static items (Only Favorites + Recently Added) define the height
+    -- baseline; each user collection adds another 22-pixel row below.
+    local staticHeight = secContent._staticHeight or 0
+    local yOff = -staticHeight
+
+    if NS.Collections and NS.Collections.List then
+        for _, name in ipairs(NS.Collections.List()) do
+            local key = "userCol_" .. name
+            local count = NS.Collections.Count(name)
+            local labelText = name .. "  |cff888888(" .. count .. ")|r"
+            local r, g, b = NS.Collections.GetColor(name)
+            local check, newY = CreateFilterCheckbox(secContent, labelText, yOff,
+                { r, g, b },
+                function(checked)
+                    local fn = NS.UI.CatalogGrid_ToggleCollections
+                    if fn then fn(key, checked) end
+                end)
+
+            -- Restore checked state from persisted filters when relevant.
+            local saved = NS.db and NS.db.savedFilters
+            if saved and saved[key] then
+                check:SetChecked(true)
+            else
+                check:SetChecked(false)
+            end
+
+            filterWidgets.favorites = filterWidgets.favorites or {}
+            filterWidgets.favorites[key] = {
+                check       = check,
+                label       = check._label,
+                namePrefix  = name,
+                countKey    = key,
+                countColor  = "888888",
+            }
+            secContent._userCollWidgets[#secContent._userCollWidgets + 1] = {
+                check = check, label = check._label, key = key,
+            }
+            yOff = newY
+        end
+    end
+
+    secContent:SetHeight(math.abs(yOff))
+end
+
+-- Public surface used by the InitFilterBar loop and the refresh entry
+-- point below. Exposed so other modules can also trigger a rebuild
+-- without reaching into file-locals.
+NS.UI.RebuildFavoritesUserCollections = rebuildFavoritesUserCollections
+
+-------------------------------------------------------------------------------
+-- Refresh entry point: called by the Collections Manager (and any
+-- other code that mutates NS.Collections) to update the Collections
+-- filter dropdown. Rebuilds checkboxes, recomputes heights, and
+-- re-applies grid filters so the count badges reflect the new state.
+-------------------------------------------------------------------------------
+function NS.UI.RefreshCollectionsDropdown()
+    local panel = dropdownPanels and dropdownPanels["favorites"]
+    if not panel or not panel._favoritesSecContent then return end
+    rebuildFavoritesUserCollections(panel._favoritesSecContent)
+    if panel._recalcScrollHeight then panel._recalcScrollHeight() end
+    if NS.UI.CatalogGrid_ApplyFilters then
+        NS.UI.CatalogGrid_ApplyFilters()
+    end
+end
+
+-------------------------------------------------------------------------------
 -- InitFilterBar: creates filter bar, dropdown panels, and populates them
 -- Called once from InitCatalog.
 -------------------------------------------------------------------------------
@@ -1252,6 +1343,7 @@ local function InitFilterBar(parentFrame)
             scrollChild._secContents = {}
             scrollChild._headerOverhead = 0
             local contentYOff = 0
+            local favoritesSecContent = nil
             for _, secID in ipairs(btnDef.sectionIDs) do
                 local secDef = FindSectionDef(secID)
                 if secDef then
@@ -1265,9 +1357,54 @@ local function InitFilterBar(parentFrame)
                         builder(secContent, secDef, panel)
                     end
 
+                    -- Inject user-collection checkboxes inside the
+                    -- favorites section, after the static items. This
+                    -- keeps them visually grouped with "Only Favorites"
+                    -- and "Recently Added" and lets the footer auto-
+                    -- follow via relative anchoring (see below).
+                    if secDef.id == "favorites" then
+                        favoritesSecContent = secContent
+                        secContent._staticHeight = secContent:GetHeight()
+                        secContent._userCollWidgets = {}
+                        if NS.UI.RebuildFavoritesUserCollections then
+                            NS.UI.RebuildFavoritesUserCollections(secContent)
+                        end
+                    end
+
                     scrollChild._secContents[#scrollChild._secContents + 1] = secContent
                     contentYOff = contentYOff - secContent:GetHeight()
                 end
+            end
+
+            -- Collections dropdown footer: separator + "Manage Collections"
+            -- button. Anchored RELATIVE to the favorites secContent so it
+            -- follows automatically as user-collection checkboxes are
+            -- added/removed. Only the favorites button gets this footer.
+            local footerHeight = 0
+            if btnDef.key == "favorites" and favoritesSecContent then
+                local sep = scrollChild:CreateTexture(nil, "ARTWORK")
+                sep:SetHeight(1)
+                sep:SetPoint("TOPLEFT", favoritesSecContent, "BOTTOMLEFT", 8, -6)
+                sep:SetPoint("TOPRIGHT", favoritesSecContent, "BOTTOMRIGHT", -8, -6)
+                sep:SetColorTexture(0.4, 0.35, 0.2, 0.8)
+
+                local manageBtn = CreateFrame("Button", nil, scrollChild,
+                    "UIPanelButtonTemplate")
+                manageBtn:SetHeight(22)
+                manageBtn:SetPoint("TOPLEFT", favoritesSecContent, "BOTTOMLEFT", 6, -15)
+                manageBtn:SetPoint("TOPRIGHT", favoritesSecContent, "BOTTOMRIGHT", -6, -15)
+                manageBtn:SetText("Manage Collections")
+                manageBtn:SetScript("OnClick", function()
+                    CloseActiveDropdown()
+                    if NS.UI.OpenCollectionsManager then
+                        NS.UI.OpenCollectionsManager()
+                    end
+                end)
+                footerHeight = 6 + 1 + 8 + 22 + 4   -- gap+sep+gap+button+pad
+                contentYOff = contentYOff - footerHeight
+                panel._manageCollectionsBtn = manageBtn
+                panel._collectionsFooterHeight = footerHeight
+                panel._favoritesSecContent = favoritesSecContent
             end
 
             scrollChild:SetHeight(math.abs(contentYOff))
@@ -1280,6 +1417,10 @@ local function InitFilterBar(parentFrame)
                 for _, sec in ipairs(sc._secContents or {}) do
                     total = total + sec:GetHeight()
                 end
+                -- Account for the favorites footer (separator + Manage button)
+                -- when present; it's anchored relative to the section but
+                -- _secContents only sums section heights, not the footer.
+                total = total + (panel._collectionsFooterHeight or 0)
                 sc:SetHeight(total)
                 FitDropdownToContent(panel, sc)
                 -- Clamp scroll offset if content shrunk
@@ -1333,6 +1474,18 @@ local function InitFilterBar(parentFrame)
     parentFrame:HookScript("OnHide", function()
         CloseActiveDropdown()
     end)
+
+    -- Toggle just the filter-bar buttons (and dismiss any open dropdown)
+    -- without touching the bar's stone-texture background or separator.
+    -- Used by the Collections Manager view, which wants the bar's chrome
+    -- to remain visible for visual continuity but doesn't expose any
+    -- filter functionality of its own.
+    function NS.UI.SetFilterBarButtonsShown(shown)
+        for _, b in ipairs(filterBarButtons) do
+            if shown then b:Show() else b:Hide() end
+        end
+        if not shown then CloseActiveDropdown() end
+    end
 end
 
 --- Update filter bar button appearances based on active filters.
@@ -1505,6 +1658,27 @@ local function RefreshFooterBar()
                         local fn = NS.UI[secDef.toggle]
                         if fn then fn(false) end
                     end)
+                end
+            end
+            -- User-collection checkboxes (dynamically appended) need
+            -- their own pills. Same dispatcher as the static ones —
+            -- toggling unchecks the widget and routes through the
+            -- section's toggle function with the userCol_<name> key.
+            if secDef.id == "favorites" then
+                for key, widget in pairs(filterWidgets[secDef.id] or {}) do
+                    if type(key) == "string" and key:sub(1, 8) == "userCol_"
+                            and widget.check:GetChecked() then
+                        local capturedKey = key
+                        local collName = key:sub(9)  -- strip "userCol_" prefix
+                        local r, g, b = NS.Collections.GetColor(collName)
+                        AddTag(widget.namePrefix or key,
+                            { r, g, b },
+                            function()
+                                widget.check:SetChecked(false)
+                                local fn = NS.UI[secDef.toggle]
+                                if fn then fn(capturedKey, false) end
+                            end)
+                    end
                 end
             end
 
@@ -1878,6 +2052,20 @@ function NS.UI.UpdateFilterCounts(counts)
                     widget.label:SetText(widget.namePrefix .. "  |cff" .. color .. "(" .. c .. ")|r")
                 end
             end
+            -- User-collection checkboxes are appended to the favorites
+            -- section dynamically (see rebuildFavoritesUserCollections),
+            -- so they aren't in `secDef.items`. Update their counts the
+            -- same way using the widget's stored countKey.
+            if secDef.id == "favorites" then
+                for key, widget in pairs(filterWidgets[secDef.id] or {}) do
+                    if type(key) == "string" and key:sub(1, 8) == "userCol_" then
+                        local c = counts[widget.countKey or key] or 0
+                        widget.label:SetText(widget.namePrefix
+                            .. "  |cff" .. (widget.countColor or "888888")
+                            .. "(" .. c .. ")|r")
+                    end
+                end
+            end
 
         elseif secDef.type == "boolean_pair" then
             -- Keyed counts from a sub-table (e.g. collection.collected)
@@ -1907,18 +2095,28 @@ function NS.UI.UpdateFilterCounts(counts)
         elseif secDef.type == "hierarchical" then
             local wTable = secDef.widgetTable
             local cwTable = secDef.childWidgetTable
-            -- Determine which counts dimension to use for children
             local childCountsDim = counts[cwTable]  -- e.g. counts.zones, counts.subcategories
 
-            -- Update child labels
+            -- Update child labels.
             for cKey, widget in pairs(filterWidgets[cwTable]) do
                 local c = childCountsDim and childCountsDim[cKey] or 0
                 widget.label:SetText(widget.namePrefix .. "  |cff888888(" .. c .. ")|r")
             end
 
-            -- Update group labels (sum of child counts)
+            -- Update group labels: always sum visible children. The dyn
+            -- counter applies group-level self-exclusion (categories) or
+            -- the standard self-exclusion (zones), so summing the children
+            -- always equals what the user sees in the expanded list — no
+            -- "parent says 4 but children sum to 7" surprise. Items with
+            -- multiple subcats in the same group inflate the sum slightly,
+            -- but that matches the over-counting already visible in the
+            -- children themselves, so the totals stay internally consistent.
+            -- `seen[gData]` skips the dual-keyed (numeric + display-name)
+            -- aliases that filterWidgets stores for the same widget.
+            local seen = {}
             for _, gData in pairs(filterWidgets[wTable]) do
-                if gData.childKeys then
+                if gData.childKeys and not seen[gData] then
+                    seen[gData] = true
                     local total = 0
                     for _, cKey in ipairs(gData.childKeys) do
                         total = total + (childCountsDim and childCountsDim[cKey] or 0)
@@ -2105,7 +2303,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(240)
-    settingsPanel:SetHeight(520)
+    settingsPanel:SetHeight(600)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2120,10 +2318,16 @@ function NS.UI.InitCatalog()
     catalogFrame._settingsPanel = settingsPanel
 
     -- Separator helper (reusable for section dividers)
-    local function CreateSettingsSep(parent, anchorFrame, offsetY)
+    -- Build a section separator. Vertical position follows the previous
+    -- widget; horizontal extent always spans (panel.left + 12) to
+    -- (panel.right - 12). Pass `offsetX` to compensate for an indented
+    -- anchor frame so the separator's LEFT edge lands on the panel's
+    -- standard inset rather than inheriting the anchor's indent. e.g.
+    -- a button anchored at +8 from its header passes offsetX = -8.
+    local function CreateSettingsSep(parent, anchorFrame, offsetY, offsetX)
         local sep = parent:CreateTexture(nil, "ARTWORK")
         sep:SetHeight(1)
-        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", 0, offsetY or -10)
+        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", offsetX or 0, offsetY or -10)
         sep:SetPoint("RIGHT", parent, "RIGHT", -12, 0)
         sep:SetColorTexture(0.25, 0.25, 0.28, 0.6)
         return sep
@@ -2182,7 +2386,7 @@ function NS.UI.InitCatalog()
     end)
 
     -- === GENERAL section ===
-    local generalSep = CreateSettingsSep(settingsPanel, iconSlider, -14)
+    local generalSep = CreateSettingsSep(settingsPanel, iconSlider, -14, -8)
 
     local generalHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     generalHeader:SetPoint("TOPLEFT", generalSep, "BOTTOMLEFT", 0, -8)
@@ -2248,7 +2452,7 @@ function NS.UI.InitCatalog()
     rememberLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     -- === VENDOR OVERLAYS section ===
-    local vendorSep = CreateSettingsSep(settingsPanel, rememberCheck, -10)
+    local vendorSep = CreateSettingsSep(settingsPanel, rememberCheck, -10, 2)
 
     local vendorHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorHeader:SetPoint("TOPLEFT", vendorSep, "BOTTOMLEFT", 0, -8)
@@ -2319,7 +2523,7 @@ function NS.UI.InitCatalog()
     vendorUncollLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     -- === TOOLTIP section ===
-    local tooltipSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10)
+    local tooltipSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10, 2)
 
     local tooltipHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     tooltipHeader:SetPoint("TOPLEFT", tooltipSep, "BOTTOMLEFT", 0, -8)
@@ -2343,8 +2547,26 @@ function NS.UI.InitCatalog()
     tooltipModelLabel:SetText("Show 3D model on tooltip")
     tooltipModelLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- === COLLECTIONS section ===
+    local collectionsSep = CreateSettingsSep(settingsPanel, tooltipModelCheck, -10, 2)
+
+    local collectionsHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    collectionsHeader:SetPoint("TOPLEFT", collectionsSep, "BOTTOMLEFT", 0, -8)
+    collectionsHeader:SetText("COLLECTIONS")
+    collectionsHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    local manageCollectionsBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    manageCollectionsBtn:SetSize(180, 22)
+    manageCollectionsBtn:SetPoint("TOPLEFT", collectionsHeader, "BOTTOMLEFT", 8, -8)
+    manageCollectionsBtn:SetText("Manage Collections")
+    manageCollectionsBtn:SetScript("OnClick", function()
+        if NS.UI.OpenCollectionsManager then
+            NS.UI.OpenCollectionsManager()
+        end
+    end)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, tooltipModelCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, manageCollectionsBtn, -10, -8)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
@@ -2501,6 +2723,15 @@ function NS.UI.InitCatalog()
     countText:SetPoint("TOP", grid, "BOTTOM", 0, -2)
     countText:SetTextColor(0.45, 0.45, 0.45, 1)
     grid._countText = countText
+
+    -- Expose the main content frames so view-switching code (e.g.
+    -- Collections Manager overlay) can hide/show them as a unit.
+    catalogFrame._grid       = grid
+    catalogFrame._detail     = detail
+    catalogFrame._gridDetailSep = sepRight
+    catalogFrame._countText  = countText
+    catalogFrame._filterBar  = filterBar
+    catalogFrame._progressBar = progressBar
 
     -- Initialize sub-components
     if NS.UI.InitCatalogGrid then

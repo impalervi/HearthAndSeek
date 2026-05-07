@@ -18,6 +18,7 @@ Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 Core\Constants.lua
 Core\Utils.lua
 Core\ModelSceneUtils.lua
+Core\Collections.lua
 Core\Init.lua
 
 # Data
@@ -37,4 +38,6 @@ UI\MinimapButton.lua
 UI\CatalogFrame.lua
 UI\CatalogGrid.lua
 UI\CatalogDetail.lua
+UI\CollectionsManager.lua
+UI\CollectionsSubmenu.lua
 UI\WhatsNew.lua

@@ -107,6 +107,12 @@ local function InitSavedVars()
     NS.favorites = HearthAndSeekDB.favorites
     NS.charKey = charKey
     NS.charDB = HearthAndSeekDB.characters[charKey]
+
+    -- Collections module: bind to SavedVariables. Sibling of `favorites`,
+    -- not a replacement (the star icon stays). See Core/Collections.lua.
+    if NS.Collections and NS.Collections.Init then
+        NS.Collections.Init(HearthAndSeekDB)
+    end
 end
 
 -------------------------------------------------------------------------------
