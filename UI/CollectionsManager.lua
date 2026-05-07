@@ -301,35 +301,11 @@ end
 local function disarmDelete(row)
     row._deleteArmed = false
     row.deleteBtn:SetText("Delete")
-    local fs = row.deleteBtn.GetFontString and row.deleteBtn:GetFontString()
-    if fs then fs:SetTextColor(1, 1, 1, 1) end
-    if row.deleteBtn._dangerGlow then
-        UIFrameFlashStop(row.deleteBtn._dangerGlow)
-        row.deleteBtn._dangerGlow:Hide()
-    end
 end
 
 local function armDelete(row)
     row._deleteArmed = true
     row.deleteBtn:SetText("Confirm?")
-    local fs = row.deleteBtn.GetFontString and row.deleteBtn:GetFontString()
-    if fs then fs:SetTextColor(unpack(COL_DANGER)) end
-    -- Pulsing red overlay so the state-change is impossible to miss
-    -- even when the user looks away briefly. Built lazily on first arm.
-    local glow = row.deleteBtn._dangerGlow
-    if not glow then
-        glow = row.deleteBtn:CreateTexture(nil, "OVERLAY")
-        glow:SetTexture("Interface\\Buttons\\CheckButtonGlow")
-        glow:SetBlendMode("ADD")
-        glow:SetVertexColor(1.00, 0.25, 0.25, 1)
-        glow:SetPoint("TOPLEFT", row.deleteBtn, "TOPLEFT", -8, 8)
-        glow:SetPoint("BOTTOMRIGHT", row.deleteBtn, "BOTTOMRIGHT", 8, -8)
-        row.deleteBtn._dangerGlow = glow
-    end
-    glow:Show()
-    -- 0.4s in, 0.4s out, run for the full disarm window so the user
-    -- always sees pulsing while the click is "armed".
-    UIFrameFlash(glow, 0.4, 0.4, 3, false, 0, 0)
     -- Auto-disarm after 3 seconds
     C_Timer.After(3, function()
         if row and row._deleteArmed then
