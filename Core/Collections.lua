@@ -9,13 +9,14 @@
 -- SavedVariables shape (top-level `HearthAndSeekDB.collections`):
 --
 --     {
---       _order = { "My Bedroom", "Beach House", ... },  -- creation order
+--       _order  = { "My Bedroom", "Beach House", ... },     -- creation order
+--       _colors = { ["My Bedroom"] = { r, g, b }, ... },    -- per-collection display color (parallel to membership)
 --       ["My Bedroom"] = { [decorID]=true, [decorID]=true, ... },
 --       ["Beach House"] = { ... },
 --     }
 --
--- Names starting with "_" are reserved for sentinels (currently just
--- `_order`). Public callers should never see them.
+-- Names starting with "_" are reserved for sentinels (`_order`,
+-- `_colors`). Public callers should never see them.
 -------------------------------------------------------------------------------
 local _, NS = ...
 
@@ -27,6 +28,11 @@ local Collections = NS.Collections
 -------------------------------------------------------------------------------
 Collections.MAX_COUNT     = 20    -- soft cap; Create() refuses past this
 Collections.MAX_NAME_LEN  = 20    -- fits the manager row's name column without truncation
+
+-- Default display color for a collection that has never been recolored.
+-- Soft cyan, matching the original hardcoded shade so existing collections
+-- look unchanged after the colour-picker feature shipped.
+Collections.DEFAULT_COLOR = { 0.55, 0.80, 1.00 }
 
 -- Public-facing failure reasons returned by Create / Rename
 Collections.ERR_EMPTY     = "empty"     -- name is "" after trim
@@ -79,7 +85,8 @@ end
 function Collections.Init(saved)
     if type(saved) ~= "table" then return end
     saved.collections = saved.collections or {}
-    saved.collections._order = saved.collections._order or {}
+    saved.collections._order  = saved.collections._order  or {}
+    saved.collections._colors = saved.collections._colors or {}
     Collections._db = saved.collections
 
     -- Reconcile _order vs actual keys: drop missing names, append any
@@ -97,10 +104,20 @@ function Collections.Init(saved)
             present[n] = nil
         end
     end
-    -- Append orphaned keys (back of order)
+    -- Append orphaned keys (back of order). Reserved sentinels (any key
+    -- starting with "_") are skipped so `_colors` etc. don't get treated
+    -- as collection names.
     for name, val in pairs(Collections._db) do
-        if name ~= "_order" and type(val) == "table" and not present[name] then
+        if name:sub(1, 1) ~= "_" and type(val) == "table" and not present[name] then
             table.insert(Collections._db._order, name)
+        end
+    end
+
+    -- Drop colour entries whose backing collection is gone (e.g. user
+    -- hand-edited SavedVariables, or a Delete prior to this version).
+    for name in pairs(Collections._db._colors) do
+        if type(Collections._db[name]) ~= "table" then
+            Collections._db._colors[name] = nil
         end
     end
 end
@@ -178,6 +195,11 @@ function Collections.Rename(oldName, newName)
     if err then return false, err end
     Collections._db[newName] = Collections._db[oldName]
     Collections._db[oldName] = nil
+    local colours = Collections._db._colors
+    if colours and colours[oldName] then
+        colours[newName] = colours[oldName]
+        colours[oldName] = nil
+    end
     local idx = indexOf(oldName)
     if idx then Collections._db._order[idx] = newName end
     return true
@@ -189,6 +211,7 @@ function Collections.Delete(name)
     if not Collections._db then return false, Collections.ERR_NO_DB end
     if not Collections.Exists(name) then return false, Collections.ERR_NOT_FOUND end
     Collections._db[name] = nil
+    if Collections._db._colors then Collections._db._colors[name] = nil end
     local idx = indexOf(name)
     if idx then table.remove(Collections._db._order, idx) end
     return true
@@ -226,5 +249,45 @@ function Collections.ToggleItem(name, decorID)
         return false
     end
     Collections.AddItem(name, decorID)
+    return true
+end
+
+-------------------------------------------------------------------------------
+-- Color API: per-collection display tint shown next to the name in the
+-- manager, the filter dropdown checkbox, and the active-filter footer pill.
+-- Stored in a parallel `_colors` table so item membership stays a flat set.
+-------------------------------------------------------------------------------
+
+--- Return the collection's stored color as r, g, b in [0, 1].
+--- Falls back to DEFAULT_COLOR when the collection has none set yet
+--- (or doesn't exist — callers that care should check Exists first).
+function Collections.GetColor(name)
+    local db = Collections._db
+    local stored = db and db._colors and db._colors[name]
+    if stored then
+        return stored[1], stored[2], stored[3]
+    end
+    local d = Collections.DEFAULT_COLOR
+    return d[1], d[2], d[3]
+end
+
+--- Set the collection's display color. Silent no-op if the collection
+--- doesn't exist or the DB isn't ready.
+function Collections.SetColor(name, r, g, b)
+    if not Collections._db then return false, Collections.ERR_NO_DB end
+    if not Collections.Exists(name) then return false, Collections.ERR_NOT_FOUND end
+    Collections._db._colors = Collections._db._colors or {}
+    Collections._db._colors[name] = { r, g, b }
+    return true
+end
+
+--- Drop any custom color override on the collection. Subsequent
+--- GetColor calls return DEFAULT_COLOR. No-op if no override is set.
+function Collections.ResetColor(name)
+    if not Collections._db then return false, Collections.ERR_NO_DB end
+    if not Collections.Exists(name) then return false, Collections.ERR_NOT_FOUND end
+    if Collections._db._colors then
+        Collections._db._colors[name] = nil
+    end
     return true
 end

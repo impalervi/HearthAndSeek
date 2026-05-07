@@ -44,6 +44,7 @@ local COL_COUNT_W     = 40
 local COL_HINT_X      = 232    -- subtle "click to show items" hint position
 local COL_EDIT_W      = 70
 local COL_DELETE_W    = 82
+local COL_SWATCH_W    = 22
 local RIGHT_PAD       = 10
 
 -- Sub-grid uses the same item-button template as the main catalog
@@ -259,6 +260,8 @@ local function startEdit(row)
     row.countLabel:Hide()
     row.editBtn:Hide()
     row.deleteBtn:Hide()
+    if row.colorSwatch then row.colorSwatch:Hide() end
+    if row.resetBtn then row.resetBtn:Hide() end
     if row.expandHint then row.expandHint:Hide() end
 end
 
@@ -272,6 +275,8 @@ local function cancelEdit(row)
     row.countLabel:Show()
     row.editBtn:Show()
     row.deleteBtn:Show()
+    if row.colorSwatch then row.colorSwatch:Show() end
+    if row.resetBtn then row.resetBtn:Show() end
     if row.expandHint then row.expandHint:Show() end
 end
 
@@ -296,11 +301,35 @@ end
 local function disarmDelete(row)
     row._deleteArmed = false
     row.deleteBtn:SetText("Delete")
+    local fs = row.deleteBtn.GetFontString and row.deleteBtn:GetFontString()
+    if fs then fs:SetTextColor(1, 1, 1, 1) end
+    if row.deleteBtn._dangerGlow then
+        UIFrameFlashStop(row.deleteBtn._dangerGlow)
+        row.deleteBtn._dangerGlow:Hide()
+    end
 end
 
 local function armDelete(row)
     row._deleteArmed = true
     row.deleteBtn:SetText("Confirm?")
+    local fs = row.deleteBtn.GetFontString and row.deleteBtn:GetFontString()
+    if fs then fs:SetTextColor(unpack(COL_DANGER)) end
+    -- Pulsing red overlay so the state-change is impossible to miss
+    -- even when the user looks away briefly. Built lazily on first arm.
+    local glow = row.deleteBtn._dangerGlow
+    if not glow then
+        glow = row.deleteBtn:CreateTexture(nil, "OVERLAY")
+        glow:SetTexture("Interface\\Buttons\\CheckButtonGlow")
+        glow:SetBlendMode("ADD")
+        glow:SetVertexColor(1.00, 0.25, 0.25, 1)
+        glow:SetPoint("TOPLEFT", row.deleteBtn, "TOPLEFT", -8, 8)
+        glow:SetPoint("BOTTOMRIGHT", row.deleteBtn, "BOTTOMRIGHT", 8, -8)
+        row.deleteBtn._dangerGlow = glow
+    end
+    glow:Show()
+    -- 0.4s in, 0.4s out, run for the full disarm window so the user
+    -- always sees pulsing while the click is "armed".
+    UIFrameFlash(glow, 0.4, 0.4, 3, false, 0, 0)
     -- Auto-disarm after 3 seconds
     C_Timer.After(3, function()
         if row and row._deleteArmed then
@@ -411,6 +440,107 @@ local function buildRow(parent)
     row.editBtn:SetPoint("RIGHT", row.deleteBtn, "LEFT", -6, 0)
     row.editBtn:SetText("Rename")
     row.editBtn:SetScript("OnClick", function() startEdit(row) end)
+
+    -- Color swatch sits LEFT of Rename. Clicking opens the standard
+    -- WoW colour picker; the chosen RGB is persisted on the collection
+    -- and immediately reapplied to the dropdown checkbox + footer pill
+    -- via notifyDropdown(). Refresh() keeps the swatch tint in sync
+    -- with the current collection on each rebuild.
+    row.colorSwatch = CreateFrame("Button", nil, row, "BackdropTemplate")
+    row.colorSwatch:SetSize(COL_SWATCH_W, COL_SWATCH_W)
+    row.colorSwatch:SetPoint("RIGHT", row.editBtn, "LEFT", -6, 0)
+    row.colorSwatch:SetBackdrop({
+        bgFile   = "Interface\\Buttons\\WHITE8x8",
+        edgeFile = "Interface\\Buttons\\WHITE8x8",
+        edgeSize = 1,
+        insets   = { left = 1, right = 1, top = 1, bottom = 1 },
+    })
+    row.colorSwatch:SetBackdropBorderColor(0.55, 0.45, 0.20, 1)
+    row.colorSwatch:SetScript("OnEnter", function(self)
+        self:SetBackdropBorderColor(1.00, 0.82, 0.00, 1)
+    end)
+    row.colorSwatch:SetScript("OnLeave", function(self)
+        self:SetBackdropBorderColor(0.55, 0.45, 0.20, 1)
+    end)
+    -- Reset-to-default button. Sits LEFT of the swatch, smaller and
+    -- icon-only so it doesn't compete visually with Rename/Delete.
+    -- Tooltip explains the action; click clears any custom color and
+    -- reverts the collection to DEFAULT_COLOR everywhere it shows up.
+    row.resetBtn = CreateFrame("Button", nil, row, "BackdropTemplate")
+    row.resetBtn:SetSize(COL_SWATCH_W, COL_SWATCH_W)
+    row.resetBtn:SetPoint("RIGHT", row.colorSwatch, "LEFT", -4, 0)
+    row.resetBtn:SetBackdrop({
+        bgFile   = "Interface\\Buttons\\WHITE8x8",
+        edgeFile = "Interface\\Buttons\\WHITE8x8",
+        edgeSize = 1,
+        insets   = { left = 1, right = 1, top = 1, bottom = 1 },
+    })
+    row.resetBtn:SetBackdropColor(0.10, 0.10, 0.12, 1)
+    row.resetBtn:SetBackdropBorderColor(0.55, 0.45, 0.20, 1)
+    local resetIcon = row.resetBtn:CreateTexture(nil, "ARTWORK")
+    resetIcon:SetTexture("Interface\\Buttons\\UI-RefreshButton")
+    resetIcon:SetPoint("CENTER", row.resetBtn, "CENTER", 0, 0)
+    resetIcon:SetSize(14, 14)
+    resetIcon:SetVertexColor(0.85, 0.80, 0.60, 1)
+    row.resetBtn:SetScript("OnEnter", function(self)
+        self:SetBackdropBorderColor(1.00, 0.82, 0.00, 1)
+        resetIcon:SetVertexColor(1.00, 0.95, 0.50, 1)
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:SetText("Reset color to default")
+        GameTooltip:Show()
+    end)
+    row.resetBtn:SetScript("OnLeave", function(self)
+        self:SetBackdropBorderColor(0.55, 0.45, 0.20, 1)
+        resetIcon:SetVertexColor(0.85, 0.80, 0.60, 1)
+        GameTooltip:Hide()
+    end)
+    row.resetBtn:SetScript("OnClick", function()
+        local name = row._name
+        if not name or not NS.Collections.Exists(name) then return end
+        NS.Collections.ResetColor(name)
+        local r, g, b = NS.Collections.GetColor(name)
+        row.colorSwatch:SetBackdropColor(r, g, b, 1)
+        row.nameLabel:SetTextColor(r, g, b, 1)
+        notifyDropdown()
+    end)
+
+    row.colorSwatch:SetScript("OnClick", function()
+        local name = row._name
+        if not name or not NS.Collections.Exists(name) then return end
+        local startR, startG, startB = NS.Collections.GetColor(name)
+        local function apply()
+            local r, g, b = ColorPickerFrame:GetColorRGB()
+            NS.Collections.SetColor(name, r, g, b)
+            row.colorSwatch:SetBackdropColor(r, g, b, 1)
+            row.nameLabel:SetTextColor(r, g, b, 1)
+            notifyDropdown()
+        end
+        local function cancel(prev)
+            if prev then
+                NS.Collections.SetColor(name, prev.r, prev.g, prev.b)
+                row.colorSwatch:SetBackdropColor(prev.r, prev.g, prev.b, 1)
+                row.nameLabel:SetTextColor(prev.r, prev.g, prev.b, 1)
+                notifyDropdown()
+            end
+        end
+        if ColorPickerFrame.SetupColorPickerAndShow then
+            ColorPickerFrame:SetupColorPickerAndShow({
+                r = startR, g = startG, b = startB,
+                hasOpacity  = false,
+                swatchFunc  = apply,
+                cancelFunc  = cancel,
+            })
+        else
+            -- Pre-Dragonflight legacy API fallback. Same effect.
+            ColorPickerFrame.previousValues = { r = startR, g = startG, b = startB }
+            ColorPickerFrame.hasOpacity     = false
+            ColorPickerFrame.func           = apply
+            ColorPickerFrame.cancelFunc     = cancel
+            ColorPickerFrame:SetColorRGB(startR, startG, startB)
+            ColorPickerFrame:Hide()  -- re-show fires OnShow, which reads previousValues
+            ColorPickerFrame:Show()
+        end
+    end)
     row.deleteBtn:SetScript("OnClick", function(self)
         if not row._deleteArmed then
             armDelete(row)
@@ -468,6 +598,11 @@ Refresh = function()
             row.editBtn:Show()
             row.deleteBtn:Show()
             row.deleteBtn:SetText("Delete")
+            local cr, cg, cb = NS.Collections.GetColor(names[i])
+            row.colorSwatch:SetBackdropColor(cr, cg, cb, 1)
+            row.colorSwatch:Show()
+            row.resetBtn:Show()
+            row.nameLabel:SetTextColor(cr, cg, cb, 1)
 
             -- Auto-collapse if all items were removed since the row
             -- was last expanded (e.g. user unchecked the collection
@@ -643,11 +778,11 @@ local function build()
     sep:SetPoint("TOPRIGHT", header, "BOTTOMRIGHT", -SIDE_PAD, -2)
     sep:SetColorTexture(0.25, 0.20, 0.10, 0.9)
 
-    -- "+ New Collection" button
+    -- "New Collection" button
     newBtn = CreateFrame("Button", nil, managerFrame, "UIPanelButtonTemplate")
     newBtn:SetSize(180, 24)
     newBtn:SetPoint("TOPLEFT", header, "BOTTOMLEFT", SIDE_PAD, -16)
-    newBtn:SetText("+ New Collection")
+    newBtn:SetText("New Collection")
     newBtn:SetScript("OnClick", createNewCollection)
 
     -- List container — fixed bounds inside the manager frame; clips
@@ -721,7 +856,7 @@ local function build()
     -- Empty-state hint
     emptyText = managerFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     emptyText:SetPoint("CENTER", listFrame, "CENTER", 0, 0)
-    emptyText:SetText("No collections yet. Click \"+ New Collection\" to create one.")
+    emptyText:SetText("No collections yet. Click \"New Collection\" to create one.")
     emptyText:SetTextColor(unpack(COL_HINT))
     emptyText:Hide()
 

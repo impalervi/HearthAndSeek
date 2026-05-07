@@ -1166,8 +1166,9 @@ local function rebuildFavoritesUserCollections(secContent)
             local key = "userCol_" .. name
             local count = NS.Collections.Count(name)
             local labelText = name .. "  |cff888888(" .. count .. ")|r"
+            local r, g, b = NS.Collections.GetColor(name)
             local check, newY = CreateFilterCheckbox(secContent, labelText, yOff,
-                { 0.55, 0.80, 1.00 },  -- soft cyan to distinguish from static items
+                { r, g, b },
                 function(checked)
                     local fn = NS.UI.CatalogGrid_ToggleCollections
                     if fn then fn(key, checked) end
@@ -1656,8 +1657,10 @@ local function RefreshFooterBar()
                     if type(key) == "string" and key:sub(1, 8) == "userCol_"
                             and widget.check:GetChecked() then
                         local capturedKey = key
+                        local collName = key:sub(9)  -- strip "userCol_" prefix
+                        local r, g, b = NS.Collections.GetColor(collName)
                         AddTag(widget.namePrefix or key,
-                            { 0.55, 0.80, 1.00 },
+                            { r, g, b },
                             function()
                                 widget.check:SetChecked(false)
                                 local fn = NS.UI[secDef.toggle]
@@ -2288,7 +2291,7 @@ function NS.UI.InitCatalog()
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
     settingsPanel:SetWidth(240)
-    settingsPanel:SetHeight(520)
+    settingsPanel:SetHeight(600)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2303,10 +2306,16 @@ function NS.UI.InitCatalog()
     catalogFrame._settingsPanel = settingsPanel
 
     -- Separator helper (reusable for section dividers)
-    local function CreateSettingsSep(parent, anchorFrame, offsetY)
+    -- Build a section separator. Vertical position follows the previous
+    -- widget; horizontal extent always spans (panel.left + 12) to
+    -- (panel.right - 12). Pass `offsetX` to compensate for an indented
+    -- anchor frame so the separator's LEFT edge lands on the panel's
+    -- standard inset rather than inheriting the anchor's indent. e.g.
+    -- a button anchored at +8 from its header passes offsetX = -8.
+    local function CreateSettingsSep(parent, anchorFrame, offsetY, offsetX)
         local sep = parent:CreateTexture(nil, "ARTWORK")
         sep:SetHeight(1)
-        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", 0, offsetY or -10)
+        sep:SetPoint("TOPLEFT", anchorFrame, "BOTTOMLEFT", offsetX or 0, offsetY or -10)
         sep:SetPoint("RIGHT", parent, "RIGHT", -12, 0)
         sep:SetColorTexture(0.25, 0.25, 0.28, 0.6)
         return sep
@@ -2365,7 +2374,7 @@ function NS.UI.InitCatalog()
     end)
 
     -- === GENERAL section ===
-    local generalSep = CreateSettingsSep(settingsPanel, iconSlider, -14)
+    local generalSep = CreateSettingsSep(settingsPanel, iconSlider, -14, -8)
 
     local generalHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     generalHeader:SetPoint("TOPLEFT", generalSep, "BOTTOMLEFT", 0, -8)
@@ -2431,7 +2440,7 @@ function NS.UI.InitCatalog()
     rememberLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     -- === VENDOR OVERLAYS section ===
-    local vendorSep = CreateSettingsSep(settingsPanel, rememberCheck, -10)
+    local vendorSep = CreateSettingsSep(settingsPanel, rememberCheck, -10, 2)
 
     local vendorHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     vendorHeader:SetPoint("TOPLEFT", vendorSep, "BOTTOMLEFT", 0, -8)
@@ -2502,7 +2511,7 @@ function NS.UI.InitCatalog()
     vendorUncollLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
     -- === TOOLTIP section ===
-    local tooltipSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10)
+    local tooltipSep = CreateSettingsSep(settingsPanel, vendorUncollCheck, -10, 2)
 
     local tooltipHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     tooltipHeader:SetPoint("TOPLEFT", tooltipSep, "BOTTOMLEFT", 0, -8)
@@ -2526,8 +2535,26 @@ function NS.UI.InitCatalog()
     tooltipModelLabel:SetText("Show 3D model on tooltip")
     tooltipModelLabel:SetTextColor(0.9, 0.9, 0.9, 1)
 
+    -- === COLLECTIONS section ===
+    local collectionsSep = CreateSettingsSep(settingsPanel, tooltipModelCheck, -10, 2)
+
+    local collectionsHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    collectionsHeader:SetPoint("TOPLEFT", collectionsSep, "BOTTOMLEFT", 0, -8)
+    collectionsHeader:SetText("COLLECTIONS")
+    collectionsHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    local manageCollectionsBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    manageCollectionsBtn:SetSize(180, 22)
+    manageCollectionsBtn:SetPoint("TOPLEFT", collectionsHeader, "BOTTOMLEFT", 8, -8)
+    manageCollectionsBtn:SetText("Manage Collections")
+    manageCollectionsBtn:SetScript("OnClick", function()
+        if NS.UI.OpenCollectionsManager then
+            NS.UI.OpenCollectionsManager()
+        end
+    end)
+
     -- === RESTORE DEFAULTS section ===
-    local restoreSep = CreateSettingsSep(settingsPanel, tooltipModelCheck, -10)
+    local restoreSep = CreateSettingsSep(settingsPanel, manageCollectionsBtn, -10, -8)
 
     local restoreHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     restoreHeader:SetPoint("TOPLEFT", restoreSep, "BOTTOMLEFT", 0, -8)
