@@ -23,6 +23,37 @@ local BACKDROP_SOLID = {
     insets   = { left = 1, right = 1, top = 1, bottom = 1 },
 }
 
+-- Feedback link target. WoW addons can't write to the system clipboard
+-- (Blizzard doesn't expose that API), so the Settings → THANK YOU
+-- button opens a StaticPopup with this URL pre-selected and focused.
+-- A single Ctrl+C in the popup finishes the copy.
+local FEEDBACK_URL = "https://www.curseforge.com/wow/addons/hearth-and-seek"
+
+StaticPopupDialogs["HEARTHANDSEEK_FEEDBACK_URL"] = {
+    text         = "Press Ctrl+C to copy the link, then paste it into your browser:",
+    button1      = "Close",
+    hasEditBox   = true,
+    editBoxWidth = 300,
+    timeout      = 0,
+    whileDead    = true,
+    hideOnEscape = true,
+    OnShow       = function(self)
+        -- Field casing varies across WoW versions: retail-DF used
+        -- `editBox`, current builds expose `EditBox`. Fall through to
+        -- the global name as a last resort so this stays robust if
+        -- Blizzard renames again.
+        local eb = self.editBox or self.EditBox
+            or (self.GetName and _G[self:GetName() .. "EditBox"])
+        if eb then
+            eb:SetText(FEEDBACK_URL)
+            eb:HighlightText()
+            eb:SetFocus()
+            eb:SetScript("OnEscapePressed", function() self:Hide() end)
+            eb:SetScript("OnEnterPressed",  function() self:Hide() end)
+        end
+    end,
+}
+
 -- Widget references for dynamic count updates
 -- Each entry: { check = CheckButton, label = FontString, namePrefix = "display name" }
 local filterWidgets = {
@@ -2302,8 +2333,8 @@ function NS.UI.InitCatalog()
 
     -- Settings panel (opens to the right of the main window)
     local settingsPanel = CreateFrame("Frame", nil, catalogFrame, "BackdropTemplate")
-    settingsPanel:SetWidth(240)
-    settingsPanel:SetHeight(600)
+    settingsPanel:SetWidth(216)
+    settingsPanel:SetHeight(700)
     settingsPanel:SetPoint("TOPLEFT", catalogFrame, "TOPRIGHT", 2, 0)
     settingsPanel:SetBackdrop({
         bgFile   = "Interface\\Buttons\\WHITE8X8",
@@ -2617,6 +2648,34 @@ function NS.UI.InitCatalog()
         if NS.UI.CatalogGrid_ApplyFilters then
             NS.UI.CatalogGrid_ApplyFilters()
         end
+    end)
+
+    -- === THANK YOU section ===
+    local feedbackSep = CreateSettingsSep(settingsPanel, clearFavBtn, -10, -8)
+
+    local feedbackHeader = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    feedbackHeader:SetPoint("TOPLEFT", feedbackSep, "BOTTOMLEFT", 0, -8)
+    feedbackHeader:SetText("THANK YOU")
+    feedbackHeader:SetTextColor(1, 0.82, 0, 0.8)
+
+    local feedbackText = settingsPanel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    feedbackText:SetPoint("TOPLEFT", feedbackHeader, "BOTTOMLEFT", 0, -6)
+    -- Use RIGHT (not TOPRIGHT) so we constrain only the X right-edge.
+    -- TOPRIGHT would re-fix the top-Y to panel-top, which over-constrains
+    -- the wrapped text once it spans multiple lines.
+    feedbackText:SetPoint("RIGHT", settingsPanel, "RIGHT", -12, 0)
+    feedbackText:SetJustifyH("LEFT")
+    feedbackText:SetJustifyV("TOP")
+    feedbackText:SetWordWrap(true)
+    feedbackText:SetTextColor(0.85, 0.85, 0.85, 1)
+    feedbackText:SetText("Thanks for trying Hearth & Seek! If you have suggestions or bugs to report, please use the link below.")
+
+    local feedbackBtn = CreateFrame("Button", nil, settingsPanel, "UIPanelButtonTemplate")
+    feedbackBtn:SetSize(180, 22)
+    feedbackBtn:SetPoint("TOPLEFT", feedbackText, "BOTTOMLEFT", 8, -8)
+    feedbackBtn:SetText("Copy Feedback Link")
+    feedbackBtn:SetScript("OnClick", function()
+        StaticPopup_Show("HEARTHANDSEEK_FEEDBACK_URL")
     end)
 
     -- Toggle settings panel on button click
