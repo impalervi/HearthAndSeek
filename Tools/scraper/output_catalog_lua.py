@@ -252,6 +252,10 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Wetlands": "Classic",
     "Teldrassil": "Classic",
     "Deeprun Tram": "Classic",
+    "Thunder Bluff": "Classic",
+    "Orgrimmar": "Classic",
+    "Undercity": "Classic",
+    "Darnassus": "Classic",
     "Blackrock Depths": "Classic",
     "Deadmines": "Classic",
     "Darkshore": "Classic",
@@ -286,6 +290,7 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Spires of Arak": "Warlords of Draenor",
     "Lunarfall": "Warlords of Draenor",
     "Frostwall": "Warlords of Draenor",
+    "Frostfire Ridge": "Warlords of Draenor",
     "Stormshield": "Warlords of Draenor",
     "Talador": "Warlords of Draenor",
     "Warspear": "Warlords of Draenor",
@@ -329,7 +334,7 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Tiragarde Sound": "Battle for Azeroth",
     "Freehold": "Battle for Azeroth",
     "Mechagon": "Battle for Azeroth",
-    "Orgrimmar": "Battle for Azeroth",
+    "Boralus": "Battle for Azeroth",
     "Shrine of the Storm": "Battle for Azeroth",
     "Crucible of Storms": "Battle for Azeroth",
     "Chamber of Heart": "Battle for Azeroth",
@@ -2949,13 +2954,14 @@ def main() -> None:
     lines.append("}")
     lines.append("")
 
-    # ExpansionOrder (only expansions that have items)
+    # ExpansionOrder (only expansions that have items). EXPANSION_ORDER
+    # already contains "Unknown" at the end, so the list comprehension
+    # picks it up naturally when any zone falls back — no extra append
+    # needed (the previous explicit append produced a duplicate).
     active_expansions = set()
     for zone in by_zone.keys():
         active_expansions.add(ZONE_TO_EXPANSION.get(zone, "Unknown"))
     ordered_expansions = [e for e in EXPANSION_ORDER if e in active_expansions]
-    if "Unknown" in active_expansions:
-        ordered_expansions.append("Unknown")
     exp_list = ", ".join(lua_string(e) for e in ordered_expansions)
     lines.append(f"NS.CatalogData.ExpansionOrder = {{ {exp_list} }}")
     lines.append("")
