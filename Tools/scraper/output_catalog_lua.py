@@ -2742,12 +2742,15 @@ def main() -> None:
                 and item.get("factionVendors")):
             source_type = "Vendor"
             source_detail = "Decor Treasure Hunt"
-            # Clear flat vendor/NPC fields — UI resolves from factionVendors
+            # Clear flat vendor/NPC fields — UI resolves from factionVendors.
+            # Keep `zone`/`mapID` so the item still has a real geographical
+            # signal for the Zone filter + per-item expansion derivation.
+            # Both faction zones are Neighborhoods, so whichever side the
+            # top-level zone reflects still resolves correctly.
             item["vendorName"] = ""
             item["npcID"] = None
             item["npcX"] = None
             item["npcY"] = None
-            item["zone"] = ""
             treasure_hunt_count += 1
         elif item.get("factionVendors"):
             # Items with faction-specific vendors (Neighborhoods, PvP, rep, etc.)

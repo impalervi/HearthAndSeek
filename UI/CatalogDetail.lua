@@ -3072,8 +3072,9 @@ local function PopulateDetailsFlyout(item)
         return r
     end
 
-    -- Expansion (colored by expansion)
-    local expRow = AddRow("Expansion:", item.expansion or "Unknown")
+    -- Zone row (label uses "Zone" to match the filter dropdown's title;
+    -- the value is the expansion bucket the item's zone resolves to).
+    local expRow = AddRow("Zone:", item.expansion or "Unknown")
     if expRow then
         local expHex = NS.ExpansionColors and NS.ExpansionColors[item.expansion]
         if expHex then
