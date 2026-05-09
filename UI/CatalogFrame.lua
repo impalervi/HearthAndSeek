@@ -1680,14 +1680,24 @@ local function RefreshFooterBar()
     for _, secDef in ipairs(FILTER_SECTIONS) do
 
         if secDef.type == "boolean" then
-            -- Single toggle checkbox (Favorites)
-            for _, itemDef in ipairs(secDef.items or {}) do
+            -- Single toggle checkbox (e.g. Favorites). Match the dispatch
+            -- shape used by SectionBuilders.boolean: sections with >1 item
+            -- (favorites has Only Favorites + Recently Added) take a (key,
+            -- checked) signature; single-item sections just take (checked).
+            -- Without this, clicking the pill clears the visible checkmark
+            -- but never updates filterState — the filter stays applied.
+            local items = secDef.items or {}
+            local isMulti = #items > 1
+            for _, itemDef in ipairs(items) do
                 local widget = filterWidgets[secDef.id][itemDef.key]
                 if widget and widget.check:GetChecked() then
+                    local capturedKey = itemDef.key
                     AddTag(itemDef.label, itemDef.color, function()
                         widget.check:SetChecked(false)
                         local fn = NS.UI[secDef.toggle]
-                        if fn then fn(false) end
+                        if fn then
+                            if isMulti then fn(capturedKey, false) else fn(false) end
+                        end
                     end)
                 end
             end
