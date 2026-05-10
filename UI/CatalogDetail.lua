@@ -1982,6 +1982,10 @@ function NS.UI.InitCatalogDetail(parent)
 
     nameHit:SetScript("OnEnter", function(self)
         if not self._decorID then return end
+        -- Opt out of TooltipModelPreview's auto-inserted ALT hint so we
+        -- can render the hint block in our chosen order (CTRL → ALT →
+        -- SHIFT) with one leading gap. Cleared in OnLeave.
+        self._customTooltipHints = true
         GameTooltip:SetOwner(self, "ANCHOR_BOTTOM")
         local link = NS.UI.GetItemHyperlink and NS.UI.GetItemHyperlink(self._decorID)
         if link then
@@ -1990,14 +1994,18 @@ function NS.UI.InitCatalogDetail(parent)
             GameTooltip:AddLine(self._itemName or "Unknown", 1, 1, 1)
         end
         GameTooltip:AddLine(" ")
-        GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link", 0.5, 0.5, 0.5)
+        -- Modifier-key text uses |cff00ff00 (bright green) to match the
+        -- main-grid item tooltips' shortcut hints.
+        GameTooltip:AddLine("|cff00ff00CTRL+Left Click|r to copy Wowhead link", 0.7, 0.7, 0.7)
+        GameTooltip:AddLine("|cff00ff00ALT+Left Click|r for full screen preview", 0.7, 0.7, 0.7)
         local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
         if chatOpen then
-            GameTooltip:AddLine("|cff55aaeeSHIFT+Left Click|r to link in chat", 0.5, 0.5, 0.5)
+            GameTooltip:AddLine("|cff00ff00SHIFT+Left Click|r to link in chat", 0.7, 0.7, 0.7)
         end
         GameTooltip:Show()
     end)
-    nameHit:SetScript("OnLeave", function()
+    nameHit:SetScript("OnLeave", function(self)
+        self._customTooltipHints = nil
         GameTooltip:Hide()
     end)
     nameHit:SetScript("OnMouseUp", function(self, button)

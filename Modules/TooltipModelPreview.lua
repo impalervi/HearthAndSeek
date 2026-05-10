@@ -227,7 +227,15 @@ if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall then
 
             local item = itemIDToDecor[itemID]
             if item then
-                tooltip:AddLine("|cff55aaeeALT+Left Click|r for full screen preview", 0.5, 0.5, 0.5)
+                -- Owners that prefer to render their own ordered hint
+                -- block (e.g. the catalog detail panel's title-hover
+                -- frame, which adds CTRL + ALT + SHIFT in a specific
+                -- order with one leading gap) opt out by setting
+                -- `_customTooltipHints = true`. We still set up the
+                -- model preview + click handler below.
+                if not (owner and owner._customTooltipHints) then
+                    tooltip:AddLine("|cff55aaeeALT+Left Click|r for full screen preview", 0.5, 0.5, 0.5)
+                end
 
                 -- Keep currentItem in sync immediately so ALT+click works
                 -- even before the deferred preview has had a chance to show.
