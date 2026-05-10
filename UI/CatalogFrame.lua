@@ -1192,8 +1192,31 @@ local function rebuildFavoritesUserCollections(secContent)
     local staticHeight = secContent._staticHeight or 0
     local yOff = -staticHeight
 
+    local userColls = (NS.Collections and NS.Collections.List) and NS.Collections.List() or {}
+
+    -- Visual separator between the static items and the user-defined
+    -- collection block. Only shown when at least one user collection
+    -- exists — without it, the section title and the static items live
+    -- adjacent to the user list with no break, which makes the divide
+    -- between built-in toggles and custom ones hard to scan.
+    if not secContent._userCollSep then
+        local sep = secContent:CreateTexture(nil, "ARTWORK")
+        sep:SetHeight(1)
+        sep:SetColorTexture(0.4, 0.35, 0.2, 0.7)
+        secContent._userCollSep = sep
+    end
+    if #userColls > 0 then
+        secContent._userCollSep:ClearAllPoints()
+        secContent._userCollSep:SetPoint("TOPLEFT",  secContent, "TOPLEFT",  10, yOff - 4)
+        secContent._userCollSep:SetPoint("TOPRIGHT", secContent, "TOPRIGHT", -10, yOff - 4)
+        secContent._userCollSep:Show()
+        yOff = yOff - 9   -- 4px above sep + 1px sep + 4px below
+    else
+        secContent._userCollSep:Hide()
+    end
+
     if NS.Collections and NS.Collections.List then
-        for _, name in ipairs(NS.Collections.List()) do
+        for _, name in ipairs(userColls) do
             local key = "userCol_" .. name
             local count = NS.Collections.Count(name)
             local labelText = name .. "  |cff888888(" .. count .. ")|r"
