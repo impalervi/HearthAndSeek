@@ -1,0 +1,13 @@
+v2.0.0
+
+New Features
+- Top filter bar redesign — replaced the old sidebar with dropdown panels and a bottom progress bar
+- Multi-collections — up to 20 account-wide named decor lists, with right-click add/remove, a Manage Collections overlay (rename / delete / sub-grid preview), filter checkboxes, and footer pills
+- THANK YOU / Feedback link section in Settings — popup with the curseforge URL pre-selected for copy
+
+Bug Fixes
+- Published zips now extract correctly on macOS / Linux - thank you shelbunny / Rishnea_ for reporting this and helping with debugging the issue!
+- Original Horde capitals (Orgrimmar, Thunder Bluff, Undercity) now grouped under Classic for consistency with Alliance capitals
+- Backfilled 108 items that were tagged "Expansion: Unknown" but had a real zone
+- All 12 Order Hall items grouped under Legion in the Zone filter
+- Navigation Tips tooltip added for items sourced from the roaming vendor (Hilseth)
