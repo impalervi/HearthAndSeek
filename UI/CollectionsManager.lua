@@ -102,6 +102,14 @@ local function showCatalogContent(show)
     end
 end
 
+-- True iff this row's collection currently has at least one item. Used
+-- to gate the "click to show items" hint, the row's expand-on-click
+-- behaviour, and a couple of display fall-throughs. Centralised so the
+-- "is the row interactive?" rule lives in one place.
+local function rowHasItems(row)
+    return row and row._name and NS.Collections.Count(row._name) > 0
+end
+
 local function failureMessage(reason)
     if reason == NS.Collections.ERR_EMPTY then
         return "Name can't be empty."
@@ -295,7 +303,13 @@ local function cancelEdit(row)
     row.deleteBtn:Show()
     if row.colorSwatch then row.colorSwatch:Show() end
     if row.resetBtn then row.resetBtn:Show() end
-    if row.expandHint then row.expandHint:Show() end
+    -- Only restore the expand hint if the collection actually has items.
+    -- Without this, freshly-created empty collections (which auto-enter
+    -- rename mode) end up showing "click to show items" once the rename
+    -- finishes, even though clicking is a no-op for a 0-item collection.
+    if row.expandHint and rowHasItems(row) then
+        row.expandHint:Show()
+    end
 end
 
 local function commitEdit(row)
@@ -345,8 +359,7 @@ local function buildRow(parent)
     row:SetScript("OnMouseUp", function(self, mouseBtn)
         if mouseBtn ~= "LeftButton" then return end
         if row._isEditing then return end
-        if not row._name then return end
-        if NS.Collections.Count(row._name) == 0 then return end
+        if not rowHasItems(row) then return end
         row._expanded = not row._expanded
         if row._expanded then
             populateSubGrid(row, row._name)
@@ -601,15 +614,14 @@ Refresh = function()
             -- Auto-collapse if all items were removed since the row
             -- was last expanded (e.g. user unchecked the collection
             -- in the right-click submenu).
-            local count = NS.Collections.Count(names[i])
-            if row._expanded and count == 0 then
+            if row._expanded and n == 0 then
                 row._expanded = false
                 row.subGrid:Hide()
             end
 
             -- Hint text reflects current state. Hidden entirely when
             -- the collection is empty (clicks are no-ops there).
-            if count == 0 then
+            if n == 0 then
                 row.expandHint:Hide()
             else
                 row.expandHint:Show()
