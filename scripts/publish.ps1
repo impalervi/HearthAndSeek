@@ -108,7 +108,42 @@ try {
         Remove-Item -LiteralPath $zipPath -Force
     }
 
-    Compress-Archive -Path (Join-Path $stagingRoot $addonFolderName) -DestinationPath $zipPath -Force
+    # ZIP spec mandates forward-slash path separators in entry names.
+    # PowerShell 5.1's `Compress-Archive` and .NET's
+    # `ZipFile.CreateFromDirectory` BOTH write backslashes on Windows
+    # (they use `Path.DirectorySeparatorChar`). Windows unzippers tolerate
+    # that, but macOS / Linux unzippers treat the backslashes as literal
+    # filename characters — extracting produces useless files like
+    # `HearthAndSeek\Core\Init.lua` in the AddOns folder root. WoW can't
+    # find any of them and the addon silently fails to load.
+    #
+    # The reliable fix: open the zip manually and write entries via
+    # `CreateEntryFromFile` with forward-slash relativePaths constructed
+    # explicitly. Verified to produce portable archives that extract
+    # correctly on macOS Finder + `unzip` and on Windows.
+    # FileSystem transitively loads System.IO.Compression on PS 5.1.
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+    $sourceRoot = Join-Path $stagingRoot $addonFolderName
+    $sourceParent = Split-Path -Path $sourceRoot -Parent
+    $archive = $null
+    try {
+        $archive = [System.IO.Compression.ZipFile]::Open($zipPath, 'Create')
+        # `-File` skips empty directories. WoW addons never need them in
+        # the zip (no semantic empty dirs in the deploy.config allowlist),
+        # but if a future include path is an empty folder it'll be omitted
+        # silently — would need an explicit `CreateEntry` fallback then.
+        Get-ChildItem -LiteralPath $sourceRoot -Recurse -File | ForEach-Object {
+            $relativePath = $_.FullName.Substring($sourceParent.Length).
+                TrimStart('\', '/').Replace('\', '/')
+            [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
+                $archive, $_.FullName, $relativePath,
+                [System.IO.Compression.CompressionLevel]::Optimal) | Out-Null
+        }
+    }
+    finally {
+        if ($archive) { $archive.Dispose() }
+    }
     Write-Host "Created package: $zipPath"
 }
 finally {
