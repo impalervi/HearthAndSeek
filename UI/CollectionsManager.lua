@@ -56,10 +56,18 @@ local RIGHT_PAD       = 10
 -- hover overlay, collected check, favorite star, model preview, 3D
 -- ModelScene fallback — matches exactly. Buttons are smaller so more
 -- items fit per row in the manager view.
-local SUBGRID_BTN      = 64
+-- Sub-grid icon sizing. SUBGRID_BASE_BTN is the default (1x multiplier);
+-- the live size is read from NS.db.settings.managerIconSizeMultiplier on
+-- each populate so the manager-page slider can update it on the fly.
+-- 110 matches the main catalog grid's GridItemSize (CatalogSizing) so
+-- overlay scale ratios (Collected check, FavoriteStar) stay correct.
+local SUBGRID_BASE_BTN = 64
 local SUBGRID_GAP      = 4
-local SUBGRID_COLS     = 8
-local SUBGRID_SCALE    = SUBGRID_BTN / 110  -- Overlay metrics scale
+local SUBGRID_REF_SIZE = 110
+local function getSubGridBtnSize()
+    local mult = (NS.db and NS.db.settings and NS.db.settings.managerIconSizeMultiplier) or 1.0
+    return math.floor(SUBGRID_BASE_BTN * mult)
+end
 
 -- Color palette (matches the rest of the addon's dark theme)
 local COL_HEADER   = { 1.00, 0.82, 0.00 }    -- gold (titles)
@@ -141,7 +149,8 @@ local function flashError(text)
     end
 end
 
-local Refresh  -- forward declare
+local Refresh        -- forward declare
+local relayoutRows   -- forward declare
 
 -- Notify the Collections filter dropdown that the user-collection set
 -- changed so it rebuilds checkboxes + recomputes counts. Defensive nil
@@ -161,9 +170,31 @@ local applySubGridSelection
 -- model-preview, etc. — all we do is set size and rescale the
 -- overlays (Collected check + Favorite star use main-grid metrics
 -- by default and end up oversized on a smaller button).
+-- Resize a sub-grid button + its overlays to the given pixel size.
+-- Called once at build time and again from populateSubGrid every time
+-- the size changes via the slider.
+local function resizeSubGridButton(btn, btnSize)
+    btn:SetSize(btnSize, btnSize)
+    local scale = btnSize / SUBGRID_REF_SIZE  -- ratio vs main grid
+    if btn.Collected then
+        btn.Collected:SetSize(20 * scale, 20 * scale)
+        btn.Collected:ClearAllPoints()
+        btn.Collected:SetPoint("BOTTOMRIGHT", -3, 3)
+    end
+    if btn.FavoriteStar then
+        btn.FavoriteStar:SetSize(16 * scale, 16 * scale)
+        btn.FavoriteStar:ClearAllPoints()
+        btn.FavoriteStar:SetPoint("TOPLEFT", 4, -4)
+    end
+    if btn.Icon then
+        btn.Icon:ClearAllPoints()
+        btn.Icon:SetPoint("TOPLEFT", 4, -4)
+        btn.Icon:SetPoint("BOTTOMRIGHT", -4, 4)
+    end
+end
+
 local function buildSubGridButton(parent)
     local btn = CreateFrame("Button", nil, parent, "HearthAndSeekCatalogItemTemplate")
-    btn:SetSize(SUBGRID_BTN, SUBGRID_BTN)
     -- After the template's OnClick fires (which calls
     -- CatalogDetail_ShowItem and updates NS.UI._currentDetailItem),
     -- repaint every sub-grid button so the new selection highlight
@@ -175,24 +206,7 @@ local function buildSubGridButton(parent)
             if applySubGridSelection then applySubGridSelection() end
         end
     end)
-    -- Resize overlays proportionally to the smaller button
-    if btn.Collected then
-        btn.Collected:SetSize(20 * SUBGRID_SCALE, 20 * SUBGRID_SCALE)
-        btn.Collected:ClearAllPoints()
-        btn.Collected:SetPoint("BOTTOMRIGHT", -3, 3)
-    end
-    if btn.FavoriteStar then
-        btn.FavoriteStar:SetSize(16 * SUBGRID_SCALE, 16 * SUBGRID_SCALE)
-        btn.FavoriteStar:ClearAllPoints()
-        btn.FavoriteStar:SetPoint("TOPLEFT", 4, -4)
-    end
-    -- Tighter icon inset for the smaller button — the template's
-    -- default 10px is too much at 64px.
-    if btn.Icon then
-        btn.Icon:ClearAllPoints()
-        btn.Icon:SetPoint("TOPLEFT", 4, -4)
-        btn.Icon:SetPoint("BOTTOMRIGHT", -4, 4)
-    end
+    resizeSubGridButton(btn, getSubGridBtnSize())
     return btn
 end
 
@@ -213,6 +227,14 @@ local function populateSubGrid(row, name)
         table.sort(ids)
     end
 
+    -- Compute current pixel size + how many cols fit. Sub-grid width
+    -- comes from its anchors (parent row width minus 24); recomputing
+    -- per-call lets the slider grow icons without overflowing.
+    local btnSize = getSubGridBtnSize()
+    local subGridWidth = row.subGrid:GetWidth()
+    if subGridWidth <= 0 then subGridWidth = 540 end
+    local cols = math.max(1, math.floor((subGridWidth + SUBGRID_GAP) / (btnSize + SUBGRID_GAP)))
+
     local items = NS.CatalogData and NS.CatalogData.Items or {}
     for i, id in ipairs(ids) do
         local b = row.subGrid._buttons[i]
@@ -220,6 +242,10 @@ local function populateSubGrid(row, name)
             b = buildSubGridButton(row.subGrid)
             row.subGrid._buttons[i] = b
         end
+        -- Resize on every populate — slider drags can change btnSize
+        -- between renders, and pooled buttons may have been created at
+        -- a different size on a previous open.
+        resizeSubGridButton(b, btnSize)
         local item = items[id]
         if item then
             b.itemData = item
@@ -230,18 +256,18 @@ local function populateSubGrid(row, name)
             elseif b.Icon and item.iconTexture then
                 b.Icon:SetTexture(item.iconTexture)
             end
-            local col = (i - 1) % SUBGRID_COLS
-            local r   = math.floor((i - 1) / SUBGRID_COLS)
+            local col = (i - 1) % cols
+            local r   = math.floor((i - 1) / cols)
             b:ClearAllPoints()
             b:SetPoint("TOPLEFT", row.subGrid, "TOPLEFT",
-                col * (SUBGRID_BTN + SUBGRID_GAP),
-                -r * (SUBGRID_BTN + SUBGRID_GAP))
+                col * (btnSize + SUBGRID_GAP),
+                -r * (btnSize + SUBGRID_GAP))
             b:Show()
         end
     end
 
-    local rows = math.max(1, math.ceil(#ids / SUBGRID_COLS))
-    row.subGrid:SetHeight(rows * SUBGRID_BTN + (rows - 1) * SUBGRID_GAP + 6)
+    local rows = math.max(1, math.ceil(#ids / cols))
+    row.subGrid:SetHeight(rows * btnSize + (rows - 1) * SUBGRID_GAP + 6)
 
     -- After binding items, paint the selection highlight to match
     -- the main grid's behaviour (golden tinted card on the currently
@@ -577,6 +603,30 @@ local function getRow(idx, parent)
     return row
 end
 
+-- Anchor each visible row inside scrollChild, accumulating y-offset so
+-- expanded rows (with sub-grid below) push subsequent rows down. Called
+-- from Refresh after row state is rebuilt, and from the icon-size slider
+-- after sub-grids are resized — without re-running this, growing a
+-- sub-grid would let it overlap the row that follows. Returns the final
+-- y-offset so callers can compute content height.
+relayoutRows = function()
+    local total = NS.Collections.List and #NS.Collections.List() or 0
+    local yOffset = -LIST_PAD_TOP
+    for i = 1, total do
+        local row = rowPool[i]
+        if row then
+            row:ClearAllPoints()
+            row:SetPoint("TOPLEFT",  scrollChild, "TOPLEFT",  0, yOffset)
+            row:SetPoint("TOPRIGHT", scrollChild, "TOPRIGHT", 0, yOffset)
+            yOffset = yOffset - ROW_H - ROW_GAP
+            if row._expanded and row.subGrid then
+                yOffset = yOffset - row.subGrid:GetHeight() - 4
+            end
+        end
+    end
+    return yOffset
+end
+
 -------------------------------------------------------------------------------
 -- Refresh: rebuild the list from NS.Collections
 -------------------------------------------------------------------------------
@@ -648,27 +698,12 @@ Refresh = function()
         end
     end
 
-    -- Pass 2: anchor each visible row inside scrollChild, accumulating
-    -- y-offset so expanded rows (with sub-grid below) push subsequent
-    -- rows down. Done after populateSubGrid sized each sub-grid.
-    local yOffset = -LIST_PAD_TOP
-    for i = 1, total do
-        local row = rowPool[i]
-        if row then
-            row:ClearAllPoints()
-            row:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 0, yOffset)
-            row:SetPoint("TOPRIGHT", scrollChild, "TOPRIGHT", 0, yOffset)
-            yOffset = yOffset - ROW_H - ROW_GAP
-            if row._expanded and row.subGrid then
-                yOffset = yOffset - row.subGrid:GetHeight() - 4
-            end
-        end
-    end
+    local lastYOffset = relayoutRows()
 
     -- Resize the scroll content to match what we just laid out and
     -- clamp scroll position when content shrinks (e.g. after a
     -- collapse / delete). Sync the Slider's value range too.
-    local contentH = math.max(1, math.abs(yOffset) + LIST_PAD_TOP)
+    local contentH = math.max(1, math.abs(lastYOffset) + LIST_PAD_TOP)
     scrollChild:SetHeight(contentH)
     local viewportH = listFrame:GetHeight()
     local maxScroll = math.max(0, contentH - viewportH)
@@ -808,6 +843,63 @@ local function build()
     newBtn:SetPoint("TOPLEFT", header, "BOTTOMLEFT", SIDE_PAD, -16)
     newBtn:SetText("New Collection")
     newBtn:SetScript("OnClick", createNewCollection)
+
+    -- Icon-size slider, anchored to the right edge of the manager
+    -- frame at a fixed width — keeps the cluster small and away from
+    -- the New Collection button. Adjusting the slider re-populates
+    -- expanded sub-grids in place AND re-lays out the row stack so the
+    -- larger sub-grid doesn't overlap the row that follows.
+    local sliderRow = CreateFrame("Frame", nil, managerFrame)
+    sliderRow:SetSize(220, 24)
+    sliderRow:SetPoint("RIGHT", managerFrame, "RIGHT", -SIDE_PAD - 10, 0)
+    sliderRow:SetPoint("TOP", newBtn, "TOP", 0, 0)
+
+    local sliderLabel = sliderRow:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sliderLabel:SetPoint("LEFT", sliderRow, "LEFT", 0, 0)
+    sliderLabel:SetText("Icon size:")
+    sliderLabel:SetTextColor(0.85, 0.85, 0.85, 1)
+
+    local sliderValue = sliderRow:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sliderValue:SetPoint("RIGHT", sliderRow, "RIGHT", -4, 0)
+    sliderValue:SetTextColor(0.7, 0.7, 0.7, 1)
+
+    local iconSlider = CreateFrame("Slider", nil, sliderRow, "OptionsSliderTemplate")
+    iconSlider:SetHeight(16)
+    iconSlider:SetPoint("LEFT",  sliderLabel, "RIGHT", 8, 0)
+    iconSlider:SetPoint("RIGHT", sliderValue, "LEFT",  -8, 0)
+    iconSlider:SetMinMaxValues(0.5, 1.5)
+    iconSlider:SetValueStep(0.05)
+    iconSlider:SetObeyStepOnDrag(true)
+    -- Hide the template's Low/High labels — we use a compact horizontal
+    -- layout with our own label + value text on either side.
+    if iconSlider.Low  then iconSlider.Low:SetText("")  end
+    if iconSlider.High then iconSlider.High:SetText("") end
+
+    local function refreshSubGrids()
+        for _, r in pairs(rowPool) do
+            if r._expanded and r._name then
+                populateSubGrid(r, r._name)
+            end
+        end
+        -- Sub-grid height changes shift every row below an expanded
+        -- one. Without re-laying out, the bigger icons overlap the
+        -- next row's content.
+        relayoutRows()
+    end
+
+    local currentMult = (NS.db and NS.db.settings and NS.db.settings.managerIconSizeMultiplier)
+        or 1.0
+    iconSlider:SetValue(currentMult)
+    sliderValue:SetText(math.floor(SUBGRID_BASE_BTN * currentMult) .. "px")
+
+    iconSlider:SetScript("OnValueChanged", function(_, value)
+        local m = math.floor(value * 20 + 0.5) / 20  -- snap to 0.05 steps
+        sliderValue:SetText(math.floor(SUBGRID_BASE_BTN * m) .. "px")
+        if NS.db and NS.db.settings then
+            NS.db.settings.managerIconSizeMultiplier = m
+        end
+        refreshSubGrids()
+    end)
 
     -- List container — fixed bounds inside the manager frame; clips
     -- its children so the row list scrolls instead of overflowing.
