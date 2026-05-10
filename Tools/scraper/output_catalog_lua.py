@@ -252,6 +252,10 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Wetlands": "Classic",
     "Teldrassil": "Classic",
     "Deeprun Tram": "Classic",
+    "Thunder Bluff": "Classic",
+    "Orgrimmar": "Classic",
+    "Undercity": "Classic",
+    "Darnassus": "Classic",
     "Blackrock Depths": "Classic",
     "Deadmines": "Classic",
     "Darkshore": "Classic",
@@ -266,7 +270,6 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Borean Tundra": "Wrath of the Lich King",
     "Grizzly Hills": "Wrath of the Lich King",
     "Sholazar Basin": "Wrath of the Lich King",
-    "Acherus: The Ebon Hold": "Wrath of the Lich King",
     "Pit of Saron": "Wrath of the Lich King",
     "Rescue Koltira": "Wrath of the Lich King",
 
@@ -287,6 +290,7 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Spires of Arak": "Warlords of Draenor",
     "Lunarfall": "Warlords of Draenor",
     "Frostwall": "Warlords of Draenor",
+    "Frostfire Ridge": "Warlords of Draenor",
     "Stormshield": "Warlords of Draenor",
     "Talador": "Warlords of Draenor",
     "Warspear": "Warlords of Draenor",
@@ -302,7 +306,11 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Dalaran": "Legion",
     "Dalaran Sewers": "Legion",
     "Dreadscar Rift": "Legion",
+    "Acherus: The Ebon Hold": "Legion",  # DK Order Hall (Legion class hall content; not WotLK Acherus)
+    "Hall of Shadows": "Legion",
     "Hall of the Guardian": "Legion",
+    "Peak of Serenity": "Legion",        # Monk Order Hall (sub-zone of Kun-Lai Summit)
+    "Sanctum of Light": "Legion",        # Paladin Order Hall (sub-zone of Light's Hope Chapel)
     "Trueshot Lodge": "Legion",
     "The Dreamgrove": "Legion",
     "The Maelstrom": "Legion",
@@ -326,7 +334,7 @@ ZONE_TO_EXPANSION: dict[str, str] = {
     "Tiragarde Sound": "Battle for Azeroth",
     "Freehold": "Battle for Azeroth",
     "Mechagon": "Battle for Azeroth",
-    "Orgrimmar": "Battle for Azeroth",
+    "Boralus": "Battle for Azeroth",
     "Shrine of the Storm": "Battle for Azeroth",
     "Crucible of Storms": "Battle for Azeroth",
     "Chamber of Heart": "Battle for Azeroth",
@@ -458,7 +466,10 @@ ZONE_TO_MAPID: dict[str, int] = {
     "Antoran Wastes": 885,
     "Azsuna": 630,
     "Dreadscar Rift": 717,
+    "Hall of Shadows": 626,
     "Hall of the Guardian": 734,
+    "Peak of Serenity": 745,    # Monk Order Hall (sub-area at Kun-Lai Summit)
+    "Sanctum of Light": 719,    # Paladin Order Hall (sub-area at Light's Hope Chapel)
     "Highmountain": 650,
     "Mac'Aree": 882,
     "Mardum, the Shattered Abyss": 672,
@@ -671,11 +682,11 @@ VENDOR_COORDS: dict[str, dict] = {
     "Mrgrgrl":                 {"npcID": 256826, "x": 68.8, "y": 95.3, "mapID": 641,  "zone": "Val'sharah"},
     # Legion class halls
     "Falara Nightsong":        {"npcID": 112407, "x": 61.1, "y": 56.9, "mapID": 720,  "zone": "Mardum, the Shattered Abyss"},
-    "Eadric the Pure":         {"npcID": 100196, "x": 75.7, "y": 49.2, "mapID": 23,   "zone": "Eastern Plaguelands"},
+    "Eadric the Pure":         {"npcID": 100196, "x": 75.7, "y": 49.2, "mapID": 719,  "zone": "Sanctum of Light"},
     "Outfitter Reynolds":      {"npcID": 103693, "x": 44.7, "y": 49.0, "mapID": 739,  "zone": "Trueshot Lodge"},
     "Amurra Thistledew":       {"npcID": 112323, "x": 40.1, "y": 17.9, "mapID": 747,  "zone": "The Dreamgrove"},
-    "Kelsey Steelspark":       {"npcID": 105986, "x": 27.0, "y": 37.0, "mapID": 626,  "zone": "Dalaran"},
-    "Caydori Brightstar":      {"npcID": 112338, "x": 50.5, "y": 59.2, "mapID": 709,  "zone": "Kun-Lai Summit"},
+    "Kelsey Steelspark":       {"npcID": 105986, "x": 27.0, "y": 37.0, "mapID": 626,  "zone": "Hall of Shadows"},
+    "Caydori Brightstar":      {"npcID": 112338, "x": 50.5, "y": 59.2, "mapID": 745,  "zone": "Peak of Serenity"},
     "Quartermaster Ozorg":     {"npcID": 93550,  "x": 44.0, "y": 37.3, "mapID": 647,  "zone": "Acherus: The Ebon Hold"},
     "Gigi Gigavoid":           {"npcID": 112434, "x": 58.9, "y": 32.8, "mapID": 717,  "zone": "Dreadscar Rift"},
     "Jackson Watkins":         {"npcID": 112440, "x": 44.9, "y": 58.0, "mapID": 735,  "zone": "Hall of the Guardian"},
@@ -1169,6 +1180,16 @@ TREASURE_FIXUPS: dict[int, dict] = {
         ],
     },
 }
+# NPCs that walk a long patrol path so the recorded coordinate is only
+# a sample — the player may arrive at the waypoint and not see them.
+# The note shows up under the Navigate button so users know to wait or
+# walk along the route. Add an entry per vendor; all of their items
+# inherit the note automatically.
+ROAMING_PATROL_VENDORS: dict[str, str] = {
+    "Hilseth Travelstride": "The vendor NPC walks along the main road",
+}
+
+
 # Roaming vendors exist in BOTH zones with different NPC IDs:
 ROAMING_VENDORS: dict[str, dict] = {
     '"High Tides" Ren': {"fp_npcID": 255222, "rs_npcID": 255325},
@@ -1502,7 +1523,10 @@ ZONE_TO_CONTINENT: dict[str, str] = {
     "Dalaran": "Broken Isles",
     "Dalaran Sewers": "Broken Isles",
     "Dreadscar Rift": "Broken Isles",
+    "Hall of Shadows": "Broken Isles",
     "Hall of the Guardian": "Broken Isles",
+    "Peak of Serenity": "Pandaria",
+    "Sanctum of Light": "Eastern Kingdoms",
     "Trueshot Lodge": "Broken Isles",
     "The Dreamgrove": "Broken Isles",
     "The Maelstrom": "Broken Isles",
@@ -1984,6 +2008,13 @@ def serialize_item(item: dict[str, Any], source_type: str, source_detail: str,
     covenant_id = COVENANT_VENDORS.get(vendor_name)
     if covenant_id:
         lines.append(f"        covenantID = {covenant_id},")
+
+    # Optional: vendorPatrolNote — for vendors that walk a path so the
+    # recorded coords aren't always where they currently stand. Surfaced
+    # in the detail panel under the Navigate button.
+    patrol_note = ROAMING_PATROL_VENDORS.get(vendor_name) if vendor_name else None
+    if patrol_note:
+        lines.append(f"        vendorPatrolNote = {lua_string(patrol_note)},")
 
     # Optional: vendorCosts sub-table (parsed from sourceTextRaw)
     vendor_costs = item.get("_vendorCosts")
@@ -2662,6 +2693,39 @@ def main() -> None:
     if auto_fv_count:
         logger.info("Auto-generated factionVendors for %d neighborhood items", auto_fv_count)
 
+    # Pre-pass: apply VENDOR_COORDS zone re-mapping to item["zone"] BEFORE we
+    # build the by_zone index. The same override is applied a second time
+    # inside serialize_item() for the per-item Lua output, but by then the
+    # by_zone counts have already been computed — so without this pre-pass,
+    # a vendor whose zone we curated (e.g. Eadric the Pure → "Sanctum of
+    # Light", Caydori Brightstar → "Peak of Serenity") would still file its
+    # items under the stale Wowhead zone in the Zone filter dropdown.
+    rezone_count = 0
+    for item in catalog:
+        vendor_name = get_vendor_name(item)
+        if not vendor_name:
+            continue
+        item_zone = item.get("zone") or ""
+        vc = resolve_vendor_override(vendor_name, item_zone)
+        if not vc:
+            continue
+        vc_zone = vc.get("zone") or MAPID_TO_ZONE.get(vc.get("mapID", 0)) or ""
+        if not vc_zone or vc_zone == item_zone:
+            continue
+        item_zone_mapid = ZONE_TO_MAPID.get(item_zone)
+        vc_mapid = vc.get("mapID")
+        same_map = (item_zone_mapid == vc_mapid) if item_zone_mapid else False
+        if same_map:
+            continue  # serialize_item leaves zone alone in same-map case
+        if vc_zone not in ZONE_TO_MAPID:
+            continue
+        if item_zone in HOUSING_ZONES:
+            continue
+        item["zone"] = vc_zone
+        rezone_count += 1
+    if rezone_count:
+        logger.info("Pre-pass rezoned %d items via VENDOR_COORDS overrides", rezone_count)
+
     # Compute derived fields for each item
     ItemMeta = tuple[dict[str, Any], str, str, str, str, str, str]
     items_with_meta: list[ItemMeta] = []
@@ -2678,12 +2742,15 @@ def main() -> None:
                 and item.get("factionVendors")):
             source_type = "Vendor"
             source_detail = "Decor Treasure Hunt"
-            # Clear flat vendor/NPC fields — UI resolves from factionVendors
+            # Clear flat vendor/NPC fields — UI resolves from factionVendors.
+            # Keep `zone`/`mapID` so the item still has a real geographical
+            # signal for the Zone filter + per-item expansion derivation.
+            # Both faction zones are Neighborhoods, so whichever side the
+            # top-level zone reflects still resolves correctly.
             item["vendorName"] = ""
             item["npcID"] = None
             item["npcX"] = None
             item["npcY"] = None
-            item["zone"] = ""
             treasure_hunt_count += 1
         elif item.get("factionVendors"):
             # Items with faction-specific vendors (Neighborhoods, PvP, rep, etc.)
@@ -2890,13 +2957,14 @@ def main() -> None:
     lines.append("}")
     lines.append("")
 
-    # ExpansionOrder (only expansions that have items)
+    # ExpansionOrder (only expansions that have items). EXPANSION_ORDER
+    # already contains "Unknown" at the end, so the list comprehension
+    # picks it up naturally when any zone falls back — no extra append
+    # needed (the previous explicit append produced a duplicate).
     active_expansions = set()
     for zone in by_zone.keys():
         active_expansions.add(ZONE_TO_EXPANSION.get(zone, "Unknown"))
     ordered_expansions = [e for e in EXPANSION_ORDER if e in active_expansions]
-    if "Unknown" in active_expansions:
-        ordered_expansions.append("Unknown")
     exp_list = ", ".join(lua_string(e) for e in ordered_expansions)
     lines.append(f"NS.CatalogData.ExpansionOrder = {{ {exp_list} }}")
     lines.append("")

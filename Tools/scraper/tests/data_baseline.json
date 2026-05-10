@@ -1,6 +1,6 @@
 {
   "version": "1.1",
-  "generatedAt": "2026-05-01T10:09:21.923861+00:00",
+  "generatedAt": "2026-05-04T03:34:10.496376+00:00",
   "gameVersion": {
     "interface": "120005",
     "expansion": "Midnight"
@@ -23,7 +23,7 @@
       "Cataclysm": 13,
       "Classic": 82,
       "Dragonflight": 40,
-      "Legion": 167,
+      "Legion": 174,
       "Midnight": 282,
       "Mists of Pandaria": 28,
       "Neighborhoods": 370,
@@ -32,7 +32,7 @@
       "The War Within": 78,
       "Unknown": 514,
       "Warlords of Draenor": 44,
-      "Wrath of the Lich King": 13
+      "Wrath of the Lich King": 6
     }
   },
   "items": {
@@ -6437,7 +6437,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "achievementName": "Raise an Army for Acherus",
       "faction": "neutral"
     },
@@ -6447,7 +6447,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "faction": "neutral"
     },
     "5881": {
@@ -6456,7 +6456,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "faction": "neutral"
     },
     "5882": {
@@ -6465,7 +6465,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "achievementName": "The Deathlord's Campaign",
       "faction": "neutral"
     },
@@ -6475,7 +6475,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "achievementName": "Hidden Potential of the Deathlord",
       "faction": "neutral"
     },
@@ -6485,7 +6485,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "faction": "neutral"
     },
     "5890": {
@@ -10591,7 +10591,7 @@
       "vendorName": "Quartermaster Ozorg",
       "npcID": 28512,
       "hasCoords": true,
-      "expansion": "Wrath of the Lich King",
+      "expansion": "Legion",
       "achievementName": "Legendary Research of the Ebon Blade",
       "faction": "neutral"
     },

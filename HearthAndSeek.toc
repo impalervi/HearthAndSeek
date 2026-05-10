@@ -2,7 +2,7 @@
 ## Title: |cffffd200Hearth & Seek|r |cffaaaaaaDecor Catalog|r
 ## Notes: Discover and navigate to every Player Housing decoration source — vendors, quests, treasures, and more
 ## Author: ImpalerV
-## Version: 1.5.4
+## Version: 2.0.0
 ## SavedVariables: HearthAndSeekDB
 ## IconTexture: Interface\AddOns\HearthAndSeek\Media\Icons\HearthAndSeek
 ## X-Category: Housing
@@ -18,6 +18,7 @@ Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 Core\Constants.lua
 Core\Utils.lua
 Core\ModelSceneUtils.lua
+Core\Collections.lua
 Core\Init.lua
 
 # Data
@@ -37,4 +38,6 @@ UI\MinimapButton.lua
 UI\CatalogFrame.lua
 UI\CatalogGrid.lua
 UI\CatalogDetail.lua
+UI\CollectionsManager.lua
+UI\CollectionsSubmenu.lua
 UI\WhatsNew.lua

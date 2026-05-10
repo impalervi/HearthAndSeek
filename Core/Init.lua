@@ -107,6 +107,12 @@ local function InitSavedVars()
     NS.favorites = HearthAndSeekDB.favorites
     NS.charKey = charKey
     NS.charDB = HearthAndSeekDB.characters[charKey]
+
+    -- Collections module: bind to SavedVariables. Sibling of `favorites`,
+    -- not a replacement (the star icon stays). See Core/Collections.lua.
+    if NS.Collections and NS.Collections.Init then
+        NS.Collections.Init(HearthAndSeekDB)
+    end
 end
 
 -------------------------------------------------------------------------------
@@ -165,8 +171,8 @@ SlashCmdList["HEARTHANDSEEK"] = function(msg)
         if subCmd == "favorites" then
             wipe(NS.favorites)
             NS.Utils.PrintMessage("All favorites cleared.")
-            if NS.UI.UpdateSidebarCounts then
-                NS.UI.UpdateSidebarCounts()
+            if NS.UI.CatalogGrid_ApplyFilters then
+                NS.UI.CatalogGrid_ApplyFilters()
             end
         else
             NS.Utils.PrintMessage("Clear commands: favorites")

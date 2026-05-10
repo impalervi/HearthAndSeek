@@ -814,7 +814,9 @@ end
 local bigViewerFrame = nil
 
 function NS.UI.ShowBigModelViewer(item)
-    if not item or not item.asset or item.asset <= 0 then return end
+    if not item then return end
+
+    local hasModel = item.asset and item.asset > 0
 
     -- Lazy-create the viewer frame
     if not bigViewerFrame then
@@ -837,6 +839,20 @@ function NS.UI.ShowBigModelViewer(item)
         f:SetScript("OnDragStop", f.StopMovingOrSizing)
         f:SetClampedToScreen(true)
         f:Hide()
+
+        -- Fallback icon for items without 3D model
+        local fallbackIcon = f:CreateTexture(nil, "ARTWORK")
+        fallbackIcon:SetSize(256, 256)
+        fallbackIcon:SetPoint("CENTER", f, "CENTER", 0, 20)
+        fallbackIcon:Hide()
+        f._fallbackIcon = fallbackIcon
+
+        local fallbackText = f:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        fallbackText:SetPoint("TOP", fallbackIcon, "BOTTOM", 0, -16)
+        fallbackText:SetText("No 3D model available for this item")
+        fallbackText:SetTextColor(0.5, 0.5, 0.5, 1)
+        fallbackText:Hide()
+        f._fallbackText = fallbackText
 
         -- Register for Escape to close
         tinsert(UISpecialFrames, "HearthAndSeekBigViewer")
@@ -946,15 +962,34 @@ function NS.UI.ShowBigModelViewer(item)
         bigViewerFrame = f
     end
 
-    -- Set up the model
+    -- Set up the model (or fallback icon if no model available)
     local f = bigViewerFrame
     f._title:SetText(item.name or "")
-    f._modelScene:ClearScene()
-    local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
-        and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
-    if actor then
-        actor:SetPreferModelCollisionBounds(true)
-        actor:SetModelByFileID(item.asset)
+
+    if hasModel then
+        f._modelScene:ClearScene()
+        local actor = NS.ModelSceneUtils and NS.ModelSceneUtils.LoadDecorScene
+            and NS.ModelSceneUtils.LoadDecorScene(f._modelScene, item.uiModelSceneID)
+        if actor then
+            actor:SetPreferModelCollisionBounds(true)
+            actor:SetModelByFileID(item.asset)
+        end
+        f._modelScene:Show()
+        f._fallbackIcon:Hide()
+        f._fallbackText:Hide()
+    else
+        f._modelScene:Hide()
+        local iconID = item.iconTexture
+        if not iconID and item.itemID and GetItemIcon then
+            iconID = GetItemIcon(item.itemID)
+        end
+        if iconID then
+            f._fallbackIcon:SetTexture(iconID)
+            f._fallbackIcon:Show()
+        else
+            f._fallbackIcon:Hide()
+        end
+        f._fallbackText:Show()
     end
     f:Show()
 end
@@ -967,13 +1002,24 @@ function NS.UI.InitCatalogDetail(parent)
     local CatSizing = NS.CatalogSizing
 
     -- Model container with Blizzard catalog atlas background
-    local modelBg = CreateFrame("Frame", nil, parent)
+    -- Uses Button so it can receive ALT+click even when modelScene is hidden
+    local modelBg = CreateFrame("Button", nil, parent)
     modelBg:SetHeight(CatSizing.ModelViewerHeight)
     modelBg:SetPoint("TOPLEFT", parent, "TOPLEFT", 4, -4)
     modelBg:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -4, -4)
+    modelBg:RegisterForClicks("AnyUp")
     local bgTex = modelBg:CreateTexture(nil, "BACKGROUND")
     bgTex:SetAllPoints()
     bgTex:SetAtlas("catalog-list-preview-bg")
+
+    -- ALT+click on the model background (catches clicks when modelScene is hidden)
+    modelBg:SetScript("OnClick", function(self, button)
+        if button == "LeftButton" and IsAltKeyDown() then
+            if parent._currentItem then
+                NS.UI.ShowBigModelViewer(parent._currentItem)
+            end
+        end
+    end)
 
     -- ModelScene with built-in drag-rotate, scroll-zoom, right-drag-pan
     local modelScene = CreateFrame("ModelScene", nil, modelBg,
@@ -1494,6 +1540,21 @@ function NS.UI.InitCatalogDetail(parent)
     end)
     parent._waypointBtn:Disable()
 
+    -- Tooltip-on-hover for vendor-specific hints (e.g. roaming-vendor patrol
+    -- notes). Hooked rather than Set so the UIPanelButton's built-in highlight
+    -- behavior is preserved. Pulls fresh state from parent._currentItem on
+    -- each hover so it adapts as the user clicks through items.
+    parent._waypointBtn:HookScript("OnEnter", function(self)
+        local item = parent._currentItem
+        local note = item and item.vendorPatrolNote
+        if not note or note == "" then return end
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Navigation Tips", 1, 0.82, 0)
+        GameTooltip:AddLine(note, 1, 1, 1, true)
+        GameTooltip:Show()
+    end)
+    parent._waypointBtn:HookScript("OnLeave", function() GameTooltip:Hide() end)
+
     -- Open Map button (above waypoint button — only shown for Drop items with entrance data)
     parent._openMapBtn = CreateFrame("Button", nil, bottomSection, "UIPanelButtonTemplate")
     parent._openMapBtn:SetSize(CatSizing.DetailPanelWidth - 16, 28)
@@ -1921,6 +1982,10 @@ function NS.UI.InitCatalogDetail(parent)
 
     nameHit:SetScript("OnEnter", function(self)
         if not self._decorID then return end
+        -- Opt out of TooltipModelPreview's auto-inserted ALT hint so we
+        -- can render the hint block in our chosen order (CTRL → ALT →
+        -- SHIFT) with one leading gap. Cleared in OnLeave.
+        self._customTooltipHints = true
         GameTooltip:SetOwner(self, "ANCHOR_BOTTOM")
         local link = NS.UI.GetItemHyperlink and NS.UI.GetItemHyperlink(self._decorID)
         if link then
@@ -1929,14 +1994,18 @@ function NS.UI.InitCatalogDetail(parent)
             GameTooltip:AddLine(self._itemName or "Unknown", 1, 1, 1)
         end
         GameTooltip:AddLine(" ")
-        GameTooltip:AddLine("|cff55aaeeCTRL+Left Click|r to copy Wowhead link", 0.5, 0.5, 0.5)
+        -- Modifier-key text uses |cff00ff00 (bright green) to match the
+        -- main-grid item tooltips' shortcut hints.
+        GameTooltip:AddLine("|cff00ff00CTRL+Left Click|r to copy Wowhead link", 0.7, 0.7, 0.7)
+        GameTooltip:AddLine("|cff00ff00ALT+Left Click|r for full screen preview", 0.7, 0.7, 0.7)
         local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
         if chatOpen then
-            GameTooltip:AddLine("|cff55aaeeSHIFT+Left Click|r to link in chat", 0.5, 0.5, 0.5)
+            GameTooltip:AddLine("|cff00ff00SHIFT+Left Click|r to link in chat", 0.7, 0.7, 0.7)
         end
         GameTooltip:Show()
     end)
-    nameHit:SetScript("OnLeave", function()
+    nameHit:SetScript("OnLeave", function(self)
+        self._customTooltipHints = nil
         GameTooltip:Hide()
     end)
     nameHit:SetScript("OnMouseUp", function(self, button)
@@ -3011,8 +3080,9 @@ local function PopulateDetailsFlyout(item)
         return r
     end
 
-    -- Expansion (colored by expansion)
-    local expRow = AddRow("Expansion:", item.expansion or "Unknown")
+    -- Zone row (label uses "Zone" to match the filter dropdown's title;
+    -- the value is the expansion bucket the item's zone resolves to).
+    local expRow = AddRow("Zone:", item.expansion or "Unknown")
     if expRow then
         local expHex = NS.ExpansionColors and NS.ExpansionColors[item.expansion]
         if expHex then

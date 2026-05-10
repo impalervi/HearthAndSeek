@@ -43,6 +43,29 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "2.0.0",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Redesigned UI|r\nThe sidebar is gone — filters now live on a new top bar with dropdown panels and a progress bar at the bottom. New textures give the catalog a fresh look.",
+                anchorTo = "filterBar",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Center",
+            },
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Custom Collections|r\nCreate up to 20 named decor collections alongside Favorites. Right-click any item to add or remove. Manage your lists through the Collections dropdown on this bar — or via the new Manage Collections button in Settings.",
+                anchorTo = "filterBar",
+                targetPoint = "BottomEdgeLeft",
+                alignment = "Left",
+            },
+            {
+                text = "|cffffd200Thank You|r\n\nThank you for using my housing decor addon! If you have any feedback, please submit it through the link found in the Settings panel.",
+                anchorTo = "settingsBtn",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Right",
+            },
+        },
+    },
+    {
         version = "1.5.3",
         entries = {
             {

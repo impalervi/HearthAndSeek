@@ -88,7 +88,7 @@ local filterState = {
 -- default above, and one itemDef in UI/CatalogFrame.lua's FILTER_SECTIONS.
 -- Save/reset/restore and all dyn-count formulas consume the registry
 -- and pick up new entries automatically. No per-formula plumbing work.
-local COLLECTION_FILTERS = {
+local STATIC_COLLECTION_FILTERS = {
     {
         key      = "onlyFavorites",
         countKey = "favorites",
@@ -106,7 +106,58 @@ local COLLECTION_FILTERS = {
         end,
     },
 }
+
+-- User-defined named collections add one filter entry each. Built fresh
+-- each call so creates/renames/deletes are always reflected without an
+-- explicit refresh hook on every consumer site. The naming convention
+-- "userCol_<name>" is stable across the addon — the same key feeds the
+-- filter dropdown checkboxes, filterState, save/restore, and counts.
+local function COLLECTION_FILTERS()
+    local out = {}
+    for i, cf in ipairs(STATIC_COLLECTION_FILTERS) do
+        out[i] = cf
+    end
+    if NS.Collections and NS.Collections.List then
+        for _, name in ipairs(NS.Collections.List()) do
+            local n = name  -- closure capture
+            out[#out + 1] = {
+                key      = "userCol_" .. n,
+                countKey = "userCol_" .. n,
+                userCollectionName = n,
+                matches  = function(id)
+                    return NS.Collections.Contains(n, id)
+                end,
+            }
+        end
+    end
+    return out
+end
 local filteredItems = {}
+
+-- Reverse map subcatID → categoryID, built lazily from
+-- CatalogData.CategorySubcategories on first ApplyFilters. Drives the
+-- "OR within group, AND across groups" subcategory filter and the
+-- group-level self-exclusion in the dyn-count formula.
+local SubcatToCategory = {}
+local function BuildSubcatToCategory()
+    if next(SubcatToCategory) then return end
+    local map = NS.CatalogData and NS.CatalogData.CategorySubcategories
+    if not map then return end
+    for catID, subcatList in pairs(map) do
+        for _, sid in ipairs(subcatList) do
+            SubcatToCategory[sid] = catID
+        end
+    end
+end
+
+-- Resolve a subcat to its group key. Orphans (subcat IDs not present
+-- in CategorySubcategories — e.g. data drift) are treated as their
+-- own singleton group via a negative sentinel, so they still flow
+-- through the AND-across-groups filter without being silently dropped.
+-- Real catIDs are positive integers, so negatives can't collide.
+local function CatOfSubcat(sid)
+    return SubcatToCategory[sid] or (-sid)
+end
 
 --- Save current filter state to SavedVariables (excludes searchText).
 local function SaveFilterState()
@@ -122,13 +173,24 @@ local function SaveFilterState()
         notCollected  = filterState.notCollected,
     }
     -- Registry-driven: persist every Collections-section toggle automatically.
-    for _, cf in ipairs(COLLECTION_FILTERS) do
+    for _, cf in ipairs(COLLECTION_FILTERS()) do
         saved[cf.key] = filterState[cf.key]
     end
     NS.db.savedFilters = saved
 end
 
 --- Expose filter state for sidebar sync.
+--- Drop a stale Collections-section filter key from filterState +
+--- savedFilters. Called when a user collection is renamed (old key
+--- becomes orphaned) or deleted.
+function NS.UI.CatalogGrid_ForgetCollectionKey(key)
+    if not key then return end
+    filterState[key] = nil
+    if NS.db and NS.db.savedFilters then
+        NS.db.savedFilters[key] = nil
+    end
+end
+
 function NS.UI.CatalogGrid_GetFilterState()
     return filterState
 end
@@ -313,13 +375,29 @@ local bossEncounterCache = nil
 -------------------------------------------------------------------------------
 local iconCache = {}  -- decorID → runtime iconTexture (lazy backfill for missing static icons)
 
+-- Prime the Housing Catalog backend so that GetCatalogEntryInfoByRecordID
+-- returns real quantity data without requiring the user to open the native
+-- Housing Dashboard first. Instantiating a catalog searcher and running a
+-- search triggers Blizzard's side to populate the client-side cache; we
+-- never read from the searcher itself. Silent on clients that don't expose
+-- the searcher API (older patches).
+local function PrimeHousingCatalog()
+    if not C_HousingCatalog or not C_HousingCatalog.CreateCatalogSearcher then return end
+    local ok, searcher = pcall(C_HousingCatalog.CreateCatalogSearcher)
+    if not ok or not searcher then return end
+    if searcher.RunSearch then pcall(searcher.RunSearch, searcher) end
+    if searcher.Release then pcall(searcher.Release, searcher) end
+end
+
 local function BuildOwnershipCache()
     if ownershipCacheBuilt then return end
     if not C_HousingCatalog or not C_HousingCatalog.GetCatalogEntryInfoByRecordID then return end
     if not NS.CatalogData or not NS.CatalogData.NameIndex then return end
+    PrimeHousingCatalog()
     local entryType = Enum.HousingCatalogEntryType and Enum.HousingCatalogEntryType.Decor or 1
 
     local missingCount = 0
+    local collectedCount = 0
 
     for _, entry in ipairs(NS.CatalogData.NameIndex) do
         local id = entry[1]
@@ -332,6 +410,7 @@ local function BuildOwnershipCache()
             ownershipCache[id] = {
                 collected  = hasItem,
             }
+            if hasItem then collectedCount = collectedCount + 1 end
         else
             missingCount = missingCount + 1
         end
@@ -339,9 +418,17 @@ local function BuildOwnershipCache()
 
     ownershipCacheBuilt = true
 
-    -- If many items returned nil, the Housing Catalog API may not be ready yet.
-    -- Schedule a retry to re-query after the data loads.
-    if missingCount > 0 and ownershipRetryCount < OWNERSHIP_MAX_RETRIES then
+    -- Retry when the Housing Catalog API isn't primed yet. Two cases:
+    --   (a) some lookups returned nil (API outright failed)
+    --   (b) every lookup returned info but collectedCount is zero — the
+    --       API stays silent with all-zero quantities until the native
+    --       Housing Dashboard has been opened once this session
+    -- In (b) a genuinely empty player looks the same as an un-primed one,
+    -- so cap retries at OWNERSHIP_MAX_RETRIES. HOUSING_STORAGE_UPDATED
+    -- (registered on refreshFrame) still rebuilds whenever the Dashboard
+    -- is eventually opened.
+    local notReady = missingCount > 0 or collectedCount == 0
+    if notReady and ownershipRetryCount < OWNERSHIP_MAX_RETRIES then
         ownershipRetryCount = ownershipRetryCount + 1
         C_Timer.After(OWNERSHIP_RETRY_DELAY, function()
             ownershipCacheBuilt = false
@@ -488,6 +575,7 @@ local function ScheduleCollectionRefresh()
         refreshPending = false
         ownershipCacheBuilt = false
         ownershipCache = {}
+        ownershipRetryCount = 0
         BuildOwnershipCache()
         if NS.UI.CatalogGrid_ApplyFilters then
             NS.UI.CatalogGrid_ApplyFilters()
@@ -539,6 +627,80 @@ local function GetItemHyperlink(decorID)
     return false
 end
 NS.UI.GetItemHyperlink = GetItemHyperlink
+
+-- Render an item's icon onto a button, mirroring the main grid's
+-- priority: housing catalog API → 3D ModelScene → flat fallback.
+-- The button must use the HearthAndSeekCatalogItemTemplate (so it
+-- has Icon / Collected / FavoriteStar elements). Used by the
+-- Collections Manager sub-grid so painting/3D-only items render
+-- the same way as in the catalog.
+function NS.UI.RenderCatalogItemIcon(btn, item)
+    if not btn or not item then return end
+    local decorID = item.decorID
+    local icon = GetCatalogIcon(decorID)
+    if icon then
+        HideModelIcon(btn)
+        btn.Icon:SetTexture(icon)
+    elseif ShowModelIcon(btn, item) then
+        -- 3D model visible (Icon hidden by ShowModelIcon)
+    else
+        HideModelIcon(btn)
+        local flat = GetFlatIconFallback(decorID, item.itemID, item.iconTexture)
+        btn.Icon:SetTexture(flat or "Interface\\Icons\\INV_Misc_QuestionMark")
+    end
+    btn.Icon:SetDesaturated(false)
+    btn.Icon:SetAlpha(1.0)
+
+    local ownInfo = ownershipCache[decorID]
+    btn.Collected:SetShown(ownInfo and ownInfo.collected or false)
+
+    local favDB = NS.favorites or (NS.db and NS.db.favorites)
+    btn.FavoriteStar:SetShown(favDB and favDB[decorID] and true or false)
+end
+
+-- Render the standard catalog-grid tooltip for `item` anchored to
+-- `owner`. Used by both the main grid's OnEnter handler and the
+-- Collections Manager's sub-grid (so behaviour stays in sync). The
+-- caller is responsible for cursor/hover-bg side effects — this only
+-- populates and shows GameTooltip.
+function NS.UI.ShowGridItemTooltip(owner, item)
+    if not owner or not item then return end
+    GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+    local link = GetItemHyperlink(item.decorID)
+    if link then
+        GameTooltip:SetHyperlink(link)
+    else
+        local qc = NS.QualityColors[item.quality] or NS.QualityColors[1]
+        GameTooltip:AddLine(item.name, qc[1], qc[2], qc[3])
+        if item.sourceType then
+            local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
+            local detail = item.sourceDetail or ""
+            if detail ~= "" then
+                GameTooltip:AddLine(srcLabel .. " |cff888888:|r " .. detail, 1, 1, 1)
+            else
+                GameTooltip:AddLine(srcLabel, 1, 1, 1)
+            end
+        end
+    end
+    GameTooltip:AddLine(" ")
+    GameTooltip:AddDoubleLine("|cff00ff00CTRL+Left Click|r", "Preview", nil, nil, nil, 0.7, 0.7, 0.7)
+    local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
+    if chatOpen then
+        GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r", "Link in Chat",
+            nil, nil, nil, 0.7, 0.7, 0.7)
+    else
+        GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r",
+            NS.UI.CatalogGrid_IsFavorite(item.decorID) and "Unfavorite" or "Favorite",
+            nil, nil, nil, 0.7, 0.7, 0.7)
+    end
+    GameTooltip:AddDoubleLine("|cff00ff00Right-Click|r", "Add to Collection",
+        nil, nil, nil, 0.7, 0.7, 0.7)
+    if item.sourceType == "Drop" then
+        GameTooltip:AddDoubleLine("|cff00ff00CTRL+Right-Click|r", "Open Dungeon Map",
+            nil, nil, nil, 0.7, 0.7, 0.7)
+    end
+    GameTooltip:Show()
+end
 
 -------------------------------------------------------------------------------
 -- Achievement ID lookup by name (cached, built eagerly in background batches)
@@ -1044,14 +1206,13 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
 
         if button == "RightButton" then
             if IsControlKeyDown() then
-                -- CTRL+Right Click: open dungeon map (correct floor) for Drop items
+                -- CTRL+Right Click: open the dungeon map (correct floor)
+                -- for Drop items. No-op for any other source.
                 if item.sourceType == "Drop" and item.sourceDetail
                     and item.sourceDetail ~= "" then
-                    -- Use EJ to get the correct instance floor mapID
                     local targetMapID = GetBossInstanceMapID(item.sourceDetail)
                     if not targetMapID and item.zone and item.zone ~= ""
                         and NS.UI.GetZoneMapID then
-                        -- Fallback: zone name lookup
                         targetMapID = NS.UI.GetZoneMapID(item.zone)
                     end
                     if targetMapID and NS.UI.ForceOpenWorldMap then
@@ -1059,31 +1220,10 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
                     end
                 end
             else
-                -- Right click: open achievement panel for Achievement/Prey items
-                if item.achievementName and item.achievementName ~= "" then
-                    if InCombatLockdown() then return end
-                    if not AchievementFrame then
-                        if C_AddOns and not C_AddOns.IsAddOnLoaded("Blizzard_AchievementUI") then
-                            pcall(C_AddOns.LoadAddOn, "Blizzard_AchievementUI")
-                        end
-                        if not AchievementFrame and ToggleAchievementFrame then
-                            ToggleAchievementFrame()
-                            if AchievementFrame and AchievementFrame:IsShown() then
-                                AchievementFrame:Hide()
-                            end
-                        end
-                    end
-                    if NS.UI.FindAchievementIDByName then
-                        local achID = NS.UI.FindAchievementIDByName(item.achievementName)
-                        if achID then
-                            if OpenAchievementFrameToAchievement then
-                                OpenAchievementFrameToAchievement(achID)
-                            elseif AchievementFrame and AchievementFrame.SelectAchievement then
-                                AchievementFrame:SelectAchievement(achID)
-                                if not AchievementFrame:IsShown() then AchievementFrame:Show() end
-                            end
-                        end
-                    end
+                -- Plain right-click: Collections submenu (add/remove this
+                -- item to/from user-defined collections).
+                if NS.UI.OpenCollectionsSubmenu then
+                    NS.UI.OpenCollectionsSubmenu(item.decorID, btn)
                 end
             end
             return
@@ -1130,49 +1270,9 @@ function HearthAndSeek_CatalogItem_OnLoad(self)
         if not btn.itemData then return end
         btn.HoverBg:Show()
         SetCursor("INSPECT_CURSOR")
-        GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
-        local link = GetItemHyperlink(btn.itemData.decorID)
-        if link then
-            GameTooltip:SetHyperlink(link)
-        else
-            -- Fallback: manual tooltip when no hyperlink available
-            local item = btn.itemData
-            local qc = NS.QualityColors[item.quality] or NS.QualityColors[1]
-            GameTooltip:AddLine(item.name, qc[1], qc[2], qc[3])
-            if item.sourceType then
-                -- Match the detail panel / big viewer wording: render all
-                -- source types the item has, in canonical order, with
-                -- palette colors via GameTooltip escape codes.
-                local srcLabel = NS.Utils.FormatSourcesText(NS.Utils.GetItemSources(item))
-                local detail = item.sourceDetail or ""
-                if detail ~= "" then
-                    GameTooltip:AddLine(srcLabel .. " |cff888888:|r " .. detail, 1, 1, 1)
-                else
-                    GameTooltip:AddLine(srcLabel, 1, 1, 1)
-                end
-            end
+        if NS.UI.ShowGridItemTooltip then
+            NS.UI.ShowGridItemTooltip(btn, btn.itemData)
         end
-
-        -- Interaction hint lines
-        GameTooltip:AddLine(" ")
-        GameTooltip:AddDoubleLine("|cff00ff00CTRL+Left Click|r", "Preview", nil, nil, nil, 0.7, 0.7, 0.7)
-        local chatOpen = ChatEdit_GetActiveWindow and ChatEdit_GetActiveWindow()
-        if chatOpen then
-            GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r", "Link in Chat",
-                nil, nil, nil, 0.7, 0.7, 0.7)
-        else
-            GameTooltip:AddDoubleLine("|cff00ff00SHIFT+Left Click|r",
-                NS.UI.CatalogGrid_IsFavorite(btn.itemData.decorID) and "Unfavorite" or "Favorite",
-                nil, nil, nil, 0.7, 0.7, 0.7)
-        end
-        local item = btn.itemData
-        if item.achievementName and item.achievementName ~= "" then
-            GameTooltip:AddDoubleLine("|cff00ff00Right-Click|r", "Open Achievement", nil, nil, nil, 0.7, 0.7, 0.7)
-        end
-        if item.sourceType == "Drop" then
-            GameTooltip:AddDoubleLine("|cff00ff00CTRL+Right-Click|r", "Open Dungeon Map", nil, nil, nil, 0.7, 0.7, 0.7)
-        end
-        GameTooltip:Show()
     end)
 
     self:SetScript("OnLeave", function(btn)
@@ -1193,10 +1293,13 @@ RefreshGridButtons = function()
     local rowInt = math.floor(scrollOffset)
     local frac = scrollOffset - rowInt
     local pixelShift = frac * (size + gap)  -- how far to shift buttons up
-    local startIdx = rowInt * cols + 1
+    -- Start data one row earlier when scrolled, so the partial top row persists
+    local dataRowStart = math.max(0, rowInt - 1)
+    local startIdx = dataRowStart * cols + 1
+    local topRowOffset = rowInt - dataRowStart  -- 1 when scrolled past row 0, else 0
     local gridWidth = cols * size + (cols - 1) * gap
 
-    for i = 1, (visibleRows + 2) * cols do  -- +2 rows: clipped hint + smooth scroll buffer
+    for i = 1, (visibleRows + 3) * cols do  -- +3 rows: peek row above + clipped hint + buffer
         local btn = gridButtons[i]
         if not btn then break end
 
@@ -1206,7 +1309,7 @@ RefreshGridButtons = function()
         btn:ClearAllPoints()
         btn:SetPoint("CENTER", gridParent, "TOP",
             -gridWidth / 2 + col * (size + gap) + size / 2,
-            -(40 + row * (size + gap) + size / 2) + pixelShift)
+            -(25 + (row - topRowOffset) * (size + gap) + size / 2) + pixelShift)
 
         local decorID = filteredItems[startIdx + i - 1]
 
@@ -1339,8 +1442,7 @@ local function UpdateCountText()
         end
     end
 
-    local countText = string.format("Showing %d items  |cff888888(%d collected)|r", totalCount, ownedCount)
-    gridParent._countText:SetText(countText)
+    gridParent._countText:SetText(string.format("Showing %d items", totalCount))
 end
 
 -------------------------------------------------------------------------------
@@ -1353,6 +1455,7 @@ end
 function NS.UI.CatalogGrid_ApplyFilters()
     CatSizing = CatSizing or NS.CatalogSizing
     if not NS.CatalogData or not NS.CatalogData.Items then return end
+    BuildSubcatToCategory()
 
     -- Ensure ownership cache is built
     BuildOwnershipCache()
@@ -1371,6 +1474,16 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local hasProfFilter = next(filterState.professions) ~= nil
     local hasSubcatFilter = next(filterState.subcategories) ~= nil
 
+    -- Precompute per-category active-subcat counts (used by the category
+    -- group-level self-exclusion in the dyn-count loop). Keyed by catID.
+    local activeSubcatsByCategory = {}
+    local totalActiveSubcats = 0
+    for sid, _ in pairs(filterState.subcategories) do
+        local catID = CatOfSubcat(sid)
+        activeSubcatsByCategory[catID] = (activeSubcatsByCategory[catID] or 0) + 1
+        totalActiveSubcats = totalActiveSubcats + 1
+    end
+
     -- Collection filter: active only when partially checked
     local collAll  = filterState.collected and filterState.notCollected
     local collNone = not filterState.collected and not filterState.notCollected
@@ -1383,8 +1496,14 @@ function NS.UI.CatalogGrid_ApplyFilters()
         favoritesDB      = NS.favorites or (NS.db and NS.db.favorites) or {},
         recentlyAddedSet = NS.CatalogData and NS.CatalogData.RecentlyAdded or {},
     }
+    -- Snapshot the registry once per ApplyFilters. The function rebuilds
+    -- a fresh array on every call (so user collections are picked up
+    -- automatically), but inside the per-item loop we reuse the same
+    -- array — calling COLLECTION_FILTERS() ~3 times per item × thousands
+    -- of items would be a real perf hit.
+    local collectionFilters = COLLECTION_FILTERS()
     local activeCollectionFilters = {}
-    for _, cf in ipairs(COLLECTION_FILTERS) do
+    for _, cf in ipairs(collectionFilters) do
         activeCollectionFilters[cf.key] = filterState[cf.key] == true
     end
 
@@ -1405,9 +1524,11 @@ function NS.UI.CatalogGrid_ApplyFilters()
         subcategories = {},
         themes      = {},
         collection  = { collected = 0, notCollected = 0 },
+        progressCollected = 0,
+        progressTotal     = 0,
     }
     -- Registry-driven: initialise an accumulator for each collection toggle.
-    for _, cf in ipairs(COLLECTION_FILTERS) do
+    for _, cf in ipairs(collectionFilters) do
         dynCounts[cf.countKey] = 0
     end
 
@@ -1515,15 +1636,34 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local pProf = not hasProfFilter or (item.professionName and item.professionName ~= ""
                                             and filterState.professions[item.professionName] ~= nil)
 
+        -- Category filter: OR within a group, AND across groups.
+        -- Selecting "all of Structural" then adding "Misc Furnishings"
+        -- means: item must have any Structural subcat AND any Furnishings
+        -- subcat — i.e. items in BOTH categories. Within a single group,
+        -- subcats still OR together (selecting Walls + Floors keeps both
+        -- visible).
         local pCat = true
         if hasSubcatFilter then
-            pCat = false
             local subcats = item.subcategoryIDs
-            if subcats then
+            if not subcats then
+                pCat = false
+            else
+                local matchedGroups = nil
                 for _, sid in ipairs(subcats) do
                     if filterState.subcategories[sid] then
-                        pCat = true
-                        break
+                        local catID = CatOfSubcat(sid)
+                        if not matchedGroups then matchedGroups = {} end
+                        matchedGroups[catID] = true
+                    end
+                end
+                if not matchedGroups then
+                    pCat = false
+                else
+                    for catID, _ in pairs(activeSubcatsByCategory) do
+                        if not matchedGroups[catID] then
+                            pCat = false
+                            break
+                        end
                     end
                 end
             end
@@ -1547,7 +1687,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- `pCollection` = AND of (active → match) across all entries.
         local collMatch = {}
         local pCollection = true
-        for _, cf in ipairs(COLLECTION_FILTERS) do
+        for _, cf in ipairs(collectionFilters) do
             local m = cf.matches(id, collectionCtx)
             collMatch[cf.key] = m
             if activeCollectionFilters[cf.key] and not m then
@@ -1570,6 +1710,10 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- Item passes ALL filters -> add to filtered list
         if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
+            dynCounts.progressTotal = dynCounts.progressTotal + 1
+            if isCollected then
+                dynCounts.progressCollected = dynCounts.progressCollected + 1
+            end
         end
 
         -----------------------------------------------------------------------
@@ -1636,10 +1780,10 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- "favorites count" that respects an active "Recently Added"
         -- without double-counting itself.
         if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme then
-            for _, cf in ipairs(COLLECTION_FILTERS) do
+            for _, cf in ipairs(collectionFilters) do
                 if collMatch[cf.key] then
                     local pOtherColl = true
-                    for _, other in ipairs(COLLECTION_FILTERS) do
+                    for _, other in ipairs(collectionFilters) do
                         if other.key ~= cf.key
                                 and activeCollectionFilters[other.key]
                                 and not collMatch[other.key] then
@@ -1654,12 +1798,43 @@ function NS.UI.CatalogGrid_ApplyFilters()
             end
         end
 
-        -- Subcategory counts (exclude category filter)
+        -- Category + subcategory counts (group-level self-exclusion).
+        --
+        -- Each row's count answers: "if I were to enable this option, how
+        -- many items would survive the rest of my filters?" — but we
+        -- self-exclude at the GROUP level, not the individual subcat. So
+        -- when Structural is fully selected, the count next to "Walls" is
+        -- the full Walls catalog count (because removing the whole
+        -- Structural group leaves no category constraint), while "Beds"
+        -- (Furnishings) intersects with Structural → ~0. This keeps
+        -- siblings discoverable inside the active group while making
+        -- mutually-exclusive groups visibly drop out.
         if pSrc and pZone and pQual and pProf and pColl and pCollection and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
+                -- Pass 1: tally item's active subcats per group.
+                local groupActive = {}    -- catID → count of item's active subcats in this group
+                local itemActiveTotal = 0
                 for _, sid in ipairs(subcats) do
-                    dynCounts.subcategories[sid] = (dynCounts.subcategories[sid] or 0) + 1
+                    if filterState.subcategories[sid] then
+                        local catID = CatOfSubcat(sid)
+                        groupActive[catID] = (groupActive[catID] or 0) + 1
+                        itemActiveTotal = itemActiveTotal + 1
+                    end
+                end
+
+                -- Pass 2: per-subcat counts. Self-exclude THIS group (i.e.
+                -- count this item toward sid's bucket iff the item would
+                -- still pass pCat with the entire group's filter peeled
+                -- away). Group totals are computed at display time as the
+                -- sum of these children, so the two always agree visually.
+                for _, sid in ipairs(subcats) do
+                    local catID = CatOfSubcat(sid)
+                    local activeOutside = itemActiveTotal - (groupActive[catID] or 0)
+                    local filterOutside = totalActiveSubcats - (activeSubcatsByCategory[catID] or 0)
+                    if activeOutside > 0 or filterOutside == 0 then
+                        dynCounts.subcategories[sid] = (dynCounts.subcategories[sid] or 0) + 1
+                    end
                 end
             end
         end
@@ -1716,8 +1891,8 @@ function NS.UI.CatalogGrid_ApplyFilters()
     UpdateCountText()
 
     -- Broadcast dynamic counts to sidebar
-    if NS.UI.UpdateSidebarCounts then
-        NS.UI.UpdateSidebarCounts(dynCounts)
+    if NS.UI.UpdateFilterCounts then
+        NS.UI.UpdateFilterCounts(dynCounts)
     end
 
     -- Persist filter state for next session
@@ -1820,7 +1995,7 @@ end
 -- a new toggle means adding an entry to that registry plus a
 -- filterState default — no change needed here.
 function NS.UI.CatalogGrid_ToggleCollections(key, checked)
-    for _, cf in ipairs(COLLECTION_FILTERS) do
+    for _, cf in ipairs(COLLECTION_FILTERS()) do
         if cf.key == key then
             filterState[key] = checked
             scrollOffset = 0
@@ -1897,7 +2072,7 @@ function NS.UI.CatalogGrid_ResetFilters()
     filterState.collected = true
     filterState.notCollected = true
     -- Registry-driven: clear every Collections-section toggle.
-    for _, cf in ipairs(COLLECTION_FILTERS) do
+    for _, cf in ipairs(COLLECTION_FILTERS()) do
         filterState[cf.key] = false
     end
     scrollOffset = 0
@@ -1933,7 +2108,7 @@ function NS.UI.InitCatalogGrid(parent)
         if saved.notCollected  ~= nil then filterState.notCollected  = saved.notCollected end
         -- Registry-driven: restore every Collections-section toggle. Keys
         -- missing from saved state are left at their filterState default.
-        for _, cf in ipairs(COLLECTION_FILTERS) do
+        for _, cf in ipairs(COLLECTION_FILTERS()) do
             if saved[cf.key] ~= nil then filterState[cf.key] = saved[cf.key] end
         end
     end
@@ -1942,7 +2117,7 @@ function NS.UI.InitCatalogGrid(parent)
     local size = CatSizing.GridItemSize
     local gap  = CatSizing.GridItemSpacing
     local availW = parent:GetWidth() - GRID_H_MARGIN * 2
-    local availH = parent:GetHeight() - 50
+    local availH = parent:GetHeight() - 55
     local dynamicCols = math.max(1, math.floor((availW + gap) / (size + gap)))
     local dynamicRows = math.max(1, math.floor((availH + gap) / (size + gap)))
     CatSizing.GridColumns = dynamicCols
@@ -1953,7 +2128,7 @@ function NS.UI.InitCatalogGrid(parent)
     StartAchievementCacheBuild()
 
     local cols = CatSizing.GridColumns
-    local numButtons = (visibleRows + 2) * cols  -- +2 rows: clipped hint + smooth scroll buffer
+    local numButtons = (visibleRows + 3) * cols  -- +3 rows: peek above + clipped hint + buffer
 
     -- Calculate total grid dimensions to center it
     local gridWidth  = cols * size + (cols - 1) * gap
@@ -1966,7 +2141,7 @@ function NS.UI.InitCatalogGrid(parent)
         local row = math.floor((i - 1) / cols)
         btn:SetPoint("CENTER", parent, "TOP",
             -gridWidth / 2 + col * (size + gap) + size / 2,
-            -(40 + row * (size + gap) + size / 2))
+            -(25 + row * (size + gap) + size / 2))
         gridButtons[i] = btn
     end
 
@@ -1982,11 +2157,11 @@ function NS.UI.InitCatalogGrid(parent)
 
     -- Scroll bar (simple Slider with Blizzard thumb art)
     local panelH = parent:GetHeight()
-    local gridHeight = panelH > 50 and (panelH - 50) or (visibleRows * size + (visibleRows - 1) * gap)
+    local gridHeight = panelH > 55 and (panelH - 55) or (visibleRows * size + (visibleRows - 1) * gap)
     local scrollBar = CreateFrame("Slider", nil, parent)
     scrollBar:SetSize(6, gridHeight)
     scrollBar:SetPoint("TOPLEFT", parent, "TOP",
-        gridWidth / 2 + 6, -40)
+        gridWidth / 2 + 6, -25)
     scrollBar:SetOrientation("VERTICAL")
     scrollBar:SetMinMaxValues(0, 0)
     scrollBar:SetValue(0)
@@ -2044,7 +2219,7 @@ function NS.UI.CatalogGrid_Reflow()
     visibleRows = newRows
     CatSizing.ItemsPerPage = newCols * newRows
 
-    local numButtons = (newRows + 2) * newCols  -- +2 rows: clipped hint + smooth scroll buffer
+    local numButtons = (newRows + 3) * newCols  -- +3 rows: peek above + clipped hint + buffer
     local gridWidth = newCols * size + (newCols - 1) * gap
 
     -- Grow button pool if needed
@@ -2065,7 +2240,7 @@ function NS.UI.CatalogGrid_Reflow()
             btn:SetSize(size, size)
             btn:SetPoint("CENTER", gridParent, "TOP",
                 -gridWidth / 2 + col * (size + gap) + size / 2,
-                -(40 + row * (size + gap) + size / 2))
+                -(25 + row * (size + gap) + size / 2))
         else
             btn:Hide()
         end
