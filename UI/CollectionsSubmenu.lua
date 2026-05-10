@@ -27,6 +27,7 @@ local panel        = nil
 local clickCatcher = nil
 local listFrame    = nil   -- clipped scroll viewport
 local scrollChild  = nil   -- scrolling content
+local scrollThumb  = nil   -- thin right-edge bar (matches filter dropdowns)
 local rowPool      = {}
 local headerLabel  = nil
 local newBtn       = nil
@@ -261,6 +262,14 @@ local function ensureBuilt()
     scrollChild:SetPoint("RIGHT", listFrame, "RIGHT", 0, 0)
     scrollChild:SetHeight(1)
 
+    -- Scroll thumb (matches the filter dropdowns: 3px wide warm-tinted
+    -- bar at the right edge of the clip frame, sized to the content
+    -- ratio, hidden when everything fits).
+    scrollThumb = panel:CreateTexture(nil, "OVERLAY")
+    scrollThumb:SetWidth(3)
+    scrollThumb:SetColorTexture(0.5, 0.45, 0.3, 0.5)
+    scrollThumb:Hide()
+
     listFrame:EnableMouseWheel(true)
     listFrame:SetScript("OnMouseWheel", function(_, delta)
         scrollOffset = math.max(0, math.min(maxScroll, scrollOffset - delta * ROW_H))
@@ -339,11 +348,37 @@ local function ensureBuilt()
     panel:SetHeight(HEADER_H + ROWS_VISIBLE * ROW_H + FOOTER_H + 6)
 end
 
+-- Size + position the scroll thumb against current content height and
+-- offset. Mirrors the filter dropdown's `UpdateScrollThumb` so the two
+-- look the same (3px wide, height proportional to visible / total
+-- ratio, hidden when nothing scrolls).
+local function updateScrollThumb()
+    if not scrollThumb or not scrollChild or not listFrame then return end
+    local clipH = listFrame:GetHeight()
+    local contentH = scrollChild:GetHeight()
+    if contentH <= clipH or clipH <= 0 then
+        scrollThumb:Hide()
+        return
+    end
+    local thumbH = math.max(20, clipH * (clipH / contentH))
+    local maxOffset = contentH - clipH
+    local thumbTravel = clipH - thumbH
+    -- scrollOffset is positive-down here (scrollChild moves DOWN by
+    -- scrollOffset to reveal lower content), so the thumb position
+    -- reads it directly.
+    local thumbY = maxOffset > 0 and (thumbTravel * (scrollOffset / maxOffset)) or 0
+    scrollThumb:SetHeight(thumbH)
+    scrollThumb:ClearAllPoints()
+    scrollThumb:SetPoint("TOPRIGHT", listFrame, "TOPRIGHT", 0, -thumbY)
+    scrollThumb:Show()
+end
+
 applyScroll = function()
     if not scrollChild or not listFrame then return end
     scrollChild:ClearAllPoints()
     scrollChild:SetPoint("TOPLEFT", listFrame, "TOPLEFT", 0, scrollOffset)
     scrollChild:SetPoint("RIGHT", listFrame, "RIGHT", 0, 0)
+    updateScrollThumb()
 end
 
 rebuild = function()
@@ -378,6 +413,17 @@ rebuild = function()
         emptyLabel:Show()
     else
         emptyLabel:Hide()
+    end
+
+    -- Gray out the New Collection button when the cap is reached so users
+    -- get visual feedback before clicking. Re-evaluated every rebuild so
+    -- it stays in sync with creates/deletes from the manager view.
+    if newBtn then
+        if total >= NS.Collections.MAX_COUNT then
+            newBtn:Disable()
+        else
+            newBtn:Enable()
+        end
     end
 end
 
