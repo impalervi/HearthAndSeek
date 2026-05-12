@@ -133,7 +133,10 @@ try {
         # the zip (no semantic empty dirs in the deploy.config allowlist),
         # but if a future include path is an empty folder it'll be omitted
         # silently — would need an explicit `CreateEntry` fallback then.
-        Get-ChildItem -LiteralPath $sourceRoot -Recurse -File | ForEach-Object {
+        # Skip PNG source artifacts — WoW never loads them at runtime, they
+        # only exist in the repo as source for regenerating BLP/TGA exports.
+        Get-ChildItem -LiteralPath $sourceRoot -Recurse -File |
+            Where-Object { $_.Extension -ne '.png' } | ForEach-Object {
             $relativePath = $_.FullName.Substring($sourceParent.Length).
                 TrimStart('\', '/').Replace('\', '/')
             [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
