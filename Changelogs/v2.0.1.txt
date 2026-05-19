@@ -1,0 +1,7 @@
+v2.0.1
+
+New Features
+- Faction filter — new Alliance / Horde / Neutral dropdown in the filter bar
+
+Bug Fixes
+- Fixed addon icon for macOS (minimap + detail panel watermark) rendering as a solid green square on macOS

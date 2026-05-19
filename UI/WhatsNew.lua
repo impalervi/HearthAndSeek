@@ -43,6 +43,17 @@ NS.UI = NS.UI or {}
 local WHATS_NEW = {
     -- Newest version first. Each block = one addon release.
     {
+        version = "2.0.1",
+        entries = {
+            {
+                text = "|cffffd200What's New|r\n\n|cffffd200Faction Filter|r\nFilter the catalog by Alliance, Horde, or Neutral.",
+                anchorTo = "filterBar",
+                targetPoint = "BottomEdgeCenter",
+                alignment = "Center",
+            },
+        },
+    },
+    {
         version = "2.0.0",
         entries = {
             {

@@ -60,6 +60,7 @@ local filterState = {
     zones       = {},   -- { ["Stormwind City"] = true, ... }
     qualities   = {},   -- { [3] = true, [4] = true, ... }
     professions = {},   -- { ["Tailoring"] = true, ... }
+    factions    = {},   -- { ["alliance"] = true, ... } (buckets: alliance/horde/neutral)
     searchText  = "",
     -- Collection state: all true by default (show everything)
     collected       = true,
@@ -167,6 +168,7 @@ local function SaveFilterState()
         zones         = CopyTable(filterState.zones),
         qualities     = CopyTable(filterState.qualities),
         professions   = CopyTable(filterState.professions),
+        factions      = CopyTable(filterState.factions),
         subcategories = CopyTable(filterState.subcategories),
         themes        = CopyTable(filterState.themes),
         collected     = filterState.collected,
@@ -1472,6 +1474,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
     local hasZoneFilter = next(filterState.zones) ~= nil
     local hasQualFilter = next(filterState.qualities) ~= nil
     local hasProfFilter = next(filterState.professions) ~= nil
+    local hasFactionFilter = next(filterState.factions) ~= nil
     local hasSubcatFilter = next(filterState.subcategories) ~= nil
 
     -- Precompute per-category active-subcat counts (used by the category
@@ -1521,6 +1524,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         zones       = {},
         qualities   = {},
         professions = {},
+        factions    = {},
         subcategories = {},
         themes      = {},
         collection  = { collected = 0, notCollected = 0 },
@@ -1635,6 +1639,10 @@ function NS.UI.CatalogGrid_ApplyFilters()
         local pQual = not hasQualFilter or (filterState.qualities[item.quality] ~= nil)
         local pProf = not hasProfFilter or (item.professionName and item.professionName ~= ""
                                             and filterState.professions[item.professionName] ~= nil)
+        -- Faction: every item collapses to exactly one bucket
+        -- (alliance/horde/neutral). Missing/empty faction = neutral.
+        local factionBucket = NS.GetFactionBucket(item)
+        local pFaction = not hasFactionFilter or (filterState.factions[factionBucket] ~= nil)
 
         -- Category filter: OR within a group, AND across groups.
         -- Selecting "all of Structural" then adding "Misc Furnishings"
@@ -1708,7 +1716,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Item passes ALL filters -> add to filtered list
-        if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
+        if pSrc and pZone and pQual and pProf and pFaction and pColl and pCollection and pCat and pTheme then
             filteredItems[#filteredItems + 1] = id
             dynCounts.progressTotal = dynCounts.progressTotal + 1
             if isCollected then
@@ -1722,7 +1730,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
 
         -- Source counts (exclude source filter, include secondary sources).
         -- Items count in all applicable source buckets simultaneously.
-        if pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
+        if pZone and pQual and pProf and pFaction and pColl and pCollection and pCat and pTheme then
             local st = item.sourceType or "Other"
             dynCounts.sources[st] = (dynCounts.sources[st] or 0) + 1
             -- Secondary sources
@@ -1740,7 +1748,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Zone counts (exclude zone filter)
-        if pSrc and pQual and pProf and pColl and pCollection and pCat and pTheme then
+        if pSrc and pQual and pProf and pFaction and pColl and pCollection and pCat and pTheme then
             local z = item.zone or ""
             if z ~= "" then
                 dynCounts.zones[z] = (dynCounts.zones[z] or 0) + 1
@@ -1748,7 +1756,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Quality counts (exclude quality filter)
-        if pSrc and pZone and pProf and pColl and pCollection and pCat and pTheme then
+        if pSrc and pZone and pProf and pFaction and pColl and pCollection and pCat and pTheme then
             local q = item.quality
             if q then
                 dynCounts.qualities[q] = (dynCounts.qualities[q] or 0) + 1
@@ -1756,15 +1764,20 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Profession counts (exclude profession filter)
-        if pSrc and pZone and pQual and pColl and pCollection and pCat and pTheme then
+        if pSrc and pZone and pQual and pFaction and pColl and pCollection and pCat and pTheme then
             if item.professionName and item.professionName ~= "" then
                 local pn = item.professionName
                 dynCounts.professions[pn] = (dynCounts.professions[pn] or 0) + 1
             end
         end
 
+        -- Faction counts (exclude faction filter)
+        if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat and pTheme then
+            dynCounts.factions[factionBucket] = (dynCounts.factions[factionBucket] or 0) + 1
+        end
+
         -- Collection counts (exclude collection filter)
-        if pSrc and pZone and pQual and pProf and pCollection and pCat and pTheme then
+        if pSrc and pZone and pQual and pProf and pFaction and pCollection and pCat and pTheme then
             if isCollected then
                 dynCounts.collection.collected = dynCounts.collection.collected + 1
             end
@@ -1779,7 +1792,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- active collection filter. This is what lets the sidebar show
         -- "favorites count" that respects an active "Recently Added"
         -- without double-counting itself.
-        if pSrc and pZone and pQual and pProf and pColl and pCat and pTheme then
+        if pSrc and pZone and pQual and pProf and pFaction and pColl and pCat and pTheme then
             for _, cf in ipairs(collectionFilters) do
                 if collMatch[cf.key] then
                     local pOtherColl = true
@@ -1809,7 +1822,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         -- (Furnishings) intersects with Structural → ~0. This keeps
         -- siblings discoverable inside the active group while making
         -- mutually-exclusive groups visibly drop out.
-        if pSrc and pZone and pQual and pProf and pColl and pCollection and pTheme then
+        if pSrc and pZone and pQual and pProf and pFaction and pColl and pCollection and pTheme then
             local subcats = item.subcategoryIDs
             if subcats then
                 -- Pass 1: tally item's active subcats per group.
@@ -1840,7 +1853,7 @@ function NS.UI.CatalogGrid_ApplyFilters()
         end
 
         -- Theme counts (exclude theme filter, include all other filters)
-        if pSrc and pZone and pQual and pProf and pColl and pCollection and pCat then
+        if pSrc and pZone and pQual and pProf and pFaction and pColl and pCollection and pCat then
             local tids = item.themeIDs
             if tids then
                 for _, tid in ipairs(tids) do
@@ -1907,6 +1920,17 @@ function NS.UI.CatalogGrid_ToggleSource(sourceType, checked)
         filterState.sources[sourceType] = true
     else
         filterState.sources[sourceType] = nil
+    end
+    scrollOffset = 0
+    scrollTarget = 0
+    NS.UI.CatalogGrid_ApplyFilters()
+end
+
+function NS.UI.CatalogGrid_ToggleFaction(faction, checked)
+    if checked then
+        filterState.factions[faction] = true
+    else
+        filterState.factions[faction] = nil
     end
     scrollOffset = 0
     scrollTarget = 0
@@ -2066,6 +2090,7 @@ function NS.UI.CatalogGrid_ResetFilters()
     filterState.zones = {}
     filterState.qualities = {}
     filterState.professions = {}
+    filterState.factions = {}
     filterState.subcategories = {}
     filterState.themes = {}
     filterState.searchText = ""
@@ -2102,6 +2127,7 @@ function NS.UI.InitCatalogGrid(parent)
         if saved.zones         then filterState.zones         = CopyTable(saved.zones) end
         if saved.qualities     then filterState.qualities     = CopyTable(saved.qualities) end
         if saved.professions   then filterState.professions   = CopyTable(saved.professions) end
+        if saved.factions      then filterState.factions      = CopyTable(saved.factions) end
         if saved.subcategories then filterState.subcategories = CopyTable(saved.subcategories) end
         if saved.themes        then filterState.themes        = CopyTable(saved.themes) end
         if saved.collected     ~= nil then filterState.collected     = saved.collected end
