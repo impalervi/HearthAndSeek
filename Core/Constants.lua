@@ -171,6 +171,35 @@ NS.ContinentColors = {
     ["Unknown"]             = "888888",
 }
 
+-------------------------------------------------------------------------------
+-- Faction filter metadata
+-- Item-level `faction` is "alliance" | "horde" | "neutral", and is often
+-- absent entirely (the pipeline omits it when no faction restriction
+-- applies). For filtering, a missing/empty/"neutral" value all mean the
+-- same thing to a player: not faction-locked. GetFactionBucket() collapses
+-- every item into exactly one of these three buckets.
+-------------------------------------------------------------------------------
+NS.FactionOrder = { "alliance", "horde", "neutral" }
+
+NS.FactionNames = {
+    alliance = "Alliance",
+    horde    = "Horde",
+    neutral  = "Neutral",
+}
+
+NS.FactionColors = {
+    alliance = { 0.20, 0.60, 1.00, 1.00 },
+    horde    = { 1.00, 0.20, 0.20, 1.00 },
+    neutral  = { 1.00, 1.00, 0.80, 1.00 },
+}
+
+function NS.GetFactionBucket(item)
+    local f = item and item.faction
+    if f == "alliance" then return "alliance" end
+    if f == "horde" then return "horde" end
+    return "neutral"
+end
+
 NS.ProfessionIcons = {
     Alchemy         = "Interface\\Icons\\Trade_Alchemy",
     Blacksmithing   = "Interface\\Icons\\Trade_BlackSmithing",
