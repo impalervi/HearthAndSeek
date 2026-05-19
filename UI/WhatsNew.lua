@@ -46,7 +46,7 @@ local WHATS_NEW = {
         version = "2.0.1",
         entries = {
             {
-                text = "|cffffd200What's New|r\n\n|cffffd200Faction Filter|r\nA new Alliance / Horde / Neutral dropdown joins the filter bar — quickly narrow the catalog to items you can actually pick up on your character.",
+                text = "|cffffd200What's New|r\n\n|cffffd200Faction Filter|r\nFilter the catalog by Alliance, Horde, or Neutral.",
                 anchorTo = "filterBar",
                 targetPoint = "BottomEdgeCenter",
                 alignment = "Center",
